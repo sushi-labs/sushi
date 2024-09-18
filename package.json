@@ -1,0 +1,78 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "pnpm clean && pnpm build:cjs && pnpm build:esm && pnpm build:types",
+    "build:cjs": "tsc --project ./tsconfig.build.json --module commonjs --outDir ./src/_cjs --removeComments --verbatimModuleSyntax false --esModuleInterop true && printf '{\"type\":\"commonjs\"}' > ./src/_cjs/package.json",
+    "build:esm": "tsc --project ./tsconfig.build.json --module es2020 --outDir ./src/_esm && printf '{\"type\": \"module\",\"sideEffects\":false}' > ./src/_esm/package.json",
+    "build:types": "tsc --project ./tsconfig.build.json --module esnext --declarationDir ./src/_types --emitDeclarationOnly --declaration --declarationMap",
+    "changeset:prepublish": "bun scripts/prepublish-only.ts && pnpm build",
+    "changeset:publish": "pnpm changeset:prepublish && changeset publish",
+    "changeset:version": "changeset version && pnpm install --lockfile-only && pnpm format",
+    "deps": "pnpx taze -r",
+    "clean": "rm -rf *.tsbuildinfo src/*.tsbuildinfo src/_esm src/_cjs src/_types",
+    "docs:dev": "pnpm --filter site dev",
+    "docs:build": "pnpm --filter site build",
+    "format": "biome format --write .",
+    "lint": "biome check --apply .",
+    "lint:dryrun": "biome check .",
+    "lint:repo": "sherif",
+    "lint:unused": "pnpm clean && knip",
+    "preinstall": "pnpx only-allow pnpm",
+    "prepublishOnly": "bun scripts/prepublish-only.ts",
+    "test": "vitest -c ./test/vitest.config.ts dev",
+    "test:ci": "CI=true vitest -c ./test/vitest.config.ts --coverage --retry=3 --bail=1",
+    "test:cov": "vitest dev -c ./test/vitest.config.ts --coverage",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.5.2",
+    "@changesets/changelog-github": "0.4.8",
+    "@changesets/cli": "2.26.2",
+    "@types/big.js": "6.2.0",
+    "@types/bun": "1.1.9",
+    "@types/node": "20.16.5",
+    "@types/seedrandom": "3.0.1",
+    "@viem/anvil": "0.0.10",
+    "@vitest/coverage-v8": "2.1.1",
+    "@vitest/ui": "2.1.1",
+    "bun": "1.1.28",
+    "knip": "5.30.2",
+    "sherif": "1.0.0",
+    "tsc-alias": "1.8.10",
+    "tsx": "4.19.1",
+    "typescript": "5.5.4",
+    "viem": "2.21.4",
+    "vitest": "2.1.1",
+    "zod": "3.23.8"
+  },
+  "packageManager": "pnpm@9.4.0",
+  "engines": {
+    "node": "20.x"
+  },
+  "knip": {
+    "ignore": [".github/**", "environments/**", "vectors/**"],
+    "ignoreBinaries": ["dev", "forge", "only-allow", "printf"],
+    "ignoreDependencies": ["bun", "@size-limit/preset-big-lib"],
+    "ignoreWorkspaces": ["examples/**", "test"],
+    "vitest": {
+      "config": ["test/vitest.config.ts"],
+      "entry": ["**/*.{bench,bench-d,test,test-d,spec}.?(c|m)[jt]s?(x)"]
+    },
+    "workspaces": {
+      ".": {
+        "project": "scripts/*.ts"
+      },
+      "src": {
+        "entry": [
+          "index.ts!",
+          "{abi,address,api,calculate,chain,config,contract,currency,data,dex,format,log,math,pool,router,sort,token-list,types,validate}/index.ts!"
+        ],
+        "ignore": []
+      },
+      "site": {
+        "project": ["**/*.ts", "**/*.tsx"]
+      }
+    }
+  }  
+}

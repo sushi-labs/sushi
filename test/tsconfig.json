@@ -1,0 +1,13 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+      "module": "nodenext",
+      "moduleResolution": "nodenext",
+      "target": "ESNext",
+      "types": ["@types/bun", "@types/node"],
+      "baseUrl": ".",
+      "paths": {
+        "~sushi/*": ["../src/*"]
+      }
+    }
+  }
