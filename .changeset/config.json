@@ -1,9 +1,6 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@3.0.3/schema.json",
-  "changelog": [
-    "@changesets/changelog-github",
-    { "repo": "sushi-labs/sushi" }
-  ],
+  "changelog": ["@changesets/changelog-github", { "repo": "sushi-labs/sushi" }],
   "commit": false,
   "fixed": [],
   "linked": [],
