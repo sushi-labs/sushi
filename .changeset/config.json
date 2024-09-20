@@ -11,8 +11,5 @@
     "tag": false,
     "version": false
   },
-  "ignore": [
-    "site", 
-    "test"
-  ]
+  "ignore": ["site", "test"]
 }
