@@ -434,6 +434,22 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     WNATIVE[ChainId.ZKSYNC_ERA],
     WBTC[ChainId.ZKSYNC_ERA],
     USDC[ChainId.ZKSYNC_ERA],
+    USDT[ChainId.ZKSYNC_ERA],
+    new Token({
+      chainId: ChainId.ZKSYNC_ERA,
+      address: '0x5A7d6b2F92C77FAD6CCaBd7EE0624E64907Eaf3E',
+      decimals: 18,
+      symbol: 'ZK',
+      name: 'ZKsync',
+    }),
+    new Token({
+      // real USDC (not bridged)
+      chainId: ChainId.ZKSYNC_ERA,
+      address: '0x1d17CBcF0D6D143135aE902365D2E5e2A16538D4',
+      decimals: 6,
+      symbol: 'USDC',
+      name: 'USDC',
+    }),
   ],
   [ChainId.LINEA]: [
     WNATIVE[ChainId.LINEA],
