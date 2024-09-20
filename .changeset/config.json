@@ -11,5 +11,5 @@
     "tag": false,
     "version": false
   },
-  "ignore": ["example-*", "test-*", "site", "test"]
+  "ignore": ["site", "test"]
 }
