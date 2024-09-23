@@ -1,5 +1,11 @@
 # sushi
 
+## 4.0.5
+
+### Patch Changes
+
+- [#5](https://github.com/sushi-labs/sushi/pull/5) [`e5a531a`](https://github.com/sushi-labs/sushi/commit/e5a531ad6452d89bf04f81d0e33da2df89c55863) Thanks [@LufyCZ](https://github.com/LufyCZ)! - update SUSHI_DATA_API endpoint, add lowercase map
+
 ## 4.0.3
 
 ### Patch Changes
