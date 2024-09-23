@@ -1,5 +1,11 @@
 # sushi
 
+## 4.0.6
+
+### Patch Changes
+
+- [#4](https://github.com/sushi-labs/sushi/pull/4) [`ad1f7c6`](https://github.com/sushi-labs/sushi/commit/ad1f7c6c1151d08e31bc44dfa25c9fb717dffe91) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - checksum scroll v3 factory address
+
 ## 4.0.5
 
 ### Patch Changes
