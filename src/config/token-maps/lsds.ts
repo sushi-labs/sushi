@@ -1,6 +1,6 @@
 import { ChainId } from '../../chain/index.js'
 import { Token } from '../../currency/token.js'
-import { METH } from '../../currency/tokens.js'
+import { METH, STONE } from '../../currency/tokens.js'
 
 export const LSDS = {
   [ChainId.ARBITRUM]: [
@@ -391,6 +391,7 @@ export const LSDS = {
   [ChainId.PALM]: [],
   [ChainId.ZKSYNC_ERA]: [],
   [ChainId.MANTLE]: [METH[ChainId.MANTLE]],
+  [ChainId.MANTA]: [STONE[ChainId.MANTA]],
   // TESTNETS
   [ChainId.POLYGON_TESTNET]: [],
   [ChainId.FANTOM_TESTNET]: [],

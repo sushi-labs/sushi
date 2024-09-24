@@ -342,6 +342,7 @@ export const ChainKey = {
   [ChainId.ROOTSTOCK]: 'rootstock',
   [ChainId.MANTLE]: 'mantle',
   [ChainId.CURTIS]: 'curtis',
+  [ChainId.MANTA]: 'manta'
 } as const
 export type ChainKey = (typeof ChainKey)[keyof typeof ChainKey]
 

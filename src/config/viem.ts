@@ -49,6 +49,7 @@ import {
   linea,
   localhost,
   mainnet,
+  manta,
   mantle,
   metis,
   // metisGoerli,
@@ -105,6 +106,8 @@ export {
   linea,
   localhost,
   mainnet,
+  manta,
+  mantle,
   metis,
   // metisGoerli,
   moonbeam,
@@ -629,6 +632,9 @@ export const publicTransports = {
   [ChainId.MANTLE]: http(
     `https://lb.drpc.org/ogrpc?network=mantle&dkey=${drpcId}`,
   ),
+  [ChainId.MANTA]: http(
+    `https://lb.drpc.org/ogrpc?network=manta-pacific&dkey=${drpcId}`,
+  ),
   /* Testnets */ // TODO: add testnet transports
   [ChainId.ARBITRUM_TESTNET]: http('https://sepolia-rollup.arbitrum.io/rpc'),
   [ChainId.AVALANCHE_TESTNET]: http(
@@ -682,6 +688,7 @@ export const publicChains = [
   filecoin,
   zetachain,
   mantle,
+  manta,
 
   /* Testnets */
   arbitrumSepolia,
@@ -884,6 +891,10 @@ export const publicClientConfig = {
   [ChainId.CURTIS]: {
     chain: curtis as unknown as typeof mainnet & { id: 33111 },
     transport: publicTransports[ChainId.CURTIS],
+  },
+  [ChainId.MANTA]: {
+    chain: manta,
+    transport: publicTransports[ChainId.MANTA],
   },
 } as const satisfies Record<
   ChainId,

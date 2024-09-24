@@ -45,6 +45,7 @@ import {
   SAND_ADDRESS,
   SNX_ADDRESS,
   STG_ADDRESS,
+  STONE_ADDRESS,
   SUSHI_ADDRESS,
   SWISE_ADDRESS,
   SolvBTC_ADDRESS,
@@ -731,6 +732,13 @@ export const WNATIVE = {
     symbol: 'WAPE',
     name: 'Wrapped APE',
   }),
+  [ChainId.MANTA]: new Token({
+    chainId: ChainId.MANTA,
+    address: WNATIVE_ADDRESS[ChainId.MANTA],
+    decimals: 18,
+    symbol: 'WETH',
+    name: 'Wrapped Ether',
+  }),
 } as const
 
 export const SUSHI = addressMapToTokenMap(
@@ -1248,3 +1256,12 @@ export const METH = addressMapToTokenMap(
   },
   METH_ADDRESS,
 ) as Record<keyof typeof METH_ADDRESS, Token>
+
+export const STONE = addressMapToTokenMap(
+  {
+    decimals: 18,
+    symbol: 'STONE',
+    name: 'StakeStone Ether',
+  },
+  STONE_ADDRESS,
+) as Record<keyof typeof STONE_ADDRESS, Token>
