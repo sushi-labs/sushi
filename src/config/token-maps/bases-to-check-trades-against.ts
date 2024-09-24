@@ -541,4 +541,21 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     USDT[ChainId.MANTA],
     STONE[ChainId.MANTA],
   ],
+  [ChainId.MODE]: [
+    WNATIVE[ChainId.MODE],
+    USDC[ChainId.MODE],
+    USDT[ChainId.MODE],
+  ],
+  [ChainId.TAIKO]: [
+    WNATIVE[ChainId.TAIKO],
+    USDC[ChainId.TAIKO],
+    USDT[ChainId.TAIKO],
+    DAI[ChainId.TAIKO],
+  ],
+  [ChainId.ZKLINK]: [
+    WNATIVE[ChainId.ZKLINK],
+    USDC[ChainId.ZKLINK],
+    USDT[ChainId.ZKLINK],
+    DAI[ChainId.ZKLINK],
+  ],
 }

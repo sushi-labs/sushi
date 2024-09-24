@@ -392,6 +392,24 @@ export const LSDS = {
   [ChainId.ZKSYNC_ERA]: [],
   [ChainId.MANTLE]: [METH[ChainId.MANTLE]],
   [ChainId.MANTA]: [STONE[ChainId.MANTA]],
+  [ChainId.MODE]: [
+    new Token({
+      chainId: ChainId.MODE,
+      address: '0x2416092f143378750bb29b79eD961ab195CcEea5',
+      decimals: 18,
+      symbol: 'ezETH',
+      name: 'Renzo Restaked ETH',
+    }),
+    new Token({
+      chainId: ChainId.MODE,
+      address: '0x04C0599Ae5A44757c0af6F9eC3b93da8976c150A',
+      decimals: 18,
+      symbol: 'weETH',
+      name: 'Wrapped eETH',
+    }),
+  ],
+  [ChainId.TAIKO]: [],
+  [ChainId.ZKLINK]: [],
   // TESTNETS
   [ChainId.POLYGON_TESTNET]: [],
   [ChainId.FANTOM_TESTNET]: [],

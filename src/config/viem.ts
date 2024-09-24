@@ -53,6 +53,7 @@ import {
   mantle,
   metis,
   // metisGoerli,
+  mode,
   moonbeam,
   moonriver,
   okc,
@@ -64,11 +65,13 @@ import {
   rootstock,
   scroll,
   sepolia,
+  taiko,
   // polygonMumbai,
   // sepolia,
   //  taraxa,
   // taraxaTestnet,
   telos,
+  zkLinkNova,
   zkSync,
 } from 'viem/chains'
 import { ChainId } from '../chain/index.js'
@@ -110,6 +113,7 @@ export {
   mantle,
   metis,
   // metisGoerli,
+  mode,
   moonbeam,
   moonriver,
   okc,
@@ -118,10 +122,12 @@ export {
   polygon,
   polygonZkEvm,
   rootstock,
+  taiko,
   // polygonMumbai,
   // sepolia,
   //  taraxa,
   // taraxaTestnet,
+  zkLinkNova,
   zkSync,
   // zkSyncTestnet,
 }
@@ -635,6 +641,11 @@ export const publicTransports = {
   [ChainId.MANTA]: http(
     `https://lb.drpc.org/ogrpc?network=manta-pacific&dkey=${drpcId}`,
   ),
+  [ChainId.MODE]: http(`https://lb.drpc.org/ogrpc?network=mode&dkey=${drpcId}`),
+  [ChainId.TAIKO]: http(
+    `https://lb.drpc.org/ogrpc?network=taiko&dkey=${drpcId}`,
+  ),
+  [ChainId.ZKLINK]: http('https://rpc.zklink.io'),
   /* Testnets */ // TODO: add testnet transports
   [ChainId.ARBITRUM_TESTNET]: http('https://sepolia-rollup.arbitrum.io/rpc'),
   [ChainId.AVALANCHE_TESTNET]: http(
@@ -689,6 +700,9 @@ export const publicChains = [
   zetachain,
   mantle,
   manta,
+  mode,
+  taiko,
+  zkLinkNova,
 
   /* Testnets */
   arbitrumSepolia,
@@ -858,6 +872,22 @@ export const publicClientConfig = {
     chain: mantle,
     transport: publicTransports[ChainId.MANTLE],
   },
+  [ChainId.MANTA]: {
+    chain: manta,
+    transport: publicTransports[ChainId.MANTA],
+  },
+  [ChainId.MODE]: {
+    chain: zkLinkNova,
+    transport: publicTransports[ChainId.MODE],
+  },
+  [ChainId.TAIKO]: {
+    chain: taiko,
+    transport: publicTransports[ChainId.TAIKO],
+  },
+  [ChainId.ZKLINK]: {
+    chain: zkLinkNova,
+    transport: publicTransports[ChainId.ZKSYNC_ERA],
+  },
 
   /* Testnets */
   [ChainId.ARBITRUM_TESTNET]: {
@@ -891,10 +921,6 @@ export const publicClientConfig = {
   [ChainId.CURTIS]: {
     chain: curtis as unknown as typeof mainnet & { id: 33111 },
     transport: publicTransports[ChainId.CURTIS],
-  },
-  [ChainId.MANTA]: {
-    chain: manta,
-    transport: publicTransports[ChainId.MANTA],
   },
 } as const satisfies Record<
   ChainId,

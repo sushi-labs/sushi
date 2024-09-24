@@ -58,4 +58,8 @@ export const nativeCurrencyIds = {
   [ChainId.ROOTSTOCK]: 'RBTC',
   [ChainId.MANTLE]: 'MNT',
   [ChainId.CURTIS]: 'APE',
+  [ChainId.MANTA]: 'ETH',
+  [ChainId.MODE]: 'ETH',
+  [ChainId.TAIKO]: 'ETH',
+  [ChainId.ZKLINK]: 'ETH',
 } as const

@@ -739,6 +739,27 @@ export const WNATIVE = {
     symbol: 'WETH',
     name: 'Wrapped Ether',
   }),
+  [ChainId.MODE]: new Token({
+    chainId: ChainId.MODE,
+    address: WNATIVE_ADDRESS[ChainId.MODE],
+    decimals: 18,
+    symbol: 'WETH',
+    name: 'Wrapped Ether',
+  }),
+  [ChainId.TAIKO]: new Token({
+    chainId: ChainId.TAIKO,
+    address: WNATIVE_ADDRESS[ChainId.TAIKO],
+    decimals: 18,
+    symbol: 'WETH',
+    name: 'Wrapped Ether',
+  }),
+  [ChainId.ZKLINK]: new Token({
+    chainId: ChainId.ZKLINK,
+    address: WNATIVE_ADDRESS[ChainId.ZKLINK],
+    decimals: 18,
+    symbol: 'WETH',
+    name: 'Wrapped Ether',
+  }),
 } as const
 
 export const SUSHI = addressMapToTokenMap(
