@@ -218,6 +218,18 @@ export const STABLES = {
   [ChainId.MANTLE]: [USDC[ChainId.MANTLE]],
   [ChainId.PALM]: [],
   [ChainId.ZKSYNC_ERA]: [USDC[ChainId.ZKSYNC_ERA], USDT[ChainId.ZKSYNC_ERA]],
+  [ChainId.MANTA]: [USDC[ChainId.MANTA], USDT[ChainId.MANTA]],
+  [ChainId.MODE]: [USDC[ChainId.MODE], USDT[ChainId.MODE]],
+  [ChainId.TAIKO]: [
+    USDC[ChainId.TAIKO],
+    USDT[ChainId.TAIKO],
+    DAI[ChainId.TAIKO],
+  ],
+  [ChainId.ZKLINK]: [
+    USDC[ChainId.ZKLINK],
+    USDT[ChainId.ZKLINK],
+    DAI[ChainId.ZKLINK],
+  ],
   // TESTNETS
   // [ChainId.RINKEBY]: [USDC[ChainId.RINKEBY]],
   // [ChainId.ROPSTEN]: [

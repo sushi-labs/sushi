@@ -56,6 +56,9 @@ export const ChainId = {
   MANTLE: 5000,
   // RONIN: 2020,
   CURTIS: 33111,
-  // APTOS: 'aptos',
+  MANTA: 169,
+  MODE: 34443,
+  TAIKO: 167000,
+  ZKLINK: 810180,
 } as const
 export type ChainId = (typeof ChainId)[keyof typeof ChainId]
