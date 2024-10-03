@@ -1,5 +1,11 @@
 # sushi
 
+## 4.1.0
+
+### Minor Changes
+
+- [#8](https://github.com/sushi-labs/sushi/pull/8) [`9de3360`](https://github.com/sushi-labs/sushi/commit/9de336002a683d0b20486039e6a5a4e125383d5c) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add config for manta, mode, taiko, & zklink
+
 ## 4.0.6
 
 ### Patch Changes
