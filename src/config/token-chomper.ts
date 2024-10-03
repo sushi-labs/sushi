@@ -84,7 +84,7 @@ export const TOKEN_CHOMPER_ADDRESS: Record<TokenChomperChainId, `0x${string}`> =
     [ChainId.MANTA]: '0xca226bd9c754F1283123d32B2a7cF62a722f8ADa',
     [ChainId.MODE]: '0xca226bd9c754F1283123d32B2a7cF62a722f8ADa',
     [ChainId.TAIKO]: '0xca226bd9c754F1283123d32B2a7cF62a722f8ADa',
-    [ChainId.ZKLINK]: '0xCd4eE95b182139969b041DdDc49c5449C21702E1',
+    [ChainId.ZKLINK]: '0x8b6E8186dE74fe0128C0a6a3B2733c1365f4c9e2',
   } as const
 
 export const isTokenChomperChainId = (
