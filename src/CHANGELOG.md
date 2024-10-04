@@ -1,5 +1,11 @@
 # sushi
 
+## 4.1.1
+
+### Patch Changes
+
+- [#10](https://github.com/sushi-labs/sushi/pull/10) [`c367a5b`](https://github.com/sushi-labs/sushi/commit/c367a5b86a624da1f19b1451bf1a251a5bf87495) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add multicall3 to zkLinkNova
+
 ## 4.1.0
 
 ### Minor Changes
