@@ -71,7 +71,7 @@ import {
   //  taraxa,
   // taraxaTestnet,
   telos,
-  zkLinkNova,
+  zkLinkNova as _zkLinkNova, // missing multicall
   zkSync,
 } from 'viem/chains'
 import { ChainId } from '../chain/index.js'
@@ -127,7 +127,6 @@ export {
   // sepolia,
   //  taraxa,
   // taraxaTestnet,
-  zkLinkNova,
   zkSync,
   // zkSyncTestnet,
 }
@@ -152,6 +151,16 @@ const haqq = {
     },
   },
 } as const
+
+const zkLinkNova = {
+  ..._zkLinkNova,
+  contracts: {
+    multicall3: {
+      address: '0x825267E0fA5CAe92F98540828a54198dcB3Eaeb5' as Address,
+      blockCreated: 146055,
+    },
+  },
+}
 
 // Chains missing from viem entirely
 export const kava = {
