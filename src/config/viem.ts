@@ -158,8 +158,8 @@ const zkLinkNova = {
     multicall3: {
       address: '0x825267E0fA5CAe92F98540828a54198dcB3Eaeb5' as Address,
       blockCreated: 146055,
-    }
-  }
+    },
+  },
 }
 
 // Chains missing from viem entirely
