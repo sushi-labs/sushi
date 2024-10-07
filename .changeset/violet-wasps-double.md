@@ -1,0 +1,5 @@
+---
+"sushi": patch
+---
+
+mode config
