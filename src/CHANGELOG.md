@@ -1,5 +1,11 @@
 # sushi
 
+## 4.1.3
+
+### Patch Changes
+
+- [#15](https://github.com/sushi-labs/sushi/pull/15) [`627acc2`](https://github.com/sushi-labs/sushi/commit/627acc256f1fde187b2198f64a2c0ef5137392e0) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - zklink config
+
 ## 4.1.2
 
 ### Patch Changes
