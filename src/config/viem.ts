@@ -895,7 +895,7 @@ export const publicClientConfig = {
   },
   [ChainId.ZKLINK]: {
     chain: zkLinkNova,
-    transport: publicTransports[ChainId.ZKSYNC_ERA],
+    transport: publicTransports[ChainId.ZKLINK],
   },
 
   /* Testnets */
