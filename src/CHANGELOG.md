@@ -1,5 +1,11 @@
 # sushi
 
+## 4.1.2
+
+### Patch Changes
+
+- [#13](https://github.com/sushi-labs/sushi/pull/13) [`c580b93`](https://github.com/sushi-labs/sushi/commit/c580b931a95a18464cfc7178e76494f2142b542f) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - mode config
+
 ## 4.1.1
 
 ### Patch Changes
