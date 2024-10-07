@@ -886,7 +886,7 @@ export const publicClientConfig = {
     transport: publicTransports[ChainId.MANTA],
   },
   [ChainId.MODE]: {
-    chain: zkLinkNova,
+    chain: mode,
     transport: publicTransports[ChainId.MODE],
   },
   [ChainId.TAIKO]: {
