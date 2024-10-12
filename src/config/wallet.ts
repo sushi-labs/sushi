@@ -33,6 +33,10 @@ export const MULTISIG_CHAIN_IDS = [
   ChainId.ZETACHAIN,
   ChainId.MANTLE,
   ChainId.ZKSYNC_ERA,
+  ChainId.MANTA,
+  ChainId.MODE,
+  ChainId.TAIKO,
+  ChainId.ZKLINK,
 ] as const
 
 export type MultisigChainId = (typeof MULTISIG_CHAIN_IDS)[number]
@@ -70,6 +74,10 @@ export const MULTISIG_ADDRESS: Record<MultisigChainId, `0x${string}`> = {
   [ChainId.ZETACHAIN]: '0xb8f2faca5b2EBcd6Be7B5D9E164962dE9CCc3B76',
   [ChainId.MANTLE]: '0xb8f2faca5b2EBcd6Be7B5D9E164962dE9CCc3B76',
   [ChainId.ZKSYNC_ERA]: '0x935A22280ddEa69c42aDA2448d110c095f5059b7',
+  [ChainId.MANTA]: '0x570Bf879029E3174EAeCCd848257b0871dBee2A2',
+  [ChainId.MODE]: '0x9ffC84bc9Cf7c85E4E6e2B0aB67BB6c643cA72A2',
+  [ChainId.TAIKO]: '0xb8f2faca5b2EBcd6Be7B5D9E164962dE9CCc3B76',
+  [ChainId.ZKLINK]: '0x0b0b61eC14f6b7AEfE62C460103E1a4638546298',
 } as const
 
 export const isMultisigChainId = (

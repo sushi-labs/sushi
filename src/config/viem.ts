@@ -49,9 +49,11 @@ import {
   linea,
   localhost,
   mainnet,
+  manta,
   mantle,
   metis,
   // metisGoerli,
+  mode,
   moonbeam,
   moonriver,
   okc,
@@ -63,11 +65,13 @@ import {
   rootstock,
   scroll,
   sepolia,
+  taiko,
   // polygonMumbai,
   // sepolia,
   //  taraxa,
   // taraxaTestnet,
   telos,
+  zkLinkNova as _zkLinkNova, // missing multicall
   zkSync,
 } from 'viem/chains'
 import { ChainId } from '../chain/index.js'
@@ -105,8 +109,11 @@ export {
   linea,
   localhost,
   mainnet,
+  manta,
+  mantle,
   metis,
   // metisGoerli,
+  mode,
   moonbeam,
   moonriver,
   okc,
@@ -115,6 +122,7 @@ export {
   polygon,
   polygonZkEvm,
   rootstock,
+  taiko,
   // polygonMumbai,
   // sepolia,
   //  taraxa,
@@ -143,6 +151,16 @@ const haqq = {
     },
   },
 } as const
+
+const zkLinkNova = {
+  ..._zkLinkNova,
+  contracts: {
+    multicall3: {
+      address: '0x825267E0fA5CAe92F98540828a54198dcB3Eaeb5' as Address,
+      blockCreated: 146055,
+    },
+  },
+}
 
 // Chains missing from viem entirely
 export const kava = {
@@ -629,6 +647,14 @@ export const publicTransports = {
   [ChainId.MANTLE]: http(
     `https://lb.drpc.org/ogrpc?network=mantle&dkey=${drpcId}`,
   ),
+  [ChainId.MANTA]: http(
+    `https://lb.drpc.org/ogrpc?network=manta-pacific&dkey=${drpcId}`,
+  ),
+  [ChainId.MODE]: http(`https://lb.drpc.org/ogrpc?network=mode&dkey=${drpcId}`),
+  [ChainId.TAIKO]: http(
+    `https://lb.drpc.org/ogrpc?network=taiko&dkey=${drpcId}`,
+  ),
+  [ChainId.ZKLINK]: http('https://rpc.zklink.io'),
   /* Testnets */ // TODO: add testnet transports
   [ChainId.ARBITRUM_TESTNET]: http('https://sepolia-rollup.arbitrum.io/rpc'),
   [ChainId.AVALANCHE_TESTNET]: http(
@@ -682,6 +708,10 @@ export const publicChains = [
   filecoin,
   zetachain,
   mantle,
+  manta,
+  mode,
+  taiko,
+  zkLinkNova,
 
   /* Testnets */
   arbitrumSepolia,
@@ -850,6 +880,22 @@ export const publicClientConfig = {
   [ChainId.MANTLE]: {
     chain: mantle,
     transport: publicTransports[ChainId.MANTLE],
+  },
+  [ChainId.MANTA]: {
+    chain: manta,
+    transport: publicTransports[ChainId.MANTA],
+  },
+  [ChainId.MODE]: {
+    chain: mode,
+    transport: publicTransports[ChainId.MODE],
+  },
+  [ChainId.TAIKO]: {
+    chain: taiko,
+    transport: publicTransports[ChainId.TAIKO],
+  },
+  [ChainId.ZKLINK]: {
+    chain: zkLinkNova,
+    transport: publicTransports[ChainId.ZKLINK],
   },
 
   /* Testnets */

@@ -17,14 +17,14 @@ type GetCreate2AddressOptions = {
   bytecodeHash: Hex
   from: Address
   salt: Hex
-  chainId?: ChainId
+  chainId: ChainId
 }
 
 export function getCreate2Address({
   chainId,
   ...params
 }: GetCreate2AddressOptions) {
-  if (chainId === ChainId.ZKSYNC_ERA) {
+  if (([ChainId.ZKSYNC_ERA, ChainId.ZKLINK] as ChainId[]).includes(chainId)) {
     const { from, salt, bytecodeHash } = params
 
     return getAddress(
