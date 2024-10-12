@@ -1,5 +1,29 @@
 # sushi
 
+## 4.1.3
+
+### Patch Changes
+
+- [#15](https://github.com/sushi-labs/sushi/pull/15) [`627acc2`](https://github.com/sushi-labs/sushi/commit/627acc256f1fde187b2198f64a2c0ef5137392e0) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - zklink config
+
+## 4.1.2
+
+### Patch Changes
+
+- [#13](https://github.com/sushi-labs/sushi/pull/13) [`c580b93`](https://github.com/sushi-labs/sushi/commit/c580b931a95a18464cfc7178e76494f2142b542f) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - mode config
+
+## 4.1.1
+
+### Patch Changes
+
+- [#10](https://github.com/sushi-labs/sushi/pull/10) [`c367a5b`](https://github.com/sushi-labs/sushi/commit/c367a5b86a624da1f19b1451bf1a251a5bf87495) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add multicall3 to zkLinkNova
+
+## 4.1.0
+
+### Minor Changes
+
+- [#8](https://github.com/sushi-labs/sushi/pull/8) [`9de3360`](https://github.com/sushi-labs/sushi/commit/9de336002a683d0b20486039e6a5a4e125383d5c) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add config for manta, mode, taiko, & zklink
+
 ## 4.0.6
 
 ### Patch Changes

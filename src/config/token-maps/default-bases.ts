@@ -379,6 +379,36 @@ export const DEFAULT_BASES = {
     USDC[ChainId.MANTLE],
   ],
   [ChainId.CURTIS]: [Native.onChain(ChainId.CURTIS), WNATIVE[ChainId.CURTIS]],
+  [ChainId.MANTA]: [
+    Native.onChain(ChainId.MANTA),
+    WNATIVE[ChainId.MANTA],
+    USDC[ChainId.MANTA],
+    USDT[ChainId.MANTA],
+    WBTC[ChainId.MANTA],
+  ],
+  [ChainId.MODE]: [
+    Native.onChain(ChainId.MODE),
+    WNATIVE[ChainId.MODE],
+    USDC[ChainId.MODE],
+    USDT[ChainId.MODE],
+    WBTC[ChainId.MODE],
+  ],
+  [ChainId.TAIKO]: [
+    Native.onChain(ChainId.TAIKO),
+    WNATIVE[ChainId.TAIKO],
+    USDC[ChainId.TAIKO],
+    USDT[ChainId.TAIKO],
+    DAI[ChainId.TAIKO],
+    WBTC[ChainId.TAIKO],
+  ],
+  [ChainId.ZKLINK]: [
+    Native.onChain(ChainId.ZKLINK),
+    WNATIVE[ChainId.ZKLINK],
+    USDC[ChainId.ZKLINK],
+    USDT[ChainId.ZKLINK],
+    DAI[ChainId.ZKLINK],
+    WBTC[ChainId.ZKLINK],
+  ],
   // [ChainId.SEPOLIA]: [Native.onChain(ChainId.SEPOLIA), WNATIVE[ChainId.SEPOLIA]],
 } as const satisfies Record<ChainId, Readonly<(Token | Native)[]>>
 
