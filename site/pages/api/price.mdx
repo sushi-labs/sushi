@@ -1,0 +1,35 @@
+# Price API Documentation
+
+## Overview
+The Price API provides functionality to retrieve pricing data. Below are the endpoints available in this API.
+
+## Swagger
+
+https://app.swaggerhub.com/apis/sushi-labs/sushi/0.0.0
+
+## Endpoints
+
+### 1. **Get Prices**
+
+`GET https://api.sushi.com/price/v1/{chainId}`
+
+**Description:**  
+Get prices for a given chainId.
+
+**Request:**
+
+- **Parameters:**
+  - `chainId` (number, required): The chain identifier.
+
+### 2. **Get Price**
+
+`GET https://api.sushi.com/price/v1/{chainId}/{address}`
+
+**Description:**  
+Get price for a given chainId and address.
+
+**Request:**
+
+- **Parameters:**
+  - `chainId` (number, required): The chain identifier.
+  - `address` (string, required): The currency address.

@@ -1,0 +1,53 @@
+# Installation
+
+Install Sushi via your package manager, a `<script>` tag, or build from source.
+
+## Package Manager
+
+Install the required packages.
+
+:::code-group
+```bash [pnpm]
+pnpm add sushi viem
+```
+
+```bash [npm]
+npm install sushi viem
+```
+
+```bash [yarn]
+yarn add sushi viem
+```
+
+```bash [bun]
+bun add sushi viem
+```
+:::
+
+## CDN
+
+If you're not using a package manager, you can also use Sushi via an ESM-compatible CDN such as [esm.sh](https://esm.sh). Simply add a `<script type="module">` tag to the bottom of your HTML file with the following content.
+
+```html
+<script type="module">
+  import { getSwap, ChainId } from 'https://esm.sh/sushi'
+
+  await swap({
+    chainId: ChainId.ETHEREUM,
+    tokenIn: '0x',
+    tokenOut: '0x',
+    amount: 1e18,
+    gasPrice: 1e9
+  }).then(console.log).catch(console.error)
+</script>
+```
+
+{/* ```html
+<script type="module">
+  import { ChainId, USDC, Amount } from 'https://esm.sh/sushi'
+
+  const amount = Amount.fromRaw(USDC[ChainId.ETHEREUM], 100)
+
+  console.log(amount.toString())
+</script>
+``` */}
