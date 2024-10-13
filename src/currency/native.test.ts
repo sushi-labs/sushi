@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 
 import { Native } from './native.js'
 import { Token } from './token.js'
+import type { EvmChainId } from '../chain/index.js'
 
 describe('Currency', () => {
   const ADDRESS_ZERO = '0x0000000000000000000000000000000000000000'
@@ -37,9 +38,9 @@ describe('Currency', () => {
       ).toStrictEqual(true)
     })
     it('throws if chain id is not known', () => {
-      expect(() => Native.onChain(Number.MAX_SAFE_INTEGER)).toThrow(
-        'NATIVE_CURRENCY',
-      )
+      expect(() =>
+        Native.onChain(Number.MAX_SAFE_INTEGER as EvmChainId),
+      ).toThrow('NATIVE_CURRENCY')
     })
   })
 })

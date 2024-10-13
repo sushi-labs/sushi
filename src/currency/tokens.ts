@@ -88,13 +88,13 @@ function addressMapToTokenMap(
     symbol?: string | undefined
     name?: string | undefined
   },
-  map: Record<number | string, string>,
+  map: Partial<Record<EvmChainId, string>>,
 ) {
   return Object.fromEntries(
     Object.entries(map).map(([chainId, address]) => [
       chainId,
       new Token({
-        chainId,
+        chainId: Number(chainId) as EvmChainId,
         address,
         decimals,
         symbol,

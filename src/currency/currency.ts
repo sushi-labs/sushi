@@ -50,23 +50,21 @@ export abstract class Currency {
    * @param approved if the currency is approved
    */
   protected constructor({
-    chainId: _chainId,
+    chainId,
     decimals: _decimals,
     symbol,
     name,
     logoUrl,
     approved,
   }: {
-    chainId: number | string
+    chainId: EvmChainId
     decimals: number | string
     symbol?: string | undefined
     name?: string | undefined
     logoUrl?: string | undefined
     approved?: boolean | undefined
   }) {
-    const chainId = Number(_chainId) as EvmChainId
     const decimals = Number(_decimals)
-    invariant(Number.isSafeInteger(chainId), 'CHAIN_ID')
     invariant(
       decimals >= 0 && decimals < 255 && Number.isInteger(decimals),
       'DECIMALS',

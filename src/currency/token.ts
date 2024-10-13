@@ -4,6 +4,7 @@ import type { ID } from '../types/id.js'
 import { Currency } from './currency.js'
 import type { Type } from './type.js'
 import { type SerializedToken, tokenSchema } from './zod.js'
+import type { EvmChainId } from '../chain/index.js'
 /**
  * Represents an ERC20 token with a unique address and some metadata.
  */
@@ -37,7 +38,7 @@ export class Token extends Currency {
     logoUrl,
     approved,
   }: {
-    chainId: number | string
+    chainId: EvmChainId
     address: string
     decimals: number | string
     symbol?: string | undefined
