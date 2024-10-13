@@ -1,12 +1,12 @@
 import type { Address } from 'viem'
-import type { ChainId } from '../chain/id.js'
+import type { EvmChainId } from '../chain/evm/id.js'
 
-export async function getTokenPricesForChainId(chainId: ChainId) {
+export async function getTokenPricesForChainId(chainId: EvmChainId) {
   return fetch(`https://api.sushi.com/price/v1/${chainId}`)
 }
 
 export async function getTokenPriceForChainId(
-  chainId: ChainId,
+  chainId: EvmChainId,
   address: Address,
 ) {
   return fetch(`https://api.sushi.com/price/v1/${chainId}/${address}`)

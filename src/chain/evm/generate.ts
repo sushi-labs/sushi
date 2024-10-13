@@ -1,8 +1,8 @@
 import { existsSync, writeFileSync } from 'node:fs'
 import * as path from 'node:path'
 import { fileURLToPath } from 'url'
-import { ChainId } from './id.js'
-import type { Chain } from './index.js'
+import { EvmChainId } from './id.js'
+import type { EvmChain } from './index.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -11,13 +11,13 @@ const __dirname = path.dirname(__filename)
   if (!existsSync(file)) {
     const chains = (await fetch('https://chainid.network/chains.json').then(
       (data) => data.json(),
-    )) as Chain[]
+    )) as EvmChain[]
     writeFileSync(
       file,
       `// THIS IS A GENERATED FILE\n\nexport default ${JSON.stringify(
         chains
           .filter(({ chainId }) =>
-            Object.values(ChainId).find((id) => id === chainId),
+            Object.values(EvmChainId).find((id) => id === chainId),
           )
           .map(
             ({

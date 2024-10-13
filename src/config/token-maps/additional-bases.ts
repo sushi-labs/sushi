@@ -1,4 +1,4 @@
-import { ChainId } from '../../chain/index.js'
+import { EvmChainId } from '../../chain/evm/index.js'
 import type { Token } from '../../currency/index.js'
 import {
   APE_ADDRESS,
@@ -63,100 +63,104 @@ import {
 export const ADDITIONAL_BASES: {
   [chainId: number]: { [tokenAddress: string]: Token[] }
 } = {
-  [ChainId.ETHEREUM]: {
-    [rETH2_ADDRESS[ChainId.ETHEREUM]]: [sETH2[ChainId.ETHEREUM]],
-    [SWISE_ADDRESS[ChainId.ETHEREUM]]: [sETH2[ChainId.ETHEREUM]],
-    [FEI_ADDRESS[ChainId.ETHEREUM]]: [TRIBE[ChainId.ETHEREUM]],
-    [TRIBE_ADDRESS[ChainId.ETHEREUM]]: [FEI[ChainId.ETHEREUM]],
-    [FRAX_ADDRESS[ChainId.ETHEREUM]]: [FXS[ChainId.ETHEREUM]],
-    [FXS_ADDRESS[ChainId.ETHEREUM]]: [FRAX[ChainId.ETHEREUM]],
-    [WBTC_ADDRESS[ChainId.ETHEREUM]]: [renBTC[ChainId.ETHEREUM]],
-    [renBTC_ADDRESS[ChainId.ETHEREUM]]: [WBTC[ChainId.ETHEREUM]],
-    [APE_ADDRESS[ChainId.ETHEREUM]]: [PRIMATE[ChainId.ETHEREUM]],
-    [PRIMATE_ADDRESS[ChainId.ETHEREUM]]: [APE[ChainId.ETHEREUM]],
-    [SUSHI_ADDRESS[ChainId.ETHEREUM]]: [XSUSHI[ChainId.ETHEREUM]],
-    [XSUSHI_ADDRESS[ChainId.ETHEREUM]]: [SUSHI[ChainId.ETHEREUM]],
-    [KP3R_ADDRESS[ChainId.ETHEREUM]]: [LDO[ChainId.ETHEREUM]],
-    [LDO_ADDRESS[ChainId.ETHEREUM]]: [KP3R[ChainId.ETHEREUM]],
+  [EvmChainId.ETHEREUM]: {
+    [rETH2_ADDRESS[EvmChainId.ETHEREUM]]: [sETH2[EvmChainId.ETHEREUM]],
+    [SWISE_ADDRESS[EvmChainId.ETHEREUM]]: [sETH2[EvmChainId.ETHEREUM]],
+    [FEI_ADDRESS[EvmChainId.ETHEREUM]]: [TRIBE[EvmChainId.ETHEREUM]],
+    [TRIBE_ADDRESS[EvmChainId.ETHEREUM]]: [FEI[EvmChainId.ETHEREUM]],
+    [FRAX_ADDRESS[EvmChainId.ETHEREUM]]: [FXS[EvmChainId.ETHEREUM]],
+    [FXS_ADDRESS[EvmChainId.ETHEREUM]]: [FRAX[EvmChainId.ETHEREUM]],
+    [WBTC_ADDRESS[EvmChainId.ETHEREUM]]: [renBTC[EvmChainId.ETHEREUM]],
+    [renBTC_ADDRESS[EvmChainId.ETHEREUM]]: [WBTC[EvmChainId.ETHEREUM]],
+    [APE_ADDRESS[EvmChainId.ETHEREUM]]: [PRIMATE[EvmChainId.ETHEREUM]],
+    [PRIMATE_ADDRESS[EvmChainId.ETHEREUM]]: [APE[EvmChainId.ETHEREUM]],
+    [SUSHI_ADDRESS[EvmChainId.ETHEREUM]]: [XSUSHI[EvmChainId.ETHEREUM]],
+    [XSUSHI_ADDRESS[EvmChainId.ETHEREUM]]: [SUSHI[EvmChainId.ETHEREUM]],
+    [KP3R_ADDRESS[EvmChainId.ETHEREUM]]: [LDO[EvmChainId.ETHEREUM]],
+    [LDO_ADDRESS[EvmChainId.ETHEREUM]]: [KP3R[EvmChainId.ETHEREUM]],
     ['0x1e0275806C3CD0bDb5C99916A064d36b5e8eAE8d']: [
       // TWO
-      AAVE[ChainId.ETHEREUM],
-      MKR[ChainId.ETHEREUM],
-      SNX[ChainId.ETHEREUM],
-      CRV[ChainId.ETHEREUM],
-      YFI[ChainId.ETHEREUM],
-      ENJ[ChainId.ETHEREUM],
-      COMP[ChainId.ETHEREUM],
-      GALA[ChainId.ETHEREUM],
-      XSUSHI[ChainId.ETHEREUM],
+      AAVE[EvmChainId.ETHEREUM],
+      MKR[EvmChainId.ETHEREUM],
+      SNX[EvmChainId.ETHEREUM],
+      CRV[EvmChainId.ETHEREUM],
+      YFI[EvmChainId.ETHEREUM],
+      ENJ[EvmChainId.ETHEREUM],
+      COMP[EvmChainId.ETHEREUM],
+      GALA[EvmChainId.ETHEREUM],
+      XSUSHI[EvmChainId.ETHEREUM],
     ],
   },
-  [ChainId.POLYGON]: {
-    [FRAX_ADDRESS[ChainId.POLYGON]]: [FXS[ChainId.POLYGON]],
-    [FXS_ADDRESS[ChainId.POLYGON]]: [FRAX[ChainId.POLYGON]],
-    [BCT_ADDRESS[ChainId.POLYGON]]: [KLIMA[ChainId.POLYGON]],
-    [KLIMA_ADDRESS[ChainId.POLYGON]]: [BCT[ChainId.POLYGON]],
+  [EvmChainId.POLYGON]: {
+    [FRAX_ADDRESS[EvmChainId.POLYGON]]: [FXS[EvmChainId.POLYGON]],
+    [FXS_ADDRESS[EvmChainId.POLYGON]]: [FRAX[EvmChainId.POLYGON]],
+    [BCT_ADDRESS[EvmChainId.POLYGON]]: [KLIMA[EvmChainId.POLYGON]],
+    [KLIMA_ADDRESS[EvmChainId.POLYGON]]: [BCT[EvmChainId.POLYGON]],
     // THREE
     ['0x9B034262e0095210ab9ddec60199741a8a1FbFe7']: [
-      AAVE[ChainId.POLYGON],
-      LINK[ChainId.POLYGON],
-      MANA[ChainId.POLYGON],
-      SNX[ChainId.POLYGON],
-      CRV[ChainId.POLYGON],
-      YFI[ChainId.POLYGON],
-      GNS[ChainId.POLYGON],
-      SAND[ChainId.POLYGON],
-      STG[ChainId.POLYGON],
-      UNI[ChainId.POLYGON],
-      SUSHI[ChainId.POLYGON],
-      RNDR[ChainId.POLYGON],
-      TEL[ChainId.POLYGON],
-      GRT[ChainId.POLYGON],
-      BAL[ChainId.POLYGON],
-      QUICK[ChainId.POLYGON],
-      OCEAN[ChainId.POLYGON],
-      XSUSHI[ChainId.POLYGON],
-      KNCv2[ChainId.POLYGON],
-      WAVAX[ChainId.POLYGON],
-      JUGNI[ChainId.POLYGON],
+      AAVE[EvmChainId.POLYGON],
+      LINK[EvmChainId.POLYGON],
+      MANA[EvmChainId.POLYGON],
+      SNX[EvmChainId.POLYGON],
+      CRV[EvmChainId.POLYGON],
+      YFI[EvmChainId.POLYGON],
+      GNS[EvmChainId.POLYGON],
+      SAND[EvmChainId.POLYGON],
+      STG[EvmChainId.POLYGON],
+      UNI[EvmChainId.POLYGON],
+      SUSHI[EvmChainId.POLYGON],
+      RNDR[EvmChainId.POLYGON],
+      TEL[EvmChainId.POLYGON],
+      GRT[EvmChainId.POLYGON],
+      BAL[EvmChainId.POLYGON],
+      QUICK[EvmChainId.POLYGON],
+      OCEAN[EvmChainId.POLYGON],
+      XSUSHI[EvmChainId.POLYGON],
+      KNCv2[EvmChainId.POLYGON],
+      WAVAX[EvmChainId.POLYGON],
+      JUGNI[EvmChainId.POLYGON],
     ],
   },
-  [ChainId.ARBITRUM]: {
-    [FRAX_ADDRESS[ChainId.ARBITRUM]]: [FXS[ChainId.ARBITRUM]],
-    [FXS_ADDRESS[ChainId.ARBITRUM]]: [FRAX[ChainId.ARBITRUM]],
-    ['0xaFAfd68AFe3fe65d376eEC9Eab1802616cFacCb8']: [SolvBTC[ChainId.ARBITRUM]], // SolvBTC.ENA
-    ['0x346c574C56e1A4aAa8dc88Cda8F7EB12b39947aB']: [SolvBTC[ChainId.ARBITRUM]], // SolvBTC.BBN
+  [EvmChainId.ARBITRUM]: {
+    [FRAX_ADDRESS[EvmChainId.ARBITRUM]]: [FXS[EvmChainId.ARBITRUM]],
+    [FXS_ADDRESS[EvmChainId.ARBITRUM]]: [FRAX[EvmChainId.ARBITRUM]],
+    ['0xaFAfd68AFe3fe65d376eEC9Eab1802616cFacCb8']: [
+      SolvBTC[EvmChainId.ARBITRUM],
+    ], // SolvBTC.ENA
+    ['0x346c574C56e1A4aAa8dc88Cda8F7EB12b39947aB']: [
+      SolvBTC[EvmChainId.ARBITRUM],
+    ], // SolvBTC.BBN
   },
-  [ChainId.FANTOM]: {
-    [FRAX_ADDRESS[ChainId.FANTOM]]: [FXS[ChainId.FANTOM]],
-    [FXS_ADDRESS[ChainId.FANTOM]]: [FRAX[ChainId.FANTOM]],
+  [EvmChainId.FANTOM]: {
+    [FRAX_ADDRESS[EvmChainId.FANTOM]]: [FXS[EvmChainId.FANTOM]],
+    [FXS_ADDRESS[EvmChainId.FANTOM]]: [FRAX[EvmChainId.FANTOM]],
   },
-  [ChainId.BSC]: {
-    [FRAX_ADDRESS[ChainId.BSC]]: [FXS[ChainId.BSC]],
-    [FXS_ADDRESS[ChainId.BSC]]: [FRAX[ChainId.BSC]],
+  [EvmChainId.BSC]: {
+    [FRAX_ADDRESS[EvmChainId.BSC]]: [FXS[EvmChainId.BSC]],
+    [FXS_ADDRESS[EvmChainId.BSC]]: [FRAX[EvmChainId.BSC]],
   },
-  [ChainId.AVALANCHE]: {
-    [FRAX_ADDRESS[ChainId.AVALANCHE]]: [FXS[ChainId.AVALANCHE]],
-    [FXS_ADDRESS[ChainId.AVALANCHE]]: [FRAX[ChainId.AVALANCHE]],
+  [EvmChainId.AVALANCHE]: {
+    [FRAX_ADDRESS[EvmChainId.AVALANCHE]]: [FXS[EvmChainId.AVALANCHE]],
+    [FXS_ADDRESS[EvmChainId.AVALANCHE]]: [FRAX[EvmChainId.AVALANCHE]],
   },
-  [ChainId.MOONRIVER]: {
-    [FRAX_ADDRESS[ChainId.MOONRIVER]]: [FXS[ChainId.MOONRIVER]],
-    [FXS_ADDRESS[ChainId.MOONRIVER]]: [FRAX[ChainId.MOONRIVER]],
+  [EvmChainId.MOONRIVER]: {
+    [FRAX_ADDRESS[EvmChainId.MOONRIVER]]: [FXS[EvmChainId.MOONRIVER]],
+    [FXS_ADDRESS[EvmChainId.MOONRIVER]]: [FRAX[EvmChainId.MOONRIVER]],
   },
-  [ChainId.MOONBEAM]: {
-    [FRAX_ADDRESS[ChainId.MOONBEAM]]: [FXS[ChainId.MOONBEAM]],
-    [FXS_ADDRESS[ChainId.MOONBEAM]]: [FRAX[ChainId.MOONBEAM]],
+  [EvmChainId.MOONBEAM]: {
+    [FRAX_ADDRESS[EvmChainId.MOONBEAM]]: [FXS[EvmChainId.MOONBEAM]],
+    [FXS_ADDRESS[EvmChainId.MOONBEAM]]: [FRAX[EvmChainId.MOONBEAM]],
   },
-  [ChainId.HARMONY]: {
-    [FRAX_ADDRESS[ChainId.HARMONY]]: [FXS[ChainId.HARMONY]],
-    [FXS_ADDRESS[ChainId.HARMONY]]: [FRAX[ChainId.HARMONY]],
+  [EvmChainId.HARMONY]: {
+    [FRAX_ADDRESS[EvmChainId.HARMONY]]: [FXS[EvmChainId.HARMONY]],
+    [FXS_ADDRESS[EvmChainId.HARMONY]]: [FRAX[EvmChainId.HARMONY]],
   },
-  [ChainId.BOBA]: {
-    [FRAX_ADDRESS[ChainId.BOBA]]: [FXS[ChainId.BOBA]],
-    [FXS_ADDRESS[ChainId.BOBA]]: [FRAX[ChainId.BOBA]],
+  [EvmChainId.BOBA]: {
+    [FRAX_ADDRESS[EvmChainId.BOBA]]: [FXS[EvmChainId.BOBA]],
+    [FXS_ADDRESS[EvmChainId.BOBA]]: [FRAX[EvmChainId.BOBA]],
   },
-  [ChainId.OPTIMISM]: {
-    [FRAX_ADDRESS[ChainId.OPTIMISM]]: [FXS[ChainId.OPTIMISM]],
-    [FXS_ADDRESS[ChainId.OPTIMISM]]: [FRAX[ChainId.OPTIMISM]],
+  [EvmChainId.OPTIMISM]: {
+    [FRAX_ADDRESS[EvmChainId.OPTIMISM]]: [FXS[EvmChainId.OPTIMISM]],
+    [FXS_ADDRESS[EvmChainId.OPTIMISM]]: [FRAX[EvmChainId.OPTIMISM]],
   },
 }

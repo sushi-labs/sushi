@@ -14,7 +14,7 @@
     "docs:dev": "pnpm --filter site dev",
     "docs:build": "pnpm --filter site build",
     "format": "biome format --write .",
-    "generate": "pnpm tsx ./src/chain/generate.ts",
+    "generate": "pnpm tsx ./src/chain/evm/generate.ts",
     "lint": "biome check --apply .",
     "lint:dryrun": "biome check .",
     "lint:repo": "sherif",

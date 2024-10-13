@@ -1,4 +1,4 @@
-import type { ChainId } from '../../chain/index.js'
+import type { EvmChainId } from '../../chain/evm/index.js'
 import type { Address } from '../address.js'
 import type { Token } from '../token.js'
 import type { PoolId } from './pool-id.js'
@@ -19,7 +19,7 @@ export enum ChefType {
 
 export type Incentive = {
   id: string
-  chainId: ChainId
+  chainId: EvmChainId
   apr: number
   rewarderAddress: Address
   rewardPerDay: number

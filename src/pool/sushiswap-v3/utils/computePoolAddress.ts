@@ -1,7 +1,7 @@
 import type { Address } from 'viem'
 import { encodeAbiParameters, keccak256, parseAbiParameters } from 'viem/utils'
 import { getCreate2Address } from '../../../address/getCreate2Address.js'
-import type { ChainId } from '../../../chain/index.js'
+import type { EvmChainId } from '../../../chain/evm/index.js'
 import {
   SUSHISWAP_V3_INIT_CODE_HASH,
   type SushiSwapV3ChainId,
@@ -21,7 +21,7 @@ type ComputeSushiSwapV3PoolAddressParams = {
   | {
       tokenA: Address
       tokenB: Address
-      chainId: ChainId
+      chainId: EvmChainId
     }
 )
 

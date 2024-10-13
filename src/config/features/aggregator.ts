@@ -1,18 +1,18 @@
-import { ChainId } from '../../chain/index.js'
+import { EvmChainId } from '../../chain/evm/index.js'
 
 export const AGGREGATOR_ONLY_CHAIN_IDS = [
-  ChainId.CRONOS,
-  ChainId.MANTLE,
-  ChainId.ZKSYNC_ERA,
-  ChainId.MANTA,
-  ChainId.MODE,
-  ChainId.TAIKO,
-  ChainId.ZKLINK,
+  EvmChainId.CRONOS,
+  EvmChainId.MANTLE,
+  EvmChainId.ZKSYNC_ERA,
+  EvmChainId.MANTA,
+  EvmChainId.MODE,
+  EvmChainId.TAIKO,
+  EvmChainId.ZKLINK,
 ] as const
 
 export type AggregatorOnlyChainId = (typeof AGGREGATOR_ONLY_CHAIN_IDS)[number]
 
 export const isAggregatorOnlyChainId = (
-  chainId: ChainId,
+  chainId: EvmChainId,
 ): chainId is AggregatorOnlyChainId =>
   AGGREGATOR_ONLY_CHAIN_IDS.includes(chainId as AggregatorOnlyChainId)

@@ -1,4 +1,4 @@
-import type { ChainId } from '../chain/index.js'
+import type { EvmChainId } from '../chain/evm/index.js'
 import type { Address } from '../types/address.js'
 import type { ID } from '../types/id.js'
 import { unsanitize } from './unsanitize.js'
@@ -13,5 +13,5 @@ export const getChainIdAddressFromId = (id: string) => {
 
   if (!chainId || !address) throw new Error(`Invalid id: ${id}`)
 
-  return { chainId: Number(chainId) as ChainId, address }
+  return { chainId: Number(chainId) as EvmChainId, address }
 }

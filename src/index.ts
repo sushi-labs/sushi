@@ -2,7 +2,7 @@
 export * from './address/index.js'
 export * from './api/index.js'
 export * from './calculate/index.js'
-export * from './chain/index.js'
+export * from './chain/evm/index.js'
 // export * from './config.js'
 export * from './convert/index.js'
 // export * from './currency/index.js'

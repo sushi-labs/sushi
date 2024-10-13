@@ -74,7 +74,7 @@ import {
   zkLinkNova as _zkLinkNova, // missing multicall
   zkSync,
 } from 'viem/chains'
-import { ChainId } from '../chain/index.js'
+import { EvmChainId } from '../chain/evm/index.js'
 
 export {
   arbitrum,
@@ -164,7 +164,7 @@ const zkLinkNova = {
 
 // Chains missing from viem entirely
 export const kava = {
-  id: ChainId.KAVA,
+  id: EvmChainId.KAVA,
   name: 'Kava',
   network: 'kava',
   nativeCurrency: { name: 'Kava', symbol: 'KAVA', decimals: 18 },
@@ -195,7 +195,7 @@ export const kava = {
 } as const
 
 export const heco = {
-  id: ChainId.HECO,
+  id: EvmChainId.HECO,
   name: 'Huobi ECO Chain',
   network: 'huobieco',
   nativeCurrency: { name: 'Huobi Token', symbol: 'HT', decimals: 18 },
@@ -226,7 +226,7 @@ export const heco = {
 } as const
 
 export const palm = {
-  id: ChainId.PALM,
+  id: EvmChainId.PALM,
   name: 'Palm',
   network: 'palm',
   nativeCurrency: { name: 'Palm', symbol: 'PALM', decimals: 18 },
@@ -261,7 +261,7 @@ export const palm = {
 } as const
 
 export const bobaAvax = {
-  id: ChainId.BOBA_AVAX,
+  id: EvmChainId.BOBA_AVAX,
   name: 'Boba Avax',
   network: 'boba-avax',
   nativeCurrency: { name: 'Boba', symbol: 'BOBA', decimals: 18 },
@@ -292,7 +292,7 @@ export const bobaAvax = {
 } as const
 
 export const bobaBnb = {
-  id: ChainId.BOBA_BNB,
+  id: EvmChainId.BOBA_BNB,
   name: 'Boba BNB',
   network: 'boba-bnb',
   nativeCurrency: { name: 'Boba', symbol: 'BOBA', decimals: 18 },
@@ -323,7 +323,7 @@ export const bobaBnb = {
 } as const
 
 export const bttc = {
-  id: ChainId.BTTC,
+  id: EvmChainId.BTTC,
   name: 'BitTorrent Chain',
   network: 'btt',
   nativeCurrency: { name: 'BitTorrent', symbol: 'BTT', decimals: 18 },
@@ -354,7 +354,7 @@ export const bttc = {
 } as const
 
 const thundercore = {
-  id: ChainId.THUNDERCORE,
+  id: EvmChainId.THUNDERCORE,
   name: 'ThunderCore',
   network: 'thundercore',
   nativeCurrency: { name: 'Thunder Token', symbol: 'TT', decimals: 18 },
@@ -383,7 +383,7 @@ const thundercore = {
 } as const
 
 export const core = {
-  id: ChainId.CORE,
+  id: EvmChainId.CORE,
   name: 'Core',
   network: 'core',
   nativeCurrency: { name: 'Core', symbol: 'CORE', decimals: 18 },
@@ -404,7 +404,7 @@ export const core = {
 } as const
 
 export const filecoin = {
-  id: ChainId.FILECOIN,
+  id: EvmChainId.FILECOIN,
   name: 'Filecoin Mainnet',
   network: 'filecoin-mainnet',
   nativeCurrency: {
@@ -431,7 +431,7 @@ export const filecoin = {
 } as const
 
 export const zetachain = {
-  id: ChainId.ZETACHAIN,
+  id: EvmChainId.ZETACHAIN,
   name: 'ZetaChain',
   network: 'zetachain',
   nativeCurrency: {
@@ -473,7 +473,7 @@ export const zetachain = {
 } as const
 
 export const blast = {
-  id: ChainId.BLAST,
+  id: EvmChainId.BLAST,
   name: 'Blast',
   network: 'blast',
   nativeCurrency: {
@@ -513,7 +513,7 @@ export const blast = {
 } as const
 
 export const skaleEuropa = {
-  id: ChainId.SKALE_EUROPA,
+  id: EvmChainId.SKALE_EUROPA,
   name: 'SKALE Europa',
   network: 'skale-europa',
   nativeCurrency: {
@@ -559,114 +559,128 @@ const drpcId = process.env['DRPC_ID'] || process.env['NEXT_PUBLIC_DRPC_ID']
 const rskId = process.env['RSK_ID'] || process.env['NEXT_PUBLIC_RSK_ID']
 
 export const publicTransports = {
-  [ChainId.ARBITRUM_NOVA]: http(
+  [EvmChainId.ARBITRUM_NOVA]: http(
     `https://lb.drpc.org/ogrpc?network=arbitrum-nova&dkey=${drpcId}`,
   ),
-  [ChainId.ARBITRUM]: http(
+  [EvmChainId.ARBITRUM]: http(
     `https://lb.drpc.org/ogrpc?network=arbitrum&dkey=${drpcId}`,
   ),
-  [ChainId.AVALANCHE]: http(
+  [EvmChainId.AVALANCHE]: http(
     `https://lb.drpc.org/ogrpc?network=avalanche&dkey=${drpcId}`,
   ),
-  [ChainId.BOBA]: http('https://mainnet.boba.network'),
-  [ChainId.BOBA_AVAX]: http('https://avax.boba.network'),
-  [ChainId.BOBA_BNB]: http('https://bnb.boba.network'),
-  [ChainId.BSC]: http(`https://lb.drpc.org/ogrpc?network=bsc&dkey=${drpcId}`),
-  [ChainId.BTTC]: http('https://rpc.bittorrentchain.io'),
-  [ChainId.CELO]: http(`https://lb.drpc.org/ogrpc?network=celo&dkey=${drpcId}`),
-  [ChainId.ETHEREUM]: http(
+  [EvmChainId.BOBA]: http('https://mainnet.boba.network'),
+  [EvmChainId.BOBA_AVAX]: http('https://avax.boba.network'),
+  [EvmChainId.BOBA_BNB]: http('https://bnb.boba.network'),
+  [EvmChainId.BSC]: http(
+    `https://lb.drpc.org/ogrpc?network=bsc&dkey=${drpcId}`,
+  ),
+  [EvmChainId.BTTC]: http('https://rpc.bittorrentchain.io'),
+  [EvmChainId.CELO]: http(
+    `https://lb.drpc.org/ogrpc?network=celo&dkey=${drpcId}`,
+  ),
+  [EvmChainId.ETHEREUM]: http(
     `https://lb.drpc.org/ogrpc?network=ethereum&dkey=${drpcId}`,
   ),
-  [ChainId.FANTOM]: http(
+  [EvmChainId.FANTOM]: http(
     `https://lb.drpc.org/ogrpc?network=fantom&dkey=${drpcId}`,
   ),
-  [ChainId.FUSE]: http(`https://lb.drpc.org/ogrpc?network=fuse&dkey=${drpcId}`),
-  [ChainId.GNOSIS]: http(
+  [EvmChainId.FUSE]: http(
+    `https://lb.drpc.org/ogrpc?network=fuse&dkey=${drpcId}`,
+  ),
+  [EvmChainId.GNOSIS]: http(
     `https://lb.drpc.org/ogrpc?network=gnosis&dkey=${drpcId}`,
   ),
-  [ChainId.HARMONY]: http(
+  [EvmChainId.HARMONY]: http(
     `https://lb.drpc.org/ogrpc?network=harmony-0&dkey=${drpcId}`,
   ),
-  [ChainId.KAVA]: http(`https://lb.drpc.org/ogrpc?network=kava&dkey=${drpcId}`),
-  [ChainId.METIS]: http(
+  [EvmChainId.KAVA]: http(
+    `https://lb.drpc.org/ogrpc?network=kava&dkey=${drpcId}`,
+  ),
+  [EvmChainId.METIS]: http(
     `https://lb.drpc.org/ogrpc?network=metis&dkey=${drpcId}`,
   ),
-  [ChainId.MOONBEAM]: http(
+  [EvmChainId.MOONBEAM]: http(
     `https://lb.drpc.org/ogrpc?network=moonbeam&dkey=${drpcId}`,
   ),
-  [ChainId.MOONRIVER]: http(
+  [EvmChainId.MOONRIVER]: http(
     `https://lb.drpc.org/ogrpc?network=moonriver&dkey=${drpcId}`,
   ),
-  [ChainId.OPTIMISM]: http(
+  [EvmChainId.OPTIMISM]: http(
     `https://lb.drpc.org/ogrpc?network=optimism&dkey=${drpcId}`,
   ),
-  [ChainId.POLYGON]: http(
+  [EvmChainId.POLYGON]: http(
     `https://lb.drpc.org/ogrpc?network=polygon&dkey=${drpcId}`,
   ),
-  [ChainId.POLYGON_ZKEVM]: http(
+  [EvmChainId.POLYGON_ZKEVM]: http(
     `https://lb.drpc.org/ogrpc?network=polygon-zkevm&dkey=${drpcId}`,
   ),
-  [ChainId.THUNDERCORE]: http('https://mainnet-rpc.thundercore.com'),
-  [ChainId.HAQQ]: http(`https://lb.drpc.org/ogrpc?network=haqq&dkey=${drpcId}`),
-  [ChainId.CORE]: http('https://rpc.coredao.org'),
-  [ChainId.TELOS]: http('https://rpc1.us.telos.net/evm'),
-  [ChainId.PALM]: http(palm.rpcUrls.default.http[0]),
-  [ChainId.OKEX]: http(okc.rpcUrls.default.http[0]),
-  [ChainId.HECO]: http(heco.rpcUrls.default.http[0]),
-  [ChainId.ZKSYNC_ERA]: http(
+  [EvmChainId.THUNDERCORE]: http('https://mainnet-rpc.thundercore.com'),
+  [EvmChainId.HAQQ]: http(
+    `https://lb.drpc.org/ogrpc?network=haqq&dkey=${drpcId}`,
+  ),
+  [EvmChainId.CORE]: http('https://rpc.coredao.org'),
+  [EvmChainId.TELOS]: http('https://rpc1.us.telos.net/evm'),
+  [EvmChainId.PALM]: http(palm.rpcUrls.default.http[0]),
+  [EvmChainId.OKEX]: http(okc.rpcUrls.default.http[0]),
+  [EvmChainId.HECO]: http(heco.rpcUrls.default.http[0]),
+  [EvmChainId.ZKSYNC_ERA]: http(
     `https://lb.drpc.org/ogrpc?network=zksync&dkey=${drpcId}`,
   ),
-  [ChainId.LINEA]: http(
+  [EvmChainId.LINEA]: http(
     `https://lb.drpc.org/ogrpc?network=linea&dkey=${drpcId}`,
   ),
-  [ChainId.BASE]: http(`https://lb.drpc.org/ogrpc?network=base&dkey=${drpcId}`),
-  [ChainId.SCROLL]: http(
+  [EvmChainId.BASE]: http(
+    `https://lb.drpc.org/ogrpc?network=base&dkey=${drpcId}`,
+  ),
+  [EvmChainId.SCROLL]: http(
     `https://lb.drpc.org/ogrpc?network=scroll&dkey=${drpcId}`,
   ),
-  [ChainId.FILECOIN]: http(
+  [EvmChainId.FILECOIN]: http(
     `https://lb.drpc.org/ogrpc?network=filecoin&dkey=${drpcId}`,
     // 'https://fil-mainnet-1.rpc.laconic.com/rpc/v1'
   ),
-  [ChainId.ZETACHAIN]: http(
+  [EvmChainId.ZETACHAIN]: http(
     `https://lb.drpc.org/ogrpc?network=zeta-chain&dkey=${drpcId}`,
   ),
-  [ChainId.CRONOS]: http(
+  [EvmChainId.CRONOS]: http(
     `https://lb.drpc.org/ogrpc?network=cronos&dkey=${drpcId}`,
   ),
-  [ChainId.BLAST]: http(
+  [EvmChainId.BLAST]: http(
     `https://lb.drpc.org/ogrpc?network=blast&dkey=${drpcId}`,
   ),
-  [ChainId.SKALE_EUROPA]: http(
+  [EvmChainId.SKALE_EUROPA]: http(
     'https://elated-tan-skat-indexer.skalenodes.com:10072',
   ),
-  [ChainId.ROOTSTOCK]: http(
+  [EvmChainId.ROOTSTOCK]: http(
     rskId
       ? `https://rpc.mainnet.rootstock.io/${rskId}`
       : 'https://public-node.rsk.co',
   ),
-  [ChainId.MANTLE]: http(
+  [EvmChainId.MANTLE]: http(
     `https://lb.drpc.org/ogrpc?network=mantle&dkey=${drpcId}`,
   ),
-  [ChainId.MANTA]: http(
+  [EvmChainId.MANTA]: http(
     `https://lb.drpc.org/ogrpc?network=manta-pacific&dkey=${drpcId}`,
   ),
-  [ChainId.MODE]: http(`https://lb.drpc.org/ogrpc?network=mode&dkey=${drpcId}`),
-  [ChainId.TAIKO]: http(
+  [EvmChainId.MODE]: http(
+    `https://lb.drpc.org/ogrpc?network=mode&dkey=${drpcId}`,
+  ),
+  [EvmChainId.TAIKO]: http(
     `https://lb.drpc.org/ogrpc?network=taiko&dkey=${drpcId}`,
   ),
-  [ChainId.ZKLINK]: http('https://rpc.zklink.io'),
+  [EvmChainId.ZKLINK]: http('https://rpc.zklink.io'),
   /* Testnets */ // TODO: add testnet transports
-  [ChainId.ARBITRUM_TESTNET]: http('https://sepolia-rollup.arbitrum.io/rpc'),
-  [ChainId.AVALANCHE_TESTNET]: http(
+  [EvmChainId.ARBITRUM_TESTNET]: http('https://sepolia-rollup.arbitrum.io/rpc'),
+  [EvmChainId.AVALANCHE_TESTNET]: http(
     'https://api.avax-test.network/ext/bc/C/rpc',
   ),
-  [ChainId.BSC_TESTNET]: http('https://bsc-testnet.public.blastapi.io'),
-  [ChainId.FANTOM_TESTNET]: http('https://rpc.testnet.fantom.network'),
-  [ChainId.POLYGON_TESTNET]: http('https://rpc.ankr.com/polygon_mumbai'),
-  [ChainId.SEPOLIA]: http('https://sepolia.drpc.org'),
-  [ChainId.GÖRLI]: http('https://eth-goerli.api.onfinality.io/public'),
-  [ChainId.CURTIS]: http('https://curtis.rpc.caldera.xyz/http'),
-} as const satisfies Record<ChainId, Transport>
+  [EvmChainId.BSC_TESTNET]: http('https://bsc-testnet.public.blastapi.io'),
+  [EvmChainId.FANTOM_TESTNET]: http('https://rpc.testnet.fantom.network'),
+  [EvmChainId.POLYGON_TESTNET]: http('https://rpc.ankr.com/polygon_mumbai'),
+  [EvmChainId.SEPOLIA]: http('https://sepolia.drpc.org'),
+  [EvmChainId.GÖRLI]: http('https://eth-goerli.api.onfinality.io/public'),
+  [EvmChainId.CURTIS]: http('https://curtis.rpc.caldera.xyz/http'),
+} as const satisfies Record<EvmChainId, Transport>
 
 export const publicChains = [
   mainnet,
@@ -725,213 +739,213 @@ export const publicChains = [
 ] as const satisfies Readonly<Chain[]>
 
 export const publicClientConfig = {
-  [ChainId.ARBITRUM_NOVA]: {
+  [EvmChainId.ARBITRUM_NOVA]: {
     chain: arbitrumNova,
-    transport: publicTransports[ChainId.ARBITRUM_NOVA],
+    transport: publicTransports[EvmChainId.ARBITRUM_NOVA],
   },
-  [ChainId.ARBITRUM]: {
+  [EvmChainId.ARBITRUM]: {
     chain: arbitrum,
-    transport: publicTransports[ChainId.ARBITRUM],
+    transport: publicTransports[EvmChainId.ARBITRUM],
   },
-  [ChainId.AVALANCHE]: {
+  [EvmChainId.AVALANCHE]: {
     chain: avalanche,
-    transport: publicTransports[ChainId.AVALANCHE],
+    transport: publicTransports[EvmChainId.AVALANCHE],
   },
-  [ChainId.BOBA]: {
+  [EvmChainId.BOBA]: {
     chain: boba,
-    transport: publicTransports[ChainId.BOBA],
+    transport: publicTransports[EvmChainId.BOBA],
   },
-  [ChainId.BOBA_AVAX]: {
+  [EvmChainId.BOBA_AVAX]: {
     chain: bobaAvax,
-    transport: publicTransports[ChainId.BOBA_AVAX],
+    transport: publicTransports[EvmChainId.BOBA_AVAX],
   },
-  [ChainId.BOBA_BNB]: {
+  [EvmChainId.BOBA_BNB]: {
     chain: bobaBnb,
-    transport: publicTransports[ChainId.BOBA_BNB],
+    transport: publicTransports[EvmChainId.BOBA_BNB],
   },
-  [ChainId.BSC]: {
+  [EvmChainId.BSC]: {
     chain: bsc,
-    transport: publicTransports[ChainId.BSC],
+    transport: publicTransports[EvmChainId.BSC],
   },
-  [ChainId.BTTC]: {
+  [EvmChainId.BTTC]: {
     chain: bttc,
-    transport: publicTransports[ChainId.BTTC],
+    transport: publicTransports[EvmChainId.BTTC],
   },
-  [ChainId.CELO]: {
+  [EvmChainId.CELO]: {
     chain: celo as unknown as typeof mainnet & { id: 42220 },
-    transport: publicTransports[ChainId.CELO],
+    transport: publicTransports[EvmChainId.CELO],
   },
-  [ChainId.ETHEREUM]: {
+  [EvmChainId.ETHEREUM]: {
     chain: mainnet,
-    transport: publicTransports[ChainId.ETHEREUM],
+    transport: publicTransports[EvmChainId.ETHEREUM],
   },
-  [ChainId.FANTOM]: {
+  [EvmChainId.FANTOM]: {
     chain: fantom,
-    transport: publicTransports[ChainId.FANTOM],
+    transport: publicTransports[EvmChainId.FANTOM],
   },
-  [ChainId.FUSE]: {
+  [EvmChainId.FUSE]: {
     chain: fuse,
-    transport: publicTransports[ChainId.FUSE],
+    transport: publicTransports[EvmChainId.FUSE],
   },
-  [ChainId.GNOSIS]: {
+  [EvmChainId.GNOSIS]: {
     chain: gnosis,
-    transport: publicTransports[ChainId.GNOSIS],
+    transport: publicTransports[EvmChainId.GNOSIS],
   },
-  [ChainId.HARMONY]: {
+  [EvmChainId.HARMONY]: {
     chain: harmonyOne,
-    transport: publicTransports[ChainId.HARMONY],
+    transport: publicTransports[EvmChainId.HARMONY],
   },
-  [ChainId.KAVA]: {
+  [EvmChainId.KAVA]: {
     chain: kava,
-    transport: publicTransports[ChainId.KAVA],
+    transport: publicTransports[EvmChainId.KAVA],
   },
-  [ChainId.METIS]: {
+  [EvmChainId.METIS]: {
     chain: metis,
-    transport: publicTransports[ChainId.METIS],
+    transport: publicTransports[EvmChainId.METIS],
   },
-  [ChainId.MOONBEAM]: {
+  [EvmChainId.MOONBEAM]: {
     chain: moonbeam,
-    transport: publicTransports[ChainId.MOONBEAM],
+    transport: publicTransports[EvmChainId.MOONBEAM],
   },
-  [ChainId.MOONRIVER]: {
+  [EvmChainId.MOONRIVER]: {
     chain: moonriver,
-    transport: publicTransports[ChainId.MOONRIVER],
+    transport: publicTransports[EvmChainId.MOONRIVER],
   },
-  [ChainId.OPTIMISM]: {
+  [EvmChainId.OPTIMISM]: {
     chain: optimism,
-    transport: publicTransports[ChainId.OPTIMISM],
+    transport: publicTransports[EvmChainId.OPTIMISM],
   },
-  [ChainId.POLYGON]: {
+  [EvmChainId.POLYGON]: {
     chain: polygon,
-    transport: publicTransports[ChainId.POLYGON],
+    transport: publicTransports[EvmChainId.POLYGON],
   },
-  [ChainId.POLYGON_ZKEVM]: {
+  [EvmChainId.POLYGON_ZKEVM]: {
     chain: polygonZkEvm,
-    transport: publicTransports[ChainId.POLYGON_ZKEVM],
+    transport: publicTransports[EvmChainId.POLYGON_ZKEVM],
   },
-  [ChainId.THUNDERCORE]: {
+  [EvmChainId.THUNDERCORE]: {
     chain: thundercore,
-    transport: publicTransports[ChainId.THUNDERCORE],
+    transport: publicTransports[EvmChainId.THUNDERCORE],
   },
-  [ChainId.HAQQ]: {
+  [EvmChainId.HAQQ]: {
     chain: haqq,
-    transport: publicTransports[ChainId.HAQQ],
+    transport: publicTransports[EvmChainId.HAQQ],
   },
-  [ChainId.CORE]: {
+  [EvmChainId.CORE]: {
     chain: core,
-    transport: publicTransports[ChainId.CORE],
+    transport: publicTransports[EvmChainId.CORE],
   },
-  [ChainId.TELOS]: {
+  [EvmChainId.TELOS]: {
     chain: telos,
-    transport: publicTransports[ChainId.TELOS],
+    transport: publicTransports[EvmChainId.TELOS],
   },
-  [ChainId.PALM]: {
+  [EvmChainId.PALM]: {
     chain: palm,
-    transport: publicTransports[ChainId.PALM],
+    transport: publicTransports[EvmChainId.PALM],
   },
-  [ChainId.OKEX]: {
+  [EvmChainId.OKEX]: {
     chain: okc,
-    transport: publicTransports[ChainId.OKEX],
+    transport: publicTransports[EvmChainId.OKEX],
   },
-  [ChainId.HECO]: {
+  [EvmChainId.HECO]: {
     chain: heco,
-    transport: publicTransports[ChainId.HECO],
+    transport: publicTransports[EvmChainId.HECO],
   },
-  [ChainId.ZKSYNC_ERA]: {
+  [EvmChainId.ZKSYNC_ERA]: {
     chain: zkSync as unknown as typeof mainnet & { id: 324 },
-    transport: publicTransports[ChainId.ZKSYNC_ERA],
+    transport: publicTransports[EvmChainId.ZKSYNC_ERA],
   },
-  [ChainId.LINEA]: {
+  [EvmChainId.LINEA]: {
     chain: linea,
-    transport: publicTransports[ChainId.LINEA],
+    transport: publicTransports[EvmChainId.LINEA],
   },
-  [ChainId.BASE]: {
+  [EvmChainId.BASE]: {
     chain: base,
-    transport: publicTransports[ChainId.BASE],
+    transport: publicTransports[EvmChainId.BASE],
   },
-  [ChainId.SCROLL]: {
+  [EvmChainId.SCROLL]: {
     chain: scroll,
-    transport: publicTransports[ChainId.SCROLL],
+    transport: publicTransports[EvmChainId.SCROLL],
   },
-  [ChainId.FILECOIN]: {
+  [EvmChainId.FILECOIN]: {
     chain: filecoin,
-    transport: publicTransports[ChainId.FILECOIN],
+    transport: publicTransports[EvmChainId.FILECOIN],
   },
-  [ChainId.ZETACHAIN]: {
+  [EvmChainId.ZETACHAIN]: {
     chain: zetachain,
-    transport: publicTransports[ChainId.ZETACHAIN],
+    transport: publicTransports[EvmChainId.ZETACHAIN],
   },
-  [ChainId.CRONOS]: {
+  [EvmChainId.CRONOS]: {
     chain: cronos,
-    transport: publicTransports[ChainId.CRONOS],
+    transport: publicTransports[EvmChainId.CRONOS],
   },
-  [ChainId.BLAST]: {
+  [EvmChainId.BLAST]: {
     chain: blast,
-    transport: publicTransports[ChainId.BLAST],
+    transport: publicTransports[EvmChainId.BLAST],
   },
-  [ChainId.SKALE_EUROPA]: {
+  [EvmChainId.SKALE_EUROPA]: {
     chain: skaleEuropa,
-    transport: publicTransports[ChainId.SKALE_EUROPA],
+    transport: publicTransports[EvmChainId.SKALE_EUROPA],
   },
-  [ChainId.ROOTSTOCK]: {
+  [EvmChainId.ROOTSTOCK]: {
     chain: rootstock,
-    transport: publicTransports[ChainId.ROOTSTOCK],
+    transport: publicTransports[EvmChainId.ROOTSTOCK],
   },
-  [ChainId.MANTLE]: {
+  [EvmChainId.MANTLE]: {
     chain: mantle,
-    transport: publicTransports[ChainId.MANTLE],
+    transport: publicTransports[EvmChainId.MANTLE],
   },
-  [ChainId.MANTA]: {
+  [EvmChainId.MANTA]: {
     chain: manta,
-    transport: publicTransports[ChainId.MANTA],
+    transport: publicTransports[EvmChainId.MANTA],
   },
-  [ChainId.MODE]: {
+  [EvmChainId.MODE]: {
     chain: mode,
-    transport: publicTransports[ChainId.MODE],
+    transport: publicTransports[EvmChainId.MODE],
   },
-  [ChainId.TAIKO]: {
+  [EvmChainId.TAIKO]: {
     chain: taiko,
-    transport: publicTransports[ChainId.TAIKO],
+    transport: publicTransports[EvmChainId.TAIKO],
   },
-  [ChainId.ZKLINK]: {
+  [EvmChainId.ZKLINK]: {
     chain: zkLinkNova,
-    transport: publicTransports[ChainId.ZKLINK],
+    transport: publicTransports[EvmChainId.ZKLINK],
   },
 
   /* Testnets */
-  [ChainId.ARBITRUM_TESTNET]: {
+  [EvmChainId.ARBITRUM_TESTNET]: {
     chain: arbitrumSepolia,
-    transport: publicTransports[ChainId.ARBITRUM_TESTNET],
+    transport: publicTransports[EvmChainId.ARBITRUM_TESTNET],
   },
-  [ChainId.AVALANCHE_TESTNET]: {
+  [EvmChainId.AVALANCHE_TESTNET]: {
     chain: avalancheFuji,
-    transport: publicTransports[ChainId.AVALANCHE_TESTNET],
+    transport: publicTransports[EvmChainId.AVALANCHE_TESTNET],
   },
-  [ChainId.BSC_TESTNET]: {
+  [EvmChainId.BSC_TESTNET]: {
     chain: bscTestnet,
-    transport: publicTransports[ChainId.BSC_TESTNET],
+    transport: publicTransports[EvmChainId.BSC_TESTNET],
   },
-  [ChainId.FANTOM_TESTNET]: {
+  [EvmChainId.FANTOM_TESTNET]: {
     chain: fantomTestnet,
-    transport: publicTransports[ChainId.FANTOM_TESTNET],
+    transport: publicTransports[EvmChainId.FANTOM_TESTNET],
   },
-  [ChainId.GÖRLI]: {
+  [EvmChainId.GÖRLI]: {
     chain: goerli,
-    transport: publicTransports[ChainId.GÖRLI],
+    transport: publicTransports[EvmChainId.GÖRLI],
   },
-  [ChainId.POLYGON_TESTNET]: {
+  [EvmChainId.POLYGON_TESTNET]: {
     chain: polygonMumbai,
-    transport: publicTransports[ChainId.POLYGON_TESTNET],
+    transport: publicTransports[EvmChainId.POLYGON_TESTNET],
   },
-  [ChainId.SEPOLIA]: {
+  [EvmChainId.SEPOLIA]: {
     chain: sepolia,
-    transport: publicTransports[ChainId.SEPOLIA],
+    transport: publicTransports[EvmChainId.SEPOLIA],
   },
-  [ChainId.CURTIS]: {
+  [EvmChainId.CURTIS]: {
     chain: curtis as unknown as typeof mainnet & { id: 33111 },
-    transport: publicTransports[ChainId.CURTIS],
+    transport: publicTransports[EvmChainId.CURTIS],
   },
 } as const satisfies Record<
-  ChainId,
+  EvmChainId,
   PublicClientConfig & { chain: (typeof publicChains)[number] }
 >

@@ -1,5 +1,5 @@
 import invariant from 'tiny-invariant'
-import type { ChainId } from '../chain/index.js'
+import type { EvmChainId } from '../chain/evm/index.js'
 import type { Token } from './token.js'
 import type { Type } from './type.js'
 /**
@@ -17,7 +17,7 @@ export abstract class Currency {
   /**
    * The chain ID on which this currency resides
    */
-  public readonly chainId: ChainId
+  public readonly chainId: EvmChainId
   /**
    * The decimals used in representing currency amounts
    */
@@ -64,7 +64,7 @@ export abstract class Currency {
     logoUrl?: string | undefined
     approved?: boolean | undefined
   }) {
-    const chainId = Number(_chainId) as ChainId
+    const chainId = Number(_chainId) as EvmChainId
     const decimals = Number(_decimals)
     invariant(Number.isSafeInteger(chainId), 'CHAIN_ID')
     invariant(
