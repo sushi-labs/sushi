@@ -1,10 +1,10 @@
 import invariant from 'tiny-invariant'
 import { type Address, getAddress } from 'viem'
+import type { EvmChainId } from '../chain/index.js'
 import type { ID } from '../types/id.js'
 import { Currency } from './currency.js'
 import type { Type } from './type.js'
 import { type SerializedToken, tokenSchema } from './zod.js'
-import type { EvmChainId } from '../chain/index.js'
 /**
  * Represents an ERC20 token with a unique address and some metadata.
  */

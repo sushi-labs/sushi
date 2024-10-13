@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest'
 
+import type { EvmChainId } from '../chain/index.js'
 import { Native } from './native.js'
 import { Token } from './token.js'
-import type { EvmChainId } from '../chain/index.js'
 
 describe('Currency', () => {
   const ADDRESS_ZERO = '0x0000000000000000000000000000000000000000'
