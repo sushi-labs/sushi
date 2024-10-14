@@ -16,7 +16,10 @@ import {
 
 export const defaultCurrency = {
   ...Object.fromEntries(
-    Object.keys(evmNatives).map((key) => [key, Native.onChain(Number(key))]),
+    Object.keys(evmNatives).map((key) => [
+      key,
+      Native.onChain(Number(key) as EvmChainId),
+    ]),
   ),
   [EvmChainId.SKALE_EUROPA]: WETH9[EvmChainId.SKALE_EUROPA],
 } as const

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { Price, Token } from '../../../currency/index.js'
 import { priceToClosestTick, tickToPrice } from './priceTickConversions.js'
+import type { EvmChainId } from '../../../chain/index.js'
 
 describe('priceTickConversions', () => {
   /**
@@ -13,7 +14,7 @@ describe('priceTickConversions', () => {
   }: {
     sortOrder: number
     decimals?: number
-    chainId?: number
+    chainId?: EvmChainId
   }): Token {
     if (sortOrder > 9 || sortOrder % 1 !== 0)
       throw new Error('invalid sort order')
