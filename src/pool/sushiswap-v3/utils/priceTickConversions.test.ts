@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
+import type { EvmChainId } from '../../../chain/index.js'
 import { Price, Token } from '../../../currency/index.js'
 import { priceToClosestTick, tickToPrice } from './priceTickConversions.js'
-import type { EvmChainId } from '../../../chain/index.js'
 
 describe('priceTickConversions', () => {
   /**
