@@ -1,5 +1,11 @@
 # sushi
 
+## 4.1.6
+
+### Patch Changes
+
+- [#24](https://github.com/sushi-labs/sushi/pull/24) [`c266643`](https://github.com/sushi-labs/sushi/commit/c26664306c9fb15c4ea5d691f2216ddce0118193) Thanks [@matthewlilley](https://github.com/matthewlilley)! - ape rp5 config
+
 ## 4.1.5
 
 ### Patch Changes
