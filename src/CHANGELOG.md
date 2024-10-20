@@ -1,5 +1,11 @@
 # sushi
 
+## 4.1.5
+
+### Patch Changes
+
+- [#22](https://github.com/sushi-labs/sushi/pull/22) [`b33f879`](https://github.com/sushi-labs/sushi/commit/b33f87974bcbd1f3ca856230cd232f3db062a049) Thanks [@matthewlilley](https://github.com/matthewlilley)! - apechain extractor enabled chain id
+
 ## 4.1.4
 
 ### Patch Changes
