@@ -1,5 +1,6 @@
 import { ChainId } from '../../chain/index.js'
 import {
+  APE_USD,
   BASE_BRIDGE_USDC,
   BTTC_BSC_BRIDGE_USDC,
   BTTC_BSC_BRIDGE_USDT,
@@ -218,6 +219,19 @@ export const STABLES = {
   [ChainId.MANTLE]: [USDC[ChainId.MANTLE]],
   [ChainId.PALM]: [],
   [ChainId.ZKSYNC_ERA]: [USDC[ChainId.ZKSYNC_ERA], USDT[ChainId.ZKSYNC_ERA]],
+  [ChainId.MANTA]: [USDC[ChainId.MANTA], USDT[ChainId.MANTA]],
+  [ChainId.MODE]: [USDC[ChainId.MODE], USDT[ChainId.MODE]],
+  [ChainId.TAIKO]: [
+    USDC[ChainId.TAIKO],
+    USDT[ChainId.TAIKO],
+    DAI[ChainId.TAIKO],
+  ],
+  [ChainId.ZKLINK]: [
+    USDC[ChainId.ZKLINK],
+    USDT[ChainId.ZKLINK],
+    DAI[ChainId.ZKLINK],
+  ],
+  [ChainId.APE]: [APE_USD],
   // TESTNETS
   // [ChainId.RINKEBY]: [USDC[ChainId.RINKEBY]],
   // [ChainId.ROPSTEN]: [

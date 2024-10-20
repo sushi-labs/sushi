@@ -17,7 +17,6 @@ export const sidebar = {
       collapsed: true,
       items: [
         { text: 'Installation', link: '/sdk/installation' },
-        { text: 'Getting Started', link: '/sdk/getting-started' },
         { text: 'Quote', link: '/sdk/quote' },
         { text: 'Swap', link: '/sdk/swap' },
         // { text: 'Limit', link: '/sdk/limit' },
@@ -65,6 +64,10 @@ export const sidebar = {
         {
           text: 'lbAMM',
           link: '/amm/lbamm',
+        },
+        {
+          text: 'fAMM',
+          link: '/amm/famm',
         },
       ],
     },

@@ -90,4 +90,8 @@ export const defaultQuoteCurrency = {
   [ChainId.SKALE_EUROPA]: USDC[ChainId.SKALE_EUROPA],
   [ChainId.ROOTSTOCK]: USDT[ChainId.ROOTSTOCK],
   [ChainId.MANTLE]: WETH9[ChainId.MANTLE],
+  [ChainId.MANTA]: USDC[ChainId.MANTA],
+  [ChainId.MODE]: USDC[ChainId.MODE],
+  [ChainId.TAIKO]: USDC[ChainId.TAIKO],
+  [ChainId.ZKLINK]: USDC[ChainId.ZKLINK],
 } as const

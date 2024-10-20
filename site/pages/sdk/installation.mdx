@@ -32,13 +32,16 @@ If you're not using a package manager, you can also use Sushi via an ESM-compati
 <script type="module">
   import { getSwap, ChainId } from 'https://esm.sh/sushi'
 
-  await swap({
+  const swap = await getSwap({
     chainId: ChainId.ETHEREUM,
-    tokenIn: '0x',
-    tokenOut: '0x',
-    amount: 1e18,
-    gasPrice: 1e9
-  }).then(console.log).catch(console.error)
+    tokenIn: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
+    tokenOut: '0x6B3595068778DD592e39A122f4f5a5cF09C90fE2',
+    amount: 1000000000000000000,
+    maxSlippage: 0.005,
+    gasPrice: 8563095715
+  })
+
+  console.log(swap)
 </script>
 ```
 

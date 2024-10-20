@@ -5,6 +5,7 @@ import {
   AMPL_ADDRESS,
   ANKR_ADDRESS,
   APE_ADDRESS,
+  APE_USD_ADDRESS,
   ARB_ADDRESS,
   BAL_ADDRESS,
   BCT_ADDRESS,
@@ -45,6 +46,7 @@ import {
   SAND_ADDRESS,
   SNX_ADDRESS,
   STG_ADDRESS,
+  STONE_ADDRESS,
   SUSHI_ADDRESS,
   SWISE_ADDRESS,
   SolvBTC_ADDRESS,
@@ -731,6 +733,41 @@ export const WNATIVE = {
     symbol: 'WAPE',
     name: 'Wrapped APE',
   }),
+  [ChainId.MANTA]: new Token({
+    chainId: ChainId.MANTA,
+    address: WNATIVE_ADDRESS[ChainId.MANTA],
+    decimals: 18,
+    symbol: 'WETH',
+    name: 'Wrapped Ether',
+  }),
+  [ChainId.MODE]: new Token({
+    chainId: ChainId.MODE,
+    address: WNATIVE_ADDRESS[ChainId.MODE],
+    decimals: 18,
+    symbol: 'WETH',
+    name: 'Wrapped Ether',
+  }),
+  [ChainId.TAIKO]: new Token({
+    chainId: ChainId.TAIKO,
+    address: WNATIVE_ADDRESS[ChainId.TAIKO],
+    decimals: 18,
+    symbol: 'WETH',
+    name: 'Wrapped Ether',
+  }),
+  [ChainId.ZKLINK]: new Token({
+    chainId: ChainId.ZKLINK,
+    address: WNATIVE_ADDRESS[ChainId.ZKLINK],
+    decimals: 18,
+    symbol: 'WETH',
+    name: 'Wrapped Ether',
+  }),
+  [ChainId.APE]: new Token({
+    chainId: ChainId.APE,
+    address: WNATIVE_ADDRESS[ChainId.APE],
+    decimals: 18,
+    symbol: 'WAPE',
+    name: 'Wrapped Ape',
+  }),
 } as const
 
 export const SUSHI = addressMapToTokenMap(
@@ -1248,3 +1285,20 @@ export const METH = addressMapToTokenMap(
   },
   METH_ADDRESS,
 ) as Record<keyof typeof METH_ADDRESS, Token>
+
+export const STONE = addressMapToTokenMap(
+  {
+    decimals: 18,
+    symbol: 'STONE',
+    name: 'StakeStone Ether',
+  },
+  STONE_ADDRESS,
+) as Record<keyof typeof STONE_ADDRESS, Token>
+
+export const APE_USD = new Token({
+  chainId: ChainId.APE,
+  address: APE_USD_ADDRESS,
+  symbol: 'ApeUSD',
+  name: 'Ape USD',
+  decimals: 18,
+})

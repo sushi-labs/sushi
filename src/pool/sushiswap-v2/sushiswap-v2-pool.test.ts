@@ -13,14 +13,14 @@ import { SushiSwapV2Pool } from './sushiswap-v2-pool.js'
 describe('computePairAddress', () => {
   it('should correctly compute the pool address', () => {
     const tokenA = new Token({
-      chainId: 1,
+      chainId: ChainId.ETHEREUM,
       address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
       decimals: 18,
       symbol: 'USDC',
       name: 'USD Coin',
     })
     const tokenB = new Token({
-      chainId: 1,
+      chainId: ChainId.ETHEREUM,
       address: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
       decimals: 18,
       symbol: 'DAI',
@@ -36,14 +36,14 @@ describe('computePairAddress', () => {
   })
   it('should give same result regardless of token order', () => {
     const USDC = new Token({
-      chainId: 1,
+      chainId: ChainId.ETHEREUM,
       address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
       decimals: 18,
       symbol: 'USDC',
       name: 'USD Coin',
     })
     const DAI = new Token({
-      chainId: 1,
+      chainId: ChainId.ETHEREUM,
       address: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
       decimals: 18,
       symbol: 'DAI',
@@ -71,14 +71,14 @@ describe('computePairAddress', () => {
 
 describe('Pair', () => {
   const USDC = new Token({
-    chainId: 1,
+    chainId: ChainId.ETHEREUM,
     address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
     decimals: 18,
     symbol: 'USDC',
     name: 'USD Coin',
   })
   const DAI = new Token({
-    chainId: 1,
+    chainId: ChainId.ETHEREUM,
     address: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
     decimals: 18,
     symbol: 'DAI',
@@ -86,14 +86,14 @@ describe('Pair', () => {
   })
 
   const USDC_SEPOLIA = new Token({
-    chainId: 11155111,
+    chainId: ChainId.SEPOLIA,
     address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
     decimals: 18,
     symbol: 'USDC',
     name: 'USD Coin',
   })
   const DAI_SEPOLIA = new Token({
-    chainId: 11155111,
+    chainId: ChainId.SEPOLIA,
     address: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
     decimals: 18,
     symbol: 'DAI',
