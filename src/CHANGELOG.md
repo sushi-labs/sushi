@@ -1,5 +1,11 @@
 # sushi
 
+## 4.1.7
+
+### Patch Changes
+
+- [#26](https://github.com/sushi-labs/sushi/pull/26) [`15453ab`](https://github.com/sushi-labs/sushi/commit/15453ab7389a09a8502f1f11ab3a3fe71ae409ba) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add ape to AGGREGATOR_ONLY_CHAIN_IDS
+
 ## 4.1.6
 
 ### Patch Changes
