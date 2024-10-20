@@ -410,6 +410,7 @@ export const LSDS = {
   ],
   [ChainId.TAIKO]: [],
   [ChainId.ZKLINK]: [],
+  [ChainId.APE]: [],
   // TESTNETS
   [ChainId.POLYGON_TESTNET]: [],
   [ChainId.FANTOM_TESTNET]: [],

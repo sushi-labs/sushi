@@ -1,5 +1,6 @@
 import { ChainId } from '../../chain/index.js'
 import {
+  APE_USD,
   METH,
   MUSD,
   SKL,
@@ -558,4 +559,5 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     USDT[ChainId.ZKLINK],
     DAI[ChainId.ZKLINK],
   ],
+  [ChainId.APE]: [WNATIVE[ChainId.APE], APE_USD],
 }

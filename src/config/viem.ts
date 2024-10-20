@@ -553,6 +553,36 @@ export const curtis = {
   },
 }
 
+export const apeChain = {
+  id: 33139,
+  name: 'Ape Chain',
+  nativeCurrency: {
+    name: 'ApeCoin',
+    symbol: 'APE',
+    decimals: 18,
+  },
+  rpcUrls: {
+    default: {
+      http: ['https://rpc.apechain.com/http'],
+      webSocket: ['wss://rpc.apechain.com/ws'],
+    },
+  },
+  blockExplorers: {
+    default: {
+      name: 'Apescan',
+      url: 'https://apescan.io',
+      apiUrl: 'https://api.apescan.io',
+    },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
+      blockCreated: 20889,
+    },
+  },
+  sourceId: 42_161,
+} as const
+
 // const alchemyId =
 //   process.env['ALCHEMY_ID'] || process.env['NEXT_PUBLIC_ALCHEMY_ID']
 const drpcId = process.env['DRPC_ID'] || process.env['NEXT_PUBLIC_DRPC_ID']
@@ -666,6 +696,7 @@ export const publicTransports = {
   [ChainId.SEPOLIA]: http('https://sepolia.drpc.org'),
   [ChainId.GÖRLI]: http('https://eth-goerli.api.onfinality.io/public'),
   [ChainId.CURTIS]: http('https://curtis.rpc.caldera.xyz/http'),
+  [ChainId.APE]: http('https://rpc.apechain.com/http'),
 } as const satisfies Record<ChainId, Transport>
 
 export const publicChains = [
@@ -722,6 +753,7 @@ export const publicChains = [
   polygonMumbai,
   sepolia,
   curtis as unknown as Omit<typeof mainnet, 'id'> & { id: 33111 },
+  apeChain as unknown as Omit<typeof mainnet, 'id'> & { id: 33139 },
 ] as const satisfies Readonly<Chain[]>
 
 export const publicClientConfig = {
@@ -897,7 +929,10 @@ export const publicClientConfig = {
     chain: zkLinkNova,
     transport: publicTransports[ChainId.ZKLINK],
   },
-
+  [ChainId.APE]: {
+    chain: apeChain as unknown as typeof mainnet & { id: 33139 },
+    transport: publicTransports[ChainId.APE],
+  },
   /* Testnets */
   [ChainId.ARBITRUM_TESTNET]: {
     chain: arbitrumSepolia,

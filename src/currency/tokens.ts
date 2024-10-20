@@ -5,6 +5,7 @@ import {
   AMPL_ADDRESS,
   ANKR_ADDRESS,
   APE_ADDRESS,
+  APE_USD_ADDRESS,
   ARB_ADDRESS,
   BAL_ADDRESS,
   BCT_ADDRESS,
@@ -760,6 +761,13 @@ export const WNATIVE = {
     symbol: 'WETH',
     name: 'Wrapped Ether',
   }),
+  [ChainId.APE]: new Token({
+    chainId: ChainId.APE,
+    address: WNATIVE_ADDRESS[ChainId.APE],
+    decimals: 18,
+    symbol: 'WAPE',
+    name: 'Wrapped Ape',
+  }),
 } as const
 
 export const SUSHI = addressMapToTokenMap(
@@ -1286,3 +1294,11 @@ export const STONE = addressMapToTokenMap(
   },
   STONE_ADDRESS,
 ) as Record<keyof typeof STONE_ADDRESS, Token>
+
+export const APE_USD = new Token({
+  chainId: ChainId.APE,
+  address: APE_USD_ADDRESS,
+  symbol: 'ApeUSD',
+  name: 'Ape USD',
+  decimals: 18,
+})
