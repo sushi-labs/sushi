@@ -1,5 +1,11 @@
 # sushi
 
+## 4.1.4
+
+### Patch Changes
+
+- [#20](https://github.com/sushi-labs/sushi/pull/20) [`2f305e7`](https://github.com/sushi-labs/sushi/commit/2f305e7fb1f7eaa30f2639768b43c3742dc77d3d) Thanks [@matthewlilley](https://github.com/matthewlilley)! - apechain
+
 ## 4.1.3
 
 ### Patch Changes
