@@ -1,5 +1,6 @@
 import { ChainId } from '../../chain/index.js'
 import {
+  APE_USD,
   BASE_BRIDGE_USDC,
   BTTC_BSC_BRIDGE_USDC,
   BTTC_BSC_BRIDGE_USDT,
@@ -230,6 +231,7 @@ export const STABLES = {
     USDT[ChainId.ZKLINK],
     DAI[ChainId.ZKLINK],
   ],
+  [ChainId.APE]: [APE_USD],
   // TESTNETS
   // [ChainId.RINKEBY]: [USDC[ChainId.RINKEBY]],
   // [ChainId.ROPSTEN]: [

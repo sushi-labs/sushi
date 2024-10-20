@@ -390,6 +390,7 @@ export const WNATIVE_ADDRESS = {
   [ChainId.MODE]: WETH9_ADDRESS[ChainId.MODE],
   [ChainId.TAIKO]: WETH9_ADDRESS[ChainId.TAIKO],
   [ChainId.ZKLINK]: WETH9_ADDRESS[ChainId.ZKLINK],
+  [ChainId.APE]: '0x48b62137EdfA95a428D35C09E44256a739F6B557',
 } as const
 
 export const SUSHI_ADDRESS = {
@@ -692,3 +693,6 @@ export const METH_ADDRESS = {
 export const STONE_ADDRESS = {
   [ChainId.MANTA]: '0xEc901DA9c68E90798BbBb74c11406A32A70652C3',
 } as const
+
+export const APE_USD_ADDRESS =
+  '0xA2235d059F80e176D931Ef76b6C51953Eb3fBEf4' as const

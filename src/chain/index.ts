@@ -346,6 +346,7 @@ export const ChainKey = {
   [ChainId.MODE]: 'mode',
   [ChainId.TAIKO]: 'taiko',
   [ChainId.ZKLINK]: 'zklink',
+  [ChainId.APE]: 'ape',
 } as const
 export type ChainKey = (typeof ChainKey)[keyof typeof ChainKey]
 

@@ -29,6 +29,7 @@ describe('getSwap', () => {
     const result = await getSwap({
       ...baseSwapRequest,
       to,
+      includeTransaction: true,
     })
     expect(result).include({ status: 'Success' })
     expect(result).include.keys('tx')
