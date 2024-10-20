@@ -384,6 +384,7 @@ export const ROUTE_PROCESSOR_5_SUPPORTED_CHAIN_IDS = [
   ChainId.MODE,
   ChainId.TAIKO,
   ChainId.ZKLINK,
+  ChainId.APE,
   ChainId.CURTIS,
 ] as const
 export type RouteProcessor5ChainId =
@@ -431,6 +432,8 @@ export const ROUTE_PROCESSOR_5_ADDRESS: Record<
   [ChainId.MODE]: '0xf2614A233c7C3e7f08b1F887Ba133a13f1eb2c55',
   [ChainId.TAIKO]: '0xf2614A233c7C3e7f08b1F887Ba133a13f1eb2c55',
   [ChainId.ZKLINK]: '0x9e55e562D40FD01f38cD4057e632352fE0758F16',
+  [ChainId.APE]: '0xf2614A233c7C3e7f08b1F887Ba133a13f1eb2c55',
+
   // TESTNETS
   [ChainId.CURTIS]: '0xf2614A233c7C3e7f08b1F887Ba133a13f1eb2c55',
 } as const
