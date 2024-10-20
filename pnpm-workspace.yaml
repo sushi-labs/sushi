@@ -1,6 +1,6 @@
 packages:
-  - 'examples/*'
-  - 'environments/*'
+  # - 'examples/*'
+  # - 'environments/*'
   - 'site'
   - 'src'
   - 'test'
