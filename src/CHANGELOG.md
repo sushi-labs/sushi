@@ -1,5 +1,11 @@
 # sushi
 
+## 4.1.8
+
+### Patch Changes
+
+- [#29](https://github.com/sushi-labs/sushi/pull/29) [`834419b`](https://github.com/sushi-labs/sushi/commit/834419bc01ecfafcd42ffdefc80e0bb8a45dfdaf) Thanks [@matthewlilley](https://github.com/matthewlilley)! - add virtual protocol
+
 ## 4.1.7
 
 ### Patch Changes
