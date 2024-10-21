@@ -484,6 +484,13 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     }),
     axlUSDC[ChainId.BASE],
     DAI[ChainId.BASE],
+    new Token({
+      chainId: ChainId.BASE,
+      address: '0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b',
+      decimals: 18,
+      symbol: 'VIRTUAL',
+      name: 'Virtual Protocol',
+    }),
   ],
   [ChainId.SCROLL]: [
     WNATIVE[ChainId.SCROLL],
