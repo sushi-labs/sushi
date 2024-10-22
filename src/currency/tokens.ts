@@ -5,6 +5,7 @@ import {
   AMPL_ADDRESS,
   ANKR_ADDRESS,
   APE_ADDRESS,
+  APE_ETH_ADDRESS,
   APE_USD_ADDRESS,
   ARB_ADDRESS,
   BAL_ADDRESS,
@@ -1300,5 +1301,13 @@ export const APE_USD = new Token({
   address: APE_USD_ADDRESS,
   symbol: 'ApeUSD',
   name: 'Ape USD',
+  decimals: 18,
+})
+
+export const APE_ETH = new Token({
+  chainId: ChainId.APE,
+  address: APE_ETH_ADDRESS,
+  symbol: 'ApeETH',
+  name: 'Ape ETH',
   decimals: 18,
 })
