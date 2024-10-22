@@ -40,6 +40,7 @@ export const TOKEN_CHOMPER_CHAIN_IDS = [
   ChainId.MODE,
   ChainId.TAIKO,
   ChainId.ZKLINK,
+  ChainId.APE,
 ] as const
 
 export type TokenChomperChainId = (typeof TOKEN_CHOMPER_CHAIN_IDS)[number]
@@ -85,6 +86,7 @@ export const TOKEN_CHOMPER_ADDRESS: Record<TokenChomperChainId, `0x${string}`> =
     [ChainId.MODE]: '0xca226bd9c754F1283123d32B2a7cF62a722f8ADa',
     [ChainId.TAIKO]: '0xca226bd9c754F1283123d32B2a7cF62a722f8ADa',
     [ChainId.ZKLINK]: '0x8b6E8186dE74fe0128C0a6a3B2733c1365f4c9e2',
+    [ChainId.APE]: '0xC09756432dAD2FF50B2D40618f7B04546DD20043',
   } as const
 
 export const isTokenChomperChainId = (

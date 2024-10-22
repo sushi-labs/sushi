@@ -1,5 +1,6 @@
 import { ChainId, natives } from '../../chain/index.js'
 import {
+  APE_USD,
   ARB,
   BUSD,
   GNO,
@@ -94,4 +95,5 @@ export const defaultQuoteCurrency = {
   [ChainId.MODE]: USDC[ChainId.MODE],
   [ChainId.TAIKO]: USDC[ChainId.TAIKO],
   [ChainId.ZKLINK]: USDC[ChainId.ZKLINK],
+  [ChainId.APE]: APE_USD,
 } as const
