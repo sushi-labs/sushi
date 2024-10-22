@@ -1,5 +1,11 @@
 # sushi
 
+## 4.1.9
+
+### Patch Changes
+
+- [#28](https://github.com/sushi-labs/sushi/pull/28) [`c10a5a0`](https://github.com/sushi-labs/sushi/commit/c10a5a09ec333da2722f120ec5026e9f6c8b10d5) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add token chomper & multisig addresses for ape
+
 ## 4.1.8
 
 ### Patch Changes
