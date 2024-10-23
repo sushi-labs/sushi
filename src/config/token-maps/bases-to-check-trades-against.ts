@@ -487,6 +487,13 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     DAI[ChainId.BASE],
     new Token({
       chainId: ChainId.BASE,
+      address: '0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf',
+      decimals: 8,
+      symbol: 'cbBTC',
+      name: 'Coinbase Wrapped BTC',
+    }),
+    new Token({
+      chainId: ChainId.BASE,
       address: '0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b',
       decimals: 18,
       symbol: 'VIRTUAL',
