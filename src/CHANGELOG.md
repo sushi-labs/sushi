@@ -1,5 +1,11 @@
 # sushi
 
+## 4.1.11
+
+### Patch Changes
+
+- [#34](https://github.com/sushi-labs/sushi/pull/34) [`958addf`](https://github.com/sushi-labs/sushi/commit/958addff77e83b174acddbea8eec09cfef7e7861) Thanks [@matthewlilley](https://github.com/matthewlilley)! - add cbbtc to bases
+
 ## 4.1.10
 
 ### Patch Changes
