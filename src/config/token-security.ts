@@ -19,7 +19,7 @@ const SUPPORTED_CHAIN_IDS = [
   ChainId.CRONOS,
   ChainId.MANTLE,
   ChainId.MANTA,
-  ChainId.ZKLINK
+  ChainId.ZKLINK,
 ] as const
 
 export const TokenSecurityChainIds = SUPPORTED_CHAIN_IDS
