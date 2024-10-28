@@ -16,6 +16,10 @@ const SUPPORTED_CHAIN_IDS = [
   ChainId.POLYGON,
   ChainId.SCROLL,
   ChainId.BLAST,
+  ChainId.CRONOS,
+  ChainId.MANTLE,
+  ChainId.MANTA,
+  ChainId.ZKLINK
 ] as const
 
 export const TokenSecurityChainIds = SUPPORTED_CHAIN_IDS
