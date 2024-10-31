@@ -1,5 +1,11 @@
 # sushi
 
+## 4.1.12
+
+### Patch Changes
+
+- [#37](https://github.com/sushi-labs/sushi/pull/37) [`c0a310e`](https://github.com/sushi-labs/sushi/commit/c0a310e46c6c3a1759cd8c292c6e84c131e1a7e6) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Update RPC urls
+
 ## 4.1.11
 
 ### Patch Changes
