@@ -586,7 +586,6 @@ export const apeChain = {
 // const alchemyId =
 //   process.env['ALCHEMY_ID'] || process.env['NEXT_PUBLIC_ALCHEMY_ID']
 const drpcId = process.env['DRPC_ID'] || process.env['NEXT_PUBLIC_DRPC_ID']
-const rskId = process.env['RSK_ID'] || process.env['NEXT_PUBLIC_RSK_ID']
 
 export const publicTransports = {
   [ChainId.ARBITRUM_NOVA]: http(
@@ -598,9 +597,9 @@ export const publicTransports = {
   [ChainId.AVALANCHE]: http(
     `https://lb.drpc.org/ogrpc?network=avalanche&dkey=${drpcId}`,
   ),
-  [ChainId.BOBA]: http('https://mainnet.boba.network'),
+  [ChainId.BOBA]: http(`https://lb.drpc.org/ogrpc?network=boba-eth&dkey=${drpcId}`),
   [ChainId.BOBA_AVAX]: http('https://avax.boba.network'),
-  [ChainId.BOBA_BNB]: http('https://bnb.boba.network'),
+  [ChainId.BOBA_BNB]: http(`https://lb.drpc.org/ogrpc?network=boba-bnb&dkey=${drpcId}`),
   [ChainId.BSC]: http(`https://lb.drpc.org/ogrpc?network=bsc&dkey=${drpcId}`),
   [ChainId.BTTC]: http('https://rpc.bittorrentchain.io'),
   [ChainId.CELO]: http(`https://lb.drpc.org/ogrpc?network=celo&dkey=${drpcId}`),
@@ -636,13 +635,13 @@ export const publicTransports = {
   [ChainId.POLYGON_ZKEVM]: http(
     `https://lb.drpc.org/ogrpc?network=polygon-zkevm&dkey=${drpcId}`,
   ),
-  [ChainId.THUNDERCORE]: http('https://mainnet-rpc.thundercore.com'),
+  [ChainId.THUNDERCORE]: http(`https://lb.drpc.org/ogrpc?network=thundercore&dkey=${drpcId}`),
   [ChainId.HAQQ]: http(`https://lb.drpc.org/ogrpc?network=haqq&dkey=${drpcId}`),
-  [ChainId.CORE]: http('https://rpc.coredao.org'),
-  [ChainId.TELOS]: http('https://rpc1.us.telos.net/evm'),
+  [ChainId.CORE]: http(`https://lb.drpc.org/ogrpc?network=core&dkey=${drpcId}`),
+  [ChainId.TELOS]: http(`https://lb.drpc.org/ogrpc?network=telos&dkey=${drpcId}`),
   [ChainId.PALM]: http(palm.rpcUrls.default.http[0]),
   [ChainId.OKEX]: http(okc.rpcUrls.default.http[0]),
-  [ChainId.HECO]: http(heco.rpcUrls.default.http[0]),
+  [ChainId.HECO]: http(`https://lb.drpc.org/ogrpc?network=heco&dkey=${drpcId}`),
   [ChainId.ZKSYNC_ERA]: http(
     `https://lb.drpc.org/ogrpc?network=zksync&dkey=${drpcId}`,
   ),
@@ -670,9 +669,7 @@ export const publicTransports = {
     'https://elated-tan-skat-indexer.skalenodes.com:10072',
   ),
   [ChainId.ROOTSTOCK]: http(
-    rskId
-      ? `https://rpc.mainnet.rootstock.io/${rskId}`
-      : 'https://public-node.rsk.co',
+    `https://lb.drpc.org/ogrpc?network=rootstock&dkey=${drpcId}`,
   ),
   [ChainId.MANTLE]: http(
     `https://lb.drpc.org/ogrpc?network=mantle&dkey=${drpcId}`,
