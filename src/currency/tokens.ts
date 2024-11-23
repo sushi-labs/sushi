@@ -1311,3 +1311,26 @@ export const APE_ETH = new Token({
   name: 'Ape ETH',
   decimals: 18,
 })
+
+// Curve tokens for metapools
+export const THREE_CRV = new Token({
+  chainId: ChainId.ETHEREUM,
+  address: '0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490',
+  symbol: '3Crv',
+  name: 'Curve.fi DAI/USDC/USDT',
+  decimals: 18,
+})
+export const CRV_FRAX = new Token({
+  chainId: ChainId.ETHEREUM,
+  address: '0x3175Df0976dFA876431C2E9eE6Bc45b65d3473CC',
+  symbol: 'crvFRAX',
+  name: 'Curve.fi FRAX/USDC',
+  decimals: 18,
+})
+export const CRV_REN_WSBTC = new Token({
+  chainId: ChainId.ETHEREUM,
+  address: '0x075b1bb99792c9E1041bA13afEf80C91a1e70fB3',
+  symbol: 'crvRenWSBTC',
+  name: 'Curve.fi renBTC/wBTC/sBTC',
+  decimals: 18,
+})

@@ -6,6 +6,7 @@ import {
   MUSD,
   SKL,
   STONE,
+  THREE_CRV,
   Token,
   USDB,
   USDP,
@@ -60,6 +61,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     OHM[ChainId.ETHEREUM],
     LINK[ChainId.ETHEREUM],
     SUSHI[ChainId.ETHEREUM],
+    THREE_CRV,
     new Token({
       chainId: ChainId.ETHEREUM,
       address: '0xA0b73E1Ff0B80914AB6fe0444E65848C4C34450b',
