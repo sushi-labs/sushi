@@ -1334,3 +1334,18 @@ export const CRV_REN_WSBTC = new Token({
   name: 'Curve.fi renBTC/wBTC/sBTC',
   decimals: 18,
 })
+
+export const GUSD = new Token({
+  chainId: ChainId.ETHEREUM,
+  address: '0x056Fd409E1d7A124BD7017459dFEa2F387b6d5Cd',
+  symbol: 'GUSD',
+  name: 'Gemini dollar',
+  decimals: 2,
+})
+export const CRV_USD = new Token({
+  chainId: ChainId.ETHEREUM,
+  address: '0xf939E0A03FB07F59A73314E73794Be0E57ac1b4E',
+  symbol: 'crvUSD',
+  name: 'Curve.Fi USD Stablecoin',
+  decimals: 18,
+})

@@ -2,6 +2,8 @@ import { ChainId } from '../../chain/index.js'
 import {
   APE_ETH,
   APE_USD,
+  CRV_USD,
+  GUSD,
   METH,
   MUSD,
   SKL,
@@ -62,6 +64,9 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     LINK[ChainId.ETHEREUM],
     SUSHI[ChainId.ETHEREUM],
     THREE_CRV,
+    GUSD,
+    LUSD[ChainId.ETHEREUM],
+    CRV_USD,
     new Token({
       chainId: ChainId.ETHEREUM,
       address: '0xA0b73E1Ff0B80914AB6fe0444E65848C4C34450b',
