@@ -1,5 +1,11 @@
 # sushi
 
+## 4.1.14
+
+### Patch Changes
+
+- [`fb8043d`](https://github.com/sushi-labs/sushi/commit/fb8043d8c8394534939fdbc96aae6089f1caf0ae) Thanks [@matthewlilley](https://github.com/matthewlilley)! - add bases for ethereum
+
 ## 4.1.12
 
 ### Patch Changes
