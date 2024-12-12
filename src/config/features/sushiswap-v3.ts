@@ -203,7 +203,7 @@ export const SUSHISWAP_V3_SUPPORTED_CHAIN_IDS = [
   ChainId.BLAST,
   ChainId.SKALE_EUROPA,
   ChainId.ROOTSTOCK,
-  ChainId.SONIC
+  ChainId.SONIC,
 ] as const
 
 export const SushiSwapV3ChainIds = SUSHISWAP_V3_SUPPORTED_CHAIN_IDS

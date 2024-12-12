@@ -42,7 +42,7 @@ export const EXTRACTOR_SUPPORTED_CHAIN_IDS = [
   ChainId.TAIKO,
   ChainId.ZKLINK,
   ChainId.APE,
-  ChainId.SONIC
+  ChainId.SONIC,
 ] as const
 
 export type ExtractorSupportedChainId =

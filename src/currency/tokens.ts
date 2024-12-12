@@ -775,7 +775,7 @@ export const WNATIVE = {
     decimals: 18,
     symbol: 'wS',
     name: 'Wrapped Sonic',
-  })
+  }),
 } as const
 
 export const SUSHI = addressMapToTokenMap(

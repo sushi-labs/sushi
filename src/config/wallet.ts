@@ -81,7 +81,7 @@ export const MULTISIG_ADDRESS: Record<MultisigChainId, `0x${string}`> = {
   [ChainId.TAIKO]: '0xb8f2faca5b2EBcd6Be7B5D9E164962dE9CCc3B76',
   [ChainId.ZKLINK]: '0x0b0b61eC14f6b7AEfE62C460103E1a4638546298',
   [ChainId.APE]: '0xe7BEF4bFb8AcBe2b68B262A2323e09f13c021a9b',
-  [ChainId.SONIC]: '0x9ffC84bc9Cf7c85E4E6e2B0aB67BB6c643cA72A2'
+  [ChainId.SONIC]: '0x9ffC84bc9Cf7c85E4E6e2B0aB67BB6c643cA72A2',
 } as const
 
 export const isMultisigChainId = (

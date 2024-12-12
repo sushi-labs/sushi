@@ -598,7 +598,7 @@ export const sonic = {
     default: {
       name: 'Sonic Explorer',
       url: 'https://sonicscan.org',
-      apiUrl: 'https://api.sonicscan.org/api'
+      apiUrl: 'https://api.sonicscan.org/api',
     },
   },
   testnet: false,
