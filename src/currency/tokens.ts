@@ -769,6 +769,13 @@ export const WNATIVE = {
     symbol: 'WAPE',
     name: 'Wrapped Ape',
   }),
+  [ChainId.SONIC]: new Token({
+    chainId: ChainId.SONIC,
+    address: WNATIVE_ADDRESS[ChainId.SONIC],
+    decimals: 18,
+    symbol: 'wS',
+    name: 'Wrapped Sonic',
+  })
 } as const
 
 export const SUSHI = addressMapToTokenMap(

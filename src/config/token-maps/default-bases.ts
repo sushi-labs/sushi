@@ -411,6 +411,7 @@ export const DEFAULT_BASES = {
     WBTC[ChainId.ZKLINK],
   ],
   [ChainId.APE]: [Native.onChain(ChainId.APE), WNATIVE[ChainId.APE], APE_USD],
+  [ChainId.SONIC]: [Native.onChain(ChainId.SONIC), WNATIVE[ChainId.SONIC]], // TODO
   // [ChainId.SEPOLIA]: [Native.onChain(ChainId.SEPOLIA), WNATIVE[ChainId.SEPOLIA]],
 } as const satisfies Record<ChainId, Readonly<(Token | Native)[]>>
 

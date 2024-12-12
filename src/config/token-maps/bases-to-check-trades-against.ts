@@ -582,4 +582,5 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     DAI[ChainId.ZKLINK],
   ],
   [ChainId.APE]: [WNATIVE[ChainId.APE], APE_USD, APE_ETH],
+  [ChainId.SONIC]: [WNATIVE[ChainId.SONIC]], // TODO
 }
