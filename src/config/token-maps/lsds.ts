@@ -412,6 +412,7 @@ export const LSDS = {
   [ChainId.ZKLINK]: [],
   [ChainId.APE]: [],
   [ChainId.SONIC]: [],
+  [ChainId.HEMI]: [],
   // TESTNETS
   [ChainId.POLYGON_TESTNET]: [],
   [ChainId.FANTOM_TESTNET]: [],

@@ -64,4 +64,5 @@ export const nativeCurrencyIds = {
   [ChainId.ZKLINK]: 'ETH',
   [ChainId.APE]: 'APE',
   [ChainId.SONIC]: 'S',
+  [ChainId.HEMI]: 'ETH',
 } as const

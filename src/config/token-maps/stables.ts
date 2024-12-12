@@ -234,6 +234,7 @@ export const STABLES = {
   ],
   [ChainId.APE]: [APE_USD],
   [ChainId.SONIC]: [USDC[ChainId.SONIC]],
+  [ChainId.HEMI]: [USDC[ChainId.HEMI], USDT[ChainId.HEMI]],
   // TESTNETS
   // [ChainId.RINKEBY]: [USDC[ChainId.RINKEBY]],
   // [ChainId.ROPSTEN]: [

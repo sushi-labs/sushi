@@ -62,5 +62,6 @@ export const ChainId = {
   ZKLINK: 810180,
   APE: 33139,
   SONIC: 146,
+  HEMI: 43111,
 } as const
 export type ChainId = (typeof ChainId)[keyof typeof ChainId]

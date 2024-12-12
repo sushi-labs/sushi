@@ -16,9 +16,9 @@ import {
 } from '../../currency/index.js'
 
 export const defaultCurrency = {
-  ...Object.fromEntries(
+  ...(Object.fromEntries(
     Object.keys(natives).map((key) => [key, Native.onChain(Number(key))]),
-  ),
+  ) as Omit<Record<ChainId, Native>, typeof ChainId.SKALE_EUROPA>),
   [ChainId.SKALE_EUROPA]: WETH9[ChainId.SKALE_EUROPA],
 } as const
 
@@ -97,4 +97,5 @@ export const defaultQuoteCurrency = {
   [ChainId.ZKLINK]: USDC[ChainId.ZKLINK],
   [ChainId.APE]: APE_USD,
   [ChainId.SONIC]: WETH9[ChainId.SONIC],
+  [ChainId.HEMI]: USDC[ChainId.HEMI],
 } as const
