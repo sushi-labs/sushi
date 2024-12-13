@@ -53,7 +53,7 @@ export const UNISWAP_V3_SUPPORTED_CHAIN_IDS = [
   ChainId.MANTA,
   ChainId.TAIKO,
   ChainId.GNOSIS,
-  ChainId.SONIC
+  ChainId.SONIC,
 ] as const
 
 export const UniswapV3ChainIds = UNISWAP_V3_SUPPORTED_CHAIN_IDS
@@ -92,7 +92,7 @@ export const UNISWAP_V3_INIT_CODE_HASH: Record<
   [ChainId.MANTA]: POOL_INIT_CODE_HASH,
   [ChainId.TAIKO]: POOL_INIT_CODE_HASH,
   [ChainId.GNOSIS]: POOL_INIT_CODE_HASH,
-  [ChainId.SONIC]: POOL_INIT_CODE_HASH
+  [ChainId.SONIC]: POOL_INIT_CODE_HASH,
 } as const
 
 export const UNISWAP_V3_FACTORY_ADDRESS: Record<
