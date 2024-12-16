@@ -96,5 +96,5 @@ export const defaultQuoteCurrency = {
   [ChainId.TAIKO]: USDC[ChainId.TAIKO],
   [ChainId.ZKLINK]: USDC[ChainId.ZKLINK],
   [ChainId.APE]: APE_USD,
-  // [ChainId.SONIC]: // TODO
+  [ChainId.SONIC]: USDC[ChainId.SONIC]
 } as const

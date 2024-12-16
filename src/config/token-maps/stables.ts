@@ -232,7 +232,7 @@ export const STABLES = {
     DAI[ChainId.ZKLINK],
   ],
   [ChainId.APE]: [APE_USD],
-  [ChainId.SONIC]: [], // TODO
+  [ChainId.SONIC]: [USDC[ChainId.SONIC]],
   // TESTNETS
   // [ChainId.RINKEBY]: [USDC[ChainId.RINKEBY]],
   // [ChainId.ROPSTEN]: [
