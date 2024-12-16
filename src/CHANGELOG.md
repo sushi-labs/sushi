@@ -1,5 +1,11 @@
 # sushi
 
+## 4.1.16
+
+### Patch Changes
+
+- [#43](https://github.com/sushi-labs/sushi/pull/43) [`90ed3b1`](https://github.com/sushi-labs/sushi/commit/90ed3b1dfd8a8ac4b0f231a6b895132ac757bc9c) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add sonic network config
+
 ## 4.1.15
 
 ### Patch Changes
