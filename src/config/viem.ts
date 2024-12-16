@@ -583,6 +583,33 @@ export const apeChain = {
   sourceId: 42_161,
 } as const
 
+export const sonic = {
+  id: 146,
+  name: 'Sonic',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'Sonic',
+    symbol: 'S',
+  },
+  rpcUrls: {
+    default: { http: ['https://rpc.soniclabs.com'] },
+  },
+  blockExplorers: {
+    default: {
+      name: 'Sonic Explorer',
+      url: 'https://sonicscan.org',
+      apiUrl: 'https://api.sonicscan.org/api',
+    },
+  },
+  testnet: false,
+  contracts: {
+    multicall3: {
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
+      blockCreated: 60,
+    },
+  },
+} as const
+
 // const alchemyId =
 //   process.env['ALCHEMY_ID'] || process.env['NEXT_PUBLIC_ALCHEMY_ID']
 const drpcId = process.env['DRPC_ID'] || process.env['NEXT_PUBLIC_DRPC_ID']
@@ -702,6 +729,7 @@ export const publicTransports = {
   [ChainId.GÖRLI]: http('https://eth-goerli.api.onfinality.io/public'),
   [ChainId.CURTIS]: http('https://curtis.rpc.caldera.xyz/http'),
   [ChainId.APE]: http('https://rpc.apechain.com/http'),
+  [ChainId.SONIC]: http('https://rpc.soniclabs.com'),
 } as const satisfies Record<ChainId, Transport>
 
 export const publicChains = [
@@ -748,6 +776,8 @@ export const publicChains = [
   mode,
   taiko,
   zkLinkNova,
+  apeChain as unknown as Omit<typeof mainnet, 'id'> & { id: 33139 },
+  sonic as unknown as Omit<typeof mainnet, 'id'> & { id: 146 },
 
   /* Testnets */
   arbitrumSepolia,
@@ -758,7 +788,6 @@ export const publicChains = [
   polygonMumbai,
   sepolia,
   curtis as unknown as Omit<typeof mainnet, 'id'> & { id: 33111 },
-  apeChain as unknown as Omit<typeof mainnet, 'id'> & { id: 33139 },
 ] as const satisfies Readonly<Chain[]>
 
 export const publicClientConfig = {
@@ -937,6 +966,10 @@ export const publicClientConfig = {
   [ChainId.APE]: {
     chain: apeChain as unknown as typeof mainnet & { id: 33139 },
     transport: publicTransports[ChainId.APE],
+  },
+  [ChainId.SONIC]: {
+    chain: sonic as unknown as typeof mainnet & { id: 146 },
+    transport: publicTransports[ChainId.SONIC],
   },
   /* Testnets */
   [ChainId.ARBITRUM_TESTNET]: {
