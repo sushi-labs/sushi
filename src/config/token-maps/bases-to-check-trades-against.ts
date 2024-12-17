@@ -3,6 +3,7 @@ import {
   APE_ETH,
   APE_USD,
   CRV_USD,
+  DOC,
   GUSD,
   METH,
   MUSD,
@@ -546,6 +547,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     WNATIVE[ChainId.ROOTSTOCK],
     WETH9[ChainId.ROOTSTOCK],
     USDT[ChainId.ROOTSTOCK],
+    DOC,
   ],
   [ChainId.MANTLE]: [
     WNATIVE[ChainId.MANTLE],
