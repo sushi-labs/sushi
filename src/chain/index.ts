@@ -158,7 +158,7 @@ export class Chain implements Chain {
           name: 'Sonic Scan',
           url: 'https://sonicscan.org',
           standard: 'EIP3091',
-        }
+        },
       ]
     }
   }
