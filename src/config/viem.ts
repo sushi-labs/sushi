@@ -777,7 +777,7 @@ export const publicChains = [
   taiko,
   zkLinkNova,
   apeChain as unknown as Omit<typeof mainnet, 'id'> & { id: 33139 },
-  sonic as unknown as Omit<typeof mainnet, 'id'> & { id: 146 },
+  sonic,
 
   /* Testnets */
   arbitrumSepolia,
@@ -968,7 +968,7 @@ export const publicClientConfig = {
     transport: publicTransports[ChainId.APE],
   },
   [ChainId.SONIC]: {
-    chain: sonic as unknown as typeof mainnet & { id: 146 },
+    chain: sonic,
     transport: publicTransports[ChainId.SONIC],
   },
   /* Testnets */
