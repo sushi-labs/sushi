@@ -1,5 +1,11 @@
 # sushi
 
+## 4.1.17
+
+### Patch Changes
+
+- [#47](https://github.com/sushi-labs/sushi/pull/47) [`d53422f`](https://github.com/sushi-labs/sushi/commit/d53422fd3049c94d4c69fee3696f6d9edb71d63d) Thanks [@matthewlilley](https://github.com/matthewlilley)! - remove usdc on sonic
+
 ## 4.1.16
 
 ### Patch Changes
