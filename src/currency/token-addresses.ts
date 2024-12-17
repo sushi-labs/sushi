@@ -481,7 +481,7 @@ export const USDC_ADDRESS = {
   [ChainId.MODE]: '0xd988097fb8612cc24eeC14542bC03424c656005f',
   [ChainId.TAIKO]: '0x07d83526730c7438048D55A4fc0b850e2aaB6f0b',
   [ChainId.ZKLINK]: '0x1a1A3b2ff016332e866787B311fcB63928464509',
-  [ChainId.SONIC]: '0x391071Fe567d609E4af9d32de726d4C33679C7e2',
+  // [ChainId.SONIC]: '',
 } as const
 
 export const USDT_ADDRESS = {
