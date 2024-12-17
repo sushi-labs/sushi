@@ -1,5 +1,11 @@
 # sushi
 
+## 4.1.19
+
+### Patch Changes
+
+- [#50](https://github.com/sushi-labs/sushi/pull/50) [`88109b3`](https://github.com/sushi-labs/sushi/commit/88109b36709f8def1704048eb73d5aa71529db3e) Thanks [@matthewlilley](https://github.com/matthewlilley)! - doc
+
 ## 4.1.18
 
 ### Patch Changes
