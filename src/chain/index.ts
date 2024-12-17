@@ -152,6 +152,14 @@ export class Chain implements Chain {
           standard: 'EIP3091',
         },
       ]
+    } else if (data.chainId === ChainId.SONIC) {
+      this.explorers = [
+        {
+          name: 'Sonic Scan',
+          url: 'https://sonicscan.org',
+          standard: 'EIP3091',
+        }
+      ]
     }
   }
   getTxUrl(txHash: string): string {
