@@ -1356,3 +1356,11 @@ export const CRV_USD = new Token({
   name: 'Curve.Fi USD Stablecoin',
   decimals: 18,
 })
+
+export const DOC = new Token({
+  chainId: ChainId.ROOTSTOCK,
+  address: '0xE700691Da7B9851F2F35f8b8182C69C53ccad9DB',
+  decimals: 18,
+  symbol: 'DOC',
+  name: 'Dollar on Chain',
+})
