@@ -717,6 +717,12 @@ export const publicTransports = {
     `https://lb.drpc.org/ogrpc?network=taiko&dkey=${drpcId}`,
   ),
   [ChainId.ZKLINK]: http('https://rpc.zklink.io'),
+  [ChainId.APE]: http(
+    `https://lb.drpc.org/ogrpc?network=apechain&dkey=${drpcId}`,
+  ),
+  [ChainId.SONIC]: http(
+    `https://lb.drpc.org/ogrpc?network=sonic&dkey=${drpcId}`,
+  ),
   /* Testnets */ // TODO: add testnet transports
   [ChainId.ARBITRUM_TESTNET]: http('https://sepolia-rollup.arbitrum.io/rpc'),
   [ChainId.AVALANCHE_TESTNET]: http(
@@ -728,8 +734,6 @@ export const publicTransports = {
   [ChainId.SEPOLIA]: http('https://sepolia.drpc.org'),
   [ChainId.GÖRLI]: http('https://eth-goerli.api.onfinality.io/public'),
   [ChainId.CURTIS]: http('https://curtis.rpc.caldera.xyz/http'),
-  [ChainId.APE]: http('https://rpc.apechain.com/http'),
-  [ChainId.SONIC]: http('https://rpc.soniclabs.com'),
 } as const satisfies Record<ChainId, Transport>
 
 export const publicChains = [
