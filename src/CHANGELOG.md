@@ -1,5 +1,11 @@
 # sushi
 
+## 4.1.20
+
+### Patch Changes
+
+- [#52](https://github.com/sushi-labs/sushi/pull/52) [`752c18a`](https://github.com/sushi-labs/sushi/commit/752c18a8bddce1baef0055524f165602c45de20a) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add sonic USDC
+
 ## 4.1.19
 
 ### Patch Changes
