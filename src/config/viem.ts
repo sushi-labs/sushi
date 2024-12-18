@@ -717,8 +717,12 @@ export const publicTransports = {
     `https://lb.drpc.org/ogrpc?network=taiko&dkey=${drpcId}`,
   ),
   [ChainId.ZKLINK]: http('https://rpc.zklink.io'),
-  [ChainId.APE]: http(`https://lb.drpc.org/ogrpc?network=apechain&dkey=${drpcId}`),
-  [ChainId.SONIC]: http(`https://lb.drpc.org/ogrpc?network=sonic&dkey=${drpcId}`),
+  [ChainId.APE]: http(
+    `https://lb.drpc.org/ogrpc?network=apechain&dkey=${drpcId}`,
+  ),
+  [ChainId.SONIC]: http(
+    `https://lb.drpc.org/ogrpc?network=sonic&dkey=${drpcId}`,
+  ),
   /* Testnets */ // TODO: add testnet transports
   [ChainId.ARBITRUM_TESTNET]: http('https://sepolia-rollup.arbitrum.io/rpc'),
   [ChainId.AVALANCHE_TESTNET]: http(
