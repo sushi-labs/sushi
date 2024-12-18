@@ -1,5 +1,11 @@
 # sushi
 
+## 4.1.21
+
+### Patch Changes
+
+- [#54](https://github.com/sushi-labs/sushi/pull/54) [`f42ff1a`](https://github.com/sushi-labs/sushi/commit/f42ff1a44d5956e2b2abdf8491d53183dfae4f1e) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - use DRPC for sonic and apechain
+
 ## 4.1.20
 
 ### Patch Changes
