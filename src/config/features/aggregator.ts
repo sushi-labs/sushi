@@ -9,7 +9,6 @@ export const AGGREGATOR_ONLY_CHAIN_IDS = [
   ChainId.TAIKO,
   ChainId.ZKLINK,
   ChainId.APE,
-  ChainId.SONIC,
 ] as const
 
 export type AggregatorOnlyChainId = (typeof AGGREGATOR_ONLY_CHAIN_IDS)[number]
