@@ -1,5 +1,11 @@
 # sushi
 
+## 4.1.22
+
+### Patch Changes
+
+- [#56](https://github.com/sushi-labs/sushi/pull/56) [`f090bac`](https://github.com/sushi-labs/sushi/commit/f090bac0139f40a38d6bbd7ba22562ef5e010a59) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Remove Sonic from AggregatorOnlyChainId
+
 ## 4.1.21
 
 ### Patch Changes
