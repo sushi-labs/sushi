@@ -414,7 +414,7 @@ export const DEFAULT_BASES = {
   [ChainId.SONIC]: [
     Native.onChain(ChainId.SONIC),
     WNATIVE[ChainId.SONIC],
-    // USDC[ChainId.SONIC],
+    USDC[ChainId.SONIC],
     WETH9[ChainId.SONIC],
   ],
   // [ChainId.SEPOLIA]: [Native.onChain(ChainId.SEPOLIA), WNATIVE[ChainId.SEPOLIA]],
