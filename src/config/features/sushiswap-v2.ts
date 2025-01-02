@@ -38,7 +38,6 @@ export const SUSHISWAP_V2_SUPPORTED_CHAIN_IDS = [
   ChainId.ZETACHAIN,
   ChainId.CORE,
   ChainId.THUNDERCORE,
-  ChainId.HAQQ,
   ChainId.OPTIMISM,
   ChainId.LINEA,
   ChainId.POLYGON_ZKEVM,
