@@ -317,7 +317,10 @@ export abstract class NonfungiblePositionManager {
   private static encodeCollect(collectOptions: CollectOptions[]): Hex[] {
     const calldatas: Hex[] = []
     const nativeBalancesByRecipient = new Map<string, bigint>()
-    const sweepBalancesByRecipient = new Map<string, { token: Token; amount: bigint; recipient: Hex }>()
+    const sweepBalancesByRecipient = new Map<
+      string,
+      { token: Token; amount: bigint; recipient: Hex }
+    >()
 
     for (const options of collectOptions) {
       const tokenId = BigInt(options.tokenId)
@@ -352,8 +355,12 @@ export abstract class NonfungiblePositionManager {
           ? options.expectedCurrencyOwed1.quotient
           : options.expectedCurrencyOwed0.quotient
 
-        const currentNativeBalance = nativeBalancesByRecipient.get(recipient) ?? 0n
-        nativeBalancesByRecipient.set(recipient, currentNativeBalance + ethAmount)
+        const currentNativeBalance =
+          nativeBalancesByRecipient.get(recipient) ?? 0n
+        nativeBalancesByRecipient.set(
+          recipient,
+          currentNativeBalance + ethAmount,
+        )
 
         const balanceKey = `${token.address}-${recipient}`
         const accumulatedBalance = sweepBalancesByRecipient.get(balanceKey)
@@ -369,11 +376,18 @@ export abstract class NonfungiblePositionManager {
       }
     }
 
-    for (const [recipient, nativeAmount] of nativeBalancesByRecipient.entries()) {
+    for (const [
+      recipient,
+      nativeAmount,
+    ] of nativeBalancesByRecipient.entries()) {
       calldatas.push(Payments.encodeUnwrapWETH9(nativeAmount, recipient as Hex))
     }
 
-    for (const { token, amount, recipient } of sweepBalancesByRecipient.values()) {
+    for (const {
+      token,
+      amount,
+      recipient,
+    } of sweepBalancesByRecipient.values()) {
       calldatas.push(Payments.encodeSweepToken(token, amount, recipient))
     }
 
@@ -459,23 +473,25 @@ export abstract class NonfungiblePositionManager {
     const { expectedCurrencyOwed0, expectedCurrencyOwed1, ...rest } =
       options.collectOptions
     calldatas.push(
-      ...NonfungiblePositionManager.encodeCollect([{
-        tokenId: toHex(options.tokenId),
-        // add the underlying value to the expected currency already owed
-        expectedCurrencyOwed0: expectedCurrencyOwed0.add(
-          CurrencyAmount.fromRawAmount(
-            expectedCurrencyOwed0.currency,
-            amount0Min,
+      ...NonfungiblePositionManager.encodeCollect([
+        {
+          tokenId: toHex(options.tokenId),
+          // add the underlying value to the expected currency already owed
+          expectedCurrencyOwed0: expectedCurrencyOwed0.add(
+            CurrencyAmount.fromRawAmount(
+              expectedCurrencyOwed0.currency,
+              amount0Min,
+            ),
           ),
-        ),
-        expectedCurrencyOwed1: expectedCurrencyOwed1.add(
-          CurrencyAmount.fromRawAmount(
-            expectedCurrencyOwed1.currency,
-            amount1Min,
+          expectedCurrencyOwed1: expectedCurrencyOwed1.add(
+            CurrencyAmount.fromRawAmount(
+              expectedCurrencyOwed1.currency,
+              amount1Min,
+            ),
           ),
-        ),
-        ...rest,
-      }]),
+          ...rest,
+        },
+      ]),
     )
 
     if (options.liquidityPercentage.equalTo(1n)) {

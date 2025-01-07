@@ -1,4 +1,18 @@
+import invariant from 'tiny-invariant'
+import {
+  type Hex,
+  decodeAbiParameters,
+  isHex,
+  maxUint128,
+  zeroAddress,
+} from 'viem'
 import { describe, expect, it } from 'vitest'
+import {
+  multicallAbi_multicall,
+  peripheryPaymentsWithFeeAbi_sweepToken,
+  peripheryPaymentsWithFeeAbi_unwrapWETH9,
+} from '~sushi/abi/index.js'
+import { nonfungiblePositionManagerAbi_collect } from '../../../abi/nonfungiblePositionManagerAbi/nonfungiblePositionManagerAbi_collect.js'
 import {
   SushiSwapV3FeeAmount,
   TICK_SPACINGS,
@@ -14,20 +28,6 @@ import { encodeSqrtRatioX96 } from '../utils/encodeSqrtRatioX96.js'
 import { NonfungiblePositionManager } from './NonfungiblePositionManager.js'
 import { Position } from './Position.js'
 import { SushiSwapV3Pool } from './SushiSwapV3Pool.js'
-import {
-  decodeAbiParameters,
-  isHex,
-  maxUint128,
-  zeroAddress,
-  type Hex,
-} from 'viem'
-import { nonfungiblePositionManagerAbi_collect } from '../../../abi/nonfungiblePositionManagerAbi/nonfungiblePositionManagerAbi_collect.js'
-import {
-  multicallAbi_multicall,
-  peripheryPaymentsWithFeeAbi_sweepToken,
-  peripheryPaymentsWithFeeAbi_unwrapWETH9,
-} from '~sushi/abi/index.js'
-import invariant from 'tiny-invariant'
 
 function decodeCollectParams(calldata: string | Hex | undefined) {
   invariant(isHex(calldata))
@@ -401,7 +401,6 @@ describe('NonfungiblePositionManager', () => {
       expect(sweep2Params).toEqual([token1.address, 2n, recipient])
       expect(sweep3Params).toEqual([token2.address, 3n, recipient])
 
-
       expect(value).toEqual('0x00')
     })
 
@@ -425,17 +424,19 @@ describe('NonfungiblePositionManager', () => {
           },
         ])
 
-      const [[encodedCollect1Params, encodedCollect2Params, encodedUnwrapParams, encodedSweep1Params]] = decodeAbiParameters(
+      const [
+        [
+          encodedCollect1Params,
+          encodedCollect2Params,
+          encodedUnwrapParams,
+          encodedSweep1Params,
+        ],
+      ] = decodeAbiParameters(
         multicallAbi_multicall[0].inputs,
         `0x${calldata.slice(10)}`,
       )
 
-      const [
-        collect1Params,
-        collect2Params,
-        unwrapParams,
-        sweep1Params,
-      ] = [
+      const [collect1Params, collect2Params, unwrapParams, sweep1Params] = [
         decodeCollectParams(encodedCollect1Params),
         decodeCollectParams(encodedCollect2Params),
         decodeUnwrapParams(encodedUnwrapParams),
@@ -468,48 +469,63 @@ describe('NonfungiblePositionManager', () => {
 
     it('aggregates tokens and eth by recipient', () => {
       const recipient2 = '0x0000000000000000000000000000000000000004'
-  
-      const { calldata, value } = NonfungiblePositionManager.collectCallParameters([
-        {
-          tokenId: 1,
-          expectedCurrencyOwed0: CurrencyAmount.fromRawAmount(token0, 1n),
-          expectedCurrencyOwed1: CurrencyAmount.fromRawAmount(Native.onChain(1), 2n),
-          recipient: recipient,
-        },
-        {
-          tokenId: 2,
-          expectedCurrencyOwed0: CurrencyAmount.fromRawAmount(Native.onChain(1), 4n),
-          expectedCurrencyOwed1: CurrencyAmount.fromRawAmount(token0, 3n),
-          recipient: recipient,
-        },
-        {
-          tokenId: 3,
-          expectedCurrencyOwed0: CurrencyAmount.fromRawAmount(token1, 5n),
-          expectedCurrencyOwed1: CurrencyAmount.fromRawAmount(Native.onChain(1), 6n),
-          recipient: recipient2,
-        },
-        {
-          tokenId: 4,
-          expectedCurrencyOwed0: CurrencyAmount.fromRawAmount(Native.onChain(1), 8n),
-          expectedCurrencyOwed1: CurrencyAmount.fromRawAmount(token1, 7n),
-          recipient: recipient2,
-        },
-      ])
-  
-      const [[
-        encodedCollect1Params,
-        encodedCollect2Params, 
-        encodedCollect3Params,
-        encodedCollect4Params,
-        encodedUnwrap1Params,
-        encodedUnwrap2Params,
-        encodedSweep1Params,
-        encodedSweep2Params,
-      ]] = decodeAbiParameters(
+
+      const { calldata, value } =
+        NonfungiblePositionManager.collectCallParameters([
+          {
+            tokenId: 1,
+            expectedCurrencyOwed0: CurrencyAmount.fromRawAmount(token0, 1n),
+            expectedCurrencyOwed1: CurrencyAmount.fromRawAmount(
+              Native.onChain(1),
+              2n,
+            ),
+            recipient: recipient,
+          },
+          {
+            tokenId: 2,
+            expectedCurrencyOwed0: CurrencyAmount.fromRawAmount(
+              Native.onChain(1),
+              4n,
+            ),
+            expectedCurrencyOwed1: CurrencyAmount.fromRawAmount(token0, 3n),
+            recipient: recipient,
+          },
+          {
+            tokenId: 3,
+            expectedCurrencyOwed0: CurrencyAmount.fromRawAmount(token1, 5n),
+            expectedCurrencyOwed1: CurrencyAmount.fromRawAmount(
+              Native.onChain(1),
+              6n,
+            ),
+            recipient: recipient2,
+          },
+          {
+            tokenId: 4,
+            expectedCurrencyOwed0: CurrencyAmount.fromRawAmount(
+              Native.onChain(1),
+              8n,
+            ),
+            expectedCurrencyOwed1: CurrencyAmount.fromRawAmount(token1, 7n),
+            recipient: recipient2,
+          },
+        ])
+
+      const [
+        [
+          encodedCollect1Params,
+          encodedCollect2Params,
+          encodedCollect3Params,
+          encodedCollect4Params,
+          encodedUnwrap1Params,
+          encodedUnwrap2Params,
+          encodedSweep1Params,
+          encodedSweep2Params,
+        ],
+      ] = decodeAbiParameters(
         multicallAbi_multicall[0].inputs,
         `0x${calldata.slice(10)}`,
       )
-  
+
       const [
         collect1Params,
         collect2Params,
@@ -529,7 +545,7 @@ describe('NonfungiblePositionManager', () => {
         decodeSweepParams(encodedSweep1Params),
         decodeSweepParams(encodedSweep2Params),
       ]
-  
+
       expect(collect1Params).toEqual([
         {
           tokenId: 1n,
@@ -562,16 +578,15 @@ describe('NonfungiblePositionManager', () => {
           amount1Max: maxUint128,
         },
       ])
-  
+
       expect(unwrap1Params).toEqual([6n, recipient]) // 2n + 4n = 6n for recipient1
       expect(unwrap2Params).toEqual([14n, recipient2]) // 6n + 8n = 14n for recipient2
-  
+
       expect(sweep1Params).toEqual([token0.address, 4n, recipient]) // 1n + 3n = 4n of token0 for recipient1
       expect(sweep2Params).toEqual([token1.address, 12n, recipient2]) // 5n + 7n = 12n of token1 for recipient2
-  
+
       expect(value).toEqual('0x00')
     })
-    
   })
 
   describe('#removeCallParameters', () => {
