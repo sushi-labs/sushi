@@ -610,7 +610,6 @@ export const sonic = {
   },
 } as const
 
-// TODO
 export const hemi = {
   id: 43111,
   name: 'Hemi Network',
@@ -622,7 +621,22 @@ export const hemi = {
   rpcUrls: {
     default: { http: ['https://9277255a.rpc.hemi.network/rpc'] },
   },
-}
+  blockExplorers: {
+    default: {
+      name: 'Hemi Explorer',
+      // TODO: update with prod explorer when live
+      url: 'https://explorer-b81c3bd8.hemi.xyz',
+      apiUrl: 'https://explorer-b81c3bd8.hemi.xyz/api',
+    },
+  },
+  testnet: false,
+  contracts: {
+    multicall3: {
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
+      blockCreated: 0,
+    },
+  },
+} as const
 
 // const alchemyId =
 //   process.env['ALCHEMY_ID'] || process.env['NEXT_PUBLIC_ALCHEMY_ID']
