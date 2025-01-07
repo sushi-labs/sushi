@@ -43,6 +43,7 @@ export const EXTRACTOR_SUPPORTED_CHAIN_IDS = [
   ChainId.ZKLINK,
   ChainId.APE,
   ChainId.SONIC,
+  ChainId.HEMI,
 ] as const
 
 export type ExtractorSupportedChainId =

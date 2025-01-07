@@ -386,6 +386,7 @@ export const ROUTE_PROCESSOR_5_SUPPORTED_CHAIN_IDS = [
   ChainId.ZKLINK,
   ChainId.APE,
   ChainId.SONIC,
+  ChainId.HEMI,
   ChainId.CURTIS,
 ] as const
 export type RouteProcessor5ChainId =
@@ -435,6 +436,7 @@ export const ROUTE_PROCESSOR_5_ADDRESS: Record<
   [ChainId.ZKLINK]: '0x9e55e562D40FD01f38cD4057e632352fE0758F16',
   [ChainId.APE]: '0xf2614A233c7C3e7f08b1F887Ba133a13f1eb2c55',
   [ChainId.SONIC]: '0xf2614A233c7C3e7f08b1F887Ba133a13f1eb2c55',
+  [ChainId.HEMI]: '0xf2614A233c7C3e7f08b1F887Ba133a13f1eb2c55',
 
   // TESTNETS
   [ChainId.CURTIS]: '0xf2614A233c7C3e7f08b1F887Ba133a13f1eb2c55',

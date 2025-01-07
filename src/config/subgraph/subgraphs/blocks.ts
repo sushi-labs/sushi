@@ -49,4 +49,5 @@ export const BLOCKS_SUBGRAPH_URL: Partial<Record<ChainId, string>> = {
   [ChainId.SKALE_EUROPA]: `${SKALE_HOST}/sushi/blocks-skale-europa`,
   [ChainId.ROOTSTOCK]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/blocks-rootstock/gn`,
   [ChainId.SONIC]: `${DECENTRALIZED_HOST_BY_DEPLOYMENT_ID}/QmdAhLuQAv9GfsWctJ8R36bYr6Gdp2GgUGSR2EDUNfb96h`,
+  [ChainId.HEMI]: '', // TODO
 }

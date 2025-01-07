@@ -589,4 +589,9 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     USDC[ChainId.SONIC],
     WETH9[ChainId.SONIC],
   ],
+  [ChainId.HEMI]: [
+    WNATIVE[ChainId.HEMI],
+    USDC[ChainId.HEMI],
+    USDT[ChainId.HEMI],
+  ],
 }

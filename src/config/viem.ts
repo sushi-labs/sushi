@@ -610,6 +610,34 @@ export const sonic = {
   },
 } as const
 
+export const hemi = {
+  id: 43111,
+  name: 'Hemi Network',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'Ether',
+    symbol: 'ETH',
+  },
+  rpcUrls: {
+    default: { http: ['https://9277255a.rpc.hemi.network/rpc'] },
+  },
+  blockExplorers: {
+    default: {
+      name: 'Hemi Explorer',
+      // TODO: update with prod explorer when live
+      url: 'https://explorer-b81c3bd8.hemi.xyz',
+      apiUrl: 'https://explorer-b81c3bd8.hemi.xyz/api',
+    },
+  },
+  testnet: false,
+  contracts: {
+    multicall3: {
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
+      blockCreated: 0,
+    },
+  },
+} as const
+
 // const alchemyId =
 //   process.env['ALCHEMY_ID'] || process.env['NEXT_PUBLIC_ALCHEMY_ID']
 const drpcId = process.env['DRPC_ID'] || process.env['NEXT_PUBLIC_DRPC_ID']
@@ -723,6 +751,7 @@ export const publicTransports = {
   [ChainId.SONIC]: http(
     `https://lb.drpc.org/ogrpc?network=sonic&dkey=${drpcId}`,
   ),
+  [ChainId.HEMI]: http('https://9277255a.rpc.hemi.network/rpc'),
   /* Testnets */ // TODO: add testnet transports
   [ChainId.ARBITRUM_TESTNET]: http('https://sepolia-rollup.arbitrum.io/rpc'),
   [ChainId.AVALANCHE_TESTNET]: http(
@@ -782,7 +811,7 @@ export const publicChains = [
   zkLinkNova,
   apeChain as unknown as Omit<typeof mainnet, 'id'> & { id: 33139 },
   sonic,
-
+  hemi,
   /* Testnets */
   arbitrumSepolia,
   avalancheFuji,
@@ -974,6 +1003,10 @@ export const publicClientConfig = {
   [ChainId.SONIC]: {
     chain: sonic,
     transport: publicTransports[ChainId.SONIC],
+  },
+  [ChainId.HEMI]: {
+    chain: hemi,
+    transport: publicTransports[ChainId.HEMI],
   },
   /* Testnets */
   [ChainId.ARBITRUM_TESTNET]: {
