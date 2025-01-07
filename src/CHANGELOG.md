@@ -1,5 +1,11 @@
 # sushi
 
+## 4.1.25
+
+### Patch Changes
+
+- [#61](https://github.com/sushi-labs/sushi/pull/61) [`165c25d`](https://github.com/sushi-labs/sushi/commit/165c25d792adf2063f70d317a145f068ad3def20) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - hemi network config
+
 ## 4.1.24
 
 ### Patch Changes
