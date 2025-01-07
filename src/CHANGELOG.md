@@ -1,5 +1,11 @@
 # sushi
 
+## 4.1.24
+
+### Patch Changes
+
+- [#60](https://github.com/sushi-labs/sushi/pull/60) [`2df4b32`](https://github.com/sushi-labs/sushi/commit/2df4b32baf9156dec1515ec771428ca248b6cc63) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - remove duplicate haqq entry from SUSHISWAP_V2_SUPPORTED_CHAIN_IDS
+
 ## 4.1.23
 
 ### Patch Changes
