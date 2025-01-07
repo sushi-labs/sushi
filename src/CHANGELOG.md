@@ -1,5 +1,11 @@
 # sushi
 
+## 4.1.23
+
+### Patch Changes
+
+- [#58](https://github.com/sushi-labs/sushi/pull/58) [`e947fdc`](https://github.com/sushi-labs/sushi/commit/e947fdc9744f7f84820acd822e299d7d65b5523c) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - update WETH on sonic
+
 ## 4.1.22
 
 ### Patch Changes

@@ -3,6 +3,7 @@ import type { SushiSwapV3ChainId } from '../../features/sushiswap-v3.js'
 import {
   CORE_HOST,
   DECENTRALIZED_HOST_BY_DEPLOYMENT_ID,
+  DECENTRALIZED_HOST_BY_SUBGRAPH_ID,
   FILECOIN_HOST,
   HAQQ_HOST,
   METIS_0XGRAPH_HOST,
@@ -40,5 +41,5 @@ export const SUSHISWAP_V3_SUBGRAPH_URL: Record<SushiSwapV3ChainId, string> = {
   [ChainId.BLAST]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-blast/gn`,
   [ChainId.SKALE_EUROPA]: `${SKALE_HOST}/sushi/v3-skale-europa`,
   [ChainId.ROOTSTOCK]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-rootstock/gn`,
-  [ChainId.SONIC]: '', // TODO
+  [ChainId.SONIC]: `${DECENTRALIZED_HOST_BY_SUBGRAPH_ID}/5ijXw9MafwFkXgoHmUiWsWHvRyYAL3RD4smnmBLmNPnw`,
 }
