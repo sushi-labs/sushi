@@ -1,5 +1,11 @@
 # sushi
 
+## 4.1.27
+
+### Patch Changes
+
+- [`c76f543`](https://github.com/sushi-labs/sushi/commit/c76f5436d547907c157c6ec1a90de34fea856593) Thanks [@matthewlilley](https://github.com/matthewlilley)! - allow passing max price impact param of getSwap
+
 ## 4.1.26
 
 ### Patch Changes
