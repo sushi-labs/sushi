@@ -4,7 +4,8 @@ Call the Swap API and simulate the result:
 
 ```ts twoslash
 import { getSwap, ChainId } from 'sushi'
-import { createPublicClient, http } from 'viem'
+import { createPublicClient, createWalletClient, http, type Hex } from 'viem'
+import { privateKeyToAccount } from 'viem/accounts'
 import { mainnet } from 'viem/chains'
 
 const publicClient = createPublicClient({
@@ -18,7 +19,8 @@ const swap = await getSwap({
   tokenIn: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
   tokenOut: '0x6B3595068778DD592e39A122f4f5a5cF09C90fE2',
   amount: 1000000000000000000n,
-  maxSlippage: 0.005
+  maxSlippage: 0.005,
+  includeTransaction: true,
 })
 console.log('Swap: ', swap)
 
@@ -33,5 +35,18 @@ if (swap.status === 'Success') {
     value: tx.value,
   })
   console.log('Output: ', result)
+ 
+  // Send a transaction
+  const PRIVATE_KEY = process.env.PRIVATE_KEY as Hex
+  const walletClient = createWalletClient({
+    chain: mainnet,
+    transport: http(),
+  })
+  const hash = await walletClient.sendTransaction({ 
+    account: privateKeyToAccount(PRIVATE_KEY),
+    data: tx.data,
+    to: tx.to,
+    value: tx.value,
+  })
 }
 ```
