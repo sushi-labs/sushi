@@ -9,6 +9,7 @@ export interface SwapRequest {
   tokenOut: Address
   amount: bigint
   maxSlippage: number
+  maxPriceImpact?: number
   gasPrice?: bigint
   to?: Address
   enableFee?: boolean
@@ -36,15 +37,17 @@ export async function getSwap(params: SwapRequest, options?: RequestInit) {
   url.searchParams.append('tokenOut', params.tokenOut)
   url.searchParams.append('amount', params.amount.toString())
   url.searchParams.append('maxSlippage', params.maxSlippage.toString())
+  if (params?.maxPriceImpact)
+    url.searchParams.append('maxPriceImpact', params.maxPriceImpact.toString())
   if (params?.gasPrice)
     url.searchParams.append('gasPrice', params.gasPrice.toString())
   if (params?.to) url.searchParams.append('to', params.to)
-  if (params?.enableFee)
+  if (params?.enableFee && params?.fee && params?.feeReceiver) {
     url.searchParams.append('enableFee', params.enableFee.toString())
-  if (params?.feeReceiver)
+    url.searchParams.append('fee', params.fee.toString())
     url.searchParams.append('feeReceiver', params.feeReceiver)
-  if (params?.fee) url.searchParams.append('fee', params.fee.toString())
-  if (params?.feeBy) url.searchParams.append('feeBy', params.feeBy)
+    if (params?.feeBy) url.searchParams.append('feeBy', params.feeBy)
+  }
   if (params?.includeTransaction)
     url.searchParams.append(
       'includeTransaction',
