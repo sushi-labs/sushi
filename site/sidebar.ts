@@ -73,11 +73,11 @@ export const sidebar = {
           link: '/amm/introduction',
         },
         {
-          text: 'clAMM (SuhiSwap V3)',
+          text: 'clAMM (SushiSwap V3)',
           link: '/amm/clamm',
         },
         {
-          text: 'cpAMM  (SuhiSwap V2)',
+          text: 'cpAMM  (SushiSwap V2)',
           link: '/amm/cpamm',
         },
         // {
@@ -93,18 +93,18 @@ export const sidebar = {
         { text: 'SUSHI', link: '/contracts/sushi' },
         { text: 'xSUSHI', link: '/contracts/xsushi' },
         { text: 'Route Processor', link: '/contracts/route-processor' },
-        { text: 'clAMM  (SuhiSwap V3)', link: '/contracts/clamm' },
-        { text: 'cpAMM  (SuhiSwap V2)', link: '/contracts/cpamm' },
+        { text: 'clAMM  (SushiSwap V3)', link: '/contracts/clamm' },
+        { text: 'cpAMM  (SushiSwap V2)', link: '/contracts/cpamm' },
         // { text: 'lbAMM', link: '/contracts/lbamm' },
       ],
     },
     {
-      text: 'Subraphs',
+      text: 'Subgraphs',
       collapsed: true,
       items: [
         { text: 'Blocks', link: '/subgraphs/blocks' },
-        { text: 'clAMM (SuhiSwap V3)', link: '/subgraphs/clamm' },
-        { text: 'cpAMM (SuhiSwap V2)', link: '/subgraphs/cpamm' },
+        { text: 'clAMM (SushiSwap V3)', link: '/subgraphs/clamm' },
+        { text: 'cpAMM (SushiSwap V2)', link: '/subgraphs/cpamm' },
         { text: 'xSUSHI', link: '/subgraphs/xsushi' },
         // { text: 'Quote', link: '/api/quote' },
       ],
