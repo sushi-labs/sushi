@@ -8,6 +8,8 @@ export default defineConfig({
       ? 'https://docs.sushi.com'
       : process.env.VERCEL_URL,
   title: 'Sushi 🧑‍🍳',
+  ogImageUrl:
+    'https://vocs.dev/api/og?logo=%logo&title=%title&description=%description',
   titleTemplate: '%s · Sushi',
   description: '',
   editLink: {
