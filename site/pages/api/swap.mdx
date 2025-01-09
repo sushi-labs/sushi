@@ -20,8 +20,6 @@ const publicClient = createPublicClient({
   transport: http(),
 })
 
-// https://api.sushi.com/swap/v5/1?tokenIn=0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE&tokenOut=0x6B3595068778DD592e39A122f4f5a5cF09C90fE2&amount=1000000000000000000&maxSlippage=0.005&gasPrice=12170332386&enableFee=true&feeReceiver=0xca226bd9c754F1283123d32B2a7cF62a722f8ADa&fee=0.0025&feeBy=output&includeTransaction=true&includeRoute=true
-// Chain (Ethereum)
 const chainId = 1
 
 const SWAP_API_URL = new URL('https://api.sushi.com/swap/v5/' + chainId)
@@ -37,7 +35,7 @@ const amount = 1000000000000000
 const maxSlippage = 0.005
 
 // To
-const to = '0x', // replace with your own address
+const to = '0x' // replace with your own address
 
 const { searchParams } = SWAP_API_URL
 searchParams.set('tokenIn', inputCurrency)
