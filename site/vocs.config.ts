@@ -5,7 +5,7 @@ import { sidebar } from './sidebar'
 export default defineConfig({
   baseUrl:
     process.env.VERCEL_ENV === 'production'
-      ? 'https://sushi-git-master.sushi.com'
+      ? 'https://docs.sushi.com'
       : process.env.VERCEL_URL,
   title: 'Sushi 🧑‍🍳',
   titleTemplate: '%s · Sushi',
@@ -17,10 +17,10 @@ export default defineConfig({
   sidebar,
   rootDir: '.',
   topNav: [
-    { text: 'Docs', link: '/getting-started', match: '/' },
+    { text: 'Docs', link: '/what-is-sushi', match: '/' },
     {
       text: 'Examples',
-      link: 'https://github.com/sushi-labs/sushi/tree/main/examples',
+      link: 'https://github.com/sushi-labs/sushi/tree/master/examples',
     },
     {
       text: pkg.version,
@@ -33,11 +33,11 @@ export default defineConfig({
         },
         {
           text: 'Changelog',
-          link: 'https://github.com/sushi-labs/sushi/blob/main/src/CHANGELOG.md',
+          link: 'https://github.com/sushi-labs/sushi/blob/master/src/CHANGELOG.md',
         },
         {
           text: 'Contributing',
-          link: 'https://github.com/sushi-labs/sushi/blob/main/.github/CONTRIBUTING.md',
+          link: 'https://github.com/sushi-labs/sushi/blob/master/.github/CONTRIBUTING.md',
         },
       ],
     },
