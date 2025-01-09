@@ -1,3 +1,32 @@
-# Quote
+# Swap
 
-...
+Call the Swap API and simulate the result:
+
+```ts
+import { getSwap, ChainId } from 'sushi'
+import { createPublicClient, http } from 'viem'
+import { mainnet } from 'viem/chains'
+
+const publicClient = createPublicClient({
+  chain: mainnet,
+  transport: http(),
+})
+
+const swap = await getSwap({
+  chainId: ChainId.ETHEREUM,
+  tokenIn: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
+  tokenOut: '0x6B3595068778DD592e39A122f4f5a5cF09C90fE2',
+  amount: 1000000000000000000,
+  maxSlippage: 0.005
+})
+console.log('Swap: ', swap)
+
+// Simulate a call to the blockchain for the swap
+const result = await publicClient.call({
+  account: tx.from,
+  data: tx.data,
+  to: tx.to,
+  value: tx.value,
+})
+console.log('Output: ', result)
+```
