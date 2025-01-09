@@ -17,7 +17,7 @@ export default defineConfig({
   sidebar,
   rootDir: '.',
   topNav: [
-    { text: 'Docs', link: '/getting-started', match: '/' },
+    { text: 'Docs', link: '/what-is-sushi', match: '/' },
     {
       text: 'Examples',
       link: 'https://github.com/sushi-labs/sushi/tree/master/examples',
