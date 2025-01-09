@@ -14,7 +14,7 @@ const publicClient = createPublicClient({
 })
 
 // Get a swap from the API
-const swap = await getSwap({
+const data = await getSwap({
   chainId: ChainId.ETHEREUM, // ethereum chain id
   tokenIn: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE', // eth token
   tokenOut: '0x6B3595068778DD592e39A122f4f5a5cF09C90fE2', // sushi token
@@ -26,16 +26,17 @@ const swap = await getSwap({
 console.log('Swap: ', swap)
 
 // If the swap status is 'Success'
-if (swap.status === 'Success') {
-  const { tx } = swap
+if (data.status === 'Success') {
+  const { tx } = data
   // Simulate a call to the blockchain for the swap
-  const result = await publicClient.call({
+  const callResult = await publicClient.call({
     account: tx.from,
     data: tx.data,
     to: tx.to,
     value: tx.value,
   })
-  console.log('Output: ', result)
+  // Returns the simulated amount out
+  console.log('Output: ', callResult)
  
   // Send a transaction
   const PRIVATE_KEY = process.env.PRIVATE_KEY as Hex
