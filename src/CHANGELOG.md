@@ -1,5 +1,11 @@
 # sushi
 
+## 4.1.26
+
+### Patch Changes
+
+- [`a4be162`](https://github.com/sushi-labs/sushi/commit/a4be1629c7f87996cee424643fe6fe28cdb96863) Thanks [@matthewlilley](https://github.com/matthewlilley)! - swap response
+
 ## 4.1.25
 
 ### Patch Changes
