@@ -15,13 +15,13 @@ const publicClient = createPublicClient({
 
 // Get a swap from the API
 const swap = await getSwap({
-  chainId: ChainId.ETHEREUM,
-  tokenIn: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
-  tokenOut: '0x6B3595068778DD592e39A122f4f5a5cF09C90fE2',
+  chainId: ChainId.ETHEREUM, // ethereum chain id
+  tokenIn: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE', // eth token
+  tokenOut: '0x6B3595068778DD592e39A122f4f5a5cF09C90fE2', // sushi token
   to: '0x', // replace with your own address
-  amount: 1000000000000000000n,
-  maxSlippage: 0.005,
-  includeTransaction: true,
+  amount: 1000000000000000000n, // 1 eth
+  maxSlippage: 0.005, // 0.05% max slippage
+  includeTransaction: true, // include transaction in response
 })
 console.log('Swap: ', swap)
 
