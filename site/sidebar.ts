@@ -105,7 +105,7 @@ export const sidebar = {
         { text: 'Blocks', link: '/subgraphs/blocks' },
         { text: 'clAMM (SuhiSwap V3)', link: '/subgraphs/clamm' },
         { text: 'cpAMM (SuhiSwap V2)', link: '/subgraphs/cpamm' },
-        { text: 'xSushi', link: '/subgraphs/xsushi' },
+        { text: 'xSUSHI', link: '/subgraphs/xsushi' },
         // { text: 'Quote', link: '/api/quote' },
       ],
     },
