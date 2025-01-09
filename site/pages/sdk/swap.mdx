@@ -23,7 +23,7 @@ const data = await getSwap({
   maxSlippage: 0.005, // 0.05% max slippage
   includeTransaction: true, // include transaction in response
 })
-console.log('Swap: ', swap)
+console.log(data)
 
 // If the swap status is 'Success'
 if (data.status === 'Success') {
