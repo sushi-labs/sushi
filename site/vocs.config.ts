@@ -44,6 +44,20 @@ export default defineConfig({
       ],
     },
   ],
+  socials: [
+    {
+      icon: 'github',
+      link: 'https://github.com/sushi-labs/sushi',
+    },
+    {
+      icon: 'discord',
+      link: 'https://www.sushi.com/discord',
+    },
+    {
+      icon: 'x',
+      link: 'https://www.sushi.com/twitter',
+    },
+  ],
 })
 
 function toPatchVersionRange(version: string) {
