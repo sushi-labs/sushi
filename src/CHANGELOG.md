@@ -1,5 +1,11 @@
 # sushi
 
+## 4.1.28
+
+### Patch Changes
+
+- [#69](https://github.com/sushi-labs/sushi/pull/69) [`d2f5485`](https://github.com/sushi-labs/sushi/commit/d2f548596017b62daa751e21c8ab5825fcb45872) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add hemi subgraphs
+
 ## 4.1.27
 
 ### Patch Changes
