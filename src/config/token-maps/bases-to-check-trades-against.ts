@@ -8,11 +8,13 @@ import {
   METH,
   MUSD,
   SKL,
+  STETH,
   STONE,
   THREE_CRV,
   Token,
   USDB,
   USDP,
+  WSTETH,
 } from '../../currency/index.js'
 import {
   AAVE,
@@ -64,6 +66,8 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     OHM[ChainId.ETHEREUM],
     LINK[ChainId.ETHEREUM],
     SUSHI[ChainId.ETHEREUM],
+    WSTETH,
+    STETH,
     THREE_CRV,
     GUSD,
     LUSD[ChainId.ETHEREUM],
