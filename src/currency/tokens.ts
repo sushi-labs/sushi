@@ -1364,3 +1364,19 @@ export const DOC = new Token({
   symbol: 'DOC',
   name: 'Dollar on Chain',
 })
+
+export const STETH = new Token({
+  chainId: ChainId.ETHEREUM,
+  address: '0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84',
+  name: 'Liquid staked Ether 2.0',
+  symbol: 'stETH',
+  decimals: 18,
+})
+
+export const WSTETH = new Token({
+  chainId: ChainId.ETHEREUM,
+  address: '0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0',
+  name: 'Wrapped liquid staked Ether 2.0',
+  symbol: 'wstETH',
+  decimals: 18,
+})
