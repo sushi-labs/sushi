@@ -14,31 +14,14 @@ export const request = async <T = Response>(
   }
 
   try {
-    if (apiKey) {
-      options.headers = {
-        ...options.headers,
-        'x-sushi-api-key': apiKey,
-      }
-    }
+    const headers: HeadersInit = {}
 
-    if (userId) {
-      options.headers = {
-        ...options.headers,
-        'x-sushi-userid': userId,
-      }
-    }
+    if (apiKey) headers['x-sushi-api-key'] = apiKey
+    if (userId) headers['x-sushi-userid'] = userId
+    if (version) headers['x-sushi-sdk'] = version
+    if (integrator) headers['x-sushi-integrator'] = integrator
 
-    if (version) {
-      options.headers = {
-        ...options.headers,
-        'x-sushi-sdk': version,
-      }
-    }
-
-    options.headers = {
-      ...options.headers,
-      'x-sushi-integrator': integrator,
-    }
+    options.headers = headers
 
     const response: Response = await fetch(url, options)
 
@@ -46,7 +29,7 @@ export const request = async <T = Response>(
       //
     }
 
-    return await response.json()
+    return response.json()
   } catch (error) {
     console.error(error)
     throw error

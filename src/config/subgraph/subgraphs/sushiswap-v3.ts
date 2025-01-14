@@ -42,4 +42,5 @@ export const SUSHISWAP_V3_SUBGRAPH_URL: Record<SushiSwapV3ChainId, string> = {
   [ChainId.SKALE_EUROPA]: `${SKALE_HOST}/sushi/v3-skale-europa`,
   [ChainId.ROOTSTOCK]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-rootstock/gn`,
   [ChainId.SONIC]: `${DECENTRALIZED_HOST_BY_SUBGRAPH_ID}/5ijXw9MafwFkXgoHmUiWsWHvRyYAL3RD4smnmBLmNPnw`,
+  [ChainId.HEMI]: `${DECENTRALIZED_HOST_BY_SUBGRAPH_ID}/GQU44ZBv8NpiBUxA6eLSDSdd7bs6TVop9dASKzrdirUv`,
 }

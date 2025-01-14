@@ -734,34 +734,10 @@ export const WNATIVE = {
     symbol: 'WAPE',
     name: 'Wrapped APE',
   }),
-  [ChainId.MANTA]: new Token({
-    chainId: ChainId.MANTA,
-    address: WNATIVE_ADDRESS[ChainId.MANTA],
-    decimals: 18,
-    symbol: 'WETH',
-    name: 'Wrapped Ether',
-  }),
-  [ChainId.MODE]: new Token({
-    chainId: ChainId.MODE,
-    address: WNATIVE_ADDRESS[ChainId.MODE],
-    decimals: 18,
-    symbol: 'WETH',
-    name: 'Wrapped Ether',
-  }),
-  [ChainId.TAIKO]: new Token({
-    chainId: ChainId.TAIKO,
-    address: WNATIVE_ADDRESS[ChainId.TAIKO],
-    decimals: 18,
-    symbol: 'WETH',
-    name: 'Wrapped Ether',
-  }),
-  [ChainId.ZKLINK]: new Token({
-    chainId: ChainId.ZKLINK,
-    address: WNATIVE_ADDRESS[ChainId.ZKLINK],
-    decimals: 18,
-    symbol: 'WETH',
-    name: 'Wrapped Ether',
-  }),
+  [ChainId.MANTA]: WETH9[ChainId.MANTA],
+  [ChainId.MODE]: WETH9[ChainId.MODE],
+  [ChainId.TAIKO]: WETH9[ChainId.TAIKO],
+  [ChainId.ZKLINK]: WETH9[ChainId.ZKLINK],
   [ChainId.APE]: new Token({
     chainId: ChainId.APE,
     address: WNATIVE_ADDRESS[ChainId.APE],
@@ -776,6 +752,7 @@ export const WNATIVE = {
     symbol: 'wS',
     name: 'Wrapped Sonic',
   }),
+  [ChainId.HEMI]: WETH9[ChainId.HEMI],
 } as const
 
 export const SUSHI = addressMapToTokenMap(

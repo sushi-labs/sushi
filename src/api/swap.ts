@@ -1,4 +1,6 @@
 import type { Address } from 'viem'
+import type { Hex } from 'viem'
+import type { RouteStatus } from '../router/route-status.js'
 import type { TransferValue } from '../router/transfer-value.js'
 
 export interface SwapRequest {
@@ -7,7 +9,8 @@ export interface SwapRequest {
   tokenOut: Address
   amount: bigint
   maxSlippage: number
-  gasPrice: bigint
+  maxPriceImpact?: number
+  gasPrice?: bigint
   to?: Address
   enableFee?: boolean
   feeReceiver?: Address
@@ -16,6 +19,17 @@ export interface SwapRequest {
   includeTransaction?: boolean
 }
 
+export type SwapResponse =
+  | { status: typeof RouteStatus.NoWay }
+  | {
+      status: typeof RouteStatus.Success | typeof RouteStatus.Partial
+      swapPrice: number
+      priceImpact: number
+      amountIn: string
+      assumedAmountOut: string
+      tx: { from: Address; to: Address; data: Hex; value: bigint }
+    }
+
 export async function getSwap(params: SwapRequest, options?: RequestInit) {
   // TODO: VALIDATE PARAMS
   const url = new URL(`swap/v5/${params.chainId}`, 'https://api.sushi.com')
@@ -23,18 +37,22 @@ export async function getSwap(params: SwapRequest, options?: RequestInit) {
   url.searchParams.append('tokenOut', params.tokenOut)
   url.searchParams.append('amount', params.amount.toString())
   url.searchParams.append('maxSlippage', params.maxSlippage.toString())
-  url.searchParams.append('gasPrice', params.gasPrice.toString())
+  if (params?.maxPriceImpact)
+    url.searchParams.append('maxPriceImpact', params.maxPriceImpact.toString())
+  if (params?.gasPrice)
+    url.searchParams.append('gasPrice', params.gasPrice.toString())
   if (params?.to) url.searchParams.append('to', params.to)
-  if (params?.enableFee)
+  if (params?.enableFee && params?.fee && params?.feeReceiver) {
     url.searchParams.append('enableFee', params.enableFee.toString())
-  if (params?.feeReceiver)
+    url.searchParams.append('fee', params.fee.toString())
     url.searchParams.append('feeReceiver', params.feeReceiver)
-  if (params?.fee) url.searchParams.append('fee', params.fee.toString())
-  if (params?.feeBy) url.searchParams.append('feeBy', params.feeBy)
+    if (params?.feeBy) url.searchParams.append('feeBy', params.feeBy)
+  }
   if (params?.includeTransaction)
     url.searchParams.append(
       'includeTransaction',
       params.includeTransaction.toString(),
     )
-  return fetch(url.toString(), options).then((res) => res.json())
+  const res = await fetch(url.toString(), options)
+  return res.json() as Promise<SwapResponse>
 }

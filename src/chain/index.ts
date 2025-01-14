@@ -160,6 +160,14 @@ export class Chain implements Chain {
           standard: 'EIP3091',
         },
       ]
+    } else if (data.chainId === ChainId.HEMI) {
+      this.explorers = [
+        {
+          name: 'Hemi Explorer',
+          url: 'https://explorer-b81c3bd8.hemi.xyz',
+          standard: 'EIP3091',
+        },
+      ]
     }
   }
   getTxUrl(txHash: string): string {
@@ -356,6 +364,7 @@ export const ChainKey = {
   [ChainId.ZKLINK]: 'zklink',
   [ChainId.APE]: 'ape',
   [ChainId.SONIC]: 'sonic',
+  [ChainId.HEMI]: 'hemi',
 } as const
 export type ChainKey = (typeof ChainKey)[keyof typeof ChainKey]
 
