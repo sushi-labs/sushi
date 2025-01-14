@@ -1,5 +1,0 @@
----
-"sushi": patch
----
-
-BASES_TO_CHECK_TRADES_AGAINST for ETHEREUM: +STETH, +WSTETH
