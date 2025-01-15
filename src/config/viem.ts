@@ -624,9 +624,8 @@ export const hemi = {
   blockExplorers: {
     default: {
       name: 'Hemi Explorer',
-      // TODO: update with prod explorer when live
-      url: 'https://explorer-b81c3bd8.hemi.xyz',
-      apiUrl: 'https://explorer-b81c3bd8.hemi.xyz/api',
+      url: 'https://explorer.hemi.xyz',
+      apiUrl: 'https://explorer.hemi.xyz/api',
     },
   },
   testnet: false,
