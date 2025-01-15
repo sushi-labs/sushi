@@ -1,5 +1,11 @@
 # sushi
 
+## 4.2.1
+
+### Patch Changes
+
+- [#72](https://github.com/sushi-labs/sushi/pull/72) [`26dc728`](https://github.com/sushi-labs/sushi/commit/26dc728247dbed7b56fc9354157cd201b1dad9dd) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - update hemi block explorer
+
 ## 4.2.0
 
 ### Minor Changes
