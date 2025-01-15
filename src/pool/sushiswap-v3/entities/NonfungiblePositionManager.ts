@@ -314,55 +314,92 @@ export abstract class NonfungiblePositionManager {
     }
   }
 
-  private static encodeCollect(options: CollectOptions): Hex[] {
+  private static encodeCollect(collectOptions: CollectOptions[]): Hex[] {
     const calldatas: Hex[] = []
+    const nativeBalancesByRecipient = new Map<string, bigint>()
+    const sweepBalancesByRecipient = new Map<
+      string,
+      { token: Token; amount: bigint; recipient: Hex }
+    >()
 
-    const tokenId = BigInt(options.tokenId)
+    for (const options of collectOptions) {
+      const tokenId = BigInt(options.tokenId)
+      const involvesETH =
+        options.expectedCurrencyOwed0.currency.isNative ||
+        options.expectedCurrencyOwed1.currency.isNative
+      const recipient = validateAndParseAddress(options.recipient)
 
-    const involvesETH =
-      options.expectedCurrencyOwed0.currency.isNative ||
-      options.expectedCurrencyOwed1.currency.isNative
+      calldatas.push(
+        encodeFunctionData({
+          abi: nonfungiblePositionManagerAbi_collect,
+          functionName: 'collect',
+          args: [
+            {
+              tokenId,
+              recipient: involvesETH ? zeroAddress : recipient,
+              amount0Max: maxUint128,
+              amount1Max: maxUint128,
+            },
+          ],
+        }),
+      )
 
-    const recipient = validateAndParseAddress(options.recipient)
+      if (involvesETH) {
+        const ethAmount = options.expectedCurrencyOwed0.currency.isNative
+          ? options.expectedCurrencyOwed0.quotient
+          : options.expectedCurrencyOwed1.quotient
+        const token = options.expectedCurrencyOwed0.currency.isNative
+          ? (options.expectedCurrencyOwed1.currency as Token)
+          : (options.expectedCurrencyOwed0.currency as Token)
+        const tokenAmount = options.expectedCurrencyOwed0.currency.isNative
+          ? options.expectedCurrencyOwed1.quotient
+          : options.expectedCurrencyOwed0.quotient
 
-    // collect
-    calldatas.push(
-      encodeFunctionData({
-        abi: nonfungiblePositionManagerAbi_collect,
-        functionName: 'collect',
-        args: [
-          {
-            tokenId,
-            recipient: involvesETH ? zeroAddress : recipient,
-            amount0Max: maxUint128,
-            amount1Max: maxUint128,
-          },
-        ],
-      }),
-    )
+        const currentNativeBalance =
+          nativeBalancesByRecipient.get(recipient) ?? 0n
+        nativeBalancesByRecipient.set(
+          recipient,
+          currentNativeBalance + ethAmount,
+        )
 
-    if (involvesETH) {
-      const ethAmount = options.expectedCurrencyOwed0.currency.isNative
-        ? options.expectedCurrencyOwed0.quotient
-        : options.expectedCurrencyOwed1.quotient
-      const token = options.expectedCurrencyOwed0.currency.isNative
-        ? (options.expectedCurrencyOwed1.currency as Token)
-        : (options.expectedCurrencyOwed0.currency as Token)
-      const tokenAmount = options.expectedCurrencyOwed0.currency.isNative
-        ? options.expectedCurrencyOwed1.quotient
-        : options.expectedCurrencyOwed0.quotient
+        const balanceKey = `${token.address}-${recipient}`
+        const accumulatedBalance = sweepBalancesByRecipient.get(balanceKey)
+        if (accumulatedBalance) {
+          accumulatedBalance.amount += tokenAmount
+        } else {
+          sweepBalancesByRecipient.set(balanceKey, {
+            token,
+            amount: tokenAmount,
+            recipient,
+          })
+        }
+      }
+    }
 
-      calldatas.push(Payments.encodeUnwrapWETH9(ethAmount, recipient))
-      calldatas.push(Payments.encodeSweepToken(token, tokenAmount, recipient))
+    for (const [
+      recipient,
+      nativeAmount,
+    ] of nativeBalancesByRecipient.entries()) {
+      calldatas.push(Payments.encodeUnwrapWETH9(nativeAmount, recipient as Hex))
+    }
+
+    for (const {
+      token,
+      amount,
+      recipient,
+    } of sweepBalancesByRecipient.values()) {
+      calldatas.push(Payments.encodeSweepToken(token, amount, recipient))
     }
 
     return calldatas
   }
 
   public static collectCallParameters(
-    options: CollectOptions,
+    options: CollectOptions | CollectOptions[],
   ): MethodParameters {
-    const calldatas: Hex[] = NonfungiblePositionManager.encodeCollect(options)
+    const calldatas: Hex[] = NonfungiblePositionManager.encodeCollect(
+      Array.isArray(options) ? options : [options],
+    )
 
     return {
       calldata: Multicall.encodeMulticall(calldatas),
@@ -436,23 +473,25 @@ export abstract class NonfungiblePositionManager {
     const { expectedCurrencyOwed0, expectedCurrencyOwed1, ...rest } =
       options.collectOptions
     calldatas.push(
-      ...NonfungiblePositionManager.encodeCollect({
-        tokenId: toHex(options.tokenId),
-        // add the underlying value to the expected currency already owed
-        expectedCurrencyOwed0: expectedCurrencyOwed0.add(
-          CurrencyAmount.fromRawAmount(
-            expectedCurrencyOwed0.currency,
-            amount0Min,
+      ...NonfungiblePositionManager.encodeCollect([
+        {
+          tokenId: toHex(options.tokenId),
+          // add the underlying value to the expected currency already owed
+          expectedCurrencyOwed0: expectedCurrencyOwed0.add(
+            CurrencyAmount.fromRawAmount(
+              expectedCurrencyOwed0.currency,
+              amount0Min,
+            ),
           ),
-        ),
-        expectedCurrencyOwed1: expectedCurrencyOwed1.add(
-          CurrencyAmount.fromRawAmount(
-            expectedCurrencyOwed1.currency,
-            amount1Min,
+          expectedCurrencyOwed1: expectedCurrencyOwed1.add(
+            CurrencyAmount.fromRawAmount(
+              expectedCurrencyOwed1.currency,
+              amount1Min,
+            ),
           ),
-        ),
-        ...rest,
-      }),
+          ...rest,
+        },
+      ]),
     )
 
     if (options.liquidityPercentage.equalTo(1n)) {

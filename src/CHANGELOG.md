@@ -1,5 +1,23 @@
 # sushi
 
+## 4.2.1
+
+### Patch Changes
+
+- [#72](https://github.com/sushi-labs/sushi/pull/72) [`26dc728`](https://github.com/sushi-labs/sushi/commit/26dc728247dbed7b56fc9354157cd201b1dad9dd) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - update hemi block explorer
+
+## 4.2.0
+
+### Minor Changes
+
+- [#71](https://github.com/sushi-labs/sushi/pull/71) [`8af0e87`](https://github.com/sushi-labs/sushi/commit/8af0e87a135380b3b7a90e69e6192ae546c09487) Thanks [@Okavango](https://github.com/Okavango)! - ethereum BASES_TO_CHECK_TRADES_AGAINST +STETH, +WSTETH
+
+### Patch Changes
+
+- [#64](https://github.com/sushi-labs/sushi/pull/64) [`62b95f2`](https://github.com/sushi-labs/sushi/commit/62b95f24c734451c7d79e956148c1204de62c493) Thanks [@danielr18](https://github.com/danielr18)! - Support collecting fees from multiple pools
+
+- [#71](https://github.com/sushi-labs/sushi/pull/71) [`ff2318b`](https://github.com/sushi-labs/sushi/commit/ff2318b73aad6a5f50dcb15166825bcac560c9ac) Thanks [@Okavango](https://github.com/Okavango)! - BASES_TO_CHECK_TRADES_AGAINST for ETHEREUM: +STETH, +WSTETH
+
 ## 4.1.28
 
 ### Patch Changes
