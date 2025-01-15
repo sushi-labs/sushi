@@ -164,7 +164,7 @@ export class Chain implements Chain {
       this.explorers = [
         {
           name: 'Hemi Explorer',
-          url: 'https://explorer-b81c3bd8.hemi.xyz',
+          url: 'https://explorer.hemi.xyz',
           standard: 'EIP3091',
         },
       ]
