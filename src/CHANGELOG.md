@@ -1,5 +1,11 @@
 # sushi
 
+## 4.2.2
+
+### Patch Changes
+
+- [#74](https://github.com/sushi-labs/sushi/pull/74) [`c7d7233`](https://github.com/sushi-labs/sushi/commit/c7d7233fdf058a122ce66c9a46c42f4b455fd7d8) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add TokenChomper on Hemi
+
 ## 4.2.1
 
 ### Patch Changes
