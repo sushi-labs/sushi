@@ -42,7 +42,7 @@ export const TOKEN_CHOMPER_CHAIN_IDS = [
   ChainId.ZKLINK,
   ChainId.APE,
   ChainId.SONIC,
-  ChainId.HEMI
+  ChainId.HEMI,
 ] as const
 
 export type TokenChomperChainId = (typeof TOKEN_CHOMPER_CHAIN_IDS)[number]
