@@ -1,7 +1,7 @@
 import { ChainId } from '../../../chain/index.js'
 import type { BentoBoxChainId } from '../../features/bentobox.js'
-import { SUSHI_DEDICATED_GOLDSKY_HOST } from '../hosts.js'
 import { getSubgraphUrlWrapper, wrapAsIdType } from '../get-subgraph-url.js'
+import { SUSHI_DEDICATED_GOLDSKY_HOST } from '../hosts.js'
 
 const BENTOBOX_DECENTRALIZED_IDS = {
   [ChainId.ETHEREUM]: `QmRLTuSKgS8GbioD9vfAmn9dUUm5uVPptUdFMS5LG4yzAA`,
