@@ -1,5 +1,6 @@
 import invariant from 'tiny-invariant'
 import { type Address, getAddress } from 'viem'
+import type { EvmChainId } from '../chain/index.js'
 import type { ID } from '../types/id.js'
 import { Currency } from './currency.js'
 import type { Type } from './type.js'
@@ -37,7 +38,7 @@ export class Token extends Currency {
     logoUrl,
     approved,
   }: {
-    chainId: number | string
+    chainId: EvmChainId
     address: string
     decimals: number | string
     symbol?: string | undefined

@@ -7,7 +7,7 @@
       "src/**/*.bench-d.ts",
       "src/**/*.test.ts",
       "src/**/*.test-d.ts",
-      "src/chain/generate.ts", 
+      "src/chain/evm/generate.ts", 
       "src/abi/splitter.ts"
     ],
     "compilerOptions": {

@@ -1,28 +1,28 @@
-import { ChainId } from '../../chain/index.js'
+import { EvmChainId } from '../../chain/evm/index.js'
 
 export const MERKL_SUPPORTED_CHAIN_IDS = [
-  ChainId.ETHEREUM,
-  ChainId.OPTIMISM,
-  ChainId.BASE,
-  ChainId.BSC,
-  ChainId.GNOSIS,
-  ChainId.POLYGON,
-  ChainId.ARBITRUM,
-  // ChainId.CELO,
-  ChainId.AVALANCHE,
-  ChainId.POLYGON_ZKEVM,
-  ChainId.THUNDERCORE,
-  ChainId.CORE,
-  ChainId.BLAST,
-  ChainId.SCROLL,
-  ChainId.LINEA,
-  ChainId.SKALE_EUROPA,
-  ChainId.ROOTSTOCK,
+  EvmChainId.ETHEREUM,
+  EvmChainId.OPTIMISM,
+  EvmChainId.BASE,
+  EvmChainId.BSC,
+  EvmChainId.GNOSIS,
+  EvmChainId.POLYGON,
+  EvmChainId.ARBITRUM,
+  // EvmChainId.CELO,
+  EvmChainId.AVALANCHE,
+  EvmChainId.POLYGON_ZKEVM,
+  EvmChainId.THUNDERCORE,
+  EvmChainId.CORE,
+  EvmChainId.BLAST,
+  EvmChainId.SCROLL,
+  EvmChainId.LINEA,
+  EvmChainId.SKALE_EUROPA,
+  EvmChainId.ROOTSTOCK,
 ]
 
 export const MerklChainIds = MERKL_SUPPORTED_CHAIN_IDS
 
 export type MerklChainId = (typeof MERKL_SUPPORTED_CHAIN_IDS)[number]
 
-export const isMerklChainId = (chainId: ChainId): chainId is MerklChainId =>
+export const isMerklChainId = (chainId: EvmChainId): chainId is MerklChainId =>
   MERKL_SUPPORTED_CHAIN_IDS.includes(chainId as MerklChainId)

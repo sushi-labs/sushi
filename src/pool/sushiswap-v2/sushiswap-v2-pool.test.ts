@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { ChainId } from '~sushi/chain/index.js'
+import { EvmChainId } from '~sushi/chain/evm/index.js'
 import { SUSHISWAP_V2_FACTORY_ADDRESS } from '~sushi/config/features/sushiswap-v2.js'
 import { Amount } from '~sushi/currency/amount.js'
 import { Price } from '~sushi/currency/price.js'
@@ -8,19 +8,19 @@ import { WETH9 } from '~sushi/currency/tokens.js'
 import { InsufficientInputAmountError } from '~sushi/dex/errors.js'
 import { computeSushiSwapV2PoolAddress } from './compute-sushiswap-v2-pool-address.js'
 import { SushiSwapV2Pool } from './sushiswap-v2-pool.js'
-// import { ChainId, CurrencyAmount, Price, Token, V2_FACTORY_ADDRESSES, WETH9 } from '@uniswap/sdk-core'
+// import { EvmChainId, CurrencyAmount, Price, Token, V2_FACTORY_ADDRESSES, WETH9 } from '@uniswap/sdk-core'
 
 describe('computePairAddress', () => {
   it('should correctly compute the pool address', () => {
     const tokenA = new Token({
-      chainId: ChainId.ETHEREUM,
+      chainId: EvmChainId.ETHEREUM,
       address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
       decimals: 18,
       symbol: 'USDC',
       name: 'USD Coin',
     })
     const tokenB = new Token({
-      chainId: ChainId.ETHEREUM,
+      chainId: EvmChainId.ETHEREUM,
       address: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
       decimals: 18,
       symbol: 'DAI',
@@ -36,14 +36,14 @@ describe('computePairAddress', () => {
   })
   it('should give same result regardless of token order', () => {
     const USDC = new Token({
-      chainId: ChainId.ETHEREUM,
+      chainId: EvmChainId.ETHEREUM,
       address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
       decimals: 18,
       symbol: 'USDC',
       name: 'USD Coin',
     })
     const DAI = new Token({
-      chainId: ChainId.ETHEREUM,
+      chainId: EvmChainId.ETHEREUM,
       address: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
       decimals: 18,
       symbol: 'DAI',
@@ -71,14 +71,14 @@ describe('computePairAddress', () => {
 
 describe('Pair', () => {
   const USDC = new Token({
-    chainId: ChainId.ETHEREUM,
+    chainId: EvmChainId.ETHEREUM,
     address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
     decimals: 18,
     symbol: 'USDC',
     name: 'USD Coin',
   })
   const DAI = new Token({
-    chainId: ChainId.ETHEREUM,
+    chainId: EvmChainId.ETHEREUM,
     address: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
     decimals: 18,
     symbol: 'DAI',
@@ -86,14 +86,14 @@ describe('Pair', () => {
   })
 
   const USDC_SEPOLIA = new Token({
-    chainId: ChainId.SEPOLIA,
+    chainId: EvmChainId.SEPOLIA,
     address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
     decimals: 18,
     symbol: 'USDC',
     name: 'USD Coin',
   })
   const DAI_SEPOLIA = new Token({
-    chainId: ChainId.SEPOLIA,
+    chainId: EvmChainId.SEPOLIA,
     address: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
     decimals: 18,
     symbol: 'DAI',
@@ -106,7 +106,7 @@ describe('Pair', () => {
         () =>
           new SushiSwapV2Pool(
             Amount.fromRawAmount(USDC, '100'),
-            Amount.fromRawAmount(WETH9[ChainId.SEPOLIA], '100'),
+            Amount.fromRawAmount(WETH9[EvmChainId.SEPOLIA], '100'),
           ),
       ).toThrow('CHAIN_IDS')
     })
@@ -124,7 +124,7 @@ describe('Pair', () => {
         SushiSwapV2Pool.getAddress(USDC_SEPOLIA, DAI_SEPOLIA),
       ).toEqual(
         computeSushiSwapV2PoolAddress({
-          factoryAddress: SUSHISWAP_V2_FACTORY_ADDRESS[ChainId.SEPOLIA],
+          factoryAddress: SUSHISWAP_V2_FACTORY_ADDRESS[EvmChainId.SEPOLIA],
           tokenA: USDC_SEPOLIA,
           tokenB: DAI_SEPOLIA,
         }),
@@ -314,7 +314,7 @@ describe('Pair', () => {
     const BLASTBuyFeeBps = 400n
     const BLASTSellFeeBps = 10000n
     const BLAST = new Token({
-      chainId: ChainId.ETHEREUM,
+      chainId: EvmChainId.ETHEREUM,
       address: '0x3ed643e9032230f01c6c36060e305ab53ad3b482',
       decimals: 18,
       symbol: 'BLAST',
@@ -323,7 +323,7 @@ describe('Pair', () => {
       sellFeeBps: BLASTSellFeeBps,
     })
     const BLAST_WIHTOUT_TAX = new Token({
-      chainId: ChainId.ETHEREUM,
+      chainId: EvmChainId.ETHEREUM,
       address: '0x3ed643e9032230f01c6c36060e305ab53ad3b482',
       decimals: 18,
       symbol: 'BLAST',
@@ -332,7 +332,7 @@ describe('Pair', () => {
     const BLASTERSBuyFeeBps = 300n
     const BLASTERSSellFeeBps = 350n
     const BLASTERS = new Token({
-      chainId: ChainId.ETHEREUM,
+      chainId: EvmChainId.ETHEREUM,
       address: '0xab98093C7232E98A47D7270CE0c1c2106f61C73b',
       decimals: 9,
       symbol: 'BLAST',
@@ -341,7 +341,7 @@ describe('Pair', () => {
       sellFeeBps: BLASTERSSellFeeBps,
     })
     const BLASTERS_WITHOUT_TAX = new Token({
-      chainId: ChainId.ETHEREUM,
+      chainId: EvmChainId.ETHEREUM,
       address: '0xab98093C7232E98A47D7270CE0c1c2106f61C73b',
       decimals: 9,
       symbol: 'BLAST',
@@ -504,12 +504,12 @@ describe('Pair', () => {
   describe('miscellaneous', () => {
     it('getLiquidityMinted:0', async () => {
       const tokenA = new Token({
-        chainId: ChainId.SEPOLIA,
+        chainId: EvmChainId.SEPOLIA,
         address: '0x0000000000000000000000000000000000000001',
         decimals: 18,
       })
       const tokenB = new Token({
-        chainId: ChainId.SEPOLIA,
+        chainId: EvmChainId.SEPOLIA,
         address: '0x0000000000000000000000000000000000000002',
         decimals: 18,
       })
@@ -545,12 +545,12 @@ describe('Pair', () => {
 
     it('getLiquidityMinted:!0', async () => {
       const tokenA = new Token({
-        chainId: ChainId.SEPOLIA,
+        chainId: EvmChainId.SEPOLIA,
         address: '0x0000000000000000000000000000000000000001',
         decimals: 18,
       })
       const tokenB = new Token({
-        chainId: ChainId.SEPOLIA,
+        chainId: EvmChainId.SEPOLIA,
         address: '0x0000000000000000000000000000000000000002',
         decimals: 18,
       })
@@ -572,12 +572,12 @@ describe('Pair', () => {
 
     it('getLiquidityValue:!feeOn', async () => {
       const tokenA = new Token({
-        chainId: ChainId.SEPOLIA,
+        chainId: EvmChainId.SEPOLIA,
         address: '0x0000000000000000000000000000000000000001',
         decimals: 18,
       })
       const tokenB = new Token({
-        chainId: ChainId.SEPOLIA,
+        chainId: EvmChainId.SEPOLIA,
         address: '0x0000000000000000000000000000000000000002',
         decimals: 18,
       })
@@ -624,12 +624,12 @@ describe('Pair', () => {
 
     it('getLiquidityValue:feeOn', async () => {
       const tokenA = new Token({
-        chainId: ChainId.SEPOLIA,
+        chainId: EvmChainId.SEPOLIA,
         address: '0x0000000000000000000000000000000000000001',
         decimals: 18,
       })
       const tokenB = new Token({
-        chainId: ChainId.SEPOLIA,
+        chainId: EvmChainId.SEPOLIA,
         address: '0x0000000000000000000000000000000000000002',
         decimals: 18,
       })

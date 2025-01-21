@@ -1,4 +1,4 @@
-import { ChainId } from '../../chain/index.js'
+import { EvmChainId } from '../../chain/evm/index.js'
 import { AMPL_ADDRESS, DAI, type Token, WNATIVE } from '../../currency/index.js'
 
 /**
@@ -8,10 +8,10 @@ import { AMPL_ADDRESS, DAI, type Token, WNATIVE } from '../../currency/index.js'
 export const CUSTOM_BASES: {
   [chainId: number]: { [tokenAddress: string]: Token[] }
 } = {
-  [ChainId.ETHEREUM]: {
-    [AMPL_ADDRESS[ChainId.ETHEREUM]]: [
-      DAI[ChainId.ETHEREUM],
-      WNATIVE[ChainId.ETHEREUM],
+  [EvmChainId.ETHEREUM]: {
+    [AMPL_ADDRESS[EvmChainId.ETHEREUM]]: [
+      DAI[EvmChainId.ETHEREUM],
+      WNATIVE[EvmChainId.ETHEREUM],
     ],
   },
 }
