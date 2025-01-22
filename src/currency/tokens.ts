@@ -67,6 +67,7 @@ import {
   WORMHOLE_USDC_ADDRESS,
   WORMHOLE_WBTC_ADDRESS,
   WORMHOLE_WETH_ADDRESS,
+  WstETH_ADDRESS,
   XSUSHI_ADDRESS,
   YFI_ADDRESS,
   axlDAI_ADDRESS,
@@ -1350,10 +1351,11 @@ export const STETH = new Token({
   decimals: 18,
 })
 
-export const WSTETH = new Token({
-  chainId: ChainId.ETHEREUM,
-  address: '0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0',
-  name: 'Wrapped liquid staked Ether 2.0',
-  symbol: 'wstETH',
-  decimals: 18,
-})
+export const WstETH = addressMapToTokenMap(
+  {
+    decimals: 18,
+    symbol: 'wstETH',
+    name: 'Wrapped liquid staked Ether 2.0',
+  },
+  WstETH_ADDRESS,
+) as Record<keyof typeof WstETH_ADDRESS, Token>

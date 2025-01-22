@@ -14,7 +14,7 @@ import {
   Token,
   USDB,
   USDP,
-  WSTETH,
+  WstETH,
 } from '../../currency/index.js'
 import {
   AAVE,
@@ -66,7 +66,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     OHM[ChainId.ETHEREUM],
     LINK[ChainId.ETHEREUM],
     SUSHI[ChainId.ETHEREUM],
-    WSTETH,
+    WstETH[ChainId.ETHEREUM],
     STETH,
     THREE_CRV,
     GUSD,
@@ -158,13 +158,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     DAI[ChainId.ARBITRUM],
     FRAX[ChainId.ARBITRUM],
     LINK[ChainId.ARBITRUM],
-    new Token({   // #5 for us, #6 for other projects 
-      chainId: ChainId.ARBITRUM,
-      address: '0x5979D7b546E38E414F7E9822514be443A4800529',
-      decimals: 18,
-      symbol: 'wstETH',
-      name: 'Wrapped Lido Staked ETH',
-    }),
+    WstETH[ChainId.ARBITRUM], // #5 for us, #6 for other projects 
     new Token({
       chainId: ChainId.ARBITRUM,
       address: '0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8',
@@ -354,13 +348,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
       symbol: 'USDC',
       name: 'USD Coin (Bridged from Ethereum)',
     }),
-    new Token({ //#5 for other projects
-      chainId: ChainId.OPTIMISM,
-      address: '0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb',
-      decimals: 18,
-      symbol: 'wstETH',
-      name: 'Wrapped Lido Staked ETH',
-    }),
+    WstETH[ChainId.OPTIMISM], // #5 for other projects
     USDT[ChainId.OPTIMISM],
     DAI[ChainId.OPTIMISM],
     LUSD[ChainId.OPTIMISM],
