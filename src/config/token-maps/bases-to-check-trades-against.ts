@@ -216,6 +216,20 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
       symbol: 'USDC.e',
       name: 'USD Coin',
     }),
+    new Token({ // #4 token for other projects
+      chainId: ChainId.AVALANCHE,
+      address: '0x152b9d0FdC40C096757F570A51E494bd4b943E50',
+      decimals: 8,
+      symbol: 'BTC.b',
+      name: 'USD Coin',
+    }),
+    new Token({ // #7 token for other projects
+      chainId: ChainId.AVALANCHE,
+      address: '0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE',
+      decimals: 18,
+      symbol: 'sAVAX',
+      name: 'Staked AVAX',
+    }),
     USDT[ChainId.AVALANCHE],
     new Token({
       chainId: ChainId.AVALANCHE,
