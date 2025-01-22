@@ -1359,3 +1359,12 @@ export const WstETH = addressMapToTokenMap(
   },
   WstETH_ADDRESS,
 ) as Record<keyof typeof WstETH_ADDRESS, Token>
+
+
+export const AERO = new Token({
+  chainId: ChainId.BASE,
+  address: '0x940181a94A35A4569E4529A3CDfB74e38FD98631',
+  name: 'Aerodrome',
+  symbol: 'stETH',
+  decimals: 18,
+})

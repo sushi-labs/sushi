@@ -1,5 +1,6 @@
 import { ChainId } from '../../chain/index.js'
 import {
+  AERO,
   APE_ETH,
   APE_USD,
   CRV_USD,
@@ -482,6 +483,9 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
       name: 'Coinbase Wrapped Staked ETH',
     }),
     USDC[ChainId.BASE],
+    WstETH[ChainId.BASE], // #7  for other projects
+    USDT[ChainId.BASE], // #8  for other projects
+    AERO, // #9  for other projects
     new Token({
       chainId: ChainId.BASE,
       address: '0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA',
