@@ -354,6 +354,13 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
       symbol: 'USDC',
       name: 'USD Coin (Bridged from Ethereum)',
     }),
+    new Token({ //#5 for other projects
+      chainId: ChainId.OPTIMISM,
+      address: '0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb',
+      decimals: 18,
+      symbol: 'wstETH',
+      name: 'Wrapped Lido Staked ETH',
+    }),
     USDT[ChainId.OPTIMISM],
     DAI[ChainId.OPTIMISM],
     LUSD[ChainId.OPTIMISM],
