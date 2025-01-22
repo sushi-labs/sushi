@@ -156,9 +156,15 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     USDC[ChainId.ARBITRUM],
     USDT[ChainId.ARBITRUM],
     DAI[ChainId.ARBITRUM],
-    MIM[ChainId.ARBITRUM],
     FRAX[ChainId.ARBITRUM],
     LINK[ChainId.ARBITRUM],
+    new Token({   // #5 for us, #6 for other projects 
+      chainId: ChainId.ARBITRUM,
+      address: '0x5979D7b546E38E414F7E9822514be443A4800529',
+      decimals: 18,
+      symbol: 'wstETH',
+      name: 'Wrapped Lido Staked ETH',
+    }),
     new Token({
       chainId: ChainId.ARBITRUM,
       address: '0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8',
@@ -172,13 +178,6 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
       decimals: 18,
       symbol: 'ARB',
       name: 'Arbitrum',
-    }),
-    new Token({
-      chainId: ChainId.ARBITRUM,
-      address: '0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a',
-      decimals: 18,
-      symbol: 'GMX',
-      name: 'GMX',
     }),
     new Token({
       chainId: ChainId.ARBITRUM,
