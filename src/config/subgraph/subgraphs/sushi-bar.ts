@@ -1,3 +1,12 @@
-import { DECENTRALIZED_HOST_BY_DEPLOYMENT_ID } from '../hosts.js'
+import { ChainId } from '../../../chain/id.js'
+import { getSubgraphUrlWrapper } from '../get-subgraph-url.js'
 
-export const SUSHI_BAR_SUBGRAPH_URL = `${DECENTRALIZED_HOST_BY_DEPLOYMENT_ID}/QmWisRwB5h2fWMUdGbxQEdqMvVWAiZB1BxsCdoqcsn2Cij`
+export const getSushiBarSubgraphUrl = getSubgraphUrlWrapper({
+  decentralizedIds: {
+    [ChainId.ETHEREUM]: {
+      type: 'deploymentId',
+      id: 'QmWisRwB5h2fWMUdGbxQEdqMvVWAiZB1BxsCdoqcsn2Cij',
+    },
+  },
+  otherUrls: {},
+})()

@@ -26,15 +26,12 @@ export const METIS_0XGRAPH_HOST =
 export const SKALE_HOST =
   'elated-tan-skat-graph.skalenodes.com:8000/subgraphs/name'
 
-const SUSHI_DOMAIN_RESTRICTED_API_KEY = '5d5d00365d2b8f675e12952d6eb5b9b0'
-const DECENTRALIZED_NETWORK_KEY =
-  process.env['SUSHI_GRAPH_KEY'] ||
-  process.env['NEXT_PUBLIC_SUSHI_GRAPH_KEY'] ||
-  SUSHI_DOMAIN_RESTRICTED_API_KEY
-export const DECENTRALIZED_HOST_BY_SUBGRAPH_ID = `gateway-arbitrum.network.thegraph.com/api/${DECENTRALIZED_NETWORK_KEY}/subgraphs/id`
-export const DECENTRALIZED_HOST_BY_DEPLOYMENT_ID = `gateway-arbitrum.network.thegraph.com/api/${DECENTRALIZED_NETWORK_KEY}/deployments/id`
+export const SUSHI_DOMAIN_RESTRICTED_API_KEY =
+  '5d5d00365d2b8f675e12952d6eb5b9b0'
 
-export const SUSHI_DATA_API_HOST =
-  process.env['SUSHI_DATA_API_HOST'] ||
-  process.env['NEXT_PUBLIC_SUSHI_DATA_API_HOST'] ||
-  'https://production.data-gcp.sushi.com'
+export const getDecentralizedHostBySubgraphId = (key: string) =>
+  `gateway-arbitrum.network.thegraph.com/api/${key}/subgraphs/id`
+export const getDecentralizedHostByDeploymentId = (key: string) =>
+  `gateway-arbitrum.network.thegraph.com/api/${key}/deployments/id`
+
+export const SUSHI_DATA_API_HOST = 'https://production.data-gcp.sushi.com'
