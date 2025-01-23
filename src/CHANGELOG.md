@@ -1,5 +1,11 @@
 # sushi
 
+## 4.2.3
+
+### Patch Changes
+
+- [#79](https://github.com/sushi-labs/sushi/pull/79) [`57c1bc7`](https://github.com/sushi-labs/sushi/commit/57c1bc7a567ecc0efc8aeeb590914266c434216f) Thanks [@Okavango](https://github.com/Okavango)! - Intermediate Token set update
+
 ## 4.2.2
 
 ### Patch Changes
