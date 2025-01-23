@@ -1,5 +1,6 @@
 import { ChainId } from '../../chain/index.js'
 import {
+  AERO,
   APE_ETH,
   APE_USD,
   CRV_USD,
@@ -14,7 +15,7 @@ import {
   Token,
   USDB,
   USDP,
-  WSTETH,
+  WstETH,
 } from '../../currency/index.js'
 import {
   AAVE,
@@ -66,7 +67,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     OHM[ChainId.ETHEREUM],
     LINK[ChainId.ETHEREUM],
     SUSHI[ChainId.ETHEREUM],
-    WSTETH,
+    WstETH[ChainId.ETHEREUM],
     STETH,
     THREE_CRV,
     GUSD,
@@ -120,12 +121,21 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     WETH9[ChainId.GNOSIS],
     USDC[ChainId.GNOSIS],
     USDT[ChainId.GNOSIS],
+    WstETH[ChainId.GNOSIS], // #3 token for other projects
     new Token({
       chainId: ChainId.GNOSIS,
       address: '0x9C58BAcC331c9aa871AFD802DB6379a98e80CEdb',
       decimals: 18,
       symbol: 'GNO',
       name: 'Gnosis',
+    }),
+    new Token({
+      // #2 token for other projects
+      chainId: ChainId.GNOSIS,
+      address: '0xaf204776c7245bF4147c2612BF6e5972Ee483701',
+      decimals: 18,
+      symbol: 'sDAI',
+      name: 'Savings xDAI',
     }),
   ],
   [ChainId.BSC]: [
@@ -156,9 +166,9 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     USDC[ChainId.ARBITRUM],
     USDT[ChainId.ARBITRUM],
     DAI[ChainId.ARBITRUM],
-    MIM[ChainId.ARBITRUM],
     FRAX[ChainId.ARBITRUM],
     LINK[ChainId.ARBITRUM],
+    WstETH[ChainId.ARBITRUM], // #5 for us, #6 for other projects
     new Token({
       chainId: ChainId.ARBITRUM,
       address: '0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8',
@@ -172,13 +182,6 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
       decimals: 18,
       symbol: 'ARB',
       name: 'Arbitrum',
-    }),
-    new Token({
-      chainId: ChainId.ARBITRUM,
-      address: '0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a',
-      decimals: 18,
-      symbol: 'GMX',
-      name: 'GMX',
     }),
     new Token({
       chainId: ChainId.ARBITRUM,
@@ -221,6 +224,22 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
       decimals: 6,
       symbol: 'USDC.e',
       name: 'USD Coin',
+    }),
+    new Token({
+      // #4 token for other projects
+      chainId: ChainId.AVALANCHE,
+      address: '0x152b9d0FdC40C096757F570A51E494bd4b943E50',
+      decimals: 8,
+      symbol: 'BTC.b',
+      name: 'USD Coin',
+    }),
+    new Token({
+      // #7 token for other projects
+      chainId: ChainId.AVALANCHE,
+      address: '0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE',
+      decimals: 18,
+      symbol: 'sAVAX',
+      name: 'Staked AVAX',
     }),
     USDT[ChainId.AVALANCHE],
     new Token({
@@ -355,6 +374,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
       symbol: 'USDC',
       name: 'USD Coin (Bridged from Ethereum)',
     }),
+    WstETH[ChainId.OPTIMISM], // #5 for other projects
     USDT[ChainId.OPTIMISM],
     DAI[ChainId.OPTIMISM],
     LUSD[ChainId.OPTIMISM],
@@ -476,7 +496,9 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
   [ChainId.LINEA]: [
     WNATIVE[ChainId.LINEA],
     USDC[ChainId.LINEA],
+    USDT[ChainId.LINEA],
     DAI[ChainId.LINEA],
+    WBTC[ChainId.LINEA],
   ],
   [ChainId.BASE]: [
     WNATIVE[ChainId.BASE],
@@ -488,6 +510,9 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
       name: 'Coinbase Wrapped Staked ETH',
     }),
     USDC[ChainId.BASE],
+    WstETH[ChainId.BASE], // #7  for other projects
+    USDT[ChainId.BASE], // #8  for other projects
+    AERO, // #9  for other projects
     new Token({
       chainId: ChainId.BASE,
       address: '0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA',
@@ -517,6 +542,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     WBTC[ChainId.SCROLL],
     USDC[ChainId.SCROLL],
     USDT[ChainId.SCROLL],
+    WstETH[ChainId.SCROLL],
   ],
   [ChainId.FILECOIN]: [
     WNATIVE[ChainId.FILECOIN],
@@ -557,7 +583,16 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     WNATIVE[ChainId.MANTLE],
     WETH9[ChainId.MANTLE],
     USDC[ChainId.MANTLE],
+    USDT[ChainId.MANTLE],
     METH[ChainId.MANTLE],
+    new Token({
+      // #3 token for other projects
+      chainId: ChainId.MANTLE,
+      address: '0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34',
+      decimals: 18,
+      symbol: 'USDe',
+      name: 'USDe',
+    }),
   ],
   [ChainId.CURTIS]: [
     WNATIVE[ChainId.CURTIS],
