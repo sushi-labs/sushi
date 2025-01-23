@@ -121,12 +121,20 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     WETH9[ChainId.GNOSIS],
     USDC[ChainId.GNOSIS],
     USDT[ChainId.GNOSIS],
+    WstETH[ChainId.GNOSIS], // #3 token for other projects
     new Token({
       chainId: ChainId.GNOSIS,
       address: '0x9C58BAcC331c9aa871AFD802DB6379a98e80CEdb',
       decimals: 18,
       symbol: 'GNO',
       name: 'Gnosis',
+    }),
+    new Token({ // #2 token for other projects
+      chainId: ChainId.GNOSIS,
+      address: '0xaf204776c7245bF4147c2612BF6e5972Ee483701',
+      decimals: 18,
+      symbol: 'sDAI',
+      name: 'Savings xDAI',
     }),
   ],
   [ChainId.BSC]: [
@@ -485,7 +493,9 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
   [ChainId.LINEA]: [
     WNATIVE[ChainId.LINEA],
     USDC[ChainId.LINEA],
+    USDT[ChainId.LINEA],
     DAI[ChainId.LINEA],
+    WBTC[ChainId.LINEA],
   ],
   [ChainId.BASE]: [
     WNATIVE[ChainId.BASE],
@@ -529,6 +539,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     WBTC[ChainId.SCROLL],
     USDC[ChainId.SCROLL],
     USDT[ChainId.SCROLL],
+    WstETH[ChainId.SCROLL],
   ],
   [ChainId.FILECOIN]: [
     WNATIVE[ChainId.FILECOIN],
@@ -569,7 +580,15 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     WNATIVE[ChainId.MANTLE],
     WETH9[ChainId.MANTLE],
     USDC[ChainId.MANTLE],
+    USDT[ChainId.MANTLE],
     METH[ChainId.MANTLE],
+    new Token({ // #3 token for other projects
+      chainId: ChainId.MANTLE,
+      address: '0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34',
+      decimals: 18,
+      symbol: 'USDe',
+      name: 'USDe',
+    }),
   ],
   [ChainId.CURTIS]: [
     WNATIVE[ChainId.CURTIS],
