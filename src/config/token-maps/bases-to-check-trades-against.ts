@@ -129,7 +129,8 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
       symbol: 'GNO',
       name: 'Gnosis',
     }),
-    new Token({ // #2 token for other projects
+    new Token({
+      // #2 token for other projects
       chainId: ChainId.GNOSIS,
       address: '0xaf204776c7245bF4147c2612BF6e5972Ee483701',
       decimals: 18,
@@ -167,7 +168,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     DAI[ChainId.ARBITRUM],
     FRAX[ChainId.ARBITRUM],
     LINK[ChainId.ARBITRUM],
-    WstETH[ChainId.ARBITRUM], // #5 for us, #6 for other projects 
+    WstETH[ChainId.ARBITRUM], // #5 for us, #6 for other projects
     new Token({
       chainId: ChainId.ARBITRUM,
       address: '0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8',
@@ -224,14 +225,16 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
       symbol: 'USDC.e',
       name: 'USD Coin',
     }),
-    new Token({ // #4 token for other projects
+    new Token({
+      // #4 token for other projects
       chainId: ChainId.AVALANCHE,
       address: '0x152b9d0FdC40C096757F570A51E494bd4b943E50',
       decimals: 8,
       symbol: 'BTC.b',
       name: 'USD Coin',
     }),
-    new Token({ // #7 token for other projects
+    new Token({
+      // #7 token for other projects
       chainId: ChainId.AVALANCHE,
       address: '0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE',
       decimals: 18,
@@ -582,7 +585,8 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     USDC[ChainId.MANTLE],
     USDT[ChainId.MANTLE],
     METH[ChainId.MANTLE],
-    new Token({ // #3 token for other projects
+    new Token({
+      // #3 token for other projects
       chainId: ChainId.MANTLE,
       address: '0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34',
       decimals: 18,
