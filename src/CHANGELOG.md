@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.2
+
+### Patch Changes
+
+- [#85](https://github.com/sushi-labs/sushi/pull/85) [`1fbfa93`](https://github.com/sushi-labs/sushi/commit/1fbfa93dfecb5cb57b90ac8691fefd1f519c0673) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Add isChainId
+
 ## 5.0.1
 
 ### Patch Changes
