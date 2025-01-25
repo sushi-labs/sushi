@@ -18,6 +18,11 @@ type Rest<IncludeKey extends boolean> = IncludeKey extends true
   ? [config: Config<IncludeKey>]
   : [config?: Config<IncludeKey>]
 
+type Result<
+  PASSED_CHAIN extends ChainId,
+  SUPPORTED_CHAINS extends ChainId,
+> = PASSED_CHAIN extends SUPPORTED_CHAINS ? string : string | undefined
+
 function isIn<T extends object>(key: PropertyKey, obj: T): key is keyof T {
   return key in obj
 }
@@ -46,13 +51,11 @@ function getSubgraphUrlWrapperWrapper<
     COMPLETENESS extends _COMPLETENESS,
   >() {
     // Handles the actual url lookup
-    function getSubgraphUrl<
-      PASSED_CHAIN extends CHAINS & (DECENTRALIZED | OTHER),
-    >(
+    function getSubgraphUrl<PASSED_CHAIN extends CHAINS>(
       chainId: PASSED_CHAIN,
       // Require the decentralized key only if the subgraph is on decentralized network
-      ...rest: Rest<PASSED_CHAIN extends DECENTRALIZED ? true : false>
-    ) {
+      ...rest: Rest<[PASSED_CHAIN] extends [OTHER] ? false : true>
+    ): Result<PASSED_CHAIN, DECENTRALIZED | OTHER> {
       const [config] = rest
 
       if (isIn(chainId, subgraphs.decentralizedIds)) {
@@ -79,7 +82,7 @@ function getSubgraphUrlWrapperWrapper<
         return subgraphs.otherUrls[chainId]
       }
 
-      throw new Error(`No subgraph found for chainId: ${chainId}`)
+      return undefined as Result<PASSED_CHAIN, DECENTRALIZED | OTHER>
     }
 
     return getSubgraphUrl
