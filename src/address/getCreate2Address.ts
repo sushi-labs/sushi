@@ -6,7 +6,7 @@ import {
   keccak256,
   pad,
 } from 'viem/utils'
-import { ChainId } from '../chain/index.js'
+import { EvmChainId } from '../chain/evm/index.js'
 
 const EMPTY_INPU_HASH =
   '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470'
@@ -17,14 +17,18 @@ type GetCreate2AddressOptions = {
   bytecodeHash: Hex
   from: Address
   salt: Hex
-  chainId: ChainId
+  chainId: EvmChainId
 }
 
 export function getCreate2Address({
   chainId,
   ...params
 }: GetCreate2AddressOptions) {
-  if (([ChainId.ZKSYNC_ERA, ChainId.ZKLINK] as ChainId[]).includes(chainId)) {
+  if (
+    ([EvmChainId.ZKSYNC_ERA, EvmChainId.ZKLINK] as EvmChainId[]).includes(
+      chainId,
+    )
+  ) {
     const { from, salt, bytecodeHash } = params
 
     return getAddress(

@@ -1,11 +1,12 @@
 import * as z from 'zod'
+import { isEvmChainId } from '../chain/index.js'
 
 export const nativeSchema = z.object({
   isNative: z.literal(true),
   name: z.string().optional(),
   symbol: z.string().optional(),
   decimals: z.number(),
-  chainId: z.number(),
+  chainId: z.number().refine(isEvmChainId),
 })
 
 export const tokenSchema = z.object({
@@ -13,7 +14,7 @@ export const tokenSchema = z.object({
   name: z.string().optional(),
   symbol: z.string().optional(),
   decimals: z.number(),
-  chainId: z.number(),
+  chainId: z.number().refine(isEvmChainId),
   address: z.string(),
 })
 

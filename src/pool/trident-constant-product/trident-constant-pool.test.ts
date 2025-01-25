@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { ChainId } from '../../chain/index.js'
+import { EvmChainId } from '../../chain/evm/index.js'
 import { TRIDENT_CONSTANT_POOL_FACTORY_ADDRESS } from '../../config/features/trident.js'
 import {
   Amount,
@@ -16,29 +16,30 @@ import { TridentConstantPool } from './trident-constant-pool.js'
 describe('computePoolAddress', () => {
   it('should correctly compute the pool address', () => {
     const tokenA = new Token({
-      chainId: ChainId.OPTIMISM,
-      address: USDC_ADDRESS[ChainId.OPTIMISM],
+      chainId: EvmChainId.OPTIMISM,
+      address: USDC_ADDRESS[EvmChainId.OPTIMISM],
       decimals: 6,
       symbol: 'USDC',
       name: 'USD Coin',
     })
     const tokenB = new Token({
-      chainId: ChainId.OPTIMISM,
-      address: WETH9_ADDRESS[ChainId.OPTIMISM],
+      chainId: EvmChainId.OPTIMISM,
+      address: WETH9_ADDRESS[EvmChainId.OPTIMISM],
       decimals: 18,
       symbol: 'WETH',
       name: 'Wrapped Ether',
     })
 
-    expect(tokenA.address).toEqual(USDC_ADDRESS[ChainId.OPTIMISM])
-    expect(tokenB.address).toEqual(WETH9_ADDRESS[ChainId.OPTIMISM])
+    expect(tokenA.address).toEqual(USDC_ADDRESS[EvmChainId.OPTIMISM])
+    expect(tokenB.address).toEqual(WETH9_ADDRESS[EvmChainId.OPTIMISM])
 
     const fee = 30
 
     const twap = true
 
     const address = computeTridentConstantPoolAddress({
-      factoryAddress: TRIDENT_CONSTANT_POOL_FACTORY_ADDRESS[ChainId.OPTIMISM],
+      factoryAddress:
+        TRIDENT_CONSTANT_POOL_FACTORY_ADDRESS[EvmChainId.OPTIMISM],
       tokenA,
       tokenB,
       fee,
@@ -51,15 +52,15 @@ describe('computePoolAddress', () => {
 
 describe('TridentConstantPool', () => {
   const USDC = new Token({
-    chainId: ChainId.OPTIMISM,
-    address: USDC_ADDRESS[ChainId.OPTIMISM],
+    chainId: EvmChainId.OPTIMISM,
+    address: USDC_ADDRESS[EvmChainId.OPTIMISM],
     decimals: 6,
     symbol: 'USDC',
     name: 'USD Coin',
   })
   const WETH = new Token({
-    chainId: ChainId.OPTIMISM,
-    address: WETH9_ADDRESS[ChainId.OPTIMISM],
+    chainId: EvmChainId.OPTIMISM,
+    address: WETH9_ADDRESS[EvmChainId.OPTIMISM],
     decimals: 18,
     symbol: 'WETH',
     name: 'Wrapped Ether',
@@ -310,12 +311,12 @@ describe('TridentConstantPool', () => {
   describe('miscellaneous', () => {
     it('getLiquidityMinted:0', async () => {
       const tokenA = new Token({
-        chainId: ChainId.OPTIMISM,
+        chainId: EvmChainId.OPTIMISM,
         address: '0x0000000000000000000000000000000000000001',
         decimals: 18,
       })
       const tokenB = new Token({
-        chainId: ChainId.OPTIMISM,
+        chainId: EvmChainId.OPTIMISM,
         address: '0x0000000000000000000000000000000000000002',
         decimals: 18,
       })
@@ -353,12 +354,12 @@ describe('TridentConstantPool', () => {
 
     it('getLiquidityMinted:!0', async () => {
       const tokenA = new Token({
-        chainId: ChainId.OPTIMISM,
+        chainId: EvmChainId.OPTIMISM,
         address: '0x0000000000000000000000000000000000000001',
         decimals: 18,
       })
       const tokenB = new Token({
-        chainId: ChainId.OPTIMISM,
+        chainId: EvmChainId.OPTIMISM,
         address: '0x0000000000000000000000000000000000000002',
         decimals: 18,
       })
@@ -399,12 +400,12 @@ describe('TridentConstantPool', () => {
 
     it('getLiquidityValue', async () => {
       const tokenA = new Token({
-        chainId: ChainId.OPTIMISM,
+        chainId: EvmChainId.OPTIMISM,
         address: '0x0000000000000000000000000000000000000001',
         decimals: 18,
       })
       const tokenB = new Token({
-        chainId: ChainId.OPTIMISM,
+        chainId: EvmChainId.OPTIMISM,
         address: '0x0000000000000000000000000000000000000002',
         decimals: 18,
       })
@@ -450,12 +451,12 @@ describe('TridentConstantPool', () => {
 
     it('getLiquidityValueSingleToken', () => {
       const tokenA = new Token({
-        chainId: ChainId.OPTIMISM,
+        chainId: EvmChainId.OPTIMISM,
         address: '0x0000000000000000000000000000000000000001',
         decimals: 6,
       })
       const tokenB = new Token({
-        chainId: ChainId.OPTIMISM,
+        chainId: EvmChainId.OPTIMISM,
         address: '0x0000000000000000000000000000000000000002',
         decimals: 18,
       })
