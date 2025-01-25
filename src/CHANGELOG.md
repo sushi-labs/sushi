@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.1
+
+### Patch Changes
+
+- [#82](https://github.com/sushi-labs/sushi/pull/82) [`8d39a1a`](https://github.com/sushi-labs/sushi/commit/8d39a1a2b9b6574ed51cd054018627e8b4ecd69e) Thanks [@LufyCZ](https://github.com/LufyCZ)! - GetSubgraphUrl Type Fix
+
 ## 5.0.0
 
 ### Major Changes
