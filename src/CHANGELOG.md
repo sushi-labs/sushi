@@ -1,5 +1,13 @@
 # sushi
 
+## 5.0.0
+
+### Major Changes
+
+- [#78](https://github.com/sushi-labs/sushi/pull/78) [`e20e483`](https://github.com/sushi-labs/sushi/commit/e20e483a2a09d1e68aceeef1b1d6d3f2f6edf082) Thanks [@LufyCZ](https://github.com/LufyCZ)! - ChainId -> EvmChainId
+
+- [#78](https://github.com/sushi-labs/sushi/pull/78) [`e20e483`](https://github.com/sushi-labs/sushi/commit/e20e483a2a09d1e68aceeef1b1d6d3f2f6edf082) Thanks [@LufyCZ](https://github.com/LufyCZ)! - ChainId->EvmChainId, Subgraph url getters
+
 ## 4.2.3
 
 ### Patch Changes
