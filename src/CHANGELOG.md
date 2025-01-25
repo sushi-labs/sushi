@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.3
+
+### Patch Changes
+
+- [#87](https://github.com/sushi-labs/sushi/pull/87) [`062ee26`](https://github.com/sushi-labs/sushi/commit/062ee26774d6e9e587225d4cb1aca83e6fd0e1b9) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Fix Chain Export
+
 ## 5.0.2
 
 ### Patch Changes
