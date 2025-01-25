@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.4
+
+### Patch Changes
+
+- [#89](https://github.com/sushi-labs/sushi/pull/89) [`b80abca`](https://github.com/sushi-labs/sushi/commit/b80abca230536882e99d65cfbc74603b7ad79ce3) Thanks [@LufyCZ](https://github.com/LufyCZ)! - API URL Export
+
 ## 5.0.3
 
 ### Patch Changes
