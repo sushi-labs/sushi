@@ -42,7 +42,7 @@ const SUSHISWAP_V2_OTHER_URLS = {
   [EvmChainId.ARBITRUM_NOVA]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushi-0m/v2-arbitrum-nova/gn`,
   [EvmChainId.BOBA_BNB]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushi-0m/v2-boba-bnb/gn`,
   [EvmChainId.KAVA]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushi-v2/v2-kava/gn`,
-  [EvmChainId.METIS]: `${METIS_0XGRAPH_HOST}/sushiswap/v2-metis`,
+  [EvmChainId.METIS]: `${METIS_0XGRAPH_HOST}/sushiswap/v2-metis/-/gn`,
   [EvmChainId.BTTC]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushi-v2/v2-bttc/gn`,
   [EvmChainId.FILECOIN]: `${FILECOIN_HOST}/sushiswap/v2-filecoin`,
   [EvmChainId.ZETACHAIN]: `${SUSHI_GOLDSKY_HOST}/v2-zetachain/1.0.0/gn`,

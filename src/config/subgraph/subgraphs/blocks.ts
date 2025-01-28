@@ -40,7 +40,7 @@ const BLOCKS_OTHER_URLS = {
   // [EvmChainId.HECO]: `${GRAPH_HOST}/hecoblocks/heco`,
   // [EvmChainId.KOVAN]: `${GRAPH_HOST}/blocklytics/kovan-blocks`,
   [EvmChainId.KAVA]: `${WAGMI_KAVA_HOST}/blocks`,
-  [EvmChainId.METIS]: `${METIS_0XGRAPH_HOST}/sushiswap/blocks-metis`,
+  [EvmChainId.METIS]: `${METIS_0XGRAPH_HOST}/sushiswap/blocks-metis/-/gn`,
   // [EvmChainId.METIS]: `${WAGMI_METIS_HOST}/blocks`,
   [EvmChainId.ARBITRUM_NOVA]: `${SUSHI_GOLDSKY_HOST}/blocks/arbitrum-nova/gn`,
   [EvmChainId.BOBA_BNB]: `${SUSHI_GOLDSKY_HOST}/blocks/boba-bnb/gn`,
