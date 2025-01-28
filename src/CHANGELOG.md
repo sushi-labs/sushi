@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.6
+
+### Patch Changes
+
+- [#93](https://github.com/sushi-labs/sushi/pull/93) [`3a5623f`](https://github.com/sushi-labs/sushi/commit/3a5623f65c7660bc184c828f8b2730e1aaa5a1d7) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Update RSK and Filecoin V3 Subgraph URL
+
 ## 5.0.5
 
 ### Patch Changes
