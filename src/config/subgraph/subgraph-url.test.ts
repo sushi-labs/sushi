@@ -17,7 +17,8 @@ describe('subgraph urls', () => {
 
   it('partner hosted returns url', () => {
     const actual = getSushiSwapV3SubgraphUrl(EvmChainId.FILECOIN)
-    const expected = 'api.goldsky.com/api/public/project_clslspm3c0knv01wvgfb2fqyq/subgraphs/sushiswap/v3-filecoin/gn'
+    const expected =
+      'api.goldsky.com/api/public/project_clslspm3c0knv01wvgfb2fqyq/subgraphs/sushiswap/v3-filecoin/gn'
     expectTypeOf(actual).toEqualTypeOf<string>()
     expect(actual).toEqual(expected)
   })
