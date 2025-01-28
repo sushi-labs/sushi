@@ -62,17 +62,16 @@ function getSubgraphUrlWrapperWrapper<
         const _config = config as DecentralizedKey<true>
 
         const entry = subgraphs.decentralizedIds[chainId]
-
         if (entry.type === 'deploymentId') {
           return `${getDecentralizedHostByDeploymentId(
             _config.decentralizedKey,
-          )}/${subgraphs.decentralizedIds[chainId]}`
+          )}/${subgraphs.decentralizedIds[chainId].id}`
         }
 
         if (entry.type === 'subgraphId') {
           return `${getDecentralizedHostBySubgraphId(
             _config.decentralizedKey,
-          )}/${subgraphs.decentralizedIds[chainId]}`
+          )}/${subgraphs.decentralizedIds[chainId].id}`
         }
 
         throw new Error(`Invalid entry type: ${entry.type}`)
