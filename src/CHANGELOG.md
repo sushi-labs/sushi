@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.7
+
+### Patch Changes
+
+- [#95](https://github.com/sushi-labs/sushi/pull/95) [`2d0b7b1`](https://github.com/sushi-labs/sushi/commit/2d0b7b1ebaab3019df920a0b21a1143ccce29c96) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Update metis and skale subgraph urls
+
 ## 5.0.6
 
 ### Patch Changes
