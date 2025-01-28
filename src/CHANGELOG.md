@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.5
+
+### Patch Changes
+
+- [#91](https://github.com/sushi-labs/sushi/pull/91) [`b760b77`](https://github.com/sushi-labs/sushi/commit/b760b77acd2baebcb5cd50c7cc17ec131afd0de8) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Fix subgraph url function
+
 ## 5.0.4
 
 ### Patch Changes
