@@ -333,53 +333,53 @@ export const STARGATE_BRIDGE_TOKENS: Record<number, Token[]> = {
   [EvmChainId.LINEA]: [STARGATE_ETH[EvmChainId.LINEA]],
 }
 
-export const STARGATE_BRIDGE_TOKEN_ADDRESSES: Record<number, string[]> = {
-  [EvmChainId.ETHEREUM]: [
+export const STARGATE_BRIDGE_TOKEN_ADDRESSES: Record<number, Set<string>> = {
+  [EvmChainId.ETHEREUM]: new Set([
     STARGATE_ETH_ADDRESS[EvmChainId.ETHEREUM],
     STARGATE_USDC_ADDRESS[EvmChainId.ETHEREUM],
     STARGATE_USDT_ADDRESS[EvmChainId.ETHEREUM],
     STARGATE_DAI_ADDRESS[EvmChainId.ETHEREUM],
     STARGATE_FRAX_ADDRESS[EvmChainId.ETHEREUM],
     STARGATE_MAI_ADDRESS[EvmChainId.ETHEREUM],
-  ],
-  [EvmChainId.BSC]: [
+  ]),
+  [EvmChainId.BSC]: new Set([
     STARGATE_USDT_ADDRESS[EvmChainId.BSC],
     STARGATE_BUSD_ADDRESS[EvmChainId.BSC],
     STARGATE_MAI_ADDRESS[EvmChainId.BSC],
-  ],
-  [EvmChainId.AVALANCHE]: [
+  ]),
+  [EvmChainId.AVALANCHE]: new Set([
     STARGATE_USDC_ADDRESS[EvmChainId.AVALANCHE],
     STARGATE_USDT_ADDRESS[EvmChainId.AVALANCHE],
     STARGATE_FRAX_ADDRESS[EvmChainId.AVALANCHE],
     STARGATE_MAI_ADDRESS[EvmChainId.AVALANCHE],
-  ],
-  [EvmChainId.POLYGON]: [
+  ]),
+  [EvmChainId.POLYGON]: new Set([
     STARGATE_USDC_ADDRESS[EvmChainId.POLYGON],
     STARGATE_USDT_ADDRESS[EvmChainId.POLYGON],
     STARGATE_DAI_ADDRESS[EvmChainId.POLYGON],
     STARGATE_MAI_ADDRESS[EvmChainId.POLYGON],
-  ],
-  [EvmChainId.ARBITRUM]: [
+  ]),
+  [EvmChainId.ARBITRUM]: new Set([
     STARGATE_ETH_ADDRESS[EvmChainId.ARBITRUM],
     STARGATE_USDC_ADDRESS[EvmChainId.ARBITRUM],
     STARGATE_USDT_ADDRESS[EvmChainId.ARBITRUM],
     STARGATE_FRAX_ADDRESS[EvmChainId.ARBITRUM],
     STARGATE_MAI_ADDRESS[EvmChainId.ARBITRUM],
-  ],
-  [EvmChainId.OPTIMISM]: [
+  ]),
+  [EvmChainId.OPTIMISM]: new Set([
     STARGATE_ETH_ADDRESS[EvmChainId.OPTIMISM],
     STARGATE_USDC_ADDRESS[EvmChainId.OPTIMISM],
     STARGATE_DAI_ADDRESS[EvmChainId.OPTIMISM],
     STARGATE_FRAX_ADDRESS[EvmChainId.OPTIMISM],
     STARGATE_MAI_ADDRESS[EvmChainId.OPTIMISM],
-  ],
-  [EvmChainId.FANTOM]: [STARGATE_USDC_ADDRESS[EvmChainId.FANTOM]],
-  [EvmChainId.METIS]: [STARGATE_USDT_ADDRESS[EvmChainId.METIS]],
-  [EvmChainId.BASE]: [
+  ]),
+  [EvmChainId.FANTOM]: new Set([STARGATE_USDC_ADDRESS[EvmChainId.FANTOM]]),
+  [EvmChainId.METIS]: new Set([STARGATE_USDT_ADDRESS[EvmChainId.METIS]]),
+  [EvmChainId.BASE]: new Set([
     STARGATE_ETH_ADDRESS[EvmChainId.BASE],
     STARGATE_USDC_ADDRESS[EvmChainId.BASE],
-  ],
-  [EvmChainId.LINEA]: [STARGATE_ETH_ADDRESS[EvmChainId.LINEA]],
+  ]),
+  [EvmChainId.LINEA]: new Set([STARGATE_ETH_ADDRESS[EvmChainId.LINEA]]),
 }
 
 export const STARGATE_POOL_ID: Record<number, Record<string, number>> = {
@@ -522,7 +522,7 @@ export function isStargateBridgeToken(currency: Type | undefined) {
   if (!currency) return false
   if (currency.isNative && currency.chainId in STARGATE_ETH_ADDRESS) return true
   if (!STARGATE_BRIDGE_TOKEN_ADDRESSES[currency.chainId]) return false
-  return STARGATE_BRIDGE_TOKEN_ADDRESSES?.[currency.chainId]?.includes(
+  return STARGATE_BRIDGE_TOKEN_ADDRESSES?.[currency.chainId]?.has(
     currency.wrapped.address,
   )
 }

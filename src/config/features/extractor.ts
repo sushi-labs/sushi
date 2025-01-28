@@ -49,7 +49,9 @@ export const EXTRACTOR_SUPPORTED_CHAIN_IDS = [
 export type ExtractorSupportedChainId =
   (typeof EXTRACTOR_SUPPORTED_CHAIN_IDS)[number]
 
+export const extractorChainIdSet = new Set(EXTRACTOR_SUPPORTED_CHAIN_IDS)
+
 export const isExtractorSupportedChainId = (
   chainId: number,
 ): chainId is ExtractorSupportedChainId =>
-  EXTRACTOR_SUPPORTED_CHAIN_IDS.includes(chainId as ExtractorSupportedChainId)
+  extractorChainIdSet.has(chainId as ExtractorSupportedChainId)

@@ -14,4 +14,4 @@ export const ChainNetworkNameKey = Object.fromEntries(
 ) as { [key in ChainKey]: ChainId }
 
 export const isChainNetworkNameKey = (key: string): key is ChainKey =>
-  Object.keys(ChainNetworkNameKey).includes(key)
+  key in ChainNetworkNameKey

@@ -4,11 +4,13 @@ export * from './id.js'
 
 export const aptosChainIds = Object.values(AptosChainId)
 
+export const aptosChainIdSet = new Set(aptosChainIds)
+
 export const APTOS_TESTNET_CHAIN_IDS = [] as const
 export type AptosTestnetChainId = (typeof APTOS_TESTNET_CHAIN_IDS)[number]
 
 export const isAptosChainId = (chainId: number): chainId is AptosChainId =>
-  Object.values(AptosChainId).includes(chainId as AptosChainId)
+  aptosChainIdSet.has(chainId as AptosChainId)
 
 export const AptosChainKey = {
   [AptosChainId.APTOS]: 'aptos',
@@ -20,4 +22,4 @@ export const AptosNetworkNameKey = Object.fromEntries(
 ) as { [key in AptosChainKey]: AptosChainId }
 
 export const isAptosNetworkNameKey = (key: string): key is AptosChainKey =>
-  Object.keys(AptosNetworkNameKey).includes(key)
+  key in AptosNetworkNameKey

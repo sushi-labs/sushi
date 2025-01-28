@@ -17,8 +17,10 @@ export const SushiSwapChainIds = SUSHISWAP_SUPPORTED_CHAIN_IDS
 
 export type SushiSwapChainId = (typeof SUSHISWAP_SUPPORTED_CHAIN_IDS)[number]
 
+export const sushiSwapChainIdSet = new Set(SUSHISWAP_SUPPORTED_CHAIN_IDS)
+
 export function isSushiSwapChainId(
   chainId: EvmChainId,
 ): chainId is SushiSwapChainId {
-  return SUSHISWAP_SUPPORTED_CHAIN_IDS.includes(chainId as SushiSwapChainId)
+  return sushiSwapChainIdSet.has(chainId as SushiSwapChainId)
 }

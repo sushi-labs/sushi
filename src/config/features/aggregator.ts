@@ -13,7 +13,9 @@ export const AGGREGATOR_ONLY_CHAIN_IDS = [
 
 export type AggregatorOnlyChainId = (typeof AGGREGATOR_ONLY_CHAIN_IDS)[number]
 
+export const aggregatorOnlyChainIdSet = new Set(AGGREGATOR_ONLY_CHAIN_IDS)
+
 export const isAggregatorOnlyChainId = (
   chainId: EvmChainId,
 ): chainId is AggregatorOnlyChainId =>
-  AGGREGATOR_ONLY_CHAIN_IDS.includes(chainId as AggregatorOnlyChainId)
+  aggregatorOnlyChainIdSet.has(chainId as AggregatorOnlyChainId)

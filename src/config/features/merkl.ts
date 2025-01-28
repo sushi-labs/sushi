@@ -24,5 +24,7 @@ export const MerklChainIds = MERKL_SUPPORTED_CHAIN_IDS
 
 export type MerklChainId = (typeof MERKL_SUPPORTED_CHAIN_IDS)[number]
 
+export const merklChainIdSet = new Set(MERKL_SUPPORTED_CHAIN_IDS)
+
 export const isMerklChainId = (chainId: EvmChainId): chainId is MerklChainId =>
-  MERKL_SUPPORTED_CHAIN_IDS.includes(chainId as MerklChainId)
+  merklChainIdSet.has(chainId as MerklChainId)

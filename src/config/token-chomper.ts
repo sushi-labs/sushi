@@ -47,6 +47,8 @@ export const TOKEN_CHOMPER_CHAIN_IDS = [
 
 export type TokenChomperChainId = (typeof TOKEN_CHOMPER_CHAIN_IDS)[number]
 
+export const tokenChomperChainIdSet = new Set(TOKEN_CHOMPER_CHAIN_IDS)
+
 export const TOKEN_CHOMPER_ADDRESS: Record<TokenChomperChainId, `0x${string}`> =
   {
     [EvmChainId.ETHEREUM]: '0xca226bd9c754F1283123d32B2a7cF62a722f8ADa',
@@ -96,4 +98,4 @@ export const TOKEN_CHOMPER_ADDRESS: Record<TokenChomperChainId, `0x${string}`> =
 export const isTokenChomperChainId = (
   chainId: EvmChainId,
 ): chainId is TokenChomperChainId =>
-  TOKEN_CHOMPER_CHAIN_IDS.includes(chainId as TokenChomperChainId)
+  tokenChomperChainIdSet.has(chainId as TokenChomperChainId)

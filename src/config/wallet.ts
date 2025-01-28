@@ -43,6 +43,8 @@ export const MULTISIG_CHAIN_IDS = [
 
 export type MultisigChainId = (typeof MULTISIG_CHAIN_IDS)[number]
 
+export const multisigChainIdSet = new Set(MULTISIG_CHAIN_IDS)
+
 export const MULTISIG_ADDRESS: Record<MultisigChainId, `0x${string}`> = {
   [EvmChainId.ARBITRUM]: '0x978982772b8e4055B921bf9295c0d74eB36Bc54e',
   [EvmChainId.AVALANCHE]: '0x09842Ce338647906B686aBB3B648A6457fbB25DA',
@@ -87,4 +89,4 @@ export const MULTISIG_ADDRESS: Record<MultisigChainId, `0x${string}`> = {
 export const isMultisigChainId = (
   chainId: EvmChainId,
 ): chainId is MultisigChainId =>
-  MULTISIG_CHAIN_IDS.includes(chainId as MultisigChainId)
+  multisigChainIdSet.has(chainId as MultisigChainId)

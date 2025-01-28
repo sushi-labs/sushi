@@ -3,12 +3,13 @@ import { TronChainId } from './id.js'
 export * from './id.js'
 
 export const tronChainIds = Object.values(TronChainId)
+export const tronChainIdSet = new Set(tronChainIds)
 
 export const TRON_TESTNET_CHAIN_IDS = [] as const
 export type TronTestnetChainId = (typeof TRON_TESTNET_CHAIN_IDS)[number]
 
 export const isTronChainId = (chainId: number): chainId is TronChainId =>
-  Object.values(TronChainId).includes(chainId as TronChainId)
+  tronChainIdSet.has(chainId as TronChainId)
 
 export const TronChainKey = {
   [TronChainId.TRON]: 'tron',
@@ -20,4 +21,4 @@ export const TronNetworkNameKey = Object.fromEntries(
 ) as { [key in TronChainKey]: TronChainId }
 
 export const isTronNetworkNameKey = (key: string): key is TronChainKey =>
-  Object.keys(TronNetworkNameKey).includes(key)
+  key in TronNetworkNameKey

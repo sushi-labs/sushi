@@ -42,7 +42,9 @@ export const MINICHEF_SUPPORTED_CHAIN_IDS = [
 
 export type MiniChefChainId = (typeof MINICHEF_SUPPORTED_CHAIN_IDS)[number]
 
+export const miniChefChainIdSet = new Set(MINICHEF_SUPPORTED_CHAIN_IDS)
+
 export const isMiniChefChainId = (
   chainId: EvmChainId,
 ): chainId is MiniChefChainId =>
-  MINICHEF_SUPPORTED_CHAIN_IDS.includes(chainId as MiniChefChainId)
+  miniChefChainIdSet.has(chainId as MiniChefChainId)

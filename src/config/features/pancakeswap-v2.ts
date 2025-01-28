@@ -15,10 +15,14 @@ export const PancakeSwapV2ChainIds = PANCAKESWAP_V2_SUPPORTED_CHAIN_IDS
 export type PancakeSwapV2ChainId =
   (typeof PANCAKESWAP_V2_SUPPORTED_CHAIN_IDS)[number]
 
+export const pancakeSwapV2ChainIdSet = new Set(
+  PANCAKESWAP_V2_SUPPORTED_CHAIN_IDS,
+)
+
 export const isPancakeSwapV2ChainId = (
   chainId: EvmChainId,
 ): chainId is PancakeSwapV2ChainId =>
-  PANCAKESWAP_V2_SUPPORTED_CHAIN_IDS.includes(chainId as PancakeSwapV2ChainId)
+  pancakeSwapV2ChainIdSet.has(chainId as PancakeSwapV2ChainId)
 
 export const PANCAKESWAP_V2_FACTORY_ADDRESS: Record<
   PancakeSwapV2ChainId,

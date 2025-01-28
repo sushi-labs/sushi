@@ -26,6 +26,11 @@ export const ROUTE_PROCESSOR_SUPPORTED_CHAIN_IDS = [
 ] as const
 export type RouteProcessorChainId =
   (typeof ROUTE_PROCESSOR_SUPPORTED_CHAIN_IDS)[number]
+
+export const routeProcessorChainIdSet = new Set(
+  ROUTE_PROCESSOR_SUPPORTED_CHAIN_IDS,
+)
+
 export const ROUTE_PROCESSOR_ADDRESS: Record<
   RouteProcessorChainId,
   `0x${string}`
@@ -51,10 +56,11 @@ export const ROUTE_PROCESSOR_ADDRESS: Record<
   [EvmChainId.OPTIMISM]: '0x96E04591579f298681361C6122Dc4Ef405c19385',
   [EvmChainId.POLYGON]: '0x0dc8E47a1196bcB590485eE8bF832c5c68A52f4B',
 } as const
+
 export const isRouteProcessorChainId = (
   chainId: EvmChainId,
 ): chainId is RouteProcessorChainId =>
-  ROUTE_PROCESSOR_SUPPORTED_CHAIN_IDS.includes(chainId as RouteProcessorChainId)
+  routeProcessorChainIdSet.has(chainId as RouteProcessorChainId)
 
 // v2
 export const ROUTE_PROCESSOR_2_SUPPORTED_CHAIN_IDS = [
@@ -75,6 +81,11 @@ export const ROUTE_PROCESSOR_2_SUPPORTED_CHAIN_IDS = [
 ] as const
 export type RouteProcessor2ChainId =
   (typeof ROUTE_PROCESSOR_2_SUPPORTED_CHAIN_IDS)[number]
+
+export const routeProcessor2ChainIdSet = new Set(
+  ROUTE_PROCESSOR_2_SUPPORTED_CHAIN_IDS,
+)
+
 export const ROUTE_PROCESSOR_2_ADDRESS: Record<
   RouteProcessor2ChainId,
   `0x${string}`
@@ -97,9 +108,7 @@ export const ROUTE_PROCESSOR_2_ADDRESS: Record<
 export const isRouteProcessor2ChainId = (
   chainId: EvmChainId,
 ): chainId is RouteProcessor2ChainId =>
-  ROUTE_PROCESSOR_2_SUPPORTED_CHAIN_IDS.includes(
-    chainId as RouteProcessor2ChainId,
-  )
+  routeProcessor2ChainIdSet.has(chainId as RouteProcessor2ChainId)
 
 // v3
 export const ROUTE_PROCESSOR_3_SUPPORTED_CHAIN_IDS = [
@@ -136,6 +145,9 @@ export const ROUTE_PROCESSOR_3_SUPPORTED_CHAIN_IDS = [
 ] as const
 export type RouteProcessor3ChainId =
   (typeof ROUTE_PROCESSOR_3_SUPPORTED_CHAIN_IDS)[number]
+export const routeProcessor3ChainIdSet = new Set(
+  ROUTE_PROCESSOR_3_SUPPORTED_CHAIN_IDS,
+)
 export const ROUTE_PROCESSOR_3_ADDRESS: Record<
   RouteProcessor3ChainId,
   `0x${string}`
@@ -174,9 +186,7 @@ export const ROUTE_PROCESSOR_3_ADDRESS: Record<
 export const isRouteProcessor3ChainId = (
   chainId: EvmChainId,
 ): chainId is RouteProcessor3ChainId =>
-  ROUTE_PROCESSOR_3_SUPPORTED_CHAIN_IDS.includes(
-    chainId as RouteProcessor3ChainId,
-  )
+  routeProcessor3ChainIdSet.has(chainId as RouteProcessor3ChainId)
 
 // v3.1
 export const ROUTE_PROCESSOR_3_1_SUPPORTED_CHAIN_IDS = [
@@ -188,6 +198,9 @@ export const ROUTE_PROCESSOR_3_1_SUPPORTED_CHAIN_IDS = [
 ] as const
 export type RouteProcessor3_1ChainId =
   (typeof ROUTE_PROCESSOR_3_1_SUPPORTED_CHAIN_IDS)[number]
+export const routeProcessor3_1ChainIdSet = new Set(
+  ROUTE_PROCESSOR_3_1_SUPPORTED_CHAIN_IDS,
+)
 export const ROUTE_PROCESSOR_3_1_ADDRESS: Record<
   RouteProcessor3_1ChainId,
   `0x${string}`
@@ -201,9 +214,7 @@ export const ROUTE_PROCESSOR_3_1_ADDRESS: Record<
 export const isRouteProcessor3_1ChainId = (
   chainId: EvmChainId,
 ): chainId is RouteProcessor3_1ChainId =>
-  ROUTE_PROCESSOR_3_1_SUPPORTED_CHAIN_IDS.includes(
-    chainId as RouteProcessor3_1ChainId,
-  )
+  routeProcessor3_1ChainIdSet.has(chainId as RouteProcessor3_1ChainId)
 
 // v3.2
 export const ROUTE_PROCESSOR_3_2_SUPPORTED_CHAIN_IDS = [
@@ -229,6 +240,9 @@ export const ROUTE_PROCESSOR_3_2_SUPPORTED_CHAIN_IDS = [
 ] as const
 export type RouteProcessor3_2ChainId =
   (typeof ROUTE_PROCESSOR_3_2_SUPPORTED_CHAIN_IDS)[number]
+export const routeProcessor3_2ChainIdSet = new Set(
+  ROUTE_PROCESSOR_3_2_SUPPORTED_CHAIN_IDS,
+)
 export const ROUTE_PROCESSOR_3_2_ADDRESS: Record<
   RouteProcessor3_2ChainId,
   `0x${string}`
@@ -256,9 +270,7 @@ export const ROUTE_PROCESSOR_3_2_ADDRESS: Record<
 export const isRouteProcessor3_2ChainId = (
   chainId: EvmChainId,
 ): chainId is RouteProcessor3_2ChainId =>
-  ROUTE_PROCESSOR_3_2_SUPPORTED_CHAIN_IDS.includes(
-    chainId as RouteProcessor3_2ChainId,
-  )
+  routeProcessor3_2ChainIdSet.has(chainId as RouteProcessor3_2ChainId)
 
 // v4
 export const ROUTE_PROCESSOR_4_SUPPORTED_CHAIN_IDS = [
@@ -298,6 +310,9 @@ export const ROUTE_PROCESSOR_4_SUPPORTED_CHAIN_IDS = [
 ] as const
 export type RouteProcessor4ChainId =
   (typeof ROUTE_PROCESSOR_4_SUPPORTED_CHAIN_IDS)[number]
+export const routeProcessor4ChainIdSet = new Set(
+  ROUTE_PROCESSOR_4_SUPPORTED_CHAIN_IDS,
+)
 export const ROUTE_PROCESSOR_4_ADDRESS: Record<
   RouteProcessor4ChainId,
   `0x${string}`
@@ -339,9 +354,7 @@ export const ROUTE_PROCESSOR_4_ADDRESS: Record<
 export const isRouteProcessor4ChainId = (
   chainId: EvmChainId,
 ): chainId is RouteProcessor4ChainId =>
-  ROUTE_PROCESSOR_4_SUPPORTED_CHAIN_IDS.includes(
-    chainId as RouteProcessor4ChainId,
-  )
+  routeProcessor4ChainIdSet.has(chainId as RouteProcessor4ChainId)
 
 // v5
 export const ROUTE_PROCESSOR_5_SUPPORTED_CHAIN_IDS = [
@@ -440,9 +453,10 @@ export const ROUTE_PROCESSOR_5_ADDRESS: Record<
   // TESTNETS
   [EvmChainId.CURTIS]: '0xf2614A233c7C3e7f08b1F887Ba133a13f1eb2c55',
 } as const
+export const routeProcessor5ChainIdSet = new Set(
+  ROUTE_PROCESSOR_5_SUPPORTED_CHAIN_IDS,
+)
 export const isRouteProcessor5ChainId = (
   chainId: EvmChainId,
 ): chainId is RouteProcessor5ChainId =>
-  ROUTE_PROCESSOR_5_SUPPORTED_CHAIN_IDS.includes(
-    chainId as RouteProcessor5ChainId,
-  )
+  routeProcessor5ChainIdSet.has(chainId as RouteProcessor5ChainId)

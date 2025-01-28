@@ -8,7 +8,9 @@ export const ChainId = {
   ...TronChainId,
 } as const
 
+export const chainIdSet = new Set(Object.values(ChainId))
+
 export type ChainId = (typeof ChainId)[keyof typeof ChainId]
 
 export const isChainId = (chainId: number): chainId is ChainId =>
-  Object.values(ChainId).includes(chainId as ChainId)
+  chainIdSet.has(chainId as ChainId)

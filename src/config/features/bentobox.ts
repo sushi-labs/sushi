@@ -26,6 +26,8 @@ export const BENTOBOX_SUPPORTED_CHAIN_IDS = [
 
 export type BentoBoxChainId = (typeof BENTOBOX_SUPPORTED_CHAIN_IDS)[number]
 
+export const bentoboxChainIdSet = new Set(BENTOBOX_SUPPORTED_CHAIN_IDS)
+
 export const BENTOBOX_ADDRESS: Record<BentoBoxChainId, `0x${string}`> = {
   [EvmChainId.ARBITRUM]: '0x74c764D41B77DBbb4fe771daB1939B00b146894A',
   [EvmChainId.ARBITRUM_NOVA]: '0xbE811A0D44E2553d25d11CB8DC0d3F0D0E6430E6',
@@ -53,4 +55,4 @@ export const BENTOBOX_ADDRESS: Record<BentoBoxChainId, `0x${string}`> = {
 export const isBentoBoxChainId = (
   chainId: EvmChainId,
 ): chainId is BentoBoxChainId =>
-  BENTOBOX_SUPPORTED_CHAIN_IDS.includes(chainId as BentoBoxChainId)
+  bentoboxChainIdSet.has(chainId as BentoBoxChainId)

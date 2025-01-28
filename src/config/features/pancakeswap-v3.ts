@@ -43,10 +43,14 @@ export const PancakeSwapV3ChainIds = PANCAKESWAP_V3_SUPPORTED_CHAIN_IDS
 export type PancakeSwapV3ChainId =
   (typeof PANCAKESWAP_V3_SUPPORTED_CHAIN_IDS)[number]
 
+export const pancakeSwapV3ChainIdSet = new Set(
+  PANCAKESWAP_V3_SUPPORTED_CHAIN_IDS,
+)
+
 export const isPancakeSwapV3ChainId = (
   chainId: EvmChainId,
 ): chainId is PancakeSwapV3ChainId =>
-  PANCAKESWAP_V3_SUPPORTED_CHAIN_IDS.includes(chainId as PancakeSwapV3ChainId)
+  pancakeSwapV3ChainIdSet.has(chainId as PancakeSwapV3ChainId)
 
 export const PANCAKESWAP_V3_INIT_CODE_HASH: Record<
   PancakeSwapV3ChainId,

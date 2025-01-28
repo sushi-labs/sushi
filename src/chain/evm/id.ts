@@ -65,4 +65,6 @@ export const EvmChainId = {
   HEMI: 43111,
 } as const
 
+export const evmChainIdSet = new Set(Object.values(EvmChainId))
+
 export type EvmChainId = (typeof EvmChainId)[keyof typeof EvmChainId]

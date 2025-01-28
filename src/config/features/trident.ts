@@ -60,7 +60,8 @@ export const TridentChainIds = TRIDENT_SUPPORTED_CHAIN_IDS
 
 export type TridentChainId = (typeof TRIDENT_SUPPORTED_CHAIN_IDS)[number]
 
+export const tridentChainIdSet = new Set(TRIDENT_SUPPORTED_CHAIN_IDS)
+
 export const isTridentChainId = (
   chainId: EvmChainId,
-): chainId is TridentChainId =>
-  TRIDENT_SUPPORTED_CHAIN_IDS.includes(chainId as TridentChainId)
+): chainId is TridentChainId => tridentChainIdSet.has(chainId as TridentChainId)

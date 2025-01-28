@@ -20,9 +20,11 @@ const SUPPORTED_CHAIN_IDS = [
 
 export const TokenSecurityChainIds = SUPPORTED_CHAIN_IDS
 
+export const tokenSecurityChainIdSet = new Set(TokenSecurityChainIds)
+
 export type TokenSecurityChainId = (typeof SUPPORTED_CHAIN_IDS)[number]
 
 export const isTokenSecurityChainId = (
   chainId: EvmChainId,
 ): chainId is TokenSecurityChainId =>
-  SUPPORTED_CHAIN_IDS.includes(chainId as TokenSecurityChainId)
+  tokenSecurityChainIdSet.has(chainId as TokenSecurityChainId)

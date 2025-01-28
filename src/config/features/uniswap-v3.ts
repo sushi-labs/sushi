@@ -60,10 +60,12 @@ export const UniswapV3ChainIds = UNISWAP_V3_SUPPORTED_CHAIN_IDS
 
 export type UniswapV3ChainId = (typeof UNISWAP_V3_SUPPORTED_CHAIN_IDS)[number]
 
+export const uniswapV3ChainIdSet = new Set(UNISWAP_V3_SUPPORTED_CHAIN_IDS)
+
 export const isUniswapV3ChainId = (
   chainId: EvmChainId,
 ): chainId is UniswapV3ChainId =>
-  UNISWAP_V3_SUPPORTED_CHAIN_IDS.includes(chainId as UniswapV3ChainId)
+  uniswapV3ChainIdSet.has(chainId as UniswapV3ChainId)
 
 export const UNISWAP_V3_INIT_CODE_HASH: Record<
   UniswapV3ChainId,

@@ -212,7 +212,9 @@ export const SushiSwapV3ChainIds = SUSHISWAP_V3_SUPPORTED_CHAIN_IDS
 export type SushiSwapV3ChainId =
   (typeof SUSHISWAP_V3_SUPPORTED_CHAIN_IDS)[number]
 
+export const sushiSwapV3ChainIdSet = new Set(SUSHISWAP_V3_SUPPORTED_CHAIN_IDS)
+
 export const isSushiSwapV3ChainId = (
   chainId: EvmChainId,
 ): chainId is SushiSwapV3ChainId =>
-  SUSHISWAP_V3_SUPPORTED_CHAIN_IDS.includes(chainId as SushiSwapV3ChainId)
+  sushiSwapV3ChainIdSet.has(chainId as SushiSwapV3ChainId)

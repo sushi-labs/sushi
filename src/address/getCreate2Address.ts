@@ -20,15 +20,16 @@ type GetCreate2AddressOptions = {
   chainId: EvmChainId
 }
 
+const zkSyncChainSet = new Set<EvmChainId>([
+  EvmChainId.ZKSYNC_ERA,
+  EvmChainId.ZKLINK,
+])
+
 export function getCreate2Address({
   chainId,
   ...params
 }: GetCreate2AddressOptions) {
-  if (
-    ([EvmChainId.ZKSYNC_ERA, EvmChainId.ZKLINK] as EvmChainId[]).includes(
-      chainId,
-    )
-  ) {
+  if (zkSyncChainSet.has(chainId)) {
     const { from, salt, bytecodeHash } = params
 
     return getAddress(

@@ -20,5 +20,7 @@ export const FURO_SUPPORTED_CHAIN_IDS = [
 
 export type FuroChainId = (typeof FURO_SUPPORTED_CHAIN_IDS)[number]
 
+export const furoChainIdSet = new Set(FURO_SUPPORTED_CHAIN_IDS)
+
 export const isFuroChainId = (chainId: EvmChainId): chainId is FuroChainId =>
-  FURO_SUPPORTED_CHAIN_IDS.includes(chainId as FuroChainId)
+  furoChainIdSet.has(chainId as FuroChainId)

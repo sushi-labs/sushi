@@ -12,6 +12,8 @@ export const SUSHIXSWAP_SUPPORTED_CHAIN_IDS = [
 
 export type SushiXSwapChainId = (typeof SUSHIXSWAP_SUPPORTED_CHAIN_IDS)[number]
 
+export const sushiXSwapChainIdSet = new Set(SUSHIXSWAP_SUPPORTED_CHAIN_IDS)
+
 export const SUSHIXSWAP_ADDRESS: Record<SushiXSwapChainId, `0x${string}`> = {
   [EvmChainId.ARBITRUM]: '0x53b08DbD70327b7Ba3B7886Fc9987BC985d27262',
   [EvmChainId.AVALANCHE]: '0x2c8C987C4777AB740d20Cb581f5d381BE95A4A4a',
@@ -25,7 +27,7 @@ export const SUSHIXSWAP_ADDRESS: Record<SushiXSwapChainId, `0x${string}`> = {
 export const isSushiXSwapChainId = (
   chainId: EvmChainId,
 ): chainId is SushiXSwapChainId =>
-  SUSHIXSWAP_SUPPORTED_CHAIN_IDS.includes(chainId as SushiXSwapChainId)
+  sushiXSwapChainIdSet.has(chainId as SushiXSwapChainId)
 
 export const SUSHIXSWAP_2_SUPPORTED_CHAIN_IDS = [
   EvmChainId.ETHEREUM,
@@ -49,6 +51,8 @@ export const SUSHIXSWAP_2_SUPPORTED_CHAIN_IDS = [
 export type SushiXSwap2ChainId =
   (typeof SUSHIXSWAP_2_SUPPORTED_CHAIN_IDS)[number]
 
+export const sushiXSwap2ChainIdSet = new Set(SUSHIXSWAP_2_SUPPORTED_CHAIN_IDS)
+
 export const SUSHIXSWAP_2_ADDRESS: Record<SushiXSwap2ChainId, `0x${string}`> = {
   [EvmChainId.ETHEREUM]: '0x804b526e5bf4349819fe2db65349d0825870f8ee',
   [EvmChainId.BSC]: '0x804b526e5bf4349819fe2db65349d0825870f8ee',
@@ -71,7 +75,7 @@ export const SUSHIXSWAP_2_ADDRESS: Record<SushiXSwap2ChainId, `0x${string}`> = {
 export const isSushiXSwap2ChainId = (
   chainId: EvmChainId,
 ): chainId is SushiXSwap2ChainId =>
-  SUSHIXSWAP_2_SUPPORTED_CHAIN_IDS.includes(chainId as SushiXSwap2ChainId)
+  sushiXSwap2ChainIdSet.has(chainId as SushiXSwap2ChainId)
 
 export const STARGATE_ADAPTER_SUPPORTED_CHAIN_IDS = [
   EvmChainId.ETHEREUM,
@@ -85,6 +89,10 @@ export const STARGATE_ADAPTER_SUPPORTED_CHAIN_IDS = [
 
 export type StargateAdapterChainId =
   (typeof STARGATE_ADAPTER_SUPPORTED_CHAIN_IDS)[number]
+
+export const stargateAdapterChainIdSet = new Set(
+  STARGATE_ADAPTER_SUPPORTED_CHAIN_IDS,
+)
 
 export const STARGATE_ADAPTER_ADDRESS: Record<
   StargateAdapterChainId,
@@ -102,9 +110,7 @@ export const STARGATE_ADAPTER_ADDRESS: Record<
 export const isStargateAdapterChainId = (
   chainId: EvmChainId,
 ): chainId is StargateAdapterChainId =>
-  STARGATE_ADAPTER_SUPPORTED_CHAIN_IDS.includes(
-    chainId as StargateAdapterChainId,
-  )
+  stargateAdapterChainIdSet.has(chainId as StargateAdapterChainId)
 
 export const SQUID_ADAPTER_SUPPORTED_CHAIN_IDS = [
   EvmChainId.ETHEREUM,
@@ -126,6 +132,8 @@ export const SQUID_ADAPTER_SUPPORTED_CHAIN_IDS = [
 
 export type SquidAdapterChainId =
   (typeof SQUID_ADAPTER_SUPPORTED_CHAIN_IDS)[number]
+
+export const squidAdapterChainIdSet = new Set(SQUID_ADAPTER_SUPPORTED_CHAIN_IDS)
 
 export const SQUID_ADAPTER_ADDRESS: Record<SquidAdapterChainId, `0x${string}`> =
   {
@@ -149,4 +157,4 @@ export const SQUID_ADAPTER_ADDRESS: Record<SquidAdapterChainId, `0x${string}`> =
 export const isSquidAdapterChainId = (
   chainId: EvmChainId,
 ): chainId is SquidAdapterChainId =>
-  SQUID_ADAPTER_SUPPORTED_CHAIN_IDS.includes(chainId as SquidAdapterChainId)
+  squidAdapterChainIdSet.has(chainId as SquidAdapterChainId)

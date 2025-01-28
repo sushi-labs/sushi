@@ -1,5 +1,5 @@
 import raw from './generated-chain-data.js'
-import { EvmChainId } from './id.js'
+import { EvmChainId, evmChainIdSet } from './id.js'
 
 export * from './id.js'
 
@@ -7,12 +7,12 @@ const additional = [] as const
 
 const RAW = [...raw, ...additional] as const
 
-const EIP3091_OVERRIDE = [
+const EIP3091_OVERRIDE = new Set<number>([
   EvmChainId.OPTIMISM,
   EvmChainId.BOBA,
   EvmChainId.BASE,
   EvmChainId.FILECOIN,
-] as number[]
+])
 
 type Data = (typeof RAW)[number]
 
@@ -165,7 +165,7 @@ export class EvmChain implements EvmChainBase {
     for (const explorer of this.explorers) {
       if (
         explorer.standard === Standard.Eip3091 ||
-        EIP3091_OVERRIDE.includes(this.chainId)
+        EIP3091_OVERRIDE.has(this.chainId)
       ) {
         return `${explorer.url}/tx/${txHash}`
       }
@@ -186,7 +186,7 @@ export class EvmChain implements EvmChainBase {
     for (const explorer of this.explorers) {
       if (
         explorer.standard === Standard.Eip3091 ||
-        EIP3091_OVERRIDE.includes(this.chainId)
+        EIP3091_OVERRIDE.has(this.chainId)
       ) {
         return `${explorer.url}/token/${tokenAddress}`
       }
@@ -198,7 +198,7 @@ export class EvmChain implements EvmChainBase {
     for (const explorer of this.explorers) {
       if (
         explorer.standard === Standard.Eip3091 ||
-        EIP3091_OVERRIDE.includes(this.chainId)
+        EIP3091_OVERRIDE.has(this.chainId)
       ) {
         return `${explorer.url}/address/${accountAddress}`
       }
@@ -290,7 +290,7 @@ export const EVM_TESTNET_CHAIN_IDS = [
 export type EvmTestnetChainId = (typeof EVM_TESTNET_CHAIN_IDS)[number]
 
 export const isEvmChainId = (chainId: number): chainId is EvmChainId =>
-  Object.values(EvmChainId).includes(chainId as EvmChainId)
+  evmChainIdSet.has(chainId as EvmChainId)
 
 export const EvmChainKey = {
   [EvmChainId.ARBITRUM]: 'arbitrum',
@@ -366,6 +366,6 @@ export const EvmNetworkNameKey = Object.fromEntries(
 ) as { [key in EvmChainKey]: EvmChainId }
 
 export const isEvmNetworkNameKey = (key: string): key is EvmChainKey =>
-  Object.keys(EvmNetworkNameKey).includes(key)
+  key in EvmNetworkNameKey
 
 export default evmChains
