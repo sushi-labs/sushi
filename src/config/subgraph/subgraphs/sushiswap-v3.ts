@@ -6,7 +6,6 @@ import {
   FILECOIN_HOST,
   HAQQ_HOST,
   METIS_0XGRAPH_HOST,
-  SKALE_HOST,
   SUSHI_DEDICATED_GOLDSKY_HOST,
   SUSHI_GOLDSKY_HOST,
   THUNDERCORE_HOST,
@@ -46,7 +45,7 @@ const SUSHISWAP_V3_OTHER_URLS = {
   [EvmChainId.HAQQ]: `${HAQQ_HOST}/sushi/v3-haqq-2`,
   [EvmChainId.ZETACHAIN]: `${SUSHI_GOLDSKY_HOST}/v3-zetachain/1.0.0/gn`,
   [EvmChainId.BLAST]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-blast/gn`,
-  [EvmChainId.SKALE_EUROPA]: `${SKALE_HOST}/sushi/v3-skale-europa`,
+  [EvmChainId.SKALE_EUROPA]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-skale-europa/gn`,
   [EvmChainId.ROOTSTOCK]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-rootstock/gn`,
 } as const satisfies Partial<Record<SushiSwapV3ChainId, string>>
 
