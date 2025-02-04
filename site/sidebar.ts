@@ -23,6 +23,7 @@ export const sidebar = {
         { text: 'Swap', link: '/api/swap' },
         { text: 'Price', link: '/api/price' },
         { text: 'Token', link: '/api/token' },
+        { text: 'Liquidity Providers', link: '/api/liquidity-providers' },
         // { text: 'Quote', link: '/api/quote' },
       ],
     },
