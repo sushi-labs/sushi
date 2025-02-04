@@ -248,7 +248,7 @@ export class SushiSwapV2Pool {
     if (!feeOn) {
       totalSupplyAdjusted = totalSupply
     } else {
-      invariant(!!kLast, 'K_LAST')
+      invariant(typeof kLast !== 'undefined', 'K_LAST')
       const kLastParsed = BigInt(
         typeof kLast === 'bigint' ? kLast.toString() : kLast,
       )
