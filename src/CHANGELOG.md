@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.8
+
+### Patch Changes
+
+- [#97](https://github.com/sushi-labs/sushi/pull/97) [`3747a26`](https://github.com/sushi-labs/sushi/commit/3747a26437eec74b036b25196db503666ab88052) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - fix v2 klast invariant
+
 ## 5.0.7
 
 ### Patch Changes
