@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.9
+
+### Patch Changes
+
+- [#100](https://github.com/sushi-labs/sushi/pull/100) [`ac5a9ad`](https://github.com/sushi-labs/sushi/commit/ac5a9adb3292756da6ea26ef0709d3d9d01dc408) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Loosen Typescript PeerDep
+
 ## 5.0.8
 
 ### Patch Changes
