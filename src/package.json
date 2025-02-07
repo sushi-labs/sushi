@@ -214,7 +214,7 @@
     "toformat": "2.0.0"
   },
   "peerDependencies": {
-    "typescript": "5.5.4",
+    "typescript": ">= 5.5.4 < 6",
     "viem": "*",
     "zod": "*"
   },

@@ -130,11 +130,11 @@ importers:
         specifier: 2.0.0
         version: 2.0.0
       typescript:
-        specifier: 5.5.4
-        version: 5.5.4
+        specifier: '>= 5.5.4 < 6'
+        version: 5.7.3
       viem:
         specifier: '*'
-        version: 2.21.4(typescript@5.5.4)(zod@3.23.8)
+        version: 2.21.4(typescript@5.7.3)(zod@3.23.8)
       zod:
         specifier: '*'
         version: 3.23.8
@@ -4346,6 +4346,11 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
+  typescript@5.7.3:
+    resolution: {integrity: sha512-84MVSjMEHP+FQRPy3pX9sTVV/INIex71s9TL2Gm5FG/WG1SqXeKyZ0k7/blY/4FdOzI12CBy1vGc4og/eus0fw==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
   ua-parser-js@1.0.39:
     resolution: {integrity: sha512-k24RCVWlEcjkdOxYmVJgeD/0a1TiSpqLg+ZalVGV9lsnr4yqu0w7tX/x2xX6G4zpkgQnRf89lxuZ1wsbjXM8lw==}
     hasBin: true
@@ -6357,9 +6362,9 @@ snapshots:
       loupe: 3.1.1
       tinyrainbow: 1.2.0
 
-  abitype@1.0.5(typescript@5.5.4)(zod@3.23.8):
+  abitype@1.0.5(typescript@5.7.3)(zod@3.23.8):
     optionalDependencies:
-      typescript: 5.5.4
+      typescript: 5.7.3
       zod: 3.23.8
 
   abitype@1.0.7(typescript@5.5.4)(zod@3.23.8):
@@ -9409,6 +9414,8 @@ snapshots:
 
   typescript@5.6.2: {}
 
+  typescript@5.7.3: {}
+
   ua-parser-js@1.0.39: {}
 
   ufo@1.5.4: {}
@@ -9531,19 +9538,19 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
 
-  viem@2.21.4(typescript@5.5.4)(zod@3.23.8):
+  viem@2.21.4(typescript@5.7.3)(zod@3.23.8):
     dependencies:
       '@adraffy/ens-normalize': 1.10.0
       '@noble/curves': 1.4.0
       '@noble/hashes': 1.4.0
       '@scure/bip32': 1.4.0
       '@scure/bip39': 1.4.0
-      abitype: 1.0.5(typescript@5.5.4)(zod@3.23.8)
+      abitype: 1.0.5(typescript@5.7.3)(zod@3.23.8)
       isows: 1.0.4(ws@8.17.1)
       webauthn-p256: 0.0.5
       ws: 8.17.1
     optionalDependencies:
-      typescript: 5.5.4
+      typescript: 5.7.3
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
