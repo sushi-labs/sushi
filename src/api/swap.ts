@@ -76,7 +76,10 @@ function swapResponseSchema<IncludeTransaction extends boolean>(
     from: sz.address(),
     to: sz.address(),
     data: sz.hex(),
-    value: z.string().optional(),
+    value: z
+      .string()
+      .optional()
+      .transform((value) => BigInt(value || 0)),
   })
 
   const baseSchema = baseSuccessPartial.or(baseNoWay)
