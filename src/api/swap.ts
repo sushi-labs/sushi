@@ -42,25 +42,31 @@ export type SwapRequest<
 function swapResponseSchema<IncludeTransaction extends boolean>(
   includeTransaction?: IncludeTransaction,
 ) {
-  const baseSuccessPartial = z.object({
-    status: z.literal(RouteStatus.Success).or(z.literal(RouteStatus.Partial)),
-    tokens: z.array(
-      z.object({
-        address: sz.address(),
-        decimals: z.number(),
-        symbol: z.string(),
-        name: z.string(),
-      }),
-    ),
-    tokenFrom: z.number(),
-    tokenTo: z.number(),
-
-    swapPrice: z.number(),
-    priceImpact: z.number(),
-
-    amountIn: z.string(),
-    assumedAmountOut: z.string(),
+  const tokenSchema = z.object({
+    address: sz.address(),
+    decimals: z.number(),
+    symbol: z.string(),
+    name: z.string(),
   })
+
+  const baseSuccessPartial = z
+    .object({
+      status: z.literal(RouteStatus.Success).or(z.literal(RouteStatus.Partial)),
+      tokens: z.array(tokenSchema),
+      tokenFrom: z.number(),
+      tokenTo: z.number(),
+
+      swapPrice: z.number(),
+      priceImpact: z.number(),
+
+      amountIn: z.string(),
+      assumedAmountOut: z.string(),
+    })
+    .transform((data) => ({
+      ...data,
+      tokenFrom: data.tokens[data.tokenFrom]!,
+      tokenTo: data.tokens[data.tokenTo]!,
+    }))
 
   const baseNoWay = z.object({
     status: z.literal(RouteStatus.NoWay),
@@ -74,25 +80,13 @@ function swapResponseSchema<IncludeTransaction extends boolean>(
   })
 
   const baseSchema = baseSuccessPartial.or(baseNoWay)
-  const baseTxSchema = baseSuccessPartial.extend({ tx: txSchema }).or(baseNoWay)
+  const baseTxSchema = baseSchema.and(z.object({ tx: txSchema })).or(baseNoWay)
 
-  type Result = IncludeTransaction extends true
+  type Schema = IncludeTransaction extends true
     ? typeof baseTxSchema
     : typeof baseSchema
 
-  const schema = includeTransaction ? baseTxSchema : (baseSchema as Result)
-
-  return schema.transform((data) => {
-    if (data.status === RouteStatus.NoWay) {
-      return data
-    }
-
-    return {
-      ...data,
-      tokenFrom: data.tokens[data.tokenFrom],
-      tokenTo: data.tokens[data.tokenTo],
-    }
-  })
+  return (includeTransaction ? baseTxSchema : baseSchema) as Schema
 }
 
 export type SwapResponse<IncludeTransaction extends boolean> = z.infer<
