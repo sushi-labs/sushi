@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.12
+
+### Patch Changes
+
+- [#107](https://github.com/sushi-labs/sushi/pull/107) [`136f2e1`](https://github.com/sushi-labs/sushi/commit/136f2e1ca253d9921d6610606688c132f8811ace) Thanks [@LufyCZ](https://github.com/LufyCZ)! - SwapResponse default generic, make value in tx optional
+
 ## 5.0.11
 
 ### Patch Changes
