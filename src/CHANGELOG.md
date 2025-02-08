@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.10
+
+### Patch Changes
+
+- [#103](https://github.com/sushi-labs/sushi/pull/103) [`553ac34`](https://github.com/sushi-labs/sushi/commit/553ac340ea74ac09a4b109cc4887dd35486bdef1) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Improved the getSwap function
+
 ## 5.0.9
 
 ### Patch Changes
