@@ -76,7 +76,7 @@ function swapResponseSchema<IncludeTransaction extends boolean>(
     from: sz.address(),
     to: sz.address(),
     data: sz.hex(),
-    value: z.string(),
+    value: z.string().optional(),
   })
 
   const baseSchema = baseSuccessPartial.or(baseNoWay)
@@ -89,7 +89,7 @@ function swapResponseSchema<IncludeTransaction extends boolean>(
   return (includeTransaction ? baseTxSchema : baseSchema) as Schema
 }
 
-export type SwapResponse<IncludeTransaction extends boolean> = z.infer<
+export type SwapResponse<IncludeTransaction extends boolean = true> = z.infer<
   ReturnType<typeof swapResponseSchema<IncludeTransaction>>
 >
 
