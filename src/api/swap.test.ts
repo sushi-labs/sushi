@@ -15,6 +15,7 @@ const to = '0x8f54C8c2df62c94772ac14CcFc85603742976312' as const
 describe('getSwap', () => {
   it('should return a swap when to is omitted', async () => {
     const result = await getSwap(baseSwapRequest)
+
     expect(result).include({ status: 'Success' })
   })
   it('should return a swap when to is included', async () => {
@@ -31,6 +32,7 @@ describe('getSwap', () => {
       to,
       includeTransaction: true,
     })
+
     expect(result).include({ status: 'Success' })
     expect(result).include.keys('tx')
   })
