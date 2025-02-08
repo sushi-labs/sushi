@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.11
+
+### Patch Changes
+
+- [#105](https://github.com/sushi-labs/sushi/pull/105) [`d0f4cc9`](https://github.com/sushi-labs/sushi/commit/d0f4cc9cc4f6e46903c4e811866a82fb8e765a05) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Fix getSwap types
+
 ## 5.0.10
 
 ### Patch Changes
