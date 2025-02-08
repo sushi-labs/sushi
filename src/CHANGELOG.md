@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.13
+
+### Patch Changes
+
+- [#109](https://github.com/sushi-labs/sushi/pull/109) [`f0f74de`](https://github.com/sushi-labs/sushi/commit/f0f74de65b47f0bdf1a44effa5d61dd4e5bcde68) Thanks [@LufyCZ](https://github.com/LufyCZ)! - GetSwap: Default tx.value to 0n
+
 ## 5.0.12
 
 ### Patch Changes
