@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.15
+
+### Patch Changes
+
+- [`3e87c47`](https://github.com/sushi-labs/sushi/commit/3e87c47a14be95b2900da42196c9c93c550449c1) Thanks [@matthewlilley](https://github.com/matthewlilley)! - explose red snwapper
+
 ## 5.0.14
 
 ### Patch Changes
