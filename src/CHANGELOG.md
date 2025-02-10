@@ -1,5 +1,29 @@
 # sushi
 
+## 5.0.13
+
+### Patch Changes
+
+- [#109](https://github.com/sushi-labs/sushi/pull/109) [`f0f74de`](https://github.com/sushi-labs/sushi/commit/f0f74de65b47f0bdf1a44effa5d61dd4e5bcde68) Thanks [@LufyCZ](https://github.com/LufyCZ)! - GetSwap: Default tx.value to 0n
+
+## 5.0.12
+
+### Patch Changes
+
+- [#107](https://github.com/sushi-labs/sushi/pull/107) [`136f2e1`](https://github.com/sushi-labs/sushi/commit/136f2e1ca253d9921d6610606688c132f8811ace) Thanks [@LufyCZ](https://github.com/LufyCZ)! - SwapResponse default generic, make value in tx optional
+
+## 5.0.11
+
+### Patch Changes
+
+- [#105](https://github.com/sushi-labs/sushi/pull/105) [`d0f4cc9`](https://github.com/sushi-labs/sushi/commit/d0f4cc9cc4f6e46903c4e811866a82fb8e765a05) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Fix getSwap types
+
+## 5.0.10
+
+### Patch Changes
+
+- [#103](https://github.com/sushi-labs/sushi/pull/103) [`553ac34`](https://github.com/sushi-labs/sushi/commit/553ac340ea74ac09a4b109cc4887dd35486bdef1) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Improved the getSwap function
+
 ## 5.0.9
 
 ### Patch Changes
