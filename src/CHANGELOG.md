@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.16
+
+### Patch Changes
+
+- [`3946f9b`](https://github.com/sushi-labs/sushi/commit/3946f9bf306200109c8a92ce8715ecee9a8858de) Thanks [@matthewlilley](https://github.com/matthewlilley)! - remove package.json import which breaks dual pkg'
+
 ## 5.0.15
 
 ### Patch Changes
