@@ -1,7 +1,6 @@
 import type { Address } from 'viem'
 import { z } from 'zod'
 import type { ExtractorSupportedChainId } from '../config/index.js'
-import { version } from '../package.json'
 import { RouteStatus } from '../router/route-status.js'
 import { TransferValue } from '../router/transfer-value.js'
 import { sz } from '../validate/zod.js'
@@ -136,7 +135,9 @@ export async function getSwap<
     )
   }
 
-  url.searchParams.append('referrer', params.referrer ?? `sushi-sdk/${version}`)
+  if (params.referrer) {
+    url.searchParams.append('referrer', params.referrer)
+  }
 
   const res = await fetch(url.toString(), options)
 
