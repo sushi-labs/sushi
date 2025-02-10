@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.14
+
+### Patch Changes
+
+- [#102](https://github.com/sushi-labs/sushi/pull/102) [`89dccea`](https://github.com/sushi-labs/sushi/commit/89dccea93a0e63137898c82585edf0a6c901f7dc) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add RP6 and RedSnwapper addresses
+
 ## 5.0.13
 
 ### Patch Changes
