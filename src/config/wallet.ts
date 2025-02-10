@@ -40,7 +40,7 @@ export const MULTISIG_CHAIN_IDS = [
   EvmChainId.APE,
   EvmChainId.SONIC,
   EvmChainId.HEMI,
-  EvmChainId.FILECOIN
+  EvmChainId.FILECOIN,
 ] as const
 
 export type MultisigChainId = (typeof MULTISIG_CHAIN_IDS)[number]
@@ -85,7 +85,7 @@ export const MULTISIG_ADDRESS: Record<MultisigChainId, `0x${string}`> = {
   [EvmChainId.APE]: '0xe7BEF4bFb8AcBe2b68B262A2323e09f13c021a9b',
   [EvmChainId.SONIC]: '0x9ffC84bc9Cf7c85E4E6e2B0aB67BB6c643cA72A2',
   [EvmChainId.HEMI]: '0x1410E57261bb67D662B2Ed125125268D297E27f1',
-  [EvmChainId.FILECOIN]: '0x1410E57261bb67D662B2Ed125125268D297E27f1'
+  [EvmChainId.FILECOIN]: '0x1410E57261bb67D662B2Ed125125268D297E27f1',
 } as const
 
 export const isMultisigChainId = (
