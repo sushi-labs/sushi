@@ -1,6 +1,6 @@
 import { EvmChainId } from '../../chain/evm/index.js'
 import { Token } from '../../currency/token.js'
-import { METH, rETH, STONE } from '../../currency/tokens.js'
+import { METH, STONE, rETH } from '../../currency/tokens.js'
 
 export const LSDS = {
   [EvmChainId.ARBITRUM]: [
