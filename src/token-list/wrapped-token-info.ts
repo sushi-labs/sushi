@@ -1,6 +1,6 @@
 import type { Tags, TokenInfo, TokenList } from '@uniswap/token-lists'
 import { type Address, getAddress, isAddress } from 'viem'
-import type { ChainId } from '../chain/index.js'
+import type { EvmChainId } from '../chain/evm/index.js'
 import type { Token, Type } from '../currency/index.js'
 import type { ID } from '../types/id.js'
 
@@ -36,8 +36,8 @@ export class WrappedTokenInfo implements Token {
     return this._checksummedAddress
   }
 
-  public get chainId(): ChainId {
-    return this.tokenInfo.chainId as ChainId
+  public get chainId(): EvmChainId {
+    return this.tokenInfo.chainId as EvmChainId
   }
 
   public get decimals(): number {

@@ -10,27 +10,27 @@ describe('Token', () => {
     it('fails with invalid address', () => {
       expect(
         () =>
-          new Token({ chainId: 3, address: INVALID_ADDRESS, decimals: 18 })
+          new Token({ chainId: 1, address: INVALID_ADDRESS, decimals: 18 })
             .address,
       ).toThrow(`${INVALID_ADDRESS} is not a valid address`)
     })
     it('fails with negative decimals', () => {
       expect(
         () =>
-          new Token({ chainId: 3, address: ADDRESS_ONE, decimals: -1 }).address,
+          new Token({ chainId: 1, address: ADDRESS_ONE, decimals: -1 }).address,
       ).toThrow('DECIMALS')
     })
     it('fails with 256 decimals', () => {
       expect(
         () =>
-          new Token({ chainId: 3, address: ADDRESS_ONE, decimals: 256 })
+          new Token({ chainId: 1, address: ADDRESS_ONE, decimals: 256 })
             .address,
       ).toThrow('DECIMALS')
     })
     it('fails with non-integer decimals', () => {
       expect(
         () =>
-          new Token({ chainId: 3, address: ADDRESS_ONE, decimals: 1.5 })
+          new Token({ chainId: 1, address: ADDRESS_ONE, decimals: 1.5 })
             .address,
       ).toThrow('DECIMALS')
     })
@@ -47,7 +47,11 @@ describe('Token', () => {
 
     it('false if chain id differs', () => {
       expect(
-        new Token({ chainId: 3, address: ADDRESS_ONE, decimals: 18 }).equals(
+        new Token({
+          chainId: 42161,
+          address: ADDRESS_ONE,
+          decimals: 18,
+        }).equals(
           new Token({ chainId: 1, address: ADDRESS_ONE, decimals: 18 }),
         ),
       ).toBe(false)

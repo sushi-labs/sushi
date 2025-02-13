@@ -1,4 +1,4 @@
-import type { ChainId } from '../../chain/index.js'
+import type { EvmChainId } from '../../chain/evm/index.js'
 import {
   SUSHISWAP_V2_SUPPORTED_CHAIN_IDS,
   SUSHISWAP_V3_SUPPORTED_CHAIN_IDS,
@@ -18,7 +18,7 @@ export const SushiSwapChainIds = SUSHISWAP_SUPPORTED_CHAIN_IDS
 export type SushiSwapChainId = (typeof SUSHISWAP_SUPPORTED_CHAIN_IDS)[number]
 
 export function isSushiSwapChainId(
-  chainId: ChainId,
+  chainId: EvmChainId,
 ): chainId is SushiSwapChainId {
   return SUSHISWAP_SUPPORTED_CHAIN_IDS.includes(chainId as SushiSwapChainId)
 }

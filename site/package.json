@@ -12,8 +12,9 @@
     "@types/react": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "sushi": "workspace:*",
     "typescript": "latest",
-    "viem": "2.21.4",
+    "viem": "2.21.55",
     "vocs": "1.0.0-alpha.54"
   }
 }

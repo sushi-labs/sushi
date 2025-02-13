@@ -1,6 +1,6 @@
 import { zeroAddress } from 'viem'
-import type { ChainId } from '../chain/index.js'
+import type { EvmChainId } from '../chain/evm/index.js'
 import { WNATIVE_ADDRESS } from '../currency/index.js'
 
-export const isWNativeSupported = (chainId: ChainId) =>
+export const isWNativeSupported = (chainId: EvmChainId) =>
   WNATIVE_ADDRESS[chainId] !== zeroAddress

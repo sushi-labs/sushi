@@ -1,5 +1,5 @@
 import invariant from 'tiny-invariant'
-import { chainName } from '../../chain/index.js'
+import { evmChainName } from '../../chain/evm/index.js'
 import {
   SUSHISWAP_V2_FACTORY_ADDRESS,
   isSushiSwapV2ChainId,
@@ -31,7 +31,7 @@ export class SushiSwapV2Pool {
     if (!isSushiSwapV2ChainId(tokenA.chainId)) {
       throw new Error(
         `ChainId Error: SushiSwapV2 is not available on ${
-          chainName[tokenA.chainId]
+          evmChainName[tokenA.chainId]
         }`,
       )
     }
@@ -248,7 +248,7 @@ export class SushiSwapV2Pool {
     if (!feeOn) {
       totalSupplyAdjusted = totalSupply
     } else {
-      invariant(!!kLast, 'K_LAST')
+      invariant(typeof kLast !== 'undefined', 'K_LAST')
       const kLastParsed = BigInt(
         typeof kLast === 'bigint' ? kLast.toString() : kLast,
       )

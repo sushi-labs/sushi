@@ -5,24 +5,15 @@ export const sidebar = {
     {
       text: 'Introduction',
       items: [
-        { text: 'Why Sushi', link: '/introduction' },
-        { text: 'Installation', link: '/installation' },
-        { text: 'Getting Started', link: '/getting-started' },
-        { text: 'Platform Compatibility', link: '/compatibility' },
-        { text: 'FAQ', link: '/faq' },
-      ],
-    },
-    {
-      text: 'SDK',
-      collapsed: true,
-      items: [
-        { text: 'Installation', link: '/sdk/installation' },
-        { text: 'Quote', link: '/sdk/quote' },
-        { text: 'Swap', link: '/sdk/swap' },
-        // { text: 'Limit', link: '/sdk/limit' },
-        // { text: 'DCA', link: '/sdk/dca' },
-        // { text: 'Cross-Chain Swap', link: '/sdk/cross-chain-swap' },
-        { text: 'Viem', link: '/sdk/viem' },
+        { text: '❓ What is Sushi', link: '/what-is-sushi' },
+        { text: '🤔 Why Sushi', link: '/why-sushi' },
+        // { text: '🤝 Partnership', link: '/partnership' },
+        { text: '🔒 Security', link: '/security' },
+        // { text: '🔗 Ecosystem', link: '/ecosystem' },
+        // { text: '🚀 Roadmap', link: '/roadmap' },
+        { text: '👨‍👩‍👧‍👦 Community', link: '/community' },
+        { text: '📚 Resources', link: '/resources' },
+        { text: '🏛️ Governance', link: '/governance' },
       ],
     },
     {
@@ -31,7 +22,22 @@ export const sidebar = {
       items: [
         { text: 'Swap', link: '/api/swap' },
         { text: 'Price', link: '/api/price' },
+        { text: 'Token', link: '/api/token' },
+        { text: 'Liquidity Providers', link: '/api/liquidity-providers' },
         // { text: 'Quote', link: '/api/quote' },
+      ],
+    },
+    {
+      text: 'SDK',
+      collapsed: true,
+      items: [
+        { text: 'Installation', link: '/sdk/installation' },
+        // { text: 'Quote', link: '/sdk/quote' },
+        { text: 'Swap', link: '/sdk/swap' },
+        // { text: 'Limit', link: '/sdk/limit' },
+        // { text: 'DCA', link: '/sdk/dca' },
+        // { text: 'Cross-Chain Swap', link: '/sdk/cross-chain-swap' },
+        // { text: 'Viem', link: '/sdk/viem' },
       ],
     },
     // {
@@ -50,9 +56,23 @@ export const sidebar = {
     //   ],
     // },
     {
+      text: 'Aggregator',
+      collapsed: true,
+      items: [
+        {
+          text: 'Introduction',
+          link: '/aggregator/introduction',
+        },
+      ],
+    },
+    {
       text: 'AMM',
       collapsed: true,
       items: [
+        {
+          text: 'Introduction',
+          link: '/amm/introduction',
+        },
         {
           text: 'clAMM',
           link: '/amm/clamm',
@@ -61,14 +81,10 @@ export const sidebar = {
           text: 'cpAMM',
           link: '/amm/cpamm',
         },
-        {
-          text: 'lbAMM',
-          link: '/amm/lbamm',
-        },
-        {
-          text: 'fAMM',
-          link: '/amm/famm',
-        },
+        // {
+        //   text: 'lbAMM',
+        //   link: '/amm/lbamm',
+        // },
       ],
     },
     {
@@ -78,9 +94,21 @@ export const sidebar = {
         { text: 'SUSHI', link: '/contracts/sushi' },
         { text: 'xSUSHI', link: '/contracts/xsushi' },
         { text: 'Route Processor', link: '/contracts/route-processor' },
-        { text: 'clAMM', link: '/contracts/clamm' },
-        { text: 'cpAMM', link: '/contracts/cpamm' },
+        { text: 'Red Snwapper', link: '/contracts/red-snwapper' },
+        { text: 'clAMM  (SushiSwap V3)', link: '/contracts/clamm' },
+        { text: 'cpAMM  (SushiSwap V2)', link: '/contracts/cpamm' },
         // { text: 'lbAMM', link: '/contracts/lbamm' },
+      ],
+    },
+    {
+      text: 'Subgraphs',
+      collapsed: true,
+      items: [
+        { text: 'Blocks', link: '/subgraphs/blocks' },
+        { text: 'clAMM (SushiSwap V3)', link: '/subgraphs/clamm' },
+        { text: 'cpAMM (SushiSwap V2)', link: '/subgraphs/cpamm' },
+        { text: 'xSUSHI', link: '/subgraphs/xsushi' },
+        // { text: 'Quote', link: '/api/quote' },
       ],
     },
     // {

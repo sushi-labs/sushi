@@ -1,0 +1,16 @@
+{
+    "name": "example-template",
+    "private": true,
+    "type": "module",
+    "scripts": {
+      "dev": "vite"
+    },
+    "dependencies": {
+      "sushi": "latest",
+      "viem": "latest"
+    },
+    "devDependencies": {
+      "typescript": "5.5.4",
+      "vite": "6.0.7"
+    }
+  }

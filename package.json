@@ -14,7 +14,7 @@
     "docs:dev": "pnpm --filter site dev",
     "docs:build": "pnpm --filter site build",
     "format": "biome format --write .",
-    "generate": "pnpm tsx ./src/chain/generate.ts",
+    "generate": "pnpm tsx ./src/chain/evm/generate.ts",
     "lint": "biome check --apply .",
     "lint:dryrun": "biome check .",
     "lint:repo": "sherif",
@@ -44,9 +44,9 @@
     "tsc-alias": "1.8.10",
     "tsx": "4.19.1",
     "typescript": "5.5.4",
-    "viem": "2.21.4",
+    "viem": "2.21.55",
     "vitest": "2.1.1",
-    "zod": "3.23.8"
+    "zod": "3.24.1"
   },
   "packageManager": "pnpm@9.4.0",
   "engines": {

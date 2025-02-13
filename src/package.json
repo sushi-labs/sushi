@@ -1,7 +1,7 @@
 {
   "name": "sushi",
   "description": "Sushi",
-  "version": "4.1.11",
+  "version": "5.0.16",
   "type": "module",
   "main": "./_cjs/index.js",
   "module": "./_esm/index.js",
@@ -214,7 +214,7 @@
     "toformat": "2.0.0"
   },
   "peerDependencies": {
-    "typescript": "5.5.4",
+    "typescript": ">= 5.5.4 < 6",
     "viem": "*",
     "zod": "*"
   },
