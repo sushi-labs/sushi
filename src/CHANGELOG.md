@@ -1,5 +1,13 @@
 # sushi
 
+## 5.0.17
+
+### Patch Changes
+
+- [#114](https://github.com/sushi-labs/sushi/pull/114) [`32482b9`](https://github.com/sushi-labs/sushi/commit/32482b96308ed6f7fb7600f1b1ca011818f717ff) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add rETH as a base token on SKALE
+
+- [#36](https://github.com/sushi-labs/sushi/pull/36) [`544f931`](https://github.com/sushi-labs/sushi/commit/544f93186bbebb8c24f9436c5543262f5b12ea50) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add cronos, mantle, manta, and zkLink to TokenSecurityChainIds
+
 ## 5.0.16
 
 ### Patch Changes
