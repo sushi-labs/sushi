@@ -1,7 +1,6 @@
 import type { Address } from 'viem'
 import { z } from 'zod'
 import type { ExtractorSupportedChainId } from '../config/index.js'
-import { version } from '../package.json'
 import { RouteStatus } from '../router/route-status.js'
 import type { TransferValue } from '../router/transfer-value.js'
 import { sz } from '../validate/zod.js'
@@ -76,7 +75,10 @@ function swapResponseSchema<IncludeTransaction extends boolean>(
     from: sz.address(),
     to: sz.address(),
     data: sz.hex(),
-    value: z.string().optional(),
+    value: z
+      .string()
+      .optional()
+      .transform((value) => BigInt(value || 0)),
   })
 
   const baseSchema = baseSuccessPartial.or(baseNoWay)
@@ -133,7 +135,9 @@ export async function getSwap<
     )
   }
 
-  url.searchParams.append('referrer', params.referrer ?? `sushi-sdk/${version}`)
+  if (params.referrer) {
+    url.searchParams.append('referrer', params.referrer)
+  }
 
   const res = await fetch(url.toString(), options)
 

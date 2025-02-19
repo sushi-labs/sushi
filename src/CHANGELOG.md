@@ -1,5 +1,43 @@
 # sushi
 
+## 5.0.18
+
+### Patch Changes
+
+- [#118](https://github.com/sushi-labs/sushi/pull/118) [`3c41990`](https://github.com/sushi-labs/sushi/commit/3c4199037534c4b120b6d03055198b9cef8594d1) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - update rp6 addresses
+
+## 5.0.17
+
+### Patch Changes
+
+- [#114](https://github.com/sushi-labs/sushi/pull/114) [`32482b9`](https://github.com/sushi-labs/sushi/commit/32482b96308ed6f7fb7600f1b1ca011818f717ff) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add rETH as a base token on SKALE
+
+- [#36](https://github.com/sushi-labs/sushi/pull/36) [`544f931`](https://github.com/sushi-labs/sushi/commit/544f93186bbebb8c24f9436c5543262f5b12ea50) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add cronos, mantle, manta, and zkLink to TokenSecurityChainIds
+
+## 5.0.16
+
+### Patch Changes
+
+- [`3946f9b`](https://github.com/sushi-labs/sushi/commit/3946f9bf306200109c8a92ce8715ecee9a8858de) Thanks [@matthewlilley](https://github.com/matthewlilley)! - remove package.json import which breaks dual pkg'
+
+## 5.0.15
+
+### Patch Changes
+
+- [`3e87c47`](https://github.com/sushi-labs/sushi/commit/3e87c47a14be95b2900da42196c9c93c550449c1) Thanks [@matthewlilley](https://github.com/matthewlilley)! - explose red snwapper
+
+## 5.0.14
+
+### Patch Changes
+
+- [#102](https://github.com/sushi-labs/sushi/pull/102) [`89dccea`](https://github.com/sushi-labs/sushi/commit/89dccea93a0e63137898c82585edf0a6c901f7dc) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add RP6 and RedSnwapper addresses
+
+## 5.0.13
+
+### Patch Changes
+
+- [#109](https://github.com/sushi-labs/sushi/pull/109) [`f0f74de`](https://github.com/sushi-labs/sushi/commit/f0f74de65b47f0bdf1a44effa5d61dd4e5bcde68) Thanks [@LufyCZ](https://github.com/LufyCZ)! - GetSwap: Default tx.value to 0n
+
 ## 5.0.12
 
 ### Patch Changes

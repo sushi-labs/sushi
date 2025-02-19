@@ -76,6 +76,7 @@ import {
   axlUSDT_ADDRESS,
   axlWBTC_ADDRESS,
   rETH2_ADDRESS,
+  rETH_ADDRESS,
   renBTC_ADDRESS,
   sETH2_ADDRESS,
 } from './token-addresses.js'
@@ -264,6 +265,15 @@ export const PRIMATE = addressMapToTokenMap(
   },
   PRIMATE_ADDRESS,
 ) as Record<keyof typeof PRIMATE_ADDRESS, Token>
+
+export const rETH = addressMapToTokenMap(
+  {
+    decimals: 18,
+    symbol: 'rETH',
+    name: 'Rocket Pool ETH',
+  },
+  rETH_ADDRESS,
+) as Record<keyof typeof rETH_ADDRESS, Token>
 
 export const rETH2 = addressMapToTokenMap(
   {

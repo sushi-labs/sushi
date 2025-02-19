@@ -1,6 +1,6 @@
 import { EvmChainId } from '../../chain/evm/index.js'
 import { Token } from '../../currency/token.js'
-import { METH, STONE } from '../../currency/tokens.js'
+import { METH, STONE, rETH } from '../../currency/tokens.js'
 
 export const LSDS = {
   [EvmChainId.ARBITRUM]: [
@@ -25,13 +25,7 @@ export const LSDS = {
       symbol: 'sfrxETH',
       name: 'Staked Frax Ether',
     }),
-    new Token({
-      chainId: EvmChainId.ARBITRUM,
-      address: '0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8',
-      decimals: 18,
-      symbol: 'rETH',
-      name: 'Rocket Pool ETH',
-    }),
+    rETH[EvmChainId.ARBITRUM],
     new Token({
       chainId: EvmChainId.ARBITRUM,
       address: '0x1DEBd73E752bEaF79865Fd6446b0c970EaE7732f',
@@ -64,13 +58,7 @@ export const LSDS = {
       symbol: 'wstETH',
       name: 'Wrapped Lido Staked ETH',
     }),
-    new Token({
-      chainId: EvmChainId.BASE,
-      address: '0x53878B874283351D26d206FA512aEcE1Bef6C0dD',
-      decimals: 18,
-      symbol: 'rETH',
-      name: 'Rocket Pool ETH',
-    }),
+    rETH[EvmChainId.BASE],
     new Token({
       chainId: EvmChainId.BASE,
       address: '0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22',
@@ -160,13 +148,7 @@ export const LSDS = {
       symbol: 'wstETH',
       name: 'Wrapped Lido Staked ETH',
     }),
-    new Token({
-      chainId: EvmChainId.ETHEREUM,
-      address: '0xae78736cd615f374d3085123a210448e74fc6393',
-      decimals: 18,
-      symbol: 'rETH',
-      name: 'Rocket Pool ETH',
-    }),
+    rETH[EvmChainId.ETHEREUM],
     new Token({
       chainId: EvmChainId.ETHEREUM,
       address: '0x35fA164735182de50811E8e2E824cFb9B6118ac2',
@@ -304,13 +286,7 @@ export const LSDS = {
       symbol: 'sfrxETH',
       name: 'Staked Frax Ether',
     }),
-    new Token({
-      chainId: EvmChainId.OPTIMISM,
-      address: '0x9Bcef72be871e61ED4fBbc7630889beE758eb81D',
-      decimals: 18,
-      symbol: 'rETH',
-      name: 'Rocket Pool ETH',
-    }),
+    rETH[EvmChainId.OPTIMISM],
     new Token({
       chainId: EvmChainId.OPTIMISM,
       address: '0xadDb6A0412DE1BA0F936DCaeb8Aaa24578dcF3B2',
@@ -341,23 +317,9 @@ export const LSDS = {
       symbol: 'sfrxETH',
       name: 'Staked Frax Ether',
     }),
-    new Token({
-      chainId: EvmChainId.POLYGON,
-      address: '0x0266F4F08D82372CF0FcbCCc0Ff74309089c74d1',
-      decimals: 18,
-      symbol: 'rETH',
-      name: 'Rocket Pool ETH',
-    }),
+    rETH[EvmChainId.POLYGON],
   ],
-  [EvmChainId.POLYGON_ZKEVM]: [
-    new Token({
-      chainId: EvmChainId.POLYGON_ZKEVM,
-      address: '0xb23C20EFcE6e24Acca0Cef9B7B7aA196b84EC942',
-      decimals: 18,
-      symbol: 'rETH',
-      name: 'Rocket Pool ETH',
-    }),
-  ],
+  [EvmChainId.POLYGON_ZKEVM]: [rETH[EvmChainId.POLYGON_ZKEVM]],
   [EvmChainId.SCROLL]: [
     new Token({
       chainId: EvmChainId.SCROLL,
@@ -366,13 +328,7 @@ export const LSDS = {
       symbol: 'wstETH',
       name: 'Wrapped Lido Staked ETH',
     }),
-    new Token({
-      chainId: EvmChainId.SCROLL,
-      address: '0x53878B874283351D26d206FA512aEcE1Bef6C0dD',
-      decimals: 18,
-      symbol: 'rETH',
-      name: 'Rocket Pool ETH',
-    }),
+    rETH[EvmChainId.SCROLL],
     new Token({
       chainId: EvmChainId.SCROLL,
       address: '0x01f0a31698C4d065659b9bdC21B3610292a1c506',
@@ -386,7 +342,7 @@ export const LSDS = {
   [EvmChainId.CORE]: [],
   [EvmChainId.ZETACHAIN]: [],
   [EvmChainId.CRONOS]: [],
-  [EvmChainId.SKALE_EUROPA]: [],
+  [EvmChainId.SKALE_EUROPA]: [rETH[EvmChainId.SKALE_EUROPA]],
   [EvmChainId.ROOTSTOCK]: [],
   [EvmChainId.PALM]: [],
   [EvmChainId.ZKSYNC_ERA]: [],
