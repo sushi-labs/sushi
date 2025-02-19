@@ -1,6 +1,6 @@
 import { existsSync, writeFileSync } from 'node:fs'
 import * as path from 'node:path'
-import { fileURLToPath } from 'url'
+import { fileURLToPath } from 'node:url'
 import { EvmChainId } from './id.js'
 import type { EvmChainBase } from './index.js'
 

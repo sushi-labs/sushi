@@ -6,7 +6,7 @@
     "build:cjs": "tsc --project ./tsconfig.build.json --module commonjs --outDir ./src/_cjs --removeComments --verbatimModuleSyntax false --esModuleInterop true && printf '{\"type\":\"commonjs\"}' > ./src/_cjs/package.json",
     "build:esm": "tsc --project ./tsconfig.build.json --module es2020 --outDir ./src/_esm && printf '{\"type\": \"module\",\"sideEffects\":false}' > ./src/_esm/package.json",
     "build:types": "tsc --project ./tsconfig.build.json --module esnext --declarationDir ./src/_types --emitDeclarationOnly --declaration --declarationMap",
-    "changeset:prepublish": "bun scripts/prepublish-only.ts && pnpm build",
+    "changeset:prepublish": "bun scripts/prepublish-only.ts && bun scripts/update-version.ts && pnpm build",
     "changeset:publish": "pnpm changeset:prepublish && changeset publish",
     "changeset:version": "changeset version && pnpm install --lockfile-only && pnpm format",
     "deps": "pnpx taze -r",
@@ -15,7 +15,7 @@
     "docs:build": "pnpm --filter site build",
     "format": "biome format --write .",
     "generate": "pnpm tsx ./src/chain/evm/generate.ts",
-    "lint": "biome check --apply .",
+    "lint": "biome check --write .",
     "lint:dryrun": "biome check .",
     "lint:repo": "sherif",
     "lint:unused": "pnpm clean && knip",
@@ -28,7 +28,7 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.5.2",
+    "@biomejs/biome": "1.9.5-nightly.81fdedb",
     "@changesets/changelog-github": "0.4.8",
     "@changesets/cli": "2.26.2",
     "@types/big.js": "6.2.0",
@@ -48,9 +48,12 @@
     "vitest": "2.1.1",
     "zod": "3.24.1"
   },
-  "packageManager": "pnpm@9.4.0",
+  "packageManager": "pnpm@10.4.1",
   "engines": {
     "node": "20.x"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["@biomejs/biome"]
   },
   "knip": {
     "ignore": [".github/**", "environments/**", "vectors/**"],
@@ -76,5 +79,5 @@
         "project": ["**/*.ts", "**/*.tsx"]
       }
     }
-  }  
+  }
 }

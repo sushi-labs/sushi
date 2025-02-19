@@ -46,9 +46,6 @@
         "noUnusedVariables": "error",
         "useExhaustiveDependencies": "error"
       },
-      "nursery": {
-        "useGroupedTypeImport": "off"
-      },
       "performance": {
         "noDelete": "off"
       },
@@ -79,7 +76,7 @@
   "javascript": {
     "formatter": {
       "quoteStyle": "single",
-      "trailingComma": "all",
+      "trailingCommas": "all",
       "semicolons": "asNeeded"
     }
   },

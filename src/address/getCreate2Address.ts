@@ -1,8 +1,8 @@
 import type { Address, Hex } from 'viem'
 import {
+  getCreate2Address as _getCreate2Address,
   concat,
   getAddress,
-  getCreate2Address as _getCreate2Address,
   keccak256,
   pad,
 } from 'viem/utils'

@@ -17,10 +17,10 @@ export function getCurrencyCombinations(
 
   const common = BASES_TO_CHECK_TRADES_AGAINST?.[chainId] ?? []
   const additionalA = tokenA
-    ? ADDITIONAL_BASES[chainId]?.[tokenA.address] ?? []
+    ? (ADDITIONAL_BASES[chainId]?.[tokenA.address] ?? [])
     : []
   const additionalB = tokenB
-    ? ADDITIONAL_BASES[chainId]?.[tokenB.address] ?? []
+    ? (ADDITIONAL_BASES[chainId]?.[tokenB.address] ?? [])
     : []
 
   const bases: Token[] = [...common, ...additionalA, ...additionalB]
