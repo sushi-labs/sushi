@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.19
+
+### Patch Changes
+
+- [#120](https://github.com/sushi-labs/sushi/pull/120) [`008748f`](https://github.com/sushi-labs/sushi/commit/008748f08fc574a9c42440075cbba0acca9f5832) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Re-add version as referrer to swap request
+
 ## 5.0.18
 
 ### Patch Changes
