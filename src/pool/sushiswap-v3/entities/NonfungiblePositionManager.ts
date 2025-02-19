@@ -12,8 +12,8 @@ import {
 } from '../../../abi/nonfungiblePositionManagerAbi/index.js'
 import { toHex } from '../../../convert/index.js'
 import {
-  Amount as CurrencyAmount,
   type Currency,
+  Amount as CurrencyAmount,
   type Native,
   type Token,
 } from '../../../currency/index.js'

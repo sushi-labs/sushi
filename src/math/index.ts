@@ -1,5 +1,5 @@
 export { default as Big } from './Big.js'
-export { type BigintIsh } from './BigintIsh.js'
+export type { BigintIsh } from './BigintIsh.js'
 export * from './constants/index.js'
 export { default as Decimal } from './Decimal.js'
 export { default as Fraction } from './Fraction.js'

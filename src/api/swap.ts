@@ -3,7 +3,7 @@ import { z } from 'zod'
 import type { ExtractorSupportedChainId } from '../config/index.js'
 import { version } from '../package.json'
 import { RouteStatus } from '../router/route-status.js'
-import { TransferValue } from '../router/transfer-value.js'
+import type { TransferValue } from '../router/transfer-value.js'
 import { sz } from '../validate/zod.js'
 
 type To<Required extends boolean> = Required extends true
