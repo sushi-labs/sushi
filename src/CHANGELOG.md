@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.18
+
+### Patch Changes
+
+- [#118](https://github.com/sushi-labs/sushi/pull/118) [`3c41990`](https://github.com/sushi-labs/sushi/commit/3c4199037534c4b120b6d03055198b9cef8594d1) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - update rp6 addresses
+
 ## 5.0.17
 
 ### Patch Changes
