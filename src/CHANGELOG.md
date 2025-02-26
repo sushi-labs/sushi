@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.20
+
+### Patch Changes
+
+- [#122](https://github.com/sushi-labs/sushi/pull/122) [`f13cb58`](https://github.com/sushi-labs/sushi/commit/f13cb588275b29507238866ce143e357b07dabaf) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add rETH as a base token on skale
+
 ## 5.0.19
 
 ### Patch Changes
