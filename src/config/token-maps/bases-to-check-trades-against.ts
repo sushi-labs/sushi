@@ -8,6 +8,7 @@ import {
   GUSD,
   METH,
   MUSD,
+  rETH,
   SKL,
   STETH,
   STONE,
@@ -572,6 +573,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     DAI[EvmChainId.SKALE_EUROPA],
     USDP[EvmChainId.SKALE_EUROPA],
     WETH9[EvmChainId.SKALE_EUROPA],
+    rETH[EvmChainId.SKALE_EUROPA]
   ],
   [EvmChainId.ROOTSTOCK]: [
     WNATIVE[EvmChainId.ROOTSTOCK],
