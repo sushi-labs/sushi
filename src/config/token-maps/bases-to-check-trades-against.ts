@@ -8,7 +8,6 @@ import {
   GUSD,
   METH,
   MUSD,
-  rETH,
   SKL,
   STETH,
   STONE,
@@ -17,6 +16,7 @@ import {
   USDB,
   USDP,
   WstETH,
+  rETH,
 } from '../../currency/index.js'
 import {
   AAVE,
