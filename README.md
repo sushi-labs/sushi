@@ -35,32 +35,11 @@
                                                                 ████████                        
 ```
 
-## Getting Started
-
-https://pnpm.io/installation
-
 ## Install
 
-```bash
-pnpm install sushi
-```
-
-## Usage
-
-...
+https://docs.sushi.com/sdk/installation
 
 
-## Build
-
-```bash
-pnpm build
-```
-
-## Development
-
-```bash
-pnpm dev
-```
 
 [build-img]: https://github.com/sushi-labs/sushi/actions/workflows/changesets.yaml/badge.svg
 [build-url]: https://github.com/sushi-labs/sushi/actions/workflows/changesets.yaml
