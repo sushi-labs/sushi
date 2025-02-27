@@ -12,14 +12,16 @@
     "enabled": false
   },
   "dependencies": {
-    "@types/react": "latest",
-    "@types/swagger-ui-react": "5.18.0",
     "react": "latest",
-    "swagger-ui-react": "5.19.0",
     "react-dom": "latest",
     "sushi": "workspace:*",
+    "swagger-ui-react": "5.19.0",
     "typescript": "latest",
     "viem": "2.21.55",
     "vocs": "1.0.0-alpha.54"
+  },
+  "devDependencies": {
+    "@types/react": "latest",
+    "@types/swagger-ui-react": "5.18.0"
   }
 }
