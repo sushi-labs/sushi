@@ -36,9 +36,7 @@
   "paths": {
     "/swap/v5/{chainId}": {
       "get": {
-        "tags": [
-          "swap"
-        ],
+        "tags": ["swap"],
         "summary": "generates a route",
         "description": "By passing in the appropriate options, you can generate a swap\n",
         "operationId": "swap",
@@ -197,10 +195,7 @@
             "schema": {
               "type": "string",
               "default": "output",
-              "enum": [
-                "input",
-                "output"
-              ]
+              "enum": ["input", "output"]
             }
           },
           {
@@ -273,19 +268,19 @@
                     "status": "Success",
                     "tokens": [
                       {
-                        "address": 1.167505365762533e+48,
+                        "address": 1.167505365762533e48,
                         "symbol": "NEC",
                         "name": "Ethfinex Nectar Token",
                         "decimals": 18
                       },
                       {
-                        "address": 1.0970776880180083e+48,
+                        "address": 1.0970776880180083e48,
                         "symbol": "WETH",
                         "name": "Wrapped Ether",
                         "decimals": 18
                       },
                       {
-                        "address": 6.120569339260443e+47,
+                        "address": 6.120569339260443e47,
                         "symbol": "SUSHI",
                         "name": "SushiToken",
                         "decimals": 18
@@ -300,7 +295,7 @@
                     "gasSpent": 84000,
                     "route": [
                       {
-                        "poolAddress": 2.61767016756679e+47,
+                        "poolAddress": 2.61767016756679e47,
                         "poolType": "Classic",
                         "poolName": "UniswapV2 0.3%",
                         "poolFee": 0.003,
@@ -312,7 +307,7 @@
                         "assumedAmountOut": "194798139220"
                       },
                       {
-                        "poolAddress": 1.179007512477013e+48,
+                        "poolAddress": 1.179007512477013e48,
                         "poolType": "Classic",
                         "poolName": "UniswapV2 0.3%",
                         "poolFee": 0.003,
@@ -324,10 +319,10 @@
                         "assumedAmountOut": "727007628361339"
                       }
                     ],
-                    "routeProcessorAddr": 1.3837453971230673e+48,
+                    "routeProcessorAddr": 1.3837453971230673e48,
                     "tx": {
-                      "from": 2.870172016565755e+47,
-                      "to": 1.3837453971230673e+48,
+                      "from": 2.870172016565755e47,
+                      "to": 1.3837453971230673e48,
                       "data": null
                     }
                   }
@@ -346,9 +341,7 @@
     },
     "/price/v1/{chainId}": {
       "get": {
-        "tags": [
-          "price"
-        ],
+        "tags": ["price"],
         "summary": "Returns prices for specified chainId",
         "description": "By passing in a chainId, you can get dollar prices for tokens addresses\n",
         "operationId": "getPrices",
@@ -395,9 +388,7 @@
     },
     "/price/v1/{chainId}/{address}": {
       "get": {
-        "tags": [
-          "price"
-        ],
+        "tags": ["price"],
         "summary": "Returns price for specified chainId and token",
         "description": "By passing in a chainId and address, you can get a dollar price for specified token address\n",
         "operationId": "getPrice",
@@ -448,9 +439,7 @@
     },
     "/token/v1/{chainId}/{address}": {
       "get": {
-        "tags": [
-          "token"
-        ],
+        "tags": ["token"],
         "summary": "Returns token data for specified chainId and token",
         "description": "By passing in a chainId and address, you can get token data for specified token address\n",
         "operationId": "getToken",
@@ -487,7 +476,7 @@
                   "type": "object",
                   "example": {
                     "chainId": 1,
-                    "address": 6.120569339260443e+47,
+                    "address": 6.120569339260443e47,
                     "decimals": 18,
                     "name": "Sushi Token",
                     "symbol": "SUSHI"
@@ -507,9 +496,7 @@
     },
     "/liquidity-providers/v5/{chainId}": {
       "get": {
-        "tags": [
-          "liquidity-providers"
-        ],
+        "tags": ["liquidity-providers"],
         "summary": "Returns supported liquidity providers for the specified chainId",
         "description": "By passing in a chainId you can get the enabled liquidity providers.\n",
         "operationId": "getLiquidityProviders",
