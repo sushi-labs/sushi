@@ -13,18 +13,36 @@ export const sidebar = {
         // { text: '🚀 Roadmap', link: '/roadmap' },
         { text: '👨‍👩‍👧‍👦 Community', link: '/community' },
         { text: '📚 Resources', link: '/resources' },
-        { text: '🏛️ Governance', link: '/governance' },
+      ],
+    },
+    {
+      text: 'DAO',
+      items: [
+        { text: '🍣 Sushinomics', link: '/dao/tokenomics' },
+        { text: '🏛️ Governance', link: '/dao/governance' },
       ],
     },
     {
       text: 'API',
-      collapsed: true,
       items: [
-        { text: 'Swap', link: '/api/swap' },
-        { text: 'Price', link: '/api/price' },
-        { text: 'Token', link: '/api/token' },
-        { text: 'Liquidity Providers', link: '/api/liquidity-providers' },
-        // { text: 'Quote', link: '/api/quote' },
+        {
+          text: 'Pricing',
+          link: '/api/pricing',
+        },
+        {
+          text: 'Swagger',
+          link: '/api/swagger',
+        },
+        {
+          text: 'Examples',
+          collapsed: true,
+          items: [
+            {
+              text: 'Swap',
+              link: '/api/swap',
+            },
+          ],
+        },
       ],
     },
     {
@@ -56,38 +74,6 @@ export const sidebar = {
     //   ],
     // },
     {
-      text: 'Aggregator',
-      collapsed: true,
-      items: [
-        {
-          text: 'Introduction',
-          link: '/aggregator/introduction',
-        },
-      ],
-    },
-    {
-      text: 'AMM',
-      collapsed: true,
-      items: [
-        {
-          text: 'Introduction',
-          link: '/amm/introduction',
-        },
-        {
-          text: 'clAMM',
-          link: '/amm/clamm',
-        },
-        {
-          text: 'cpAMM',
-          link: '/amm/cpamm',
-        },
-        // {
-        //   text: 'lbAMM',
-        //   link: '/amm/lbamm',
-        // },
-      ],
-    },
-    {
       text: 'Contracts',
       collapsed: true,
       items: [
@@ -109,6 +95,45 @@ export const sidebar = {
         { text: 'cpAMM (SushiSwap V2)', link: '/subgraphs/cpamm' },
         { text: 'xSUSHI', link: '/subgraphs/xsushi' },
         // { text: 'Quote', link: '/api/quote' },
+      ],
+    },
+
+    {
+      text: 'Products',
+      collapsed: true,
+      items: [
+        {
+          text: 'DEX Aggregator',
+          collapsed: true,
+          items: [
+            {
+              text: 'Introduction',
+              link: '/aggregator/introduction',
+            },
+          ],
+        },
+        {
+          text: 'AMM',
+          collapsed: true,
+          items: [
+            {
+              text: 'Introduction',
+              link: '/amm/introduction',
+            },
+            {
+              text: 'clAMM',
+              link: '/amm/clamm',
+            },
+            {
+              text: 'cpAMM',
+              link: '/amm/cpamm',
+            },
+            // {
+            //   text: 'lbAMM',
+            //   link: '/amm/lbamm',
+            // },
+          ],
+        },
       ],
     },
     // {

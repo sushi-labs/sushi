@@ -8,9 +8,14 @@
     "build": "vocs build",
     "preview": "vocs preview"
   },
+  "scarfSettings": {
+    "enabled": false
+  },
   "dependencies": {
     "@types/react": "latest",
+    "@types/swagger-ui-react": "5.18.0",
     "react": "latest",
+    "swagger-ui-react": "5.19.0",
     "react-dom": "latest",
     "sushi": "workspace:*",
     "typescript": "latest",

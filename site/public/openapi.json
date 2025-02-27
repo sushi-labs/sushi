@@ -1,0 +1,570 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "SushiSwap API",
+    "description": "Documentation for interacting with the SushiSwap API",
+    "version": "5.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.sushi.com",
+      "description": "Sushi API"
+    },
+    {
+      "url": "https://virtserver.swaggerhub.com/sushi-labs/sushi/5.0.0",
+      "description": "SwaggerHub API Auto Mocking"
+    }
+  ],
+  "tags": [
+    {
+      "name": "swap",
+      "description": "Returns swap route"
+    },
+    {
+      "name": "price",
+      "description": "Returns current token price(s)"
+    },
+    {
+      "name": "token",
+      "description": "Returns token data"
+    },
+    {
+      "name": "liquidity-providers",
+      "description": "Returns liquidity provider data"
+    }
+  ],
+  "paths": {
+    "/swap/v5/{chainId}": {
+      "get": {
+        "tags": [
+          "swap"
+        ],
+        "summary": "generates a route",
+        "description": "By passing in the appropriate options, you can generate a swap\n",
+        "operationId": "swap",
+        "parameters": [
+          {
+            "name": "chainId",
+            "in": "path",
+            "description": "chainId",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "tokenIn",
+            "in": "query",
+            "description": "Input token address",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tokenOut",
+            "in": "query",
+            "description": "Output token address",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "amount",
+            "in": "query",
+            "description": "Input token amount",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 1,
+              "type": "integer",
+              "format": "int256"
+            }
+          },
+          {
+            "name": "maxPriceImpact",
+            "in": "query",
+            "description": "The max price impact for route planning. It's better to set it to a reasonable value, for example 0.01 (1%)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          {
+            "name": "maxSlippage",
+            "in": "query",
+            "description": "The max slippage for route execution",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number",
+              "default": 0.005
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "The address to send output tokens to. If is not defined, then transaction data is not generated",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "referrer",
+            "in": "query",
+            "description": "Referrer",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "preferSushi",
+            "in": "query",
+            "description": "Prefer Sushi sources of liquidity first",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "enableFee",
+            "in": "query",
+            "description": "To take the swap fee or not",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "feeReceiver",
+            "in": "query",
+            "description": "if enableFee=true then receiver of the fee",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fee",
+            "in": "query",
+            "description": "if enableFee=true then amount of the fee",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number",
+              "default": 0.0025
+            }
+          },
+          {
+            "name": "feeBy",
+            "in": "query",
+            "description": "if enableFee=true then which token to take fee from input or output",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "default": "output",
+              "enum": [
+                "input",
+                "output"
+              ]
+            }
+          },
+          {
+            "name": "includeRouteProcessorParams",
+            "in": "query",
+            "description": "if to is defined then includes RouteProcessor params in response",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "includeTransaction",
+            "in": "query",
+            "description": "if to is defined then includes transaction data in response",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "includeRoute",
+            "in": "query",
+            "description": "To include route info in response or not",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "onlyDEX",
+            "in": "query",
+            "description": "A list of DEX names separated by comma. If exists in the request then only pools from these DEXes are used in the response route. List of all supported DEXes can be obtained with /listDEX request",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "onlyPools",
+            "in": "query",
+            "description": "A list of pools addresses separated by comma. If exists in the request then only these pools are used in the response route",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "route data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "Success",
+                    "tokens": [
+                      {
+                        "address": 1.167505365762533e+48,
+                        "symbol": "NEC",
+                        "name": "Ethfinex Nectar Token",
+                        "decimals": 18
+                      },
+                      {
+                        "address": 1.0970776880180083e+48,
+                        "symbol": "WETH",
+                        "name": "Wrapped Ether",
+                        "decimals": 18
+                      },
+                      {
+                        "address": 6.120569339260443e+47,
+                        "symbol": "SUSHI",
+                        "name": "SushiToken",
+                        "decimals": 18
+                      }
+                    ],
+                    "tokenFrom": 0,
+                    "tokenTo": 2,
+                    "swapPrice": 0.00727007628361339,
+                    "priceImpact": -0.00465442342625355,
+                    "amountIn": "100000000000000000",
+                    "assumedAmountOut": "727007628361339",
+                    "gasSpent": 84000,
+                    "route": [
+                      {
+                        "poolAddress": 2.61767016756679e+47,
+                        "poolType": "Classic",
+                        "poolName": "UniswapV2 0.3%",
+                        "poolFee": 0.003,
+                        "liquidityProvider": "UniswapV2",
+                        "tokenFrom": 0,
+                        "tokenTo": 1,
+                        "share": 1,
+                        "assumedAmountIn": "100000000000000000",
+                        "assumedAmountOut": "194798139220"
+                      },
+                      {
+                        "poolAddress": 1.179007512477013e+48,
+                        "poolType": "Classic",
+                        "poolName": "UniswapV2 0.3%",
+                        "poolFee": 0.003,
+                        "liquidityProvider": "UniswapV2",
+                        "tokenFrom": 1,
+                        "tokenTo": 2,
+                        "share": 1,
+                        "assumedAmountIn": "194798139220",
+                        "assumedAmountOut": "727007628361339"
+                      }
+                    ],
+                    "routeProcessorAddr": 1.3837453971230673e+48,
+                    "tx": {
+                      "from": 2.870172016565755e+47,
+                      "to": 1.3837453971230673e+48,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "request parameters invalid"
+          },
+          "500": {
+            "description": "internal server error"
+          }
+        }
+      }
+    },
+    "/price/v1/{chainId}": {
+      "get": {
+        "tags": [
+          "price"
+        ],
+        "summary": "Returns prices for specified chainId",
+        "description": "By passing in a chainId, you can get dollar prices for tokens addresses\n",
+        "operationId": "getPrices",
+        "parameters": [
+          {
+            "name": "chainId",
+            "in": "path",
+            "description": "chainId",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON map of address=>usd",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "number"
+                  },
+                  "example": {
+                    "0x1": 1337,
+                    "0x2": 420,
+                    "0x3": 69
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "request parameters invalid"
+          },
+          "500": {
+            "description": "internal server error"
+          }
+        }
+      }
+    },
+    "/price/v1/{chainId}/{address}": {
+      "get": {
+        "tags": [
+          "price"
+        ],
+        "summary": "Returns price for specified chainId and token",
+        "description": "By passing in a chainId and address, you can get a dollar price for specified token address\n",
+        "operationId": "getPrice",
+        "parameters": [
+          {
+            "name": "chainId",
+            "in": "path",
+            "description": "chainId",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "address",
+            "in": "path",
+            "description": "token",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A numerical price",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "number"
+                },
+                "example": 1337
+              }
+            }
+          },
+          "422": {
+            "description": "request parameters invalid"
+          },
+          "500": {
+            "description": "internal server error"
+          }
+        }
+      }
+    },
+    "/token/v1/{chainId}/{address}": {
+      "get": {
+        "tags": [
+          "token"
+        ],
+        "summary": "Returns token data for specified chainId and token",
+        "description": "By passing in a chainId and address, you can get token data for specified token address\n",
+        "operationId": "getToken",
+        "parameters": [
+          {
+            "name": "chainId",
+            "in": "path",
+            "description": "chainId",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "address",
+            "in": "path",
+            "description": "token",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Token data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "chainId": 1,
+                    "address": 6.120569339260443e+47,
+                    "decimals": 18,
+                    "name": "Sushi Token",
+                    "symbol": "SUSHI"
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "request parameters invalid"
+          },
+          "500": {
+            "description": "internal server error"
+          }
+        }
+      }
+    },
+    "/liquidity-providers/v5/{chainId}": {
+      "get": {
+        "tags": [
+          "liquidity-providers"
+        ],
+        "summary": "Returns supported liquidity providers for the specified chainId",
+        "description": "By passing in a chainId you can get the enabled liquidity providers.\n",
+        "operationId": "getLiquidityProviders",
+        "parameters": [
+          {
+            "name": "chainId",
+            "in": "path",
+            "description": "The chain identifier.",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Liquidity Provider data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "example": [
+                    "UniswapV2",
+                    "SushiSwapV2",
+                    "PancakeSwap",
+                    "Elk",
+                    "Kwikswap",
+                    "ShibaSwap",
+                    "CroDefiSwap",
+                    "UniswapV3",
+                    "SushiSwapV3",
+                    "PancakeSwapV3",
+                    "Wagmi",
+                    "CurveSwap"
+                  ],
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request parameters invalid."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}
