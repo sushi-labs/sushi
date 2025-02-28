@@ -1,0 +1,19 @@
+# Price
+
+Get all prices for a given chain:
+
+```ts twoslash
+import { getPrices, ChainId, SUSHI_ADDRESS } from 'sushi'
+
+const prices = await getPrices(ChainId.ETHEREUM)
+console.log("Prices:", prices)
+```
+
+Get price for a given chain and token address:
+
+```ts twoslash
+import { getPrice, ChainId } from 'sushi'
+
+const price = await getPrice(ChainId.ETHEREUM, SUSHI_ADDRESS[ChainId.ETHEREUM])
+console.log("Price:", price)
+```

@@ -51,7 +51,12 @@ export const sidebar = {
       items: [
         { text: 'Installation', link: '/sdk/installation' },
         // { text: 'Quote', link: '/sdk/quote' },
-        { text: 'Swap', link: '/sdk/swap' },
+        {
+          text: 'Examples',
+          collapsed: true,
+          items: [{ text: 'Swap', link: '/sdk/swap' }],
+        },
+
         // { text: 'Limit', link: '/sdk/limit' },
         // { text: 'DCA', link: '/sdk/dca' },
         // { text: 'Cross-Chain Swap', link: '/sdk/cross-chain-swap' },
