@@ -5,5 +5,5 @@ import './style.css'
 
 export default function Swagger() {
   /* @ts-expect-error */
-  return <SwaggerUI spec={spec} />
+  return <SwaggerUI spec={spec} showCommonExtensions={true} />
 }
