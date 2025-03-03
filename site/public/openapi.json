@@ -1,9 +1,9 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "SushiSwap API",
-    "description": "Documentation for interacting with the SushiSwap API",
-    "version": "5.0.0"
+    "title": "Sushi API",
+    "description": "Documentation for interacting with the Sushi API",
+    "version": "6.0.0"
   },
   "servers": [
     {
@@ -11,35 +11,35 @@
       "description": "Sushi API"
     },
     {
-      "url": "https://virtserver.swaggerhub.com/sushi-labs/sushi/5.0.0",
+      "url": "https://virtserver.swaggerhub.com/sushi-labs/sushi/6.0.0",
       "description": "SwaggerHub API Auto Mocking"
     }
   ],
   "tags": [
     {
       "name": "swap",
-      "description": "Returns swap route"
+      "description": "All swap endpoints"
     },
     {
       "name": "price",
-      "description": "Returns current token price(s)"
+      "description": "All price endpoints"
     },
     {
       "name": "token",
-      "description": "Returns token data"
+      "description": "All token endpoints"
     },
     {
       "name": "liquidity-providers",
-      "description": "Returns liquidity provider data"
+      "description": "All liquidity provider endpoints"
     }
   ],
   "paths": {
-    "/swap/v5/{chainId}": {
+    "/quote/v6/{chainId}": {
       "get": {
         "tags": ["swap"],
-        "summary": "generates a route",
-        "description": "By passing in the appropriate options, you can generate a swap\n",
-        "operationId": "swap",
+        "summary": "generates a quote",
+        "description": "By passing in the appropriate options, you can generate a swap quote\n",
+        "operationId": "quote",
         "parameters": [
           {
             "name": "chainId",
@@ -50,6 +50,17 @@
             "explode": false,
             "schema": {
               "type": "number"
+            }
+          },
+          {
+            "name": "referrer",
+            "in": "query",
+            "description": "referrer",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
             }
           },
           {
@@ -88,6 +99,32 @@
             }
           },
           {
+            "name": "fee",
+            "in": "query",
+            "description": "amount of the fee",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          {
+            "name": "feeBy",
+            "in": "query",
+            "description": "if fee > 0 then which token to take fee from input or output",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "default": "output",
+              "enum": ["input", "output"]
+            }
+          },
+          {
             "name": "maxPriceImpact",
             "in": "query",
             "description": "The max price impact for route planning. It's better to set it to a reasonable value, for example 0.01 (1%)",
@@ -110,128 +147,7 @@
             "schema": {
               "maximum": 1,
               "minimum": 0,
-              "type": "number",
-              "default": 0.005
-            }
-          },
-          {
-            "name": "to",
-            "in": "query",
-            "description": "The address to send output tokens to. If is not defined, then transaction data is not generated",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "referrer",
-            "in": "query",
-            "description": "Referrer",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "preferSushi",
-            "in": "query",
-            "description": "Prefer Sushi sources of liquidity first",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
-          },
-          {
-            "name": "enableFee",
-            "in": "query",
-            "description": "To take the swap fee or not",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
-          },
-          {
-            "name": "feeReceiver",
-            "in": "query",
-            "description": "if enableFee=true then receiver of the fee",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "fee",
-            "in": "query",
-            "description": "if enableFee=true then amount of the fee",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "maximum": 1,
-              "minimum": 0,
-              "type": "number",
-              "default": 0.0025
-            }
-          },
-          {
-            "name": "feeBy",
-            "in": "query",
-            "description": "if enableFee=true then which token to take fee from input or output",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "string",
-              "default": "output",
-              "enum": ["input", "output"]
-            }
-          },
-          {
-            "name": "includeRouteProcessorParams",
-            "in": "query",
-            "description": "if to is defined then includes RouteProcessor params in response",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
-          },
-          {
-            "name": "includeTransaction",
-            "in": "query",
-            "description": "if to is defined then includes transaction data in response",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
-          },
-          {
-            "name": "includeRoute",
-            "in": "query",
-            "description": "To include route info in response or not",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "number"
             }
           },
           {
@@ -255,11 +171,35 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "vizualize",
+            "in": "query",
+            "description": "vizulaization",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "debug",
+            "in": "query",
+            "description": "debug",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "route data",
+            "description": "quote",
             "content": {
               "application/json": {
                 "schema": {
@@ -268,9 +208,9 @@
                     "status": "Success",
                     "tokens": [
                       {
-                        "address": 1.167505365762533e48,
-                        "symbol": "NEC",
-                        "name": "Ethfinex Nectar Token",
+                        "address": 1.364068194842176e48,
+                        "symbol": "ETH",
+                        "name": "Ether",
                         "decimals": 18
                       },
                       {
@@ -288,42 +228,326 @@
                     ],
                     "tokenFrom": 0,
                     "tokenTo": 2,
-                    "swapPrice": 0.00727007628361339,
-                    "priceImpact": -0.00465442342625355,
-                    "amountIn": "100000000000000000",
-                    "assumedAmountOut": "727007628361339",
-                    "gasSpent": 84000,
-                    "route": [
+                    "swapPrice": 2837.6709246572527,
+                    "priceImpact": -0.002204113661183449,
+                    "amountIn": "10000000000000000",
+                    "assumedAmountOut": "28376709246572527616"
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "request parameters invalid"
+          },
+          "500": {
+            "description": "internal server error"
+          },
+          "529": {
+            "description": "server overloaded"
+          }
+        }
+      }
+    },
+    "/swap/v6/{chainId}": {
+      "get": {
+        "tags": ["swap"],
+        "summary": "generates a swap",
+        "description": "By passing in the appropriate options, you can generate a swap transaction\n",
+        "operationId": "swap",
+        "parameters": [
+          {
+            "name": "chainId",
+            "in": "path",
+            "description": "chainId",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "referrer",
+            "in": "query",
+            "description": "referrer",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tokenIn",
+            "in": "query",
+            "description": "Input token address",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tokenOut",
+            "in": "query",
+            "description": "Output token address",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sender",
+            "in": "query",
+            "description": "sender of transaction",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "recipient",
+            "in": "query",
+            "description": "recipient of tokens, defaults to sender",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "amount",
+            "in": "query",
+            "description": "Input token amount",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 1,
+              "type": "integer",
+              "format": "int256"
+            }
+          },
+          {
+            "name": "fee",
+            "in": "query",
+            "description": "amount of the fee",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          {
+            "name": "feeReceiver",
+            "in": "query",
+            "description": "if fee > 0 then receiver of the fee",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "feeBy",
+            "in": "query",
+            "description": "if fee > 0 then which token to take fee from input or output",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "default": "output",
+              "enum": ["input", "output"]
+            }
+          },
+          {
+            "name": "maxPriceImpact",
+            "in": "query",
+            "description": "The max price impact for route planning. It's better to set it to a reasonable value, for example 0.01 (1%)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          {
+            "name": "maxSlippage",
+            "in": "query",
+            "description": "The max slippage for route execution",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          {
+            "name": "source",
+            "in": "query",
+            "description": "The source of router liquidity",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "default": "sender",
+              "enum": ["sender", "self"]
+            }
+          },
+          {
+            "name": "onlyDEX",
+            "in": "query",
+            "description": "A list of DEX names separated by comma. If exists in the request then only pools from these DEXes are used in the response route. List of all supported DEXes can be obtained with /listDEX request",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "onlyPools",
+            "in": "query",
+            "description": "A list of pools addresses separated by comma. If exists in the request then only these pools are used in the response route",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "vizualize",
+            "in": "query",
+            "description": "vizulaization",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "simulate",
+            "in": "query",
+            "description": "simulate",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          },
+          {
+            "name": "override",
+            "in": "query",
+            "description": "uses state overrides to ensure simulation doesn't fail from sender not having balance and allowance",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "facade",
+            "in": "query",
+            "description": "facade",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          },
+          {
+            "name": "validate",
+            "in": "query",
+            "description": "validate sender has balance & allowance of token if simulation fails",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          },
+          {
+            "name": "debug",
+            "in": "query",
+            "description": "debug",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "route data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "Success",
+                    "tokens": [
                       {
-                        "poolAddress": 2.61767016756679e47,
-                        "poolType": "Classic",
-                        "poolName": "UniswapV2 0.3%",
-                        "poolFee": 0.003,
-                        "liquidityProvider": "UniswapV2",
-                        "tokenFrom": 0,
-                        "tokenTo": 1,
-                        "share": 1,
-                        "assumedAmountIn": "100000000000000000",
-                        "assumedAmountOut": "194798139220"
+                        "address": 1.364068194842176e48,
+                        "symbol": "ETH",
+                        "name": "Ether",
+                        "decimals": 18
                       },
                       {
-                        "poolAddress": 1.179007512477013e48,
-                        "poolType": "Classic",
-                        "poolName": "UniswapV2 0.3%",
-                        "poolFee": 0.003,
-                        "liquidityProvider": "UniswapV2",
-                        "tokenFrom": 1,
-                        "tokenTo": 2,
-                        "share": 1,
-                        "assumedAmountIn": "194798139220",
-                        "assumedAmountOut": "727007628361339"
+                        "address": 1.0970776880180083e48,
+                        "symbol": "WETH",
+                        "name": "Wrapped Ether",
+                        "decimals": 18
+                      },
+                      {
+                        "address": 6.120569339260443e47,
+                        "symbol": "SUSHI",
+                        "name": "SushiToken",
+                        "decimals": 18
                       }
                     ],
-                    "routeProcessorAddr": 1.3837453971230673e48,
+                    "tokenFrom": 0,
+                    "tokenTo": 2,
+                    "swapPrice": 2837.6709246572527,
+                    "priceImpact": -0.002204113661183449,
+                    "amountIn": "10000000000000000",
+                    "assumedAmountOut": "28376709246572527616",
                     "tx": {
-                      "from": 2.870172016565755e47,
-                      "to": 1.3837453971230673e48,
-                      "data": null
+                      "from": 1.2380129724542482e48,
+                      "to": 9.83650862853668e47,
+                      "gas": "162561",
+                      "gasPrice": 682394289,
+                      "data": "0x5f3bd1c8000000000000000000000000eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee000000000000000000000000000000000000000000000000002386f26fc10000000000000000000000000000d8da6bf26964af9d7eed9e03e53415d37aa960450000000000000000000000006b3595068778dd592e39a122f4f5a5cf09c90fe20000000000000000000000000000000000000000000000018969823f2df6281000000000000000000000000085cd07ea01423b1e937929b44e4ad8c40bbb5e7100000000000000000000000000000000000000000000000000000000000000e000000000000000000000000000000000000000000000000000000000000001a4dd9c5f96000000000000000000000000eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee000000000000000000000000000000000000000000000000002386f26fc100000000000000000000000000006b3595068778dd592e39a122f4f5a5cf09c90fe200000000000000000000000000000000000000000000000189ce52b6a87f80000000000000000000000000000000000000000000000000018969823f2df62810000000000000000000000000d8da6bf26964af9d7eed9e03e53415d37aa960450000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000700301ffff0201CE84867c3c02B05dc570d0135103d3fB9CC19433C02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc204C02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc200CE84867c3c02B05dc570d0135103d3fB9CC194330085CD07Ea01423b1E937929B44E4Ad8c40BbB5E71000bb80000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                      "value": "10000000000000000"
                     }
                   }
                 }
@@ -335,6 +559,9 @@
           },
           "500": {
             "description": "internal server error"
+          },
+          "529": {
+            "description": "server overloaded"
           }
         }
       }
@@ -342,9 +569,9 @@
     "/price/v1/{chainId}": {
       "get": {
         "tags": ["price"],
-        "summary": "Returns prices for specified chainId",
+        "summary": "returns prices for specified chainId",
         "description": "By passing in a chainId, you can get dollar prices for tokens addresses\n",
-        "operationId": "getPrices",
+        "operationId": "prices",
         "parameters": [
           {
             "name": "chainId",
@@ -354,7 +581,7 @@
             "style": "simple",
             "explode": false,
             "schema": {
-              "type": "integer"
+              "type": "number"
             }
           }
         ],
@@ -369,9 +596,7 @@
                     "type": "number"
                   },
                   "example": {
-                    "0x1": 1337,
-                    "0x2": 420,
-                    "0x3": 69
+                    "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2": 2360.066696167956
                   }
                 }
               }
@@ -386,12 +611,12 @@
         }
       }
     },
-    "/price/v1/{chainId}/{address}": {
+    "/price/v1/{chainId}/{tokenAddress}": {
       "get": {
         "tags": ["price"],
-        "summary": "Returns price for specified chainId and token",
+        "summary": "returns price for specified chainId and token",
         "description": "By passing in a chainId and address, you can get a dollar price for specified token address\n",
-        "operationId": "getPrice",
+        "operationId": "price",
         "parameters": [
           {
             "name": "chainId",
@@ -401,13 +626,13 @@
             "style": "simple",
             "explode": false,
             "schema": {
-              "type": "integer"
+              "type": "number"
             }
           },
           {
-            "name": "address",
+            "name": "tokenAddress",
             "in": "path",
-            "description": "token",
+            "description": "token address",
             "required": true,
             "style": "simple",
             "explode": false,
@@ -424,7 +649,7 @@
                 "schema": {
                   "type": "number"
                 },
-                "example": 1337
+                "example": 2360.066696167956
               }
             }
           },
@@ -437,12 +662,12 @@
         }
       }
     },
-    "/token/v1/{chainId}/{address}": {
+    "/token/v1/{chainId}/{tokenAddress}": {
       "get": {
         "tags": ["token"],
-        "summary": "Returns token data for specified chainId and token",
+        "summary": "returns token data for specified chainId and token",
         "description": "By passing in a chainId and address, you can get token data for specified token address\n",
-        "operationId": "getToken",
+        "operationId": "token",
         "parameters": [
           {
             "name": "chainId",
@@ -452,13 +677,13 @@
             "style": "simple",
             "explode": false,
             "schema": {
-              "type": "integer"
+              "type": "number"
             }
           },
           {
-            "name": "address",
+            "name": "tokenAddress",
             "in": "path",
-            "description": "token",
+            "description": "token address",
             "required": true,
             "style": "simple",
             "explode": false,
@@ -490,26 +715,29 @@
           },
           "500": {
             "description": "internal server error"
+          },
+          "529": {
+            "description": "server overloaded"
           }
         }
       }
     },
-    "/liquidity-providers/v5/{chainId}": {
+    "/liquidity-providers/v6/{chainId}": {
       "get": {
         "tags": ["liquidity-providers"],
-        "summary": "Returns supported liquidity providers for the specified chainId",
+        "summary": "Returns all available liquidity providers for the specified chainId",
         "description": "By passing in a chainId you can get the enabled liquidity providers.\n",
         "operationId": "getLiquidityProviders",
         "parameters": [
           {
             "name": "chainId",
             "in": "path",
-            "description": "The chain identifier.",
+            "description": "chainId",
             "required": true,
             "style": "simple",
             "explode": false,
             "schema": {
-              "type": "integer"
+              "type": "number"
             }
           }
         ],
@@ -552,6 +780,268 @@
     }
   },
   "components": {
-    "schemas": {}
+    "schemas": {},
+    "parameters": {
+      "tokenAddress": {
+        "name": "tokenAddress",
+        "in": "path",
+        "description": "token address",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "chainId": {
+        "name": "chainId",
+        "in": "path",
+        "description": "chainId",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "schema": {
+          "type": "number"
+        }
+      },
+      "referrer": {
+        "name": "referrer",
+        "in": "query",
+        "description": "referrer",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "tokenIn": {
+        "name": "tokenIn",
+        "in": "query",
+        "description": "Input token address",
+        "required": true,
+        "style": "form",
+        "explode": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "tokenOut": {
+        "name": "tokenOut",
+        "in": "query",
+        "description": "Output token address",
+        "required": true,
+        "style": "form",
+        "explode": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "sender": {
+        "name": "sender",
+        "in": "query",
+        "description": "sender of transaction",
+        "required": true,
+        "style": "form",
+        "explode": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "recipient": {
+        "name": "recipient",
+        "in": "query",
+        "description": "recipient of tokens, defaults to sender",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "amount": {
+        "name": "amount",
+        "in": "query",
+        "description": "Input token amount",
+        "required": true,
+        "style": "form",
+        "explode": true,
+        "schema": {
+          "minimum": 1,
+          "type": "integer",
+          "format": "int256"
+        }
+      },
+      "fee": {
+        "name": "fee",
+        "in": "query",
+        "description": "amount of the fee",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "schema": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "feeBy": {
+        "name": "feeBy",
+        "in": "query",
+        "description": "if fee > 0 then which token to take fee from input or output",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "schema": {
+          "type": "string",
+          "default": "output",
+          "enum": ["input", "output"]
+        }
+      },
+      "feeReceiver": {
+        "name": "feeReceiver",
+        "in": "query",
+        "description": "if fee > 0 then receiver of the fee",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "maxPriceImpact": {
+        "name": "maxPriceImpact",
+        "in": "query",
+        "description": "The max price impact for route planning. It's better to set it to a reasonable value, for example 0.01 (1%)",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "schema": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "maxSlippage": {
+        "name": "maxSlippage",
+        "in": "query",
+        "description": "The max slippage for route execution",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "schema": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "source": {
+        "name": "source",
+        "in": "query",
+        "description": "The source of router liquidity",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "schema": {
+          "type": "string",
+          "default": "sender",
+          "enum": ["sender", "self"]
+        }
+      },
+      "onlyDEX": {
+        "name": "onlyDEX",
+        "in": "query",
+        "description": "A list of DEX names separated by comma. If exists in the request then only pools from these DEXes are used in the response route. List of all supported DEXes can be obtained with /listDEX request",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "onlyPools": {
+        "name": "onlyPools",
+        "in": "query",
+        "description": "A list of pools addresses separated by comma. If exists in the request then only these pools are used in the response route",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "vizualize": {
+        "name": "vizualize",
+        "in": "query",
+        "description": "vizulaization",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "schema": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "simulate": {
+        "name": "simulate",
+        "in": "query",
+        "description": "simulate",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "schema": {
+          "type": "boolean",
+          "default": true
+        }
+      },
+      "override": {
+        "name": "override",
+        "in": "query",
+        "description": "uses state overrides to ensure simulation doesn't fail from sender not having balance and allowance",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "schema": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "facade": {
+        "name": "facade",
+        "in": "query",
+        "description": "facade",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "schema": {
+          "type": "boolean",
+          "default": true
+        }
+      },
+      "validate": {
+        "name": "validate",
+        "in": "query",
+        "description": "validate sender has balance & allowance of token if simulation fails",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "schema": {
+          "type": "boolean",
+          "default": true
+        }
+      },
+      "debug": {
+        "name": "debug",
+        "in": "query",
+        "description": "debug",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "schema": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    }
   }
 }
