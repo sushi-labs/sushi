@@ -45,7 +45,7 @@ export const sidebar = {
         },
         {
           text: 'Errors',
-          link: '/api/errors',
+          collapsed: true,
           items: [
             {
               text: 'Bad Request',
