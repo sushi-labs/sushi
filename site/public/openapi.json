@@ -66,7 +66,7 @@
           {
             "name": "tokenIn",
             "in": "query",
-            "description": "Input token address",
+            "description": "input token address",
             "required": true,
             "style": "form",
             "explode": true,
@@ -77,7 +77,7 @@
           {
             "name": "tokenOut",
             "in": "query",
-            "description": "Output token address",
+            "description": "output token address",
             "required": true,
             "style": "form",
             "explode": true,
@@ -88,7 +88,7 @@
           {
             "name": "amount",
             "in": "query",
-            "description": "Input token amount",
+            "description": "input token amount",
             "required": true,
             "style": "form",
             "explode": true,
@@ -101,14 +101,15 @@
           {
             "name": "fee",
             "in": "query",
-            "description": "amount of the fee",
+            "description": "amount of the fee, for example 0.0025 (0.25%)",
             "required": false,
             "style": "form",
             "explode": true,
             "schema": {
               "maximum": 1,
               "minimum": 0,
-              "type": "number"
+              "type": "number",
+              "default": 0.0025
             }
           },
           {
@@ -127,33 +128,35 @@
           {
             "name": "maxPriceImpact",
             "in": "query",
-            "description": "The max price impact for route planning. It's better to set it to a reasonable value, for example 0.01 (1%)",
+            "description": "the max price impact for route planning. It's better to set it to a reasonable value, for example 1 (100%)",
             "required": false,
             "style": "form",
             "explode": true,
             "schema": {
               "maximum": 1,
               "minimum": 0,
-              "type": "number"
+              "type": "number",
+              "default": 1
             }
           },
           {
             "name": "maxSlippage",
             "in": "query",
-            "description": "The max slippage for route execution",
+            "description": "the max slippage for route execution, for example 0.005 (0.5%)",
             "required": false,
             "style": "form",
             "explode": true,
             "schema": {
               "maximum": 1,
               "minimum": 0,
-              "type": "number"
+              "type": "number",
+              "default": 0.005
             }
           },
           {
             "name": "onlyDEX",
             "in": "query",
-            "description": "A list of DEX names separated by comma. If exists in the request then only pools from these DEXes are used in the response route. List of all supported DEXes can be obtained with /listDEX request",
+            "description": "a list of DEX names separated by comma. If exists in the request then only pools from these DEXes are used in the response route. List of all supported DEXes can be obtained with /liquidity-provider request",
             "required": false,
             "style": "form",
             "explode": true,
@@ -164,7 +167,7 @@
           {
             "name": "onlyPools",
             "in": "query",
-            "description": "A list of pools addresses separated by comma. If exists in the request then only these pools are used in the response route",
+            "description": "a list of pools addresses separated by comma. If exists in the request then only these pools are used in the response route",
             "required": false,
             "style": "form",
             "explode": true,
@@ -281,7 +284,7 @@
           {
             "name": "tokenIn",
             "in": "query",
-            "description": "Input token address",
+            "description": "input token address",
             "required": true,
             "style": "form",
             "explode": true,
@@ -292,7 +295,7 @@
           {
             "name": "tokenOut",
             "in": "query",
-            "description": "Output token address",
+            "description": "output token address",
             "required": true,
             "style": "form",
             "explode": true,
@@ -325,7 +328,7 @@
           {
             "name": "amount",
             "in": "query",
-            "description": "Input token amount",
+            "description": "input token amount",
             "required": true,
             "style": "form",
             "explode": true,
@@ -338,14 +341,15 @@
           {
             "name": "fee",
             "in": "query",
-            "description": "amount of the fee",
+            "description": "amount of the fee, for example 0.0025 (0.25%)",
             "required": false,
             "style": "form",
             "explode": true,
             "schema": {
               "maximum": 1,
               "minimum": 0,
-              "type": "number"
+              "type": "number",
+              "default": 0.0025
             }
           },
           {
@@ -375,33 +379,35 @@
           {
             "name": "maxPriceImpact",
             "in": "query",
-            "description": "The max price impact for route planning. It's better to set it to a reasonable value, for example 0.01 (1%)",
+            "description": "the max price impact for route planning. It's better to set it to a reasonable value, for example 1 (100%)",
             "required": false,
             "style": "form",
             "explode": true,
             "schema": {
               "maximum": 1,
               "minimum": 0,
-              "type": "number"
+              "type": "number",
+              "default": 1
             }
           },
           {
             "name": "maxSlippage",
             "in": "query",
-            "description": "The max slippage for route execution",
+            "description": "the max slippage for route execution, for example 0.005 (0.5%)",
             "required": false,
             "style": "form",
             "explode": true,
             "schema": {
               "maximum": 1,
               "minimum": 0,
-              "type": "number"
+              "type": "number",
+              "default": 0.005
             }
           },
           {
             "name": "source",
             "in": "query",
-            "description": "The source of router liquidity",
+            "description": "the source of router liquidity",
             "required": false,
             "style": "form",
             "explode": true,
@@ -414,7 +420,7 @@
           {
             "name": "onlyDEX",
             "in": "query",
-            "description": "A list of DEX names separated by comma. If exists in the request then only pools from these DEXes are used in the response route. List of all supported DEXes can be obtained with /listDEX request",
+            "description": "a list of DEX names separated by comma. If exists in the request then only pools from these DEXes are used in the response route. List of all supported DEXes can be obtained with /liquidity-provider request",
             "required": false,
             "style": "form",
             "explode": true,
@@ -425,7 +431,7 @@
           {
             "name": "onlyPools",
             "in": "query",
-            "description": "A list of pools addresses separated by comma. If exists in the request then only these pools are used in the response route",
+            "description": "a list of pools addresses separated by comma. If exists in the request then only these pools are used in the response route",
             "required": false,
             "style": "form",
             "explode": true,
@@ -587,7 +593,7 @@
         ],
         "responses": {
           "200": {
-            "description": "A JSON map of address=>usd",
+            "description": "an address to price object map",
             "content": {
               "application/json": {
                 "schema": {
@@ -643,7 +649,7 @@
         ],
         "responses": {
           "200": {
-            "description": "A numerical price",
+            "description": "numerical price",
             "content": {
               "application/json": {
                 "schema": {
@@ -694,7 +700,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Token data",
+            "description": "token data",
             "content": {
               "application/json": {
                 "schema": {
@@ -743,7 +749,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Liquidity Provider data",
+            "description": "liquidity providers",
             "content": {
               "application/json": {
                 "schema": {
@@ -770,10 +776,10 @@
             }
           },
           "422": {
-            "description": "Request parameters invalid."
+            "description": "request parameters invalid."
           },
           "500": {
-            "description": "Internal server error."
+            "description": "internal server error."
           }
         }
       }
@@ -818,7 +824,7 @@
       "tokenIn": {
         "name": "tokenIn",
         "in": "query",
-        "description": "Input token address",
+        "description": "input token address",
         "required": true,
         "style": "form",
         "explode": true,
@@ -829,7 +835,7 @@
       "tokenOut": {
         "name": "tokenOut",
         "in": "query",
-        "description": "Output token address",
+        "description": "output token address",
         "required": true,
         "style": "form",
         "explode": true,
@@ -862,7 +868,7 @@
       "amount": {
         "name": "amount",
         "in": "query",
-        "description": "Input token amount",
+        "description": "input token amount",
         "required": true,
         "style": "form",
         "explode": true,
@@ -875,14 +881,15 @@
       "fee": {
         "name": "fee",
         "in": "query",
-        "description": "amount of the fee",
+        "description": "amount of the fee, for example 0.0025 (0.25%)",
         "required": false,
         "style": "form",
         "explode": true,
         "schema": {
           "maximum": 1,
           "minimum": 0,
-          "type": "number"
+          "type": "number",
+          "default": 0.0025
         }
       },
       "feeBy": {
@@ -912,33 +919,35 @@
       "maxPriceImpact": {
         "name": "maxPriceImpact",
         "in": "query",
-        "description": "The max price impact for route planning. It's better to set it to a reasonable value, for example 0.01 (1%)",
+        "description": "the max price impact for route planning. It's better to set it to a reasonable value, for example 1 (100%)",
         "required": false,
         "style": "form",
         "explode": true,
         "schema": {
           "maximum": 1,
           "minimum": 0,
-          "type": "number"
+          "type": "number",
+          "default": 1
         }
       },
       "maxSlippage": {
         "name": "maxSlippage",
         "in": "query",
-        "description": "The max slippage for route execution",
+        "description": "the max slippage for route execution, for example 0.005 (0.5%)",
         "required": false,
         "style": "form",
         "explode": true,
         "schema": {
           "maximum": 1,
           "minimum": 0,
-          "type": "number"
+          "type": "number",
+          "default": 0.005
         }
       },
       "source": {
         "name": "source",
         "in": "query",
-        "description": "The source of router liquidity",
+        "description": "the source of router liquidity",
         "required": false,
         "style": "form",
         "explode": true,
@@ -951,7 +960,7 @@
       "onlyDEX": {
         "name": "onlyDEX",
         "in": "query",
-        "description": "A list of DEX names separated by comma. If exists in the request then only pools from these DEXes are used in the response route. List of all supported DEXes can be obtained with /listDEX request",
+        "description": "a list of DEX names separated by comma. If exists in the request then only pools from these DEXes are used in the response route. List of all supported DEXes can be obtained with /liquidity-provider request",
         "required": false,
         "style": "form",
         "explode": true,
@@ -962,7 +971,7 @@
       "onlyPools": {
         "name": "onlyPools",
         "in": "query",
-        "description": "A list of pools addresses separated by comma. If exists in the request then only these pools are used in the response route",
+        "description": "a list of pools addresses separated by comma. If exists in the request then only these pools are used in the response route",
         "required": false,
         "style": "form",
         "explode": true,

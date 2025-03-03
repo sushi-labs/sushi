@@ -4,6 +4,8 @@ import spec from '../public/openapi.json'
 import './style.css'
 
 export default function Swagger() {
-  /* @ts-expect-error */
-  return <SwaggerUI spec={spec} showCommonExtensions={true} />
+  return (
+    /* @ts-expect-error */
+    <SwaggerUI spec={spec} showExtensions={true} showCommonExtensions={true} />
+  )
 }
