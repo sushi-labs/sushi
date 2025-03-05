@@ -1,6 +1,6 @@
-import type { FC, ReactElement } from "react"
-import { EvmChain } from "sushi/chain"
-import type { Address } from "sushi/types"
+import type { FC, ReactElement } from 'react'
+import { EvmChain } from 'sushi/chain'
+import type { Address } from 'sushi/types'
 
 export type NetworkTableFormatter = ({
   chainId,
@@ -13,8 +13,8 @@ export type NetworkTableFormatter = ({
 const formatExplorerLink: NetworkTableFormatter = ({ chainId, value }) => (
   <a
     href={EvmChain.from(chainId)?.getAccountUrl(value)}
-    target={"_blank"}
-    rel={"noopener noreferrer"}
+    target={'_blank'}
+    rel={'noopener noreferrer'}
   >
     <code className="vocs_Code">{value}</code>
   </a>
@@ -59,7 +59,7 @@ export const AddressTable: FC<{ data: Record<number, Address> }> = ({
   return (
     <NetworkTable
       data={data}
-      title={"Address"}
+      title={'Address'}
       formatter={formatExplorerLink}
     />
   )
