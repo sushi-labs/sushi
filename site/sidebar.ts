@@ -43,6 +43,32 @@ export const sidebar = {
             },
           ],
         },
+        {
+          text: 'Errors',
+          collapsed: true,
+          items: [
+            {
+              text: 'Bad Request',
+              link: '/api/errors/bad-request',
+            },
+            {
+              text: 'Not Found',
+              link: '/api/errors/not-found',
+            },
+            {
+              text: 'Validation',
+              link: '/api/errors/validation',
+            },
+            {
+              text: 'Server',
+              link: '/api/errors/server',
+            },
+            {
+              text: 'Service Unavailable',
+              link: '/api/errors/service-unavailable',
+            },
+          ],
+        },
       ],
     },
     {

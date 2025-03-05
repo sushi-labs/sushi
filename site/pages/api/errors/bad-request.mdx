@@ -1,0 +1,27 @@
+# Bad Request
+
+The server cannot or will not process the request due to something that is perceived to be a client error (for example, malformed request syntax, invalid request message framing, or deceptive request routing).
+
+Your client application initiated a request that is malformed. Please review your client request against the defined semantics for the API.
+
+|**Type URI**|**Title**|**Status**|
+|---|---|---|
+|https://docs.sushi.com/api/errors/bad-request|Bad Request|400|
+
+**Example of an <code>bad-request</code> problem details:**
+
+```json
+{
+  "type": "https://docs.sushi.com/api/errors/bad-request",
+  "title": "Bad Request",
+  "detail": "The request is invalid or malformed",
+  "status": 400,
+  "code": "400-01",
+  "errors": [
+    { "detail": "Required", "parameter": "tokenIn" },
+    { "detail": "Required", "parameter": "tokenOut" },
+    { "detail": "Required", "parameter": "sender" },
+    { "detail": "Required", "parameter": "amount" }
+  ]
+}
+```

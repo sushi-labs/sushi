@@ -1,0 +1,21 @@
+# Service Unavailable
+
+This problem occurs when the service requested is currently unavailable and the server is not ready to handle the request
+
+Your client application did everything correct. Unfortunately our API is currently unavailable.
+
+|**Type URI**|**Title**|**Status**|
+|---|---|---|
+|https://docs.sushi.com/api/errors/service-unavailable|Service Unavailable|503|
+
+**Example of an <code>service-unavailable</code> problem details:**
+
+```json
+{
+  "type": "https://docs.sushi.com/api/errors/service-unavailable",
+  "title": "Service Unavailable",
+  "detail": "The service is currently unavailable",
+  "status": 503,
+  "code": "503-01"
+}
+```
