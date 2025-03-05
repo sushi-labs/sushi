@@ -1,10 +1,10 @@
-import type { FC } from "react";
-import { EvmChain } from "sushi/chain";
-import type { Address } from "sushi/types";
-import { ExplorerAddressLink } from "./explorer-link";
+import type { FC } from 'react'
+import { EvmChain } from 'sushi/chain'
+import type { Address } from 'sushi/types'
+import { ExplorerAddressLink } from './explorer-link'
 
 interface AddressTable {
-  addresses: Record<number, Address>;
+  addresses: Record<number, Address>
 }
 
 export const AddressTable: FC<AddressTable> = ({ addresses }) => {
@@ -27,9 +27,9 @@ export const AddressTable: FC<AddressTable> = ({ addresses }) => {
                 <ExplorerAddressLink address={value} chainId={+key} />
               </td>
             </tr>
-          );
+          )
         })}
       </tbody>
     </table>
-  );
-};
+  )
+}
