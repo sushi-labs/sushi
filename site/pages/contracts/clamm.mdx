@@ -1,8 +1,25 @@
+import { AddressTable, NetworkTable } from '../../components/table'
+import {
+  SUSHISWAP_V3_FACTORY_ADDRESS,
+  SUSHISWAP_V3_INIT_CODE_HASH,
+  SUSHISWAP_V3_POSTIION_MANAGER,
+  SUSHISWAP_V3_TICK_LENS
+} from 'sushi/config'
+
 # clAMM (SuhiSwap V3)
 
-The **Concentrated Liquidity Automated Market Maker (clAMM)**
+The **Concentrated Liquidity Automated Market Maker (clAMM)** 
 
-Deployment addresses:
+## Deployments
 
-https://github.com/sushiswap/v3-core/tree/master/deployments
-https://github.com/sushiswap/v3-periphery/tree/master/deployments
+### Factory
+<AddressTable data={SUSHISWAP_V3_FACTORY_ADDRESS} />
+
+### Position Manager
+<AddressTable data={SUSHISWAP_V3_POSTIION_MANAGER} />
+
+### Tick Lens
+<AddressTable data={SUSHISWAP_V3_TICK_LENS} />
+
+### Init Code Hash
+<NetworkTable data={SUSHISWAP_V3_INIT_CODE_HASH} />
