@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.21
+
+### Patch Changes
+
+- [#126](https://github.com/sushi-labs/sushi/pull/126) [`5cae9d4`](https://github.com/sushi-labs/sushi/commit/5cae9d4f21ea647c74a6bb12d525ae256a0351dd) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add RP6 and RedSnwapper on Sepolia
+
 ## 5.0.20
 
 ### Patch Changes
