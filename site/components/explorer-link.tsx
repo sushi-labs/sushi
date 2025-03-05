@@ -1,5 +1,6 @@
 import type { FC } from 'react'
-import { type Address, EvmChain } from 'sushi'
+import { EvmChain } from 'sushi/chain'
+import type { Address } from 'sushi/types'
 
 interface ExplorerAddress {
   address: Address
