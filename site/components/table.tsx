@@ -30,7 +30,11 @@ interface NetworkTable {
   formatter?: NetworkTableFormatter
 }
 
-export const NetworkTable: FC<NetworkTable> = ({ title, data, formatter = formatCode }) => {
+export const NetworkTable: FC<NetworkTable> = ({
+  title,
+  data,
+  formatter = formatCode,
+}) => {
   return (
     <table className="vocs_Table">
       <thead>
