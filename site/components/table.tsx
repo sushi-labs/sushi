@@ -20,13 +20,17 @@ const formatExplorerLink: NetworkTableFormatter = ({ chainId, value }) => (
   </a>
 )
 
+const formatCode: NetworkTableFormatter = ({ value }) => (
+  <code className="vocs_Code">{value}</code>
+)
+
 interface NetworkTable {
   title: string
   data: Record<number, string>
   formatter?: NetworkTableFormatter
 }
 
-export const NetworkTable: FC<NetworkTable> = ({ title, data, formatter }) => {
+export const NetworkTable: FC<NetworkTable> = ({ title, data, formatter = formatCode }) => {
   return (
     <table className="vocs_Table">
       <thead>
