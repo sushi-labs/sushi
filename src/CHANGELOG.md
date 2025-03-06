@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.23
+
+### Patch Changes
+
+- [#130](https://github.com/sushi-labs/sushi/pull/130) [`bbaa2c6`](https://github.com/sushi-labs/sushi/commit/bbaa2c68f97858e9b1864b86b446bed1efe1fecd) Thanks [@danielr18](https://github.com/danielr18)! - Add blade chains
+
 ## 5.0.22
 
 ### Patch Changes
