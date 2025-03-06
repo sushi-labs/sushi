@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.22
+
+### Patch Changes
+
+- [#131](https://github.com/sushi-labs/sushi/pull/131) [`f26a65a`](https://github.com/sushi-labs/sushi/commit/f26a65aa2f7da84c52c3870d40d61f11553c4048) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Update Base V3 subgraph deployment ID
+
 ## 5.0.21
 
 ### Patch Changes
