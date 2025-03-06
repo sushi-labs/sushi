@@ -1,8 +1,21 @@
+import { AddressTable, NetworkTable } from '../../components/table'
+import {
+  SUSHISWAP_V2_FACTORY_ADDRESS,
+  SUSHISWAP_V2_ROUTER_ADDRESS,
+  SUSHISWAP_V2_INIT_CODE_HASH
+} from 'sushi/config'
+
 # cpAMM (SuhiSwap V2)
 
 The **Constant Product Automated Market Maker (cpAMM)**
 
-Deployment addresses: 
+## Deployments
 
-https://github.com/sushiswap/v2-core/tree/master/deployments
+### Factory
+<AddressTable data={SUSHISWAP_V2_FACTORY_ADDRESS} />
 
+### Router
+<AddressTable data={SUSHISWAP_V2_ROUTER_ADDRESS} />
+
+### Init Code Hash
+<NetworkTable data={SUSHISWAP_V2_INIT_CODE_HASH} />
