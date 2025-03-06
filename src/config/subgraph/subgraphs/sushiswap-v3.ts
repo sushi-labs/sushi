@@ -23,7 +23,7 @@ const SUSHISWAP_V3_DECENTRALIZED_DEPLOYMENT_IDS = {
   [EvmChainId.OPTIMISM]: `QmbT6ZsxJEZKUrbzLrAWV5EnQfSKZeYtZ265mQUaB552vK`,
   [EvmChainId.POLYGON]: `QmPbbjK9vtY69kSxMJRVLVz1dRzUBNwYbWTRYMiFzp9Tzm`,
   [EvmChainId.POLYGON_ZKEVM]: `QmWH5ChjmF4Yp5Yhiaxczh5QwbG6HFSEi8bRwbKaUrJA6C`,
-  [EvmChainId.BASE]: `QmZ2R9ABG9ienaZdGyPLcDWDNDkG187RhXmh6fFuEtUaaS`,
+  [EvmChainId.BASE]: `QmWWh7RgdXHcxaSwhJMpH1SB7D9rFZRGLZVwRfg2BPKsHt`,
   [EvmChainId.LINEA]: `QmNZ9ePvxGRDHAEhb7cLsb3AvtCCPJ3qAwh1CDvDn39RMa`,
   [EvmChainId.SCROLL]: `QmR6VP1qoF8nxhtMaGEg9VMmkaTDFqyeM8nJWkakP6nHes`,
 } as const satisfies Partial<Record<SushiSwapV3ChainId, string>>
