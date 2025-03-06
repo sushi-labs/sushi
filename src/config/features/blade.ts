@@ -13,7 +13,5 @@ export const BLADE_SUPPORTED_CHAIN_IDS = [
 
 export type BladeChainId = (typeof BLADE_SUPPORTED_CHAIN_IDS)[number]
 
-export const isBladeChainId = (
-  chainId: EvmChainId,
-): chainId is BladeChainId =>
+export const isBladeChainId = (chainId: EvmChainId): chainId is BladeChainId =>
   BLADE_SUPPORTED_CHAIN_IDS.includes(chainId as BladeChainId)
