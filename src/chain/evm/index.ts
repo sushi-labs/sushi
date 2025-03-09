@@ -158,6 +158,8 @@ export class EvmChain implements EvmChainBase {
           standard: 'EIP3091',
         },
       ]
+    } else if (data.chainId === EvmChainId.HEMI) {
+      this.name = 'Hemi'
     }
   }
   getTxUrl(txHash: string): string {
