@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.24
+
+### Patch Changes
+
+- [#134](https://github.com/sushi-labs/sushi/pull/134) [`9d809d4`](https://github.com/sushi-labs/sushi/commit/9d809d47189bb8bb4b98ead4540f3dcbff875f49) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - rename "Hemi Network" as "Hemi"
+
 ## 5.0.23
 
 ### Patch Changes
