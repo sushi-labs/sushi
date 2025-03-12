@@ -21,9 +21,7 @@ type Fee<Enabled extends boolean> = Enabled extends true
       feeBy?: TransferValue
     }
 
-export type SwapRequest<
-  EnableFee extends boolean,
-> = {
+export type SwapRequest<EnableFee extends boolean> = {
   chainId: ExtractorSupportedChainId
   tokenIn: Address
   tokenOut: Address
@@ -42,10 +40,7 @@ export type SwapRequest<
   validate?: boolean
 }
 
-function swapResponseSchema<Simulate extends boolean>(
-  simulate?: Simulate,
-) {
-
+function swapResponseSchema<Simulate extends boolean>(simulate?: Simulate) {
   const tokenSchema = z.object({
     address: sz.address(),
     decimals: z.number(),
@@ -76,7 +71,7 @@ function swapResponseSchema<Simulate extends boolean>(
       amountIn: z.string(),
       assumedAmountOut: z.string(),
 
-      tx: txSchema
+      tx: txSchema,
     })
     .transform((data) => ({
       ...data,
@@ -88,9 +83,10 @@ function swapResponseSchema<Simulate extends boolean>(
     status: z.literal(RouteStatus.NoWay),
   })
 
-
   const baseSchema = baseSuccessPartial.or(baseNoWay)
-  const baseSimulateSchema = baseSchema.and(z.object({ tx: txSchema.extend({ gas: z.string() }) })).or(baseNoWay)
+  const baseSimulateSchema = baseSchema
+    .and(z.object({ tx: txSchema.extend({ gas: z.string() }) }))
+    .or(baseNoWay)
   type Schema = Simulate extends true
     ? typeof baseSimulateSchema
     : typeof baseSchema
@@ -110,7 +106,10 @@ export async function getSwap<
   options?: RequestInit,
 ): Promise<SwapResponse<Simulate>> {
   // TODO: VALIDATE PARAMS
-  const url = new URL(`swap/v6/${params.chainId}`, params.baseUrl ?? 'https://api.sushi.com')
+  const url = new URL(
+    `swap/v6/${params.chainId}`,
+    params.baseUrl ?? 'https://api.sushi.com',
+  )
 
   url.searchParams.append('tokenIn', params.tokenIn)
   url.searchParams.append('tokenOut', params.tokenOut)
