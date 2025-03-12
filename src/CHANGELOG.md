@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.25
+
+### Patch Changes
+
+- [#136](https://github.com/sushi-labs/sushi/pull/136) [`e1216ee`](https://github.com/sushi-labs/sushi/commit/e1216eebf3d3faeb3770a49e4fcce33fd6956e54) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Update api package to use v6
+
 ## 5.0.24
 
 ### Patch Changes
