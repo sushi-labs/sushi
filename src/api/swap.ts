@@ -143,17 +143,17 @@ export async function getSwap<
     url.searchParams.append('referrer', `sushi-sdk/${version}`)
   }
 
-  if (params.simulate) {
+  if (params.simulate !== undefined) {
     url.searchParams.append('simulate', params.simulate.toString())
-    if (params.override) {
+    if (params.override !== undefined) {
       url.searchParams.append('override', params.override.toString())
     }
-    if (params.validate) {
+    if (params.validate !== undefined) {
       url.searchParams.append('validate', params.validate.toString())
     }
   }
 
-  if (params.facade) {
+  if (params.facade !== undefined) {
     url.searchParams.append('facade', params.facade.toString())
   }
 
