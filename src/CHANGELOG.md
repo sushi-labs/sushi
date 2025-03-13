@@ -1,5 +1,41 @@
 # sushi
 
+## 5.0.26
+
+### Patch Changes
+
+- [#138](https://github.com/sushi-labs/sushi/pull/138) [`a0a5e32`](https://github.com/sushi-labs/sushi/commit/a0a5e328b850436682740458747eea3025a93338) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Fix api package params
+
+## 5.0.25
+
+### Patch Changes
+
+- [#136](https://github.com/sushi-labs/sushi/pull/136) [`e1216ee`](https://github.com/sushi-labs/sushi/commit/e1216eebf3d3faeb3770a49e4fcce33fd6956e54) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Update api package to use v6
+
+## 5.0.24
+
+### Patch Changes
+
+- [#134](https://github.com/sushi-labs/sushi/pull/134) [`9d809d4`](https://github.com/sushi-labs/sushi/commit/9d809d47189bb8bb4b98ead4540f3dcbff875f49) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - rename "Hemi Network" as "Hemi"
+
+## 5.0.23
+
+### Patch Changes
+
+- [#130](https://github.com/sushi-labs/sushi/pull/130) [`bbaa2c6`](https://github.com/sushi-labs/sushi/commit/bbaa2c68f97858e9b1864b86b446bed1efe1fecd) Thanks [@danielr18](https://github.com/danielr18)! - Add blade chains
+
+## 5.0.22
+
+### Patch Changes
+
+- [#131](https://github.com/sushi-labs/sushi/pull/131) [`f26a65a`](https://github.com/sushi-labs/sushi/commit/f26a65aa2f7da84c52c3870d40d61f11553c4048) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Update Base V3 subgraph deployment ID
+
+## 5.0.21
+
+### Patch Changes
+
+- [#126](https://github.com/sushi-labs/sushi/pull/126) [`5cae9d4`](https://github.com/sushi-labs/sushi/commit/5cae9d4f21ea647c74a6bb12d525ae256a0351dd) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add RP6 and RedSnwapper on Sepolia
+
 ## 5.0.20
 
 ### Patch Changes

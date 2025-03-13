@@ -44,6 +44,7 @@ export const RED_SNWAPPER_SUPPORTED_CHAIN_IDS = [
   EvmChainId.APE,
   EvmChainId.SONIC,
   EvmChainId.HEMI,
+  EvmChainId.SEPOLIA,
 ] as const
 export type RedSnwapperChainId =
   (typeof RED_SNWAPPER_SUPPORTED_CHAIN_IDS)[number]
@@ -90,6 +91,7 @@ export const RED_SNWAPPER_ADDRESS: Record<RedSnwapperChainId, Address> = {
   [EvmChainId.APE]: '0xAC4c6e212A361c968F1725b4d055b47E63F80b75',
   [EvmChainId.SONIC]: '0xAC4c6e212A361c968F1725b4d055b47E63F80b75',
   [EvmChainId.HEMI]: '0xAC4c6e212A361c968F1725b4d055b47E63F80b75',
+  [EvmChainId.SEPOLIA]: '0xAC4c6e212A361c968F1725b4d055b47E63F80b75',
 } as const
 export const isRedSnwapperChainId = (
   chainId: EvmChainId,
