@@ -114,8 +114,8 @@ export const sidebar = {
           items: [
             { text: 'RedSnwapper', link: '/contracts/red-snwapper' },
             { text: 'RouteProcessor5', link: '/contracts/route-processor-5' },
-            { text: 'RouteProcessor6', link: '/contracts/route-processor-6' }
-          ]
+            { text: 'RouteProcessor6', link: '/contracts/route-processor-6' },
+          ],
         },
         {
           text: 'AMM',
@@ -124,7 +124,7 @@ export const sidebar = {
             { text: 'clAMM  (SushiSwap V3)', link: '/contracts/clamm' },
             { text: 'cpAMM  (SushiSwap V2)', link: '/contracts/cpamm' },
             // { text: 'lbAMM', link: '/contracts/lbamm' },
-          ]
+          ],
         },
         {
           text: 'Governance',
@@ -132,8 +132,8 @@ export const sidebar = {
           items: [
             { text: 'SUSHI', link: '/contracts/sushi' },
             { text: 'xSUSHI', link: '/contracts/xsushi' },
-          ]
-        }
+          ],
+        },
       ],
     },
     {
