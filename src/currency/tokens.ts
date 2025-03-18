@@ -60,6 +60,7 @@ import {
   USDC_ADDRESS,
   USDT_ADDRESS,
   USD_PLUS_ADDRESS,
+  USDe_ADDRESS,
   WAVAX_ADDRESS,
   WBTC_ADDRESS,
   WETH9_ADDRESS,
@@ -1252,14 +1253,6 @@ export const FILECOIN_CELER_BRIDGE_USDT = new Token({
   name: 'Tether USD (Celer)',
 })
 
-export const MUSD = new Token({
-  chainId: EvmChainId.BLAST,
-  address: '0x837fE561e9C5DFa73F607fDa679295DBC2Be5E40',
-  name: 'Monoswap USD',
-  symbol: 'MUSD',
-  decimals: 18,
-})
-
 export const SKL = new Token({
   chainId: EvmChainId.SKALE_EUROPA,
   address: '0xE0595a049d02b7674572b0d59cd4880Db60EDC50',
@@ -1381,3 +1374,12 @@ export const AERO = new Token({
   symbol: 'stETH',
   decimals: 18,
 })
+
+export const USDe = addressMapToTokenMap(
+  {
+    decimals: 18,
+    symbol: 'USDe',
+    name: 'USDe',
+  },
+  USDe_ADDRESS
+) as Record<keyof typeof USDe_ADDRESS, Token>
