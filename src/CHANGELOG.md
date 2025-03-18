@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.27
+
+### Patch Changes
+
+- [#142](https://github.com/sushi-labs/sushi/pull/142) [`9916579`](https://github.com/sushi-labs/sushi/commit/9916579153f4a3b2d87fefad4b29331221eae8d3) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - update STABLES on BLAST
+
 ## 5.0.26
 
 ### Patch Changes
