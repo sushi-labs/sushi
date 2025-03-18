@@ -24,6 +24,7 @@ import {
   USDB,
   USDC,
   USDP,
+  USDPLUS,
   USDT,
   USD_PLUS,
   USDe,
@@ -232,7 +233,7 @@ export const STABLES = {
     ZETA_ETH_BRIDGE_USDT,
   ],
   [EvmChainId.CRONOS]: [USDC[EvmChainId.CRONOS]],
-  [EvmChainId.BLAST]: [USDB[EvmChainId.BLAST], USDe[EvmChainId.BLAST]],
+  [EvmChainId.BLAST]: [USDB[EvmChainId.BLAST], USDe[EvmChainId.BLAST], USDPLUS[EvmChainId.BLAST]],
   [EvmChainId.SKALE_EUROPA]: [
     USDC[EvmChainId.SKALE_EUROPA],
     USDT[EvmChainId.SKALE_EUROPA],
