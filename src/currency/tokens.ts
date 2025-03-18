@@ -1381,5 +1381,5 @@ export const USDe = addressMapToTokenMap(
     symbol: 'USDe',
     name: 'USDe',
   },
-  USDe_ADDRESS
+  USDe_ADDRESS,
 ) as Record<keyof typeof USDe_ADDRESS, Token>
