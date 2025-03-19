@@ -36,7 +36,6 @@ export const EXTRACTOR_SUPPORTED_CHAIN_IDS = [
   EvmChainId.ROOTSTOCK,
   EvmChainId.MANTLE,
   EvmChainId.ZKSYNC_ERA,
-  EvmChainId.CURTIS,
   EvmChainId.MANTA,
   EvmChainId.MODE,
   EvmChainId.TAIKO,
