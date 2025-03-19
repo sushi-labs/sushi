@@ -25,10 +25,10 @@ export const sidebar = {
     {
       text: 'API',
       items: [
-        {
-          text: 'Pricing',
-          link: '/api/pricing',
-        },
+        // {
+        //   text: 'Pricing',
+        //   link: '/api/pricing',
+        // },
         {
           text: 'Swagger',
           link: '/api/swagger',
@@ -47,10 +47,10 @@ export const sidebar = {
           text: 'Errors',
           collapsed: true,
           items: [
-            {
-              text: 'Bad Request',
-              link: '/api/errors/bad-request',
-            },
+            // {
+            //   text: 'Bad Request',
+            //   link: '/api/errors/bad-request',
+            // },
             {
               text: 'Not Found',
               link: '/api/errors/not-found',
@@ -112,9 +112,9 @@ export const sidebar = {
           text: 'Aggregator',
           collapsed: true,
           items: [
-            { text: 'RedSnwapper', link: '/contracts/red-snwapper' },
-            { text: 'RouteProcessor5', link: '/contracts/route-processor-5' },
             { text: 'RouteProcessor6', link: '/contracts/route-processor-6' },
+            { text: 'RedSnwapper', link: '/contracts/red-snwapper' },
+            // { text: 'RouteProcessor5', link: '/contracts/route-processor-5' },
           ],
         },
         {
