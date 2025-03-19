@@ -1,0 +1,200 @@
+import { AddressTable } from '../../components/table'
+import { ROUTE_PROCESSOR_6_ADDRESS } from 'sushi/config'
+
+# Route Processor 6
+
+## Functions
+
+### processRoute
+
+```solidity
+function processRoute(
+  address tokenIn,
+  uint256 amountIn,
+  address tokenOut,
+  uint256 amountOutQuote,
+  uint256 amountOutMin,
+  address to,
+  bytes memory route,
+  uint32 referralCode
+) public payable lock returns (uint256 amountOut)
+```
+
+Processes the route generated off-chain. This function has a lock to prevent reentrancy.
+
+#### Parameters
+
+| Name               | Type      | Description                                             |
+|--------------------|-----------|---------------------------------------------------------|
+| `tokenIn`        | `address` | Address of the input token                              |
+| `amountIn`       | `uint256` | Amount of the input token                               |
+| `tokenOut`       | `address` | Address of the output token                             |
+| `amountOutQuote` | `uint256` | Expected amount of the output token                     |
+| `amountOutMin`   | `uint256` | Minimum amount of the output token                      |
+| `to`             | `address` | Where to transfer output tokens                         |
+| `route`          | `bytes`   | Route to process                                        |
+| `referralCode`   | `uint32`  | Referral code of transaction creator                    |
+
+#### Return Values
+
+| Name        | Type      | Description                               |
+|-------------|-----------|-------------------------------------------|
+| `amountOut` | `uint256` | Actual amount of the output token         |
+
+### processRouteWithTransferValueInput
+
+```solidity 
+function processRouteWithTransferValueInput(
+  address payable transferValueTo,
+  uint256 amountValueTransfer,
+  address tokenIn,
+  uint256 amountIn,
+  address tokenOut,
+  uint256 amountOutQuote,
+  uint256 amountOutMin,
+  address to,
+  bytes memory route,
+  uint32 referralCode
+) external payable returns (uint255 amountOut)
+```
+
+Transfers some value of input tokens to `transferValueTo` and then processes the route.
+
+#### Parameters
+
+| Name                  | Type        | Description                                              |
+|-----------------------|-------------|----------------------------------------------------------|
+| `transferValueTo`     | `address`   | Address where the value should be transferred            |
+| `amountValueTransfer` | `uint256`   | How much value to transfer                               |
+| `tokenIn`             | `address`   | Address of the input token                               |
+| `amountIn`            | `uint256`   | Amount of the input token                                |
+| `tokenOut`            | `address`   | Address of the output token                              |
+| `amountOutQuote`      | `uint256`   | Expected amount of the output token                      |
+| `amountOutMin`        | `uint256`   | Minimum amount of the output token                       |
+| `to`                  | `address`   | The recipient of the route                               |
+| `route`               | `bytes`     | Route code                                               |
+| `referralCode`        | `uint32`    | Referral code of transaction creator                     |
+
+#### Return Values
+
+| Name        | Type      | Description                               |
+|-------------|-----------|-------------------------------------------|
+| `amountOut` | `uint256` | Actual amount of the output token         |
+
+### processRouteWithTransferValueOutput
+
+```solidity
+function processRouteWithTransferValueOutput(
+  address payable transferValueTo,
+  uint256 amountValueTransfer,
+  address tokenIn,
+  uint256 amountIn,
+  address tokenOut,
+  uint256 amountOutQuote,
+  uint256 amountOutMin,
+  address to,
+  bytes memory route,
+  uint32 referralCode
+) external payable returns (uint256 amountOut)
+```
+
+Processes the route and sends `amountValueTransfer` amount of the output token to `transferValueTo`.
+
+#### Parameters
+
+| Name                  | Type      | Description                                              |
+|-----------------------|-----------|----------------------------------------------------------|
+| `transferValueTo`     | `address` | Address where the value should be transferred            |
+| `amountValueTransfer` | `uint256` | How much value to transfer                               |
+| `tokenIn`             | `address` | Address of the input token                               |
+| `amountIn`            | `uint256` | Amount of the input token                                |
+| `tokenOut`            | `address` | Address of the output token                              |
+| `amountOutQuote`      | `uint256` | Expected amount of the output token                      |
+| `amountOutMin`        | `uint256` | Minimum amount of the output token                       |
+| `to`                  | `address` | The recipient of the route                               |
+| `route`               | `bytes`   | Route code                                               |
+| `referralCode`        | `uint32`  | Referral code of transaction creator                     |
+
+#### Return Values
+
+| Name        | Type      | Description                               |
+|-------------|-----------|-------------------------------------------|
+| `amountOut` | `uint256` | Actual amount of the output token         |
+
+### transferValueAndprocessRoute
+
+```solidity
+function transferValueAndprocessRoute(
+  address transferValueTo,
+  uint256 amountValueTransfer,
+  address tokenIn,
+  uint256 amountIn,
+  address tokenOut,
+  uint256 amountOutQuote,
+  uint256 amountOutMin,
+  address to,
+  bytes memory route,
+  uint32 referralCode
+) external payable returns (uint256 amountOut)
+```
+
+Transfers some value to `transferValueTo` and then processes the route.
+
+#### Parameters
+
+| Name                  | Type      | Description                                             |
+|-----------------------|-----------|---------------------------------------------------------|
+| `transferValueTo`     | `address` | Address where the value should be transferred           |
+| `amountValueTransfer` | `uint256` | How much value to transfer                              |
+| `tokenIn`             | `address` | Address of the input token                              |
+| `amountIn`            | `uint256` | Amount of the input token                               |
+| `tokenOut`            | `address` | Address of the output token                             |
+| `amountOutQuote`      | `uint256` | Expected amount of the output token                     |
+| `amountOutMin`        | `uint256` | Minimum amount of the output token                      |
+| `to`                  | `address` | The recipient of the route                              |
+| `route`               | `bytes`   | Route code                                              |
+| `referralCode`        | `uint32`  | Referral code of transaction creator                    |
+
+#### Return Values
+
+| Name         | Type      | Description                               |
+|--------------|-----------|-------------------------------------------|
+| `amountOut`  | `uint256` | Actual amount of the output token         |
+
+## Events
+
+### Route
+
+```solidity
+event Route(
+  address indexed from, 
+  address to, 
+  address indexed tokenIn, 
+  address tokenOut, 
+  uint256 amountIn, 
+  uint256 amountOutMin,
+  uint256 amountOut,
+  int256 slippage,
+  uint32 indexed referralCode
+)
+```
+
+Emitted whenever a route is processed. Captures key details such as input/output tokens, amounts, and slippage.
+
+#### Parameters
+
+| Name           | Type      | Description                                                     |
+|----------------|-----------|-----------------------------------------------------------------|
+| `from`         | `address` | The address initiating the route                                |
+| `to`           | `address` | The address receiving the output tokens                         |
+| `tokenIn`      | `address` | The input token for the route                                   |
+| `tokenOut`     | `address` | The output token for the route                                  |
+| `amountIn`     | `uint256` | The total amount of the input token sent through the route      |
+| `amountOutMin` | `uint256` | The minimum allowable output amount set by the caller           |
+| `amountOut`    | `uint256` | The actual output token amount received                         |
+| `slippage`     | `int256`  | The slippage captured during the route execution (if any)       |
+| `referralCode` | `uint32`  | Referral code of the transaction creator                        |
+
+## Deployments
+
+<AddressTable data={ROUTE_PROCESSOR_6_ADDRESS} />

@@ -108,13 +108,32 @@ export const sidebar = {
       text: 'Contracts',
       collapsed: true,
       items: [
-        { text: 'SUSHI', link: '/contracts/sushi' },
-        { text: 'xSUSHI', link: '/contracts/xsushi' },
-        { text: 'Route Processor', link: '/contracts/route-processor' },
-        { text: 'Red Snwapper', link: '/contracts/red-snwapper' },
-        { text: 'clAMM  (SushiSwap V3)', link: '/contracts/clamm' },
-        { text: 'cpAMM  (SushiSwap V2)', link: '/contracts/cpamm' },
-        // { text: 'lbAMM', link: '/contracts/lbamm' },
+        {
+          text: 'Aggregator',
+          collapsed: true,
+          items: [
+            { text: 'RedSnwapper', link: '/contracts/red-snwapper' },
+            { text: 'RouteProcessor5', link: '/contracts/route-processor-5' },
+            { text: 'RouteProcessor6', link: '/contracts/route-processor-6' },
+          ],
+        },
+        {
+          text: 'AMM',
+          collapsed: true,
+          items: [
+            { text: 'clAMM  (SushiSwap V3)', link: '/contracts/clamm' },
+            { text: 'cpAMM  (SushiSwap V2)', link: '/contracts/cpamm' },
+            // { text: 'lbAMM', link: '/contracts/lbamm' },
+          ],
+        },
+        {
+          text: 'Governance',
+          collapsed: true,
+          items: [
+            { text: 'SUSHI', link: '/contracts/sushi' },
+            { text: 'xSUSHI', link: '/contracts/xsushi' },
+          ],
+        },
       ],
     },
     {

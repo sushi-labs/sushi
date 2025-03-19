@@ -7,7 +7,6 @@ import {
   DOC,
   GUSD,
   METH,
-  MUSD,
   SKL,
   STETH,
   STONE,
@@ -15,6 +14,7 @@ import {
   Token,
   USDB,
   USDP,
+  USDe,
   WstETH,
   rETH,
 } from '../../currency/index.js'
@@ -565,7 +565,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     WBTC[EvmChainId.CRONOS],
     USDC[EvmChainId.CRONOS],
   ],
-  [EvmChainId.BLAST]: [WNATIVE[EvmChainId.BLAST], USDB[EvmChainId.BLAST], MUSD],
+  [EvmChainId.BLAST]: [WNATIVE[EvmChainId.BLAST], USDB[EvmChainId.BLAST]],
   [EvmChainId.SKALE_EUROPA]: [
     SKL,
     USDT[EvmChainId.SKALE_EUROPA],
@@ -587,14 +587,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     USDC[EvmChainId.MANTLE],
     USDT[EvmChainId.MANTLE],
     METH[EvmChainId.MANTLE],
-    new Token({
-      // #3 token for other projects
-      chainId: EvmChainId.MANTLE,
-      address: '0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34',
-      decimals: 18,
-      symbol: 'USDe',
-      name: 'USDe',
-    }),
+    USDe[EvmChainId.MANTLE],
   ],
   [EvmChainId.CURTIS]: [
     WNATIVE[EvmChainId.CURTIS],

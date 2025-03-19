@@ -1,5 +1,17 @@
 # sushi
 
+## 5.0.28
+
+### Patch Changes
+
+- [#144](https://github.com/sushi-labs/sushi/pull/144) [`84d08b7`](https://github.com/sushi-labs/sushi/commit/84d08b7f91aa38b3e68aa1a011336b0ee9482e54) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - USDe on ethereum
+
+## 5.0.27
+
+### Patch Changes
+
+- [#142](https://github.com/sushi-labs/sushi/pull/142) [`9916579`](https://github.com/sushi-labs/sushi/commit/9916579153f4a3b2d87fefad4b29331221eae8d3) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - update STABLES on BLAST
+
 ## 5.0.26
 
 ### Patch Changes

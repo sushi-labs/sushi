@@ -384,10 +384,12 @@ export const ROUTE_PROCESSOR_5_SUPPORTED_CHAIN_IDS = [
   EvmChainId.MODE,
   EvmChainId.TAIKO,
   EvmChainId.ZKLINK,
-  EvmChainId.CURTIS,
   EvmChainId.APE,
   EvmChainId.SONIC,
   EvmChainId.HEMI,
+  // TESTNETS
+  EvmChainId.CURTIS,
+  EvmChainId.SEPOLIA,
 ] as const
 export type RouteProcessor5ChainId =
   (typeof ROUTE_PROCESSOR_5_SUPPORTED_CHAIN_IDS)[number]
@@ -439,6 +441,7 @@ export const ROUTE_PROCESSOR_5_ADDRESS: Record<
   [EvmChainId.HEMI]: '0xf2614A233c7C3e7f08b1F887Ba133a13f1eb2c55',
   // TESTNETS
   [EvmChainId.CURTIS]: '0xf2614A233c7C3e7f08b1F887Ba133a13f1eb2c55',
+  [EvmChainId.SEPOLIA]: '0xf2614A233c7C3e7f08b1F887Ba133a13f1eb2c55',
 } as const
 export const isRouteProcessor5ChainId = (
   chainId: EvmChainId,
