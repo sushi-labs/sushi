@@ -5,6 +5,72 @@ import { RED_SNWAPPER_ADDRESS } from 'sushi/config'
 
 RedSnwapper is a facade for the execution router contracts (RouteProcessor), and handles single & multi token swaps.
 
+## Functions
+
+### snwap
+
+```solidity
+function snwap(
+  IERC20 tokenIn,
+  uint amountIn,
+  address recipient,
+  IERC20 tokenOut,
+  uint amountOutMin,
+  address executor,
+  bytes calldata executorData
+) external payable returns (uint amountOut)
+```
+
+1. Transfers `amountIn` of `tokenIn` to `executor`.
+2. Launches `executor` with `executorData` and `value = msg.value`.
+3. Checks that `recipient`'s `tokenOut` balance increased by at least `amountOutMin`.
+
+#### Parameters
+
+| Name            | Type          | Description                                                                  |
+|-----------------|---------------|------------------------------------------------------------------------------|
+| `tokenIn`       | `IERC20`      | The token being swapped                                                      |
+| `amountIn`      | `uint`        | The amount of `tokenIn` to swap (0 means take from contract balance)         |
+| `recipient`     | `address`     | The address receiving the swapped tokens                                     |
+| `tokenOut`      | `IERC20`      | The token to receive after the swap                                          |
+| `amountOutMin`  | `uint`        | Minimum amount of `tokenOut` that must be received                           |
+| `executor`      | `address`     | The contract that will execute the swap logic                                |
+| `executorData`  | `bytes`       | Data payload passed to the `executor`                                        |
+
+#### Return Values
+
+| Name          | Type   | Description                                   |
+|---------------|--------|-----------------------------------------------|
+| `amountOut`   | `uint` | The actual amount of `tokenOut` received      |
+
+### snwapMultiple
+
+```solidity
+function snwapMultiple(
+  InputToken[] calldata inputTokens,
+  OutputToken[] calldata outputTokens,
+  Executor[] calldata executors
+) external payable returns (uint[] memory amountOut)
+```
+
+1. Transfers each of the `inputTokens` to `inputTokens[i].transferTo`.
+2. Launches all specified `executors`.
+3. Checks that the final `recipient`'s `tokenOut` balance(s) are each at least their corresponding `amountOutMin`.
+
+#### Parameters
+
+| Name           | Type                | Description                                                               |
+|----------------|---------------------|---------------------------------------------------------------------------|
+| `inputTokens`  | `InputToken[]`      | Array of input token structs, each describing what token to transfer      |
+| `outputTokens` | `OutputToken[]`     | Array of output token structs, each describing the expected output        |
+| `executors`    | `Executor[]`        | Array of executor structs to be launched sequentially                     |
+
+#### Return Values
+
+| Name         | Type            | Description                                   |
+|--------------|-----------------|-----------------------------------------------|
+| `amountOut`  | `uint[] memory` | Actual amounts of each output token received  |
+
 ## Deployments
 
 <AddressTable data={RED_SNWAPPER_ADDRESS} />
