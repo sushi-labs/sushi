@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.29
+
+### Patch Changes
+
+- [#149](https://github.com/sushi-labs/sushi/pull/149) [`527dbb1`](https://github.com/sushi-labs/sushi/commit/527dbb11035fa916c4106846bad4429b7864609a) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Update ThunderCore explorer
+
 ## 5.0.28
 
 ### Patch Changes
