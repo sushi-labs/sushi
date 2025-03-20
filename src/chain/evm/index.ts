@@ -161,6 +161,15 @@ export class EvmChain implements EvmChainBase {
     } else if (data.chainId === EvmChainId.HEMI) {
       this.name = 'Hemi'
     }
+    else if (data.chainId === EvmChainId.THUNDERCORE) {
+      this.explorers = [
+        {
+          name: 'ThunderCore Mainnet Explorer',
+          url: 'https://explorer-mainnet.thundercore.com',
+          standard: 'EIP3091',
+        },
+      ]
+    }
   }
   getTxUrl(txHash: string): string {
     if (!this.explorers) return ''
