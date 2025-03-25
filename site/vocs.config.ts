@@ -16,7 +16,7 @@ export default defineConfig({
     pattern: 'https://github.com/sushi-labs/sushi/edit/master/site/pages/:path',
     text: 'Suggest changes to this page',
   },
-  iconUrl: { light: '/favicons/light.png', dark: '/favicons/dark.png' },
+  iconUrl: { light: '/icon-light.svg', dark: '/icon-dark.svg' },
   // logoUrl: { light: '/icon-light.png', dark: '/icon-dark.png' },
   sidebar,
   rootDir: '.',
