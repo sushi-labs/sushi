@@ -35,8 +35,9 @@ const SUSHISWAP_V2_DECENTRALIZED_DEPLOYMENT_IDS = {
   [EvmChainId.HARMONY]: `QmZkT9mzDf5YcbSti51BZGet7sKnNcYAjBBE9xQ3LWHqKC`,
 } as const satisfies Partial<Record<SushiSwapV2ChainId, string>>
 
-const SUSHISWAP_V2_DECENTRALIZED_SUBGRAPH_IDS = {
-} as const satisfies Partial<Record<SushiSwapV2ChainId, string>>
+const SUSHISWAP_V2_DECENTRALIZED_SUBGRAPH_IDS = {} as const satisfies Partial<
+  Record<SushiSwapV2ChainId, string>
+>
 
 const SUSHISWAP_V2_OTHER_URLS = {
   [EvmChainId.ARBITRUM_NOVA]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushi-0m/v2-arbitrum-nova/gn`,
