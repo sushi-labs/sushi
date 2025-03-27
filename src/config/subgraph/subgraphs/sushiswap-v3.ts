@@ -24,15 +24,16 @@ const SUSHISWAP_V3_DECENTRALIZED_DEPLOYMENT_IDS = {
   [EvmChainId.LINEA]: `QmVUWgFKqLABaX7QDaJFxXai2MZeZtqjvLuPqCrED8eJfN`,
   [EvmChainId.SCROLL]: `QmNqxqVfBETuMhV91BfquULGBLFvPZwr3ADVFTMgGZcqNf`,
   [EvmChainId.SONIC]: `QmY1DCSus8TunKFvkjsk5L1ZwMtBFM4nhEFXuTXgQoiPsb`,
-  
+
   // Deprecated chains
   [EvmChainId.FUSE]: `QmakqW3KCpEXJGTSuyfXHGg6C8ppbrPdSqVXWj3Guor9zA`,
   [EvmChainId.MOONRIVER]: `QmStbnz4sErrK1jzaU5iKAutA1Q2w47EsgAoFbdCiequtZ`,
   [EvmChainId.POLYGON_ZKEVM]: `QmWH5ChjmF4Yp5Yhiaxczh5QwbG6HFSEi8bRwbKaUrJA6C`,
 } as const satisfies Partial<Record<SushiSwapV3ChainId, string>>
 
-const SUSHISWAP_V3_DECENTRALIZED_SUBGRAPH_IDS = {
-} as const satisfies Partial<Record<SushiSwapV3ChainId, string>>
+const SUSHISWAP_V3_DECENTRALIZED_SUBGRAPH_IDS = {} as const satisfies Partial<
+  Record<SushiSwapV3ChainId, string>
+>
 
 const SUSHISWAP_V3_OTHER_URLS = {
   [EvmChainId.ARBITRUM_NOVA]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushi-v3/v3-arbitrum-nova/gn`,
