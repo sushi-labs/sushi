@@ -11,26 +11,27 @@ import {
 } from '../hosts.js'
 
 const SUSHISWAP_V3_DECENTRALIZED_DEPLOYMENT_IDS = {
-  [EvmChainId.ARBITRUM]: `QmS9GKBA49mDpWchU2Us1PJ7kmu4S7tWa4gAmRvE3HK42w`,
-  [EvmChainId.AVALANCHE]: `Qmcdd4SGVwG9VY4itrXBnBPWBVsQvsxfzaib9bVny9C8jT`,
-  [EvmChainId.BSC]: `QmXsPN4TD4PUhT1ZWd5d1mdQPePFNMdJwUr6guSh1z9ZzA`,
-  [EvmChainId.BOBA]: `QmVbYM6wz7XnH32QzQLNBwyzx7r1HNsFP6jfUi22NRvvJu`,
-  [EvmChainId.ETHEREUM]: `QmSDPnHzyW8yfnuhB423ssVY5r4bQrr5C1rXT8qMroNgmv`,
-  [EvmChainId.FANTOM]: `QmQXFxg4dCxMqcobGQAtsNe4ufnG1KmjSVgtEdtxvYo4Lf`,
-  [EvmChainId.FUSE]: `QmakqW3KCpEXJGTSuyfXHGg6C8ppbrPdSqVXWj3Guor9zA`,
-  [EvmChainId.GNOSIS]: `QmS9uxga2rzpWyHKFATGYas6ntdHLpX7w45EKAatBTZJ25`,
-  [EvmChainId.MOONRIVER]: `QmStbnz4sErrK1jzaU5iKAutA1Q2w47EsgAoFbdCiequtZ`,
-  [EvmChainId.OPTIMISM]: `QmbT6ZsxJEZKUrbzLrAWV5EnQfSKZeYtZ265mQUaB552vK`,
-  [EvmChainId.POLYGON]: `QmPbbjK9vtY69kSxMJRVLVz1dRzUBNwYbWTRYMiFzp9Tzm`,
-  [EvmChainId.POLYGON_ZKEVM]: `QmWH5ChjmF4Yp5Yhiaxczh5QwbG6HFSEi8bRwbKaUrJA6C`,
+  [EvmChainId.ARBITRUM]: `QmUyC7YYpRkh5M2S7BP2gM8t8wkm7NYNAKrspW4r6uimjM`,
+  [EvmChainId.AVALANCHE]: `QmUyC7YYpRkh5M2S7BP2gM8t8wkm7NYNAKrspW4r6uimjM`,
+  [EvmChainId.BSC]: `QmWQcbEg7J9gWBWfuqnknj5pdYZTp4U31JxQrmjWNEmpTM`,
+  [EvmChainId.BOBA]: `QmWfj8AfwsnrsRzpHaGRu6awXapn1FZpKoCUQ7J6QQwMeR`,
+  [EvmChainId.ETHEREUM]: `QmUwW6PGSLzyiYXxKvxPKNbee8PTqbKpTTfHV4jFwfuvCK`,
+  [EvmChainId.FANTOM]: `QmdqDrZZKzASkiY1UpCUXSYdzVrJ5ru1JrqxMHGd5Ag2yS`,
+  [EvmChainId.GNOSIS]: `Qmadb2zb5P2avAy7zs454bLoEycfA6qzk61LwmDVJExUWg`,
+  [EvmChainId.OPTIMISM]: `QmVHZfj6pWc7WSe4vY5epZVGGfggyVZt48voKVxf19Dc8U`,
+  [EvmChainId.POLYGON]: `QmYAA8ymppZN4APXnqUhVNEnCwN1ZqHJyWsbmXuzpQ25Km`,
   [EvmChainId.BASE]: `QmWWh7RgdXHcxaSwhJMpH1SB7D9rFZRGLZVwRfg2BPKsHt`,
-  [EvmChainId.LINEA]: `QmNZ9ePvxGRDHAEhb7cLsb3AvtCCPJ3qAwh1CDvDn39RMa`,
-  [EvmChainId.SCROLL]: `QmR6VP1qoF8nxhtMaGEg9VMmkaTDFqyeM8nJWkakP6nHes`,
+  [EvmChainId.LINEA]: `QmVUWgFKqLABaX7QDaJFxXai2MZeZtqjvLuPqCrED8eJfN`,
+  [EvmChainId.SCROLL]: `QmNqxqVfBETuMhV91BfquULGBLFvPZwr3ADVFTMgGZcqNf`,
+  [EvmChainId.SONIC]: `QmY1DCSus8TunKFvkjsk5L1ZwMtBFM4nhEFXuTXgQoiPsb`,
+  
+  // Deprecated chains
+  [EvmChainId.FUSE]: `QmakqW3KCpEXJGTSuyfXHGg6C8ppbrPdSqVXWj3Guor9zA`,
+  [EvmChainId.MOONRIVER]: `QmStbnz4sErrK1jzaU5iKAutA1Q2w47EsgAoFbdCiequtZ`,
+  [EvmChainId.POLYGON_ZKEVM]: `QmWH5ChjmF4Yp5Yhiaxczh5QwbG6HFSEi8bRwbKaUrJA6C`,
 } as const satisfies Partial<Record<SushiSwapV3ChainId, string>>
 
 const SUSHISWAP_V3_DECENTRALIZED_SUBGRAPH_IDS = {
-  [EvmChainId.SONIC]: `5ijXw9MafwFkXgoHmUiWsWHvRyYAL3RD4smnmBLmNPnw`,
-  [EvmChainId.HEMI]: `GQU44ZBv8NpiBUxA6eLSDSdd7bs6TVop9dASKzrdirUv`,
 } as const satisfies Partial<Record<SushiSwapV3ChainId, string>>
 
 const SUSHISWAP_V3_OTHER_URLS = {
@@ -46,6 +47,7 @@ const SUSHISWAP_V3_OTHER_URLS = {
   [EvmChainId.BLAST]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-blast/gn`,
   [EvmChainId.SKALE_EUROPA]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-skale-europa/gn`,
   [EvmChainId.ROOTSTOCK]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-rootstock-2/gn`,
+  [EvmChainId.HEMI]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-hemi/gn`,
 } as const satisfies Partial<Record<SushiSwapV3ChainId, string>>
 
 export const getSushiSwapV3SubgraphUrl = getSubgraphUrlWrapper({

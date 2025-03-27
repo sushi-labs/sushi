@@ -13,29 +13,29 @@ import {
 } from '../hosts.js'
 
 const SUSHISWAP_V2_DECENTRALIZED_DEPLOYMENT_IDS = {
-  [EvmChainId.ETHEREUM]: `QmQ2h69a3vnE6N3TN7Ys9K1vpjYiJSi8fexnj1pWpRc6uY`,
-  [EvmChainId.AVALANCHE]: `QmfLnYXftuf2PNPoC3mMusey27KyJi4UUuY741Nz3vZQ3q`,
-  [EvmChainId.ARBITRUM]: `QmV5qTnwjz65z6TH63DYngLr1gj52KQ6Lr6m8aeNj6yxxb`,
-  [EvmChainId.BSC]: `QmUJcdUCSApCahz2ZtxEBwLqBX5YPfy3NNzHGUXyERAdmi`,
-  [EvmChainId.CELO]: `QmWX1tYofCvtw675s6ccE8ovWDkuikRBkkLk4PQpT79jRD`,
-  [EvmChainId.FANTOM]: `QmVNMMgTVAJ5f3GSAASS5eYsGrcudmsCrXJyF9j5v9d5eC`,
+  [EvmChainId.ETHEREUM]: `QmQZhAvJahdB9YLBQFcE5MYUJNau7rWmTNVhyBPw8PnjUn`,
+  [EvmChainId.AVALANCHE]: `QmadNP3fXrcba189BuSrT88Tw7YHhTtHWsdBTQhNpyaF6c`,
+  [EvmChainId.ARBITRUM]: `QmfN96hDXYtgeLsBv5WjQY8FAwqBfBFoiq8gzsn9oApcoU`,
+  [EvmChainId.BSC]: `QmQ3b4S6PSgvRkd5PhxtDPDQRybfmaRYxGVZCLbYJopoKJ`,
+  [EvmChainId.CELO]: `QmNxrypMUwDagUwxcBDPPebNx4ZPZ3XGJ2cdaejAjXg735`,
+  [EvmChainId.FANTOM]: `QmbitwNMFxEcJVtZyTcLYr2GrQSLg99rpZZmmD2m13xRp2`,
+  [EvmChainId.GNOSIS]: `QmU7USviTB8LtJ9tkPjZLcretNnYyUWzwDy9N7zTupNYj2`,
+  [EvmChainId.OPTIMISM]: `QmZWaFzzzs7CEzpVeLrNqW6e7oNxG8AnkJt9kUEV5rFzxn`,
+  [EvmChainId.BOBA]: `QmYzLBMamDBWJWsUNFiRfq91w2H38SAf9jXyCYDTzhyHh3`,
+  [EvmChainId.POLYGON]: `QmcFVSFXGgodMVUGLAdYdYPfohyMwWat8pfi5pHSDXgskU`,
+  [EvmChainId.BASE]: `QmWZnioK8S9HL45kQqKFd67NxeqM1uEoVhYrrbcPDxuQSV`,
+  [EvmChainId.SCROLL]: `QmZkX4zi2RzLsQKva29gE3uCcMuJVxXE3R11Ln1J3FY3f7`,
+  [EvmChainId.LINEA]: `QmYzLBMamDBWJWsUNFiRfq91w2H38SAf9jXyCYDTzhyHh3`,
+  [EvmChainId.SONIC]: `QmPwojaKQsJ3CFojVN9vXPfgBpymNBaVLMChMDo1biChff`,
+  // Deprecated chains
+  [EvmChainId.POLYGON_ZKEVM]: `QmQLtMYbTvxDHqc5oFH75N2b4DL3Czdv2jSCo6bk4UwKyf`,
   [EvmChainId.FUSE]: `QmRcpZhksXHJjkAf7Kk9ngGQteWUNAEJ1VH3jttivdN2ft`,
-  [EvmChainId.GNOSIS]: `QmUwneRXVUqTsPEZqScQytg257Rij3nSApe4pdDAtuG4s4`,
   [EvmChainId.MOONBEAM]: `QmWZpwizHCefGY3vBUJhDhaVHPUgYE8oAAyBy1T5HATbMb`,
   [EvmChainId.MOONRIVER]: `QmcRAdiUuYzZDauyM2q8FDucZaDVLgKPGsMyKn1ds4DXfm`,
   [EvmChainId.HARMONY]: `QmZkT9mzDf5YcbSti51BZGet7sKnNcYAjBBE9xQ3LWHqKC`,
-  [EvmChainId.OPTIMISM]: `QmdMmVsnaVRxQyunaXrG1oFrpcUFp8iV3TcpRa3hVYaPUD`,
-  [EvmChainId.BOBA]: `QmSuZ3L62PyVC4RjYFikoYZhyDMGMkPNUArVMaj9G73Dxw`,
-  [EvmChainId.POLYGON]: `QmV4FT95YqNdbivbPmvjXRavdKu3FGkz41mjuqtvUvpRpc`,
-  [EvmChainId.BASE]: `QmQfYe5Ygg9A3mAiuBZYj5a64bDKLF4gF6sezfhgxKvb9y`,
-  [EvmChainId.SCROLL]: `QmecR8pDHLNaRGQtKxA1ZvSSyBh23haXPdYZppPzALQmzt`,
-  [EvmChainId.LINEA]: `QmcrH1y6zx6wzTBL9cKVdA81fHkPzytcx5Gy1iVJLP1Vfw`,
-  [EvmChainId.POLYGON_ZKEVM]: `QmQLtMYbTvxDHqc5oFH75N2b4DL3Czdv2jSCo6bk4UwKyf`,
 } as const satisfies Partial<Record<SushiSwapV2ChainId, string>>
 
 const SUSHISWAP_V2_DECENTRALIZED_SUBGRAPH_IDS = {
-  [EvmChainId.SONIC]: `DiS2ZgxR2upUs1s21wviEaY7hwjRWyrphhoBgKNc1Boo`,
-  [EvmChainId.HEMI]: `2Dt3D9Mkvhbp7YGRZ75GZUxcqH9vz5dbdiWkU7Sp7NNV`,
 } as const satisfies Partial<Record<SushiSwapV2ChainId, string>>
 
 const SUSHISWAP_V2_OTHER_URLS = {
@@ -52,6 +52,7 @@ const SUSHISWAP_V2_OTHER_URLS = {
   [EvmChainId.BLAST]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v2-blast/gn`,
   [EvmChainId.SKALE_EUROPA]: `${SKALE_HOST}/sushi/v2-skale-europa`,
   [EvmChainId.ROOTSTOCK]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v2-rootstock/gn`,
+  [EvmChainId.HEMI]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v2-hemi/gn`,
   [EvmChainId.SEPOLIA]: '',
 } as const satisfies Partial<Record<SushiSwapV2ChainId, string>>
 
