@@ -464,18 +464,6 @@
             }
           },
           {
-            "name": "override",
-            "in": "query",
-            "description": "uses state overrides to ensure simulation doesn't fail from sender not having balance and allowance",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
-          },
-          {
             "name": "facade",
             "in": "query",
             "description": "facade",
@@ -497,18 +485,6 @@
             "schema": {
               "type": "boolean",
               "default": true
-            }
-          },
-          {
-            "name": "debug",
-            "in": "query",
-            "description": "debug",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           }
         ],
