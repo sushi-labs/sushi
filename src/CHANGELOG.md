@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.30
+
+### Patch Changes
+
+- [#155](https://github.com/sushi-labs/sushi/pull/155) [`05b14e4`](https://github.com/sushi-labs/sushi/commit/05b14e4da15e8e43fc14d9fd12937fabfbea0052) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - typo
+
 ## 5.0.29
 
 ### Patch Changes
