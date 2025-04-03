@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.32
+
+### Patch Changes
+
+- [#158](https://github.com/sushi-labs/sushi/pull/158) [`d9976bd`](https://github.com/sushi-labs/sushi/commit/d9976bd086b61b49244e649262982e14bc1cca97) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - remove Polygon zkEVM from Merkl config
+
 ## 5.0.31
 
 ### Patch Changes
