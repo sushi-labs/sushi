@@ -10,7 +10,7 @@ describe('subgraph urls', () => {
       decentralizedKey: 'test',
     })
     const expected =
-      'gateway-arbitrum.network.thegraph.com/api/test/deployments/id/QmSDPnHzyW8yfnuhB423ssVY5r4bQrr5C1rXT8qMroNgmv'
+      'gateway-arbitrum.network.thegraph.com/api/test/deployments/id/QmP1FMFsU4wNcui1eezwuvBjxrbLPucKrKZ9Kftn34nULw'
     expectTypeOf(actual).toEqualTypeOf<string>()
     expect(actual).toEqual(expected)
   })
