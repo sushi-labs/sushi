@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.31
+
+### Patch Changes
+
+- [#152](https://github.com/sushi-labs/sushi/pull/152) [`73ad5f5`](https://github.com/sushi-labs/sushi/commit/73ad5f58071e6ad9903342ce615952770ecffbc6) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Update subgraph config
+
 ## 5.0.30
 
 ### Patch Changes
