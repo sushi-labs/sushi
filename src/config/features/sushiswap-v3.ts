@@ -101,7 +101,7 @@ export const SUSHISWAP_V3_INIT_CODE_HASH: Record<SushiSwapV3ChainId, Address> =
     [EvmChainId.HEMI]: POOL_INIT_CODE_HASH,
   } as const
 
-export const SUSHISWAP_V3_POSTIION_MANAGER: Record<
+export const SUSHISWAP_V3_POSITION_MANAGER: Record<
   SushiSwapV3ChainId,
   Address
 > = {
