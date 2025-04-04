@@ -1,6 +1,6 @@
 {
-  "name": "sushi",
-  "description": "Sushi",
+  "name": "shibaswap-v3-sdk",
+  "description": "Shibaswap V3 SDK",
   "version": "5.0.32",
   "type": "module",
   "main": "./_cjs/index.js",
@@ -188,8 +188,8 @@
     }
   },
   "license": "MIT",
-  "homepage": "https://sushi.com",
-  "repository": "sushi-labs/sushi",
+  "homepage": "https://shibaswap.com",
+  "repository": "shibaone/shibaswap-v3-sdk",
   "author": "Matthew Lilley <hello@matthewLilley.com>",
   "funding": [
     {
