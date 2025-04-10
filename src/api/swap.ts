@@ -38,6 +38,7 @@ export type SwapRequest<EnableFee extends boolean> = {
   override?: boolean
   facade?: boolean
   validate?: boolean
+  apiKey?: string
 }
 
 function swapResponseSchema<Simulate extends boolean>(simulate?: Simulate) {
@@ -155,6 +156,10 @@ export async function getSwap<
 
   if (params.facade !== undefined) {
     url.searchParams.append('facade', params.facade.toString())
+  }
+
+  if (params.apiKey !== undefined) {
+    url.searchParams.append('apiKey', params.apiKey)
   }
 
   const res = await fetch(url.toString(), options)
