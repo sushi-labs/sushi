@@ -1,0 +1,21 @@
+# Invalid Api Key
+
+This problem occurs when the provided API key is invalid or missing.
+
+Your client application tried to access a resource that requires an API key, but the key was either invalid or not provided. Please check your API key and try again. It can be provided as a query parameter or in the authorization header.
+
+|**Type URI**|**Title**|**Status**|
+|---|---|---|
+|https://docs.sushi.com/api/errors/invalid-api-key|Invalid Api Key|401|
+
+**Example of an <code>invalid-api-key</code> problem details:**
+
+```json
+{
+  "type": "https://docs.sushi.com/api/errors/invalid-api-key",
+  "title": "Invalid or Missing API Key",
+  "details": "Invalid API key",
+  "status": 401,
+  "code": "401-01",
+}
+```

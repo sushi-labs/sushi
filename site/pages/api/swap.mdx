@@ -33,12 +33,16 @@ const maxSlippage = 0.005
 // Sender
 const sender = '0x' // replace with your own address
 
+// Api Key, get yours at https://sushi.com/portal
+const apiKey = "sushi_abcdefghijklmnopqr"
+
 const { searchParams } = SWAP_API_URL
 searchParams.set('tokenIn', inputCurrency)
 searchParams.set('tokenOut', outputCurrency)
 searchParams.set('amount', amount.toString())
 searchParams.set('maxSlippage', maxSlippage.toString())
 searchParams.set('sender', sender)
+searchParams.set('apiKey', apiKey)
 
 // Make call to API
 console.log(SWAP_API_URL.toString())
