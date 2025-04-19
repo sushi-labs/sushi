@@ -9,18 +9,18 @@ const __dirname = path.dirname(__filename)
 
 const additional: EvmChainBase[] = [
   {
-    name: 'ApeChain',
+    name: 'Tatara',
     nativeCurrency: {
-      name: 'ApeCoin',
-      symbol: 'APE',
+      name: 'Ethereum',
+      symbol: 'ETH',
       decimals: 18,
     },
-    shortName: 'apechain',
-    chainId: 33139,
+    shortName: 'tatara',
+    chainId: 129399,
     explorers: [
       {
-        name: 'ApeChain Explorer',
-        url: 'https://apescan.io',
+        name: 'Tatara Explorer',
+        url: 'https://explorer.tatara.katana.network',
         standard: 'EIP3091',
       },
     ],

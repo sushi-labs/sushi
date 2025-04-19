@@ -766,6 +766,7 @@ export const WNATIVE = {
     name: 'Wrapped Sonic',
   }),
   [EvmChainId.HEMI]: WETH9[EvmChainId.HEMI],
+  [EvmChainId.TATARA]: WETH9[EvmChainId.TATARA]
 } as const
 
 export const SUSHI = addressMapToTokenMap(
