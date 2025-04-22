@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.33
+
+### Patch Changes
+
+- [#162](https://github.com/sushi-labs/sushi/pull/162) [`a295e59`](https://github.com/sushi-labs/sushi/commit/a295e59cb66a47ab20923d449864faa6ccde5a7d) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Update filecoin and rootstock subgraphs
+
 ## 5.0.32
 
 ### Patch Changes
