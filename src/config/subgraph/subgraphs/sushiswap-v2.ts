@@ -3,7 +3,6 @@ import type { SushiSwapV2ChainId } from '../../features/sushiswap-v2.js'
 import { getSubgraphUrlWrapper, wrapAsIdType } from '../get-subgraph-url.js'
 import {
   CORE_HOST,
-  FILECOIN_HOST,
   HAQQ_HOST,
   METIS_0XGRAPH_HOST,
   SKALE_HOST,

@@ -2,7 +2,6 @@ import { EvmChainId } from '../../../chain/index.js'
 import { getSubgraphUrlWrapper, wrapAsIdType } from '../get-subgraph-url.js'
 import {
   CORE_HOST,
-  FILECOIN_HOST,
   GOLDSKY_COMMUNITY_HOST,
   HAQQ_HOST,
   METIS_0XGRAPH_HOST,
