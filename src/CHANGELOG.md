@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.35
+
+### Patch Changes
+
+- [#166](https://github.com/sushi-labs/sushi/pull/166) [`78f17a5`](https://github.com/sushi-labs/sushi/commit/78f17a5b2c706cda3792cd8f72c426875cd1c002) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Add V2/V3 deprecated chains, types and addresses
+
 ## 5.0.34
 
 ### Patch Changes
