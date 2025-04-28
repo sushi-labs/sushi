@@ -66,7 +66,6 @@ export const isSushiSwapV2ChainId = (
 ): chainId is SushiSwapV2ChainId =>
   SUSHISWAP_V2_SUPPORTED_CHAIN_IDS.includes(chainId as SushiSwapV2ChainId)
 
-
 export const DEPRECATED_SUSHISWAP_V2_SUPPORTED_CHAIN_IDS = [
   EvmChainId.POLYGON_ZKEVM,
   EvmChainId.FUSE,
@@ -75,7 +74,8 @@ export const DEPRECATED_SUSHISWAP_V2_SUPPORTED_CHAIN_IDS = [
   EvmChainId.MOONRIVER,
 ] as const
 
-export const DeprecatedSushiSwapV2ChainIds = DEPRECATED_SUSHISWAP_V2_SUPPORTED_CHAIN_IDS
+export const DeprecatedSushiSwapV2ChainIds =
+  DEPRECATED_SUSHISWAP_V2_SUPPORTED_CHAIN_IDS
 
 export type DeprecatedSushiSwapV2ChainId =
   (typeof DEPRECATED_SUSHISWAP_V2_SUPPORTED_CHAIN_IDS)[number]
@@ -83,7 +83,9 @@ export type DeprecatedSushiSwapV2ChainId =
 export const isDeprecatedSushiSwapV2ChainId = (
   chainId: EvmChainId,
 ): chainId is DeprecatedSushiSwapV2ChainId =>
-  DEPRECATED_SUSHISWAP_V2_SUPPORTED_CHAIN_IDS.includes(chainId as DeprecatedSushiSwapV2ChainId)
+  DEPRECATED_SUSHISWAP_V2_SUPPORTED_CHAIN_IDS.includes(
+    chainId as DeprecatedSushiSwapV2ChainId,
+  )
 
 export const SUSHISWAP_V2_INIT_CODE_HASH: Record<
   SushiSwapV2ChainId | DeprecatedSushiSwapV2ChainId,
