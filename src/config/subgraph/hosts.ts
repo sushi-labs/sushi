@@ -7,7 +7,6 @@ export const PENDING_KAVA_HOST = 'pvt.graph.kava.io/subgraphs/id'
 export const METIS_HOST = 'andromeda.thegraph.metis.io/subgraphs/name'
 export const PENDING_METIS_HOST = 'andromeda.thegraph.metis.io/subgraphs/id'
 
-export const FILECOIN_HOST = 'sushi.laconic.com/subgraphs/name'
 export const STUDIO_HOST = 'api.studio.thegraph.com/query/32073'
 export const THUNDERCORE_HOST = 'graph-node.thundercore.com/subgraphs/name'
 export const CORE_HOST = 'thegraph.coredao.org/subgraphs/name'

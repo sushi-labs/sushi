@@ -1,5 +1,17 @@
 # sushi
 
+## 5.0.34
+
+### Patch Changes
+
+- [#164](https://github.com/sushi-labs/sushi/pull/164) [`10164f4`](https://github.com/sushi-labs/sushi/commit/10164f4812dcffef0847b931e3ab07b40b547c52) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Add VUSD to Hemi stable config
+
+## 5.0.33
+
+### Patch Changes
+
+- [#162](https://github.com/sushi-labs/sushi/pull/162) [`a295e59`](https://github.com/sushi-labs/sushi/commit/a295e59cb66a47ab20923d449864faa6ccde5a7d) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Update filecoin and rootstock subgraphs
+
 ## 5.0.32
 
 ### Patch Changes

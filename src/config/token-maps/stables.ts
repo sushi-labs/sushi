@@ -269,7 +269,17 @@ export const STABLES = {
   ],
   [EvmChainId.APE]: [APE_USD],
   [EvmChainId.SONIC]: [USDC[EvmChainId.SONIC]],
-  [EvmChainId.HEMI]: [USDC[EvmChainId.HEMI], USDT[EvmChainId.HEMI]],
+  [EvmChainId.HEMI]: [
+    USDC[EvmChainId.HEMI],
+    USDT[EvmChainId.HEMI],
+    new Token({
+      chainId: EvmChainId.HEMI,
+      address: '0x7A06C4AeF988e7925575C50261297a946aD204A8',
+      decimals: 18,
+      name: 'VUSD',
+      symbol: 'VUSD',
+    }),
+  ],
   // TESTNETS
   // [EvmChainId.RINKEBY]: [USDC[EvmChainId.RINKEBY]],
   // [EvmChainId.ROPSTEN]: [

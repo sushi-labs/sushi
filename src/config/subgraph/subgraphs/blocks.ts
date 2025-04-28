@@ -2,7 +2,7 @@ import { EvmChainId } from '../../../chain/index.js'
 import { getSubgraphUrlWrapper, wrapAsIdType } from '../get-subgraph-url.js'
 import {
   CORE_HOST,
-  FILECOIN_HOST,
+  GOLDSKY_COMMUNITY_HOST,
   HAQQ_HOST,
   METIS_0XGRAPH_HOST,
   SKALE_HOST,
@@ -47,7 +47,7 @@ const BLOCKS_OTHER_URLS = {
   [EvmChainId.BTTC]: `${SUSHI_GOLDSKY_HOST}/blocks/bttc-mainnet/gn`,
   [EvmChainId.THUNDERCORE]: `${THUNDERCORE_HOST}/sushiswap/blocks-thundercore`,
   [EvmChainId.CORE]: `${CORE_HOST}/sushiswap/blocks-core`,
-  [EvmChainId.FILECOIN]: `${FILECOIN_HOST}/sushiswap/blocks`,
+  [EvmChainId.FILECOIN]: `${GOLDSKY_COMMUNITY_HOST}/blocks/filecoin-4760001/gn`,
   [EvmChainId.HAQQ]: `${HAQQ_HOST}/sushi/blocks-haqq`,
   [EvmChainId.ZETACHAIN]: `${SUSHI_GOLDSKY_HOST}/blocks-zetachain/1.0.0/gn`,
   [EvmChainId.BLAST]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/blocks-blast/gn`,

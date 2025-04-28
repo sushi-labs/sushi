@@ -3,7 +3,6 @@ import type { SushiSwapV2ChainId } from '../../features/sushiswap-v2.js'
 import { getSubgraphUrlWrapper, wrapAsIdType } from '../get-subgraph-url.js'
 import {
   CORE_HOST,
-  FILECOIN_HOST,
   HAQQ_HOST,
   METIS_0XGRAPH_HOST,
   SKALE_HOST,
@@ -45,7 +44,7 @@ const SUSHISWAP_V2_OTHER_URLS = {
   [EvmChainId.KAVA]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushi-v2/v2-kava/gn`,
   [EvmChainId.METIS]: `${METIS_0XGRAPH_HOST}/sushiswap/v2-metis/-/gn`,
   [EvmChainId.BTTC]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushi-v2/v2-bttc/gn`,
-  [EvmChainId.FILECOIN]: `${FILECOIN_HOST}/sushiswap/v2-filecoin`,
+  [EvmChainId.FILECOIN]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v2-filecoin/gn`,
   [EvmChainId.ZETACHAIN]: `${SUSHI_GOLDSKY_HOST}/v2-zetachain/1.0.0/gn`,
   [EvmChainId.THUNDERCORE]: `${THUNDERCORE_HOST}/sushi-v2/v2-thundercore`,
   [EvmChainId.CORE]: `${CORE_HOST}/sushi-v2/v2-core`,
