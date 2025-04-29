@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.36
+
+### Patch Changes
+
+- [#168](https://github.com/sushi-labs/sushi/pull/168) [`699374a`](https://github.com/sushi-labs/sushi/commit/699374ae218d5c77ddfdff610cbd0007b96a3263) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add RP7 config
+
 ## 5.0.35
 
 ### Patch Changes
