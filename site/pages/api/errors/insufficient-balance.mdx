@@ -1,0 +1,25 @@
+# Insufficient Balance
+
+This problem occurs when the spender doesn't have sufficient balance.
+
+Your client asked for an estimation of a swap in which the spender doesn't have sufficient balance. This prevents the estimation from completing successfully.
+
+|**Type URI**|**Title**|**Status**|
+|---|---|---|
+|https://docs.sushi.com/api/errors/insufficient-balance|Insufficient Bllowance|422|
+
+**Example of an <code>insufficient-balance</code> problem details:**
+
+```json
+{
+  "type": "https://docs.sushi.com/api/errors/insufficient-balance",
+  "title": "Insufficient Balance Error",
+  "details": "Spender has insufficent balance",
+  "status": 422,
+  "code": "422-03",
+  "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "sender": "0x19b3eb3af5d93b77a5619b047de0eed7115a19e7",
+  "balance": "1000000",
+  "amount": "5000000"
+}
+```

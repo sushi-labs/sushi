@@ -1,0 +1,21 @@
+# Ratelimit Exceeded
+
+This problem occurs when the provided API key has exceeded its rate limit.
+
+Your client application tried to access a resource that requires an API key, but the key has exceeded its rate limit. Please try again later.
+
+|**Type URI**|**Title**|**Status**|
+|---|---|---|
+|https://docs.sushi.com/api/errors/ratelimit-exceeded|Ratelimit Exceeded|429|
+
+**Example of an <code>ratelimit-exceeded</code> problem details:**
+
+```json
+{
+  "type": "https://docs.sushi.com/api/errors/ratelimit-exceeded",
+  "title": "Rate Limit Exceeded",
+  "details": "API key rate limit exceeded",
+  "status": 429,
+  "code": "429-01",
+}
+```

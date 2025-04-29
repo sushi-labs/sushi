@@ -1,0 +1,26 @@
+# Insufficient Allowance
+
+This problem occurs when the spender doesn't have sufficient allowance.
+
+Your client asked for an estimation of a swap in which the spender doesn't have sufficient allowance. This prevents the estimation from completing successfully.
+
+|**Type URI**|**Title**|**Status**|
+|---|---|---|
+|https://docs.sushi.com/api/errors/insufficient-allowance|Insufficient Allowance|422|
+
+**Example of an <code>insufficient-allowance</code> problem details:**
+
+```json
+{
+  "type": "https://docs.sushi.com/api/errors/insufficient-allowance",
+  "title": "Insufficient Allowance Error",
+  "details": "Spender has insufficent allowance",
+  "status": 422,
+  "code": "422-04",
+  "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "spender": "0x85cd07ea01423b1e937929b44e4ad8c40bbb5e71",
+  "sender": "0x19b3eb3af5d93b77a5619b047de0eed7115a19e7",
+  "allowance": "1000000",
+  "amount": "5000000"
+}
+```

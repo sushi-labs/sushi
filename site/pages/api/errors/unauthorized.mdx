@@ -1,0 +1,21 @@
+# Unauthorized
+
+This problem occurs when the provided API key has blacklisted / not-whitelisted your IP address or origin.
+
+Your client application tried to access a resource that requires an API key, but the key has either blacklisted or not whitelisted your IP address or origin. Please check your API key and try again. It can be provided as a query parameter or in the authorization header.
+
+|**Type URI**|**Title**|**Status**|
+|---|---|---|
+|https://docs.sushi.com/api/errors/unauthorized|Unauthorized|403|
+
+**Example of an <code>unauthorized</code> problem details:**
+
+```json
+{
+  "type": "https://docs.sushi.com/api/errors/unauthorized",
+  "title": "Unauthorized",
+  "details": "IP not whitelisted",
+  "status": 403,
+  "code": "403-01",
+}
+```
