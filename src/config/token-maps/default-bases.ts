@@ -3,6 +3,7 @@ import { EvmChainId } from '../../chain/evm/index.js'
 import {
   APE_USD,
   ARB,
+  AUSD,
   DAI,
   FRAX,
   GNO,
@@ -434,7 +435,11 @@ export const EVM_DEFAULT_BASES = {
     USDT[EvmChainId.HEMI],
   ],
   // [ChainId.SEPOLIA]: [Native.onChain(ChainId.SEPOLIA), WNATIVE[ChainId.SEPOLIA]],
-  [EvmChainId.TATARA]: [Native.onChain(EvmChainId.TATARA), WNATIVE[EvmChainId.TATARA]]
+  [EvmChainId.TATARA]: [
+    Native.onChain(EvmChainId.TATARA),
+    WNATIVE[EvmChainId.TATARA],
+    AUSD[EvmChainId.TATARA]
+  ],
 } as const satisfies Record<EvmChainId, Readonly<(Token | Native)[]>>
 
 // const DEFAULT_BASES_IDS = Object.entries(DEFAULT_BASES).reduce<

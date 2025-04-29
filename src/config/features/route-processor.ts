@@ -600,6 +600,7 @@ export const ROUTE_PROCESSOR_7_SUPPORTED_CHAIN_IDS = [
   EvmChainId.SONIC,
   EvmChainId.HEMI,
   EvmChainId.SEPOLIA,
+  EvmChainId.TATARA
 ] as const
 export type RouteProcessor7ChainId =
   (typeof ROUTE_PROCESSOR_7_SUPPORTED_CHAIN_IDS)[number]
@@ -650,6 +651,7 @@ export const ROUTE_PROCESSOR_7_ADDRESS: Record<
   [EvmChainId.SONIC]: '0x3Ced11c610556e5292fBC2e75D68c3899098C14C',
   [EvmChainId.HEMI]: '0x3Ced11c610556e5292fBC2e75D68c3899098C14C',
   [EvmChainId.SEPOLIA]: '0x3Ced11c610556e5292fBC2e75D68c3899098C14C',
+  [EvmChainId.TATARA]: '0x3Ced11c610556e5292fBC2e75D68c3899098C14C'
 } as const
 export const isRouteProcessor7ChainId = (
   chainId: EvmChainId,

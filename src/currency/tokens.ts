@@ -8,6 +8,7 @@ import {
   APE_ETH_ADDRESS,
   APE_USD_ADDRESS,
   ARB_ADDRESS,
+  AUSD_ADDRESS,
   BAL_ADDRESS,
   BCT_ADDRESS,
   BUSD_ADDRESS,
@@ -1394,3 +1395,12 @@ export const USDPLUS = addressMapToTokenMap(
   },
   USDPLUS_ADDRESS,
 ) as Record<keyof typeof USDPLUS_ADDRESS, Token>
+
+export const AUSD = addressMapToTokenMap(
+  {
+    decimals: 6,
+    symbol: 'AUSD',
+    name: 'AgoraDollar'
+  },
+  AUSD_ADDRESS,
+) as Record<keyof typeof AUSD_ADDRESS, Token>
