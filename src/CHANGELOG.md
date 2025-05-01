@@ -1,5 +1,11 @@
 # sushi
 
+## 5.0.37
+
+### Patch Changes
+
+- [#171](https://github.com/sushi-labs/sushi/pull/171) [`e35deb0`](https://github.com/sushi-labs/sushi/commit/e35deb03960700f23248c1ac42a85a6d36219206) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - fee collectors
+
 ## 5.0.36
 
 ### Patch Changes
