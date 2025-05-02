@@ -38,6 +38,10 @@ export const sidebar = {
           collapsed: true,
           items: [
             {
+              text: 'Quote',
+              link: '/api/quote',
+            },
+            {
               text: 'Swap',
               link: '/api/swap',
             },
@@ -80,7 +84,10 @@ export const sidebar = {
         {
           text: 'Examples',
           collapsed: true,
-          items: [{ text: 'Swap', link: '/sdk/swap' }],
+          items: [
+            { text: 'Quote', link: '/sdk/quote' },
+            { text: 'Swap', link: '/sdk/swap' },
+          ],
         },
 
         // { text: 'Limit', link: '/sdk/limit' },
