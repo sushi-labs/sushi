@@ -95,6 +95,10 @@ export async function getQuote<EnableFee extends boolean = false>(
     }
   }
 
+  if (params?.vizualize) {
+    url.searchParams.append('vizualize', params.vizualize.toString())
+  }
+
   if (params.referrer) {
     url.searchParams.append('referrer', params.referrer)
   } else {
