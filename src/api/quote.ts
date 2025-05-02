@@ -2,48 +2,31 @@ import type { Address } from 'viem'
 import { z } from 'zod'
 import type { ExtractorSupportedChainId } from '../config/index.js'
 import { RouteStatus } from '../router/route-status.js'
-import type { RouterLiquiditySource } from '../router/router-liquidity-source.js'
 import type { TransferValue } from '../router/transfer-value.js'
 import { sz } from '../validate/zod.js'
 import { version } from '../version.js'
 
-export type SwapRequest<Simulate extends boolean = true> = {
+export type QuoteRequest<Vizualize extends boolean = false> = {
   chainId: ExtractorSupportedChainId
   tokenIn: Address
   tokenOut: Address
   amount: bigint
-  sender: Address
   maxSlippage: number
   maxPriceImpact?: number
-  source?: RouterLiquiditySource
   fee?: bigint
   feeReceiver?: Address
   feeBy?: TransferValue
   referrer?: string
+  vizualize?: Vizualize
   baseUrl?: string
-  recipient?: Address
-  simulate?: Simulate
-  override?: boolean
-  facade?: boolean
-  validate?: boolean
 }
 
-function swapResponseSchema<Simulate extends boolean>(simulate?: Simulate) {
+function quoteResponseSchema<Vizualize extends boolean>(vizualize?: Vizualize) {
   const tokenSchema = z.object({
     address: sz.address(),
     decimals: z.number(),
     symbol: z.string(),
     name: z.string(),
-  })
-
-  const txSchema = z.object({
-    from: sz.address(),
-    to: sz.address(),
-    data: sz.hex(),
-    value: z
-      .string()
-      .optional()
-      .transform((value) => BigInt(value || 0)),
   })
 
   const baseSuccessPartial = z
@@ -58,8 +41,6 @@ function swapResponseSchema<Simulate extends boolean>(simulate?: Simulate) {
 
       amountIn: z.string(),
       assumedAmountOut: z.string(),
-
-      tx: txSchema,
     })
     .transform((data) => ({
       ...data,
@@ -72,46 +53,56 @@ function swapResponseSchema<Simulate extends boolean>(simulate?: Simulate) {
   })
 
   const baseSchema = baseSuccessPartial.or(baseNoWay)
-  const baseSimulateSchema = baseSchema
-    .and(z.object({ tx: txSchema.extend({ gas: z.string() }) }))
+
+  const baseVizualizeSchema = baseSchema
+    .and(
+      z.object({
+        vizualization: z.object({
+          liquidityProviders: z.array(z.string()),
+          nodes: z.array(tokenSchema),
+          links: z.array(
+            z.object({
+              source: z.number(),
+              target: z.number(),
+              liquidityProvider: z.number(),
+              amountIn: z.string(),
+              amountOut: z.string(),
+              value: z.number(),
+            }),
+          ),
+        }),
+      }),
+    )
     .or(baseNoWay)
-  type Schema = Simulate extends true
-    ? typeof baseSimulateSchema
+
+  type Schema = Vizualize extends true
+    ? typeof baseVizualizeSchema
     : typeof baseSchema
 
-  return (simulate ? baseSimulateSchema : baseSchema) as Schema
+  return (vizualize ? baseVizualizeSchema : baseSchema) as Schema
 }
 
-export type SwapResponse<Simulate extends boolean = true> = z.infer<
-  ReturnType<typeof swapResponseSchema<Simulate>>
+export type QuoteResponse<Vizualize extends boolean = false> = z.infer<
+  ReturnType<typeof quoteResponseSchema<Vizualize>>
 >
 
-export async function getSwap<Simulate extends boolean = true>(
-  params: SwapRequest<Simulate>,
+export async function getQuote<Vizualize extends boolean = false>(
+  params: QuoteRequest<Vizualize>,
   options?: RequestInit,
-): Promise<SwapResponse<Simulate>> {
+): Promise<QuoteResponse<Vizualize>> {
   // TODO: VALIDATE PARAMS
   const url = new URL(
-    `swap/v7/${params.chainId}`,
+    `quote/v7/${params.chainId}`,
     params.baseUrl ?? 'https://api.sushi.com',
   )
 
   url.searchParams.append('tokenIn', params.tokenIn)
   url.searchParams.append('tokenOut', params.tokenOut)
-  url.searchParams.append('sender', params.sender)
   url.searchParams.append('amount', params.amount.toString())
   url.searchParams.append('maxSlippage', params.maxSlippage.toString())
 
-  if (params.source) {
-    url.searchParams.append('source', params.source)
-  }
-
   if (params.maxPriceImpact) {
     url.searchParams.append('maxPriceImpact', params.maxPriceImpact.toString())
-  }
-
-  if (params.recipient) {
-    url.searchParams.append('recipient', params.recipient)
   }
 
   if (
@@ -126,27 +117,21 @@ export async function getSwap<Simulate extends boolean = true>(
     }
   }
 
+  if (params?.vizualize) {
+    url.searchParams.append('vizualize', params.vizualize.toString())
+  }
+
   if (params.referrer) {
     url.searchParams.append('referrer', params.referrer)
   } else {
     url.searchParams.append('referrer', `sushi-sdk/${version}`)
   }
 
-  if (params.simulate !== undefined) {
-    url.searchParams.append('simulate', params.simulate.toString())
-    if (params.override !== undefined) {
-      url.searchParams.append('override', params.override.toString())
-    }
-    if (params.validate !== undefined) {
-      url.searchParams.append('validate', params.validate.toString())
-    }
-  }
-
   const res = await fetch(url.toString(), options)
 
   if (!res.ok) {
-    throw new Error(`Failed to fetch swap: ${await res.text()}`)
+    throw new Error(`Failed to fetch quote: ${await res.text()}`)
   }
 
-  return swapResponseSchema(params.simulate).parse(await res.json())
+  return quoteResponseSchema(params.vizualize).parse(await res.json())
 }
