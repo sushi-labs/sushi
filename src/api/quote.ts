@@ -2,7 +2,6 @@ import type { Address } from 'viem'
 import { z } from 'zod'
 import type { ExtractorSupportedChainId } from '../config/index.js'
 import { RouteStatus } from '../router/route-status.js'
-import type { RouterLiquiditySource } from '../router/router-liquidity-source.js'
 import type { TransferValue } from '../router/transfer-value.js'
 import { sz } from '../validate/zod.js'
 import { version } from '../version.js'
@@ -28,7 +27,6 @@ export type QuoteRequest<EnableFee extends boolean> = {
   amount: bigint
   maxSlippage: number
   maxPriceImpact?: number
-  source?: RouterLiquiditySource
   fee?: Fee<EnableFee>
   referrer?: string
   vizualize?: boolean
@@ -84,10 +82,6 @@ export async function getQuote<EnableFee extends boolean = false>(
   url.searchParams.append('tokenOut', params.tokenOut)
   url.searchParams.append('amount', params.amount.toString())
   url.searchParams.append('maxSlippage', params.maxSlippage.toString())
-
-  if (params.source) {
-    url.searchParams.append('source', params.source)
-  }
 
   if (params.maxPriceImpact) {
     url.searchParams.append('maxPriceImpact', params.maxPriceImpact.toString())
