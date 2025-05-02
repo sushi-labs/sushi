@@ -36,9 +36,7 @@
   "paths": {
     "/quote/v7/{chainId}": {
       "get": {
-        "tags": [
-          "swap"
-        ],
+        "tags": ["swap"],
         "summary": "generates a quote",
         "description": "By passing in the appropriate options, you can generate a swap quote\n",
         "operationId": "quote",
@@ -110,10 +108,7 @@
             "schema": {
               "type": "string",
               "default": "output",
-              "enum": [
-                "input",
-                "output"
-              ]
+              "enum": ["input", "output"]
             }
           },
           {
@@ -180,19 +175,19 @@
                     "status": "Success",
                     "tokens": [
                       {
-                        "address": 1.364068194842176e+48,
+                        "address": 1.364068194842176e48,
                         "symbol": "ETH",
                         "name": "Ether",
                         "decimals": 18
                       },
                       {
-                        "address": 1.0970776880180083e+48,
+                        "address": 1.0970776880180083e48,
                         "symbol": "WETH",
                         "name": "Wrapped Ether",
                         "decimals": 18
                       },
                       {
-                        "address": 6.120569339260443e+47,
+                        "address": 6.120569339260443e47,
                         "symbol": "SUSHI",
                         "name": "SushiToken",
                         "decimals": 18
@@ -223,9 +218,7 @@
     },
     "/swap/v7/{chainId}": {
       "get": {
-        "tags": [
-          "swap"
-        ],
+        "tags": ["swap"],
         "summary": "generates a swap",
         "description": "By passing in the appropriate options, you can generate a swap transaction\n",
         "operationId": "swap",
@@ -324,10 +317,7 @@
             "schema": {
               "type": "string",
               "default": "output",
-              "enum": [
-                "input",
-                "output"
-              ]
+              "enum": ["input", "output"]
             }
           },
           {
@@ -362,10 +352,7 @@
             "schema": {
               "type": "string",
               "default": "sender",
-              "enum": [
-                "sender",
-                "self"
-              ]
+              "enum": ["sender", "self"]
             }
           },
           {
@@ -438,19 +425,19 @@
                     "status": "Success",
                     "tokens": [
                       {
-                        "address": 1.364068194842176e+48,
+                        "address": 1.364068194842176e48,
                         "symbol": "ETH",
                         "name": "Ether",
                         "decimals": 18
                       },
                       {
-                        "address": 1.0970776880180083e+48,
+                        "address": 1.0970776880180083e48,
                         "symbol": "WETH",
                         "name": "Wrapped Ether",
                         "decimals": 18
                       },
                       {
-                        "address": 6.120569339260443e+47,
+                        "address": 6.120569339260443e47,
                         "symbol": "SUSHI",
                         "name": "SushiToken",
                         "decimals": 18
@@ -463,8 +450,8 @@
                     "amountIn": "10000000000000000",
                     "assumedAmountOut": "28376709246572527616",
                     "tx": {
-                      "from": 1.2380129724542482e+48,
-                      "to": 9.83650862853668e+47,
+                      "from": 1.2380129724542482e48,
+                      "to": 9.83650862853668e47,
                       "gas": "162561",
                       "gasPrice": 682394289,
                       "data": "0x5f3bd1c8000000000000000000000000eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee000000000000000000000000000000000000000000000000002386f26fc10000000000000000000000000000d8da6bf26964af9d7eed9e03e53415d37aa960450000000000000000000000006b3595068778dd592e39a122f4f5a5cf09c90fe20000000000000000000000000000000000000000000000018969823f2df6281000000000000000000000000085cd07ea01423b1e937929b44e4ad8c40bbb5e7100000000000000000000000000000000000000000000000000000000000000e000000000000000000000000000000000000000000000000000000000000001a4dd9c5f96000000000000000000000000eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee000000000000000000000000000000000000000000000000002386f26fc100000000000000000000000000006b3595068778dd592e39a122f4f5a5cf09c90fe200000000000000000000000000000000000000000000000189ce52b6a87f80000000000000000000000000000000000000000000000000018969823f2df62810000000000000000000000000d8da6bf26964af9d7eed9e03e53415d37aa960450000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000700301ffff0201CE84867c3c02B05dc570d0135103d3fB9CC19433C02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc204C02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc200CE84867c3c02B05dc570d0135103d3fB9CC194330085CD07Ea01423b1E937929B44E4Ad8c40BbB5E71000bb80000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
@@ -489,9 +476,7 @@
     },
     "/price/v1/{chainId}": {
       "get": {
-        "tags": [
-          "price"
-        ],
+        "tags": ["price"],
         "summary": "returns prices for specified chainId",
         "description": "By passing in a chainId, you can get dollar prices for tokens addresses\n",
         "operationId": "prices",
@@ -534,9 +519,7 @@
     },
     "/price/v1/{chainId}/{tokenAddress}": {
       "get": {
-        "tags": [
-          "price"
-        ],
+        "tags": ["price"],
         "summary": "returns price for specified chainId and token",
         "description": "By passing in a chainId and address, you can get a dollar price for specified token address\n",
         "operationId": "price",
@@ -583,9 +566,7 @@
     },
     "/token/v1/{chainId}/{tokenAddress}": {
       "get": {
-        "tags": [
-          "token"
-        ],
+        "tags": ["token"],
         "summary": "returns token data for specified chainId and token",
         "description": "By passing in a chainId and address, you can get token data for specified token address\n",
         "operationId": "token",
@@ -618,7 +599,7 @@
                   "type": "object",
                   "example": {
                     "chainId": 1,
-                    "address": 6.120569339260443e+47,
+                    "address": 6.120569339260443e47,
                     "decimals": 18,
                     "name": "Sushi Token",
                     "symbol": "SUSHI"
@@ -641,9 +622,7 @@
     },
     "/liquidity-providers/v7/{chainId}": {
       "get": {
-        "tags": [
-          "liquidity-providers"
-        ],
+        "tags": ["liquidity-providers"],
         "summary": "Returns all available liquidity providers for the specified chainId",
         "description": "By passing in a chainId you can get the enabled liquidity providers.\n",
         "operationId": "getLiquidityProviders",
@@ -793,10 +772,7 @@
         "schema": {
           "type": "string",
           "default": "output",
-          "enum": [
-            "input",
-            "output"
-          ]
+          "enum": ["input", "output"]
         }
       },
       "feeReceiver": {
@@ -840,10 +816,7 @@
         "schema": {
           "type": "string",
           "default": "sender",
-          "enum": [
-            "sender",
-            "self"
-          ]
+          "enum": ["sender", "self"]
         }
       },
       "onlyDEX": {
