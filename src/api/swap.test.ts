@@ -32,7 +32,7 @@ describe('getSwap', () => {
     }
   })
 
-  it.skip('should include a swap when url is set to staging true', async () => {
+  it.skip('should return a swap when url is set to staging true', async () => {
     const result = await getSwap({
       ...baseSwapRequest,
       baseUrl: 'https://staging.sushi.com',

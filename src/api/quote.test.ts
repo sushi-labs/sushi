@@ -9,14 +9,14 @@ const baseQuoteRequest = {
   maxSlippage: 0.005,
 } as const satisfies QuoteRequest<false>
 
-describe('getSwap', () => {
-  it('should return a swap when recipient is included', async () => {
+describe('getQuote', () => {
+  it('should return a quote', async () => {
     const result = await getQuote(baseQuoteRequest)
 
     expect(result).include({ status: 'Success' })
   })
 
-  it.skip('should include a quote when url is set to staging true', async () => {
+  it.skip('should return a quote when url is set to staging true', async () => {
     const result = await getQuote({
       ...baseQuoteRequest,
       baseUrl: 'https://staging.sushi.com',
