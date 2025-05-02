@@ -1,5 +1,11 @@
 # sushi
 
+## 5.1.0
+
+### Minor Changes
+
+- [#173](https://github.com/sushi-labs/sushi/pull/173) [`a49b4c0`](https://github.com/sushi-labs/sushi/commit/a49b4c0dbc813e8646d610466803432cd44bad32) Thanks [@matthewlilley](https://github.com/matthewlilley)! - swap to v7
+
 ## 5.0.37
 
 ### Patch Changes
