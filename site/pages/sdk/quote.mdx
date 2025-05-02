@@ -1,3 +1,17 @@
 # Quote
 
-TBC...
+Call the Quote API:
+
+```ts twoslash
+import { getQuote, ChainId } from 'sushi'
+
+// Get a quote from the API
+const data = await getQuote({
+  chainId: ChainId.ETHEREUM, // ethereum chain id
+  tokenIn: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE', // eth token
+  tokenOut: '0x6B3595068778DD592e39A122f4f5a5cF09C90fE2', // sushi token
+  amount: 1000000000000000000n, // 1 eth
+  maxSlippage: 0.005, // 0.05% max slippage
+})
+console.log(data)
+```
