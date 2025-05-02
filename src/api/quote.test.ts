@@ -16,7 +16,7 @@ describe('getQuote', () => {
     expect(result).include({ status: 'Success' })
   })
 
-  it.skip('should return a quote when url is set to staging true', async () => {
+  it.skip('should return a quote when url is set to staging', async () => {
     const result = await getQuote({
       ...baseQuoteRequest,
       baseUrl: 'https://staging.sushi.com',
