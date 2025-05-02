@@ -1,5 +1,11 @@
 # sushi
 
+## 5.1.1
+
+### Patch Changes
+
+- [#175](https://github.com/sushi-labs/sushi/pull/175) [`2c46ccf`](https://github.com/sushi-labs/sushi/commit/2c46ccf76044f4b38c4a1f1a668162013980714f) Thanks [@matthewlilley](https://github.com/matthewlilley)! - quote api example and sdk function
+
 ## 5.1.0
 
 ### Minor Changes
