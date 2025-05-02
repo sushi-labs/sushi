@@ -107,7 +107,7 @@ export async function getSwap<
 ): Promise<SwapResponse<Simulate>> {
   // TODO: VALIDATE PARAMS
   const url = new URL(
-    `swap/v6/${params.chainId}`,
+    `swap/v7/${params.chainId}`,
     params.baseUrl ?? 'https://api.sushi.com',
   )
 
@@ -151,10 +151,6 @@ export async function getSwap<
     if (params.validate !== undefined) {
       url.searchParams.append('validate', params.validate.toString())
     }
-  }
-
-  if (params.facade !== undefined) {
-    url.searchParams.append('facade', params.facade.toString())
   }
 
   const res = await fetch(url.toString(), options)

@@ -112,9 +112,9 @@ export const sidebar = {
           text: 'Aggregator',
           collapsed: true,
           items: [
-            { text: 'RouteProcessor6', link: '/contracts/route-processor-6' },
-            { text: 'RouteProcessor7', link: '/contracts/route-processor-7' },
             { text: 'RedSnwapper', link: '/contracts/red-snwapper' },
+            { text: 'RouteProcessor7', link: '/contracts/route-processor-7' },
+            // { text: 'RouteProcessor6', link: '/contracts/route-processor-6' },
             // { text: 'RouteProcessor5', link: '/contracts/route-processor-5' },
           ],
         },

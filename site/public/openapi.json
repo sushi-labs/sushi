@@ -3,7 +3,7 @@
   "info": {
     "title": "Sushi API",
     "description": "Documentation for interacting with the Sushi API",
-    "version": "6.0.0"
+    "version": "7.0.0"
   },
   "servers": [
     {
@@ -11,7 +11,7 @@
       "description": "Sushi API"
     },
     {
-      "url": "https://virtserver.swaggerhub.com/sushi-labs/sushi/6.0.0",
+      "url": "https://virtserver.swaggerhub.com/sushi-labs/sushi/7.0.0",
       "description": "SwaggerHub API Auto Mocking"
     }
   ],
@@ -34,7 +34,7 @@
     }
   ],
   "paths": {
-    "/quote/v6/{chainId}": {
+    "/quote/v7/{chainId}": {
       "get": {
         "tags": ["swap"],
         "summary": "generates a quote",
@@ -46,8 +46,6 @@
             "in": "path",
             "description": "chainId",
             "required": true,
-            "style": "simple",
-            "explode": false,
             "schema": {
               "type": "number"
             }
@@ -57,8 +55,6 @@
             "in": "query",
             "description": "referrer",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string"
             }
@@ -68,8 +64,6 @@
             "in": "query",
             "description": "input token address",
             "required": true,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string"
             }
@@ -79,8 +73,6 @@
             "in": "query",
             "description": "output token address",
             "required": true,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string"
             }
@@ -90,8 +82,6 @@
             "in": "query",
             "description": "input token amount",
             "required": true,
-            "style": "form",
-            "explode": true,
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -103,8 +93,6 @@
             "in": "query",
             "description": "amount of the fee, for example 0.0025 (0.25%)",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "maximum": 1,
               "minimum": 0,
@@ -117,8 +105,6 @@
             "in": "query",
             "description": "if fee > 0 then which token to take fee from input or output",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string",
               "default": "output",
@@ -130,8 +116,6 @@
             "in": "query",
             "description": "the max price impact for route planning. It's better to set it to a reasonable value, for example 1 (100%)",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "maximum": 1,
               "minimum": 0,
@@ -144,8 +128,6 @@
             "in": "query",
             "description": "the max slippage for route execution, for example 0.005 (0.5%)",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "maximum": 1,
               "minimum": 0,
@@ -158,8 +140,6 @@
             "in": "query",
             "description": "a list of DEX names separated by comma. If exists in the request then only pools from these DEXes are used in the response route. List of all supported DEXes can be obtained with /liquidity-provider request",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string"
             }
@@ -169,8 +149,6 @@
             "in": "query",
             "description": "a list of pools addresses separated by comma. If exists in the request then only these pools are used in the response route",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string"
             }
@@ -180,20 +158,6 @@
             "in": "query",
             "description": "vizulaization",
             "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
-          },
-          {
-            "name": "debug",
-            "in": "query",
-            "description": "debug",
-            "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "boolean",
               "default": false
@@ -252,7 +216,7 @@
         }
       }
     },
-    "/swap/v6/{chainId}": {
+    "/swap/v7/{chainId}": {
       "get": {
         "tags": ["swap"],
         "summary": "generates a swap",
@@ -264,8 +228,6 @@
             "in": "path",
             "description": "chainId",
             "required": true,
-            "style": "simple",
-            "explode": false,
             "schema": {
               "type": "number"
             }
@@ -275,8 +237,6 @@
             "in": "query",
             "description": "referrer",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string"
             }
@@ -286,8 +246,6 @@
             "in": "query",
             "description": "input token address",
             "required": true,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string"
             }
@@ -297,8 +255,6 @@
             "in": "query",
             "description": "output token address",
             "required": true,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string"
             }
@@ -308,8 +264,6 @@
             "in": "query",
             "description": "sender of transaction",
             "required": true,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string"
             }
@@ -319,8 +273,6 @@
             "in": "query",
             "description": "recipient of tokens, defaults to sender",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string"
             }
@@ -330,8 +282,6 @@
             "in": "query",
             "description": "input token amount",
             "required": true,
-            "style": "form",
-            "explode": true,
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -343,8 +293,6 @@
             "in": "query",
             "description": "amount of the fee, for example 0.0025 (0.25%)",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "maximum": 1,
               "minimum": 0,
@@ -357,8 +305,6 @@
             "in": "query",
             "description": "if fee > 0 then receiver of the fee",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string"
             }
@@ -368,8 +314,6 @@
             "in": "query",
             "description": "if fee > 0 then which token to take fee from input or output",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string",
               "default": "output",
@@ -381,8 +325,6 @@
             "in": "query",
             "description": "the max price impact for route planning. It's better to set it to a reasonable value, for example 1 (100%)",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "maximum": 1,
               "minimum": 0,
@@ -395,8 +337,6 @@
             "in": "query",
             "description": "the max slippage for route execution, for example 0.005 (0.5%)",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "maximum": 1,
               "minimum": 0,
@@ -409,8 +349,6 @@
             "in": "query",
             "description": "the source of router liquidity",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string",
               "default": "sender",
@@ -422,8 +360,6 @@
             "in": "query",
             "description": "a list of DEX names separated by comma. If exists in the request then only pools from these DEXes are used in the response route. List of all supported DEXes can be obtained with /liquidity-provider request",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string"
             }
@@ -433,8 +369,6 @@
             "in": "query",
             "description": "a list of pools addresses separated by comma. If exists in the request then only these pools are used in the response route",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string"
             }
@@ -444,8 +378,6 @@
             "in": "query",
             "description": "vizulaization",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "boolean",
               "default": false
@@ -456,23 +388,19 @@
             "in": "query",
             "description": "simulate",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "boolean",
               "default": true
             }
           },
           {
-            "name": "facade",
+            "name": "override",
             "in": "query",
-            "description": "facade",
+            "description": "uses state overrides to ensure simulation doesn't fail from sender not having balance and allowance",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "boolean",
-              "default": true
+              "default": false
             }
           },
           {
@@ -480,8 +408,6 @@
             "in": "query",
             "description": "validate sender has balance & allowance of token if simulation fails",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "boolean",
               "default": true
@@ -560,8 +486,6 @@
             "in": "path",
             "description": "chainId",
             "required": true,
-            "style": "simple",
-            "explode": false,
             "schema": {
               "type": "number"
             }
@@ -605,8 +529,6 @@
             "in": "path",
             "description": "chainId",
             "required": true,
-            "style": "simple",
-            "explode": false,
             "schema": {
               "type": "number"
             }
@@ -616,8 +538,6 @@
             "in": "path",
             "description": "token address",
             "required": true,
-            "style": "simple",
-            "explode": false,
             "schema": {
               "type": "string"
             }
@@ -656,8 +576,6 @@
             "in": "path",
             "description": "chainId",
             "required": true,
-            "style": "simple",
-            "explode": false,
             "schema": {
               "type": "number"
             }
@@ -667,8 +585,6 @@
             "in": "path",
             "description": "token address",
             "required": true,
-            "style": "simple",
-            "explode": false,
             "schema": {
               "type": "string"
             }
@@ -704,7 +620,7 @@
         }
       }
     },
-    "/liquidity-providers/v6/{chainId}": {
+    "/liquidity-providers/v7/{chainId}": {
       "get": {
         "tags": ["liquidity-providers"],
         "summary": "Returns all available liquidity providers for the specified chainId",
@@ -716,8 +632,6 @@
             "in": "path",
             "description": "chainId",
             "required": true,
-            "style": "simple",
-            "explode": false,
             "schema": {
               "type": "number"
             }
@@ -769,8 +683,6 @@
         "in": "path",
         "description": "token address",
         "required": true,
-        "style": "simple",
-        "explode": false,
         "schema": {
           "type": "string"
         }
@@ -780,8 +692,6 @@
         "in": "path",
         "description": "chainId",
         "required": true,
-        "style": "simple",
-        "explode": false,
         "schema": {
           "type": "number"
         }
@@ -791,8 +701,6 @@
         "in": "query",
         "description": "referrer",
         "required": false,
-        "style": "form",
-        "explode": true,
         "schema": {
           "type": "string"
         }
@@ -802,8 +710,6 @@
         "in": "query",
         "description": "input token address",
         "required": true,
-        "style": "form",
-        "explode": true,
         "schema": {
           "type": "string"
         }
@@ -813,8 +719,6 @@
         "in": "query",
         "description": "output token address",
         "required": true,
-        "style": "form",
-        "explode": true,
         "schema": {
           "type": "string"
         }
@@ -824,8 +728,6 @@
         "in": "query",
         "description": "sender of transaction",
         "required": true,
-        "style": "form",
-        "explode": true,
         "schema": {
           "type": "string"
         }
@@ -835,8 +737,6 @@
         "in": "query",
         "description": "recipient of tokens, defaults to sender",
         "required": false,
-        "style": "form",
-        "explode": true,
         "schema": {
           "type": "string"
         }
@@ -846,8 +746,6 @@
         "in": "query",
         "description": "input token amount",
         "required": true,
-        "style": "form",
-        "explode": true,
         "schema": {
           "minimum": 1,
           "type": "integer",
@@ -859,8 +757,6 @@
         "in": "query",
         "description": "amount of the fee, for example 0.0025 (0.25%)",
         "required": false,
-        "style": "form",
-        "explode": true,
         "schema": {
           "maximum": 1,
           "minimum": 0,
@@ -873,8 +769,6 @@
         "in": "query",
         "description": "if fee > 0 then which token to take fee from input or output",
         "required": false,
-        "style": "form",
-        "explode": true,
         "schema": {
           "type": "string",
           "default": "output",
@@ -886,8 +780,6 @@
         "in": "query",
         "description": "if fee > 0 then receiver of the fee",
         "required": false,
-        "style": "form",
-        "explode": true,
         "schema": {
           "type": "string"
         }
@@ -897,8 +789,6 @@
         "in": "query",
         "description": "the max price impact for route planning. It's better to set it to a reasonable value, for example 1 (100%)",
         "required": false,
-        "style": "form",
-        "explode": true,
         "schema": {
           "maximum": 1,
           "minimum": 0,
@@ -911,8 +801,6 @@
         "in": "query",
         "description": "the max slippage for route execution, for example 0.005 (0.5%)",
         "required": false,
-        "style": "form",
-        "explode": true,
         "schema": {
           "maximum": 1,
           "minimum": 0,
@@ -925,8 +813,6 @@
         "in": "query",
         "description": "the source of router liquidity",
         "required": false,
-        "style": "form",
-        "explode": true,
         "schema": {
           "type": "string",
           "default": "sender",
@@ -938,8 +824,6 @@
         "in": "query",
         "description": "a list of DEX names separated by comma. If exists in the request then only pools from these DEXes are used in the response route. List of all supported DEXes can be obtained with /liquidity-provider request",
         "required": false,
-        "style": "form",
-        "explode": true,
         "schema": {
           "type": "string"
         }
@@ -949,8 +833,6 @@
         "in": "query",
         "description": "a list of pools addresses separated by comma. If exists in the request then only these pools are used in the response route",
         "required": false,
-        "style": "form",
-        "explode": true,
         "schema": {
           "type": "string"
         }
@@ -960,8 +842,6 @@
         "in": "query",
         "description": "vizulaization",
         "required": false,
-        "style": "form",
-        "explode": true,
         "schema": {
           "type": "boolean",
           "default": false
@@ -972,23 +852,19 @@
         "in": "query",
         "description": "simulate",
         "required": false,
-        "style": "form",
-        "explode": true,
         "schema": {
           "type": "boolean",
           "default": true
         }
       },
-      "facade": {
-        "name": "facade",
+      "override": {
+        "name": "override",
         "in": "query",
-        "description": "facade",
+        "description": "uses state overrides to ensure simulation doesn't fail from sender not having balance and allowance",
         "required": false,
-        "style": "form",
-        "explode": true,
         "schema": {
           "type": "boolean",
-          "default": true
+          "default": false
         }
       },
       "validate": {
@@ -996,8 +872,6 @@
         "in": "query",
         "description": "validate sender has balance & allowance of token if simulation fails",
         "required": false,
-        "style": "form",
-        "explode": true,
         "schema": {
           "type": "boolean",
           "default": true
