@@ -33,7 +33,7 @@ export type QuoteRequest<EnableFee extends boolean> = {
   baseUrl?: string
 }
 
-function quoteResponseSchema() {
+function quoteResponseSchema<Vizualize extends boolean>(vizualize?: Vizualize) {
   const tokenSchema = z.object({
     address: sz.address(),
     decimals: z.number(),
@@ -63,15 +63,46 @@ function quoteResponseSchema() {
   const baseNoWay = z.object({
     status: z.literal(RouteStatus.NoWay),
   })
-  return baseSuccessPartial.or(baseNoWay)
+
+  const baseSchema = baseSuccessPartial.or(baseNoWay)
+
+  const baseVizualizeSchema = baseSchema
+    .and(
+      z.object({
+        liquidityProviders: z.array(z.string()),
+        nodes: z.array(tokenSchema),
+        links: z.array(
+          z.object({
+            source: z.number(),
+            target: z.number(),
+            liquidityProvider: z.number(),
+            amountIn: z.string(),
+            amountOut: z.string(),
+            value: z.number(),
+          }),
+        ),
+      }),
+    )
+    .or(baseNoWay)
+
+  type Schema = Vizualize extends true
+    ? typeof baseVizualizeSchema
+    : typeof baseSchema
+
+  return (vizualize ? baseVizualizeSchema : baseSchema) as Schema
 }
 
-export type QuoteResponse = z.infer<ReturnType<typeof quoteResponseSchema>>
+export type QuoteResponse<Vizualize extends boolean = true> = z.infer<
+  ReturnType<typeof quoteResponseSchema<Vizualize>>
+>
 
-export async function getQuote<EnableFee extends boolean = false>(
+export async function getQuote<
+  Vizualize extends boolean = true,
+  EnableFee extends boolean = false,
+>(
   params: QuoteRequest<EnableFee>,
   options?: RequestInit,
-): Promise<QuoteResponse> {
+): Promise<QuoteResponse<Vizualize>> {
   // TODO: VALIDATE PARAMS
   const url = new URL(
     `quote/v7/${params.chainId}`,
@@ -111,5 +142,5 @@ export async function getQuote<EnableFee extends boolean = false>(
     throw new Error(`Failed to fetch quote: ${await res.text()}`)
   }
 
-  return quoteResponseSchema().parse(await res.json())
+  return quoteResponseSchema(params.vizualize).parse(await res.json())
 }
