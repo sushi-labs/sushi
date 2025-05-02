@@ -3,7 +3,7 @@
   "info": {
     "title": "Sushi API",
     "description": "Documentation for interacting with the Sushi API",
-    "version": "6.0.0"
+    "version": "7.0.0"
   },
   "servers": [
     {
@@ -11,7 +11,7 @@
       "description": "Sushi API"
     },
     {
-      "url": "https://virtserver.swaggerhub.com/sushi-labs/sushi/6.0.0",
+      "url": "https://virtserver.swaggerhub.com/sushi-labs/sushi/7.0.0",
       "description": "SwaggerHub API Auto Mocking"
     }
   ],
@@ -34,9 +34,11 @@
     }
   ],
   "paths": {
-    "/quote/v6/{chainId}": {
+    "/quote/v7/{chainId}": {
       "get": {
-        "tags": ["swap"],
+        "tags": [
+          "swap"
+        ],
         "summary": "generates a quote",
         "description": "By passing in the appropriate options, you can generate a swap quote\n",
         "operationId": "quote",
@@ -46,8 +48,6 @@
             "in": "path",
             "description": "chainId",
             "required": true,
-            "style": "simple",
-            "explode": false,
             "schema": {
               "type": "number"
             }
@@ -57,8 +57,6 @@
             "in": "query",
             "description": "referrer",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string"
             }
@@ -68,8 +66,6 @@
             "in": "query",
             "description": "input token address",
             "required": true,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string"
             }
@@ -79,8 +75,6 @@
             "in": "query",
             "description": "output token address",
             "required": true,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string"
             }
@@ -90,8 +84,6 @@
             "in": "query",
             "description": "input token amount",
             "required": true,
-            "style": "form",
-            "explode": true,
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -103,8 +95,6 @@
             "in": "query",
             "description": "amount of the fee, for example 0.0025 (0.25%)",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "maximum": 1,
               "minimum": 0,
@@ -117,12 +107,13 @@
             "in": "query",
             "description": "if fee > 0 then which token to take fee from input or output",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string",
               "default": "output",
-              "enum": ["input", "output"]
+              "enum": [
+                "input",
+                "output"
+              ]
             }
           },
           {
@@ -130,8 +121,6 @@
             "in": "query",
             "description": "the max price impact for route planning. It's better to set it to a reasonable value, for example 1 (100%)",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "maximum": 1,
               "minimum": 0,
@@ -144,8 +133,6 @@
             "in": "query",
             "description": "the max slippage for route execution, for example 0.005 (0.5%)",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "maximum": 1,
               "minimum": 0,
@@ -158,8 +145,6 @@
             "in": "query",
             "description": "a list of DEX names separated by comma. If exists in the request then only pools from these DEXes are used in the response route. List of all supported DEXes can be obtained with /liquidity-provider request",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string"
             }
@@ -169,8 +154,6 @@
             "in": "query",
             "description": "a list of pools addresses separated by comma. If exists in the request then only these pools are used in the response route",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string"
             }
@@ -180,20 +163,6 @@
             "in": "query",
             "description": "vizulaization",
             "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
-          },
-          {
-            "name": "debug",
-            "in": "query",
-            "description": "debug",
-            "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "boolean",
               "default": false
@@ -211,19 +180,19 @@
                     "status": "Success",
                     "tokens": [
                       {
-                        "address": 1.364068194842176e48,
+                        "address": 1.364068194842176e+48,
                         "symbol": "ETH",
                         "name": "Ether",
                         "decimals": 18
                       },
                       {
-                        "address": 1.0970776880180083e48,
+                        "address": 1.0970776880180083e+48,
                         "symbol": "WETH",
                         "name": "Wrapped Ether",
                         "decimals": 18
                       },
                       {
-                        "address": 6.120569339260443e47,
+                        "address": 6.120569339260443e+47,
                         "symbol": "SUSHI",
                         "name": "SushiToken",
                         "decimals": 18
@@ -252,9 +221,11 @@
         }
       }
     },
-    "/swap/v6/{chainId}": {
+    "/swap/v7/{chainId}": {
       "get": {
-        "tags": ["swap"],
+        "tags": [
+          "swap"
+        ],
         "summary": "generates a swap",
         "description": "By passing in the appropriate options, you can generate a swap transaction\n",
         "operationId": "swap",
@@ -264,8 +235,6 @@
             "in": "path",
             "description": "chainId",
             "required": true,
-            "style": "simple",
-            "explode": false,
             "schema": {
               "type": "number"
             }
@@ -275,8 +244,6 @@
             "in": "query",
             "description": "referrer",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string"
             }
@@ -286,8 +253,6 @@
             "in": "query",
             "description": "input token address",
             "required": true,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string"
             }
@@ -297,8 +262,6 @@
             "in": "query",
             "description": "output token address",
             "required": true,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string"
             }
@@ -308,8 +271,6 @@
             "in": "query",
             "description": "sender of transaction",
             "required": true,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string"
             }
@@ -319,8 +280,6 @@
             "in": "query",
             "description": "recipient of tokens, defaults to sender",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string"
             }
@@ -330,8 +289,6 @@
             "in": "query",
             "description": "input token amount",
             "required": true,
-            "style": "form",
-            "explode": true,
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -343,8 +300,6 @@
             "in": "query",
             "description": "amount of the fee, for example 0.0025 (0.25%)",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "maximum": 1,
               "minimum": 0,
@@ -357,8 +312,6 @@
             "in": "query",
             "description": "if fee > 0 then receiver of the fee",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string"
             }
@@ -368,12 +321,13 @@
             "in": "query",
             "description": "if fee > 0 then which token to take fee from input or output",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string",
               "default": "output",
-              "enum": ["input", "output"]
+              "enum": [
+                "input",
+                "output"
+              ]
             }
           },
           {
@@ -381,8 +335,6 @@
             "in": "query",
             "description": "the max price impact for route planning. It's better to set it to a reasonable value, for example 1 (100%)",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "maximum": 1,
               "minimum": 0,
@@ -395,8 +347,6 @@
             "in": "query",
             "description": "the max slippage for route execution, for example 0.005 (0.5%)",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "maximum": 1,
               "minimum": 0,
@@ -409,12 +359,13 @@
             "in": "query",
             "description": "the source of router liquidity",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string",
               "default": "sender",
-              "enum": ["sender", "self"]
+              "enum": [
+                "sender",
+                "self"
+              ]
             }
           },
           {
@@ -422,8 +373,6 @@
             "in": "query",
             "description": "a list of DEX names separated by comma. If exists in the request then only pools from these DEXes are used in the response route. List of all supported DEXes can be obtained with /liquidity-provider request",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string"
             }
@@ -433,8 +382,6 @@
             "in": "query",
             "description": "a list of pools addresses separated by comma. If exists in the request then only these pools are used in the response route",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "string"
             }
@@ -444,8 +391,6 @@
             "in": "query",
             "description": "vizulaization",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "boolean",
               "default": false
@@ -456,23 +401,19 @@
             "in": "query",
             "description": "simulate",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "boolean",
               "default": true
             }
           },
           {
-            "name": "facade",
+            "name": "override",
             "in": "query",
-            "description": "facade",
+            "description": "uses state overrides to ensure simulation doesn't fail from sender not having balance and allowance",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "boolean",
-              "default": true
+              "default": false
             }
           },
           {
@@ -480,8 +421,6 @@
             "in": "query",
             "description": "validate sender has balance & allowance of token if simulation fails",
             "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "boolean",
               "default": true
@@ -499,19 +438,19 @@
                     "status": "Success",
                     "tokens": [
                       {
-                        "address": 1.364068194842176e48,
+                        "address": 1.364068194842176e+48,
                         "symbol": "ETH",
                         "name": "Ether",
                         "decimals": 18
                       },
                       {
-                        "address": 1.0970776880180083e48,
+                        "address": 1.0970776880180083e+48,
                         "symbol": "WETH",
                         "name": "Wrapped Ether",
                         "decimals": 18
                       },
                       {
-                        "address": 6.120569339260443e47,
+                        "address": 6.120569339260443e+47,
                         "symbol": "SUSHI",
                         "name": "SushiToken",
                         "decimals": 18
@@ -524,8 +463,8 @@
                     "amountIn": "10000000000000000",
                     "assumedAmountOut": "28376709246572527616",
                     "tx": {
-                      "from": 1.2380129724542482e48,
-                      "to": 9.83650862853668e47,
+                      "from": 1.2380129724542482e+48,
+                      "to": 9.83650862853668e+47,
                       "gas": "162561",
                       "gasPrice": 682394289,
                       "data": "0x5f3bd1c8000000000000000000000000eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee000000000000000000000000000000000000000000000000002386f26fc10000000000000000000000000000d8da6bf26964af9d7eed9e03e53415d37aa960450000000000000000000000006b3595068778dd592e39a122f4f5a5cf09c90fe20000000000000000000000000000000000000000000000018969823f2df6281000000000000000000000000085cd07ea01423b1e937929b44e4ad8c40bbb5e7100000000000000000000000000000000000000000000000000000000000000e000000000000000000000000000000000000000000000000000000000000001a4dd9c5f96000000000000000000000000eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee000000000000000000000000000000000000000000000000002386f26fc100000000000000000000000000006b3595068778dd592e39a122f4f5a5cf09c90fe200000000000000000000000000000000000000000000000189ce52b6a87f80000000000000000000000000000000000000000000000000018969823f2df62810000000000000000000000000d8da6bf26964af9d7eed9e03e53415d37aa960450000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000700301ffff0201CE84867c3c02B05dc570d0135103d3fB9CC19433C02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc204C02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc200CE84867c3c02B05dc570d0135103d3fB9CC194330085CD07Ea01423b1E937929B44E4Ad8c40BbB5E71000bb80000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
@@ -550,7 +489,9 @@
     },
     "/price/v1/{chainId}": {
       "get": {
-        "tags": ["price"],
+        "tags": [
+          "price"
+        ],
         "summary": "returns prices for specified chainId",
         "description": "By passing in a chainId, you can get dollar prices for tokens addresses\n",
         "operationId": "prices",
@@ -560,8 +501,6 @@
             "in": "path",
             "description": "chainId",
             "required": true,
-            "style": "simple",
-            "explode": false,
             "schema": {
               "type": "number"
             }
@@ -595,7 +534,9 @@
     },
     "/price/v1/{chainId}/{tokenAddress}": {
       "get": {
-        "tags": ["price"],
+        "tags": [
+          "price"
+        ],
         "summary": "returns price for specified chainId and token",
         "description": "By passing in a chainId and address, you can get a dollar price for specified token address\n",
         "operationId": "price",
@@ -605,8 +546,6 @@
             "in": "path",
             "description": "chainId",
             "required": true,
-            "style": "simple",
-            "explode": false,
             "schema": {
               "type": "number"
             }
@@ -616,8 +555,6 @@
             "in": "path",
             "description": "token address",
             "required": true,
-            "style": "simple",
-            "explode": false,
             "schema": {
               "type": "string"
             }
@@ -646,7 +583,9 @@
     },
     "/token/v1/{chainId}/{tokenAddress}": {
       "get": {
-        "tags": ["token"],
+        "tags": [
+          "token"
+        ],
         "summary": "returns token data for specified chainId and token",
         "description": "By passing in a chainId and address, you can get token data for specified token address\n",
         "operationId": "token",
@@ -656,8 +595,6 @@
             "in": "path",
             "description": "chainId",
             "required": true,
-            "style": "simple",
-            "explode": false,
             "schema": {
               "type": "number"
             }
@@ -667,8 +604,6 @@
             "in": "path",
             "description": "token address",
             "required": true,
-            "style": "simple",
-            "explode": false,
             "schema": {
               "type": "string"
             }
@@ -683,7 +618,7 @@
                   "type": "object",
                   "example": {
                     "chainId": 1,
-                    "address": 6.120569339260443e47,
+                    "address": 6.120569339260443e+47,
                     "decimals": 18,
                     "name": "Sushi Token",
                     "symbol": "SUSHI"
@@ -704,9 +639,11 @@
         }
       }
     },
-    "/liquidity-providers/v6/{chainId}": {
+    "/liquidity-providers/v7/{chainId}": {
       "get": {
-        "tags": ["liquidity-providers"],
+        "tags": [
+          "liquidity-providers"
+        ],
         "summary": "Returns all available liquidity providers for the specified chainId",
         "description": "By passing in a chainId you can get the enabled liquidity providers.\n",
         "operationId": "getLiquidityProviders",
@@ -716,8 +653,6 @@
             "in": "path",
             "description": "chainId",
             "required": true,
-            "style": "simple",
-            "explode": false,
             "schema": {
               "type": "number"
             }
@@ -769,8 +704,6 @@
         "in": "path",
         "description": "token address",
         "required": true,
-        "style": "simple",
-        "explode": false,
         "schema": {
           "type": "string"
         }
@@ -780,8 +713,6 @@
         "in": "path",
         "description": "chainId",
         "required": true,
-        "style": "simple",
-        "explode": false,
         "schema": {
           "type": "number"
         }
@@ -791,8 +722,6 @@
         "in": "query",
         "description": "referrer",
         "required": false,
-        "style": "form",
-        "explode": true,
         "schema": {
           "type": "string"
         }
@@ -802,8 +731,6 @@
         "in": "query",
         "description": "input token address",
         "required": true,
-        "style": "form",
-        "explode": true,
         "schema": {
           "type": "string"
         }
@@ -813,8 +740,6 @@
         "in": "query",
         "description": "output token address",
         "required": true,
-        "style": "form",
-        "explode": true,
         "schema": {
           "type": "string"
         }
@@ -824,8 +749,6 @@
         "in": "query",
         "description": "sender of transaction",
         "required": true,
-        "style": "form",
-        "explode": true,
         "schema": {
           "type": "string"
         }
@@ -835,8 +758,6 @@
         "in": "query",
         "description": "recipient of tokens, defaults to sender",
         "required": false,
-        "style": "form",
-        "explode": true,
         "schema": {
           "type": "string"
         }
@@ -846,8 +767,6 @@
         "in": "query",
         "description": "input token amount",
         "required": true,
-        "style": "form",
-        "explode": true,
         "schema": {
           "minimum": 1,
           "type": "integer",
@@ -859,8 +778,6 @@
         "in": "query",
         "description": "amount of the fee, for example 0.0025 (0.25%)",
         "required": false,
-        "style": "form",
-        "explode": true,
         "schema": {
           "maximum": 1,
           "minimum": 0,
@@ -873,12 +790,13 @@
         "in": "query",
         "description": "if fee > 0 then which token to take fee from input or output",
         "required": false,
-        "style": "form",
-        "explode": true,
         "schema": {
           "type": "string",
           "default": "output",
-          "enum": ["input", "output"]
+          "enum": [
+            "input",
+            "output"
+          ]
         }
       },
       "feeReceiver": {
@@ -886,8 +804,6 @@
         "in": "query",
         "description": "if fee > 0 then receiver of the fee",
         "required": false,
-        "style": "form",
-        "explode": true,
         "schema": {
           "type": "string"
         }
@@ -897,8 +813,6 @@
         "in": "query",
         "description": "the max price impact for route planning. It's better to set it to a reasonable value, for example 1 (100%)",
         "required": false,
-        "style": "form",
-        "explode": true,
         "schema": {
           "maximum": 1,
           "minimum": 0,
@@ -911,8 +825,6 @@
         "in": "query",
         "description": "the max slippage for route execution, for example 0.005 (0.5%)",
         "required": false,
-        "style": "form",
-        "explode": true,
         "schema": {
           "maximum": 1,
           "minimum": 0,
@@ -925,12 +837,13 @@
         "in": "query",
         "description": "the source of router liquidity",
         "required": false,
-        "style": "form",
-        "explode": true,
         "schema": {
           "type": "string",
           "default": "sender",
-          "enum": ["sender", "self"]
+          "enum": [
+            "sender",
+            "self"
+          ]
         }
       },
       "onlyDEX": {
@@ -938,8 +851,6 @@
         "in": "query",
         "description": "a list of DEX names separated by comma. If exists in the request then only pools from these DEXes are used in the response route. List of all supported DEXes can be obtained with /liquidity-provider request",
         "required": false,
-        "style": "form",
-        "explode": true,
         "schema": {
           "type": "string"
         }
@@ -949,8 +860,6 @@
         "in": "query",
         "description": "a list of pools addresses separated by comma. If exists in the request then only these pools are used in the response route",
         "required": false,
-        "style": "form",
-        "explode": true,
         "schema": {
           "type": "string"
         }
@@ -960,8 +869,6 @@
         "in": "query",
         "description": "vizulaization",
         "required": false,
-        "style": "form",
-        "explode": true,
         "schema": {
           "type": "boolean",
           "default": false
@@ -972,23 +879,19 @@
         "in": "query",
         "description": "simulate",
         "required": false,
-        "style": "form",
-        "explode": true,
         "schema": {
           "type": "boolean",
           "default": true
         }
       },
-      "facade": {
-        "name": "facade",
+      "override": {
+        "name": "override",
         "in": "query",
-        "description": "facade",
+        "description": "uses state overrides to ensure simulation doesn't fail from sender not having balance and allowance",
         "required": false,
-        "style": "form",
-        "explode": true,
         "schema": {
           "type": "boolean",
-          "default": true
+          "default": false
         }
       },
       "validate": {
@@ -996,8 +899,6 @@
         "in": "query",
         "description": "validate sender has balance & allowance of token if simulation fails",
         "required": false,
-        "style": "form",
-        "explode": true,
         "schema": {
           "type": "boolean",
           "default": true
