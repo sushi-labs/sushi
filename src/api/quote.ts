@@ -104,7 +104,7 @@ export async function getQuote<EnableFee extends boolean = false>(
   const res = await fetch(url.toString(), options)
 
   if (!res.ok) {
-    throw new Error(`Failed to fetch swap: ${await res.text()}`)
+    throw new Error(`Failed to fetch quote: ${await res.text()}`)
   }
 
   return quoteResponseSchema().parse(await res.json())
