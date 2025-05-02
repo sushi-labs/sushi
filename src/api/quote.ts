@@ -6,30 +6,18 @@ import type { TransferValue } from '../router/transfer-value.js'
 import { sz } from '../validate/zod.js'
 import { version } from '../version.js'
 
-type Fee<Enabled extends boolean> = Enabled extends true
-  ? {
-      enableFee: Enabled
-      fee: bigint
-      feeReceiver: Address
-      feeBy?: TransferValue
-    }
-  : {
-      enableFee?: Enabled
-      fee?: bigint
-      feeReceiver?: Address
-      feeBy?: TransferValue
-    }
-
-export type QuoteRequest<EnableFee extends boolean> = {
+export type QuoteRequest<Vizualize extends boolean = false> = {
   chainId: ExtractorSupportedChainId
   tokenIn: Address
   tokenOut: Address
   amount: bigint
   maxSlippage: number
   maxPriceImpact?: number
-  fee?: Fee<EnableFee>
+  fee?: bigint
+  feeReceiver?: Address
+  feeBy?: TransferValue
   referrer?: string
-  vizualize?: boolean
+  vizualize?: Vizualize
   baseUrl?: string
 }
 
@@ -69,18 +57,20 @@ function quoteResponseSchema<Vizualize extends boolean>(vizualize?: Vizualize) {
   const baseVizualizeSchema = baseSchema
     .and(
       z.object({
-        liquidityProviders: z.array(z.string()),
-        nodes: z.array(tokenSchema),
-        links: z.array(
-          z.object({
-            source: z.number(),
-            target: z.number(),
-            liquidityProvider: z.number(),
-            amountIn: z.string(),
-            amountOut: z.string(),
-            value: z.number(),
-          }),
-        ),
+        vizualization: z.object({
+          liquidityProviders: z.array(z.string()),
+          nodes: z.array(tokenSchema),
+          links: z.array(
+            z.object({
+              source: z.number(),
+              target: z.number(),
+              liquidityProvider: z.number(),
+              amountIn: z.string(),
+              amountOut: z.string(),
+              value: z.number(),
+            }),
+          ),
+        }),
       }),
     )
     .or(baseNoWay)
@@ -92,15 +82,12 @@ function quoteResponseSchema<Vizualize extends boolean>(vizualize?: Vizualize) {
   return (vizualize ? baseVizualizeSchema : baseSchema) as Schema
 }
 
-export type QuoteResponse<Vizualize extends boolean = true> = z.infer<
+export type QuoteResponse<Vizualize extends boolean = false> = z.infer<
   ReturnType<typeof quoteResponseSchema<Vizualize>>
 >
 
-export async function getQuote<
-  Vizualize extends boolean = true,
-  EnableFee extends boolean = false,
->(
-  params: QuoteRequest<EnableFee>,
+export async function getQuote<Vizualize extends boolean = false>(
+  params: QuoteRequest<Vizualize>,
   options?: RequestInit,
 ): Promise<QuoteResponse<Vizualize>> {
   // TODO: VALIDATE PARAMS
@@ -118,11 +105,15 @@ export async function getQuote<
     url.searchParams.append('maxPriceImpact', params.maxPriceImpact.toString())
   }
 
-  if (params.fee?.enableFee) {
-    url.searchParams.append('fee', params.fee.fee.toString())
-    url.searchParams.append('feeReceiver', params.fee.feeReceiver)
-    if (params.fee.feeBy) {
-      url.searchParams.append('feeBy', params.fee.feeBy)
+  if (
+    typeof params.fee === 'bigint' &&
+    params.fee > 0n &&
+    params.feeReceiver !== undefined
+  ) {
+    url.searchParams.append('fee', params.fee.toString())
+    url.searchParams.append('feeReceiver', params.feeReceiver)
+    if (params.feeBy !== undefined) {
+      url.searchParams.append('feeBy', params.feeBy)
     }
   }
 

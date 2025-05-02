@@ -8,7 +8,7 @@ const baseSwapRequest = {
   amount: 1000000000000000000n,
   maxSlippage: 0.005,
   sender: '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045',
-} as const satisfies SwapRequest<false>
+} as const satisfies SwapRequest
 
 describe('getSwap', () => {
   it('should return a swap when recipient is included', async () => {

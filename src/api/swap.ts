@@ -7,21 +7,7 @@ import type { TransferValue } from '../router/transfer-value.js'
 import { sz } from '../validate/zod.js'
 import { version } from '../version.js'
 
-type Fee<Enabled extends boolean> = Enabled extends true
-  ? {
-      enableFee: Enabled
-      fee: bigint
-      feeReceiver: Address
-      feeBy?: TransferValue
-    }
-  : {
-      enableFee?: Enabled
-      fee?: bigint
-      feeReceiver?: Address
-      feeBy?: TransferValue
-    }
-
-export type SwapRequest<EnableFee extends boolean> = {
+export type SwapRequest<Simulate extends boolean = true> = {
   chainId: ExtractorSupportedChainId
   tokenIn: Address
   tokenOut: Address
@@ -30,11 +16,13 @@ export type SwapRequest<EnableFee extends boolean> = {
   maxSlippage: number
   maxPriceImpact?: number
   source?: RouterLiquiditySource
-  fee?: Fee<EnableFee>
+  fee?: bigint
+  feeReceiver?: Address
+  feeBy?: TransferValue
   referrer?: string
   baseUrl?: string
   recipient?: Address
-  simulate?: boolean
+  simulate?: Simulate
   override?: boolean
   facade?: boolean
   validate?: boolean
@@ -98,11 +86,8 @@ export type SwapResponse<Simulate extends boolean = true> = z.infer<
   ReturnType<typeof swapResponseSchema<Simulate>>
 >
 
-export async function getSwap<
-  Simulate extends boolean = true,
-  EnableFee extends boolean = false,
->(
-  params: SwapRequest<EnableFee>,
+export async function getSwap<Simulate extends boolean = true>(
+  params: SwapRequest<Simulate>,
   options?: RequestInit,
 ): Promise<SwapResponse<Simulate>> {
   // TODO: VALIDATE PARAMS
@@ -129,11 +114,15 @@ export async function getSwap<
     url.searchParams.append('recipient', params.recipient)
   }
 
-  if (params.fee?.enableFee) {
-    url.searchParams.append('fee', params.fee.fee.toString())
-    url.searchParams.append('feeReceiver', params.fee.feeReceiver)
-    if (params.fee.feeBy) {
-      url.searchParams.append('feeBy', params.fee.feeBy)
+  if (
+    typeof params.fee === 'bigint' &&
+    params.fee > 0n &&
+    params.feeReceiver !== undefined
+  ) {
+    url.searchParams.append('fee', params.fee.toString())
+    url.searchParams.append('feeReceiver', params.feeReceiver)
+    if (params.feeBy !== undefined) {
+      url.searchParams.append('feeBy', params.feeBy)
     }
   }
 
