@@ -29,8 +29,8 @@ searchParams.set('amount', amount.toString())
 searchParams.set('maxSlippage', maxSlippage.toString())
 
 // Make call to API
-console.log(SWAP_API_URL.toString())
-const res = await fetch(SWAP_API_URL.toString())
+console.log(QUOTE_API_URL.toString())
+const res = await fetch(QUOTE_API_URL.toString())
 const data = await res.json() as QuoteResponse
 console.log(data)
 ```
