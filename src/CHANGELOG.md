@@ -1,5 +1,11 @@
 # sushi
 
+## 5.1.3
+
+### Patch Changes
+
+- [#180](https://github.com/sushi-labs/sushi/pull/180) [`dc2f2d7`](https://github.com/sushi-labs/sushi/commit/dc2f2d715e7850bc08ead9e6acd431f0070c4ecc) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Update Boba V3 subgraph
+
 ## 5.1.2
 
 ### Patch Changes
