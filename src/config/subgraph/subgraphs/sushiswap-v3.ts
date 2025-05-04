@@ -14,7 +14,7 @@ const SUSHISWAP_V3_DECENTRALIZED_DEPLOYMENT_IDS = {
   [EvmChainId.ARBITRUM]: `QmecewJ7QhNTKycFQjySoim7eDrZ53MaR754GbEPqqMGHy`,
   [EvmChainId.AVALANCHE]: `QmUyC7YYpRkh5M2S7BP2gM8t8wkm7NYNAKrspW4r6uimjM`,
   [EvmChainId.BSC]: `QmWQcbEg7J9gWBWfuqnknj5pdYZTp4U31JxQrmjWNEmpTM`,
-  [EvmChainId.BOBA]: `QmVbYM6wz7XnH32QzQLNBwyzx7r1HNsFP6jfUi22NRvvJu`,
+  [EvmChainId.BOBA]: `QmWfj8AfwsnrsRzpHaGRu6awXapn1FZpKoCUQ7J6QQwMeR`,
   [EvmChainId.ETHEREUM]: `QmP1FMFsU4wNcui1eezwuvBjxrbLPucKrKZ9Kftn34nULw`,
   [EvmChainId.FANTOM]: `QmdqDrZZKzASkiY1UpCUXSYdzVrJ5ru1JrqxMHGd5Ag2yS`,
   [EvmChainId.GNOSIS]: `Qmadb2zb5P2avAy7zs454bLoEycfA6qzk61LwmDVJExUWg`,
