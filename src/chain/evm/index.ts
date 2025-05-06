@@ -29,11 +29,13 @@ import {
   mode as _mode,
   moonbeam as _moonbeam,
   moonriver as _moonriver,
+  okc as _okex,
   optimism as _optimism,
   polygon as _polygon,
   polygonZkEvm as _polygonZkevm,
   rootstock as _rootstock,
   scroll as _scroll,
+  sepolia as _sepolia,
   skaleEuropa as _skaleEuropa,
   sonic as _sonic,
   taiko as _taiko,
@@ -48,7 +50,6 @@ import { EvmChainId } from './id.js'
 
 export * from './id.js'
 export * from './key.js'
-export * from './native.js'
 
 const _bobaBnb = defineViemChain({
   id: EvmChainId.BOBA_BNB,
@@ -73,6 +74,69 @@ const _bobaBnb = defineViemChain({
     multicall3: {
       address: '0x67dA5f2FfaDDfF067AB9d5F025F8810634d84287',
       blockCreated: 18871,
+    },
+  },
+})
+
+const _bobaAvax = defineViemChain({
+  id: EvmChainId.BOBA_AVAX,
+  name: 'Boba Avax',
+  network: 'boba-avax',
+  nativeCurrency: { name: 'Boba', symbol: 'BOBA', decimals: 18 },
+  rpcUrls: {
+    default: {
+      http: ['https://avax.boba.network'],
+    },
+    public: {
+      http: ['https://avax.boba.network'],
+    },
+  },
+  blockExplorers: {
+    default: {
+      name: 'Boba Avax Mainnet Explorer',
+      url: 'https://avax.bobascan.com/',
+    },
+  },
+})
+
+const _heco = defineViemChain({
+  id: EvmChainId.HECO,
+  name: 'Heco',
+  network: 'heco',
+  nativeCurrency: { name: 'Huobi Token', symbol: 'HT', decimals: 18 },
+  rpcUrls: {
+    default: {
+      http: ['https://http-mainnet.hecochain.com'],
+    },
+    public: {
+      http: ['https://http-mainnet.hecochain.com'],
+    },
+  },
+  blockExplorers: {
+    default: {
+      name: 'Heco Mainnet Explorer',
+      url: 'https://hecoinfo.com/',
+    },
+  },
+})
+
+const _palm = defineViemChain({
+  id: EvmChainId.PALM,
+  name: 'Palm',
+  network: 'palm',
+  nativeCurrency: { name: 'Palm', symbol: 'PALM', decimals: 18 },
+  rpcUrls: {
+    default: {
+      http: ['https://rpc.palm.io'],
+    },
+    public: {
+      http: ['https://rpc.palm.io'],
+    },
+  },
+  blockExplorers: {
+    default: {
+      name: 'Palm Mainnet Explorer',
+      url: 'https://explorer.palm.io/',
     },
   },
 })
@@ -157,7 +221,7 @@ const moonriver = defineChain({
 const fuse = defineChain({
   ..._fuse,
   type: 'evm',
-  id: EvmChainId.MOONBEAM,
+  id: EvmChainId.FUSE,
   name: 'Moonbeam',
 })
 
@@ -378,6 +442,41 @@ const hemi = defineChain({
   name: 'Hemi',
 })
 
+const sepolia = defineChain({
+  ..._sepolia,
+  type: 'evm',
+  id: EvmChainId.SEPOLIA,
+  name: 'Sepolia',
+})
+
+const bobaAvax = defineChain({
+  ..._bobaAvax,
+  type: 'evm',
+  id: EvmChainId.BOBA_AVAX,
+  name: 'Boba AVAX',
+})
+
+const heco = defineChain({
+  ..._heco,
+  type: 'evm',
+  id: EvmChainId.HECO,
+  name: 'HECO',
+})
+
+const palm = defineChain({
+  ..._palm,
+  type: 'evm',
+  id: EvmChainId.PALM,
+  name: 'Palm',
+})
+
+const okex = defineChain({
+  ..._okex,
+  type: 'evm',
+  id: EvmChainId.OKEX,
+  name: 'OKEX',
+})
+
 const chains = [
   ethereum,
   polygon,
@@ -422,7 +521,16 @@ const chains = [
   ape,
   sonic,
   hemi,
+  sepolia,
+  bobaAvax,
+  heco,
+  palm,
+  okex,
 ]
+
+export const evmNatives = Object.fromEntries(
+  chains.map((chain) => [chain.id, chain.nativeCurrency]),
+)
 
 export const evmChains = Object.fromEntries(
   chains.map((chain) => [chain.id, chain]),
