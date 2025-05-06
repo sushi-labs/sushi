@@ -13,12 +13,10 @@ const tron = defineChain({
   },
 })
 
-const chains = [
-  tron
-]
+const chains = [tron]
 
 export const tronChains = Object.fromEntries(
   chains.map((chain) => [chain.id, chain]),
-) as Record<TvmChainId, typeof chains[number]>
+) as Record<TvmChainId, (typeof chains)[number]>
 
 export default tronChains

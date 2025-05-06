@@ -9,16 +9,14 @@ const aptos = defineChain({
   id: MvmChainId.APTOS,
   name: 'Aptos',
   blockExplorers: {
-    default: { name: 'Aptos Explorer', url: 'https://explorer.aptoslabs.com' }
-  }
+    default: { name: 'Aptos Explorer', url: 'https://explorer.aptoslabs.com' },
+  },
 })
 
-const chains = [
-  aptos
-] as const
+const chains = [aptos] as const
 
 export const mvmChains = Object.fromEntries(
   chains.map((chain) => [chain.id, chain]),
-) as Record<MvmChainId, typeof chains[number]>
+) as Record<MvmChainId, (typeof chains)[number]>
 
 export default mvmChains

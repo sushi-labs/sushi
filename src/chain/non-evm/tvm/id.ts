@@ -1,5 +1,5 @@
 export const TvmChainId = {
-  TRON: "tron:728126428",
+  TRON: 'tron:728126428',
 } as const
 
 export type TvmChainId = (typeof TvmChainId)[keyof typeof TvmChainId]

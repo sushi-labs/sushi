@@ -1,13 +1,13 @@
+import type { Chain } from 'viem'
 import type { EvmChainId } from './evm/id.js'
 import type { MvmChainId, TvmChainId } from './non-evm/index.js'
-import type { Chain } from 'viem'
 
 interface EvmChainInput extends Chain {
   type: 'evm'
   id: EvmChainId
   name: string
   blockExplorers: {
-      default: { name: string; url: string }
+    default: { name: string; url: string }
   }
 }
 
@@ -16,12 +16,12 @@ interface TvmChainInput {
   id: TvmChainId
   name: string
   blockExplorers: {
-      default: { name: string; url: string }
+    default: { name: string; url: string }
   }
 }
 
 interface MvmChainInput {
-  type: 'mvm',
+  type: 'mvm'
   id: MvmChainId
   name: string
   blockExplorers: {
@@ -52,31 +52,43 @@ export type MvmChainResult<T extends MvmChainInput> = Readonly<
   }
 >
 
-export function defineChain<T extends EvmChainInput>(chain: T): EvmChainResult<T>
-export function defineChain<T extends TvmChainInput>(chain: T): TvmChainResult<T>
-export function defineChain<T extends MvmChainInput>(chain: T): MvmChainResult<T>
+export function defineChain<T extends EvmChainInput>(
+  chain: T,
+): EvmChainResult<T>
+export function defineChain<T extends TvmChainInput>(
+  chain: T,
+): TvmChainResult<T>
+export function defineChain<T extends MvmChainInput>(
+  chain: T,
+): MvmChainResult<T>
 
-export function defineChain<T extends CreateChainInput>(chain: T)  {
+export function defineChain<T extends CreateChainInput>(chain: T) {
   if (chain.type === 'evm') {
     return {
       ...chain,
-      getTransactionUrl: (input: `0x${string}`) => `${chain.blockExplorers.default.url}/tx/${input}`,
-      getAccountUrl: (input: `0x${string}`) => `${chain.blockExplorers.default.url}/address/${input}`,
+      getTransactionUrl: (input: `0x${string}`) =>
+        `${chain.blockExplorers.default.url}/tx/${input}`,
+      getAccountUrl: (input: `0x${string}`) =>
+        `${chain.blockExplorers.default.url}/address/${input}`,
     } as const
   } else if (chain.type === 'tvm') {
     return {
       ...chain,
-      getTransactionUrl: (input: string) => `${chain.blockExplorers.default.url}/transaction/${input}`,
-      getAccountUrl: (input: string) => `${chain.blockExplorers.default.url}/address/${input}`,
+      getTransactionUrl: (input: string) =>
+        `${chain.blockExplorers.default.url}/transaction/${input}`,
+      getAccountUrl: (input: string) =>
+        `${chain.blockExplorers.default.url}/address/${input}`,
     } as const
   } else if (chain.type === 'mvm') {
     return {
       ...chain,
-      getTransactionUrl: (input: string) => `${chain.blockExplorers.default.url}/txn/${input}`,
-      getAccountUrl: (input: string) => `${chain.blockExplorers.default.url}/account/${input}`,
+      getTransactionUrl: (input: string) =>
+        `${chain.blockExplorers.default.url}/txn/${input}`,
+      getAccountUrl: (input: string) =>
+        `${chain.blockExplorers.default.url}/account/${input}`,
     } as const
   } else {
-      throw new Error('Unsupported chain type')
+    throw new Error('Unsupported chain type')
   }
 }
 
