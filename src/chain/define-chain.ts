@@ -2,7 +2,7 @@ import type { Chain } from 'viem'
 import type { EvmChainId } from './evm/id.js'
 import type { MvmChainId, TvmChainId } from './non-evm/index.js'
 
-interface EvmChainInput extends Chain {
+export interface EvmChainInput extends Chain {
   type: 'evm'
   id: EvmChainId
   name: string
@@ -11,7 +11,7 @@ interface EvmChainInput extends Chain {
   }
 }
 
-interface TvmChainInput {
+export interface TvmChainInput {
   type: 'tvm'
   id: TvmChainId
   name: string
@@ -20,7 +20,7 @@ interface TvmChainInput {
   }
 }
 
-interface MvmChainInput {
+export interface MvmChainInput {
   type: 'mvm'
   id: MvmChainId
   name: string
@@ -31,21 +31,21 @@ interface MvmChainInput {
 
 type CreateChainInput = EvmChainInput | TvmChainInput | MvmChainInput
 
-export type EvmChainResult<T extends EvmChainInput> = Readonly<
+export type EvmChainResult<T extends EvmChainInput = EvmChainInput> = Readonly<
   T & {
     getTransactionUrl: (input: `0x${string}`) => string
     getAccountUrl: (input: `0x${string}`) => string
   }
 >
 
-export type TvmChainResult<T extends TvmChainInput> = Readonly<
+export type TvmChainResult<T extends TvmChainInput = TvmChainInput> = Readonly<
   T & {
     getTransactionUrl: (input: string) => string
     getAccountUrl: (input: `T${string}`) => string
   }
 >
 
-export type MvmChainResult<T extends MvmChainInput> = Readonly<
+export type MvmChainResult<T extends MvmChainInput = MvmChainInput> = Readonly<
   T & {
     getTransactionUrl: (input: string) => string
     getAccountUrl: (input: string) => string
@@ -91,8 +91,3 @@ export function defineChain<T extends CreateChainInput>(chain: T) {
     throw new Error('Unsupported chain type')
   }
 }
-
-export type ChainResult =
-  | EvmChainResult<EvmChainInput>
-  | TvmChainResult<TvmChainInput>
-  | MvmChainResult<MvmChainInput>

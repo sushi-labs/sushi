@@ -1,4 +1,4 @@
-import { EvmChainId, evmNatives } from '../../chain/evm/index.js'
+import { EvmChainId, EvmNativeCurrencies } from '../../chain/evm/index.js'
 import {
   APE_USD,
   ARB,
@@ -17,7 +17,7 @@ import {
 
 export const defaultCurrency = {
   ...(Object.fromEntries(
-    Object.keys(evmNatives).map((key) => [
+    Object.keys(EvmNativeCurrencies).map((key) => [
       key,
       Native.onChain(Number(key) as EvmChainId),
     ]),

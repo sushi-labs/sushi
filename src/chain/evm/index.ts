@@ -45,7 +45,7 @@ import {
   zkLinkNova as _zklink,
   zksync as _zksync,
 } from 'viem/chains'
-import { defineChain } from '../define-chain.js'
+import { type EvmChainResult, defineChain } from '../define-chain.js'
 import { EvmChainId } from './id.js'
 
 export * from './id.js'
@@ -477,7 +477,7 @@ const okex = defineChain({
   name: 'OKEX',
 })
 
-const chains = [
+const chains: EvmChainResult[] = [
   ethereum,
   polygon,
   fantom,
@@ -528,12 +528,10 @@ const chains = [
   okex,
 ]
 
-export const evmNatives = Object.fromEntries(
+export const EvmNativeCurrencies = Object.fromEntries(
   chains.map((chain) => [chain.id, chain.nativeCurrency]),
-)
+) as Record<EvmChainId, (typeof chains)[number]['nativeCurrency']>
 
-export const evmChains = Object.fromEntries(
+export const EvmChain = Object.fromEntries(
   chains.map((chain) => [chain.id, chain]),
-) as Record<EvmChainId, (typeof chains)[number]>
-
-export default evmChains
+) as Record<EvmChainId, EvmChainResult>

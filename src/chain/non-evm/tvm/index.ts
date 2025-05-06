@@ -1,4 +1,4 @@
-import { defineChain } from '../../define-chain.js'
+import { type TvmChainResult, defineChain } from '../../define-chain.js'
 import { TvmChainId } from './id.js'
 
 export * from './id.js'
@@ -15,8 +15,6 @@ const tron = defineChain({
 
 const chains = [tron]
 
-export const tronChains = Object.fromEntries(
+export const TvmChain = Object.fromEntries(
   chains.map((chain) => [chain.id, chain]),
-) as Record<TvmChainId, (typeof chains)[number]>
-
-export default tronChains
+) as Record<TvmChainId, TvmChainResult>

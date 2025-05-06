@@ -1,4 +1,4 @@
-import { defineChain } from '../../define-chain.js'
+import { type MvmChainResult, defineChain } from '../../define-chain.js'
 import { MvmChainId } from './id.js'
 
 export * from './id.js'
@@ -13,10 +13,8 @@ const aptos = defineChain({
   },
 })
 
-const chains = [aptos] as const
+const chains = [aptos]
 
-export const mvmChains = Object.fromEntries(
+export const MvmChain = Object.fromEntries(
   chains.map((chain) => [chain.id, chain]),
-) as Record<MvmChainId, (typeof chains)[number]>
-
-export default mvmChains
+) as Record<MvmChainId, MvmChainResult>
