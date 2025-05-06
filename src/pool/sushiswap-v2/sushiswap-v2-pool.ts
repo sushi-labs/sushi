@@ -1,5 +1,5 @@
 import invariant from 'tiny-invariant'
-import { evmChainName } from '../../chain/evm/index.js'
+import { Chain } from '../../chain/index.js'
 import {
   SUSHISWAP_V2_FACTORY_ADDRESS,
   isSushiSwapV2ChainId,
@@ -31,7 +31,7 @@ export class SushiSwapV2Pool {
     if (!isSushiSwapV2ChainId(tokenA.chainId)) {
       throw new Error(
         `ChainId Error: SushiSwapV2 is not available on ${
-          evmChainName[tokenA.chainId]
+          Chain[tokenA.chainId].name
         }`,
       )
     }

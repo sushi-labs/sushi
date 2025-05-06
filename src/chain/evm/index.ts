@@ -1,381 +1,431 @@
-import raw from './generated-chain-data.js'
+import { defineChain } from '../define-chain.js'
 import { EvmChainId } from './id.js'
+import { defineChain as defineViemChain } from 'viem'
+import {
+  mainnet as _ethereum,
+  polygon as _polygon,
+  fantom as _fantom,
+  gnosis as _gnosis,
+  bsc as _bsc,
+  arbitrum as _arbitrum,
+  arbitrumNova as _arbitrumNova,
+  avalanche as _avalanche,
+  harmonyOne as _harmony,
+  celo as _celo,
+  moonriver as _moonriver,
+  fuse as _fuse,
+  telos as _telos,
+  moonbeam as _moonbeam,
+  optimism as _optimism,
+  kava as _kava,
+  metis as _metis,
+  boba as _boba,
+  bitTorrent as _bttc,
+  thunderCore as _thundercore,
+  polygonZkEvm as _polygonZkevm,
+  filecoin as _filecoin,
+  haqqMainnet as _haqq,
+  coreDao as _core,
+  zksync as _zksync,
+  linea as _linea,
+  base as _base,
+  scroll as _scroll,
+  zetachain as _zetachain,
+  cronos as _cronos,
+  blast as _blast,
+  skaleEuropa as _skaleEuropa,
+  rootstock as _rootstock,
+  mantle as _mantle,
+  curtis as _curtis,
+  manta as _manta,
+  mode as _mode,
+  taiko as _taiko,
+  zkLinkNova as _zklink,
+  apeChain as _ape,
+  sonic as _sonic,
+  hemi as _hemi
+} from 'viem/chains'
 
 export * from './id.js'
+export * from './key.js'
+export * from './native.js'
 
-const additional = [] as const
-
-const RAW = [...raw, ...additional] as const
-
-const EIP3091_OVERRIDE = [
-  EvmChainId.OPTIMISM,
-  EvmChainId.BOBA,
-  EvmChainId.BASE,
-  EvmChainId.FILECOIN,
-] as number[]
-
-type Data = (typeof RAW)[number]
-
-export interface EvmChainBase {
-  name: string
-  nativeCurrency: NativeCurrency
-  shortName: string
-  chainId: number
-  explorers?: Explorer[]
-  parent?: Parent
-}
-
-interface Explorer {
-  name: string
-  url: string
-  standard: Standard
-  icon?: string
-}
-
-const Standard = {
-  Eip3091: 'EIP3091',
-  None: 'none',
-} as const
-
-type Standard = (typeof Standard)[keyof typeof Standard]
-
-interface NativeCurrency {
-  name: string
-  symbol: string
-  decimals: number
-}
-
-interface Parent {
-  type: Type
-  chain: string
-  bridges?: Bridge[]
-}
-
-interface Bridge {
-  url: string
-}
-
-const Type = {
-  L2: 'L2',
-  Shard: 'shard',
-} as const
-type Type = (typeof Type)[keyof typeof Type]
-
-export class EvmChain implements EvmChainBase {
-  public static fromRaw(data: Data) {
-    return new EvmChain(data)
+const _bobaBnb = defineViemChain({
+  id: EvmChainId.BOBA_BNB,
+  name: 'Boba BNB',
+  network: 'boba-bnb',
+  nativeCurrency: { name: 'Boba', symbol: 'BOBA', decimals: 18 },
+  rpcUrls: {
+    default: {
+      http: ['https://bnb.boba.network'],
+    },
+    public: {
+      http: ['https://bnb.boba.network'],
+    },
+  },
+  blockExplorers: {
+    default: {
+      name: 'Boba BNB Mainnet Explorer',
+      url: 'https://bnb.bobascan.com/',
+    },
+  },
+  contracts: {
+    multicall3: {
+      address: '0x67dA5f2FfaDDfF067AB9d5F025F8810634d84287',
+      blockCreated: 18871,
+    },
   }
-  public static from(chainId: number) {
-    return evmChains[chainId]
-  }
-  public static fromShortName(shortName: string) {
-    const chainId = evmChainShortNameToChainId[shortName]
-    if (!chainId) throw new Error(`Unknown chain short name: ${shortName}`)
-    return EvmChain.from(chainId)
-  }
-  public static fromChainId(chainId: number) {
-    return EvmChain.from(chainId)
-  }
-  public static txUrl(chainId: number, txHash: string): string {
-    return EvmChain.fromChainId(chainId)?.getTxUrl(txHash) ?? ''
-  }
-  public static blockUrl(chainId: number, blockHashOrHeight: string): string {
-    return EvmChain.fromChainId(chainId)?.getBlockUrl(blockHashOrHeight) ?? ''
-  }
-  public static tokenUrl(chainId: number, tokenAddress: string): string {
-    return EvmChain.fromChainId(chainId)?.getTokenUrl(tokenAddress) ?? ''
-  }
-  public static accountUrl(chainId: number, accountAddress: string): string {
-    return EvmChain.fromChainId(chainId)?.getAccountUrl(accountAddress) ?? ''
-  }
+})
 
-  declare chainId: EvmChainBase['chainId']
-  declare name: EvmChainBase['name']
-  declare nativeCurrency: EvmChainBase['nativeCurrency']
-  declare shortName: EvmChainBase['shortName']
-  explorers: NonNullable<EvmChainBase['explorers']> = []
+const ethereum = defineChain({
+  ..._ethereum,
+  type: 'evm',
+  id: EvmChainId.ETHEREUM,
+  name: 'Ethereum',
+})
 
-  constructor(data: Data) {
-    Object.assign(this, data)
+const polygon = defineChain({
+  ..._polygon,
+  type: 'evm',
+  id: EvmChainId.POLYGON,
+  name: 'Polygon'
+})
 
-    // process name overrides
-    const targets = ['Mainnet', 'Opera', 'Mainnet Shard 0']
-    for (const target of targets) {
-      if (data.name.includes(target)) {
-        this.name = data.name.replace(target, '').trim()
-      }
-    }
+const fantom = defineChain({
+  ..._fantom,
+  type: 'evm',
+  id: EvmChainId.FANTOM,
+  name: 'Fantom'
+})
 
-    if (data.name === 'Boba Network') {
-      this.name = 'Boba Eth'
-    }
+const gnosis = defineChain({
+  ..._gnosis,
+  type: 'evm',
+  id: EvmChainId.GNOSIS,
+  name: 'Gnosis'
+})
 
-    // process explorer overrides etc...
-    if (data.chainId === EvmChainId.SCROLL) {
-      this.explorers?.sort((explorer) =>
-        explorer.name === 'Scrollscan' ? -1 : 1,
-      )
-    } else if (data.chainId === EvmChainId.ARBITRUM_NOVA) {
-      this.explorers = [
-        {
-          name: 'Arbitrum Nova Explorer',
-          url: 'https://nova.arbiscan.io',
-          standard: 'EIP3091',
-        },
-        ...(this.explorers ?? []),
-      ]
-    } else if (data.chainId === EvmChainId.FILECOIN) {
-      this.name = 'Filecoin'
-      this.explorers?.sort((explorer) => (explorer.name === 'Filfox' ? -1 : 1))
-    } else if (data.chainId === EvmChainId.ZETACHAIN) {
-      this.name = 'ZetaChain'
-      this.explorers = [
-        {
-          name: 'ZetaChain Mainnet Explorer',
-          url: 'https://zetachain.blockscout.com',
-          standard: 'EIP3091',
-        },
-      ]
-    } else if (data.chainId === EvmChainId.BLAST) {
-      this.explorers = [
-        {
-          name: 'Blast Explorer',
-          url: 'https://blastscan.io',
-          standard: 'EIP3091',
-        },
-      ]
-    } else if (data.chainId === EvmChainId.SKALE_EUROPA) {
-      this.name = 'SKALE Europa'
-    } else if (data.chainId === EvmChainId.ROOTSTOCK) {
-      this.explorers?.sort((explorer) =>
-        explorer.name === 'blockscout' ? -1 : 1,
-      )
-    } else if (data.chainId === EvmChainId.MOONBEAM) {
-      this.explorers = [
-        {
-          name: 'Moonscan',
-          url: 'https://moonscan.io',
-          standard: 'EIP3091',
-        },
-      ]
-    } else if (data.chainId === EvmChainId.HEMI) {
-      this.name = 'Hemi'
-    } else if (data.chainId === EvmChainId.THUNDERCORE) {
-      this.explorers = [
-        {
-          name: 'ThunderCore Mainnet Explorer',
-          url: 'https://explorer-mainnet.thundercore.com',
-          standard: 'EIP3091',
-        },
-      ]
-    }
-  }
-  getTxUrl(txHash: string): string {
-    if (!this.explorers) return ''
-    for (const explorer of this.explorers) {
-      if (
-        explorer.standard === Standard.Eip3091 ||
-        EIP3091_OVERRIDE.includes(this.chainId)
-      ) {
-        return `${explorer.url}/tx/${txHash}`
-      }
-    }
-    return ''
-  }
-  getBlockUrl(blockHashOrHeight: string): string {
-    if (!this.explorers) return ''
-    for (const explorer of this.explorers) {
-      if (explorer.standard === Standard.Eip3091) {
-        return `${explorer.url}/block/${blockHashOrHeight}`
-      }
-    }
-    return ''
-  }
-  getTokenUrl(tokenAddress: string): string {
-    if (!this.explorers) return ''
-    for (const explorer of this.explorers) {
-      if (
-        explorer.standard === Standard.Eip3091 ||
-        EIP3091_OVERRIDE.includes(this.chainId)
-      ) {
-        return `${explorer.url}/token/${tokenAddress}`
-      }
-    }
-    return ''
-  }
-  getAccountUrl(accountAddress: string): string {
-    if (!this.explorers) return ''
-    for (const explorer of this.explorers) {
-      if (
-        explorer.standard === Standard.Eip3091 ||
-        EIP3091_OVERRIDE.includes(this.chainId)
-      ) {
-        return `${explorer.url}/address/${accountAddress}`
-      }
-    }
-    return ''
-  }
-}
+const bsc = defineChain({
+  ..._bsc,
+  type: 'evm',
+  id: EvmChainId.BSC,
+  name: 'BNB Smart Chain'
+})
 
-export const evmNatives = Object.fromEntries(
-  RAW.map((data): [EvmChainId, NativeCurrency] => [
-    data.chainId,
-    data.nativeCurrency,
-  ]),
-)
+const arbitrum = defineChain({
+  ..._arbitrum,
+  type: 'evm',
+  id: EvmChainId.ARBITRUM,
+  name: 'Arbitrum One'
+})
 
-// Chain Id => Chain mapping
+const arbitrumNova = defineChain({
+  ..._arbitrumNova,
+  type: 'evm',
+  id: EvmChainId.ARBITRUM_NOVA,
+  name: 'Arbitrum Nova'
+})
+
+const avalanche = defineChain({
+  ..._avalanche,
+  type: 'evm',
+  id: EvmChainId.AVALANCHE,
+  name: 'Avalanche C-Chain'
+})
+
+const harmony = defineChain({
+  ..._harmony,
+  type: 'evm',
+  id: EvmChainId.HARMONY,
+  name: 'Harmony'
+})
+
+const celo = defineChain({
+  ..._celo,
+  type: 'evm',
+  id: EvmChainId.CELO,
+  name: 'CELO'
+})
+
+const moonriver = defineChain({
+  ..._moonriver,
+  type: 'evm',
+  id: EvmChainId.MOONRIVER,
+  name: 'Moonriver'
+})
+
+const fuse = defineChain({
+  ..._fuse,
+  type: 'evm',
+  id: EvmChainId.MOONBEAM,
+  name: 'Moonbeam'
+})
+
+const telos = defineChain({
+  ..._telos,
+  type: 'evm',
+  id: EvmChainId.TELOS,
+  name: 'Telos'
+})
+
+const moonbeam = defineChain({
+  ..._moonbeam,
+  type: 'evm',
+  id: EvmChainId.MOONBEAM,
+  name: 'Moonbeam'
+})
+
+const optimism = defineChain({
+  ..._optimism,
+  type: 'evm',
+  id: EvmChainId.OPTIMISM,
+  name: 'OP'
+})
+
+const kava = defineChain({
+  ..._kava,
+  type: 'evm',
+  id: EvmChainId.KAVA,
+  name: 'Kava'
+})
+
+const metis = defineChain({
+  ..._metis,
+  type: 'evm',
+  id: EvmChainId.METIS,
+  name: 'Metis'
+})
+
+const boba = defineChain({
+  ..._boba,
+  type: 'evm',
+  id: EvmChainId.BOBA,
+  name: 'Boba'
+})
+
+const bobaBnb = defineChain({
+  ..._bobaBnb,
+  type: 'evm',
+  id: EvmChainId.BOBA_BNB,
+  name: 'Boba BNB'
+})
+
+const bttc = defineChain({
+  ..._bttc,
+  type: 'evm',
+  id: EvmChainId.BTTC,
+  name: 'BitTorrent Chain'
+})
+
+const polygonZkevm = defineChain({
+  ..._polygonZkevm,
+  type: 'evm',
+  id: EvmChainId.POLYGON_ZKEVM,
+  name: 'Polygon zkEVM'
+})
+
+const thundercore = defineChain({
+  ..._thundercore,
+  type: 'evm',
+  id: EvmChainId.THUNDERCORE,
+  name: 'ThunderCore'
+})
+
+const filecoin = defineChain({
+  ..._filecoin,
+  type: 'evm',
+  id: EvmChainId.FILECOIN,
+  name: 'Filecoin'
+})
+
+const haqq = defineChain({
+  ..._haqq,
+  type: 'evm',
+  id: EvmChainId.HAQQ,
+  name: 'Haqq'
+})
+
+const core = defineChain({
+  ..._core,
+  type: 'evm',
+  id: EvmChainId.CORE,
+  name: 'Core'
+})
+
+const zksync = defineChain({
+  ..._zksync,
+  type: 'evm',
+  id: EvmChainId.ZKSYNC_ERA,
+  name: 'zkSync'
+})
+
+const linea = defineChain({
+  ..._linea,
+  type: 'evm',
+  id: EvmChainId.LINEA,
+  name: 'Liena'
+})
+
+const base = defineChain({
+  ..._base,
+  type: 'evm',
+  id: EvmChainId.BASE,
+  name: 'Base'
+})
+
+const scroll = defineChain({
+  ..._scroll,
+  type: 'evm',
+  id: EvmChainId.SCROLL,
+  name: 'Scroll'
+})
+
+const zetachain = defineChain({
+  ..._zetachain,
+  type: 'evm',
+  id: EvmChainId.ZETACHAIN,
+  name: 'ZetaChain'
+})
+
+const cronos = defineChain({
+  ..._cronos,
+  type: 'evm',
+  id: EvmChainId.CRONOS,
+  name: 'Cronos'
+})
+
+const blast = defineChain({
+  ..._blast,
+  type: 'evm',
+  id: EvmChainId.BLAST,
+  name: 'Blast'
+})
+
+const skaleEuropa = defineChain({
+  ..._skaleEuropa,
+  type: 'evm',
+  id: EvmChainId.SKALE_EUROPA,
+  name: 'SKALE Europa'
+})
+
+const rootstock = defineChain({
+  ..._rootstock,
+  type: 'evm',
+  id: EvmChainId.ROOTSTOCK,
+  name: 'Rootstock'
+})
+
+const mantle = defineChain({
+  ..._mantle,
+  type: 'evm',
+  id: EvmChainId.MANTLE,
+  name: 'Mantle'
+})
+
+const curtis = defineChain({
+  ..._curtis,
+  type: 'evm',
+  id: EvmChainId.CURTIS,
+  name: 'Curtis'
+})
+
+const manta = defineChain({
+  ..._manta,
+  type: 'evm',
+  id: EvmChainId.MANTA,
+  name: 'Manta Pacific'
+})
+
+const mode = defineChain({
+  ..._mode,
+  type: 'evm',
+  id: EvmChainId.MODE,
+  name: 'Mode'
+})
+
+const taiko = defineChain({
+  ..._taiko,
+  type: 'evm',
+  id: EvmChainId.TAIKO,
+  name: 'Taiko'
+})
+
+const zklink = defineChain({
+  ..._zklink,
+  type: 'evm',
+  id: EvmChainId.ZKLINK,
+  name: 'zkLink'
+})
+
+const ape = defineChain({
+  ..._ape,
+  type: 'evm',
+  id: EvmChainId.APE,
+  name: 'ApeChain'
+})
+
+const sonic = defineChain({
+  ..._sonic,
+  type: 'evm',
+  id: EvmChainId.SONIC,
+  name: 'Sonic'
+})
+
+const hemi = defineChain({
+  ..._hemi,
+  type: 'evm',
+  id: EvmChainId.HEMI,
+  name: 'Hemi'
+})
+
+const chains = [
+  ethereum,
+  polygon,
+  fantom,
+  gnosis,
+  bsc,
+  arbitrum,
+  arbitrumNova,
+  avalanche,
+  harmony,
+  celo,
+  moonriver,
+  fuse,
+  telos,
+  moonbeam,
+  optimism,
+  kava,
+  metis,
+  boba,
+  bobaBnb,
+  bttc,
+  polygonZkevm,
+  thundercore,
+  filecoin,
+  haqq,
+  core,
+  zksync,
+  linea,
+  base,
+  scroll,
+  zetachain,
+  cronos,
+  blast,
+  skaleEuropa,
+  rootstock,
+  mantle,
+  curtis,
+  manta,
+  mode,
+  taiko,
+  zklink,
+  ape,
+  sonic,
+  hemi
+]
+
 export const evmChains = Object.fromEntries(
-  RAW.map((data): [EvmChainId, EvmChain] => [data.chainId, new EvmChain(data)]),
-)
-
-// Chain Id => Chain mapping
-export const evmChainsL2 = Object.fromEntries(
-  RAW.filter((data) => 'parent' in data && data.parent.type === Type.L2).map(
-    (data): [EvmChainId, EvmChain] => [data.chainId, new EvmChain(data)],
-  ),
-)
-
-// EvmChainId array
-export const evmChainIds = RAW.map((chain) => chain.chainId)
-
-// Chain Short Name => Chain Id mapping
-export const evmChainShortNameToChainId = Object.fromEntries(
-  RAW.map((data): [string, number] => [data.shortName, data.chainId]),
-)
-
-// Chain Id => Short Name mapping
-export const evmChainShortName = Object.fromEntries(
-  RAW.map((data): [number, string] => [
-    data.chainId,
-    EvmChain.fromRaw(data).shortName,
-  ]),
-)
-
-// Chain Id => Chain Name mapping
-export const evmChainName = Object.fromEntries(
-  RAW.map((data): [number, string] => [
-    data.chainId,
-    EvmChain.fromRaw(data).name,
-  ]),
-)
-
-export const getEvmChainInfo = (
-  input: string,
-):
-  | { chainId: EvmChainId; networkName: EvmChainKey }
-  | { chainId: undefined; networkName: undefined } => {
-  const _networkName = input.toLowerCase()
-  const _chainId = Number.parseInt(input)
-
-  if (isEvmChainId(_chainId)) {
-    const networkName = EvmChainKey[_chainId]
-    return { chainId: _chainId, networkName }
-  }
-
-  if (isEvmNetworkNameKey(_networkName)) {
-    const chainId = EvmNetworkNameKey[_networkName]
-    return { chainId, networkName: _networkName }
-  }
-
-  return { chainId: undefined, networkName: undefined }
-}
-
-export const EVM_TESTNET_CHAIN_IDS = [
-  EvmChainId.ARBITRUM_TESTNET,
-  EvmChainId.AVALANCHE_TESTNET,
-  EvmChainId.BSC_TESTNET,
-  EvmChainId.FANTOM_TESTNET,
-  // EvmChainId.HECO_TESTNET,
-  // EvmChainId.HARMONY_TESTNET,
-  // EvmChainId.OKEX_TESTNET,
-  EvmChainId.POLYGON_TESTNET,
-  EvmChainId.SEPOLIA,
-  // EvmChainId.ROPSTEN,
-  // EvmChainId.RINKEBY,
-  // EvmChainId.GÖRLI,
-  // EvmChainId.KOVAN,
-  EvmChainId.CURTIS,
-] as const
-export type EvmTestnetChainId = (typeof EVM_TESTNET_CHAIN_IDS)[number]
-
-export const isEvmChainId = (chainId: number): chainId is EvmChainId =>
-  Object.values(EvmChainId).includes(chainId as EvmChainId)
-
-export const EvmChainKey = {
-  [EvmChainId.ARBITRUM]: 'arbitrum',
-  [EvmChainId.ARBITRUM_NOVA]: 'arbitrum-nova',
-  [EvmChainId.ARBITRUM_TESTNET]: 'arbitrum-testnet',
-  [EvmChainId.AVALANCHE]: 'avalanche',
-  [EvmChainId.AVALANCHE_TESTNET]: 'avalance-testnet',
-  [EvmChainId.BSC]: 'bsc',
-  [EvmChainId.BSC_TESTNET]: 'bsc-testnet',
-  [EvmChainId.CELO]: 'celo',
-  [EvmChainId.ETHEREUM]: 'ethereum',
-  [EvmChainId.FANTOM]: 'fantom',
-  [EvmChainId.FANTOM_TESTNET]: 'fantom-testnet',
-  [EvmChainId.FUSE]: 'fuse',
-  [EvmChainId.GÖRLI]: 'goerli',
-  [EvmChainId.HARMONY]: 'harmony',
-  // [EvmChainId.HARMONY_TESTNET]: 'harmony-testnet',
-  [EvmChainId.HECO]: 'heco',
-  // [EvmChainId.HECO_TESTNET]: 'heco-testnet',
-  // [EvmChainId.KOVAN]: 'kovan',
-  // [EvmChainId.ROPSTEN]: 'ropsten',
-  [EvmChainId.POLYGON]: 'polygon',
-  [EvmChainId.POLYGON_TESTNET]: 'matic-testnet',
-  [EvmChainId.MOONBEAM]: 'moonbeam',
-  // [EvmChainId.MOONBEAM_TESTNET]: 'moonbeam-testnet',
-  [EvmChainId.MOONRIVER]: 'moonriver',
-  [EvmChainId.OKEX]: 'okex',
-  // [EvmChainId.OKEX_TESTNET]: 'okex-testnet',
-  [EvmChainId.PALM]: 'palm',
-  // [EvmChainId.PALM_TESTNET]: 'palm-testnet',
-  // [EvmChainId.RINKEBY]: 'rinkeby',
-  [EvmChainId.TELOS]: 'telos',
-  [EvmChainId.GNOSIS]: 'gnosis',
-  [EvmChainId.OPTIMISM]: 'optimism',
-  [EvmChainId.KAVA]: 'kava',
-  [EvmChainId.METIS]: 'metis',
-  [EvmChainId.BOBA]: 'boba',
-  [EvmChainId.BOBA_AVAX]: 'boba-avax',
-  [EvmChainId.BOBA_BNB]: 'boba-bnb',
-  [EvmChainId.BTTC]: 'bttc',
-  // [EvmChainId.CONSENSUS_ZKEVM_TESTNET]: 'consensus-zkevm-testnet',
-  // [EvmChainId.SCROLL_ALPHA_TESTNET]: 'scroll-alpha-testnet',
-  // [EvmChainId.BASE_TESTNET]:'base-testnet',
-  [EvmChainId.POLYGON_ZKEVM]: 'polygon-zkevm',
-  [EvmChainId.THUNDERCORE]: 'thundercore',
-  [EvmChainId.HAQQ]: 'haqq',
-  [EvmChainId.CORE]: 'core',
-  [EvmChainId.ZKSYNC_ERA]: 'zksync-era',
-  [EvmChainId.LINEA]: 'linea',
-  [EvmChainId.BASE]: 'base',
-  [EvmChainId.FILECOIN]: 'filecoin',
-  [EvmChainId.SEPOLIA]: 'sepolia',
-  [EvmChainId.SCROLL]: 'scroll',
-  [EvmChainId.ZETACHAIN]: 'zetachain',
-  [EvmChainId.CRONOS]: 'cronos',
-  [EvmChainId.BLAST]: 'blast',
-  [EvmChainId.SKALE_EUROPA]: 'skale-europa',
-  [EvmChainId.ROOTSTOCK]: 'rootstock',
-  [EvmChainId.MANTLE]: 'mantle',
-  [EvmChainId.CURTIS]: 'curtis',
-  [EvmChainId.MANTA]: 'manta',
-  [EvmChainId.MODE]: 'mode',
-  [EvmChainId.TAIKO]: 'taiko',
-  [EvmChainId.ZKLINK]: 'zklink',
-  [EvmChainId.APE]: 'ape',
-  [EvmChainId.SONIC]: 'sonic',
-  [EvmChainId.HEMI]: 'hemi',
-} as const satisfies Record<EvmChainId, string>
-export type EvmChainKey = (typeof EvmChainKey)[keyof typeof EvmChainKey]
-
-export const EvmNetworkNameKey = Object.fromEntries(
-  Object.entries(EvmChainKey).map(([key, value]) => [value, Number(key)]),
-) as { [key in EvmChainKey]: EvmChainId }
-
-export const isEvmNetworkNameKey = (key: string): key is EvmChainKey =>
-  Object.keys(EvmNetworkNameKey).includes(key)
+  chains.map((chain) => [chain.id, chain]),
+) as Record<EvmChainId, typeof chains[number]>
 
 export default evmChains
