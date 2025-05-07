@@ -1,5 +1,11 @@
 # sushi
 
+## 5.1.4
+
+### Patch Changes
+
+- [#183](https://github.com/sushi-labs/sushi/pull/183) [`44b1884`](https://github.com/sushi-labs/sushi/commit/44b188469af6ddf73c5014fa16008c39d5c81576) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Add gasPrice to getSwap result
+
 ## 5.1.3
 
 ### Patch Changes
