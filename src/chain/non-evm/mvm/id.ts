@@ -1,5 +1,5 @@
 export const MvmChainId = {
-  APTOS: 'aptos:1',
+  APTOS: 'aptos',
 } as const
 
 export type MvmChainId = (typeof MvmChainId)[keyof typeof MvmChainId]
