@@ -461,17 +461,14 @@ export const LUSD = addressMapToTokenMap(
 ) as Record<keyof typeof LUSD_ADDRESS, Token>
 
 export const WETH9 = {
-  ...(addressMapToTokenMap(
+  ...addressMapToTokenMap(
     {
       decimals: 18,
       symbol: 'WETH',
       name: 'Wrapped Ether',
     },
     WETH9_ADDRESS,
-  ) as Omit<
-    Record<keyof typeof WETH9_ADDRESS, Token>,
-    typeof EvmChainId.SKALE_EUROPA
-  >),
+  ),
   [EvmChainId.SKALE_EUROPA]: new Token({
     chainId: EvmChainId.SKALE_EUROPA,
     address: WETH9_ADDRESS[EvmChainId.SKALE_EUROPA],
@@ -479,7 +476,7 @@ export const WETH9 = {
     symbol: 'ETH',
     name: 'Ether',
   }),
-}
+} as Record<keyof typeof WETH9_ADDRESS, Token>
 
 export const WNATIVE = {
   [EvmChainId.ETHEREUM]: WETH9[EvmChainId.ETHEREUM],
