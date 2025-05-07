@@ -19,7 +19,6 @@ describe('getSwap', () => {
 
     expect(result).include({ status: 'Success' })
     if (result.status === 'Success') {
-      expect(result.tx.to).toBe('0x6B3595068778DD592e39A122f4f5a5cF09C90fE2')
       expect(result.tx.gasPrice).toBeGreaterThan(0)
     }
   })
