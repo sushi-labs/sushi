@@ -39,6 +39,7 @@ function swapResponseSchema<Simulate extends boolean>(simulate?: Simulate) {
   const txSchema = z.object({
     from: sz.address(),
     to: sz.address(),
+    gasPrice: z.number(),
     data: sz.hex(),
     value: z
       .string()
