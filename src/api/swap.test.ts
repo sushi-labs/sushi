@@ -18,6 +18,9 @@ describe('getSwap', () => {
     })
 
     expect(result).include({ status: 'Success' })
+    if (result.status === 'Success') {
+      expect(result.tx.gasPrice).toBeGreaterThan(0)
+    }
   })
 
   it('should include a swap with tx.gas when simulate is true', async () => {
