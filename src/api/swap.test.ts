@@ -23,7 +23,6 @@ describe('getSwap', () => {
     }
   })
 
-
   it('should include a swap with tx.gas when simulate is true', async () => {
     const result = await getSwap({
       ...baseSwapRequest,
