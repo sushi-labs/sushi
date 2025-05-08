@@ -1,5 +1,11 @@
 # sushi
 
+## 5.1.5
+
+### Patch Changes
+
+- [#185](https://github.com/sushi-labs/sushi/pull/185) [`ae07786`](https://github.com/sushi-labs/sushi/commit/ae07786950e4f06c0e6d2ee6a4975ea5a58ff332) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - update uniswap v3 config
+
 ## 5.1.4
 
 ### Patch Changes
