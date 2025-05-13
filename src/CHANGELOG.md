@@ -1,5 +1,11 @@
 # sushi
 
+## 5.1.6
+
+### Patch Changes
+
+- [#187](https://github.com/sushi-labs/sushi/pull/187) [`07b2d9b`](https://github.com/sushi-labs/sushi/commit/07b2d9b7af24fc625d5f9a4f0768082610c92746) Thanks [@matthewlilley](https://github.com/matthewlilley)! - drpc utility and fix quote & swap
+
 ## 5.1.5
 
 ### Patch Changes
