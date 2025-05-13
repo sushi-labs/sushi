@@ -17,11 +17,11 @@ export type QuoteRequest<Vizualize extends boolean = false> = {
   feeReceiver?: Address
   feeBy?: TransferValue
   referrer?: string
-  vizualize?: Vizualize
+  visualize?: Vizualize
   baseUrl?: string
 }
 
-function quoteResponseSchema<Vizualize extends boolean>(vizualize?: Vizualize) {
+function quoteResponseSchema<Visualize extends boolean>(visualize?: Visualize) {
   const tokenSchema = z.object({
     address: sz.address(),
     decimals: z.number(),
@@ -54,10 +54,10 @@ function quoteResponseSchema<Vizualize extends boolean>(vizualize?: Vizualize) {
 
   const baseSchema = baseSuccessPartial.or(baseNoWay)
 
-  const baseVizualizeSchema = baseSchema
+  const baseVisualizeSchema = baseSchema
     .and(
       z.object({
-        vizualization: z.object({
+        visualization: z.object({
           liquidityProviders: z.array(z.string()),
           nodes: z.array(tokenSchema),
           links: z.array(
@@ -75,21 +75,21 @@ function quoteResponseSchema<Vizualize extends boolean>(vizualize?: Vizualize) {
     )
     .or(baseNoWay)
 
-  type Schema = Vizualize extends true
-    ? typeof baseVizualizeSchema
+  type Schema = Visualize extends true
+    ? typeof baseVisualizeSchema
     : typeof baseSchema
 
-  return (vizualize ? baseVizualizeSchema : baseSchema) as Schema
+  return (visualize ? baseVisualizeSchema : baseSchema) as Schema
 }
 
-export type QuoteResponse<Vizualize extends boolean = false> = z.infer<
-  ReturnType<typeof quoteResponseSchema<Vizualize>>
+export type QuoteResponse<Visualize extends boolean = false> = z.infer<
+  ReturnType<typeof quoteResponseSchema<Visualize>>
 >
 
-export async function getQuote<Vizualize extends boolean = false>(
-  params: QuoteRequest<Vizualize>,
+export async function getQuote<Visualize extends boolean = false>(
+  params: QuoteRequest<Visualize>,
   options?: RequestInit,
-): Promise<QuoteResponse<Vizualize>> {
+): Promise<QuoteResponse<Visualize>> {
   // TODO: VALIDATE PARAMS
   const url = new URL(
     `quote/v7/${params.chainId}`,
@@ -117,8 +117,8 @@ export async function getQuote<Vizualize extends boolean = false>(
     }
   }
 
-  if (params?.vizualize) {
-    url.searchParams.append('vizualize', params.vizualize.toString())
+  if (params?.visualize) {
+    url.searchParams.append('visualize', params.visualize.toString())
   }
 
   if (params.referrer) {
@@ -133,5 +133,5 @@ export async function getQuote<Vizualize extends boolean = false>(
     throw new Error(`Failed to fetch quote: ${await res.text()}`)
   }
 
-  return quoteResponseSchema(params.vizualize).parse(await res.json())
+  return quoteResponseSchema(params.visualize).parse(await res.json())
 }

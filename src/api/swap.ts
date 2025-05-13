@@ -23,8 +23,6 @@ export type SwapRequest<Simulate extends boolean = true> = {
   baseUrl?: string
   recipient?: Address
   simulate?: Simulate
-  override?: boolean
-  facade?: boolean
   validate?: boolean
 }
 
@@ -135,9 +133,6 @@ export async function getSwap<Simulate extends boolean = true>(
 
   if (params.simulate !== undefined) {
     url.searchParams.append('simulate', params.simulate.toString())
-    if (params.override !== undefined) {
-      url.searchParams.append('override', params.override.toString())
-    }
     if (params.validate !== undefined) {
       url.searchParams.append('validate', params.validate.toString())
     }
