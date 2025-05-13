@@ -154,9 +154,9 @@
             }
           },
           {
-            "name": "vizualize",
+            "name": "visualize",
             "in": "query",
-            "description": "vizulaization",
+            "description": "visulaization",
             "required": false,
             "schema": {
               "type": "boolean",
@@ -374,16 +374,6 @@
             }
           },
           {
-            "name": "vizualize",
-            "in": "query",
-            "description": "vizulaization",
-            "required": false,
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
-          },
-          {
             "name": "simulate",
             "in": "query",
             "description": "simulate",
@@ -391,16 +381,6 @@
             "schema": {
               "type": "boolean",
               "default": true
-            }
-          },
-          {
-            "name": "override",
-            "in": "query",
-            "description": "uses state overrides to ensure simulation doesn't fail from sender not having balance and allowance",
-            "required": false,
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           },
           {
@@ -837,10 +817,10 @@
           "type": "string"
         }
       },
-      "vizualize": {
-        "name": "vizualize",
+      "visualize": {
+        "name": "visualize",
         "in": "query",
-        "description": "vizulaization",
+        "description": "visulaization",
         "required": false,
         "schema": {
           "type": "boolean",
@@ -855,16 +835,6 @@
         "schema": {
           "type": "boolean",
           "default": true
-        }
-      },
-      "override": {
-        "name": "override",
-        "in": "query",
-        "description": "uses state overrides to ensure simulation doesn't fail from sender not having balance and allowance",
-        "required": false,
-        "schema": {
-          "type": "boolean",
-          "default": false
         }
       },
       "validate": {
