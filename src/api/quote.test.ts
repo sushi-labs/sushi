@@ -16,15 +16,15 @@ describe('getQuote', () => {
     expect(result).include({ status: 'Success' })
   })
 
-  it('should return a quote with vizualize when true', async () => {
+  it('should return a quote with visualize when true', async () => {
     const result = await getQuote({
       ...baseQuoteRequest,
-      vizualize: true,
+      visualize: true,
     })
 
     expect(result).include({ status: 'Success' })
     if (result.status === 'Success') {
-      expect(result.vizualization).include.keys([
+      expect(result.visualization).include.keys([
         'liquidityProviders',
         'nodes',
         'links',
