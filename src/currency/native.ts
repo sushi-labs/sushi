@@ -1,5 +1,5 @@
 import invariant from 'tiny-invariant'
-import { type EvmChainId, evmNatives } from '../chain/evm/index.js'
+import { type EvmChainId, EvmNativeCurrencies } from '../chain/evm/index.js'
 import type { ID } from '../types/id.js'
 import { Currency } from './currency.js'
 import type { Token } from './token.js'
@@ -44,7 +44,7 @@ export class Native extends Currency {
       return cached
     }
 
-    const nativeCurrency = evmNatives?.[chainId]
+    const nativeCurrency = EvmNativeCurrencies?.[chainId]
 
     invariant(!!nativeCurrency, 'NATIVE_CURRENCY')
 
