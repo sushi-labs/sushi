@@ -1,4 +1,3 @@
-
 import { EvmChainId } from '../../chain/evm/index.js'
 import {
   AERO,
@@ -582,7 +581,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     WETH9[EvmChainId.ROOTSTOCK],
     USDT[EvmChainId.ROOTSTOCK],
     DOC,
-    SolvBTC[EvmChainId.ROOTSTOCK]
+    SolvBTC[EvmChainId.ROOTSTOCK],
   ],
   [EvmChainId.MANTLE]: [
     WNATIVE[EvmChainId.MANTLE],
