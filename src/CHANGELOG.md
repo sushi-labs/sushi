@@ -1,5 +1,11 @@
 # sushi
 
+## 5.1.7
+
+### Patch Changes
+
+- [#191](https://github.com/sushi-labs/sushi/pull/191) [`fc8ca4c`](https://github.com/sushi-labs/sushi/commit/fc8ca4c673d5dba414d0fde650153fd6729fc1e0) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Add SolvBTC base to rootstock
+
 ## 5.1.6
 
 ### Patch Changes
