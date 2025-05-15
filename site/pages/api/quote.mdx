@@ -1,0 +1,36 @@
+# Quote API Documentation
+
+## Overview
+The Quote API provides functionality to generate a quote.
+
+## Example
+
+```ts twoslash
+import { type QuoteResponse } from 'sushi/api'
+
+const chainId = 1
+
+const QUOTE_API_URL = new URL('https://api.sushi.com/quote/v7/' + chainId)
+
+// TokenA & TokenB
+const inputCurrency = '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE'
+const outputCurrency = '0x6B3595068778DD592e39A122f4f5a5cF09C90fE2'
+
+// Amount
+const amount = 1000000000000000
+
+// Max Slippage
+const maxSlippage = 0.005
+
+const { searchParams } = QUOTE_API_URL
+searchParams.set('tokenIn', inputCurrency)
+searchParams.set('tokenOut', outputCurrency)
+searchParams.set('amount', amount.toString())
+searchParams.set('maxSlippage', maxSlippage.toString())
+
+// Make call to API
+console.log(QUOTE_API_URL.toString())
+const res = await fetch(QUOTE_API_URL.toString())
+const data = await res.json() as QuoteResponse
+console.log(data)
+```

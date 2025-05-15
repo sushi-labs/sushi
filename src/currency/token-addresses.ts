@@ -707,6 +707,7 @@ export const UDSP_ADDRESS = {
 
 export const SolvBTC_ADDRESS = {
   [EvmChainId.ARBITRUM]: '0x3647c54c4c2c65bc7a2d63c0da2809b399dbbdc0',
+  [EvmChainId.ROOTSTOCK]: '0x541Fd749419cA806A8bC7DA8AC23D346f2Df8b77',
 } as const
 
 export const METH_ADDRESS = {

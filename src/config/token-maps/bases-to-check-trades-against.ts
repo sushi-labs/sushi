@@ -11,6 +11,7 @@ import {
   SKL,
   STETH,
   STONE,
+  SolvBTC,
   THREE_CRV,
   Token,
   USDB,
@@ -581,6 +582,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     WETH9[EvmChainId.ROOTSTOCK],
     USDT[EvmChainId.ROOTSTOCK],
     DOC,
+    SolvBTC[EvmChainId.ROOTSTOCK],
   ],
   [EvmChainId.MANTLE]: [
     WNATIVE[EvmChainId.MANTLE],

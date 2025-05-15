@@ -1,5 +1,59 @@
 # sushi
 
+## 5.1.7
+
+### Patch Changes
+
+- [#191](https://github.com/sushi-labs/sushi/pull/191) [`fc8ca4c`](https://github.com/sushi-labs/sushi/commit/fc8ca4c673d5dba414d0fde650153fd6729fc1e0) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Add SolvBTC base to rootstock
+
+## 5.1.6
+
+### Patch Changes
+
+- [#187](https://github.com/sushi-labs/sushi/pull/187) [`07b2d9b`](https://github.com/sushi-labs/sushi/commit/07b2d9b7af24fc625d5f9a4f0768082610c92746) Thanks [@matthewlilley](https://github.com/matthewlilley)! - drpc utility and fix quote & swap
+
+## 5.1.5
+
+### Patch Changes
+
+- [#185](https://github.com/sushi-labs/sushi/pull/185) [`ae07786`](https://github.com/sushi-labs/sushi/commit/ae07786950e4f06c0e6d2ee6a4975ea5a58ff332) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - update uniswap v3 config
+
+## 5.1.4
+
+### Patch Changes
+
+- [#183](https://github.com/sushi-labs/sushi/pull/183) [`44b1884`](https://github.com/sushi-labs/sushi/commit/44b188469af6ddf73c5014fa16008c39d5c81576) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Add gasPrice to getSwap result
+
+## 5.1.3
+
+### Patch Changes
+
+- [#180](https://github.com/sushi-labs/sushi/pull/180) [`dc2f2d7`](https://github.com/sushi-labs/sushi/commit/dc2f2d715e7850bc08ead9e6acd431f0070c4ecc) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Update Boba V3 subgraph
+
+## 5.1.2
+
+### Patch Changes
+
+- [#178](https://github.com/sushi-labs/sushi/pull/178) [`9449c2a`](https://github.com/sushi-labs/sushi/commit/9449c2a407b7fb39d152adf20136e106bb463c9f) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Update subgraph ids
+
+## 5.1.1
+
+### Patch Changes
+
+- [#175](https://github.com/sushi-labs/sushi/pull/175) [`2c46ccf`](https://github.com/sushi-labs/sushi/commit/2c46ccf76044f4b38c4a1f1a668162013980714f) Thanks [@matthewlilley](https://github.com/matthewlilley)! - quote api example and sdk function
+
+## 5.1.0
+
+### Minor Changes
+
+- [#173](https://github.com/sushi-labs/sushi/pull/173) [`a49b4c0`](https://github.com/sushi-labs/sushi/commit/a49b4c0dbc813e8646d610466803432cd44bad32) Thanks [@matthewlilley](https://github.com/matthewlilley)! - swap to v7
+
+## 5.0.37
+
+### Patch Changes
+
+- [#171](https://github.com/sushi-labs/sushi/pull/171) [`e35deb0`](https://github.com/sushi-labs/sushi/commit/e35deb03960700f23248c1ac42a85a6d36219206) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - fee collectors
+
 ## 5.0.36
 
 ### Patch Changes
