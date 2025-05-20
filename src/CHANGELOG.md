@@ -1,5 +1,13 @@
 # sushi
 
+## 5.1.8
+
+### Patch Changes
+
+- [#195](https://github.com/sushi-labs/sushi/pull/195) [`bdb7060`](https://github.com/sushi-labs/sushi/commit/bdb706062b474e4bc4b45a42b44085c4f6e7655a) Thanks [@matthewlilley](https://github.com/matthewlilley)! - rootstock routing config
+
+- [#161](https://github.com/sushi-labs/sushi/pull/161) [`53f66bb`](https://github.com/sushi-labs/sushi/commit/53f66bbf5f3d8f054b34e533cc2a6586b843565e) Thanks [@LufyCZ](https://github.com/LufyCZ)! - ApiKey param for the swap function
+
 ## 5.1.7
 
 ### Patch Changes
