@@ -7,6 +7,7 @@ import {
   DOC,
   GUSD,
   METH,
+  RBTC,
   SKL,
   STETH,
   STONE,
@@ -582,6 +583,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     USDT[EvmChainId.ROOTSTOCK],
     DOC,
     SolvBTC[EvmChainId.ROOTSTOCK],
+    RBTC,
   ],
   [EvmChainId.MANTLE]: [
     WNATIVE[EvmChainId.MANTLE],
