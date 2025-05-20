@@ -3,7 +3,6 @@ import type { SushiSwapV2ChainId } from '../../features/sushiswap-v2.js'
 import { getSubgraphUrlWrapper, wrapAsIdType } from '../get-subgraph-url.js'
 import {
   CORE_HOST,
-  FILECOIN_HOST,
   HAQQ_HOST,
   METIS_0XGRAPH_HOST,
   SKALE_HOST,
@@ -13,16 +12,16 @@ import {
 } from '../hosts.js'
 
 const SUSHISWAP_V2_DECENTRALIZED_DEPLOYMENT_IDS = {
-  [EvmChainId.ETHEREUM]: `QmQ2h69a3vnE6N3TN7Ys9K1vpjYiJSi8fexnj1pWpRc6uY`,
+  [EvmChainId.ETHEREUM]: `QmaR2nAMF6dCHBL1eFNQ4F5nGpJQs7V11PZobJB2FgQtbt`,
   [EvmChainId.AVALANCHE]: `QmadNP3fXrcba189BuSrT88Tw7YHhTtHWsdBTQhNpyaF6c`,
-  [EvmChainId.ARBITRUM]: `QmV5qTnwjz65z6TH63DYngLr1gj52KQ6Lr6m8aeNj6yxxb`,
+  [EvmChainId.ARBITRUM]: `QmfN96hDXYtgeLsBv5WjQY8FAwqBfBFoiq8gzsn9oApcoU`,
   [EvmChainId.BSC]: `QmQ3b4S6PSgvRkd5PhxtDPDQRybfmaRYxGVZCLbYJopoKJ`,
   [EvmChainId.CELO]: `QmNxrypMUwDagUwxcBDPPebNx4ZPZ3XGJ2cdaejAjXg735`,
   [EvmChainId.FANTOM]: `QmbitwNMFxEcJVtZyTcLYr2GrQSLg99rpZZmmD2m13xRp2`,
   [EvmChainId.GNOSIS]: `QmU7USviTB8LtJ9tkPjZLcretNnYyUWzwDy9N7zTupNYj2`,
   [EvmChainId.OPTIMISM]: `QmZWaFzzzs7CEzpVeLrNqW6e7oNxG8AnkJt9kUEV5rFzxn`,
   [EvmChainId.BOBA]: `QmYzLBMamDBWJWsUNFiRfq91w2H38SAf9jXyCYDTzhyHh3`,
-  [EvmChainId.POLYGON]: `QmebwDJ8a8uGf5sW6inqVfJwDGgYrvCvif19wnQqHN8GzQ`,
+  [EvmChainId.POLYGON]: `QmcFVSFXGgodMVUGLAdYdYPfohyMwWat8pfi5pHSDXgskU`,
   [EvmChainId.BASE]: `QmQfYe5Ygg9A3mAiuBZYj5a64bDKLF4gF6sezfhgxKvb9y`,
   [EvmChainId.SCROLL]: `QmZkX4zi2RzLsQKva29gE3uCcMuJVxXE3R11Ln1J3FY3f7`,
   [EvmChainId.LINEA]: `QmWYpVMcyczvRvpzLpw5R7tKWouFLEzmufN55jnrNWmpth`,
@@ -45,7 +44,7 @@ const SUSHISWAP_V2_OTHER_URLS = {
   [EvmChainId.KAVA]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushi-v2/v2-kava/gn`,
   [EvmChainId.METIS]: `${METIS_0XGRAPH_HOST}/sushiswap/v2-metis/-/gn`,
   [EvmChainId.BTTC]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushi-v2/v2-bttc/gn`,
-  [EvmChainId.FILECOIN]: `${FILECOIN_HOST}/sushiswap/v2-filecoin`,
+  [EvmChainId.FILECOIN]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v2-filecoin/gn`,
   [EvmChainId.ZETACHAIN]: `${SUSHI_GOLDSKY_HOST}/v2-zetachain/1.0.0/gn`,
   [EvmChainId.THUNDERCORE]: `${THUNDERCORE_HOST}/sushi-v2/v2-thundercore`,
   [EvmChainId.CORE]: `${CORE_HOST}/sushi-v2/v2-core`,
