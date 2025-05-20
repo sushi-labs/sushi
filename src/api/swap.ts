@@ -24,6 +24,7 @@ export type SwapRequest<Simulate extends boolean = true> = {
   recipient?: Address
   simulate?: Simulate
   validate?: boolean
+  apiKey?: string
 }
 
 function swapResponseSchema<Simulate extends boolean>(simulate?: Simulate) {
@@ -136,6 +137,10 @@ export async function getSwap<Simulate extends boolean = true>(
     if (params.validate !== undefined) {
       url.searchParams.append('validate', params.validate.toString())
     }
+  }
+
+  if (params.apiKey !== undefined) {
+    url.searchParams.append('apiKey', params.apiKey)
   }
 
   const res = await fetch(url.toString(), options)
