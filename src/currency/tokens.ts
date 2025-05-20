@@ -81,6 +81,7 @@ import {
   rETH_ADDRESS,
   renBTC_ADDRESS,
   sETH2_ADDRESS,
+  xSolvBTC_ADDRESS,
 } from './token-addresses.js'
 import { Token } from './token.js'
 
@@ -1271,6 +1272,15 @@ export const SolvBTC = addressMapToTokenMap(
   SolvBTC_ADDRESS,
 ) as Record<keyof typeof SolvBTC_ADDRESS, Token>
 
+export const xSolvBTC = addressMapToTokenMap(
+  {
+    decimals: 18,
+    symbol: 'xSolvBTC',
+    name: 'xSolvBTC',
+  },
+  xSolvBTC_ADDRESS,
+) as Record<keyof typeof xSolvBTC_ADDRESS, Token>
+
 export const METH = addressMapToTokenMap(
   {
     decimals: 18,
@@ -1393,3 +1403,11 @@ export const USDPLUS = addressMapToTokenMap(
   },
   USDPLUS_ADDRESS,
 ) as Record<keyof typeof USDPLUS_ADDRESS, Token>
+
+export const RBTC = new Token({
+  chainId: EvmChainId.ROOTSTOCK,
+  address: '0x542fDA317318eBF1d3DEAf76E0b632741A7e677d',
+  symbol: 'RBTC',
+  name: 'Rootstock Smart Bitcoin',
+  decimals: 18,
+})
