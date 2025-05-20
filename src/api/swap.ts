@@ -142,7 +142,7 @@ export async function getSwap<Simulate extends boolean = true>(
   if (params.apiKey !== undefined) {
     url.searchParams.append('apiKey', params.apiKey)
   }
-    
+
   const res = await fetch(url.toString(), options)
 
   if (!res.ok) {
