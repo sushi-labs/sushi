@@ -2,6 +2,7 @@ import { EvmChainId, evmNatives } from '../../chain/evm/index.js'
 import {
   APE_USD,
   ARB,
+  AUSD,
   BUSD,
   GNO,
   Native,
@@ -101,4 +102,5 @@ export const defaultQuoteCurrency = {
   [EvmChainId.APE]: APE_USD,
   [EvmChainId.SONIC]: WETH9[EvmChainId.SONIC],
   [EvmChainId.HEMI]: USDC[EvmChainId.HEMI],
+  [EvmChainId.TATARA]: AUSD[EvmChainId.TATARA],
 } as const

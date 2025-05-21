@@ -1,6 +1,7 @@
 import { EvmChainId } from '../../chain/evm/index.js'
 import {
   APE_USD,
+  AUSD,
   BASE_BRIDGE_USDC,
   BTTC_BSC_BRIDGE_USDC,
   BTTC_BSC_BRIDGE_USDT,
@@ -300,4 +301,5 @@ export const STABLES = {
   [EvmChainId.SEPOLIA]: [],
   [EvmChainId.GÖRLI]: [],
   [EvmChainId.CURTIS]: [USDT[EvmChainId.CURTIS], DAI[EvmChainId.CURTIS]],
+  [EvmChainId.TATARA]: [AUSD[EvmChainId.TATARA]],
 } as const satisfies Record<EvmChainId, Token[]>

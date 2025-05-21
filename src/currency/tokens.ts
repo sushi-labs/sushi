@@ -8,6 +8,7 @@ import {
   APE_ETH_ADDRESS,
   APE_USD_ADDRESS,
   ARB_ADDRESS,
+  AUSD_ADDRESS,
   BAL_ADDRESS,
   BCT_ADDRESS,
   BUSD_ADDRESS,
@@ -767,6 +768,7 @@ export const WNATIVE = {
     name: 'Wrapped Sonic',
   }),
   [EvmChainId.HEMI]: WETH9[EvmChainId.HEMI],
+  [EvmChainId.TATARA]: WETH9[EvmChainId.TATARA],
 } as const
 
 export const SUSHI = addressMapToTokenMap(
@@ -1411,3 +1413,12 @@ export const RBTC = new Token({
   name: 'Rootstock Smart Bitcoin',
   decimals: 18,
 })
+
+export const AUSD = addressMapToTokenMap(
+  {
+    decimals: 6,
+    symbol: 'AUSD',
+    name: 'AgoraDollar',
+  },
+  AUSD_ADDRESS,
+) as Record<keyof typeof AUSD_ADDRESS, Token>

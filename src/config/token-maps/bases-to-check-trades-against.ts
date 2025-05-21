@@ -3,6 +3,7 @@ import {
   AERO,
   APE_ETH,
   APE_USD,
+  AUSD,
   CRV_USD,
   DOC,
   GUSD,
@@ -632,4 +633,5 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     USDC[EvmChainId.HEMI],
     USDT[EvmChainId.HEMI],
   ],
+  [EvmChainId.TATARA]: [WNATIVE[EvmChainId.TATARA], AUSD[EvmChainId.TATARA]],
 }
