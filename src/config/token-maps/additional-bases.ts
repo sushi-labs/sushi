@@ -13,11 +13,13 @@ import {
   PRIMATE_ADDRESS,
   SUSHI_ADDRESS,
   SWISE_ADDRESS,
+  SolvBTC_ADDRESS,
   TRIBE_ADDRESS,
   WBTC_ADDRESS,
   XSUSHI_ADDRESS,
   rETH2_ADDRESS,
   renBTC_ADDRESS,
+  xSolvBTC_ADDRESS,
 } from '../../currency/token-addresses.js'
 import {
   AAVE,
@@ -61,6 +63,7 @@ import {
   YFI,
   renBTC,
   sETH2,
+  xSolvBTC,
 } from '../../currency/tokens.js'
 
 export const ADDITIONAL_BASES: {
@@ -179,5 +182,9 @@ export const ADDITIONAL_BASES: {
   [EvmChainId.OPTIMISM]: {
     [FRAX_ADDRESS[EvmChainId.OPTIMISM]]: [FXS[EvmChainId.OPTIMISM]],
     [FXS_ADDRESS[EvmChainId.OPTIMISM]]: [FRAX[EvmChainId.OPTIMISM]],
+  },
+  [EvmChainId.ROOTSTOCK]: {
+    [xSolvBTC_ADDRESS[EvmChainId.ROOTSTOCK]]: [SolvBTC[EvmChainId.ROOTSTOCK]],
+    [SolvBTC_ADDRESS[EvmChainId.ROOTSTOCK]]: [xSolvBTC[EvmChainId.ROOTSTOCK]],
   },
 }
