@@ -1,5 +1,11 @@
 # sushi
 
+## 5.1.9
+
+### Patch Changes
+
+- [#197](https://github.com/sushi-labs/sushi/pull/197) [`f162cbd`](https://github.com/sushi-labs/sushi/commit/f162cbdc12f4faa84f510bf95507f838baac8193) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - tatara config
+
 ## 5.1.8
 
 ### Patch Changes
