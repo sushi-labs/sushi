@@ -442,7 +442,7 @@ export const EVM_DEFAULT_BASES = {
   [EvmChainId.TATARA]: [
     Native.onChain(EvmChainId.TATARA),
     WNATIVE[EvmChainId.TATARA],
-    AUSD[EvmChainId.TATARA]
+    AUSD[EvmChainId.TATARA],
   ],
 } as const satisfies Record<EvmChainId, Readonly<(Token | Native)[]>>
 

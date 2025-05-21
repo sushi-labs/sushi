@@ -102,5 +102,5 @@ export const defaultQuoteCurrency = {
   [EvmChainId.APE]: APE_USD,
   [EvmChainId.SONIC]: WETH9[EvmChainId.SONIC],
   [EvmChainId.HEMI]: USDC[EvmChainId.HEMI],
-  [EvmChainId.TATARA]: AUSD[EvmChainId.TATARA]
+  [EvmChainId.TATARA]: AUSD[EvmChainId.TATARA],
 } as const

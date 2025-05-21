@@ -768,7 +768,7 @@ export const WNATIVE = {
     name: 'Wrapped Sonic',
   }),
   [EvmChainId.HEMI]: WETH9[EvmChainId.HEMI],
-  [EvmChainId.TATARA]: WETH9[EvmChainId.TATARA]
+  [EvmChainId.TATARA]: WETH9[EvmChainId.TATARA],
 } as const
 
 export const SUSHI = addressMapToTokenMap(
@@ -1418,7 +1418,7 @@ export const AUSD = addressMapToTokenMap(
   {
     decimals: 6,
     symbol: 'AUSD',
-    name: 'AgoraDollar'
+    name: 'AgoraDollar',
   },
   AUSD_ADDRESS,
 ) as Record<keyof typeof AUSD_ADDRESS, Token>

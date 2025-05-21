@@ -633,8 +633,5 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     USDC[EvmChainId.HEMI],
     USDT[EvmChainId.HEMI],
   ],
-  [EvmChainId.TATARA]: [
-    WNATIVE[EvmChainId.TATARA],
-    AUSD[EvmChainId.TATARA]
-  ]
+  [EvmChainId.TATARA]: [WNATIVE[EvmChainId.TATARA], AUSD[EvmChainId.TATARA]],
 }
