@@ -2,4 +2,4 @@
 "sushi": patch
 ---
 
-Update Arbitrum Blocks subgraph
+Update Arbitrum blocks subgraph and V3 Base
