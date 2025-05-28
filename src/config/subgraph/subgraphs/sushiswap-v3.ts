@@ -20,7 +20,7 @@ const SUSHISWAP_V3_DECENTRALIZED_DEPLOYMENT_IDS = {
   [EvmChainId.GNOSIS]: `Qmadb2zb5P2avAy7zs454bLoEycfA6qzk61LwmDVJExUWg`,
   [EvmChainId.OPTIMISM]: `QmVHZfj6pWc7WSe4vY5epZVGGfggyVZt48voKVxf19Dc8U`,
   [EvmChainId.POLYGON]: `QmYAA8ymppZN4APXnqUhVNEnCwN1ZqHJyWsbmXuzpQ25Km`,
-  [EvmChainId.BASE]: `QmNw2ShqcGgu9iqxhAXdi89jCJn5DMU77tYJVLHg7HjZQ9`,
+  [EvmChainId.BASE]: `QmZftpYFevNQgBPxyaZGoz3pfbtHVEzL1BrMojqTjfYV3g`,
   [EvmChainId.LINEA]: `QmVUWgFKqLABaX7QDaJFxXai2MZeZtqjvLuPqCrED8eJfN`,
   [EvmChainId.SCROLL]: `QmNqxqVfBETuMhV91BfquULGBLFvPZwr3ADVFTMgGZcqNf`,
   [EvmChainId.SONIC]: `Qmaa6gJsqzeSnDBjq4NnwerMGMSaSDLqRMDkrevGXwVUt1`,
