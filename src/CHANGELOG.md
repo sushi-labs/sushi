@@ -1,5 +1,11 @@
 # sushi
 
+## 5.1.10
+
+### Patch Changes
+
+- [#193](https://github.com/sushi-labs/sushi/pull/193) [`3241d76`](https://github.com/sushi-labs/sushi/commit/3241d76bfae29e9f31ebcae15b9a25688f0b4ed0) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Update Arbitrum blocks subgraph and V3 Base
+
 ## 5.1.9
 
 ### Patch Changes
