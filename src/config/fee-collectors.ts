@@ -43,7 +43,7 @@ export const FEE_COLLECTOR_CHAIN_IDS = [
   EvmChainId.APE,
   EvmChainId.SONIC,
   EvmChainId.HEMI,
-  EvmChainId.KATANA
+  EvmChainId.KATANA,
 ] as const
 
 type FeeCollectorChainId = (typeof FEE_COLLECTOR_CHAIN_IDS)[number]
@@ -151,7 +151,7 @@ export const SURPLUS_FEE_COLLECTOR_ADDRESS: Record<
   [EvmChainId.APE]: '0x5C2e112783A6854653B4BC7DC22248D3e592559C',
   [EvmChainId.SONIC]: '0x5C2e112783A6854653B4BC7DC22248D3e592559C',
   [EvmChainId.HEMI]: '0x5C2e112783A6854653B4BC7DC22248D3e592559C',
-  [EvmChainId.KATANA]: '0x5C2e112783A6854653B4BC7DC22248D3e592559C'
+  [EvmChainId.KATANA]: '0x5C2e112783A6854653B4BC7DC22248D3e592559C',
 } as const
 export const isSurplusFeeCollectorChainId = isFeeCollectorChainId
 

@@ -46,7 +46,7 @@ export const RED_SNWAPPER_SUPPORTED_CHAIN_IDS = [
   EvmChainId.HEMI,
   EvmChainId.SEPOLIA,
   EvmChainId.TATARA,
-  EvmChainId.KATANA
+  EvmChainId.KATANA,
 ] as const
 export type RedSnwapperChainId =
   (typeof RED_SNWAPPER_SUPPORTED_CHAIN_IDS)[number]
