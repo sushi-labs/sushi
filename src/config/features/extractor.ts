@@ -44,6 +44,7 @@ export const EXTRACTOR_SUPPORTED_CHAIN_IDS = [
   EvmChainId.SONIC,
   EvmChainId.HEMI,
   EvmChainId.TATARA,
+  EvmChainId.KATANA,
 ] as const
 
 export type ExtractorSupportedChainId =

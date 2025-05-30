@@ -444,6 +444,10 @@ export const EVM_DEFAULT_BASES = {
     WNATIVE[EvmChainId.TATARA],
     AUSD[EvmChainId.TATARA],
   ],
+  [EvmChainId.KATANA]: [
+    Native.onChain(EvmChainId.KATANA),
+    WNATIVE[EvmChainId.KATANA]
+  ]
 } as const satisfies Record<EvmChainId, Readonly<(Token | Native)[]>>
 
 // const DEFAULT_BASES_IDS = Object.entries(DEFAULT_BASES).reduce<

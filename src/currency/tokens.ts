@@ -769,6 +769,7 @@ export const WNATIVE = {
   }),
   [EvmChainId.HEMI]: WETH9[EvmChainId.HEMI],
   [EvmChainId.TATARA]: WETH9[EvmChainId.TATARA],
+  [EvmChainId.KATANA]: WETH9[EvmChainId.KATANA],
 } as const
 
 export const SUSHI = addressMapToTokenMap(
