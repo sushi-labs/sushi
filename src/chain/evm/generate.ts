@@ -9,18 +9,18 @@ const __dirname = path.dirname(__filename)
 
 const additional: EvmChainBase[] = [
   {
-    name: 'Tatara',
+    name: 'Katana',
     nativeCurrency: {
       name: 'Ethereum',
       symbol: 'ETH',
       decimals: 18,
     },
-    shortName: 'tatara',
-    chainId: 129399,
+    shortName: 'katana',
+    chainId: 747474,
     explorers: [
       {
-        name: 'Tatara Explorer',
-        url: 'https://explorer.tatara.katana.network',
+        name: 'Katana Explorer',
+        url: 'https://explorer.katanarpc.com/',
         standard: 'EIP3091',
       },
     ],

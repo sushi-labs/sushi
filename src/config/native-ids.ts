@@ -66,4 +66,5 @@ export const nativeCurrencyIds = {
   [EvmChainId.SONIC]: 'S',
   [EvmChainId.HEMI]: 'ETH',
   [EvmChainId.TATARA]: 'ETH',
+  [EvmChainId.KATANA]: 'ETH',
 } as const

@@ -379,4 +379,5 @@ export const LSDS = {
   [EvmChainId.GÖRLI]: [],
   [EvmChainId.CURTIS]: [],
   [EvmChainId.TATARA]: [],
+  [EvmChainId.KATANA]: [],
 } as const satisfies Record<EvmChainId, Token[]>
