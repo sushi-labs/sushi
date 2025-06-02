@@ -41,6 +41,17 @@
       // Skip type checking for node modules
       "skipLibCheck": true,
 
-      "resolveJsonModule": true
-    }
+      "resolveJsonModule": true,
+
+      "paths": {
+        "~contracts/*": ["./contracts/*"],
+        "~sushi/*": ["./src/*"],
+        "~test/*": ["./test/*"],
+        
+        "~generic/*": ["./src-new/generic/*"],
+        "~evm/*": ["./src-new/evm/*"],
+        "~mvm/*": ["./src-new/mvm/*"],
+        "~tvm/*": ["./src-new/tvm/*"],
+      }
+    },
   }
