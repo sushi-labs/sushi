@@ -33,7 +33,9 @@ const BLOCKS_DECENTRALIZED_IDS = {
   [EvmChainId.SCROLL]: `QmeiBVERaEaBvDeXvNhSbCXVq1PxsshdKua5Y6b8Bqnuzu`,
   [EvmChainId.SONIC]: `QmdAhLuQAv9GfsWctJ8R36bYr6Gdp2GgUGSR2EDUNfb96h`,
   [EvmChainId.HEMI]: `QmaiDWUnDJ4sGaW8ANNPjype8FDYe1G3gseSTRotmr83CL`,
+  [EvmChainId.KATANA]: `QmZE1DKc1n2DPcntEeFov4EDeq61LRqdrh9UPCi7ZepXbp`,
 } as const satisfies Partial<Record<EvmChainId, string>>
+
 
 const BLOCKS_OTHER_URLS = {
   // [EvmChainId.OKEX]: `${GRAPH_HOST}/okexchain-blocks/oec`,
