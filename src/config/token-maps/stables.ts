@@ -281,6 +281,7 @@ export const STABLES = {
       symbol: 'VUSD',
     }),
   ],
+  [EvmChainId.KATANA]: [USDC[EvmChainId.HEMI], USDT[EvmChainId.HEMI]],
   // TESTNETS
   // [EvmChainId.RINKEBY]: [USDC[EvmChainId.RINKEBY]],
   // [EvmChainId.ROPSTEN]: [
@@ -302,5 +303,4 @@ export const STABLES = {
   [EvmChainId.GÖRLI]: [],
   [EvmChainId.CURTIS]: [USDT[EvmChainId.CURTIS], DAI[EvmChainId.CURTIS]],
   [EvmChainId.TATARA]: [AUSD[EvmChainId.TATARA]],
-  [EvmChainId.KATANA]: [], // TODO
 } as const satisfies Record<EvmChainId, Token[]>

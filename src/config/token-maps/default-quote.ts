@@ -103,5 +103,5 @@ export const defaultQuoteCurrency = {
   [EvmChainId.SONIC]: WETH9[EvmChainId.SONIC],
   [EvmChainId.HEMI]: USDC[EvmChainId.HEMI],
   [EvmChainId.TATARA]: AUSD[EvmChainId.TATARA],
-  [EvmChainId.KATANA]: WETH9[EvmChainId.KATANA], // TODO
+  [EvmChainId.KATANA]: USDC[EvmChainId.KATANA],
 } as const

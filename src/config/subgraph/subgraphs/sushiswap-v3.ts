@@ -31,9 +31,9 @@ const SUSHISWAP_V3_DECENTRALIZED_DEPLOYMENT_IDS = {
   // [EvmChainId.POLYGON_ZKEVM]: `QmWH5ChjmF4Yp5Yhiaxczh5QwbG6HFSEi8bRwbKaUrJA6C`,
 } as const satisfies Partial<Record<SushiSwapV3ChainId, string>>
 
-const SUSHISWAP_V3_DECENTRALIZED_SUBGRAPH_IDS = {} as const satisfies Partial<
-  Record<SushiSwapV3ChainId, string>
->
+const SUSHISWAP_V3_DECENTRALIZED_SUBGRAPH_IDS = {
+  [EvmChainId.KATANA]: `2YG7eSFHx1Wm9SHKdcrM8HR23JQpVe8fNNdmDHMXyVYR`,
+} as const satisfies Partial<Record<SushiSwapV3ChainId, string>>
 
 const SUSHISWAP_V3_OTHER_URLS = {
   [EvmChainId.ARBITRUM_NOVA]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushi-v3/v3-arbitrum-nova/gn`,
@@ -50,7 +50,6 @@ const SUSHISWAP_V3_OTHER_URLS = {
   [EvmChainId.ROOTSTOCK]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-rootstock-3/gn`,
   [EvmChainId.HEMI]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-hemi/gn`,
   [EvmChainId.TATARA]: '',
-  [EvmChainId.KATANA]: '', // TODO
 } as const satisfies Partial<Record<SushiSwapV3ChainId, string>>
 
 export const getSushiSwapV3SubgraphUrl = getSubgraphUrlWrapper({
