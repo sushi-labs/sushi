@@ -36,7 +36,6 @@ const BLOCKS_DECENTRALIZED_IDS = {
   [EvmChainId.KATANA]: `QmZE1DKc1n2DPcntEeFov4EDeq61LRqdrh9UPCi7ZepXbp`,
 } as const satisfies Partial<Record<EvmChainId, string>>
 
-
 const BLOCKS_OTHER_URLS = {
   // [EvmChainId.OKEX]: `${GRAPH_HOST}/okexchain-blocks/oec`,
   // [EvmChainId.HECO]: `${GRAPH_HOST}/hecoblocks/heco`,
