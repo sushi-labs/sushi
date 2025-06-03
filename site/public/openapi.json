@@ -94,7 +94,7 @@
             "description": "amount of the fee, for example 0.0025 (0.25%)",
             "required": false,
             "schema": {
-              "maximum": 1,
+              "maximum": 0.5,
               "minimum": 0,
               "type": "number",
               "default": 0.0025
@@ -294,7 +294,7 @@
             "description": "amount of the fee, for example 0.0025 (0.25%)",
             "required": false,
             "schema": {
-              "maximum": 1,
+              "maximum": 0.5,
               "minimum": 0,
               "type": "number",
               "default": 0.0025
@@ -738,7 +738,7 @@
         "description": "amount of the fee, for example 0.0025 (0.25%)",
         "required": false,
         "schema": {
-          "maximum": 1,
+          "maximum": 0.5,
           "minimum": 0,
           "type": "number",
           "default": 0.0025
