@@ -447,8 +447,8 @@ export const EVM_DEFAULT_BASES = {
   [EvmChainId.KATANA]: [
     Native.onChain(EvmChainId.KATANA),
     WNATIVE[EvmChainId.KATANA],
-    USDC[EvmChainId.HEMI],
-    USDT[EvmChainId.HEMI],
+    USDC[EvmChainId.KATANA],
+    USDT[EvmChainId.KATANA],
   ],
 } as const satisfies Record<EvmChainId, Readonly<(Token | Native)[]>>
 
