@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
-import { type SwapRequest, getSwap } from './swap.js'
-import { WNATIVE_ADDRESS } from '~sushi/currency/token-addresses.js'
 import { EvmChainId } from '~sushi/chain/index.js'
+import { WNATIVE_ADDRESS } from '~sushi/currency/token-addresses.js'
+import { type SwapRequest, getSwap } from './swap.js'
 
 const baseSwapRequest = {
   chainId: EvmChainId.ETHEREUM,
