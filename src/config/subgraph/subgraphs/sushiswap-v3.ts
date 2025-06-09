@@ -59,3 +59,18 @@ export const getSushiSwapV3SubgraphUrl = getSubgraphUrlWrapper({
   },
   otherUrls: SUSHISWAP_V3_OTHER_URLS,
 })<SushiSwapV3ChainId, 'COMPLETE'>()
+
+
+export const V3SubgraphTemplateMap: Record<SushiSwapV3ChainId, string> =
+  Object.fromEntries(
+    Object.entries({
+      ...SUSHISWAP_V3_DECENTRALIZED_DEPLOYMENT_IDS,
+      ...SUSHISWAP_V3_DECENTRALIZED_SUBGRAPH_IDS,
+      ...SUSHISWAP_V3_OTHER_URLS,
+    })
+      .map(([chainId]) => {
+        const url = getSushiSwapV3SubgraphUrl(Number(chainId) as SushiSwapV3ChainId, { decentralizedKey: '${GRAPH_KEY}' })
+        return [Number(chainId), url ? `https://${url}` : undefined]
+      })
+      .filter(([, url]) => !!url)
+  ) as Record<SushiSwapV3ChainId, string>

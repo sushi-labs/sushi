@@ -64,3 +64,19 @@ export const getSushiSwapV2SubgraphUrl = getSubgraphUrlWrapper({
   },
   otherUrls: SUSHISWAP_V2_OTHER_URLS,
 })<SushiSwapV2ChainId, 'COMPLETE'>()
+
+
+  
+export const V2SubgraphTemplateMap: Record<SushiSwapV2ChainId, string> =
+  Object.fromEntries(
+    Object.entries({
+      ...SUSHISWAP_V2_DECENTRALIZED_DEPLOYMENT_IDS,
+      ...SUSHISWAP_V2_DECENTRALIZED_SUBGRAPH_IDS,
+      ...SUSHISWAP_V2_OTHER_URLS,
+    })
+      .map(([chainId]) => {
+        const url = getSushiSwapV2SubgraphUrl(Number(chainId) as SushiSwapV2ChainId, { decentralizedKey: '${GRAPH_KEY}' })
+        return [Number(chainId), url ? `https://${url}` : undefined]
+      })
+      .filter(([, url]) => !!url)
+  ) as Record<SushiSwapV2ChainId, string>
