@@ -60,3 +60,18 @@ export const getBlocksSubgraphUrl = getSubgraphUrlWrapper({
   decentralizedIds: wrapAsIdType(BLOCKS_DECENTRALIZED_IDS, 'deploymentId'),
   otherUrls: BLOCKS_OTHER_URLS,
 })<EvmChainId, 'PARTIAL'>()
+
+export const BlocksSubgraphTemplateMap: Record<EvmChainId, string> =
+  Object.fromEntries(
+    Object.entries({
+      ...BLOCKS_DECENTRALIZED_IDS,
+      ...BLOCKS_OTHER_URLS,
+    })
+      .map(([chainId]) => {
+        const url = getBlocksSubgraphUrl(Number(chainId) as EvmChainId, {
+          decentralizedKey: '${GRAPH_KEY}',
+        })
+        return [Number(chainId), url ? `https://${url}` : undefined]
+      })
+      .filter(([, url]) => !!url),
+  ) as Record<EvmChainId, string>

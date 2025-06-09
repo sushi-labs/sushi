@@ -46,7 +46,7 @@ const SUSHISWAP_V3_OTHER_URLS = {
   [EvmChainId.HAQQ]: `${HAQQ_HOST}/sushi/v3-haqq-2`,
   [EvmChainId.ZETACHAIN]: `${SUSHI_GOLDSKY_HOST}/v3-zetachain/1.0.0/gn`,
   [EvmChainId.BLAST]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-blast/gn`,
-  [EvmChainId.SKALE_EUROPA]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-skale-europa/gn`,
+  [EvmChainId.SKALE_EUROPA]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-skale-europa-2/gn`,
   [EvmChainId.ROOTSTOCK]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-rootstock-3/gn`,
   [EvmChainId.HEMI]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-hemi/gn`,
   [EvmChainId.TATARA]: '',
@@ -59,3 +59,20 @@ export const getSushiSwapV3SubgraphUrl = getSubgraphUrlWrapper({
   },
   otherUrls: SUSHISWAP_V3_OTHER_URLS,
 })<SushiSwapV3ChainId, 'COMPLETE'>()
+
+export const V3SubgraphTemplateMap: Record<SushiSwapV3ChainId, string> =
+  Object.fromEntries(
+    Object.entries({
+      ...SUSHISWAP_V3_DECENTRALIZED_DEPLOYMENT_IDS,
+      ...SUSHISWAP_V3_DECENTRALIZED_SUBGRAPH_IDS,
+      ...SUSHISWAP_V3_OTHER_URLS,
+    })
+      .map(([chainId]) => {
+        const url = getSushiSwapV3SubgraphUrl(
+          Number(chainId) as SushiSwapV3ChainId,
+          { decentralizedKey: '${GRAPH_KEY}' },
+        )
+        return [Number(chainId), url ? `https://${url}` : undefined]
+      })
+      .filter(([, url]) => !!url),
+  ) as Record<SushiSwapV3ChainId, string>
