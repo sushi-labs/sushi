@@ -1,5 +1,11 @@
 # sushi
 
+## 5.1.14
+
+### Patch Changes
+
+- [#207](https://github.com/sushi-labs/sushi/pull/207) [`86f7bd6`](https://github.com/sushi-labs/sushi/commit/86f7bd6d1c60fc7372a7a37b6620486e2ab4e5ea) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Update Skale V3 Subgraph
+
 ## 5.1.13
 
 ### Patch Changes
