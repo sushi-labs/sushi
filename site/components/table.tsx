@@ -73,16 +73,12 @@ export const AddressTable: FC<{ data: Record<number, Address> }> = ({
   )
 }
 
-
 interface LinkTable {
   title: string
   data: Record<number, string>
 }
 
-export const LinkTable: FC<LinkTable> = ({
-  title,
-  data
-}) => {
+export const LinkTable: FC<LinkTable> = ({ title, data }) => {
   return (
     <table className="vocs_Table--fullWidth">
       <thead>

@@ -61,7 +61,6 @@ export const getBlocksSubgraphUrl = getSubgraphUrlWrapper({
   otherUrls: BLOCKS_OTHER_URLS,
 })<EvmChainId, 'PARTIAL'>()
 
-
 export const BlocksSubgraphTemplateMap: Record<EvmChainId, string> =
   Object.fromEntries(
     Object.entries({
@@ -74,5 +73,5 @@ export const BlocksSubgraphTemplateMap: Record<EvmChainId, string> =
         })
         return [Number(chainId), url ? `https://${url}` : undefined]
       })
-      .filter(([, url]) => !!url)
+      .filter(([, url]) => !!url),
   ) as Record<EvmChainId, string>
