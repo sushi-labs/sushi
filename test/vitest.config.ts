@@ -3,10 +3,18 @@ import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
   test: {
+    typecheck: {
+      enabled: true,
+    },
     alias: {
       '~contracts': join(__dirname, '../contracts'),
-      '~sushi': join(__dirname, '../src'),
       '~test': join(__dirname, '.'),
+
+      '~': join(__dirname, '../src'),
+      '~generic': join(__dirname, '../src/generic'),
+      '~evm': join(__dirname, '../src/evm'),
+      '~mvm': join(__dirname, '../src/mvm'),
+      '~tvm': join(__dirname, '../src/tvm'),
     },
     benchmark: {
       outputFile: './bench/report.json',
