@@ -1,18 +1,17 @@
 import type { FC, ReactElement } from 'react'
-import { Chain, type EvmChainId } from 'sushi/chain'
-import type { Address } from 'sushi/types'
+import { type EvmChainId, type EvmAddress, getEvmChainById } from 'sushi/evm'
 
 export type NetworkTableFormatter = ({
   chainId,
   value,
 }: {
   chainId: EvmChainId
-  value: Address
+  value: EvmAddress
 }) => ReactElement
 
 const formatExplorerLink: NetworkTableFormatter = ({ chainId, value }) => (
   <a
-    href={Chain[chainId].getAccountUrl(value)}
+    href={getEvmChainById(chainId).getAccountUrl(value)}
     target={'_blank'}
     rel={'noopener noreferrer'}
   >
@@ -26,7 +25,7 @@ const formatCode: NetworkTableFormatter = ({ value }) => (
 
 interface NetworkTable {
   title: string
-  data: Record<EvmChainId, Address>
+  data: Record<EvmChainId, EvmAddress>
   formatter?: NetworkTableFormatter
 }
 
@@ -49,7 +48,7 @@ export const NetworkTable: FC<NetworkTable> = ({
           return (
             <tr key={key} className="vocs_TableRow">
               <td className="vocs_TableCell">
-                {Chain[chainId].name.toUpperCase()}
+                {getEvmChainById(chainId).name.toUpperCase()}
               </td>
               <td className="vocs_TableCell">
                 {formatter ? formatter({ chainId, value }) : value}
@@ -62,7 +61,7 @@ export const NetworkTable: FC<NetworkTable> = ({
   )
 }
 
-export const AddressTable: FC<{ data: Record<EvmChainId, Address> }> = ({
+export const AddressTable: FC<{ data: Record<EvmChainId, EvmAddress> }> = ({
   data,
 }) => {
   return (
@@ -93,7 +92,7 @@ export const LinkTable: FC<LinkTable> = ({ title, data }) => {
           return (
             <tr key={key} className="vocs_TableRow">
               <td className="vocs_TableCell">
-                {EvmChain.from(+key)?.name.toUpperCase()}
+                {getEvmChainById(+key as EvmChainId)?.name.toUpperCase()}
               </td>
               <td className="vocs_TableCell">
                 <a
