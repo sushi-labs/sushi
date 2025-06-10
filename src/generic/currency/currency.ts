@@ -1,6 +1,6 @@
 import type { ChainId } from '~generic/chain/chains.js'
-import type { Token } from './token.js'
 import type { SerializedCurrency } from './serialized-currency.js'
+import type { Token } from './token.js'
 
 export abstract class Currency<TChainId extends ChainId = ChainId> {
   public readonly chainId: TChainId

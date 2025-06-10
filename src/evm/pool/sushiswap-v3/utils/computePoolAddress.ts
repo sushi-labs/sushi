@@ -1,13 +1,13 @@
 import type { Address } from 'viem'
 import { encodeAbiParameters, keccak256, parseAbiParameters } from 'viem/utils'
+import type { EvmChainId } from '~evm/chain/chains.js'
+import type { EvmToken } from '~evm/currency/token.js'
+import { getCreate2Address } from '~evm/utils/get-create-2-address.js'
 import {
   SUSHISWAP_V3_INIT_CODE_HASH,
   type SushiSwapV3ChainId,
   type SushiSwapV3FeeAmount,
 } from '../../../config/index.js'
-import type { EvmChainId } from '~evm/chain/chains.js'
-import type { EvmToken } from '~evm/currency/token.js'
-import { getCreate2Address } from '~evm/utils/get-create-2-address.js'
 
 type ComputeSushiSwapV3PoolAddressParams = {
   factoryAddress: Address

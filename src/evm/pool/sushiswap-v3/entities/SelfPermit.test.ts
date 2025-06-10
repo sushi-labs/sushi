@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest'
+import { EvmToken } from '~evm/currency/token.js'
 import {
   type AllowedPermitArguments,
   SelfPermit,
   type StandardPermitArguments,
 } from './SelfPermit.js'
-import { EvmToken } from '~evm/currency/token.js'
 
 const token = new EvmToken({
   chainId: 1,

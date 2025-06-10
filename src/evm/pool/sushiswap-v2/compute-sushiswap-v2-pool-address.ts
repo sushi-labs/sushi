@@ -1,12 +1,12 @@
 import invariant from 'tiny-invariant'
 import type { Address, Hex } from 'viem'
 import { encodePacked, keccak256 } from 'viem/utils'
+import type { EvmToken } from '~evm/currency/token.js'
+import { getCreate2Address } from '~evm/utils/get-create-2-address.js'
 import {
   SUSHISWAP_V2_INIT_CODE_HASH,
   type SushiSwapV2ChainId,
 } from '../../config/index.js'
-import { getCreate2Address } from '~evm/utils/get-create-2-address.js'
-import type { EvmToken } from '~evm/currency/token.js'
 
 /**
  * Computes a pair address

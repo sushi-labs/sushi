@@ -1,4 +1,6 @@
 import { describe, expect, it } from 'vitest'
+import { EvmToken } from '~evm/currency/token.js'
+import { Percent } from '~generic/math/percent.js'
 import {
   SushiSwapV3FeeAmount,
   TICK_SPACINGS,
@@ -8,8 +10,6 @@ import { nearestUsableTick } from '../utils/nearestUsableTick.js'
 import { TickMath } from '../utils/tickMath.js'
 import { Position } from './Position.js'
 import { SushiSwapV3Pool } from './SushiSwapV3Pool.js'
-import { EvmToken } from '~evm/currency/token.js'
-import { Percent } from '~generic/math/percent.js'
 
 describe('Position', () => {
   const USDC = new EvmToken({

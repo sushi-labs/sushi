@@ -1,4 +1,7 @@
 import { beforeEach, describe, expect, it } from 'vitest'
+import { WETH9 } from '~evm/config/tokens/tokens/WETH9.js'
+import { EvmToken } from '~evm/currency/token.js'
+import { Amount } from '~generic/currency/amount.js'
 import {
   SushiSwapV3FeeAmount,
   TICK_SPACINGS,
@@ -7,9 +10,6 @@ import { encodeSqrtRatioX96 } from '../utils/encodeSqrtRatioX96.js'
 import { nearestUsableTick } from '../utils/nearestUsableTick.js'
 import { TickMath } from '../utils/tickMath.js'
 import { SushiSwapV3Pool } from './SushiSwapV3Pool.js'
-import { EvmToken } from '~evm/currency/token.js'
-import { WETH9 } from '~evm/config/tokens/tokens/WETH9.js'
-import { Amount } from '~generic/currency/amount.js'
 
 const ONE_ETHER = 10n ** 18n
 

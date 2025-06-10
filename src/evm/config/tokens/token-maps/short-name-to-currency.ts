@@ -18,8 +18,8 @@ import {
 } from '~evm/config/tokens/tokens/index.js'
 import type { EvmCurrency } from '~evm/currency/currency.js'
 import { EvmToken } from '~evm/currency/token.js'
-import { WNATIVE } from '../wrapped-native.js'
 import { EvmNative } from '../../../currency/native.js'
+import { WNATIVE } from '../wrapped-native.js'
 
 const CHAIN_ID_SHORT_CURRENCY_NAME_TO_CURRENCY = {
   [EvmChainId.ARBITRUM]: {

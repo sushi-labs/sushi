@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
+import { EvmToken } from '~/evm/currency/token.js'
 import { SushiSwapV3FeeAmount } from '../../../config/index.js'
 import { computeSushiSwapV3PoolAddress } from './computePoolAddress.js'
-import { EvmToken } from '~/evm/currency/token.js'
 
 describe('#computePoolAddress', () => {
   const factoryAddress = '0x1111111111111111111111111111111111111111'

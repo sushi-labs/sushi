@@ -51,54 +51,27 @@
     "node": "20.x"
   },
   "pnpm": {
-    "onlyBuiltDependencies": [
-      "@biomejs/biome"
-    ]
+    "onlyBuiltDependencies": ["@biomejs/biome"]
   },
   "knip": {
-    "ignore": [
-      ".github/**",
-      "environments/**",
-      "vectors/**"
-    ],
-    "ignoreBinaries": [
-      "dev",
-      "forge",
-      "only-allow",
-      "printf"
-    ],
-    "ignoreDependencies": [
-      "bun",
-      "@size-limit/preset-big-lib"
-    ],
-    "ignoreWorkspaces": [
-      "examples/**",
-      "test"
-    ],
+    "ignore": [".github/**", "environments/**", "vectors/**"],
+    "ignoreBinaries": ["dev", "forge", "only-allow", "printf"],
+    "ignoreDependencies": ["bun", "@size-limit/preset-big-lib"],
+    "ignoreWorkspaces": ["examples/**", "test"],
     "vitest": {
-      "config": [
-        "test/vitest.config.ts"
-      ],
-      "entry": [
-        "**/*.{bench,bench-d,test,test-d,spec}.?(c|m)[jt]s?(x)"
-      ]
+      "config": ["test/vitest.config.ts"],
+      "entry": ["**/*.{bench,bench-d,test,test-d,spec}.?(c|m)[jt]s?(x)"]
     },
     "workspaces": {
       ".": {
         "project": "scripts/*.ts"
       },
       "src": {
-        "entry": [
-          "index.ts!",
-          "{generic,evm,tvm,mvm}/index.ts!"
-        ],
+        "entry": ["index.ts!", "{generic,evm,tvm,mvm}/index.ts!"],
         "ignore": []
       },
       "site": {
-        "project": [
-          "**/*.ts",
-          "**/*.tsx"
-        ]
+        "project": ["**/*.ts", "**/*.tsx"]
       }
     }
   }

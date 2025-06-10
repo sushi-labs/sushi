@@ -5,7 +5,7 @@
  * @returns The sqrt ratio
  */
 
-import { sqrt, type BigintIsh } from '~generic/index.js'
+import { type BigintIsh, sqrt } from '~generic/index.js'
 
 export function encodeSqrtRatioX96(
   amount1: BigintIsh,
