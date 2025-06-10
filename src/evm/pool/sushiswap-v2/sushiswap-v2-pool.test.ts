@@ -1,12 +1,12 @@
 import { describe, expect, it } from 'vitest'
-import { computeSushiSwapV2PoolAddress } from './compute-sushiswap-v2-pool-address.js'
-import { SushiSwapV2Pool } from './sushiswap-v2-pool.js'
 import { EvmChainId } from '~evm/chain/chains.js'
-import { EvmToken } from '~evm/currency/token.js'
-import { Amount } from '~generic/index.js'
 import { WETH9 } from '~evm/config/index.js'
+import { EvmToken } from '~evm/currency/token.js'
 import { InsufficientInputAmountError } from '~evm/dex/errors.js'
 import { Price } from '~generic/currency/price.js'
+import { Amount } from '~generic/index.js'
+import { computeSushiSwapV2PoolAddress } from './compute-sushiswap-v2-pool-address.js'
+import { SushiSwapV2Pool } from './sushiswap-v2-pool.js'
 // import { EvmChainId, CurrencyAmount, Price, Token, V2_FACTORY_ADDRESSES, WETH9 } from '@uniswap/sdk-core'
 
 describe('computePairAddress', () => {

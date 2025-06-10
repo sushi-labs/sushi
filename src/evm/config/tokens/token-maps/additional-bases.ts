@@ -3,6 +3,7 @@ import { EvmChainId } from '~evm/chain/index.js'
 import type { EvmToken } from '~evm/currency/token.js'
 import { SUSHI_ADDRESS } from '../tokens/SUSHI.js'
 import { SWISE_ADDRESS } from '../tokens/SWISE.js'
+import { SolvBTC_ADDRESS } from '../tokens/SolvBTC.js'
 import { TRIBE_ADDRESS } from '../tokens/TRIBE.js'
 import { WBTC_ADDRESS } from '../tokens/WBTC.js'
 import { XSUSHI_ADDRESS } from '../tokens/XSUSHI.js'
@@ -63,7 +64,6 @@ import {
   xSolvBTC,
 } from '../tokens/index.js'
 import { xSolvBTC_ADDRESS } from '../tokens/xSolvBTC.js'
-import { SolvBTC_ADDRESS } from '../tokens/SolvBTC.js'
 
 export const ADDITIONAL_BASES = {
   [EvmChainId.ETHEREUM]: {

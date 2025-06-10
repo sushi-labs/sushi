@@ -1,14 +1,14 @@
+import * as z from 'zod'
 import {
-  serializedTvmTokenSchema,
-  type SerializedTvmToken,
-  type TvmToken,
-} from './token.js'
-import {
-  serializedTvmNativeSchema,
   type SerializedTvmNative,
   type TvmNative,
+  serializedTvmNativeSchema,
 } from './native.js'
-import * as z from 'zod'
+import {
+  type SerializedTvmToken,
+  type TvmToken,
+  serializedTvmTokenSchema,
+} from './token.js'
 
 export type TvmCurrency = TvmNative | TvmToken
 

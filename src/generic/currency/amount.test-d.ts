@@ -1,9 +1,9 @@
 import { it } from 'node:test'
 import { describe, expectTypeOf } from 'vitest'
-import { Amount } from './amount.js'
-import { Native } from './native.js'
 import type { BigintIsh } from '../types/bigintish.js'
+import { Amount } from './amount.js'
 import type { Currency } from './currency.js'
+import { Native } from './native.js'
 import { Token } from './token.js'
 
 class TestNative extends Native {

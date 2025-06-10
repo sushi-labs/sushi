@@ -1,10 +1,10 @@
 import { it } from 'node:test'
 import { describe, expectTypeOf } from 'vitest'
-import { EvmNative } from '../../evm/currency/native.js'
-import { MvmToken } from '~/mvm/currency/token.js'
-import type { TvmToken } from '~/tvm/currency/token.js'
 import type { EvmToken } from '~/evm/currency/token.js'
+import { MvmToken } from '~/mvm/currency/token.js'
 import { TvmNative } from '~/tvm/currency/native.js'
+import type { TvmToken } from '~/tvm/currency/token.js'
+import { EvmNative } from '../../evm/currency/native.js'
 
 describe('generic/currency/currency.ts types', () => {
   describe('wrapCurrency', () => {

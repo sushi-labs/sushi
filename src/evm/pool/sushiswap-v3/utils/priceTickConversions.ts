@@ -1,8 +1,8 @@
 import type { EvmToken } from '~evm/currency/token.js'
+import { Price } from '~generic/currency/price.js'
 import { Q192 } from '../internalConstants.js'
 import { encodeSqrtRatioX96 } from './encodeSqrtRatioX96.js'
 import { TickMath } from './tickMath.js'
-import { Price } from '~generic/currency/price.js'
 
 /**
  * Returns a price object corresponding to the input tick and the base/quote token

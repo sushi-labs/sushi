@@ -1,6 +1,6 @@
 import * as z from 'zod'
 import { Token } from '~generic/currency/token.js'
-import { isTvmChainId, type TvmChainId } from '~tvm/chain/chains.js'
+import { type TvmChainId, isTvmChainId } from '~tvm/chain/chains.js'
 
 export type TvmAddress = `T${string}`
 

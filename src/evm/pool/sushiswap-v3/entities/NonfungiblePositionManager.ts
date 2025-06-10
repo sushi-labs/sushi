@@ -6,6 +6,12 @@ import {
   toHex,
   zeroAddress,
 } from 'viem'
+import type { EvmCurrency } from '~evm/currency/currency.js'
+import type { EvmNative } from '~evm/currency/native.js'
+import type { EvmToken } from '~evm/currency/token.js'
+import { Amount } from '~generic/currency/amount.js'
+import type { Percent } from '~generic/math/percent.js'
+import type { BigintIsh } from '~generic/types/bigintish.js'
 import {
   nonfungiblePositionManagerAbi_burn,
   nonfungiblePositionManagerAbi_collect,
@@ -23,12 +29,6 @@ import { Payments } from './Payments.js'
 import { Position } from './Position.js'
 import { type PermitOptions, SelfPermit } from './SelfPermit.js'
 import type { SushiSwapV3Pool } from './SushiSwapV3Pool.js'
-import type { EvmNative } from '~evm/currency/native.js'
-import type { EvmCurrency } from '~evm/currency/currency.js'
-import type { EvmToken } from '~evm/currency/token.js'
-import type { Percent } from '~generic/math/percent.js'
-import type { BigintIsh } from '~generic/types/bigintish.js'
-import { Amount } from '~generic/currency/amount.js'
 
 export interface MintSpecificOptions {
   /**

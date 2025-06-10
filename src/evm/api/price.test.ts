@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { getPrice, getPrices } from './price.js'
 import { SUSHI_ADDRESS } from '~evm/config/tokens/tokens/SUSHI.js'
+import { getPrice, getPrices } from './price.js'
 
 describe('getPrice', () => {
   it('should return a number', async () => {

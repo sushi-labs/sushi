@@ -1,9 +1,9 @@
 import type { Address } from 'viem'
 import { z } from 'zod'
+import { version } from '~/version.js'
 import type { ExtractorSupportedChainId } from '../config/index.js'
 import { szevm } from '../validate/zod.js'
 import { RouteStatus, type TransferValue } from './types.js'
-import { version } from '~/version.js'
 
 export type QuoteRequest<Vizualize extends boolean = false> = {
   chainId: ExtractorSupportedChainId

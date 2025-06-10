@@ -1,7 +1,7 @@
 import { Fraction } from '~generic/math/fraction.js'
-import type { Currency } from './currency.js'
 import type { BigintIsh } from '~generic/types/bigintish.js'
 import { numberToFixed } from '../format/number.js'
+import type { Currency } from './currency.js'
 
 export class Price<
   TBase extends Currency,
