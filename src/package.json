@@ -25,141 +25,34 @@
       "import": "./_esm/index.js",
       "default": "./_cjs/index.js"
     },
-    "./abi": {
-      "types": "./_types/abi/index.d.ts",
-      "import": "./_esm/abi/index.js",
-      "default": "./_cjs/abi/index.js"
+    "./generic": {
+      "types": "./_types/generic/index.d.ts",
+      "import": "./_esm/generic/index.js",
+      "default": "./_cjs/generic/index.js"
     },
-    "./address": {
-      "types": "./_types/address/index.d.ts",
-      "import": "./_esm/address/index.js",
-      "default": "./_cjs/address/index.js"
+    "./evm": {
+      "types": "./_types/evm/index.d.ts",
+      "import": "./_esm/evm/index.js",
+      "default": "./_cjs/evm/index.js"
     },
-    "./calculate": {
-      "types": "./_types/calculate/index.d.ts",
-      "import": "./_esm/calculate/index.js",
-      "default": "./_cjs/calculate/index.js"
+    "./mvm": {
+      "types": "./_types/mvm/index.d.ts",
+      "import": "./_esm/mvm/index.js",
+      "default": "./_cjs/mvm/index.js"
     },
-    "./chain": {
-      "types": "./_types/chain/index.d.ts",
-      "import": "./_esm/chain/index.js",
-      "default": "./_cjs/chain/index.js"
-    },
-    "./config": {
-      "types": "./_types/config/index.d.ts",
-      "import": "./_esm/config/index.js",
-      "default": "./_cjs/config/index.js"
-    },
-    "./config/subgraph": {
-      "types": "./_types/config/subgraph/index.d.ts",
-      "import": "./_esm/config/subgraph/index.js",
-      "default": "./_cjs/config/subgraph/index.js"
-    },
-    "./contract": {
-      "types": "./_types/contract/index.d.ts",
-      "import": "./_esm/contract/index.js",
-      "default": "./_cjs/contract/index.js"
-    },
-    "./convert": {
-      "types": "./_types/convert/index.d.ts",
-      "import": "./_esm/convert/index.js",
-      "default": "./_cjs/convert/index.js"
-    },
-    "./currency": {
-      "types": "./_types/currency/index.d.ts",
-      "import": "./_esm/currency/index.js",
-      "default": "./_cjs/currency/index.js"
-    },
-    "./data": {
-      "types": "./_types/data/index.d.ts",
-      "import": "./_esm/data/index.js",
-      "default": "./_cjs/data/index.js"
-    },
-    "./dex": {
-      "types": "./_types/dex/index.d.ts",
-      "import": "./_esm/dex/index.js",
-      "default": "./_cjs/dex/index.js"
-    },
-    "./format": {
-      "types": "./_types/format/index.d.ts",
-      "import": "./_esm/format/index.js",
-      "default": "./_cjs/format/index.js"
-    },
-    "./log": {
-      "types": "./_types/log/index.d.ts",
-      "import": "./_esm/log/index.js",
-      "default": "./_cjs/log/index.js"
-    },
-    "./math": {
-      "types": "./_types/math/index.d.ts",
-      "import": "./_esm/math/index.js",
-      "default": "./_cjs/math/index.js"
-    },
-    "./pool": {
-      "types": "./_types/pool/index.d.ts",
-      "import": "./_esm/pool/index.js",
-      "default": "./_cjs/pool/index.js"
-    },
-    "./pool/*": {
-      "types": "./_types/pool/*/index.d.ts",
-      "import": "./_esm/pool/*/index.js",
-      "default": "./_cjs/pool/*/index.js"
-    },
-    "./router": {
-      "types": "./_types/router/index.d.ts",
-      "import": "./_esm/router/index.js",
-      "default": "./_cjs/router/index.js"
-    },
-    "./sort": {
-      "types": "./_types/sort/index.d.ts",
-      "import": "./_esm/sort/index.js",
-      "default": "./_cjs/sort/index.js"
-    },
-    "./swap": {
-      "types": "./_types/swap/index.d.ts",
-      "import": "./_esm/swap/index.js",
-      "default": "./_cjs/swap/index.js"
-    },
-    "./token-list": {
-      "types": "./_types/token-list/index.d.ts",
-      "import": "./_esm/token-list/index.js",
-      "default": "./_cjs/token-list/index.js"
-    },
-    "./types": {
-      "types": "./_types/types/index.d.ts",
-      "import": "./_esm/types/index.js",
-      "default": "./_cjs/types/index.js"
-    },
-    "./validate": {
-      "types": "./_types/validate/index.d.ts",
-      "import": "./_esm/validate/index.js",
-      "default": "./_cjs/validate/index.js"
+    "./tvm": {
+      "types": "./_types/tvm/index.d.ts",
+      "import": "./_esm/tvm/index.js",
+      "default": "./_cjs/tvm/index.js"
     },
     "./package.json": "./package.json"
   },
   "typesVersions": {
     "*": {
-      "abi": ["./_types/abi/index.d.ts"],
-      "address": ["./_types/address/index.d.ts"],
-      "calculate": ["./_types/calculate/index.d.ts"],
-      "chain": ["./_types/chain/index.d.ts"],
-      "config": ["./_types/config/index.d.ts"],
-      "config/subgraph": ["./_types/config/subgraph/index.d.ts"],
-      "contract": ["./_types/contract/index.d.ts"],
-      "convert": ["./_types/convert/index.d.ts"],
-      "currency": ["./_types/currency/index.d.ts"],
-      "data": ["./_types/data/index.d.ts"],
-      "dex": ["./_types/dex/index.d.ts"],
-      "format": ["./_types/format/index.d.ts"],
-      "log": ["./_types/log/index.d.ts"],
-      "math": ["./_types/math/index.d.ts"],
-      "pool": ["./_types/pool/index.d.ts"],
-      "router": ["./_types/router/index.d.ts"],
-      "sort": ["./_types/sort/index.d.ts"],
-      "swap": ["./_types/swap/index.d.ts"],
-      "token-list": ["./_types/token-list/index.d.ts"],
-      "types": ["./_types/types/index.d.ts"],
-      "validate": ["./_types/validate/index.d.ts"]
+      "generic": ["./_types/generic/index.d.ts"],
+      "evm": ["./_types/evm/index.d.ts"],
+      "mvm": ["./_types/mvm/index.d.ts"],
+      "tvm": ["./_types/tvm/index.d.ts"]
     }
   },
   "dependencies": {

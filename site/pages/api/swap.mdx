@@ -9,7 +9,7 @@ The Swap API provides functionality to generate swap call data necessary for exe
 import { createPublicClient, createWalletClient, http, type Hex } from 'viem'
 import { privateKeyToAccount } from 'viem/accounts'
 import { mainnet } from 'viem/chains'
-import { type SwapResponse } from 'sushi/api'
+import { type SwapResponse } from 'sushi/evm'
 
 const publicClient = createPublicClient({
   chain: mainnet,

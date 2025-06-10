@@ -4,6 +4,12 @@ import * as z from 'zod'
 import { type EvmChainId, isEvmChainId } from '~evm/chain/chains.js'
 import { Token } from '~generic/currency/token.js'
 
+export type EvmAddress = Address
+
+export function isEvmAddress(address: string): address is EvmAddress {
+  return isAddress(address, { strict: false })
+}
+
 export type EvmTokenOrigin =
   | 'native'
   | 'stargate'
@@ -11,7 +17,7 @@ export type EvmTokenOrigin =
   | 'wormhole'
   | 'native-bridge'
 
-export class EvmToken extends Token<EvmChainId, Address> {
+export class EvmToken extends Token<EvmChainId, EvmAddress> {
   public readonly origin: EvmTokenOrigin | undefined
 
   constructor({
@@ -19,7 +25,7 @@ export class EvmToken extends Token<EvmChainId, Address> {
     ...rest
   }: {
     origin?: EvmTokenOrigin | undefined
-  } & ConstructorParameters<typeof Token<EvmChainId, Address>>[0]) {
+  } & ConstructorParameters<typeof Token<EvmChainId, EvmAddress>>[0]) {
     super(rest)
     this.origin = origin
   }
