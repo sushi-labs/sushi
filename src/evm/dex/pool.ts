@@ -1,6 +1,6 @@
 import type { EvmToken } from '~evm/currency/token.js'
-import type { Fee } from './fee.js'
 import type { Amount } from '~generic/index.js'
+import type { Fee } from './fee.js'
 
 export abstract class Pool {
   public abstract readonly liquidityToken: EvmToken

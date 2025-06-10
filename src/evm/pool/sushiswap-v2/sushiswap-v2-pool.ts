@@ -1,4 +1,5 @@
 import invariant from 'tiny-invariant'
+import type { Address } from 'viem'
 import { getEvmChainById } from '~evm/chain/index.js'
 import {
   SUSHISWAP_V2_FACTORY_ADDRESS,
@@ -9,14 +10,13 @@ import {
   InsufficientInputAmountError,
   InsufficientReservesError,
 } from '~evm/dex/index.js'
+import { Amount } from '~generic/currency/amount.js'
+import { Price } from '~generic/currency/price.js'
 import { FIVE, ONE, ZERO, _997, _1000 } from '~generic/math/constants.js'
+import { sqrt } from '~generic/math/sqrt.js'
+import type { BigintIsh } from '~generic/types/bigintish.js'
 import { computeSushiSwapV2PoolAddress } from './compute-sushiswap-v2-pool-address.js'
 import { type SerializedSushiSwapV2Pool, sushiSwapV2PoolSchema } from './zod.js'
-import type { Address } from 'viem'
-import { Price } from '~generic/currency/price.js'
-import { sqrt } from '~generic/math/sqrt.js'
-import { Amount } from '~generic/currency/amount.js'
-import type { BigintIsh } from '~generic/types/bigintish.js'
 
 export class SushiSwapV2Pool {
   public readonly liquidityToken: EvmToken

@@ -1,4 +1,5 @@
 import { getAddress as _getAddress } from 'viem/utils'
+import type { EvmCurrency } from '~/evm/currency/currency.js'
 import { EvmChainId } from '~evm/chain/index.js'
 import {
   APE_USD,
@@ -30,7 +31,6 @@ import {
 import { EvmNative } from '~evm/currency/native.js'
 import { EvmToken } from '~evm/currency/token.js'
 import { WNATIVE } from '../wrapped-native.js'
-import type { EvmCurrency } from '~/evm/currency/currency.js'
 
 /*
   Currencies that are shown at the top of the token selector by default

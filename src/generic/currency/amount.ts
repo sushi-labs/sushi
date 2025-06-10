@@ -1,12 +1,12 @@
 import { formatUnits, parseUnits } from 'viem/utils'
-import type { Currency } from './currency.js'
 import * as z from 'zod'
 import type { BigintIsh } from '~generic/types/bigintish.js'
+import { numberToFixed } from '../format/number.js'
+import type { Currency } from './currency.js'
 import type {
   SerializedCurrency,
   SerializedCurrencySchema,
 } from './serialized-currency.js'
-import { numberToFixed } from '../format/number.js'
 
 /**
  * Represents an amount of a particular currency.

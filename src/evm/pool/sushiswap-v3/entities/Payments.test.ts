@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
-import { Payments } from './Payments.js'
 import { EvmToken } from '~evm/currency/token.js'
 import { Percent } from '~generic/math/percent.js'
+import { Payments } from './Payments.js'
 
 const recipient = '0x0000000000000000000000000000000000000003'
 const amount = 123n

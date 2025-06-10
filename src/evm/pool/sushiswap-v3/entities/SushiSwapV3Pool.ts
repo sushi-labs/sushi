@@ -1,5 +1,9 @@
 import invariant from 'tiny-invariant'
 import type { Address, Hex } from 'viem'
+import type { EvmToken } from '~evm/currency/token.js'
+import { Amount } from '~generic/currency/amount.js'
+import { Price } from '~generic/currency/price.js'
+import type { BigintIsh } from '~generic/types/bigintish.js'
 import {
   SUSHISWAP_V3_FACTORY_ADDRESS,
   type SushiSwapV3ChainId,
@@ -17,10 +21,6 @@ import {
   type TickDataProvider,
 } from './TickDataProvider.js'
 import { TickListDataProvider } from './TickListDataProvider.js'
-import type { EvmToken } from '~evm/currency/token.js'
-import { Price } from '~generic/currency/price.js'
-import { Amount } from '~generic/currency/amount.js'
-import type { BigintIsh } from '~generic/types/bigintish.js'
 
 interface StepComputations {
   sqrtPriceStartX96: bigint
