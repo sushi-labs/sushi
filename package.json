@@ -3,9 +3,9 @@
   "type": "module",
   "scripts": {
     "build": "pnpm clean && pnpm build:cjs && pnpm build:esm && pnpm build:types",
-    "build:cjs": "tsc --project ./tsconfig.build.json --module commonjs --outDir ./src/_cjs --removeComments --verbatimModuleSyntax false --esModuleInterop true && printf '{\"type\":\"commonjs\"}' > ./src/_cjs/package.json",
-    "build:esm": "tsc --project ./tsconfig.build.json --module es2020 --outDir ./src/_esm && printf '{\"type\": \"module\",\"sideEffects\":false}' > ./src/_esm/package.json",
-    "build:types": "tsc --project ./tsconfig.build.json --module esnext --declarationDir ./src/_types --emitDeclarationOnly --declaration --declarationMap",
+    "build:cjs": "tsc -p tsconfig.build.cjs.json && printf '{\"type\":\"commonjs\"}' > ./src/_cjs/package.json && tsc-alias -p tsconfig.build.cjs.json",
+    "build:esm": "tsc -p tsconfig.build.esm.json && printf '{\"type\": \"module\",\"sideEffects\":false}' > ./src/_esm/package.json && tsc-alias -p tsconfig.build.esm.json",
+    "build:types": "tsc -p tsconfig.build.types.json && tsc-alias -p tsconfig.build.types.json",
     "changeset:prepublish": "bun scripts/prepublish-only.ts && bun scripts/update-version.ts && pnpm build",
     "changeset:publish": "pnpm changeset:prepublish && changeset publish",
     "changeset:version": "changeset version && pnpm install --lockfile-only && pnpm format",
