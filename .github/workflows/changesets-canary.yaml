@@ -11,6 +11,7 @@ jobs:
   changesets_canary:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    needs: verify
 
     steps:
       - name: Clone repository
@@ -23,8 +24,13 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: pnpm changeset:publish --tag canary --no-git-tag
-          version: pnpm changeset:version --snapshot canary
+          publish: \
+            pnpm changeset version --snapshot canary
+            pnpm install --lockfile-only
+            pnpm format
+            pnpm changeset:prepublish
+            pnpm changeset publish --tag canary --no-git-tag
+          version: echo "-"
           createGithubReleases: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
