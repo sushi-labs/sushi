@@ -1,0 +1,31 @@
+name: Changesets - Canary
+on:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    name: Verify
+    uses: ./.github/workflows/verify.yml
+    secrets: inherit
+
+  changesets_canary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        uses: ./.github/actions/install
+
+      - name: Version & publish snapshot canary
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: pnpm changeset:publish --tag canary --no-git-tag
+          version: pnpm changeset:version --snapshot canary
+          createGithubReleases: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN:    ${{ secrets.NPM_TOKEN }}
