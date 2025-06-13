@@ -3,7 +3,8 @@
 Call the Swap API and simulate the result:
 
 ```ts twoslash
-import { getSwap, ChainId } from 'sushi'
+import { ChainId } from 'sushi/generic'
+import { getSwap } from 'sushi/evm'
 import { createPublicClient, createWalletClient, http, type Hex } from 'viem'
 import { privateKeyToAccount } from 'viem/accounts'
 import { mainnet } from 'viem/chains'

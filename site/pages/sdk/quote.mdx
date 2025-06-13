@@ -3,7 +3,8 @@
 Call the Quote API:
 
 ```ts twoslash
-import { getQuote, ChainId } from 'sushi'
+import { ChainId } from 'sushi/generic'
+import { getQuote } from 'sushi/evm'
 
 // Get a quote from the API
 const data = await getQuote({

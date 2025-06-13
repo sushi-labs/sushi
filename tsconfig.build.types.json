@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.build.json",
+  "compilerOptions": {
+    "outDir": "./src/_types",
+    "module": "esnext",
+    "declarationDir": "./src/_types",
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "declarationMap": true,
+  }
+}
