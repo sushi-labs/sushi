@@ -1,5 +1,5 @@
 import type { FC, ReactElement } from 'react'
-import { type EvmChainId, type EvmAddress, getEvmChainById } from 'sushi/evm'
+import { type EvmAddress, type EvmChainId, getEvmChainById } from 'sushi/evm'
 
 export type NetworkTableFormatter = ({
   chainId,

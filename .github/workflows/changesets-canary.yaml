@@ -11,6 +11,7 @@ jobs:
   changesets_canary:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    needs: verify
 
     steps:
       - name: Clone repository
@@ -19,13 +20,19 @@ jobs:
       - name: Install dependencies
         uses: ./.github/actions/install
 
-      - name: Version & publish snapshot canary
-        id: changesets
-        uses: changesets/action@v1
-        with:
-          publish: pnpm changeset:publish --tag canary --no-git-tag
-          version: pnpm changeset:version --snapshot canary
-          createGithubReleases: false
+      - name: Version
+        run: pnpm changeset version --snapshot canary
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN:    ${{ secrets.NPM_TOKEN }}
+
+      - name: Prepublish
+        run: pnpm changeset:prepublish
+
+      - name: Prepare npm
+        run: npm config set "//registry.npmjs.org/:_authToken" "$NPM_TOKEN"
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish
+        run: pnpm changeset publish --tag canary --no-git-tag
+
