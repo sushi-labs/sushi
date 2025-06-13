@@ -1,5 +1,11 @@
 # sushi
 
+## 5.1.15
+
+### Patch Changes
+
+- [#211](https://github.com/sushi-labs/sushi/pull/211) [`7594e18`](https://github.com/sushi-labs/sushi/commit/7594e1849d1e0418ed572450d45473c90a727481) Thanks [@danielr18](https://github.com/danielr18)! - Add Mantle blocks subgraph
+
 ## 5.1.14
 
 ### Patch Changes
