@@ -1,5 +1,13 @@
 # sushi
 
+## 0.0.0-canary-20250613180614
+
+### Major Changes
+
+- [#204](https://github.com/sushi-labs/sushi/pull/204) [`674fe4a`](https://github.com/sushi-labs/sushi/commit/674fe4a3f45a6d5c2595dce26036c3b0619631aa) Thanks [@matthewlilley](https://github.com/matthewlilley)! - Major refactor
+
+- [#204](https://github.com/sushi-labs/sushi/pull/204) [`d0775c4`](https://github.com/sushi-labs/sushi/commit/d0775c456307e37d0c8bc37b11e3d80ab93c95b1) Thanks [@matthewlilley](https://github.com/matthewlilley)! - Major refactor, split into a per-xvm structure
+
 ## 5.1.14
 
 ### Patch Changes
