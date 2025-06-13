@@ -1,5 +1,0 @@
----
-"sushi": major
----
-
-Major refactor

@@ -1,5 +1,11 @@
 # sushi
 
+## 6.0.0
+
+### Major Changes
+
+- [#204](https://github.com/sushi-labs/sushi/pull/204) [`097310b`](https://github.com/sushi-labs/sushi/commit/097310bfb658f1b8ae9fd1a0c1b384850bc57024) Thanks [@matthewlilley](https://github.com/matthewlilley)! - Major refactor
+
 ## 5.1.14
 
 ### Patch Changes
