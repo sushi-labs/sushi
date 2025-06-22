@@ -1,8 +1,11 @@
 import { z } from 'zod'
 import { type EvmNative, serializedEvmNativeSchema } from './native.js'
 import { type EvmToken, serializedEvmTokenSchema } from './token.js'
+import type { CurrencyMetadata } from '~/generic/currency/currency.js'
 
-export type EvmCurrency = EvmToken | EvmNative
+export type EvmCurrency<TMetadata extends CurrencyMetadata = undefined> =
+  | EvmToken<TMetadata>
+  | EvmNative
 
 export const serializedEvmCurrencySchema = z.discriminatedUnion('type', [
   serializedEvmTokenSchema,

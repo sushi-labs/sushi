@@ -5,6 +5,7 @@ import { defineMvmChain } from './define-chain.js'
 const aptos = defineMvmChain({
   chainId: -1,
   key: 'aptos',
+  shortName: 'apt',
   name: 'Aptos',
   blockExplorers: {
     default: { name: 'Aptos Explorer', url: 'https://explorer.aptoslabs.com' },
