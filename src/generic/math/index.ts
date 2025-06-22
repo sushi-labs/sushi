@@ -1,4 +1,6 @@
 export * from './constants.js'
+export * from './percent.js'
+export * from './fraction.js'
 export { abs } from './abs.js'
 export { difference } from './difference.js'
 export { maximum } from './maximum.js'

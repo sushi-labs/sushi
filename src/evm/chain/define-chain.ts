@@ -10,9 +10,10 @@ export type EvmChainType = 'evm'
 
 type EvmChainBase<TChainId extends number, TChainKey extends string> = Chain<
   EvmChainType,
-  // @ts-expect-error prevent infinite loop
+  // @ts-ignore infinite loop
   TChainId,
   TChainKey,
+  Readonly<string>,
   Readonly<string>,
   Readonly<NetType>,
   BlockExplorers,
@@ -126,6 +127,7 @@ export function defineEvmChain<
     chainId,
     key: chain.key as T['key'],
     name,
+    shortName: chain.shortName as T['shortName'],
     netType,
     blockExplorers,
     viemChain: {

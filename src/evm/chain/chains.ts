@@ -69,6 +69,7 @@ const bobaBnb = /* @__PURE__ */ defineEvmChain(
   }),
   {
     key: 'boba-bnb',
+    shortName: 'bona-bnb',
     netType: 'mainnet',
     contracts: {
       multicall3: {
@@ -81,74 +82,92 @@ const bobaBnb = /* @__PURE__ */ defineEvmChain(
 
 const ethereum = /* @__PURE__ */ defineEvmChain(ethereumViem, {
   key: 'ethereum',
+  shortName: 'eth',
 })
 
 const polygon = /* @__PURE__ */ defineEvmChain(polygonViem, {
   key: 'polygon',
+  shortName: 'pol',
 })
 
 const fantom = /* @__PURE__ */ defineEvmChain(fantomViem, {
   key: 'fantom',
+  shortName: 'ftm',
 })
 
 const gnosis = /* @__PURE__ */ defineEvmChain(gnosisViem, {
   key: 'gnosis',
+  shortName: 'gno',
 })
 
 const bsc = /* @__PURE__ */ defineEvmChain(bscViem, {
   key: 'bsc',
+  shortName: 'bnb',
 })
 
 const arbitrum = /* @__PURE__ */ defineEvmChain(arbitrumViem, {
   key: 'arbitrum',
+  shortName: 'arb1',
 })
 
 const arbitrumNova = /* @__PURE__ */ defineEvmChain(arbitrumNovaViem, {
   key: 'arbitrum-nova',
+  shortName: 'arb-nova',
 })
 
 const avalanche = /* @__PURE__ */ defineEvmChain(avalancheViem, {
   key: 'avalanche',
+  shortName: 'avax',
 })
 
 const harmony = /* @__PURE__ */ defineEvmChain(harmonyViem, {
   key: 'harmony',
+  shortName: 'hmy-s0',
 })
 
 const celo = /* @__PURE__ */ defineEvmChain(celoViem, {
   key: 'celo',
+  shortName: 'celo',
 })
 
 const optimism = /* @__PURE__ */ defineEvmChain(optimismViem, {
   key: 'optimism',
+  shortName: 'oeth',
 })
 
 const kava = /* @__PURE__ */ defineEvmChain(kavaViem, {
   key: 'kava',
+  shortName: 'kava',
 })
 
 const metis = /* @__PURE__ */ defineEvmChain(metisViem, {
   key: 'metis',
+  shortName: 'metis-andromeda',
 })
 
 const boba = /* @__PURE__ */ defineEvmChain(bobaViem, {
   key: 'boba',
+  shortName: 'boba',
 })
 
 const bttc = /* @__PURE__ */ defineEvmChain(bttcViem, {
   key: 'bttc',
+  shortName: 'btt',
 })
 
 const polygonZkevm = /* @__PURE__ */ defineEvmChain(polygonZkevmViem, {
   key: 'polygon-zkevm',
+  shortName: 'pol-zkevm',
 })
 
 const thundercore = /* @__PURE__ */ defineEvmChain(thundercoreViem, {
   key: 'thundercore',
+  shortName: 'tt',
 })
 
 const filecoin = /* @__PURE__ */ defineEvmChain(filecoinViem, {
   key: 'filecoin',
+  shortName: 'fil',
 })
 
 const haqq = /* @__PURE__ */ defineEvmChain(haqqViem, {
@@ -159,50 +178,62 @@ const haqq = /* @__PURE__ */ defineEvmChain(haqqViem, {
       blockCreated: 6589598,
     },
   },
+  shortName: 'haqq',
 })
 
 const core = /* @__PURE__ */ defineEvmChain(coreViem, {
   key: 'core',
+  shortName: 'core',
 })
 
 const zksync = /* @__PURE__ */ defineEvmChain(zksyncViem, {
   key: 'zksync-era',
+  shortName: 'zksync-era',
 })
 
 const linea = /* @__PURE__ */ defineEvmChain(lineaViem, {
   key: 'linea',
+  shortName: 'linea',
 })
 
 const base = /* @__PURE__ */ defineEvmChain(baseViem, {
   key: 'base',
+  shortName: 'base',
 })
 
 const scroll = /* @__PURE__ */ defineEvmChain(scrollViem, {
   key: 'scroll',
+  shortName: 'scr',
 })
 
 const zetachain = /* @__PURE__ */ defineEvmChain(zetachainViem, {
   key: 'zetachain',
+  shortName: 'zetachain',
 })
 
 const cronos = /* @__PURE__ */ defineEvmChain(cronosViem, {
   key: 'cronos',
+  shortName: 'cro',
 })
 
 const blast = /* @__PURE__ */ defineEvmChain(blastViem, {
   key: 'blast',
+  shortName: 'blast',
 })
 
 const skaleEuropa = /* @__PURE__ */ defineEvmChain(skaleEuropaViem, {
   key: 'skale-europa',
+  shortName: 'europa',
 })
 
 const rootstock = /* @__PURE__ */ defineEvmChain(rootstockViem, {
   key: 'rootstock',
+  shortName: 'rsk',
 })
 
 const mantle = /* @__PURE__ */ defineEvmChain(mantleViem, {
   key: 'mantle',
+  shortName: 'mantle',
 })
 
 const curtis = /* @__PURE__ */ defineEvmChain(curtisViem, {
@@ -213,18 +244,22 @@ const curtis = /* @__PURE__ */ defineEvmChain(curtisViem, {
       blockCreated: 7290821,
     },
   },
+  shortName: 'curtis',
 })
 
 const manta = /* @__PURE__ */ defineEvmChain(mantaViem, {
   key: 'manta',
+  shortName: 'manta',
 })
 
 const mode = /* @__PURE__ */ defineEvmChain(modeViem, {
   key: 'mode',
+  shortName: 'mode',
 })
 
 const taiko = /* @__PURE__ */ defineEvmChain(taikoViem, {
   key: 'taiko',
+  shortName: 'tko',
 })
 
 const zklink = /* @__PURE__ */ defineEvmChain(zklinkViem, {
@@ -235,14 +270,17 @@ const zklink = /* @__PURE__ */ defineEvmChain(zklinkViem, {
       blockCreated: 146055,
     },
   },
+  shortName: 'zklink',
 })
 
 const ape = /* @__PURE__ */ defineEvmChain(apeViem, {
   key: 'ape',
+  shortName: 'ape',
 })
 
 const sonic = /* @__PURE__ */ defineEvmChain(sonicViem, {
   key: 'sonic',
+  shortName: 'sonic',
 })
 
 const hemi = /* @__PURE__ */ defineEvmChain(hemiViem, {
@@ -253,6 +291,7 @@ const hemi = /* @__PURE__ */ defineEvmChain(hemiViem, {
       blockCreated: 484490,
     },
   },
+  shortName: 'hemi',
 })
 
 const katana = /* @__PURE__ */ defineEvmChain(
@@ -286,24 +325,29 @@ const katana = /* @__PURE__ */ defineEvmChain(
   }),
   {
     key: 'katana',
+    shortName: 'katana',
   },
 )
 
 // Testnets
 const bscTestnet = /* @__PURE__ */ defineEvmChain(bscTestnetViem, {
   key: 'bsc-testnet',
+  shortName: 'bnbt',
 })
 
 const sepolia = /* @__PURE__ */ defineEvmChain(sepoliaViem, {
   key: 'sepolia',
+  shortName: 'sep',
 })
 
 const fantomTestnet = /* @__PURE__ */ defineEvmChain(fantomTestnetViem, {
   key: 'fantom-testnet',
+  shortName: 'tftm',
 })
 
 const arbitrumSepolia = /* @__PURE__ */ defineEvmChain(arbitrumSepoliaViem, {
   key: 'arbitrum-sepolia',
+  shortName: 'arb-sep',
 })
 
 const tatara = /* @__PURE__ */ defineEvmChain(
@@ -337,6 +381,7 @@ const tatara = /* @__PURE__ */ defineEvmChain(
   }),
   {
     key: 'tatara',
+    shortName: 'tatara',
   },
 )
 

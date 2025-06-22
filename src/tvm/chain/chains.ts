@@ -5,6 +5,7 @@ import { defineTvmChain } from './define-chain.js'
 const tron = defineTvmChain({
   chainId: -2,
   name: 'Tron',
+  shortName: 'trx',
   key: 'tron',
   blockExplorers: {
     default: { name: 'Tronscan', url: 'https://tronscan.io' },

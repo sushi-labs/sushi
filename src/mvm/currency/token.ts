@@ -1,4 +1,5 @@
 import * as z from 'zod'
+import type { CurrencyMetadata } from '~/generic/currency/currency.js'
 import { Token } from '~generic/currency/token.js'
 import { type MvmChainId, isMvmChainId } from '~mvm/chain/chains.js'
 
@@ -9,7 +10,13 @@ export function isMvmAddress(address: string): address is MvmAddress {
   return !!address.match(/^0x([^:]+)::([^:]+)::([^:]+)$/)
 }
 
-export class MvmToken extends Token<MvmChainId, MvmAddress> {
+export class MvmToken<
+  TMetadata extends CurrencyMetadata = undefined,
+> extends Token<MvmChainId, MvmAddress, TMetadata> {
+  public override wrap(): MvmToken<TMetadata> {
+    return this
+  }
+
   public override toJSON(): SerializedMvmToken {
     return {
       chainId: this.chainId,

@@ -9,8 +9,11 @@ import {
   type TvmToken,
   serializedTvmTokenSchema,
 } from './token.js'
+import type { CurrencyMetadata } from '~/generic/currency/currency.js'
 
-export type TvmCurrency = TvmNative | TvmToken
+export type TvmCurrency<TMetadata extends CurrencyMetadata = undefined> =
+  | TvmNative
+  | TvmToken<TMetadata>
 
 export const serializedTvmCurrencySchema = z.discriminatedUnion('type', [
   serializedTvmTokenSchema,

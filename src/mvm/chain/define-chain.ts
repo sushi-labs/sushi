@@ -13,6 +13,7 @@ type MvmChainBase<TChainId extends number, TChainKey extends string> = Chain<
   TChainId,
   TChainKey,
   Readonly<string>,
+  Readonly<string>,
   NetType,
   BlockExplorers,
   string,

@@ -3,6 +3,8 @@ import { type Address, isAddress } from 'viem'
 import * as z from 'zod'
 import { type EvmChainId, isEvmChainId } from '~evm/chain/chains.js'
 import { Token } from '~generic/currency/token.js'
+import type { ID } from '../types/id.js'
+import type { CurrencyMetadata } from '~/generic/currency/currency.js'
 
 export type EvmAddress = Address
 
@@ -17,7 +19,9 @@ export type EvmTokenOrigin =
   | 'wormhole'
   | 'native-bridge'
 
-export class EvmToken extends Token<EvmChainId, EvmAddress> {
+export class EvmToken<
+  TMetadata extends CurrencyMetadata = undefined,
+> extends Token<EvmChainId, EvmAddress, TMetadata> {
   public readonly origin: EvmTokenOrigin | undefined
 
   constructor({
@@ -25,9 +29,15 @@ export class EvmToken extends Token<EvmChainId, EvmAddress> {
     ...rest
   }: {
     origin?: EvmTokenOrigin | undefined
-  } & ConstructorParameters<typeof Token<EvmChainId, EvmAddress>>[0]) {
+  } & ConstructorParameters<
+    typeof Token<EvmChainId, EvmAddress, TMetadata>
+  >[0]) {
     super(rest)
     this.origin = origin
+  }
+
+  get id(): ID {
+    return `${this.chainId}:${this.address.toLowerCase()}` as ID
   }
 
   public sortsBefore(other: EvmToken): boolean {
