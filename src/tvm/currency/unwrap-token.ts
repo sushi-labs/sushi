@@ -9,5 +9,5 @@ export function unwrapTvmToken(token: TvmToken): TvmCurrency {
     return WNATIVE[token.chainId]
   }
 
-  return token as TvmCurrency<undefined>
+  return token
 }

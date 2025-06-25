@@ -44,7 +44,7 @@ export type SushiSwapV2ChainId =
   (typeof SUSHISWAP_V2_SUPPORTED_CHAIN_IDS)[number]
 
 export const isSushiSwapV2ChainId = (
-  chainId: EvmChainId,
+  chainId: number,
 ): chainId is SushiSwapV2ChainId =>
   SUSHISWAP_V2_SUPPORTED_CHAIN_IDS.includes(chainId as SushiSwapV2ChainId)
 

@@ -5,6 +5,7 @@ import type {
   Chain,
   NetType,
 } from '~generic/chain/interface.js'
+import type { EvmAddress } from '../currency/token.js'
 
 export type EvmChainType = 'evm'
 
@@ -20,6 +21,7 @@ type EvmChainBase<TChainId extends number, TChainKey extends string> = Chain<
   Address,
   Hex
 > & {
+  parentChainId?: TChainId
   viemChain: ViemChain
 }
 
@@ -37,6 +39,7 @@ type EvmChainInput<VC extends ViemChain> = Omit<
   | 'rpcUrls'
   | 'getTransactionUrl'
   | 'getAccountUrl'
+  | 'getTokenUrl'
   | 'netType'
 > & {
   chainId?: number
@@ -133,19 +136,27 @@ export function defineEvmChain<
     viemChain: {
       ...(viemChain as Omit<
         V,
-        'id' | 'name' | 'nativeCurrency' | 'rpcUrls' | 'blockExplorers'
+        | 'id'
+        | 'name'
+        | 'nativeCurrency'
+        | 'rpcUrls'
+        | 'blockExplorers'
+        | 'contracts'
       >),
       id: chainId,
       name: name,
       nativeCurrency: nativeCurrency,
       rpcUrls: rpcUrls,
       blockExplorers: blockExplorers,
-      contracts,
+      // Due to "satisfies"-related widening
+      contracts: contracts as Fallback<T['contracts'], V['contracts']>,
     },
 
-    getTransactionUrl: (input: `0x${string}`) =>
+    getTransactionUrl: (input: EvmAddress) =>
       `${blockExplorers.default.url}/tx/${input}`,
-    getAccountUrl: (input: `0x${string}`) =>
+    getAccountUrl: (input: EvmAddress) =>
       `${blockExplorers.default.url}/address/${input}`,
+    getTokenUrl: (input: EvmAddress) =>
+      `${blockExplorers.default.url}/token/${input}`,
   } as const satisfies EvmChainBase<number, string>
 }

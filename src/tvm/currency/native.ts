@@ -10,7 +10,7 @@ export class TvmNative extends Native<TvmChainId> {
     return NATIVE[chainId]
   }
 
-  public override wrap(): TvmToken<undefined> {
+  public override wrap(): TvmToken {
     return WNATIVE[this.chainId]
   }
 

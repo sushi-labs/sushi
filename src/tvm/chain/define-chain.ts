@@ -24,7 +24,7 @@ export type TvmChain = TvmChainBase<TvmChainId, TvmChainKey>
 
 type TvmChainInput = Omit<
   TvmChainBase<number, string>,
-  'type' | 'getTransactionUrl' | 'getAccountUrl'
+  'type' | 'getTransactionUrl' | 'getAccountUrl' | 'getTokenUrl'
 >
 
 export function defineTvmChain<const T extends TvmChainInput>(chain: T) {
@@ -33,8 +33,10 @@ export function defineTvmChain<const T extends TvmChainInput>(chain: T) {
     type: 'tvm' as const,
 
     getTransactionUrl: (input: string) =>
-      `${chain.blockExplorers.default.url}/txn/${input}`,
+      `${chain.blockExplorers.default.url}/#/transaction/${input}`,
     getAccountUrl: (input: string) =>
-      `${chain.blockExplorers.default.url}/acount/${input}`,
+      `${chain.blockExplorers.default.url}/#/address/${input}`,
+    getTokenUrl: (input: string) =>
+      `${chain.blockExplorers.default.url}/#/token20/${input}`,
   } as const satisfies TvmChainBase<number, string>
 }

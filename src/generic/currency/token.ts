@@ -1,10 +1,11 @@
 import type { ChainId } from '~generic/chain/chains.js'
 import { Currency, type CurrencyMetadata } from './currency.js'
+import type { ID } from '../types/id.js'
 
 export abstract class Token<
   TChainId extends ChainId = ChainId,
   TAddress extends string = string,
-  TMetadata extends CurrencyMetadata = undefined,
+  TMetadata extends CurrencyMetadata = Record<string, unknown>,
 > extends Currency<TChainId, TMetadata> {
   override readonly type = 'token'
 
@@ -20,6 +21,10 @@ export abstract class Token<
     this.address = address
   }
 
+  override get id(): ID<TChainId, TAddress> {
+    return `${this.chainId}:${this.address}`
+  }
+
   public override isSame(other: Currency): boolean {
     return (
       super.isSame(other) &&
@@ -28,7 +33,5 @@ export abstract class Token<
     )
   }
 
-  public override wrap(): Token<TChainId, TAddress, TMetadata> {
-    return this
-  }
+  public abstract override wrap(): Token<TChainId, TAddress, TMetadata>
 }

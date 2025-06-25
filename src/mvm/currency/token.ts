@@ -11,7 +11,7 @@ export function isMvmAddress(address: string): address is MvmAddress {
 }
 
 export class MvmToken<
-  TMetadata extends CurrencyMetadata = undefined,
+  TMetadata extends CurrencyMetadata = Record<string, unknown>,
 > extends Token<MvmChainId, MvmAddress, TMetadata> {
   public override wrap(): MvmToken<TMetadata> {
     return this

@@ -39,4 +39,5 @@ export type Chain<
 
   getTransactionUrl: (input: TAddress) => string
   getAccountUrl: (input: TTransactionHash) => string
+  getTokenUrl: (input: TAddress) => string
 }>

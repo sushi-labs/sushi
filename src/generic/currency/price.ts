@@ -2,6 +2,7 @@ import { Fraction } from '~generic/math/fraction.js'
 import type { BigintIsh } from '~generic/types/bigintish.js'
 import { numberToFixed } from '../format/number.js'
 import type { Currency } from './currency.js'
+import type { Amount } from './amount.js'
 
 export class Price<
   TBase extends Currency,
@@ -10,20 +11,28 @@ export class Price<
   public readonly base: TBase
   public readonly quote: TQuote
 
-  constructor({
-    base,
-    quote,
-    numerator,
-    denominator = 1n,
-  }: {
-    base: TBase
-    quote: TQuote
-    numerator: BigintIsh
-    denominator?: BigintIsh
-  }) {
-    super({ numerator, denominator })
-    this.base = base
-    this.quote = quote
+  constructor(
+    args:
+      | {
+          base: TBase
+          quote: TQuote
+          numerator: BigintIsh
+          denominator?: BigintIsh
+        }
+      | { baseAmount: Amount<TBase>; quoteAmount: Amount<TQuote> },
+  ) {
+    if ('baseAmount' in args && 'quoteAmount' in args) {
+      const { baseAmount, quoteAmount } = args
+      super({ numerator: baseAmount.amount, denominator: quoteAmount.amount })
+
+      this.base = baseAmount.currency
+      this.quote = quoteAmount.currency
+      return
+    }
+
+    super({ numerator: args.numerator, denominator: args.denominator || 1n })
+    this.base = args.base
+    this.quote = args.quote
   }
 
   get scalar(): Fraction {

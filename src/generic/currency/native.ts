@@ -3,6 +3,10 @@ import { Currency } from '~generic/currency/currency.js'
 
 export abstract class Native<
   TChainId extends ChainId = ChainId,
-> extends Currency<TChainId, undefined> {
+> extends Currency<TChainId, Record<string, unknown>> {
   override readonly type = 'native'
+
+  override get id() {
+    return `${this.chainId}:NATIVE` as const
+  }
 }

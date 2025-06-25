@@ -1,12 +1,13 @@
 import type { ChainId } from '~generic/chain/chains.js'
 import type { SerializedCurrency } from './serialized-currency.js'
 import type { Token } from './token.js'
+import type { ID } from '../types/id.js'
 
-export type CurrencyMetadata = Record<string, unknown> | undefined
+export type CurrencyMetadata = Record<string, unknown>
 
 export abstract class Currency<
   TChainId extends ChainId = ChainId,
-  TMetadata extends CurrencyMetadata = undefined,
+  TMetadata extends CurrencyMetadata = Record<string, unknown>,
 > {
   public readonly chainId: TChainId
   public readonly symbol: string
@@ -37,6 +38,8 @@ export abstract class Currency<
 
     this.metadata = metadata || ({} as TMetadata)
   }
+
+  abstract get id(): ID<TChainId, string>
 
   public isSame(other: Currency): boolean {
     return (

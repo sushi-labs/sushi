@@ -80,6 +80,16 @@ export class Amount<TCurrency extends Currency> {
   }
 
   /**
+   * Multiplies this amount by another amount or raw value.
+   */
+  public mul(
+    multiplier: Amount<TCurrency> | bigint | string,
+  ): Amount<TCurrency> {
+    const mul = Amount.getRawAmount(this, multiplier)
+    return new Amount(this.currency, this.amount * mul)
+  }
+
+  /**
    * Multiplies this amount by a human-readable multiplier.
    */
   public mulHuman(multiplier: bigint | number | string): Amount<TCurrency> {
