@@ -39,7 +39,7 @@ export const DRPC_CHAIN_IDS = [
 
 export type DrpcChainId = (typeof DRPC_CHAIN_IDS)[number]
 
-export const isDrpcChainId = (chainId: EvmChainId): chainId is DrpcChainId =>
+export const isDrpcChainId = (chainId: number): chainId is DrpcChainId =>
   DRPC_CHAIN_IDS.includes(chainId as DrpcChainId)
 
 const drpcNetworkMapping = {

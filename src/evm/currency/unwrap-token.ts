@@ -10,5 +10,5 @@ export function unwrapEvmToken(token: EvmToken): EvmCurrency {
     return EvmNative.fromChainId(token.chainId)
   }
 
-  return token as EvmCurrency<undefined>
+  return token
 }

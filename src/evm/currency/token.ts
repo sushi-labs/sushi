@@ -3,7 +3,6 @@ import { type Address, isAddress } from 'viem'
 import * as z from 'zod'
 import { type EvmChainId, isEvmChainId } from '~evm/chain/chains.js'
 import { Token } from '~generic/currency/token.js'
-import type { ID } from '../types/id.js'
 import type { CurrencyMetadata } from '~/generic/currency/currency.js'
 
 export type EvmAddress = Address
@@ -20,7 +19,7 @@ export type EvmTokenOrigin =
   | 'native-bridge'
 
 export class EvmToken<
-  TMetadata extends CurrencyMetadata = undefined,
+  TMetadata extends CurrencyMetadata = Record<string, unknown>,
 > extends Token<EvmChainId, EvmAddress, TMetadata> {
   public readonly origin: EvmTokenOrigin | undefined
 
@@ -36,10 +35,6 @@ export class EvmToken<
     this.origin = origin
   }
 
-  get id(): ID {
-    return `${this.chainId}:${this.address.toLowerCase()}` as ID
-  }
-
   public sortsBefore(other: EvmToken): boolean {
     invariant(
       this.chainId === other.chainId,
@@ -50,6 +45,10 @@ export class EvmToken<
       'Tokens must have different addresses',
     )
     return this.address.toLowerCase() < other.address.toLowerCase()
+  }
+
+  public override wrap(): EvmToken<TMetadata> {
+    return this
   }
 
   public override toJSON(): SerializedEvmToken {

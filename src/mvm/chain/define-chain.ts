@@ -24,7 +24,7 @@ export type MvmChain = MvmChainBase<MvmChainId, MvmChainKey>
 
 type MvmChainInput = Omit<
   MvmChainBase<number, string>,
-  'type' | 'getTransactionUrl' | 'getAccountUrl'
+  'type' | 'getTransactionUrl' | 'getAccountUrl' | 'getTokenUrl'
 >
 
 export function defineMvmChain<const T extends MvmChainInput>(chain: T) {
@@ -35,6 +35,8 @@ export function defineMvmChain<const T extends MvmChainInput>(chain: T) {
     getTransactionUrl: (input: string) =>
       `${chain.blockExplorers.default.url}/txn/${input}`,
     getAccountUrl: (input: string) =>
-      `${chain.blockExplorers.default.url}/acount/${input}`,
+      `${chain.blockExplorers.default.url}/account/${input}`,
+    getTokenUrl: (input: string) =>
+      `${chain.blockExplorers.default.url}/coin/${input}`,
   } as const satisfies MvmChainBase<number, string>
 }

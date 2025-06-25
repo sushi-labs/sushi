@@ -47,39 +47,6 @@ import { defineEvmChain } from './define-chain.js'
 
 import type { Replace, UnionToIntersection } from '~generic/types/index.js'
 
-const bobaBnb = /* @__PURE__ */ defineEvmChain(
-  /* @__PURE__ */ defineViemChain({
-    id: 56288,
-    name: 'Boba BNB',
-    nativeCurrency: { name: 'Boba', symbol: 'BOBA', decimals: 18 },
-    rpcUrls: {
-      default: {
-        http: ['https://bnb.boba.network'],
-      },
-      public: {
-        http: ['https://bnb.boba.network'],
-      },
-    },
-    blockExplorers: {
-      default: {
-        name: 'Boba BNB Mainnet Explorer',
-        url: 'https://bnb.bobascan.com/',
-      },
-    },
-  }),
-  {
-    key: 'boba-bnb',
-    shortName: 'bona-bnb',
-    netType: 'mainnet',
-    contracts: {
-      multicall3: {
-        address: '0x67dA5f2FfaDDfF067AB9d5F025F8810634d84287',
-        blockCreated: 18871,
-      },
-    },
-  },
-)
-
 const ethereum = /* @__PURE__ */ defineEvmChain(ethereumViem, {
   key: 'ethereum',
   shortName: 'eth',
@@ -105,14 +72,50 @@ const bsc = /* @__PURE__ */ defineEvmChain(bscViem, {
   shortName: 'bnb',
 })
 
+const bobaBnb = /* @__PURE__ */ defineEvmChain(
+  /* @__PURE__ */ defineViemChain({
+    id: 56288,
+    name: 'Boba BNB',
+    nativeCurrency: { name: 'Boba', symbol: 'BOBA', decimals: 18 },
+    rpcUrls: {
+      default: {
+        http: ['https://bnb.boba.network'],
+      },
+      public: {
+        http: ['https://bnb.boba.network'],
+      },
+    },
+    blockExplorers: {
+      default: {
+        name: 'Boba BNB Mainnet Explorer',
+        url: 'https://bnb.bobascan.com/',
+      },
+    },
+  }),
+  {
+    key: 'boba-bnb',
+    shortName: 'boba-bnb',
+    netType: 'mainnet',
+    contracts: {
+      multicall3: {
+        address: '0x67dA5f2FfaDDfF067AB9d5F025F8810634d84287',
+        blockCreated: 18871,
+      },
+    },
+    parentChainId: bsc.chainId,
+  },
+)
+
 const arbitrum = /* @__PURE__ */ defineEvmChain(arbitrumViem, {
   key: 'arbitrum',
   shortName: 'arb1',
+  parentChainId: ethereum.chainId,
 })
 
 const arbitrumNova = /* @__PURE__ */ defineEvmChain(arbitrumNovaViem, {
   key: 'arbitrum-nova',
   shortName: 'arb-nova',
+  parentChainId: ethereum.chainId,
 })
 
 const avalanche = /* @__PURE__ */ defineEvmChain(avalancheViem, {
@@ -133,6 +136,7 @@ const celo = /* @__PURE__ */ defineEvmChain(celoViem, {
 const optimism = /* @__PURE__ */ defineEvmChain(optimismViem, {
   key: 'optimism',
   shortName: 'oeth',
+  parentChainId: ethereum.chainId,
 })
 
 const kava = /* @__PURE__ */ defineEvmChain(kavaViem, {
@@ -143,11 +147,13 @@ const kava = /* @__PURE__ */ defineEvmChain(kavaViem, {
 const metis = /* @__PURE__ */ defineEvmChain(metisViem, {
   key: 'metis',
   shortName: 'metis-andromeda',
+  parentChainId: ethereum.chainId,
 })
 
 const boba = /* @__PURE__ */ defineEvmChain(bobaViem, {
   key: 'boba',
   shortName: 'boba',
+  parentChainId: ethereum.chainId,
 })
 
 const bttc = /* @__PURE__ */ defineEvmChain(bttcViem, {
@@ -158,6 +164,7 @@ const bttc = /* @__PURE__ */ defineEvmChain(bttcViem, {
 const polygonZkevm = /* @__PURE__ */ defineEvmChain(polygonZkevmViem, {
   key: 'polygon-zkevm',
   shortName: 'pol-zkevm',
+  parentChainId: ethereum.chainId,
 })
 
 const thundercore = /* @__PURE__ */ defineEvmChain(thundercoreViem, {
@@ -189,21 +196,25 @@ const core = /* @__PURE__ */ defineEvmChain(coreViem, {
 const zksync = /* @__PURE__ */ defineEvmChain(zksyncViem, {
   key: 'zksync-era',
   shortName: 'zksync-era',
+  parentChainId: ethereum.chainId,
 })
 
 const linea = /* @__PURE__ */ defineEvmChain(lineaViem, {
   key: 'linea',
   shortName: 'linea',
+  parentChainId: ethereum.chainId,
 })
 
 const base = /* @__PURE__ */ defineEvmChain(baseViem, {
   key: 'base',
   shortName: 'base',
+  parentChainId: ethereum.chainId,
 })
 
 const scroll = /* @__PURE__ */ defineEvmChain(scrollViem, {
   key: 'scroll',
   shortName: 'scr',
+  parentChainId: ethereum.chainId,
 })
 
 const zetachain = /* @__PURE__ */ defineEvmChain(zetachainViem, {
@@ -219,6 +230,7 @@ const cronos = /* @__PURE__ */ defineEvmChain(cronosViem, {
 const blast = /* @__PURE__ */ defineEvmChain(blastViem, {
   key: 'blast',
   shortName: 'blast',
+  parentChainId: ethereum.chainId,
 })
 
 const skaleEuropa = /* @__PURE__ */ defineEvmChain(skaleEuropaViem, {
@@ -234,32 +246,25 @@ const rootstock = /* @__PURE__ */ defineEvmChain(rootstockViem, {
 const mantle = /* @__PURE__ */ defineEvmChain(mantleViem, {
   key: 'mantle',
   shortName: 'mantle',
-})
-
-const curtis = /* @__PURE__ */ defineEvmChain(curtisViem, {
-  key: 'curtis',
-  contracts: {
-    multicall3: {
-      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
-      blockCreated: 7290821,
-    },
-  },
-  shortName: 'curtis',
+  parentChainId: ethereum.chainId,
 })
 
 const manta = /* @__PURE__ */ defineEvmChain(mantaViem, {
   key: 'manta',
   shortName: 'manta',
+  parentChainId: ethereum.chainId,
 })
 
 const mode = /* @__PURE__ */ defineEvmChain(modeViem, {
   key: 'mode',
   shortName: 'mode',
+  parentChainId: ethereum.chainId,
 })
 
 const taiko = /* @__PURE__ */ defineEvmChain(taikoViem, {
   key: 'taiko',
   shortName: 'tko',
+  parentChainId: ethereum.chainId,
 })
 
 const zklink = /* @__PURE__ */ defineEvmChain(zklinkViem, {
@@ -276,11 +281,13 @@ const zklink = /* @__PURE__ */ defineEvmChain(zklinkViem, {
 const ape = /* @__PURE__ */ defineEvmChain(apeViem, {
   key: 'ape',
   shortName: 'ape',
+  parentChainId: arbitrum.chainId,
 })
 
 const sonic = /* @__PURE__ */ defineEvmChain(sonicViem, {
   key: 'sonic',
   shortName: 'sonic',
+  //parentChainId: SOLANA
 })
 
 const hemi = /* @__PURE__ */ defineEvmChain(hemiViem, {
@@ -292,6 +299,7 @@ const hemi = /* @__PURE__ */ defineEvmChain(hemiViem, {
     },
   },
   shortName: 'hemi',
+  parentChainId: ethereum.chainId,
 })
 
 const katana = /* @__PURE__ */ defineEvmChain(
@@ -326,6 +334,7 @@ const katana = /* @__PURE__ */ defineEvmChain(
   {
     key: 'katana',
     shortName: 'katana',
+    parentChainId: ethereum.chainId,
   },
 )
 
@@ -348,6 +357,7 @@ const fantomTestnet = /* @__PURE__ */ defineEvmChain(fantomTestnetViem, {
 const arbitrumSepolia = /* @__PURE__ */ defineEvmChain(arbitrumSepoliaViem, {
   key: 'arbitrum-sepolia',
   shortName: 'arb-sep',
+  parentChainId: sepolia.chainId,
 })
 
 const tatara = /* @__PURE__ */ defineEvmChain(
@@ -382,6 +392,7 @@ const tatara = /* @__PURE__ */ defineEvmChain(
   {
     key: 'tatara',
     shortName: 'tatara',
+    parentChainId: sepolia.chainId,
   },
 )
 
@@ -416,8 +427,22 @@ const hyperevm = /* @__PURE__ */ defineEvmChain(
   }),
   {
     key: 'hyperevm',
+    shortName: 'hyperevm',
   },
 )
+
+const curtis = /* @__PURE__ */ defineEvmChain(curtisViem, {
+  key: 'curtis',
+  contracts: {
+    multicall3: {
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
+      blockCreated: 7290821,
+    },
+  },
+  shortName: 'curtis',
+  parentChainId: arbitrumSepolia.chainId,
+})
+
 export const evmChains = [
   bobaBnb,
   ethereum,

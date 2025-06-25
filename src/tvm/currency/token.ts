@@ -12,7 +12,7 @@ export function isTvmAddress(address: string): address is TvmAddress {
 export type TvmTokenOrigin = 'native'
 
 export class TvmToken<
-  TMetadata extends CurrencyMetadata = undefined,
+  TMetadata extends CurrencyMetadata = Record<string, unknown>,
 > extends Token<TvmChainId, TvmAddress, TMetadata> {
   public readonly origin: TvmTokenOrigin | undefined
 
@@ -26,6 +26,10 @@ export class TvmToken<
   >[0]) {
     super(rest)
     this.origin = origin
+  }
+
+  public override wrap(): TvmToken<TMetadata> {
+    return this
   }
 
   public override toJSON(): SerializedTvmToken {
