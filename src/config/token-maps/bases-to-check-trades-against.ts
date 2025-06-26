@@ -638,5 +638,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     WNATIVE[EvmChainId.KATANA],
     USDC[EvmChainId.KATANA],
     USDT[EvmChainId.KATANA],
+    AUSD[EvmChainId.KATANA],
+    WBTC[EvmChainId.KATANA],
   ],
 }
