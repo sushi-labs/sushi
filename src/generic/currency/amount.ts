@@ -11,7 +11,7 @@ import type {
 /**
  * Represents an amount of a particular currency.
  */
-export class Amount<TCurrency extends Currency> {
+export class Amount<TCurrency extends Currency = Currency> {
   /** The currency of this amount */
   public readonly currency: TCurrency
 
@@ -37,6 +37,13 @@ export class Amount<TCurrency extends Currency> {
     return new Amount(currency, amt)
   }
 
+  /**
+   * Wraps the amount's currency into a Token.
+   */
+  public wrap() {
+    return new Amount(this.currency.wrap(), this.amount)
+  }
+
   private static getRawAmount<TCurrency extends Currency>(
     _ref: Amount<TCurrency>,
     other: Amount<TCurrency> | bigint | string,
@@ -50,7 +57,7 @@ export class Amount<TCurrency extends Currency> {
   /**
    * Adds another Amount or raw value.
    */
-  public add(other: Amount<TCurrency> | bigint | string): Amount<TCurrency> {
+  public add(other: Amount | bigint | string): Amount<TCurrency> {
     const addend = Amount.getRawAmount(this, other)
     return new Amount(this.currency, this.amount + addend)
   }
@@ -66,7 +73,7 @@ export class Amount<TCurrency extends Currency> {
   /**
    * Subtracts another Amount or raw value.
    */
-  public sub(other: Amount<TCurrency> | bigint | string): Amount<TCurrency> {
+  public sub(other: Amount | bigint | string): Amount<TCurrency> {
     const sub = Amount.getRawAmount(this, other)
     return new Amount(this.currency, this.amount - sub)
   }
@@ -82,9 +89,7 @@ export class Amount<TCurrency extends Currency> {
   /**
    * Multiplies this amount by another amount or raw value.
    */
-  public mul(
-    multiplier: Amount<TCurrency> | bigint | string,
-  ): Amount<TCurrency> {
+  public mul(multiplier: Amount | bigint | string): Amount<TCurrency> {
     const mul = Amount.getRawAmount(this, multiplier)
     return new Amount(this.currency, this.amount * mul)
   }
@@ -102,7 +107,7 @@ export class Amount<TCurrency extends Currency> {
    * Divides this amount by another Amount or raw value.
    * @returns an object with { numerator, denominator } for precise fractional result.
    */
-  public div(other: Amount<TCurrency> | bigint | string): {
+  public div(other: Amount | bigint | string): {
     numerator: bigint
     denominator: bigint
   } {
@@ -124,7 +129,7 @@ export class Amount<TCurrency extends Currency> {
   /**
    * Returns true if this amount > other.
    */
-  public gt(other: Amount<TCurrency> | bigint | string): boolean {
+  public gt(other: Amount | bigint | string): boolean {
     const cmp = Amount.getRawAmount(this, other)
     return this.amount > cmp
   }
@@ -132,7 +137,7 @@ export class Amount<TCurrency extends Currency> {
   /**
    * Returns true if this amount >= other.
    */
-  public gte(other: Amount<TCurrency> | bigint | string): boolean {
+  public gte(other: Amount | bigint | string): boolean {
     const cmp = Amount.getRawAmount(this, other)
     return this.amount >= cmp
   }
@@ -140,7 +145,7 @@ export class Amount<TCurrency extends Currency> {
   /**
    * Returns true if this amount < other.
    */
-  public lt(other: Amount<TCurrency> | bigint | string): boolean {
+  public lt(other: Amount | bigint | string): boolean {
     const cmp = Amount.getRawAmount(this, other)
     return this.amount < cmp
   }
@@ -148,7 +153,7 @@ export class Amount<TCurrency extends Currency> {
   /**
    * Returns true if this amount <= other.
    */
-  public lte(other: Amount<TCurrency> | bigint | string): boolean {
+  public lte(other: Amount | bigint | string): boolean {
     const cmp = Amount.getRawAmount(this, other)
     return this.amount <= cmp
   }
@@ -156,7 +161,7 @@ export class Amount<TCurrency extends Currency> {
   /**
    * Returns true if this amount == other.
    */
-  public eq(other: Amount<TCurrency> | bigint | string): boolean {
+  public eq(other: Amount | bigint | string): boolean {
     const cmp = Amount.getRawAmount(this, other)
     return this.amount === cmp
   }

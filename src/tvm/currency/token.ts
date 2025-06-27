@@ -1,7 +1,7 @@
 import * as z from 'zod'
+import type { CurrencyMetadata } from '~/generic/currency/currency.js'
 import { Token } from '~generic/currency/token.js'
 import { type TvmChainId, isTvmChainId } from '~tvm/chain/chains.js'
-import type { CurrencyMetadata } from '~/generic/currency/currency.js'
 
 export type TvmAddress = `T${string}`
 

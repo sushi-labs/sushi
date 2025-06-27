@@ -2,8 +2,8 @@ import * as z from 'zod'
 import { Native } from '~generic/currency/native.js'
 import { type TvmChainId, isTvmChainId } from '~tvm/chain/chains.js'
 import { NATIVE } from '~tvm/config/index.js'
-import type { TvmToken } from './token.js'
 import { WNATIVE } from '../config/tokens/wrapped-native.js'
+import type { TvmToken } from './token.js'
 
 export class TvmNative extends Native<TvmChainId> {
   static fromChainId(chainId: TvmChainId): TvmNative {

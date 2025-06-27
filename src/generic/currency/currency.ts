@@ -1,7 +1,7 @@
 import type { ChainId } from '~generic/chain/chains.js'
+import type { ID } from '../types/id.js'
 import type { SerializedCurrency } from './serialized-currency.js'
 import type { Token } from './token.js'
-import type { ID } from '../types/id.js'
 
 export type CurrencyMetadata = Record<string, unknown>
 

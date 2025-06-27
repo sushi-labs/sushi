@@ -1,9 +1,9 @@
 import invariant from 'tiny-invariant'
 import { type Address, isAddress } from 'viem'
 import * as z from 'zod'
+import type { CurrencyMetadata } from '~/generic/currency/currency.js'
 import { type EvmChainId, isEvmChainId } from '~evm/chain/chains.js'
 import { Token } from '~generic/currency/token.js'
-import type { CurrencyMetadata } from '~/generic/currency/currency.js'
 
 export type EvmAddress = Address
 

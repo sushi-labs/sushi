@@ -1,13 +1,17 @@
 import { WNATIVE } from '../config/tokens/wrapped-native.js'
 import type { TvmCurrency } from './currency.js'
-import type { TvmToken } from './token.js'
 
-export function unwrapTvmToken(token: TvmToken): TvmCurrency {
-  if (
-    token.address.toLowerCase() === WNATIVE[token.chainId].address.toLowerCase()
-  ) {
-    return WNATIVE[token.chainId]
+export function unwrapTvmToken(currency: TvmCurrency): TvmCurrency {
+  if (currency.type === 'native') {
+    return currency
   }
 
-  return token
+  if (
+    currency.address.toLowerCase() ===
+    WNATIVE[currency.chainId].address.toLowerCase()
+  ) {
+    return WNATIVE[currency.chainId]
+  }
+
+  return currency
 }
