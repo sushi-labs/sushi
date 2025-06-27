@@ -511,26 +511,28 @@ type EvmChainIdMap = UnionToIntersection<
     : never
 >
 
-export const EvmChainId = /* @__PURE__ */ new Proxy<EvmChainIdMap>(
-  {} as EvmChainIdMap,
-  {
-    get: (_: unknown, key: keyof EvmChainIdMap) => {
-      const _key = key.toLowerCase().replace(/_/g, '-') as EvmChainKey
-      const chain = evmChains.find((chain) => chain.key === _key)
-
-      if (!chain) return undefined
-
-      return chain.chainId
+const chainIdByKey = Object.freeze(
+  evmChains.reduce(
+    (acc, { key, chainId }) => {
+      acc[key.toUpperCase().replace(/-/g, '_') as keyof EvmChainIdMap] = chainId
+      return acc
     },
-  },
+    {} as Record<keyof EvmChainIdMap, EvmChainId>,
+  ),
+) as EvmChainIdMap
+
+export const EvmChainId = chainIdByKey
+
+const chainById = Object.freeze(
+  Object.fromEntries(evmChains.map((c) => [c.chainId, c])),
 )
 
 export function isEvmChainId(chainId: number): chainId is EvmChainId {
-  return evmChains.some((chain) => chain.chainId === chainId)
+  return Object.hasOwn(chainById, chainId)
 }
 
 export function getEvmChainById<C extends EvmChainId>(chainId: C) {
-  return evmChains.find((chain) => chain.chainId === chainId)! as Extract<
+  return chainById[chainId]! as Extract<
     (typeof evmChains)[number],
     { chainId: C }
   >
@@ -546,9 +548,7 @@ export type EvmMainnetChainId = Extract<
 export function isEvmMainnetChainId(
   chainId: number,
 ): chainId is EvmMainnetChainId {
-  return evmChains.some(
-    (chain) => chain.chainId === chainId && chain.netType === 'mainnet',
-  )
+  return chainById[chainId]?.netType === 'mainnet'
 }
 
 // EvmTestnetChainId
@@ -561,9 +561,7 @@ export type EvmTestnetChainId = Extract<
 export function isEvmTestnetChainId(
   chainId: number,
 ): chainId is EvmTestnetChainId {
-  return evmChains.some(
-    (chain) => chain.chainId === chainId && chain.netType === 'testnet',
-  )
+  return chainById[chainId]?.netType === 'testnet'
 }
 
 // EvmChainKey

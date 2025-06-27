@@ -1,6 +1,6 @@
 import type { ChainId } from '~generic/chain/chains.js'
-import { Currency, type CurrencyMetadata } from './currency.js'
 import type { ID } from '../types/id.js'
+import { Currency, type CurrencyMetadata } from './currency.js'
 
 export abstract class Token<
   TChainId extends ChainId = ChainId,

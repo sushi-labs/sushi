@@ -1,4 +1,5 @@
 import * as z from 'zod'
+import type { CurrencyMetadata } from '~/generic/currency/currency.js'
 import {
   type SerializedTvmNative,
   type TvmNative,
@@ -9,7 +10,6 @@ import {
   type TvmToken,
   serializedTvmTokenSchema,
 } from './token.js'
-import type { CurrencyMetadata } from '~/generic/currency/currency.js'
 
 export type TvmCurrency<
   TMetadata extends CurrencyMetadata = Record<string, unknown>,

@@ -1,8 +1,8 @@
 import { Fraction } from '~generic/math/fraction.js'
 import type { BigintIsh } from '~generic/types/bigintish.js'
 import { numberToFixed } from '../format/number.js'
-import type { Currency } from './currency.js'
 import type { Amount } from './amount.js'
+import type { Currency } from './currency.js'
 
 export class Price<
   TBase extends Currency,
@@ -39,6 +39,15 @@ export class Price<
     return new Fraction({
       numerator: 10n ** BigInt(this.base.decimals),
       denominator: 10n ** BigInt(this.quote.decimals),
+    })
+  }
+
+  public override invert(): Price<TQuote, TBase> {
+    return new Price({
+      base: this.quote,
+      quote: this.base,
+      numerator: this.denominator,
+      denominator: this.numerator,
     })
   }
 

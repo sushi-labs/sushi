@@ -5,8 +5,8 @@ import {
   isEvmChainId,
 } from '~evm/chain/chains.js'
 import { Native } from '~generic/currency/native.js'
-import type { EvmToken } from './token.js'
 import { WNATIVE } from '../config/tokens/wrapped-native.js'
+import type { EvmToken } from './token.js'
 
 export class EvmNative extends Native<EvmChainId> {
   public override wrap(): EvmToken {
