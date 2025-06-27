@@ -1,6 +1,6 @@
 import { EvmChainId } from '../../chain/evm/index.js'
 import { Token } from '../../currency/token.js'
-import { METH, STONE, rETH } from '../../currency/tokens.js'
+import { METH, STONE, WstETH, rETH } from '../../currency/tokens.js'
 
 export const LSDS = {
   [EvmChainId.ARBITRUM]: [
@@ -369,6 +369,16 @@ export const LSDS = {
   [EvmChainId.APE]: [],
   [EvmChainId.SONIC]: [],
   [EvmChainId.HEMI]: [],
+  [EvmChainId.KATANA]: [
+    WstETH[EvmChainId.KATANA],
+    new Token({
+      chainId: EvmChainId.KATANA,
+      address: '0x9893989433e7a383Cb313953e4c2365107dc19a7',
+      decimals: 18,
+      symbol: 'weETH',
+      name: 'Wrapped eETH',
+    }),
+  ],
   // TESTNETS
   [EvmChainId.POLYGON_TESTNET]: [],
   [EvmChainId.FANTOM_TESTNET]: [],
@@ -379,5 +389,4 @@ export const LSDS = {
   [EvmChainId.GÖRLI]: [],
   [EvmChainId.CURTIS]: [],
   [EvmChainId.TATARA]: [],
-  [EvmChainId.KATANA]: [],
 } as const satisfies Record<EvmChainId, Token[]>

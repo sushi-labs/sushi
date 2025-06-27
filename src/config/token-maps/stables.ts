@@ -281,7 +281,11 @@ export const STABLES = {
       symbol: 'VUSD',
     }),
   ],
-  [EvmChainId.KATANA]: [USDC[EvmChainId.KATANA], USDT[EvmChainId.KATANA]],
+  [EvmChainId.KATANA]: [
+    USDC[EvmChainId.KATANA],
+    USDT[EvmChainId.KATANA],
+    AUSD[EvmChainId.KATANA],
+  ],
   // TESTNETS
   // [EvmChainId.RINKEBY]: [USDC[EvmChainId.RINKEBY]],
   // [EvmChainId.ROPSTEN]: [
