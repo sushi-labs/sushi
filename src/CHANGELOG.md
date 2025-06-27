@@ -1,5 +1,11 @@
 # sushi
 
+## 5.1.16
+
+### Patch Changes
+
+- [#213](https://github.com/sushi-labs/sushi/pull/213) [`84ba4c8`](https://github.com/sushi-labs/sushi/commit/84ba4c8f514e177e0612c2bc4d67e048039d1561) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - update katana token config
+
 ## 5.1.15
 
 ### Patch Changes
