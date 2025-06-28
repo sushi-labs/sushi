@@ -356,3 +356,9 @@ export const LSDS = {
   [EvmChainId.TATARA]: [],
   [EvmChainId.KATANA]: [],
 } as const satisfies Record<EvmChainId, EvmToken[]>
+
+export function isLsd(token: EvmToken): boolean {
+  return LSDS[token.chainId]?.some(
+    (lsd) => lsd.address.toLowerCase() === token.address.toLowerCase(),
+  )
+}

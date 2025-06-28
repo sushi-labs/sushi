@@ -70,7 +70,7 @@ describe('generic/currency/amount.ts types', () => {
     'sub',
     'subHuman',
     'mulHuman',
-    'divHuman',
+    'div',
   ] as const) {
     describe(fn, () => {
       it('should return an amount with a native currency', () => {

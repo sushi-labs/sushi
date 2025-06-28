@@ -1,5 +1,6 @@
 import invariant from 'tiny-invariant'
 import type { BigintIsh } from '~generic/types/bigintish.js'
+import { numberToFixed } from '../format/number.js'
 
 export class Fraction {
   public readonly numerator: bigint
@@ -161,6 +162,10 @@ export class Fraction {
 
   public toNumber(): number {
     return Number(this.numerator) / Number(this.denominator)
+  }
+
+  public toString(args: Parameters<typeof numberToFixed>[1]): string {
+    return numberToFixed(this.toNumber(), args)
   }
 
   public toSignificant(significantDigits: number): string {

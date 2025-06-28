@@ -8,17 +8,7 @@
   "types": "./_types/index.d.ts",
   "typings": "./_types/index.d.ts",
   "sideEffects": false,
-  "files": [
-    "*",
-    "!**/*.bench.ts",
-    "!**/*.bench-d.ts",
-    "!**/*.test.ts",
-    "!**/*.test.ts.snap",
-    "!**/*.test-d.ts",
-    "!**/*.tsbuildinfo",
-    "!tsconfig.build.json",
-    "!jsr.json"
-  ],
+  "files": ["_cjs", "_esm", "_types", "package.json"],
   "exports": {
     ".": {
       "types": "./_types/index.d.ts",

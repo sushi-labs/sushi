@@ -2,11 +2,17 @@ import { formatUnits, parseUnits } from 'viem/utils'
 import * as z from 'zod'
 import type { BigintIsh } from '~generic/types/bigintish.js'
 import { numberToFixed } from '../format/number.js'
+import { Fraction } from '../math/fraction.js'
 import type { Currency } from './currency.js'
 import type {
   SerializedCurrency,
   SerializedCurrencySchema,
 } from './serialized-currency.js'
+
+export type SerializedAmount<TCurrency extends SerializedCurrency> = {
+  currency: TCurrency
+  amount: bigint
+}
 
 /**
  * Represents an amount of a particular currency.
@@ -46,20 +52,27 @@ export class Amount<TCurrency extends Currency = Currency> {
 
   private static getRawAmount<TCurrency extends Currency>(
     _ref: Amount<TCurrency>,
-    other: Amount<TCurrency> | bigint | string,
+    other: Amount | bigint | string,
   ): bigint {
-    if (typeof other !== 'object') {
-      return BigInt(other)
+    if (other instanceof Amount) {
+      return other.amount
     }
-    return other.amount
+    return BigInt(other)
   }
 
   /**
    * Adds another Amount or raw value.
    */
-  public add(other: Amount | bigint | string): Amount<TCurrency> {
-    const addend = Amount.getRawAmount(this, other)
-    return new Amount(this.currency, this.amount + addend)
+  public add(other: Amount | Fraction | bigint | string): Amount<TCurrency> {
+    let add: bigint
+
+    if (other instanceof Fraction) {
+      add = (other.numerator * Amount.SCALE) / other.denominator / Amount.SCALE
+    } else {
+      add = Amount.getRawAmount(this, other)
+    }
+
+    return new Amount(this.currency, this.amount + add)
   }
 
   /**
@@ -73,8 +86,15 @@ export class Amount<TCurrency extends Currency = Currency> {
   /**
    * Subtracts another Amount or raw value.
    */
-  public sub(other: Amount | bigint | string): Amount<TCurrency> {
-    const sub = Amount.getRawAmount(this, other)
+  public sub(other: Amount | Fraction | bigint | string): Amount<TCurrency> {
+    let sub: bigint
+
+    if (other instanceof Fraction) {
+      sub = (other.numerator * Amount.SCALE) / other.denominator / Amount.SCALE
+    } else {
+      sub = Amount.getRawAmount(this, other)
+    }
+
     return new Amount(this.currency, this.amount - sub)
   }
 
@@ -89,41 +109,53 @@ export class Amount<TCurrency extends Currency = Currency> {
   /**
    * Multiplies this amount by another amount or raw value.
    */
-  public mul(multiplier: Amount | bigint | string): Amount<TCurrency> {
-    const mul = Amount.getRawAmount(this, multiplier)
+  public mul(other: Amount | Fraction | bigint | string): Amount<TCurrency> {
+    if (other instanceof Fraction) {
+      return new Amount(
+        this.currency,
+        (this.amount * other.numerator) / other.denominator,
+      )
+    }
+
+    const mul = Amount.getRawAmount(this, other)
     return new Amount(this.currency, this.amount * mul)
   }
 
   /**
    * Multiplies this amount by a human-readable multiplier.
    */
-  public mulHuman(multiplier: bigint | number | string): Amount<TCurrency> {
-    const mul = parseUnits(String(multiplier), Amount.SCALE_DECIMALS)
+  public mulHuman(other: bigint | number | string): Amount<TCurrency> {
+    const mul = parseUnits(String(other), Amount.SCALE_DECIMALS)
     const result = (this.amount * mul) / Amount.SCALE
     return new Amount(this.currency, result)
   }
 
   /**
-   * Divides this amount by another Amount or raw value.
-   * @returns an object with { numerator, denominator } for precise fractional result.
-   */
-  public div(other: Amount | bigint | string): {
-    numerator: bigint
-    denominator: bigint
-  } {
-    const div = Amount.getRawAmount(this, other)
-    return { numerator: this.amount, denominator: div }
-  }
-
-  /**
-   * Divides this amount by a human-readable divisor, e.g. "0.5".
+   * Divides this amount by a divisor.
    * @throws Error if divisor is zero.
+   * @returns a new Amount with the result.
    */
-  public divHuman(divisor: bigint | number | string): Amount<TCurrency> {
+  public div(divisor: bigint | number | string): Amount<TCurrency> {
     const d = parseUnits(String(divisor), Amount.SCALE_DECIMALS)
     if (d === 0n) throw new Error('Cannot divide by zero')
     const result = (this.amount * Amount.SCALE) / d
     return new Amount(this.currency, result)
+  }
+
+  /**
+   * Divides this amount by another Amount or raw value.
+   * @returns a {@link Fraction} for a precise fractional result.
+   */
+  public divToFraction(other: Amount | Fraction | bigint | string): Fraction {
+    if (other instanceof Fraction) {
+      return new Fraction({
+        numerator: this.amount * other.denominator,
+        denominator: other.numerator,
+      })
+    }
+
+    const div = Amount.getRawAmount(this, other)
+    return new Fraction({ numerator: this.amount, denominator: div })
   }
 
   /**
@@ -174,10 +206,9 @@ export class Amount<TCurrency extends Currency = Currency> {
   }
 
   /**
-   *
    * @param args.maxFixed - The maximum number of fixed decimal places to display, only if relevant, eg. "0" for 0, "1.23" for 1.23, etc.
    * @param args.fixed - The number of fixed decimal places to display, always, eg. "0.00" for 0, "1.23" for 1.23, etc.
-   * @returns
+   * @returns Formatted string representation of the amount
    */
   public toString(
     args: Parameters<typeof numberToFixed>[1] = {
@@ -193,11 +224,6 @@ export class Amount<TCurrency extends Currency = Currency> {
       significant: significantDigits,
     })
   }
-}
-
-type SerializedAmount<TCurrency extends SerializedCurrency> = {
-  currency: TCurrency
-  amount: bigint
 }
 
 export function serializedAmountSchema<

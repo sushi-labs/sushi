@@ -95,6 +95,7 @@ export function withoutScientificNotation(value: string): string | undefined {
 /**
  *
  * @param num - The number to format, can be a string or a number.
+ * @param args.significant - The number of significant digits to display
  * @param args.maxFixed - The maximum number of fixed decimal places to display, only if relevant, eg. "0" for 0, "1.23" for 1.23, etc.
  * @param args.fixed - The number of fixed decimal places to display, always, eg. "0.00" for 0, "1.23" for 1.23, etc.
  * @returns
@@ -113,6 +114,7 @@ export function numberToFixed(
     return Number.parseFloat(num.toPrecision(args.significant)).toString()
   }
 
+  // maxFixed
   const str = num.toFixed(args.maxFixed)
   let end = str.length
 
