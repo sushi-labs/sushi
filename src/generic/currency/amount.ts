@@ -47,7 +47,10 @@ export class Amount<TCurrency extends Currency = Currency> {
    * Wraps the amount's currency into a Token.
    */
   public wrap() {
-    return new Amount(this.currency.wrap(), this.amount)
+    return new Amount(
+      this.currency.wrap() as ReturnType<TCurrency['wrap']>,
+      this.amount,
+    )
   }
 
   private static getRawAmount<TCurrency extends Currency>(
