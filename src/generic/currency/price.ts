@@ -1,7 +1,7 @@
 import { Fraction } from '~generic/math/fraction.js'
 import type { BigintIsh } from '~generic/types/bigintish.js'
 import { numberToFixed } from '../format/number.js'
-import type { Amount } from './amount.js'
+import { Amount } from './amount.js'
 import type { Currency } from './currency.js'
 
 export class Price<
@@ -40,6 +40,16 @@ export class Price<
       numerator: 10n ** BigInt(this.base.decimals),
       denominator: 10n ** BigInt(this.quote.decimals),
     })
+  }
+
+  /**
+   *
+   * @param baseAmount The amount of the base currency to convert
+   * @returns The equivalent amount in the quote currency
+   */
+  public getQuote(baseAmount: Amount<TBase>): Amount<TQuote> {
+    const quoteAmount = super.mul(baseAmount.amount).toNumber()
+    return new Amount(this.quote, BigInt(Math.floor(quoteAmount)))
   }
 
   public override invert(): Price<TQuote, TBase> {

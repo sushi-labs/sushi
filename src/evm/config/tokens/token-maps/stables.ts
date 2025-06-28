@@ -250,3 +250,9 @@ export const STABLES = {
   [EvmChainId.CURTIS]: [USDT[EvmChainId.CURTIS], DAI[EvmChainId.CURTIS]],
   [EvmChainId.TATARA]: [AUSD[EvmChainId.TATARA]],
 } as const satisfies Record<EvmChainId, EvmToken[]>
+
+export function isStable(token: EvmToken): boolean {
+  return STABLES[token.chainId]?.some(
+    (stable) => stable.address.toLowerCase() === token.address.toLowerCase(),
+  )
+}

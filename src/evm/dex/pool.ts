@@ -2,6 +2,16 @@ import type { EvmToken } from '~evm/currency/token.js'
 import type { Amount } from '~generic/index.js'
 import type { Fee } from './fee.js'
 
+export enum PoolType {
+  Wrap = 'Wrap',
+  Bridge = 'Bridge',
+  Classic = 'Classic',
+  Concentrated = 'Concentrated',
+  Stable = 'Stable',
+  Curve = 'Curve',
+  Unknown = 'Unknown',
+}
+
 export abstract class Pool {
   public abstract readonly liquidityToken: EvmToken
 

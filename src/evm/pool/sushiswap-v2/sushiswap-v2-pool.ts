@@ -71,7 +71,9 @@ export class SushiSwapV2Pool {
    * Returns the current mid price of the pair in terms of token0, i.e. the ratio of reserve1 to reserve0
    */
   public get token0Price(): Price<EvmToken, EvmToken> {
-    const result = this.tokenAmounts[1].div(this.tokenAmounts[0].amount)
+    const result = this.tokenAmounts[1].divToFraction(
+      this.tokenAmounts[0].amount,
+    )
 
     return new Price({
       base: this.token0,
@@ -85,7 +87,7 @@ export class SushiSwapV2Pool {
    * Returns the current mid price of the pair in terms of token1, i.e. the ratio of reserve0 to reserve1
    */
   public get token1Price(): Price<EvmToken, EvmToken> {
-    const result = this.tokenAmounts[0].div(this.tokenAmounts[1])
+    const result = this.tokenAmounts[0].divToFraction(this.tokenAmounts[1])
 
     return new Price({
       base: this.token1,

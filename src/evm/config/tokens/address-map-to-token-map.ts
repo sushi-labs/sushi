@@ -15,7 +15,7 @@ export function addressMapToTokenMap<ChainId extends EvmChainId>(
     origin?: EvmTokenOrigin
   },
   map: Record<ChainId, Address>,
-): Record<ChainId, EvmToken> {
+) {
   return Object.fromEntries(
     Object.entries(map).map(([chainId, address]) => [
       Number(chainId) as ChainId,
@@ -26,7 +26,8 @@ export function addressMapToTokenMap<ChainId extends EvmChainId>(
         symbol,
         name,
         origin,
+        metadata: { approved: true },
       }),
     ]),
-  ) as Record<ChainId, EvmToken>
+  ) as Record<ChainId, EvmToken<{ approved: boolean }>>
 }
