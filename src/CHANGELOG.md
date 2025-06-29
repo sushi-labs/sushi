@@ -1,5 +1,11 @@
 # sushi
 
+## 5.1.17
+
+### Patch Changes
+
+- [#215](https://github.com/sushi-labs/sushi/pull/215) [`453a1d4`](https://github.com/sushi-labs/sushi/commit/453a1d4dff863c74345766c3798767a7f8cf2585) Thanks [@danielr18](https://github.com/danielr18)! - Add Katana to Blade supported chains
+
 ## 5.1.16
 
 ### Patch Changes
