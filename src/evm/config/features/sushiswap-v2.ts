@@ -60,7 +60,7 @@ export type DeprecatedSushiSwapV2ChainId =
   (typeof DEPRECATED_SUSHISWAP_V2_SUPPORTED_CHAIN_IDS)[number]
 
 export const isDeprecatedSushiSwapV2ChainId = (
-  chainId: EvmChainId,
+  chainId: number,
 ): chainId is DeprecatedSushiSwapV2ChainId =>
   DEPRECATED_SUSHISWAP_V2_SUPPORTED_CHAIN_IDS.includes(
     chainId as DeprecatedSushiSwapV2ChainId,
