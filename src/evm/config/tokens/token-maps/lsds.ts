@@ -1,3 +1,4 @@
+import type { EvmCurrency } from '~/evm/currency/currency.js'
 import { EvmChainId } from '~evm/chain/chains.js'
 import { METH, STONE, rETH } from '~evm/config/tokens/tokens/index.js'
 import { EvmToken } from '~evm/currency/token.js'
@@ -357,8 +358,12 @@ export const LSDS = {
   [EvmChainId.KATANA]: [],
 } as const satisfies Record<EvmChainId, EvmToken[]>
 
-export function isLsd(token: EvmToken): boolean {
-  return LSDS[token.chainId]?.some(
-    (lsd) => lsd.address.toLowerCase() === token.address.toLowerCase(),
+export function isLsd(currency: EvmCurrency): boolean {
+  if (currency.type === 'native') {
+    return false
+  }
+
+  return LSDS[currency.chainId]?.some(
+    (lsd) => lsd.address.toLowerCase() === currency.address.toLowerCase(),
   )
 }
