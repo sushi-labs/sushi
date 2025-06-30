@@ -1,3 +1,4 @@
+import type { EvmCurrency } from '~/evm/currency/currency.js'
 import { EvmChainId } from '~evm/chain/chains.js'
 import {
   APE_USD,
@@ -251,8 +252,12 @@ export const STABLES = {
   [EvmChainId.TATARA]: [AUSD[EvmChainId.TATARA]],
 } as const satisfies Record<EvmChainId, EvmToken[]>
 
-export function isStable(token: EvmToken): boolean {
-  return STABLES[token.chainId]?.some(
-    (stable) => stable.address.toLowerCase() === token.address.toLowerCase(),
+export function isStable(currency: EvmCurrency): boolean {
+  if (currency.type === 'native') {
+    return false
+  }
+
+  return STABLES[currency.chainId]?.some(
+    (stable) => stable.address.toLowerCase() === currency.address.toLowerCase(),
   )
 }

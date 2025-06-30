@@ -26,6 +26,6 @@ export const TokenSecurityChainIds = SUPPORTED_CHAIN_IDS
 export type TokenSecurityChainId = (typeof SUPPORTED_CHAIN_IDS)[number]
 
 export const isTokenSecurityChainId = (
-  chainId: EvmChainId,
+  chainId: number,
 ): chainId is TokenSecurityChainId =>
   SUPPORTED_CHAIN_IDS.includes(chainId as TokenSecurityChainId)
