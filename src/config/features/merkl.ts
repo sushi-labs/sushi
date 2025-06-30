@@ -18,6 +18,7 @@ export const MERKL_SUPPORTED_CHAIN_IDS = [
   EvmChainId.LINEA,
   EvmChainId.SKALE_EUROPA,
   EvmChainId.ROOTSTOCK,
+  EvmChainId.KATANA,
 ]
 
 export const MerklChainIds = MERKL_SUPPORTED_CHAIN_IDS
