@@ -1,5 +1,11 @@
 # sushi
 
+## 5.1.18
+
+### Patch Changes
+
+- [#217](https://github.com/sushi-labs/sushi/pull/217) [`41ee257`](https://github.com/sushi-labs/sushi/commit/41ee257e3e40e745e03361c5609207c65efe9a48) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - update katana merkl config
+
 ## 5.1.17
 
 ### Patch Changes
