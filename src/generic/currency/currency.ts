@@ -39,7 +39,7 @@ export abstract class Currency<
     this.metadata = metadata || ({} as TMetadata)
   }
 
-  abstract get id(): ID<TChainId, string>
+  abstract get id(): ID<TChainId, string, true>
 
   public isSame(other: Currency): boolean {
     return (
