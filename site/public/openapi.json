@@ -380,7 +380,7 @@
             "required": false,
             "schema": {
               "type": "boolean",
-              "default": true
+              "default": false
             }
           },
           {
@@ -390,7 +390,7 @@
             "required": false,
             "schema": {
               "type": "boolean",
-              "default": true
+              "default": false
             }
           }
         ],
@@ -834,7 +834,7 @@
         "required": false,
         "schema": {
           "type": "boolean",
-          "default": true
+          "default": false
         }
       },
       "validate": {
@@ -844,7 +844,7 @@
         "required": false,
         "schema": {
           "type": "boolean",
-          "default": true
+          "default": false
         }
       }
     }
