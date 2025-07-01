@@ -449,6 +449,7 @@ export const EVM_DEFAULT_BASES = {
     WNATIVE[EvmChainId.KATANA],
     USDC[EvmChainId.KATANA],
     USDT[EvmChainId.KATANA],
+    AUSD[EvmChainId.KATANA],
   ],
 } as const satisfies Record<EvmChainId, Readonly<(Token | Native)[]>>
 
