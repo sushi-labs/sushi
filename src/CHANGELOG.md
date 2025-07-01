@@ -1,5 +1,11 @@
 # sushi
 
+## 5.1.19
+
+### Patch Changes
+
+- [#219](https://github.com/sushi-labs/sushi/pull/219) [`2908ff9`](https://github.com/sushi-labs/sushi/commit/2908ff9943920f5ebd01fe17ffa523e7455f6724) Thanks [@matthewlilley](https://github.com/matthewlilley)! - add usol as a base
+
 ## 5.1.18
 
 ### Patch Changes
