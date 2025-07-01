@@ -640,5 +640,12 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     USDT[EvmChainId.KATANA],
     AUSD[EvmChainId.KATANA],
     WBTC[EvmChainId.KATANA],
+    new Token({
+      chainId: EvmChainId.KATANA,
+      address: '0x9B8Df6E244526ab5F6e6400d331DB28C8fdDdb55',
+      name: 'Solana (Universal)',
+      symbol: 'uSOL',
+      decimals: 18,
+    }),
   ],
 }
