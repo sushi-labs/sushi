@@ -1,5 +1,11 @@
 # sushi
 
+## 5.1.20
+
+### Patch Changes
+
+- [#221](https://github.com/sushi-labs/sushi/pull/221) [`379d75d`](https://github.com/sushi-labs/sushi/commit/379d75de74676fe5adb95151083b4b556e406590) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add AUSD to katana bases
+
 ## 5.1.19
 
 ### Patch Changes
