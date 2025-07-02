@@ -11,11 +11,6 @@
   "files": ["_cjs", "_esm", "_types", "package.json"],
   "exports": {
     ".": {
-      "types": "./_types/index.d.ts",
-      "import": "./_esm/index.js",
-      "default": "./_cjs/index.js"
-    },
-    "./generic": {
       "types": "./_types/generic/index.d.ts",
       "import": "./_esm/generic/index.js",
       "default": "./_cjs/generic/index.js"
@@ -39,7 +34,7 @@
   },
   "typesVersions": {
     "*": {
-      "generic": ["./_types/generic/index.d.ts"],
+      ".": ["./_types/generic/index.d.ts"],
       "evm": ["./_types/evm/index.d.ts"],
       "mvm": ["./_types/mvm/index.d.ts"],
       "tvm": ["./_types/tvm/index.d.ts"]
