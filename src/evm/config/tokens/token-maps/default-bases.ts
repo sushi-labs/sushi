@@ -116,6 +116,7 @@ export const EVM_DEFAULT_BASES = {
       decimals: 6,
       symbol: 'USDC',
       name: 'USD Coin',
+      metadata: { approved: true },
       // origin: 'stargate'
     }),
     new EvmToken({
@@ -124,6 +125,7 @@ export const EVM_DEFAULT_BASES = {
       decimals: 6,
       symbol: 'USDT',
       name: 'Tether USD',
+      metadata: { approved: true },
       // origin: 'stargate'
     }),
     new EvmToken({
@@ -132,6 +134,7 @@ export const EVM_DEFAULT_BASES = {
       decimals: 18,
       symbol: 'WETH',
       name: 'Wrapped Ether',
+      metadata: { approved: true },
       // origin: 'stargate'
     }),
     new EvmToken({
@@ -140,6 +143,7 @@ export const EVM_DEFAULT_BASES = {
       decimals: 18,
       symbol: 'WBTC',
       name: 'Wrapped BTC',
+      metadata: { approved: true },
       // origin: 'stargate'
     }),
     axlUSDC[EvmChainId.FANTOM],
@@ -191,6 +195,7 @@ export const EVM_DEFAULT_BASES = {
       decimals: 18,
       symbol: 'WETH',
       name: 'Wrapped Ether',
+      metadata: { approved: true },
       // origin: 'stargate'
     }),
     axlUSDC[EvmChainId.KAVA],
@@ -280,6 +285,7 @@ export const EVM_DEFAULT_BASES = {
       name: 'USD Base Coin',
       decimals: 6,
       address: '0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA',
+      metadata: { approved: true },
     }),
     USDC[EvmChainId.BASE],
     new EvmToken({
@@ -288,6 +294,7 @@ export const EVM_DEFAULT_BASES = {
       name: 'OX Coin',
       decimals: 18,
       address: '0xba0Dda8762C24dA9487f5FA026a9B64b695A07Ea',
+      metadata: { approved: true },
     }),
   ],
   [EvmChainId.SCROLL]: [
