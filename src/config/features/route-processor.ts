@@ -662,7 +662,7 @@ export const isRouteProcessor7ChainId = (
     chainId as RouteProcessor7ChainId,
   )
 
-  // v8
+// v8
 export const ROUTE_PROCESSOR_8_SUPPORTED_CHAIN_IDS = [
   EvmChainId.ETHEREUM,
   EvmChainId.KATANA,
