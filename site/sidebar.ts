@@ -120,6 +120,7 @@ export const sidebar = {
           collapsed: true,
           items: [
             { text: 'RedSnwapper', link: '/contracts/red-snwapper' },
+            { text: 'RouteProcessor8', link: '/contracts/route-processor-8' },
             { text: 'RouteProcessor7', link: '/contracts/route-processor-7' },
             // { text: 'RouteProcessor6', link: '/contracts/route-processor-6' },
             // { text: 'RouteProcessor5', link: '/contracts/route-processor-5' },
