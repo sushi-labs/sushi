@@ -21,7 +21,7 @@ type EvmChainBase<TChainId extends number, TChainKey extends string> = Chain<
   Address,
   Hex
 > & {
-  parentChainId?: TChainId
+  parentChainId: TChainId | undefined
   viemChain: ViemChain
 }
 
@@ -41,11 +41,13 @@ type EvmChainInput<VC extends ViemChain> = Omit<
   | 'getAccountUrl'
   | 'getTokenUrl'
   | 'netType'
+  | 'parentChainId'
 > & {
   chainId?: number
   name?: string
   nativeCurrency?: ViemChain['nativeCurrency']
   rpcUrls?: ViemChain['rpcUrls']
+  parentChainId?: number
 } & (VC['blockExplorers'] extends BlockExplorers // Require BlockExplorers if viem is missing them
     ? {
         blockExplorers?: BlockExplorers
@@ -133,6 +135,10 @@ export function defineEvmChain<
     shortName: chain.shortName as T['shortName'],
     netType,
     blockExplorers,
+    parentChainId: chain.parentChainId as Fallback<
+      T['parentChainId'],
+      undefined
+    >,
     viemChain: {
       ...(viemChain as Omit<
         V,
