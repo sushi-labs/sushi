@@ -9,7 +9,7 @@ export abstract class Token<
 > extends Currency<TChainId, TMetadata> {
   override readonly type = 'token'
 
-  public readonly address: TAddress
+  private readonly _address: TAddress
 
   constructor({
     address,
@@ -18,7 +18,11 @@ export abstract class Token<
     address: TAddress
   } & ConstructorParameters<typeof Currency<TChainId, TMetadata>>[0]) {
     super(rest)
-    this.address = address
+    this._address = address
+  }
+
+  get address(): TAddress {
+    return this._address.toLowerCase() as TAddress
   }
 
   override get id(): ID<TChainId, TAddress> {
