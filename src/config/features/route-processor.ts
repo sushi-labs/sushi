@@ -667,7 +667,7 @@ export const ROUTE_PROCESSOR_8_SUPPORTED_CHAIN_IDS = [
   EvmChainId.ETHEREUM,
   EvmChainId.ARBITRUM,
   EvmChainId.KATANA,
-  EvmChainId.HYPEREVM
+  EvmChainId.HYPEREVM,
 ] as const
 export type RouteProcessor8ChainId =
   (typeof ROUTE_PROCESSOR_8_SUPPORTED_CHAIN_IDS)[number]
