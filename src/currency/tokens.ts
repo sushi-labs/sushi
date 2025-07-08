@@ -770,6 +770,13 @@ export const WNATIVE = {
   [EvmChainId.HEMI]: WETH9[EvmChainId.HEMI],
   [EvmChainId.TATARA]: WETH9[EvmChainId.TATARA],
   [EvmChainId.KATANA]: WETH9[EvmChainId.KATANA],
+  [EvmChainId.HYPEREVM]: new Token({
+    chainId: EvmChainId.HYPEREVM,
+    address: WNATIVE_ADDRESS[EvmChainId.HYPEREVM],
+    decimals: 18,
+    symbol: 'WHYPE',
+    name: 'Wrapped HYPE',
+  }),
 } as const
 
 export const SUSHI = addressMapToTokenMap(

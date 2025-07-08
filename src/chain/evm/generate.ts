@@ -9,18 +9,18 @@ const __dirname = path.dirname(__filename)
 
 const additional: EvmChainBase[] = [
   {
-    name: 'Katana',
+    name: 'HyperEVM',
     nativeCurrency: {
-      name: 'Ethereum',
-      symbol: 'ETH',
+      name: 'Hyperliquid',
+      symbol: 'HYPE',
       decimals: 18,
     },
-    shortName: 'katana',
-    chainId: 747474,
+    shortName: 'hyperevm',
+    chainId: 999,
     explorers: [
       {
-        name: 'Katana Explorer',
-        url: 'https://explorer.katanarpc.com/',
+        name: 'HyperEVM Scan',
+        url: 'https://hyperevmscan.io/',
         standard: 'EIP3091',
       },
     ],
