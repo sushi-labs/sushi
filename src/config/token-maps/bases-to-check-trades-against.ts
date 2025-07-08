@@ -648,5 +648,8 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
       decimals: 18,
     }),
   ],
-  [EvmChainId.HYPEREVM]: [WNATIVE[EvmChainId.HYPEREVM], USDT[EvmChainId.HYPEREVM]],
+  [EvmChainId.HYPEREVM]: [
+    WNATIVE[EvmChainId.HYPEREVM],
+    USDT[EvmChainId.HYPEREVM],
+  ],
 }
