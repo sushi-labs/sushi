@@ -25,6 +25,23 @@ const additional: EvmChainBase[] = [
       },
     ],
   },
+  {
+    name: 'Tatara',
+    nativeCurrency: {
+      name: 'Ethereum',
+      symbol: 'ETH',
+      decimals: 18,
+    },
+    shortName: 'tatara',
+    chainId: 129399,
+    explorers: [
+      {
+        name: 'Katana Explorer',
+        url: 'https://explorer.tatara.katana.network/',
+        standard: 'EIP3091',
+      },
+    ],
+  },
 ]
 ;(async () => {
   const file = path.resolve(__dirname, './generated-chain-data.ts')
