@@ -44,6 +44,7 @@ export const FEE_COLLECTOR_CHAIN_IDS = [
   EvmChainId.SONIC,
   EvmChainId.HEMI,
   EvmChainId.KATANA,
+  EvmChainId.HYPEREVM
 ] as const
 
 type FeeCollectorChainId = (typeof FEE_COLLECTOR_CHAIN_IDS)[number]
@@ -101,6 +102,7 @@ export const UI_FEE_COLLECTOR_ADDRESS: Record<
   [EvmChainId.SONIC]: '0xde7259893Af7cdbC9fD806c6ba61D22D581d5667',
   [EvmChainId.HEMI]: '0xde7259893Af7cdbC9fD806c6ba61D22D581d5667',
   [EvmChainId.KATANA]: '0xde7259893Af7cdbC9fD806c6ba61D22D581d5667',
+  [EvmChainId.HYPEREVM]: '0xde7259893Af7cdbC9fD806c6ba61D22D581d5667',
 } as const
 export const isUIFeeCollectorChainId = isFeeCollectorChainId
 
@@ -152,6 +154,7 @@ export const SURPLUS_FEE_COLLECTOR_ADDRESS: Record<
   [EvmChainId.SONIC]: '0x5C2e112783A6854653B4BC7DC22248D3e592559C',
   [EvmChainId.HEMI]: '0x5C2e112783A6854653B4BC7DC22248D3e592559C',
   [EvmChainId.KATANA]: '0x5C2e112783A6854653B4BC7DC22248D3e592559C',
+  [EvmChainId.HYPEREVM]: '0x5C2e112783A6854653B4BC7DC22248D3e592559C'
 } as const
 export const isSurplusFeeCollectorChainId = isFeeCollectorChainId
 
@@ -203,5 +206,6 @@ export const PROTOCOL_FEE_COLLECTOR_ADDRESS: Record<
   [EvmChainId.SONIC]: '0xdbecA8FB948C42634256609BcE5A3768c9B3e9Eb',
   [EvmChainId.HEMI]: '0xdbecA8FB948C42634256609BcE5A3768c9B3e9Eb',
   [EvmChainId.KATANA]: '0xdbecA8FB948C42634256609BcE5A3768c9B3e9Eb',
+  [EvmChainId.HYPEREVM]: '0xdbecA8FB948C42634256609BcE5A3768c9B3e9Eb',
 } as const
 export const isProtocolFeeCollectorChainId = isFeeCollectorChainId
