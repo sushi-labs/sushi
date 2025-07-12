@@ -1,5 +1,11 @@
 # sushi
 
+## 5.1.21
+
+### Patch Changes
+
+- [#224](https://github.com/sushi-labs/sushi/pull/224) [`d7fa054`](https://github.com/sushi-labs/sushi/commit/d7fa0540040854bac4346196266a7ce9c3f57365) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Add Hemi network to merkl supported chain ids"
+
 ## 5.1.20
 
 ### Patch Changes
