@@ -65,6 +65,7 @@ export const EvmChainId = {
   HEMI: 43111,
   TATARA: 129399,
   KATANA: 747474,
+  HYPEREVM: 999,
 } as const
 
 export type EvmChainId = (typeof EvmChainId)[keyof typeof EvmChainId]

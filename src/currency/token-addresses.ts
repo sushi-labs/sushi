@@ -412,6 +412,7 @@ export const WNATIVE_ADDRESS = {
   [EvmChainId.HEMI]: WETH9_ADDRESS[EvmChainId.HEMI],
   [EvmChainId.TATARA]: WETH9_ADDRESS[EvmChainId.TATARA],
   [EvmChainId.KATANA]: WETH9_ADDRESS[EvmChainId.KATANA],
+  [EvmChainId.HYPEREVM]: '0x5555555555555555555555555555555555555555',
 } as const
 
 export const SUSHI_ADDRESS = {
@@ -549,6 +550,7 @@ export const USDT_ADDRESS = {
   [EvmChainId.LINEA]: '0xa219439258ca9da29e9cc4ce5596924745e12b93',
   [EvmChainId.MANTLE]: '0x201eba5cc46d216ce6dc03f6a759e8e766e956ae',
   [EvmChainId.KATANA]: '0x2DCa96907fde857dd3D816880A0df407eeB2D2F2',
+  [EvmChainId.HYPEREVM]: '0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb',
 } as const
 
 export const DAI_ADDRESS = {
