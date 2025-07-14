@@ -1,5 +1,5 @@
-import type { BladeChainId } from '~sushi/config/features/blade.js'
 import { EvmChainId } from '../../../chain/evm/index.js'
+import type { BladeChainId } from '../../../config/features/blade.js'
 import { getSubgraphUrlWrapper, wrapAsIdType } from '../get-subgraph-url.js'
 import { SUSHI_DEDICATED_GOLDSKY_HOST } from '../hosts.js'
 
