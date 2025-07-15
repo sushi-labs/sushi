@@ -1,5 +1,11 @@
 # sushi
 
+## 5.1.25
+
+### Patch Changes
+
+- [#231](https://github.com/sushi-labs/sushi/pull/231) [`26619c0`](https://github.com/sushi-labs/sushi/commit/26619c0768205ad621e2b79f1d5bb5f7ca30c114) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - usdt0 config
+
 ## 5.1.24
 
 ### Patch Changes
