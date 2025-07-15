@@ -66,12 +66,6 @@ const CHAIN_ID_SHORT_CURRENCY_NAME_TO_CURRENCY = {
     WETH: WNATIVE[EvmChainId.BOBA],
     SUSHI: SUSHI[EvmChainId.BOBA],
   },
-  [EvmChainId.BOBA_AVAX]: {
-    BOBA: Native.onChain(EvmChainId.BOBA_AVAX),
-    WBOBA: WNATIVE[EvmChainId.BOBA_AVAX],
-    USDC: USDC[EvmChainId.BOBA_AVAX],
-    // SUSHI: SUSHI[EvmChainId.BOBA_AVAX],
-  },
   [EvmChainId.BOBA_BNB]: {
     BOBA: Native.onChain(EvmChainId.BOBA_BNB),
     WBOBA: WNATIVE[EvmChainId.BOBA_BNB],

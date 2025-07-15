@@ -7,7 +7,6 @@ const SUPPORTED_CHAIN_IDS = [
   EvmChainId.GNOSIS,
   EvmChainId.HARMONY,
   EvmChainId.ETHEREUM,
-  EvmChainId.HECO,
   EvmChainId.ARBITRUM,
   EvmChainId.OPTIMISM,
   EvmChainId.ZKSYNC_ERA,

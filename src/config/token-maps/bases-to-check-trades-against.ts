@@ -86,7 +86,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
       decimals: 8,
     }),
   ],
-  [EvmChainId.GÖRLI]: [WNATIVE[EvmChainId.GÖRLI]],
+  // [EvmChainId.GÖRLI]: [WNATIVE[EvmChainId.GÖRLI]],
   // [EvmChainId.RINKEBY]: [WNATIVE[EvmChainId.RINKEBY], USDC[EvmChainId.RINKEBY]],
   // [EvmChainId.KOVAN]: [WNATIVE[EvmChainId.KOVAN], USDC[EvmChainId.KOVAN]],
   [EvmChainId.POLYGON]: [
@@ -108,10 +108,10 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
       name: 'USDC.e',
     }),
   ],
-  [EvmChainId.POLYGON_TESTNET]: [
-    WNATIVE[EvmChainId.POLYGON_TESTNET],
-    USDC[EvmChainId.POLYGON_TESTNET],
-  ],
+  // [EvmChainId.POLYGON_TESTNET]: [
+  //   WNATIVE[EvmChainId.POLYGON_TESTNET],
+  //   USDC[EvmChainId.POLYGON_TESTNET],
+  // ],
   [EvmChainId.FANTOM]: [
     WNATIVE[EvmChainId.FANTOM],
     STARGATE_USDC[EvmChainId.FANTOM],
@@ -270,13 +270,12 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
       symbol: 'WMEMO',
     }),
   ],
-
-  [EvmChainId.HECO]: [
-    WNATIVE[EvmChainId.HECO],
-    USDC[EvmChainId.HECO],
-    USDT[EvmChainId.HECO],
-    DAI[EvmChainId.HECO],
-  ],
+  // [EvmChainId.HECO]: [
+  //   WNATIVE[EvmChainId.HECO],
+  //   USDC[EvmChainId.HECO],
+  //   USDT[EvmChainId.HECO],
+  //   DAI[EvmChainId.HECO],
+  // ],
   [EvmChainId.HARMONY]: [
     WNATIVE[EvmChainId.HARMONY],
     USDC[EvmChainId.HARMONY],
@@ -284,12 +283,12 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     DAI[EvmChainId.HARMONY],
     FRAX[EvmChainId.HARMONY],
   ],
-  [EvmChainId.OKEX]: [
-    WNATIVE[EvmChainId.OKEX],
-    USDC[EvmChainId.OKEX],
-    USDT[EvmChainId.OKEX],
-    DAI[EvmChainId.OKEX],
-  ],
+  // [EvmChainId.OKEX]: [
+  //   WNATIVE[EvmChainId.OKEX],
+  //   USDC[EvmChainId.OKEX],
+  //   USDT[EvmChainId.OKEX],
+  //   DAI[EvmChainId.OKEX],
+  // ],
   [EvmChainId.CELO]: [
     WNATIVE[EvmChainId.CELO],
     WETH9[EvmChainId.CELO],
@@ -326,7 +325,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
       name: 'Wrapped Ether (Wormhole)',
     }),
   ],
-  [EvmChainId.PALM]: [WNATIVE[EvmChainId.PALM]],
+  // [EvmChainId.PALM]: [WNATIVE[EvmChainId.PALM]],
   [EvmChainId.MOONRIVER]: [
     WNATIVE[EvmChainId.MOONRIVER],
     USDC[EvmChainId.MOONRIVER],
@@ -417,18 +416,18 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     DAI[EvmChainId.BOBA],
     FRAX[EvmChainId.BOBA],
   ],
-  [EvmChainId.BOBA_AVAX]: [
-    WNATIVE[EvmChainId.BOBA_AVAX],
-    new Token({
-      chainId: EvmChainId.BOBA_AVAX,
-      address: '0x4200000000000000000000000000000000000023',
-      decimals: 18,
-      symbol: 'AVAX',
-      name: 'Avax',
-    }),
-    USDT[EvmChainId.BOBA_AVAX],
-    USDC[EvmChainId.BOBA_AVAX],
-  ],
+  // [EvmChainId.BOBA_AVAX]: [
+  //   WNATIVE[EvmChainId.BOBA_AVAX],
+  //   new Token({
+  //     chainId: EvmChainId.BOBA_AVAX,
+  //     address: '0x4200000000000000000000000000000000000023',
+  //     decimals: 18,
+  //     symbol: 'AVAX',
+  //     name: 'Avax',
+  //   }),
+  //   USDT[EvmChainId.BOBA_AVAX],
+  //   USDC[EvmChainId.BOBA_AVAX],
+  // ],
   [EvmChainId.BOBA_BNB]: [
     WNATIVE[EvmChainId.BOBA_BNB],
     new Token({
@@ -596,11 +595,11 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     METH[EvmChainId.MANTLE],
     USDe[EvmChainId.MANTLE],
   ],
-  [EvmChainId.CURTIS]: [
-    WNATIVE[EvmChainId.CURTIS],
-    USDT[EvmChainId.CURTIS],
-    DAI[EvmChainId.CURTIS],
-  ],
+  // [EvmChainId.CURTIS]: [
+  //   WNATIVE[EvmChainId.CURTIS],
+  //   USDT[EvmChainId.CURTIS],
+  //   DAI[EvmChainId.CURTIS],
+  // ],
   [EvmChainId.MANTA]: [
     WNATIVE[EvmChainId.MANTA],
     USDC[EvmChainId.MANTA],

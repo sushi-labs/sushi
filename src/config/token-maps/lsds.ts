@@ -98,7 +98,7 @@ export const LSDS = {
     }),
   ],
   [EvmChainId.BOBA]: [],
-  [EvmChainId.BOBA_AVAX]: [],
+  // [EvmChainId.BOBA_AVAX]: [],
   [EvmChainId.BOBA_BNB]: [],
   [EvmChainId.BSC]: [
     new Token({
@@ -227,7 +227,7 @@ export const LSDS = {
   [EvmChainId.GNOSIS]: [],
   [EvmChainId.HARMONY]: [],
   [EvmChainId.HAQQ]: [],
-  [EvmChainId.HECO]: [],
+  // [EvmChainId.HECO]: [],
   [EvmChainId.KAVA]: [],
   [EvmChainId.LINEA]: [
     new Token({
@@ -263,7 +263,7 @@ export const LSDS = {
     }),
   ],
   [EvmChainId.MOONRIVER]: [],
-  [EvmChainId.OKEX]: [],
+  // [EvmChainId.OKEX]: [],
   [EvmChainId.OPTIMISM]: [
     new Token({
       chainId: EvmChainId.OPTIMISM,
@@ -344,7 +344,7 @@ export const LSDS = {
   [EvmChainId.CRONOS]: [],
   [EvmChainId.SKALE_EUROPA]: [rETH[EvmChainId.SKALE_EUROPA]],
   [EvmChainId.ROOTSTOCK]: [],
-  [EvmChainId.PALM]: [],
+  // [EvmChainId.PALM]: [],
   [EvmChainId.ZKSYNC_ERA]: [],
   [EvmChainId.MANTLE]: [METH[EvmChainId.MANTLE]],
   [EvmChainId.MANTA]: [STONE[EvmChainId.MANTA]],
@@ -381,13 +381,13 @@ export const LSDS = {
   ],
   [EvmChainId.HYPEREVM]: [],
   // TESTNETS
-  [EvmChainId.POLYGON_TESTNET]: [],
-  [EvmChainId.FANTOM_TESTNET]: [],
-  [EvmChainId.BSC_TESTNET]: [],
-  [EvmChainId.ARBITRUM_TESTNET]: [],
-  [EvmChainId.AVALANCHE_TESTNET]: [],
+  // [EvmChainId.POLYGON_TESTNET]: [],
+  // [EvmChainId.FANTOM_TESTNET]: [],
+  // [EvmChainId.BSC_TESTNET]: [],
+  // [EvmChainId.ARBITRUM_TESTNET]: [],
+  // [EvmChainId.AVALANCHE_TESTNET]: [],
   [EvmChainId.SEPOLIA]: [],
-  [EvmChainId.GÖRLI]: [],
-  [EvmChainId.CURTIS]: [],
+  // [EvmChainId.GÖRLI]: [],
+  // [EvmChainId.CURTIS]: [],
   [EvmChainId.TATARA]: [],
 } as const satisfies Record<EvmChainId, Token[]>
