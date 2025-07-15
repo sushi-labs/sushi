@@ -381,7 +381,7 @@ export const EVM_DEFAULT_BASES = {
     USDT[EvmChainId.ROOTSTOCK],
     SolvBTC[EvmChainId.ROOTSTOCK],
     RBTC,
-    USDT0[EvmChainId.ROOTSTOCK]
+    USDT0[EvmChainId.ROOTSTOCK],
   ],
   [EvmChainId.MANTLE]: [
     Native.onChain(EvmChainId.MANTLE),

@@ -868,8 +868,7 @@ export const USDC: Record<keyof typeof USDC_ADDRESS, Token> = {
     USDC_ADDRESS,
   ) as Omit<
     Record<keyof typeof USDC_ADDRESS, Token>,
-    typeof EvmChainId.BSC &
-      typeof EvmChainId.ROOTSTOCK
+    typeof EvmChainId.BSC & typeof EvmChainId.ROOTSTOCK
   >),
   [EvmChainId.BSC]: new Token({
     chainId: EvmChainId.BSC,
@@ -904,8 +903,7 @@ export const USDT: Record<keyof typeof USDT_ADDRESS, Token> = {
     USDT_ADDRESS,
   ) as Omit<
     Record<keyof typeof USDT_ADDRESS, Token>,
-    typeof EvmChainId.BSC &
-      typeof EvmChainId.ROOTSTOCK
+    typeof EvmChainId.BSC & typeof EvmChainId.ROOTSTOCK
   >),
   [EvmChainId.BSC]: new Token({
     chainId: EvmChainId.BSC,
@@ -1434,7 +1432,7 @@ export const USDT0 = addressMapToTokenMap(
   {
     decimals: 6,
     symbol: 'USD₮0',
-    name: 'USD₮0'
+    name: 'USD₮0',
   },
   USDT0_ADDRESS,
 ) as Record<keyof typeof USDT0_ADDRESS, Token>
