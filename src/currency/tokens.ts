@@ -1436,7 +1436,7 @@ export const USDT0 = addressMapToTokenMap(
   {
     decimals: 6,
     symbol: 'USD₮0',
-    name: 'USD₮0'
+    name: 'USD₮0',
   },
   USDT0_ADDRESS,
 ) as Record<keyof typeof USDT0_ADDRESS, Token>
