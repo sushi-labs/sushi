@@ -489,7 +489,7 @@ export const WNATIVE = {
   [EvmChainId.SEPOLIA]: WETH9[EvmChainId.SEPOLIA],
   // [EvmChainId.ROPSTEN]: WETH9[EvmChainId.ROPSTEN],
   // [EvmChainId.RINKEBY]: WETH9[EvmChainId.RINKEBY],
-  [EvmChainId.GÖRLI]: WETH9[EvmChainId.GÖRLI],
+  // [EvmChainId.GÖRLI]: WETH9[EvmChainId.GÖRLI],
   // [EvmChainId.KOVAN]: WETH9[EvmChainId.KOVAN],
   [EvmChainId.OPTIMISM]: WETH9[EvmChainId.OPTIMISM],
   [EvmChainId.FANTOM]: new Token({
@@ -499,13 +499,13 @@ export const WNATIVE = {
     symbol: 'WFTM',
     name: 'Wrapped FTM',
   }),
-  [EvmChainId.FANTOM_TESTNET]: new Token({
-    chainId: EvmChainId.FANTOM_TESTNET,
-    address: WNATIVE_ADDRESS[EvmChainId.FANTOM_TESTNET],
-    decimals: 18,
-    symbol: 'WFTM',
-    name: 'Wrapped FTM',
-  }),
+  // [EvmChainId.FANTOM_TESTNET]: new Token({
+  //   chainId: EvmChainId.FANTOM_TESTNET,
+  //   address: WNATIVE_ADDRESS[EvmChainId.FANTOM_TESTNET],
+  //   decimals: 18,
+  //   symbol: 'WFTM',
+  //   name: 'Wrapped FTM',
+  // }),
   [EvmChainId.POLYGON]: new Token({
     chainId: EvmChainId.POLYGON,
     address: WNATIVE_ADDRESS[EvmChainId.POLYGON],
@@ -513,13 +513,13 @@ export const WNATIVE = {
     symbol: 'WPOL',
     name: 'Wrapped POL',
   }),
-  [EvmChainId.POLYGON_TESTNET]: new Token({
-    chainId: EvmChainId.POLYGON_TESTNET,
-    address: WNATIVE_ADDRESS[EvmChainId.POLYGON_TESTNET],
-    decimals: 18,
-    symbol: 'WPOL',
-    name: 'Wrapped POL',
-  }),
+  // [EvmChainId.POLYGON_TESTNET]: new Token({
+  //   chainId: EvmChainId.POLYGON_TESTNET,
+  //   address: WNATIVE_ADDRESS[EvmChainId.POLYGON_TESTNET],
+  //   decimals: 18,
+  //   symbol: 'WPOL',
+  //   name: 'Wrapped POL',
+  // }),
   [EvmChainId.GNOSIS]: new Token({
     chainId: EvmChainId.GNOSIS,
     address: WNATIVE_ADDRESS[EvmChainId.GNOSIS],
@@ -534,15 +534,15 @@ export const WNATIVE = {
     symbol: 'WBNB',
     name: 'Wrapped BNB',
   }),
-  [EvmChainId.BSC_TESTNET]: new Token({
-    chainId: EvmChainId.BSC_TESTNET,
-    address: WNATIVE_ADDRESS[EvmChainId.BSC_TESTNET],
-    decimals: 18,
-    symbol: 'WBNB',
-    name: 'Wrapped BNB',
-  }),
+  // [EvmChainId.BSC_TESTNET]: new Token({
+  //   chainId: EvmChainId.BSC_TESTNET,
+  //   address: WNATIVE_ADDRESS[EvmChainId.BSC_TESTNET],
+  //   decimals: 18,
+  //   symbol: 'WBNB',
+  //   name: 'Wrapped BNB',
+  // }),
   [EvmChainId.ARBITRUM]: WETH9[EvmChainId.ARBITRUM],
-  [EvmChainId.ARBITRUM_TESTNET]: WETH9[EvmChainId.ARBITRUM_TESTNET],
+  // [EvmChainId.ARBITRUM_TESTNET]: WETH9[EvmChainId.ARBITRUM_TESTNET],
   [EvmChainId.ARBITRUM_NOVA]: WETH9[EvmChainId.ARBITRUM_NOVA],
   [EvmChainId.AVALANCHE]: new Token({
     chainId: EvmChainId.AVALANCHE,
@@ -551,20 +551,20 @@ export const WNATIVE = {
     symbol: 'WAVAX',
     name: 'Wrapped AVAX',
   }),
-  [EvmChainId.AVALANCHE_TESTNET]: new Token({
-    chainId: EvmChainId.AVALANCHE_TESTNET,
-    address: WNATIVE_ADDRESS[EvmChainId.AVALANCHE_TESTNET],
-    decimals: 18,
-    symbol: 'WAVAX',
-    name: 'Wrapped AVAX',
-  }),
-  [EvmChainId.HECO]: new Token({
-    chainId: EvmChainId.HECO,
-    address: WNATIVE_ADDRESS[EvmChainId.HECO],
-    decimals: 18,
-    symbol: 'WHT',
-    name: 'Wrapped HT',
-  }),
+  // [EvmChainId.AVALANCHE_TESTNET]: new Token({
+  //   chainId: EvmChainId.AVALANCHE_TESTNET,
+  //   address: WNATIVE_ADDRESS[EvmChainId.AVALANCHE_TESTNET],
+  //   decimals: 18,
+  //   symbol: 'WAVAX',
+  //   name: 'Wrapped AVAX',
+  // }),
+  // [EvmChainId.HECO]: new Token({
+  //   chainId: EvmChainId.HECO,
+  //   address: WNATIVE_ADDRESS[EvmChainId.HECO],
+  //   decimals: 18,
+  //   symbol: 'WHT',
+  //   name: 'Wrapped HT',
+  // }),
   // [EvmChainId.HECO_TESTNET]: new Token({
   //   chainId: EvmChainId.HECO_TESTNET,
   //   address: WNATIVE_ADDRESS[EvmChainId.HECO_TESTNET],
@@ -586,13 +586,13 @@ export const WNATIVE = {
   //   symbol: 'WONE',
   //   name: 'Wrapped ONE',
   // }),
-  [EvmChainId.OKEX]: new Token({
-    chainId: EvmChainId.OKEX,
-    address: WNATIVE_ADDRESS[EvmChainId.OKEX],
-    decimals: 18,
-    symbol: 'WOKT',
-    name: 'Wrapped OKExChain',
-  }),
+  // [EvmChainId.OKEX]: new Token({
+  //   chainId: EvmChainId.OKEX,
+  //   address: WNATIVE_ADDRESS[EvmChainId.OKEX],
+  //   decimals: 18,
+  //   symbol: 'WOKT',
+  //   name: 'Wrapped OKExChain',
+  // }),
   // [EvmChainId.OKEX_TESTNET]: new Token({
   //   chainId: EvmChainId.OKEX_TESTNET,
   //   address: WNATIVE_ADDRESS[EvmChainId.OKEX_TESTNET],
@@ -607,13 +607,13 @@ export const WNATIVE = {
     symbol: 'CELO',
     name: 'Celo',
   }),
-  [EvmChainId.PALM]: new Token({
-    chainId: EvmChainId.PALM,
-    address: WNATIVE_ADDRESS[EvmChainId.PALM],
-    decimals: 18,
-    symbol: 'WPALM',
-    name: 'Wrapped Palm',
-  }),
+  // [EvmChainId.PALM]: new Token({
+  //   chainId: EvmChainId.PALM,
+  //   address: WNATIVE_ADDRESS[EvmChainId.PALM],
+  //   decimals: 18,
+  //   symbol: 'WPALM',
+  //   name: 'Wrapped Palm',
+  // }),
   [EvmChainId.MOONRIVER]: new Token({
     chainId: EvmChainId.MOONRIVER,
     address: WNATIVE_ADDRESS[EvmChainId.MOONRIVER],
@@ -657,13 +657,13 @@ export const WNATIVE = {
     name: 'Wrapped Metis',
   }),
   [EvmChainId.BOBA]: WETH9[EvmChainId.BOBA],
-  [EvmChainId.BOBA_AVAX]: new Token({
-    chainId: EvmChainId.BOBA_AVAX,
-    address: WNATIVE_ADDRESS[EvmChainId.BOBA_AVAX],
-    decimals: 18,
-    symbol: 'WBOBA',
-    name: 'Wrapped Boba',
-  }),
+  // [EvmChainId.BOBA_AVAX]: new Token({
+  //   chainId: EvmChainId.BOBA_AVAX,
+  //   address: WNATIVE_ADDRESS[EvmChainId.BOBA_AVAX],
+  //   decimals: 18,
+  //   symbol: 'WBOBA',
+  //   name: 'Wrapped Boba',
+  // }),
   [EvmChainId.BOBA_BNB]: new Token({
     chainId: EvmChainId.BOBA_BNB,
     address: WNATIVE_ADDRESS[EvmChainId.BOBA_BNB],
@@ -743,13 +743,13 @@ export const WNATIVE = {
     symbol: 'WMNT',
     name: 'Wrapped MNT',
   }),
-  [EvmChainId.CURTIS]: new Token({
-    chainId: EvmChainId.CURTIS,
-    address: WNATIVE_ADDRESS[EvmChainId.CURTIS],
-    decimals: 18,
-    symbol: 'WAPE',
-    name: 'Wrapped APE',
-  }),
+  // [EvmChainId.CURTIS]: new Token({
+  //   chainId: EvmChainId.CURTIS,
+  //   address: WNATIVE_ADDRESS[EvmChainId.CURTIS],
+  //   decimals: 18,
+  //   symbol: 'WAPE',
+  //   name: 'Wrapped APE',
+  // }),
   [EvmChainId.MANTA]: WETH9[EvmChainId.MANTA],
   [EvmChainId.MODE]: WETH9[EvmChainId.MODE],
   [EvmChainId.TAIKO]: WETH9[EvmChainId.TAIKO],
@@ -868,9 +868,7 @@ export const USDC: Record<keyof typeof USDC_ADDRESS, Token> = {
     USDC_ADDRESS,
   ) as Omit<
     Record<keyof typeof USDC_ADDRESS, Token>,
-    typeof EvmChainId.BSC &
-      typeof EvmChainId.BSC_TESTNET &
-      typeof EvmChainId.ROOTSTOCK
+    typeof EvmChainId.BSC & typeof EvmChainId.ROOTSTOCK
   >),
   [EvmChainId.BSC]: new Token({
     chainId: EvmChainId.BSC,
@@ -905,9 +903,7 @@ export const USDT: Record<keyof typeof USDT_ADDRESS, Token> = {
     USDT_ADDRESS,
   ) as Omit<
     Record<keyof typeof USDT_ADDRESS, Token>,
-    typeof EvmChainId.BSC &
-      typeof EvmChainId.BSC_TESTNET &
-      typeof EvmChainId.ROOTSTOCK
+    typeof EvmChainId.BSC & typeof EvmChainId.ROOTSTOCK
   >),
   [EvmChainId.BSC]: new Token({
     chainId: EvmChainId.BSC,
@@ -916,13 +912,13 @@ export const USDT: Record<keyof typeof USDT_ADDRESS, Token> = {
     symbol: 'USDT',
     name: 'Tether USD',
   }),
-  [EvmChainId.BSC_TESTNET]: new Token({
-    chainId: EvmChainId.BSC_TESTNET,
-    address: USDT_ADDRESS[EvmChainId.BSC_TESTNET],
-    decimals: 18,
-    symbol: 'USDT',
-    name: 'Tether USD',
-  }),
+  // [EvmChainId.BSC_TESTNET]: new Token({
+  //   chainId: EvmChainId.BSC_TESTNET,
+  //   address: USDT_ADDRESS[EvmChainId.BSC_TESTNET],
+  //   decimals: 18,
+  //   symbol: 'USDT',
+  //   name: 'Tether USD',
+  // }),
   [EvmChainId.BOBA_BNB]: new Token({
     chainId: EvmChainId.BOBA_BNB,
     address: USDT_ADDRESS[EvmChainId.BOBA_BNB],

@@ -60,7 +60,7 @@ export const EVM_DEFAULT_BASES = {
   ],
   // [EvmChainId.ROPSTEN]: [],
   // [EvmChainId.RINKEBY]: [],
-  [EvmChainId.GÖRLI]: [],
+  // [EvmChainId.GÖRLI]: [],
   // [EvmChainId.KOVAN]: [],
   [EvmChainId.GNOSIS]: [
     Native.onChain(EvmChainId.GNOSIS),
@@ -79,7 +79,7 @@ export const EVM_DEFAULT_BASES = {
     USDT[EvmChainId.BSC],
     DAI[EvmChainId.BSC],
   ],
-  [EvmChainId.BSC_TESTNET]: [],
+  // [EvmChainId.BSC_TESTNET]: [],
   [EvmChainId.POLYGON]: [
     Native.onChain(EvmChainId.POLYGON),
     WNATIVE[EvmChainId.POLYGON],
@@ -89,7 +89,7 @@ export const EVM_DEFAULT_BASES = {
     USDT[EvmChainId.POLYGON],
     DAI[EvmChainId.POLYGON],
   ],
-  [EvmChainId.POLYGON_TESTNET]: [],
+  // [EvmChainId.POLYGON_TESTNET]: [],
   [EvmChainId.AVALANCHE]: [
     Native.onChain(EvmChainId.AVALANCHE),
     WNATIVE[EvmChainId.AVALANCHE],
@@ -101,7 +101,7 @@ export const EVM_DEFAULT_BASES = {
     MIM[EvmChainId.AVALANCHE],
     FRAX[EvmChainId.AVALANCHE],
   ],
-  [EvmChainId.AVALANCHE_TESTNET]: [],
+  // [EvmChainId.AVALANCHE_TESTNET]: [],
   [EvmChainId.ARBITRUM_NOVA]: [
     Native.onChain(EvmChainId.ARBITRUM_NOVA),
     WNATIVE[EvmChainId.ARBITRUM_NOVA],
@@ -131,7 +131,7 @@ export const EVM_DEFAULT_BASES = {
     axlUSDC[EvmChainId.FANTOM],
     MIM[EvmChainId.FANTOM],
   ],
-  [EvmChainId.FANTOM_TESTNET]: [],
+  // [EvmChainId.FANTOM_TESTNET]: [],
   [EvmChainId.ARBITRUM]: [
     Native.onChain(EvmChainId.ARBITRUM),
     WNATIVE[EvmChainId.ARBITRUM],
@@ -142,7 +142,7 @@ export const EVM_DEFAULT_BASES = {
     DAI[EvmChainId.ARBITRUM],
     MIM[EvmChainId.ARBITRUM],
   ],
-  [EvmChainId.ARBITRUM_TESTNET]: [],
+  // [EvmChainId.ARBITRUM_TESTNET]: [],
   [EvmChainId.HARMONY]: [
     Native.onChain(EvmChainId.HARMONY),
     WNATIVE[EvmChainId.HARMONY],
@@ -152,23 +152,23 @@ export const EVM_DEFAULT_BASES = {
     DAI[EvmChainId.HARMONY],
   ],
   // [EvmChainId.HARMONY_TESTNET]: [],
-  [EvmChainId.HECO]: [
-    Native.onChain(EvmChainId.HECO),
-    WNATIVE[EvmChainId.HECO],
-    WETH9[EvmChainId.HECO],
-    USDC[EvmChainId.HECO],
-    USDT[EvmChainId.HECO],
-    DAI[EvmChainId.HECO],
-  ],
+  // [EvmChainId.HECO]: [
+  //   Native.onChain(EvmChainId.HECO),
+  //   WNATIVE[EvmChainId.HECO],
+  //   WETH9[EvmChainId.HECO],
+  //   USDC[EvmChainId.HECO],
+  //   USDT[EvmChainId.HECO],
+  //   DAI[EvmChainId.HECO],
+  // ],
   // [EvmChainId.HECO_TESTNET]: [],
-  [EvmChainId.OKEX]: [
-    Native.onChain(EvmChainId.OKEX),
-    WNATIVE[EvmChainId.OKEX],
-    WETH9[EvmChainId.OKEX],
-    USDC[EvmChainId.OKEX],
-    USDT[EvmChainId.OKEX],
-    DAI[EvmChainId.OKEX],
-  ],
+  // [EvmChainId.OKEX]: [
+  //   Native.onChain(EvmChainId.OKEX),
+  //   WNATIVE[EvmChainId.OKEX],
+  //   WETH9[EvmChainId.OKEX],
+  //   USDC[EvmChainId.OKEX],
+  //   USDT[EvmChainId.OKEX],
+  //   DAI[EvmChainId.OKEX],
+  // ],
   // [EvmChainId.OKEX_TESTNET]: [],
   [EvmChainId.CELO]: [
     Native.onChain(EvmChainId.CELO),
@@ -178,11 +178,11 @@ export const EVM_DEFAULT_BASES = {
     USDT[EvmChainId.CELO],
     DAI[EvmChainId.CELO],
   ],
-  [EvmChainId.PALM]: [
-    Native.onChain(EvmChainId.PALM),
-    WNATIVE[EvmChainId.PALM],
-    WETH9[EvmChainId.PALM],
-  ],
+  // [EvmChainId.PALM]: [
+  //   Native.onChain(EvmChainId.PALM),
+  //   WNATIVE[EvmChainId.PALM],
+  //   WETH9[EvmChainId.PALM],
+  // ],
   [EvmChainId.MOONRIVER]: [
     Native.onChain(EvmChainId.MOONRIVER),
     WNATIVE[EvmChainId.MOONRIVER],
@@ -241,12 +241,12 @@ export const EVM_DEFAULT_BASES = {
     USDT[EvmChainId.METIS],
     DAI[EvmChainId.METIS],
   ],
-  [EvmChainId.BOBA_AVAX]: [
-    Native.onChain(EvmChainId.BOBA_AVAX),
-    WNATIVE[EvmChainId.BOBA_AVAX],
-    USDC[EvmChainId.BOBA_AVAX],
-    USDT[EvmChainId.BOBA_AVAX],
-  ],
+  // [EvmChainId.BOBA_AVAX]: [
+  //   Native.onChain(EvmChainId.BOBA_AVAX),
+  //   WNATIVE[EvmChainId.BOBA_AVAX],
+  //   USDC[EvmChainId.BOBA_AVAX],
+  //   USDT[EvmChainId.BOBA_AVAX],
+  // ],
   [EvmChainId.BOBA_BNB]: [
     Native.onChain(EvmChainId.BOBA_BNB),
     WNATIVE[EvmChainId.BOBA_BNB],
@@ -389,10 +389,10 @@ export const EVM_DEFAULT_BASES = {
     WETH9[EvmChainId.MANTLE],
     USDC[EvmChainId.MANTLE],
   ],
-  [EvmChainId.CURTIS]: [
-    Native.onChain(EvmChainId.CURTIS),
-    WNATIVE[EvmChainId.CURTIS],
-  ],
+  // [EvmChainId.CURTIS]: [
+  //   Native.onChain(EvmChainId.CURTIS),
+  //   WNATIVE[EvmChainId.CURTIS],
+  // ],
   [EvmChainId.MANTA]: [
     Native.onChain(EvmChainId.MANTA),
     WNATIVE[EvmChainId.MANTA],

@@ -72,10 +72,10 @@ export const STABLES = {
     USDT[EvmChainId.BOBA],
     DAI[EvmChainId.BOBA],
   ],
-  [EvmChainId.BOBA_AVAX]: [
-    USDC[EvmChainId.BOBA_AVAX],
-    USDT[EvmChainId.BOBA_AVAX],
-  ],
+  // [EvmChainId.BOBA_AVAX]: [
+  //   USDC[EvmChainId.BOBA_AVAX],
+  //   USDT[EvmChainId.BOBA_AVAX],
+  // ],
   [EvmChainId.BOBA_BNB]: [USDC[EvmChainId.BOBA_BNB], USDT[EvmChainId.BOBA_BNB]],
   [EvmChainId.BSC]: [
     USDC[EvmChainId.BSC],
@@ -145,11 +145,11 @@ export const STABLES = {
     USDT[EvmChainId.HAQQ],
     DAI[EvmChainId.HAQQ],
   ],
-  [EvmChainId.HECO]: [
-    USDC[EvmChainId.HECO],
-    USDT[EvmChainId.HECO],
-    DAI[EvmChainId.HECO],
-  ],
+  // [EvmChainId.HECO]: [
+  //   USDC[EvmChainId.HECO],
+  //   USDT[EvmChainId.HECO],
+  //   DAI[EvmChainId.HECO],
+  // ],
   [EvmChainId.KAVA]: [axlUSDC[EvmChainId.KAVA], USDT[EvmChainId.KAVA]],
   [EvmChainId.LINEA]: [
     USDC[EvmChainId.LINEA],
@@ -187,11 +187,11 @@ export const STABLES = {
     MIM[EvmChainId.MOONRIVER],
     FRAX[EvmChainId.MOONRIVER],
   ],
-  [EvmChainId.OKEX]: [
-    USDC[EvmChainId.OKEX],
-    USDT[EvmChainId.OKEX],
-    DAI[EvmChainId.OKEX],
-  ],
+  // [EvmChainId.OKEX]: [
+  //   USDC[EvmChainId.OKEX],
+  //   USDT[EvmChainId.OKEX],
+  //   DAI[EvmChainId.OKEX],
+  // ],
   [EvmChainId.OPTIMISM]: [
     USDC[EvmChainId.OPTIMISM],
     USDT[EvmChainId.OPTIMISM],
@@ -253,7 +253,7 @@ export const STABLES = {
     USDT0[EvmChainId.ROOTSTOCK],
   ],
   [EvmChainId.MANTLE]: [USDC[EvmChainId.MANTLE]],
-  [EvmChainId.PALM]: [],
+  // [EvmChainId.PALM]: [],
   [EvmChainId.ZKSYNC_ERA]: [
     USDC[EvmChainId.ZKSYNC_ERA],
     USDT[EvmChainId.ZKSYNC_ERA],
@@ -301,13 +301,13 @@ export const STABLES = {
   //   USDT[EvmChainId.KOVAN],
   //   DAI[EvmChainId.KOVAN],
   // ],
-  [EvmChainId.POLYGON_TESTNET]: [USDC[EvmChainId.POLYGON_TESTNET]],
-  [EvmChainId.FANTOM_TESTNET]: [],
-  [EvmChainId.BSC_TESTNET]: [],
-  [EvmChainId.ARBITRUM_TESTNET]: [],
-  [EvmChainId.AVALANCHE_TESTNET]: [],
+  // [EvmChainId.POLYGON_TESTNET]: [USDC[EvmChainId.POLYGON_TESTNET]],
+  // [EvmChainId.FANTOM_TESTNET]: [],
+  // [EvmChainId.BSC_TESTNET]: [],
+  // [EvmChainId.ARBITRUM_TESTNET]: [],
+  // [EvmChainId.AVALANCHE_TESTNET]: [],
   [EvmChainId.SEPOLIA]: [],
-  [EvmChainId.GÖRLI]: [],
-  [EvmChainId.CURTIS]: [USDT[EvmChainId.CURTIS], DAI[EvmChainId.CURTIS]],
+  // [EvmChainId.GÖRLI]: [],
+  // [EvmChainId.CURTIS]: [USDT[EvmChainId.CURTIS], DAI[EvmChainId.CURTIS]],
   [EvmChainId.TATARA]: [AUSD[EvmChainId.TATARA]],
 } as const satisfies Record<EvmChainId, Token[]>
