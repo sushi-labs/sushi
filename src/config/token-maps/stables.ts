@@ -250,7 +250,7 @@ export const STABLES = {
     USDT[EvmChainId.ROOTSTOCK],
     DAI[EvmChainId.ROOTSTOCK],
     DOC,
-    USDT0[EvmChainId.ROOTSTOCK]
+    USDT0[EvmChainId.ROOTSTOCK],
   ],
   [EvmChainId.MANTLE]: [USDC[EvmChainId.MANTLE]],
   // [EvmChainId.PALM]: [],
