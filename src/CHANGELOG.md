@@ -1,5 +1,11 @@
 # sushi
 
+## 5.1.26
+
+### Patch Changes
+
+- [#233](https://github.com/sushi-labs/sushi/pull/233) [`afec953`](https://github.com/sushi-labs/sushi/commit/afec95393406978de22558075e53dd3400c75a14) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - remove unused evm network config
+
 ## 5.1.25
 
 ### Patch Changes
