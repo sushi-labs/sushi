@@ -1,5 +1,11 @@
 # sushi
 
+## 5.1.23
+
+### Patch Changes
+
+- [#223](https://github.com/sushi-labs/sushi/pull/223) [`214defd`](https://github.com/sushi-labs/sushi/commit/214defd9b5103c16882726481fb9b820a51b9f82) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add RP8 config
+
 ## 5.1.22
 
 ### Patch Changes
