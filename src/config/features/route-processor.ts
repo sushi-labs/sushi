@@ -661,3 +661,40 @@ export const isRouteProcessor7ChainId = (
   ROUTE_PROCESSOR_7_SUPPORTED_CHAIN_IDS.includes(
     chainId as RouteProcessor7ChainId,
   )
+
+// v8
+export const ROUTE_PROCESSOR_8_SUPPORTED_CHAIN_IDS = [
+  EvmChainId.ETHEREUM,
+  EvmChainId.ARBITRUM,
+  EvmChainId.OPTIMISM,
+  EvmChainId.BASE,
+  EvmChainId.POLYGON,
+  EvmChainId.MOONBEAM,
+  EvmChainId.POLYGON_ZKEVM,
+  EvmChainId.MANTLE,
+  EvmChainId.KATANA,
+  EvmChainId.HYPEREVM,
+] as const
+export type RouteProcessor8ChainId =
+  (typeof ROUTE_PROCESSOR_8_SUPPORTED_CHAIN_IDS)[number]
+export const ROUTE_PROCESSOR_8_ADDRESS: Record<
+  RouteProcessor8ChainId,
+  Address
+> = {
+  [EvmChainId.ETHEREUM]: '0x2905d7e4D048d29954F81b02171DD313F457a4a4',
+  [EvmChainId.ARBITRUM]: '0x2905d7e4D048d29954F81b02171DD313F457a4a4',
+  [EvmChainId.OPTIMISM]: '0x2905d7e4D048d29954F81b02171DD313F457a4a4',
+  [EvmChainId.BASE]: '0x2905d7e4D048d29954F81b02171DD313F457a4a4',
+  [EvmChainId.POLYGON]: '0x2905d7e4D048d29954F81b02171DD313F457a4a4',
+  [EvmChainId.MOONBEAM]: '0x2905d7e4D048d29954F81b02171DD313F457a4a4',
+  [EvmChainId.POLYGON_ZKEVM]: '0x2905d7e4D048d29954F81b02171DD313F457a4a4',
+  [EvmChainId.MANTLE]: '0x2905d7e4D048d29954F81b02171DD313F457a4a4',
+  [EvmChainId.KATANA]: '0x2905d7e4D048d29954F81b02171DD313F457a4a4',
+  [EvmChainId.HYPEREVM]: '0x2905d7e4D048d29954F81b02171DD313F457a4a4',
+} as const
+export const isRouteProcessor8ChainId = (
+  chainId: EvmChainId,
+): chainId is RouteProcessor8ChainId =>
+  ROUTE_PROCESSOR_8_SUPPORTED_CHAIN_IDS.includes(
+    chainId as RouteProcessor8ChainId,
+  )
