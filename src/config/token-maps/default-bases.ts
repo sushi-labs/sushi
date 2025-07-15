@@ -18,6 +18,7 @@ import {
   USDB,
   USDC,
   USDT,
+  USDT0,
   WBTC,
   WETH9,
   WNATIVE,
@@ -380,6 +381,7 @@ export const EVM_DEFAULT_BASES = {
     USDT[EvmChainId.ROOTSTOCK],
     SolvBTC[EvmChainId.ROOTSTOCK],
     RBTC,
+    USDT0[EvmChainId.ROOTSTOCK],
   ],
   [EvmChainId.MANTLE]: [
     Native.onChain(EvmChainId.MANTLE),

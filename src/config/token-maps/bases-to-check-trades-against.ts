@@ -17,6 +17,7 @@ import {
   Token,
   USDB,
   USDP,
+  USDT0,
   USDe,
   WstETH,
   rETH,
@@ -585,6 +586,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     DOC,
     SolvBTC[EvmChainId.ROOTSTOCK],
     RBTC,
+    USDT0[EvmChainId.ROOTSTOCK],
   ],
   [EvmChainId.MANTLE]: [
     WNATIVE[EvmChainId.MANTLE],

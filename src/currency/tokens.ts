@@ -60,6 +60,7 @@ import {
   USDB_ADDRESS,
   USDC_ADDRESS,
   USDPLUS_ADDRESS,
+  USDT0_ADDRESS,
   USDT_ADDRESS,
   USD_PLUS_ADDRESS,
   USDe_ADDRESS,
@@ -1430,3 +1431,12 @@ export const AUSD = addressMapToTokenMap(
   },
   AUSD_ADDRESS,
 ) as Record<keyof typeof AUSD_ADDRESS, Token>
+
+export const USDT0 = addressMapToTokenMap(
+  {
+    decimals: 6,
+    symbol: 'USD₮0',
+    name: 'USD₮0',
+  },
+  USDT0_ADDRESS,
+) as Record<keyof typeof USDT0_ADDRESS, Token>
