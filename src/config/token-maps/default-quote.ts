@@ -104,4 +104,5 @@ export const defaultQuoteCurrency = {
   [EvmChainId.HEMI]: USDC[EvmChainId.HEMI],
   [EvmChainId.TATARA]: AUSD[EvmChainId.TATARA],
   [EvmChainId.KATANA]: USDC[EvmChainId.KATANA],
+  [EvmChainId.HYPEREVM]: USDT[EvmChainId.HYPEREVM]
 } as const
