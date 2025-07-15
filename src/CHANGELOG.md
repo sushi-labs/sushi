@@ -1,5 +1,11 @@
 # sushi
 
+## 5.1.27
+
+### Patch Changes
+
+- [#235](https://github.com/sushi-labs/sushi/pull/235) [`8e72811`](https://github.com/sushi-labs/sushi/commit/8e7281150ecf742d53c4c39e1ac98fd0144a7c26) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - update hyperevm config
+
 ## 5.1.26
 
 ### Patch Changes
