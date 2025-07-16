@@ -1,5 +1,11 @@
 # sushi
 
+## 5.1.28
+
+### Patch Changes
+
+- [#237](https://github.com/sushi-labs/sushi/pull/237) [`1da6a10`](https://github.com/sushi-labs/sushi/commit/1da6a10546ed0b72dc717ec7e2cd84eb20e65bd8) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - update rootstock quote currency
+
 ## 5.1.27
 
 ### Patch Changes
