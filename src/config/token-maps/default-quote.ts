@@ -12,6 +12,7 @@ import {
   USDB,
   USDC,
   USDT,
+  USDT0,
   WETH9,
   axlUSDC,
 } from '../../currency/index.js'
@@ -86,7 +87,7 @@ export const defaultQuoteCurrency = {
   [EvmChainId.CRONOS]: WETH9[EvmChainId.CRONOS],
   [EvmChainId.BLAST]: USDB[EvmChainId.BLAST],
   [EvmChainId.SKALE_EUROPA]: USDC[EvmChainId.SKALE_EUROPA],
-  [EvmChainId.ROOTSTOCK]: USDT[EvmChainId.ROOTSTOCK],
+  [EvmChainId.ROOTSTOCK]: USDT0[EvmChainId.ROOTSTOCK],
   [EvmChainId.MANTLE]: WETH9[EvmChainId.MANTLE],
   [EvmChainId.MANTA]: USDC[EvmChainId.MANTA],
   [EvmChainId.MODE]: USDC[EvmChainId.MODE],

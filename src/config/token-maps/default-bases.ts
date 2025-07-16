@@ -377,11 +377,11 @@ export const EVM_DEFAULT_BASES = {
   [EvmChainId.ROOTSTOCK]: [
     Native.onChain(EvmChainId.ROOTSTOCK),
     WNATIVE[EvmChainId.ROOTSTOCK],
+    USDT0[EvmChainId.ROOTSTOCK],
     WETH9[EvmChainId.ROOTSTOCK],
-    USDT[EvmChainId.ROOTSTOCK],
     SolvBTC[EvmChainId.ROOTSTOCK],
     RBTC,
-    USDT0[EvmChainId.ROOTSTOCK],
+    USDT[EvmChainId.ROOTSTOCK],
   ],
   [EvmChainId.MANTLE]: [
     Native.onChain(EvmChainId.MANTLE),
