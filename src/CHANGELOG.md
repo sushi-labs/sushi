@@ -1,5 +1,11 @@
 # sushi
 
+## 5.1.30
+
+### Patch Changes
+
+- [#241](https://github.com/sushi-labs/sushi/pull/241) [`e7e6f0d`](https://github.com/sushi-labs/sushi/commit/e7e6f0d629b97aafc49600af8453560937b18547) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - update weth on roostock
+
 ## 5.1.29
 
 ### Patch Changes
