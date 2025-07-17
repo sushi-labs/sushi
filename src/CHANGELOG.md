@@ -1,5 +1,11 @@
 # sushi
 
+## 5.1.29
+
+### Patch Changes
+
+- [#239](https://github.com/sushi-labs/sushi/pull/239) [`80402ca`](https://github.com/sushi-labs/sushi/commit/80402ca326832784242d260b7e5091571f882279) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - patch katana name
+
 ## 5.1.28
 
 ### Patch Changes
