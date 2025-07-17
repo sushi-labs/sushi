@@ -383,7 +383,7 @@ export const EVM_DEFAULT_BASES = {
       address: '0x1D931Bf8656d795E50eF6D639562C5bD8Ac2B78f',
       decimals: 18,
       symbol: 'ETHs',
-      name: 'ETHs'
+      name: 'ETHs',
     }),
     SolvBTC[EvmChainId.ROOTSTOCK],
     RBTC,
