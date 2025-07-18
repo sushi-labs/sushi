@@ -16,8 +16,8 @@
     "react-dom": "19.1.0",
     "sushi": "workspace:*",
     "swagger-ui-react": "5.19.0",
-    "typescript": "5.5.4",
-    "viem": "2.21.55",
+    "typescript": "5.8.3",
+    "viem": "2.29.0",
     "vocs": "1.0.11"
   },
   "devDependencies": {
