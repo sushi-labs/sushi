@@ -3,6 +3,7 @@ import { EvmToken } from '~evm/currency/token.js'
 import { AUSD } from '../tokens/AUSD.js'
 import { RBTC } from '../tokens/RBTC.js'
 import { SolvBTC } from '../tokens/SolvBTC.js'
+import { USDT0 } from '../tokens/USDT0.js'
 import {
   AAVE,
   AERO,
@@ -45,7 +46,6 @@ import {
   rETH,
 } from '../tokens/index.js'
 import { WNATIVE } from '../wrapped-native.js'
-import { USDT0 } from '../tokens/USDT0.js'
 
 export const BASES_TO_CHECK_TRADES_AGAINST: {
   readonly [chainId: number]: EvmToken[]
