@@ -67,7 +67,6 @@ export const EVM_DEFAULT_BASES = {
     USDT[EvmChainId.BSC],
     DAI[EvmChainId.BSC],
   ],
-  // [EvmChainId.BSC_TESTNET]: [],
   [EvmChainId.POLYGON]: [
     EvmNative.fromChainId(EvmChainId.POLYGON),
     WNATIVE[EvmChainId.POLYGON],
@@ -149,7 +148,6 @@ export const EVM_DEFAULT_BASES = {
     axlUSDC[EvmChainId.FANTOM],
     MIM[EvmChainId.FANTOM],
   ],
-  // [EvmChainId.FANTOM_TESTNET]: [],
   [EvmChainId.ARBITRUM]: [
     EvmNative.fromChainId(EvmChainId.ARBITRUM),
     WNATIVE[EvmChainId.ARBITRUM],
@@ -353,10 +351,6 @@ export const EVM_DEFAULT_BASES = {
     WNATIVE[EvmChainId.MANTLE],
     WETH9[EvmChainId.MANTLE],
     USDC[EvmChainId.MANTLE],
-  ],
-  [EvmChainId.CURTIS]: [
-    EvmNative.fromChainId(EvmChainId.CURTIS),
-    WNATIVE[EvmChainId.CURTIS],
   ],
   [EvmChainId.MANTA]: [
     EvmNative.fromChainId(EvmChainId.MANTA),

@@ -8,15 +8,12 @@ import {
   base as baseViem,
   blast as blastViem,
   boba as bobaViem,
-  bscTestnet as bscTestnetViem,
   bsc as bscViem,
   bitTorrent as bttcViem,
   celo as celoViem,
   coreDao as coreViem,
   cronos as cronosViem,
-  curtis as curtisViem,
   mainnet as ethereumViem,
-  fantomTestnet as fantomTestnetViem,
   fantom as fantomViem,
   filecoin as filecoinViem,
   gnosis as gnosisViem,
@@ -339,19 +336,9 @@ const katana = /* @__PURE__ */ defineEvmChain(
 )
 
 // Testnets
-const bscTestnet = /* @__PURE__ */ defineEvmChain(bscTestnetViem, {
-  key: 'bsc-testnet',
-  shortName: 'bnbt',
-})
-
 const sepolia = /* @__PURE__ */ defineEvmChain(sepoliaViem, {
   key: 'sepolia',
   shortName: 'sep',
-})
-
-const fantomTestnet = /* @__PURE__ */ defineEvmChain(fantomTestnetViem, {
-  key: 'fantom-testnet',
-  shortName: 'tftm',
 })
 
 const arbitrumSepolia = /* @__PURE__ */ defineEvmChain(arbitrumSepoliaViem, {
@@ -431,18 +418,6 @@ const hyperevm = /* @__PURE__ */ defineEvmChain(
   },
 )
 
-const curtis = /* @__PURE__ */ defineEvmChain(curtisViem, {
-  key: 'curtis',
-  contracts: {
-    multicall3: {
-      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
-      blockCreated: 7290821,
-    },
-  },
-  shortName: 'curtis',
-  parentChainId: arbitrumSepolia.chainId,
-})
-
 export const evmChains = [
   bobaBnb,
   ethereum,
@@ -475,7 +450,6 @@ export const evmChains = [
   skaleEuropa,
   rootstock,
   mantle,
-  curtis,
   manta,
   mode,
   taiko,
@@ -486,9 +460,7 @@ export const evmChains = [
   katana,
   hyperevm,
 
-  bscTestnet,
   sepolia,
-  fantomTestnet,
   arbitrumSepolia,
   tatara,
 ] as const

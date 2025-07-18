@@ -553,11 +553,6 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     METH[EvmChainId.MANTLE],
     USDe[EvmChainId.MANTLE],
   ],
-  // [EvmChainId.CURTIS]: [
-  //   WNATIVE[EvmChainId.CURTIS],
-  //   USDT[EvmChainId.CURTIS],
-  //   DAI[EvmChainId.CURTIS],
-  // ],
   [EvmChainId.MANTA]: [
     WNATIVE[EvmChainId.MANTA],
     USDC[EvmChainId.MANTA],

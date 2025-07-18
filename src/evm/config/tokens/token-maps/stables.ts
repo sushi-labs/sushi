@@ -244,11 +244,8 @@ export const STABLES = {
   ],
   [EvmChainId.HYPEREVM]: [USDT[EvmChainId.HYPEREVM]],
   // TESTNETS
-  [EvmChainId.FANTOM_TESTNET]: [],
-  [EvmChainId.BSC_TESTNET]: [],
   [EvmChainId.ARBITRUM_SEPOLIA]: [],
   [EvmChainId.SEPOLIA]: [],
-  [EvmChainId.CURTIS]: [USDT[EvmChainId.CURTIS], DAI[EvmChainId.CURTIS]],
   [EvmChainId.TATARA]: [AUSD[EvmChainId.TATARA]],
 } as const satisfies Record<EvmChainId, EvmToken[]>
 

@@ -360,8 +360,6 @@ export const LSDS = {
   [EvmChainId.HYPEREVM]: [],
 
   // TESTNETS
-  [EvmChainId.FANTOM_TESTNET]: [],
-  [EvmChainId.BSC_TESTNET]: [],
   [EvmChainId.ARBITRUM_SEPOLIA]: [],
   [EvmChainId.SEPOLIA]: [],
   [EvmChainId.TATARA]: [],

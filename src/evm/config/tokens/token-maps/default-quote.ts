@@ -77,7 +77,4 @@ export const defaultQuoteCurrency = {
   [EvmChainId.TATARA]: AUSD[EvmChainId.TATARA],
   [EvmChainId.KATANA]: USDC[EvmChainId.KATANA],
   [EvmChainId.HYPEREVM]: USDT[EvmChainId.HYPEREVM],
-  [EvmChainId.CURTIS]: USDT[EvmChainId.CURTIS],
-  [EvmChainId.BSC_TESTNET]: WNATIVE[EvmChainId.BSC_TESTNET],
-  [EvmChainId.FANTOM_TESTNET]: WNATIVE[EvmChainId.FANTOM_TESTNET],
 } as const satisfies Record<EvmChainId, EvmCurrency>
