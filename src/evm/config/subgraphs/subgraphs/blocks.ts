@@ -1,4 +1,4 @@
-import { EvmChainId } from '~evm/chain/index.js'
+import { EvmChainId } from '../../../chain/index.js'
 import { getSubgraphUrlWrapper, wrapAsIdType } from '../get-subgraph-url.js'
 import {
   CORE_HOST,

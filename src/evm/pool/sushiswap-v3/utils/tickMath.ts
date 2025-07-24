@@ -1,5 +1,5 @@
 import invariant from 'tiny-invariant'
-import { MAX_UINT256 } from '~generic/math/constants.js'
+import { MAX_UINT256 } from '../../../../generic/math/constants.js'
 
 import { mostSignificantBit } from './mostSignificantBit.js'
 

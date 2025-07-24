@@ -1,4 +1,4 @@
-import { EvmChainId } from '~evm/chain/index.js'
+import { EvmChainId } from '../../chain/index.js'
 
 const MAX_FIRST_PARTIAL: Partial<Record<EvmChainId, number>> = {
   [EvmChainId.METIS]: 100,

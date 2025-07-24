@@ -1,8 +1,8 @@
-import { EvmChainId } from '~evm/chain/index.js'
+import { EvmChainId } from '../../../chain/index.js'
 import { addressMapToTokenMap } from '../address-map-to-token-map.js'
 
 export const STG_ADDRESS = {
-  [EvmChainId.POLYGON]: '0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590',
+  [EvmChainId.POLYGON]: '0x2f6f07cdcf3588944bf4c42ac74ff24bf56e7590',
 } as const
 
 export const STG = addressMapToTokenMap(

@@ -7,19 +7,19 @@ import {
   zeroAddress,
 } from 'viem'
 import { describe, expect, it } from 'vitest'
-import { multicallAbi_multicall } from '~evm/abi/multicallAbi/multicallAbi_multicall.js'
-import { peripheryPaymentsWithFeeAbi_sweepToken } from '~evm/abi/peripheryPaymentsWithFeeAbi/peripheryPaymentsWithFeeAbi_sweepToken.js'
-import { peripheryPaymentsWithFeeAbi_unwrapWETH9 } from '~evm/abi/peripheryPaymentsWithFeeAbi/peripheryPaymentsWithFeeAbi_unwrapWETH9.js'
-import { WETH9 } from '~evm/config/tokens/tokens/WETH9.js'
-import { EvmNative } from '~evm/currency/native.js'
-import { EvmToken } from '~evm/currency/token.js'
-import { Amount } from '~generic/currency/amount.js'
-import { Percent } from '~generic/math/percent.js'
+import { Amount } from '../../../../generic/currency/amount.js'
+import { Percent } from '../../../../generic/math/percent.js'
+import { multicallAbi_multicall } from '../../../abi/multicallAbi/multicallAbi_multicall.js'
 import { nonfungiblePositionManagerAbi_collect } from '../../../abi/nonfungiblePositionManagerAbi/nonfungiblePositionManagerAbi_collect.js'
+import { peripheryPaymentsWithFeeAbi_sweepToken } from '../../../abi/peripheryPaymentsWithFeeAbi/peripheryPaymentsWithFeeAbi_sweepToken.js'
+import { peripheryPaymentsWithFeeAbi_unwrapWETH9 } from '../../../abi/peripheryPaymentsWithFeeAbi/peripheryPaymentsWithFeeAbi_unwrapWETH9.js'
 import {
   SushiSwapV3FeeAmount,
   TICK_SPACINGS,
 } from '../../../config/features/sushiswap-v3.js'
+import { WETH9 } from '../../../config/tokens/tokens/WETH9.js'
+import { EvmNative } from '../../../currency/native.js'
+import { EvmToken } from '../../../currency/token.js'
 import { encodeSqrtRatioX96 } from '../utils/encodeSqrtRatioX96.js'
 import { NonfungiblePositionManager } from './NonfungiblePositionManager.js'
 import { Position } from './Position.js'

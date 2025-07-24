@@ -1,4 +1,4 @@
-import { EvmChainId } from '~evm/chain/index.js'
+import { EvmChainId } from '../../chain/index.js'
 
 export const SECONDS_BETWEEN_BLOCKS: Partial<Record<EvmChainId, number>> = {
   [EvmChainId.ETHEREUM]: 12,

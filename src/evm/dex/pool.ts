@@ -1,5 +1,5 @@
-import type { EvmToken } from '~evm/currency/token.js'
-import type { Amount } from '~generic/index.js'
+import type { Amount } from '../../generic/index.js'
+import type { EvmToken } from '../currency/token.js'
 import type { Fee } from './fee.js'
 
 export enum PoolType {

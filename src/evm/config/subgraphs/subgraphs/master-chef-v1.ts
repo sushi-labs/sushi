@@ -1,4 +1,4 @@
-import { EvmChainId } from '~evm/chain/index.js'
+import { EvmChainId } from '../../../chain/index.js'
 import { getSubgraphUrlWrapper } from '../get-subgraph-url.js'
 
 export const getMasterChefV1SubgraphUrl = getSubgraphUrlWrapper({

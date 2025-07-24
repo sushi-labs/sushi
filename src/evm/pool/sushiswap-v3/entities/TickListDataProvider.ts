@@ -1,4 +1,4 @@
-import type { BigintIsh } from '~generic/index.js'
+import type { BigintIsh } from '../../../../generic/index.js'
 import { TickList } from '../utils/tickList.js'
 import { Tick, type TickConstructorArgs } from './Tick.js'
 import type { TickDataProvider } from './TickDataProvider.js'

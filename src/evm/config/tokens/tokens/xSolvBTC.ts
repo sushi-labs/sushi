@@ -1,9 +1,9 @@
-import { EvmChainId } from '~evm/chain/index.js'
+import { EvmChainId } from '../../../chain/index.js'
 import { addressMapToTokenMap } from '../address-map-to-token-map.js'
 
 export const xSolvBTC_ADDRESS = {
-  [EvmChainId.ARBITRUM]: '0x346c574C56e1A4aAa8dc88Cda8F7EB12b39947aB',
-  [EvmChainId.ROOTSTOCK]: '0xCC0966D8418d412c599A6421b760a847eB169A8c',
+  [EvmChainId.ARBITRUM]: '0x346c574c56e1a4aaa8dc88cda8f7eb12b39947ab',
+  [EvmChainId.ROOTSTOCK]: '0xcc0966d8418d412c599a6421b760a847eb169a8c',
 } as const
 
 export const xSolvBTC = addressMapToTokenMap(

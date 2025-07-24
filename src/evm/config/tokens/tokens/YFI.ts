@@ -1,12 +1,12 @@
-import { EvmChainId } from '~evm/chain/index.js'
+import { EvmChainId } from '../../../chain/index.js'
 import { addressMapToTokenMap } from '../address-map-to-token-map.js'
 
 export const YFI_ADDRESS = {
-  [EvmChainId.ETHEREUM]: '0x0bc529c00C6401aEF6D220BE8C6Ea1667F6Ad93e',
-  [EvmChainId.POLYGON]: '0xDA537104D6A5edd53c6fBba9A898708E465260b6',
-  [EvmChainId.GNOSIS]: '0xbf65bfcb5da067446CeE6A706ba3Fe2fB1a9fdFd',
-  [EvmChainId.HARMONY]: '0xa0dc05F84A27FcCBD341305839019aB86576bc07',
-  [EvmChainId.AVALANCHE]: '0x9eAaC1B23d935365bD7b542Fe22cEEe2922f52dc',
+  [EvmChainId.ETHEREUM]: '0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e',
+  [EvmChainId.POLYGON]: '0xda537104d6a5edd53c6fbba9a898708e465260b6',
+  [EvmChainId.GNOSIS]: '0xbf65bfcb5da067446cee6a706ba3fe2fb1a9fdfd',
+  [EvmChainId.HARMONY]: '0xa0dc05f84a27fccbd341305839019ab86576bc07',
+  [EvmChainId.AVALANCHE]: '0x9eaac1b23d935365bd7b542fe22ceee2922f52dc',
   [EvmChainId.ARBITRUM]: '0x82e3a8f066a6989666b031d916c43672085b1582',
 } as const
 

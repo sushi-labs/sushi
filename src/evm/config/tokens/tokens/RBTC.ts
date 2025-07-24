@@ -1,8 +1,8 @@
-import { EvmChainId } from '~evm/chain/index.js'
+import { EvmChainId } from '../../../chain/index.js'
 import { addressMapToTokenMap } from '../address-map-to-token-map.js'
 
 export const RBTC_ADDRESS = {
-  [EvmChainId.ROOTSTOCK]: '0x542fDA317318eBF1d3DEAf76E0b632741A7e677d',
+  [EvmChainId.ROOTSTOCK]: '0x542fda317318ebf1d3deaf76e0b632741a7e677d',
 } as const
 
 export const RBTC = addressMapToTokenMap(

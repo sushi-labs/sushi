@@ -1,5 +1,5 @@
-import type { Amount } from '~generic/currency/amount.js'
-import type { Currency } from '~generic/currency/currency.js'
+import type { Amount } from '../currency/amount.js'
+import type { Currency } from '../currency/currency.js'
 
 /**
  *

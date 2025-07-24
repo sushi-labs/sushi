@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { MAX_UINT256 } from '~generic/math/constants.js'
+import { MAX_UINT256 } from '../../../../generic/math/constants.js'
 import { encodeSqrtRatioX96 } from './encodeSqrtRatioX96.js'
 import { maxLiquidityForAmounts } from './maxLiquidityForAmounts.js'
 

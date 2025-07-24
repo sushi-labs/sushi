@@ -1,4 +1,4 @@
-import type { EvmChainId } from '~evm/chain/index.js'
+import type { EvmChainId } from '../../chain/index.js'
 import {
   getDecentralizedHostByDeploymentId,
   getDecentralizedHostBySubgraphId,

@@ -1,6 +1,6 @@
 import type { Address } from 'viem'
-import { EvmChainId } from '~evm/chain/index.js'
-import type { EvmToken } from '~evm/currency/token.js'
+import { EvmChainId } from '../../../chain/index.js'
+import type { EvmToken } from '../../../currency/token.js'
 import { SUSHI_ADDRESS } from '../tokens/SUSHI.js'
 import { SWISE_ADDRESS } from '../tokens/SWISE.js'
 import { SolvBTC_ADDRESS } from '../tokens/SolvBTC.js'
@@ -81,7 +81,7 @@ export const ADDITIONAL_BASES = {
     [XSUSHI_ADDRESS[EvmChainId.ETHEREUM]]: [SUSHI[EvmChainId.ETHEREUM]],
     [KP3R_ADDRESS[EvmChainId.ETHEREUM]]: [LDO[EvmChainId.ETHEREUM]],
     [LDO_ADDRESS[EvmChainId.ETHEREUM]]: [KP3R[EvmChainId.ETHEREUM]],
-    ['0x1e0275806C3CD0bDb5C99916A064d36b5e8eAE8d']: [
+    ['0x1e0275806c3cd0bdb5c99916a064d36b5e8eae8d']: [
       // TWO
       AAVE[EvmChainId.ETHEREUM],
       MKR[EvmChainId.ETHEREUM],
@@ -94,40 +94,40 @@ export const ADDITIONAL_BASES = {
       XSUSHI[EvmChainId.ETHEREUM],
     ],
     // tokens for metapools begin
-    ['0xBC6DA0FE9aD5f3b0d58160288917AA56653660E9']: [
+    ['0xbc6da0fe9ad5f3b0d58160288917aa56653660e9']: [
       ETHEREUM_CRV_FRAX[EvmChainId.ETHEREUM],
     ], // alUSD
-    ['0x865377367054516e17014CcdED1e7d814EDC9ce4']: [
+    ['0x865377367054516e17014ccded1e7d814edc9ce4']: [
       ETHEREUM_CRV_FRAX[EvmChainId.ETHEREUM],
     ], // Dola
-    ['0xab5eB14c09D416F0aC63661E57EDB7AEcDb9BEfA']: [
+    ['0xab5eb14c09d416f0ac63661e57edb7aecdb9befa']: [
       ETHEREUM_CRV_FRAX[EvmChainId.ETHEREUM],
     ], // msUSD
-    ['0x4591DBfF62656E7859Afe5e45f6f47D3669fBB28']: [
+    ['0x4591dbff62656e7859afe5e45f6f47d3669fbb28']: [
       ETHEREUM_CRV_FRAX[EvmChainId.ETHEREUM],
     ], // mkUSD
-    ['0xd7C9F0e536dC865Ae858b0C0453Fe76D13c3bEAc']: [
+    ['0xd7c9f0e536dc865ae858b0c0453fe76d13c3beac']: [
       ETHEREUM_CRV_FRAX[EvmChainId.ETHEREUM],
     ], // XAI
-    ['0x15f74458aE0bFdAA1a96CA1aa779D715Cc1Eefe4']: [
+    ['0x15f74458ae0bfdaa1a96ca1aa779d715cc1eefe4']: [
       ETHEREUM_CRV_FRAX[EvmChainId.ETHEREUM],
     ], // GRAI
-    ['0x3C20Ac688410bE8F391bE1fb00AFc5C212972F86']: [
+    ['0x3c20ac688410be8f391be1fb00afc5c212972f86']: [
       ETHEREUM_CRV_FRAX[EvmChainId.ETHEREUM],
     ], // clevUSD
-    ['0xfF709449528B6fB6b88f557F7d93dEce33bca78D']: [
+    ['0xff709449528b6fb6b88f557f7d93dece33bca78d']: [
       ETHEREUM_CRV_FRAX[EvmChainId.ETHEREUM],
     ], // ApeUSD
     [LUSD_ADDRESS[EvmChainId.ETHEREUM]]: [
       ETHEREUM_CRV_FRAX[EvmChainId.ETHEREUM],
     ],
-    ['0x8dAEBADE922dF735c38C80C7eBD708Af50815fAa']: [
+    ['0x8daebade922df735c38c80c7ebd708af50815faa']: [
       ETHEREUM_CRV_REN_WSBTC[EvmChainId.ETHEREUM],
     ], // TBTC
-    ['0x8751D4196027d4e6DA63716fA7786B5174F04C15']: [
+    ['0x8751d4196027d4e6da63716fa7786b5174f04c15']: [
       ETHEREUM_CRV_REN_WSBTC[EvmChainId.ETHEREUM],
     ], // wibBTC
-    ['0x9BE89D2a4cd102D8Fecc6BF9dA793be995C22541']: [
+    ['0x9be89d2a4cd102d8fecc6bf9da793be995c22541']: [
       ETHEREUM_CRV_REN_WSBTC[EvmChainId.ETHEREUM],
     ], // BBTC
     // tokens for metapools end
@@ -138,7 +138,7 @@ export const ADDITIONAL_BASES = {
     [BCT_ADDRESS[EvmChainId.POLYGON]]: [KLIMA[EvmChainId.POLYGON]],
     [KLIMA_ADDRESS[EvmChainId.POLYGON]]: [BCT[EvmChainId.POLYGON]],
     // THREE
-    ['0x9B034262e0095210ab9ddec60199741a8a1FbFe7']: [
+    ['0x9b034262e0095210ab9ddec60199741a8a1fbfe7']: [
       AAVE[EvmChainId.POLYGON],
       LINK[EvmChainId.POLYGON],
       MANA[EvmChainId.POLYGON],
@@ -165,10 +165,10 @@ export const ADDITIONAL_BASES = {
   [EvmChainId.ARBITRUM]: {
     [FRAX_ADDRESS[EvmChainId.ARBITRUM]]: [FXS[EvmChainId.ARBITRUM]],
     [FXS_ADDRESS[EvmChainId.ARBITRUM]]: [FRAX[EvmChainId.ARBITRUM]],
-    ['0xaFAfd68AFe3fe65d376eEC9Eab1802616cFacCb8']: [
+    ['0xafafd68afe3fe65d376eec9eab1802616cfaccb8']: [
       SolvBTC[EvmChainId.ARBITRUM],
     ], // SolvBTC.ENA
-    ['0x346c574C56e1A4aAa8dc88Cda8F7EB12b39947aB']: [
+    ['0x346c574c56e1a4aaa8dc88cda8f7eb12b39947ab']: [
       SolvBTC[EvmChainId.ARBITRUM],
     ], // SolvBTC.BBN
   },

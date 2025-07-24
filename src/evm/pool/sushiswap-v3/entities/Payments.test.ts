@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { EvmToken } from '~evm/currency/token.js'
-import { Percent } from '~generic/math/percent.js'
+import { Percent } from '../../../../generic/math/percent.js'
+import { EvmToken } from '../../../currency/token.js'
 import { Payments } from './Payments.js'
 
 const recipient = '0x0000000000000000000000000000000000000003'

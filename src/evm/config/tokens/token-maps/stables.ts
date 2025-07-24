@@ -1,5 +1,5 @@
-import type { EvmCurrency } from '~/evm/currency/currency.js'
-import { EvmChainId } from '~evm/chain/chains.js'
+import type { EvmCurrency } from '../../../../evm/currency/currency.js'
+import { EvmChainId } from '../../../chain/chains.js'
 import {
   APE_USD,
   BASE_USDbC,
@@ -35,8 +35,8 @@ import {
   ZETA_USDT_BSC,
   ZETA_USDT_ETH,
   axlUSDC,
-} from '~evm/config/tokens/tokens/index.js'
-import { EvmToken } from '~evm/currency/token.js'
+} from '../../../config/tokens/tokens/index.js'
+import { EvmToken } from '../../../currency/token.js'
 import { AUSD } from '../tokens/AUSD.js'
 import { USDT0 } from '../tokens/USDT0.js'
 
@@ -231,7 +231,7 @@ export const STABLES = {
     USDT[EvmChainId.HEMI],
     new EvmToken({
       chainId: EvmChainId.HEMI,
-      address: '0x7A06C4AeF988e7925575C50261297a946aD204A8',
+      address: '0x7a06c4aef988e7925575c50261297a946ad204a8',
       decimals: 18,
       name: 'VUSD',
       symbol: 'VUSD',

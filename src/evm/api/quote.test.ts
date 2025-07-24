@@ -3,8 +3,8 @@ import { type QuoteRequest, getQuote } from './quote.js'
 
 const baseQuoteRequest = {
   chainId: 1,
-  tokenIn: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
-  tokenOut: '0x6B3595068778DD592e39A122f4f5a5cF09C90fE2',
+  tokenIn: '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+  tokenOut: '0x6b3595068778dd592e39a122f4f5a5cf09c90fe2',
   amount: 1000000000000000000n,
   maxSlippage: 0.005,
 } as const satisfies QuoteRequest

@@ -1,11 +1,11 @@
-import { EvmChainId } from '~evm/chain/index.js'
+import { EvmChainId } from '../../../chain/index.js'
 import { addressMapToTokenMap } from '../address-map-to-token-map.js'
 
 export const JPY_ADDRESS = {
-  [EvmChainId.ETHEREUM]: '0x431D5dfF03120AFA4bDf332c61A6e1766eF37BDB',
-  [EvmChainId.POLYGON]: '0x6AE7Dfc73E0dDE2aa99ac063DcF7e8A63265108c',
-  [EvmChainId.AVALANCHE]: '0x431D5dfF03120AFA4bDf332c61A6e1766eF37BDB',
-  [EvmChainId.GNOSIS]: '0x431D5dfF03120AFA4bDf332c61A6e1766eF37BDB',
+  [EvmChainId.ETHEREUM]: '0x431d5dff03120afa4bdf332c61a6e1766ef37bdb',
+  [EvmChainId.POLYGON]: '0x6ae7dfc73e0dde2aa99ac063dcf7e8a63265108c',
+  [EvmChainId.AVALANCHE]: '0x431d5dff03120afa4bdf332c61a6e1766ef37bdb',
+  [EvmChainId.GNOSIS]: '0x431d5dff03120afa4bdf332c61a6e1766ef37bdb',
 } as const
 
 export const JPY = addressMapToTokenMap(

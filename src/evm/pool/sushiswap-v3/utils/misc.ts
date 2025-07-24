@@ -1,5 +1,5 @@
-import type { EvmCurrency } from '~evm/currency/currency.js'
-import type { Price } from '~generic/currency/price.js'
+import type { Price } from '../../../../generic/currency/price.js'
+import type { EvmCurrency } from '../../../currency/currency.js'
 
 /**
  * Calculate captial efficiency of the given price range

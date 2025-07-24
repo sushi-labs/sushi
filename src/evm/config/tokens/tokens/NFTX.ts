@@ -1,8 +1,8 @@
-import { EvmChainId } from '~evm/chain/index.js'
+import { EvmChainId } from '../../../chain/index.js'
 import { addressMapToTokenMap } from '../address-map-to-token-map.js'
 
 export const NFTX_ADDRESS = {
-  [EvmChainId.ETHEREUM]: '0x87d73E916D7057945c9BcD8cdd94e42A6F47f776',
+  [EvmChainId.ETHEREUM]: '0x87d73e916d7057945c9bcd8cdd94e42a6f47f776',
 } as const
 
 export const NFTX = addressMapToTokenMap(

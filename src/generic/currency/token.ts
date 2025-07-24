@@ -1,4 +1,4 @@
-import type { ChainId } from '~generic/chain/chains.js'
+import type { ChainId } from '../chain/chains.js'
 import type { ID } from '../types/id.js'
 import { Currency, type CurrencyMetadata } from './currency.js'
 

@@ -1,5 +1,5 @@
 import invariant from 'tiny-invariant'
-import { MAX_UINT256 } from '~generic/math/constants.js'
+import { MAX_UINT256 } from '../../../../generic/math/constants.js'
 import { Q96 } from '../internalConstants.js'
 import { FullMath } from './fullMath.js'
 

@@ -1,4 +1,4 @@
-import { EvmChainId } from '~evm/chain/index.js'
+import { EvmChainId } from '../../chain/index.js'
 
 const POOL_INIT_CODE_HASH =
   '0x6ce8eb472fa82df5469c6ab6d485f17c3ad13c8cd7af59b3d4a8026c5ce0f7e2'
@@ -66,24 +66,24 @@ export const PANCAKESWAP_V3_FACTORY_ADDRESS: Record<
   PancakeSwapV3ChainId,
   `0x${string}`
 > = {
-  [EvmChainId.ARBITRUM]: '0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865',
-  [EvmChainId.BASE]: '0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865',
-  [EvmChainId.BSC]: '0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865',
-  [EvmChainId.ETHEREUM]: '0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865',
-  [EvmChainId.LINEA]: '0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865',
-  [EvmChainId.POLYGON_ZKEVM]: '0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865',
-  [EvmChainId.ZKSYNC_ERA]: '0x1BB72E0CbbEA93c08f535fc7856E0338D7F7a8aB',
+  [EvmChainId.ARBITRUM]: '0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865',
+  [EvmChainId.BASE]: '0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865',
+  [EvmChainId.BSC]: '0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865',
+  [EvmChainId.ETHEREUM]: '0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865',
+  [EvmChainId.LINEA]: '0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865',
+  [EvmChainId.POLYGON_ZKEVM]: '0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865',
+  [EvmChainId.ZKSYNC_ERA]: '0x1bb72e0cbbea93c08f535fc7856e0338d7f7a8ab',
 } as const
 
 export const PANCAKESWAP_V3_DEPLOYER_ADDRESS: Record<
   PancakeSwapV3ChainId,
   `0x${string}`
 > = {
-  [EvmChainId.ARBITRUM]: '0x41ff9AA7e16B8B1a8a8dc4f0eFacd93D02d071c9',
-  [EvmChainId.BASE]: '0x41ff9AA7e16B8B1a8a8dc4f0eFacd93D02d071c9',
-  [EvmChainId.BSC]: '0x41ff9AA7e16B8B1a8a8dc4f0eFacd93D02d071c9',
-  [EvmChainId.ETHEREUM]: '0x41ff9AA7e16B8B1a8a8dc4f0eFacd93D02d071c9',
-  [EvmChainId.LINEA]: '0x41ff9AA7e16B8B1a8a8dc4f0eFacd93D02d071c9',
-  [EvmChainId.POLYGON_ZKEVM]: '0x41ff9AA7e16B8B1a8a8dc4f0eFacd93D02d071c9',
-  [EvmChainId.ZKSYNC_ERA]: '0x7f71382044A6a62595D5D357fE75CA8199123aD6',
+  [EvmChainId.ARBITRUM]: '0x41ff9aa7e16b8b1a8a8dc4f0efacd93d02d071c9',
+  [EvmChainId.BASE]: '0x41ff9aa7e16b8b1a8a8dc4f0efacd93d02d071c9',
+  [EvmChainId.BSC]: '0x41ff9aa7e16b8b1a8a8dc4f0efacd93d02d071c9',
+  [EvmChainId.ETHEREUM]: '0x41ff9aa7e16b8b1a8a8dc4f0efacd93d02d071c9',
+  [EvmChainId.LINEA]: '0x41ff9aa7e16b8b1a8a8dc4f0efacd93d02d071c9',
+  [EvmChainId.POLYGON_ZKEVM]: '0x41ff9aa7e16b8b1a8a8dc4f0efacd93d02d071c9',
+  [EvmChainId.ZKSYNC_ERA]: '0x7f71382044a6a62595d5d357fe75ca8199123ad6',
 } as const

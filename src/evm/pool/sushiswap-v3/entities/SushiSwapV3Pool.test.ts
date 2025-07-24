@@ -1,11 +1,11 @@
 import { beforeEach, describe, expect, it } from 'vitest'
-import { WETH9 } from '~evm/config/tokens/tokens/WETH9.js'
-import { EvmToken } from '~evm/currency/token.js'
-import { Amount } from '~generic/currency/amount.js'
+import { Amount } from '../../../../generic/currency/amount.js'
 import {
   SushiSwapV3FeeAmount,
   TICK_SPACINGS,
 } from '../../../config/features/sushiswap-v3.js'
+import { WETH9 } from '../../../config/tokens/tokens/WETH9.js'
+import { EvmToken } from '../../../currency/token.js'
 import { encodeSqrtRatioX96 } from '../utils/encodeSqrtRatioX96.js'
 import { nearestUsableTick } from '../utils/nearestUsableTick.js'
 import { TickMath } from '../utils/tickMath.js'
@@ -16,14 +16,14 @@ const ONE_ETHER = 10n ** 18n
 describe('SushiSwapV3Pool', () => {
   const USDC = new EvmToken({
     chainId: 1,
-    address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+    address: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
     decimals: 6,
     symbol: 'USDC',
     name: 'USD Coin',
   })
   const DAI = new EvmToken({
     chainId: 1,
-    address: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
+    address: '0x6b175474e89094c44da98b954eedeac495271d0f',
     decimals: 18,
     symbol: 'DAI',
     name: 'Dai Stablecoin',
@@ -167,7 +167,7 @@ describe('SushiSwapV3Pool', () => {
         DAI,
         SushiSwapV3FeeAmount.LOW,
       )
-      expect(result).toEqual('0x3cb60c075797f2C4f158c066F54B144A5c3F60AA')
+      expect(result).toEqual('0x3cb60c075797f2c4f158c066f54b144a5c3f60aa')
     })
   })
 

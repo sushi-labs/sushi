@@ -1,13 +1,13 @@
 import * as z from 'zod'
-import { serializedEvmCurrencySchema } from '~evm/currency/currency.js'
-import type { serializedEvmTokenSchema } from '~evm/currency/token.js'
-import type { serializedEvmNativeSchema } from '~evm/index.js'
-import { serializedMvmTokenSchema } from '~mvm/currency/token.js'
+import { serializedEvmCurrencySchema } from '../../evm/currency/currency.js'
+import type { serializedEvmTokenSchema } from '../../evm/currency/token.js'
+import type { serializedEvmNativeSchema } from '../../evm/index.js'
+import { serializedMvmTokenSchema } from '../../mvm/currency/token.js'
 import {
   serializedTvmCurrencySchema,
   type serializedTvmNativeSchema,
   type serializedTvmTokenSchema,
-} from '~tvm/index.js'
+} from '../../tvm/index.js'
 
 export type SerializedCurrencySchema =
   | typeof serializedEvmTokenSchema

@@ -1,4 +1,4 @@
-import { ONE, ZERO } from '~generic/index.js'
+import { ONE, ZERO } from '../../../../generic/index.js'
 
 export abstract class FullMath {
   /**

@@ -6,12 +6,9 @@ import {
   toHex,
   zeroAddress,
 } from 'viem'
-import type { EvmCurrency } from '~evm/currency/currency.js'
-import type { EvmNative } from '~evm/currency/native.js'
-import type { EvmToken } from '~evm/currency/token.js'
-import { Amount } from '~generic/currency/amount.js'
-import type { Percent } from '~generic/math/percent.js'
-import type { BigintIsh } from '~generic/types/bigintish.js'
+import { Amount } from '../../../../generic/currency/amount.js'
+import type { Percent } from '../../../../generic/math/percent.js'
+import type { BigintIsh } from '../../../../generic/types/bigintish.js'
 import {
   nonfungiblePositionManagerAbi_burn,
   nonfungiblePositionManagerAbi_collect,
@@ -22,6 +19,9 @@ import {
   nonfungiblePositionManagerAbi_permit,
   nonfungiblePositionManagerAbi_safeTransferFrom,
 } from '../../../abi/nonfungiblePositionManagerAbi/index.js'
+import type { EvmCurrency } from '../../../currency/currency.js'
+import type { EvmNative } from '../../../currency/native.js'
+import type { EvmToken } from '../../../currency/token.js'
 import type { MethodParameters } from '../utils/calldata.js'
 import { validateAndParseAddress } from '../utils/index.js'
 import { Multicall } from './Multicall.js'

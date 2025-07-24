@@ -1,10 +1,10 @@
 import { type Hex, encodeFunctionData } from 'viem'
-import type { EvmToken } from '~evm/currency/token.js'
-import type { BigintIsh } from '~generic/index.js'
+import type { BigintIsh } from '../../../../generic/index.js'
 import {
   selfPermitAbi_selfPermit,
   selfPermitAbi_selfPermitAllowed,
 } from '../../../abi/selfPermitAbi/index.js'
+import type { EvmToken } from '../../../currency/token.js'
 
 export interface StandardPermitArguments {
   v: 0 | 1 | 27 | 28

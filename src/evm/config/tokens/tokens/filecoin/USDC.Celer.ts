@@ -1,8 +1,8 @@
-import { EvmChainId } from '~evm/chain/index.js'
+import { EvmChainId } from '../../../../chain/index.js'
 import { addressMapToTokenMap } from '../../address-map-to-token-map.js'
 
 export const FILECOIN_USDC_CELER_ADDRESS = {
-  [EvmChainId.FILECOIN]: '0x2421db204968A367CC2C866CD057fA754Cb84EdF',
+  [EvmChainId.FILECOIN]: '0x2421db204968a367cc2c866cd057fa754cb84edf',
 } as const
 
 export const FILECOIN_USDC_CELER = addressMapToTokenMap(

@@ -1,4 +1,4 @@
-import type { ID } from '~/generic/types/id.js'
+import type { ID } from '../../generic/types/id.js'
 import type { EvmChainId } from '../chain/chains.js'
 import type { EvmAddress } from '../currency/token.js'
 

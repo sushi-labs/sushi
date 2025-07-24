@@ -1,15 +1,15 @@
 import invariant from 'tiny-invariant'
 import type { Address, Hex } from 'viem'
-import type { EvmToken } from '~evm/currency/token.js'
-import { Amount } from '~generic/currency/amount.js'
-import { Price } from '~generic/currency/price.js'
-import type { BigintIsh } from '~generic/types/bigintish.js'
+import { Amount } from '../../../../generic/currency/amount.js'
+import { Price } from '../../../../generic/currency/price.js'
+import type { BigintIsh } from '../../../../generic/types/bigintish.js'
 import {
   SUSHISWAP_V3_FACTORY_ADDRESS,
   type SushiSwapV3ChainId,
   type SushiSwapV3FeeAmount,
   TICK_SPACINGS,
 } from '../../../config/index.js'
+import type { EvmToken } from '../../../currency/token.js'
 import { Q192 } from '../internalConstants.js'
 import { computeSushiSwapV3PoolAddress } from '../utils/computePoolAddress.js'
 import { LiquidityMath } from '../utils/liquidityMath.js'

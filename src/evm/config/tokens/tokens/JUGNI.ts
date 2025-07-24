@@ -1,8 +1,8 @@
-import { EvmChainId } from '~evm/chain/index.js'
+import { EvmChainId } from '../../../chain/index.js'
 import { addressMapToTokenMap } from '../address-map-to-token-map.js'
 
 export const JUGNI_ADDRESS = {
-  [EvmChainId.POLYGON]: '0xE313bcB77dbA15F39Ff0B9cEABe140cedD0953cB',
+  [EvmChainId.POLYGON]: '0xe313bcb77dba15f39ff0b9ceabe140cedd0953cb',
 } as const
 
 export const JUGNI = addressMapToTokenMap(

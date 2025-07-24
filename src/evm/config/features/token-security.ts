@@ -1,4 +1,4 @@
-import { EvmChainId } from '~evm/chain/index.js'
+import { EvmChainId } from '../../chain/index.js'
 
 const SUPPORTED_CHAIN_IDS = [
   EvmChainId.AVALANCHE,

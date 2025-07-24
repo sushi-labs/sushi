@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { EvmToken } from '~evm/currency/token.js'
+import { EvmToken } from '../../../currency/token.js'
 import {
   type AllowedPermitArguments,
   SelfPermit,

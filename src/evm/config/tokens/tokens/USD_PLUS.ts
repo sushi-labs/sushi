@@ -1,8 +1,8 @@
-import { EvmChainId } from '~evm/chain/index.js'
+import { EvmChainId } from '../../../chain/index.js'
 import { addressMapToTokenMap } from '../address-map-to-token-map.js'
 
 export const USD_PLUS_ADDRESS = {
-  [EvmChainId.BASE]: '0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376',
+  [EvmChainId.BASE]: '0xb79dd08ea68a908a97220c76d19a6aa9cbde4376',
 } as const
 
 export const USD_PLUS = addressMapToTokenMap(

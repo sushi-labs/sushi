@@ -1,4 +1,4 @@
-import { EvmChainId } from '~evm/chain/chains.js'
+import { EvmChainId } from '../../../chain/chains.js'
 import {
   AGEUR,
   DAI,
@@ -15,10 +15,10 @@ import {
   USDT,
   WBTC,
   WETH9,
-} from '~evm/config/tokens/tokens/index.js'
-import type { EvmCurrency } from '~evm/currency/currency.js'
-import { EvmToken } from '~evm/currency/token.js'
+} from '../../../config/tokens/tokens/index.js'
+import type { EvmCurrency } from '../../../currency/currency.js'
 import { EvmNative } from '../../../currency/native.js'
+import { EvmToken } from '../../../currency/token.js'
 import { WNATIVE } from '../wrapped-native.js'
 
 const CHAIN_ID_SHORT_CURRENCY_NAME_TO_CURRENCY = {

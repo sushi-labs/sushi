@@ -1,4 +1,4 @@
-import type { EvmToken } from '~evm/currency/token.js'
+import type { EvmToken } from '../../currency/token.js'
 import type { PoolId } from './pool-id.js'
 import type { PoolSwapFee } from './pool-swap-fee.js'
 

@@ -1,6 +1,5 @@
 import { type Address, encodeFunctionData } from 'viem'
-import type { EvmToken } from '~evm/currency/token.js'
-import type { Percent } from '~generic/math/percent.js'
+import type { Percent } from '../../../../generic/math/percent.js'
 import {
   peripheryPaymentsWithFeeAbi_refundETH,
   peripheryPaymentsWithFeeAbi_sweepToken,
@@ -8,6 +7,7 @@ import {
   peripheryPaymentsWithFeeAbi_unwrapWETH9,
   peripheryPaymentsWithFeeAbi_unwrapWETH9WithFee,
 } from '../../../abi/peripheryPaymentsWithFeeAbi/index.js'
+import type { EvmToken } from '../../../currency/token.js'
 import { validateAndParseAddress } from '../utils/index.js'
 
 export interface FeeOptions {

@@ -1,5 +1,5 @@
 import type { Address } from 'viem'
-import type { EvmChainId } from '~evm/chain/chains.js'
+import type { EvmChainId } from '../../chain/chains.js'
 import type { EvmID } from '../id.js'
 import type { SushiSwapProtocol } from './protocol.js'
 

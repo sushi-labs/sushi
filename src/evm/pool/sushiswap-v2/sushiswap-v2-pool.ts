@@ -1,20 +1,26 @@
 import invariant from 'tiny-invariant'
 import type { Address } from 'viem'
-import { getEvmChainById } from '~evm/chain/index.js'
+import { Amount } from '../../../generic/currency/amount.js'
+import { Price } from '../../../generic/currency/price.js'
+import {
+  FIVE,
+  ONE,
+  ZERO,
+  _997,
+  _1000,
+} from '../../../generic/math/constants.js'
+import { sqrt } from '../../../generic/math/sqrt.js'
+import type { BigintIsh } from '../../../generic/types/bigintish.js'
+import { getEvmChainById } from '../../chain/index.js'
 import {
   SUSHISWAP_V2_FACTORY_ADDRESS,
   isSushiSwapV2ChainId,
-} from '~evm/config/features/sushiswap-v2.js'
-import { EvmToken } from '~evm/currency/index.js'
+} from '../../config/features/sushiswap-v2.js'
+import { EvmToken } from '../../currency/index.js'
 import {
   InsufficientInputAmountError,
   InsufficientReservesError,
-} from '~evm/dex/index.js'
-import { Amount } from '~generic/currency/amount.js'
-import { Price } from '~generic/currency/price.js'
-import { FIVE, ONE, ZERO, _997, _1000 } from '~generic/math/constants.js'
-import { sqrt } from '~generic/math/sqrt.js'
-import type { BigintIsh } from '~generic/types/bigintish.js'
+} from '../../dex/index.js'
 import { computeSushiSwapV2PoolAddress } from './compute-sushiswap-v2-pool-address.js'
 import { type SerializedSushiSwapV2Pool, sushiSwapV2PoolSchema } from './zod.js'
 

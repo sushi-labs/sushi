@@ -1,6 +1,6 @@
 import type { Hex } from 'viem'
 import * as z from 'zod'
-import { szevm } from '~evm/validate/zod.js'
+import { szevm } from '../../evm/validate/zod.js'
 
 export const hex = () =>
   z

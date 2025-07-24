@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { CurrencyMetadata } from '~/generic/currency/currency.js'
+import type { CurrencyMetadata } from '../../generic/currency/currency.js'
 import { type EvmNative, serializedEvmNativeSchema } from './native.js'
 import { type EvmToken, serializedEvmTokenSchema } from './token.js'
 

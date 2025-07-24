@@ -1,27 +1,32 @@
-import type { EvmCurrency } from '~/evm/currency/currency.js'
-import { EvmChainId } from '~evm/chain/chains.js'
-import { METH, STONE, WstETH, rETH } from '~evm/config/tokens/tokens/index.js'
-import { EvmToken } from '~evm/currency/token.js'
+import type { EvmCurrency } from '../../../../evm/currency/currency.js'
+import { EvmChainId } from '../../../chain/chains.js'
+import {
+  METH,
+  STONE,
+  WstETH,
+  rETH,
+} from '../../../config/tokens/tokens/index.js'
+import { EvmToken } from '../../../currency/token.js'
 
 export const LSDS = {
   [EvmChainId.ARBITRUM]: [
     new EvmToken({
       chainId: EvmChainId.ARBITRUM,
-      address: '0x5979D7b546E38E414F7E9822514be443A4800529',
+      address: '0x5979d7b546e38e414f7e9822514be443a4800529',
       decimals: 18,
       symbol: 'wstETH',
       name: 'Wrapped Lido Staked ETH',
     }),
     new EvmToken({
       chainId: EvmChainId.ARBITRUM,
-      address: '0x178412e79c25968a32e89b11f63B33F733770c2A',
+      address: '0x178412e79c25968a32e89b11f63b33f733770c2a',
       decimals: 18,
       symbol: 'frxETH',
       name: 'Frax Ether',
     }),
     new EvmToken({
       chainId: EvmChainId.ARBITRUM,
-      address: '0x95aB45875cFFdba1E5f451B950bC2E42c0053f39',
+      address: '0x95ab45875cffdba1e5f451b950bc2e42c0053f39',
       decimals: 18,
       symbol: 'sfrxETH',
       name: 'Staked Frax Ether',
@@ -29,21 +34,21 @@ export const LSDS = {
     rETH[EvmChainId.ARBITRUM],
     new EvmToken({
       chainId: EvmChainId.ARBITRUM,
-      address: '0x1DEBd73E752bEaF79865Fd6446b0c970EaE7732f',
+      address: '0x1debd73e752beaf79865fd6446b0c970eae7732f',
       decimals: 18,
       symbol: 'cbETH',
       name: 'Coinbase cbETH',
     }),
     new EvmToken({
       chainId: EvmChainId.ARBITRUM,
-      address: '0x2416092f143378750bb29b79eD961ab195CcEea5',
+      address: '0x2416092f143378750bb29b79ed961ab195cceea5',
       decimals: 18,
       symbol: 'ezETH',
       name: 'Renzo Restaked ETH',
     }),
     new EvmToken({
       chainId: EvmChainId.ARBITRUM,
-      address: '0x35751007a407ca6FEFfE80b3cB397736D2cf4dbe',
+      address: '0x35751007a407ca6feffe80b3cb397736d2cf4dbe',
       decimals: 18,
       symbol: 'weETH',
       name: 'Wrapped eETH',
@@ -54,7 +59,7 @@ export const LSDS = {
   [EvmChainId.BASE]: [
     new EvmToken({
       chainId: EvmChainId.BASE,
-      address: '0xB6fe221Fe9EeF5aBa221c348bA20A1Bf5e73624c',
+      address: '0xb6fe221fe9eef5aba221c348ba20a1bf5e73624c',
       decimals: 18,
       symbol: 'wstETH',
       name: 'Wrapped Lido Staked ETH',
@@ -62,21 +67,21 @@ export const LSDS = {
     rETH[EvmChainId.BASE],
     new EvmToken({
       chainId: EvmChainId.BASE,
-      address: '0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22',
+      address: '0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22',
       decimals: 18,
       symbol: 'cbETH',
       name: 'Coinbase cbETH',
     }),
     new EvmToken({
       chainId: EvmChainId.BASE,
-      address: '0x2416092f143378750bb29b79eD961ab195CcEea5',
+      address: '0x2416092f143378750bb29b79ed961ab195cceea5',
       decimals: 18,
       symbol: 'ezETH',
       name: 'Renzo Restaked ETH',
     }),
     new EvmToken({
       chainId: EvmChainId.BASE,
-      address: '0x04C0599Ae5A44757c0af6F9eC3b93da8976c150A',
+      address: '0x04c0599ae5a44757c0af6f9ec3b93da8976c150a',
       decimals: 18,
       symbol: 'weETH',
       name: 'Wrapped eETH',
@@ -85,14 +90,14 @@ export const LSDS = {
   [EvmChainId.BLAST]: [
     new EvmToken({
       chainId: EvmChainId.BLAST,
-      address: '0x2416092f143378750bb29b79eD961ab195CcEea5',
+      address: '0x2416092f143378750bb29b79ed961ab195cceea5',
       decimals: 18,
       symbol: 'ezETH',
       name: 'Renzo Restaked ETH',
     }),
     new EvmToken({
       chainId: EvmChainId.BLAST,
-      address: '0x04C0599Ae5A44757c0af6F9eC3b93da8976c150A',
+      address: '0x04c0599ae5a44757c0af6f9ec3b93da8976c150a',
       decimals: 18,
       symbol: 'weETH',
       name: 'Wrapped eETH',
@@ -103,28 +108,28 @@ export const LSDS = {
   [EvmChainId.BSC]: [
     new EvmToken({
       chainId: EvmChainId.BSC,
-      address: '0x64048A7eEcF3a2F1BA9e144aAc3D7dB6e58F555e',
+      address: '0x64048a7eecf3a2f1ba9e144aac3d7db6e58f555e',
       decimals: 18,
       symbol: 'frxETH',
       name: 'Frax Ether',
     }),
     new EvmToken({
       chainId: EvmChainId.BSC,
-      address: '0x3Cd55356433C89E50DC51aB07EE0fa0A95623D53',
+      address: '0x3cd55356433c89e50dc51ab07ee0fa0a95623d53',
       decimals: 18,
       symbol: 'sfrxETH',
       name: 'Staked Frax Ether',
     }),
     new EvmToken({
       chainId: EvmChainId.BSC,
-      address: '0x2416092f143378750bb29b79eD961ab195CcEea5',
+      address: '0x2416092f143378750bb29b79ed961ab195cceea5',
       decimals: 18,
       symbol: 'ezETH',
       name: 'Renzo Restaked ETH',
     }),
     new EvmToken({
       chainId: EvmChainId.BSC,
-      address: '0x04C0599Ae5A44757c0af6F9eC3b93da8976c150A',
+      address: '0x04c0599ae5a44757c0af6f9ec3b93da8976c150a',
       decimals: 18,
       symbol: 'weETH',
       name: 'Wrapped eETH',
@@ -136,14 +141,14 @@ export const LSDS = {
     METH[EvmChainId.ETHEREUM],
     new EvmToken({
       chainId: EvmChainId.ETHEREUM,
-      address: '0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84',
+      address: '0xae7ab96520de3a18e5e111b5eaab095312d7fe84',
       decimals: 18,
       symbol: 'stETH',
       name: 'Lido Staked ETH',
     }),
     new EvmToken({
       chainId: EvmChainId.ETHEREUM,
-      address: '0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0',
+      address: '0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0',
       decimals: 18,
       symbol: 'wstETH',
       name: 'Wrapped Lido Staked ETH',
@@ -151,56 +156,56 @@ export const LSDS = {
     rETH[EvmChainId.ETHEREUM],
     new EvmToken({
       chainId: EvmChainId.ETHEREUM,
-      address: '0x35fA164735182de50811E8e2E824cFb9B6118ac2',
+      address: '0x35fa164735182de50811e8e2e824cfb9b6118ac2',
       decimals: 18,
       symbol: 'eETH',
       name: 'ether.fi ETH',
     }),
     new EvmToken({
       chainId: EvmChainId.ETHEREUM,
-      address: '0xCd5fE23C85820F7B72D0926FC9b05b43E359b7ee',
+      address: '0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee',
       decimals: 18,
       symbol: 'weETH',
       name: 'Wrapped eETH',
     }),
     new EvmToken({
       chainId: EvmChainId.ETHEREUM,
-      address: '0xBe9895146f7AF43049ca1c1AE358B0541Ea49704',
+      address: '0xbe9895146f7af43049ca1c1ae358b0541ea49704',
       decimals: 18,
       symbol: 'cbETH',
       name: 'Coinbase cbETH',
     }),
     new EvmToken({
       chainId: EvmChainId.ETHEREUM,
-      address: '0xf951E335afb289353dc249e82926178EaC7DEd78',
+      address: '0xf951e335afb289353dc249e82926178eac7ded78',
       decimals: 18,
       symbol: 'swETH',
       name: 'Swell swETH',
     }),
     new EvmToken({
       chainId: EvmChainId.ETHEREUM,
-      address: '0x5E8422345238F34275888049021821E8E08CAa1f',
+      address: '0x5e8422345238f34275888049021821e8e08caa1f',
       decimals: 18,
       symbol: 'frxETH',
       name: 'Frax Ether',
     }),
     new EvmToken({
       chainId: EvmChainId.ETHEREUM,
-      address: '0xac3E018457B222d93114458476f3E3416Abbe38F',
+      address: '0xac3e018457b222d93114458476f3e3416abbe38f',
       decimals: 18,
       symbol: 'sfrxETH',
       name: 'Staked Frax Ether',
     }),
     new EvmToken({
       chainId: EvmChainId.ETHEREUM,
-      address: '0xA35b1B31Ce002FBF2058D22F30f95D405200A15b',
+      address: '0xa35b1b31ce002fbf2058d22f30f95d405200a15b',
       decimals: 18,
       symbol: 'ETHx',
       name: 'Stader ETHx',
     }),
     new EvmToken({
       chainId: EvmChainId.ETHEREUM,
-      address: '0x2416092f143378750bb29b79eD961ab195CcEea5',
+      address: '0x2416092f143378750bb29b79ed961ab195cceea5',
       decimals: 18,
       symbol: 'ezETH',
       name: 'Renzo Restaked ETH',
@@ -209,14 +214,14 @@ export const LSDS = {
   [EvmChainId.FANTOM]: [
     new EvmToken({
       chainId: EvmChainId.FANTOM,
-      address: '0x9E73F99EE061C8807F69f9c6CCc44ea3d8c373ee',
+      address: '0x9e73f99ee061c8807f69f9c6ccc44ea3d8c373ee',
       decimals: 18,
       symbol: 'frxETH',
       name: 'Frax Ether',
     }),
     new EvmToken({
       chainId: EvmChainId.FANTOM,
-      address: '0xb90CCD563918fF900928dc529aA01046795ccb4A',
+      address: '0xb90ccd563918ff900928dc529aa01046795ccb4a',
       decimals: 18,
       symbol: 'sfrxETH',
       name: 'Staked Frax Ether',
@@ -230,14 +235,14 @@ export const LSDS = {
   [EvmChainId.LINEA]: [
     new EvmToken({
       chainId: EvmChainId.LINEA,
-      address: '0x2416092f143378750bb29b79eD961ab195CcEea5',
+      address: '0x2416092f143378750bb29b79ed961ab195cceea5',
       decimals: 18,
       symbol: 'ezETH',
       name: 'Renzo Restaked ETH',
     }),
     new EvmToken({
       chainId: EvmChainId.LINEA,
-      address: '0x1Bf74C010E6320bab11e2e5A532b5AC15e0b8aA6',
+      address: '0x1bf74c010e6320bab11e2e5a532b5ac15e0b8aa6',
       decimals: 18,
       symbol: 'weETH',
       name: 'Wrapped eETH',
@@ -247,21 +252,21 @@ export const LSDS = {
   [EvmChainId.OPTIMISM]: [
     new EvmToken({
       chainId: EvmChainId.OPTIMISM,
-      address: '0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb',
+      address: '0x1f32b1c2345538c0c6f582fcb022739c4a194ebb',
       decimals: 18,
       symbol: 'wstETH',
       name: 'Wrapped Lido Staked ETH',
     }),
     new EvmToken({
       chainId: EvmChainId.OPTIMISM,
-      address: '0x6806411765Af15Bddd26f8f544A34cC40cb9838B',
+      address: '0x6806411765af15bddd26f8f544a34cc40cb9838b',
       decimals: 18,
       symbol: 'frxETH',
       name: 'Frax Ether',
     }),
     new EvmToken({
       chainId: EvmChainId.OPTIMISM,
-      address: '0x484c2D6e3cDd945a8B2DF735e079178C1036578c',
+      address: '0x484c2d6e3cdd945a8b2df735e079178c1036578c',
       decimals: 18,
       symbol: 'sfrxETH',
       name: 'Staked Frax Ether',
@@ -269,14 +274,14 @@ export const LSDS = {
     rETH[EvmChainId.OPTIMISM],
     new EvmToken({
       chainId: EvmChainId.OPTIMISM,
-      address: '0xadDb6A0412DE1BA0F936DCaeb8Aaa24578dcF3B2',
+      address: '0xaddb6a0412de1ba0f936dcaeb8aaa24578dcf3b2',
       decimals: 18,
       symbol: 'cbETH',
       name: 'Coinbase cbETH',
     }),
     new EvmToken({
       chainId: EvmChainId.OPTIMISM,
-      address: '0x5A7fACB970D094B6C7FF1df0eA68D99E6e73CBFF',
+      address: '0x5a7facb970d094b6c7ff1df0ea68d99e6e73cbff',
       decimals: 18,
       symbol: 'weETH',
       name: 'Wrapped eETH',
@@ -285,14 +290,14 @@ export const LSDS = {
   [EvmChainId.POLYGON]: [
     new EvmToken({
       chainId: EvmChainId.POLYGON,
-      address: '0xEe327F889d5947c1dc1934Bb208a1E792F953E96',
+      address: '0xee327f889d5947c1dc1934bb208a1e792f953e96',
       decimals: 18,
       symbol: 'frxETH',
       name: 'Frax Ether',
     }),
     new EvmToken({
       chainId: EvmChainId.POLYGON,
-      address: '0x6d1FdBB266fCc09A16a22016369210A15bb95761',
+      address: '0x6d1fdbb266fcc09a16a22016369210a15bb95761',
       decimals: 18,
       symbol: 'sfrxETH',
       name: 'Staked Frax Ether',
@@ -303,7 +308,7 @@ export const LSDS = {
   [EvmChainId.SCROLL]: [
     new EvmToken({
       chainId: EvmChainId.SCROLL,
-      address: '0xf610A9dfB7C89644979b4A0f27063E9e7d7Cda32',
+      address: '0xf610a9dfb7c89644979b4a0f27063e9e7d7cda32',
       decimals: 18,
       symbol: 'wstETH',
       name: 'Wrapped Lido Staked ETH',
@@ -311,7 +316,7 @@ export const LSDS = {
     rETH[EvmChainId.SCROLL],
     new EvmToken({
       chainId: EvmChainId.SCROLL,
-      address: '0x01f0a31698C4d065659b9bdC21B3610292a1c506',
+      address: '0x01f0a31698c4d065659b9bdc21b3610292a1c506',
       decimals: 18,
       symbol: 'weETH',
       name: 'Wrapped eETH',
@@ -329,14 +334,14 @@ export const LSDS = {
   [EvmChainId.MODE]: [
     new EvmToken({
       chainId: EvmChainId.MODE,
-      address: '0x2416092f143378750bb29b79eD961ab195CcEea5',
+      address: '0x2416092f143378750bb29b79ed961ab195cceea5',
       decimals: 18,
       symbol: 'ezETH',
       name: 'Renzo Restaked ETH',
     }),
     new EvmToken({
       chainId: EvmChainId.MODE,
-      address: '0x04C0599Ae5A44757c0af6F9eC3b93da8976c150A',
+      address: '0x04c0599ae5a44757c0af6f9ec3b93da8976c150a',
       decimals: 18,
       symbol: 'weETH',
       name: 'Wrapped eETH',
@@ -351,7 +356,7 @@ export const LSDS = {
     WstETH[EvmChainId.KATANA],
     new EvmToken({
       chainId: EvmChainId.KATANA,
-      address: '0x9893989433e7a383Cb313953e4c2365107dc19a7',
+      address: '0x9893989433e7a383cb313953e4c2365107dc19a7',
       decimals: 18,
       symbol: 'weETH',
       name: 'Wrapped eETH',

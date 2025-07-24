@@ -1,4 +1,4 @@
-import { EvmChainId, evmChainIds } from '~evm/chain/index.js'
+import { EvmChainId, evmChainIds } from '../../../chain/index.js'
 import {
   APE_USD,
   ARB,
@@ -13,10 +13,10 @@ import {
   USDT0,
   WETH9,
   axlUSDC,
-} from '~evm/config/tokens/tokens/index.js'
-import type { EvmCurrency } from '~evm/currency/currency.js'
-import { EvmNative } from '~evm/currency/native.js'
-import { EvmToken } from '~evm/currency/token.js'
+} from '../../../config/tokens/tokens/index.js'
+import type { EvmCurrency } from '../../../currency/currency.js'
+import { EvmNative } from '../../../currency/native.js'
+import { EvmToken } from '../../../currency/token.js'
 import { WNATIVE } from '../wrapped-native.js'
 
 export const defaultCurrency = {

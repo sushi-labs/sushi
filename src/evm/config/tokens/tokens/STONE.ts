@@ -1,8 +1,8 @@
-import { EvmChainId } from '~evm/chain/index.js'
+import { EvmChainId } from '../../../chain/index.js'
 import { addressMapToTokenMap } from '../address-map-to-token-map.js'
 
 export const STONE_ADDRESS = {
-  [EvmChainId.MANTA]: '0xEc901DA9c68E90798BbBb74c11406A32A70652C3',
+  [EvmChainId.MANTA]: '0xec901da9c68e90798bbbb74c11406a32a70652c3',
 } as const
 
 export const STONE = addressMapToTokenMap(

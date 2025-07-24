@@ -1,7 +1,7 @@
-import { EvmChainId } from '~evm/chain/chains.js'
-import { AMPL_ADDRESS } from '~evm/config/tokens/tokens/AMPL.js'
-import { DAI } from '~evm/config/tokens/tokens/DAI.js'
-import type { EvmToken } from '~evm/currency/token.js'
+import { EvmChainId } from '../../../chain/chains.js'
+import { AMPL_ADDRESS } from '../../../config/tokens/tokens/AMPL.js'
+import { DAI } from '../../../config/tokens/tokens/DAI.js'
+import type { EvmToken } from '../../../currency/token.js'
 import { WNATIVE } from '../wrapped-native.js'
 
 /**

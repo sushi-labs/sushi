@@ -1,26 +1,25 @@
-import type { Address } from 'viem'
 import { encodeAbiParameters, keccak256, parseAbiParameters } from 'viem/utils'
-import type { EvmChainId } from '~evm/chain/chains.js'
-import type { EvmToken } from '~evm/currency/token.js'
-import { getCreate2Address } from '~evm/utils/get-create-2-address.js'
+import type { EvmChainId } from '../../../chain/chains.js'
 import {
   SUSHISWAP_V3_INIT_CODE_HASH,
   type SushiSwapV3ChainId,
   type SushiSwapV3FeeAmount,
 } from '../../../config/index.js'
+import type { EvmAddress, EvmToken } from '../../../currency/token.js'
+import { getCreate2Address } from '../../../utils/get-create-2-address.js'
 
 type ComputeSushiSwapV3PoolAddressParams = {
-  factoryAddress: Address
+  factoryAddress: EvmAddress
   fee: SushiSwapV3FeeAmount
-  initCodeHashManualOverride?: Address | undefined
+  initCodeHashManualOverride?: EvmAddress | undefined
 } & (
   | {
       tokenA: EvmToken
       tokenB: EvmToken
     }
   | {
-      tokenA: Address
-      tokenB: Address
+      tokenA: EvmAddress
+      tokenB: EvmAddress
       chainId: EvmChainId
     }
 )
@@ -36,7 +35,7 @@ type ComputeSushiSwapV3PoolAddressParams = {
  */
 export function computeSushiSwapV3PoolAddress(
   params: ComputeSushiSwapV3PoolAddressParams,
-): Address {
+): EvmAddress {
   if (typeof params.tokenA === 'string' && typeof params.tokenB === 'string') {
     // FIXME: We shouldn't even allow sending strings into here
     const {
@@ -61,7 +60,7 @@ export function computeSushiSwapV3PoolAddress(
         initCodeHashManualOverride ??
         SUSHISWAP_V3_INIT_CODE_HASH[chainId as SushiSwapV3ChainId],
       chainId,
-    })
+    }).toLowerCase() as EvmAddress
   }
 
   const { factoryAddress, tokenA, tokenB, fee, initCodeHashManualOverride } =
@@ -83,5 +82,5 @@ export function computeSushiSwapV3PoolAddress(
       initCodeHashManualOverride ??
       SUSHISWAP_V3_INIT_CODE_HASH[token0.chainId as SushiSwapV3ChainId],
     chainId: token0.chainId,
-  })
+  }).toLowerCase() as EvmAddress
 }

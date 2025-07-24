@@ -1,8 +1,8 @@
-import { evmChains } from '~evm/chain/index.js'
-import type { Replace } from '~generic/types/replace.js'
-import type { UnionToIntersection } from '~generic/types/union-to-intersection.js'
-import { mvmChains } from '~mvm/chain/chains.js'
-import { tvmChains } from '~tvm/chain/chains.js'
+import { evmChains } from '../../evm/chain/index.js'
+import { mvmChains } from '../../mvm/chain/chains.js'
+import { tvmChains } from '../../tvm/chain/chains.js'
+import type { Replace } from '../types/replace.js'
+import type { UnionToIntersection } from '../types/union-to-intersection.js'
 
 export const chains = [...evmChains, ...mvmChains, ...tvmChains] as const
 

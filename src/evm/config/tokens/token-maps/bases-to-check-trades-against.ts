@@ -1,8 +1,9 @@
-import { EvmChainId } from '~evm/chain/index.js'
-import { EvmToken } from '~evm/currency/token.js'
+import { EvmChainId } from '../../../chain/index.js'
+import { EvmToken } from '../../../currency/token.js'
 import { AUSD } from '../tokens/AUSD.js'
 import { RBTC } from '../tokens/RBTC.js'
 import { SolvBTC } from '../tokens/SolvBTC.js'
+import { USDT0 } from '../tokens/USDT0.js'
 import {
   AAVE,
   AERO,
@@ -45,7 +46,6 @@ import {
   rETH,
 } from '../tokens/index.js'
 import { WNATIVE } from '../wrapped-native.js'
-import { USDT0 } from '../tokens/USDT0.js'
 
 export const BASES_TO_CHECK_TRADES_AGAINST: {
   readonly [chainId: number]: EvmToken[]
@@ -69,7 +69,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     ETHEREUM_CRV_USD[EvmChainId.ETHEREUM],
     new EvmToken({
       chainId: EvmChainId.ETHEREUM,
-      address: '0xA0b73E1Ff0B80914AB6fe0444E65848C4C34450b',
+      address: '0xa0b73e1ff0b80914ab6fe0444e65848c4c34450b',
       symbol: 'CRO',
       name: 'CRO',
       decimals: 8,
@@ -87,7 +87,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     LINK[EvmChainId.POLYGON],
     AAVE[EvmChainId.POLYGON],
     new EvmToken({
-      address: '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174',
+      address: '0x2791bca1f2de4661ed88a30c99a7a9449aa84174',
       chainId: EvmChainId.POLYGON,
       decimals: 6,
       symbol: 'USD Coin',
@@ -98,7 +98,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     WNATIVE[EvmChainId.FANTOM],
     new EvmToken({
       chainId: EvmChainId.FANTOM,
-      address: '0x28a92dde19D9989F39A49905d7C9C2FAc7799bDf',
+      address: '0x28a92dde19d9989f39a49905d7c9c2fac7799bdf',
       decimals: 6,
       symbol: 'USDC',
       name: 'USD Coin',
@@ -106,7 +106,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     }),
     new EvmToken({
       chainId: EvmChainId.FANTOM,
-      address: '0xcc1b99dDAc1a33c201a742A1851662E87BC7f22C',
+      address: '0xcc1b99ddac1a33c201a742a1851662e87bc7f22c',
       decimals: 6,
       symbol: 'USDT',
       name: 'Tether USD',
@@ -114,7 +114,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     }),
     new EvmToken({
       chainId: EvmChainId.FANTOM,
-      address: '0x695921034f0387eAc4e11620EE91b1b15A6A09fE',
+      address: '0x695921034f0387eac4e11620ee91b1b15a6a09fe',
       decimals: 18,
       symbol: 'WETH',
       name: 'Wrapped Ether',
@@ -122,7 +122,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     }),
     new EvmToken({
       chainId: EvmChainId.FANTOM,
-      address: '0xf1648C50d2863f780c57849D812b4B7686031A3D',
+      address: '0xf1648c50d2863f780c57849d812b4b7686031a3d',
       decimals: 18,
       symbol: 'WBTC',
       name: 'Wrapped BTC',
@@ -139,7 +139,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     WstETH[EvmChainId.GNOSIS], // #3 token for other projects
     new EvmToken({
       chainId: EvmChainId.GNOSIS,
-      address: '0x9C58BAcC331c9aa871AFD802DB6379a98e80CEdb',
+      address: '0x9c58bacc331c9aa871afd802db6379a98e80cedb',
       decimals: 18,
       symbol: 'GNO',
       name: 'Gnosis',
@@ -147,7 +147,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     new EvmToken({
       // #2 token for other projects
       chainId: EvmChainId.GNOSIS,
-      address: '0xaf204776c7245bF4147c2612BF6e5972Ee483701',
+      address: '0xaf204776c7245bf4147c2612bf6e5972ee483701',
       decimals: 18,
       symbol: 'sDAI',
       name: 'Savings xDAI',
@@ -162,14 +162,14 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     BUSD[EvmChainId.BSC],
     new EvmToken({
       chainId: EvmChainId.BSC,
-      address: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      address: '0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c',
       decimals: 18,
       symbol: 'BTCB',
       name: 'Binance-Peg BTCB Token',
     }),
     new EvmToken({
       chainId: EvmChainId.BSC,
-      address: '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
+      address: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82',
       decimals: 18,
       symbol: 'Cake',
       name: 'PancakeSwap Token',
@@ -186,28 +186,28 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     WstETH[EvmChainId.ARBITRUM], // #5 for us, #6 for other projects
     new EvmToken({
       chainId: EvmChainId.ARBITRUM,
-      address: '0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8',
+      address: '0xff970a61a04b1ca14834a43f5de4533ebddb5cc8',
       decimals: 6,
       symbol: 'USDC.e',
       name: 'Bridged USDC (Arb1)',
     }),
     new EvmToken({
       chainId: EvmChainId.ARBITRUM,
-      address: '0x912CE59144191C1204E64559FE8253a0e49E6548',
+      address: '0x912ce59144191c1204e64559fe8253a0e49e6548',
       decimals: 18,
       symbol: 'ARB',
       name: 'Arbitrum',
     }),
     new EvmToken({
       chainId: EvmChainId.ARBITRUM,
-      address: '0x539bdE0d7Dbd336b79148AA742883198BBF60342',
+      address: '0x539bde0d7dbd336b79148aa742883198bbf60342',
       decimals: 18,
       symbol: 'MAGIC',
       name: 'MAGIC',
     }),
     new EvmToken({
       chainId: EvmChainId.ARBITRUM,
-      address: '0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1',
+      address: '0x8d9ba570d6cb60c7e3e0f31343efe75ab8e65fb1',
       decimals: 18,
       symbol: 'gOHM',
       name: 'Governance OHM',
@@ -221,7 +221,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     DAI[EvmChainId.ARBITRUM_NOVA],
     new EvmToken({
       chainId: EvmChainId.ARBITRUM_NOVA,
-      address: '0xf823C3cD3CeBE0a1fA952ba88Dc9EEf8e0Bf46AD',
+      address: '0xf823c3cd3cebe0a1fa952ba88dc9eef8e0bf46ad',
       decimals: 18,
       symbol: 'ARB',
       name: 'Arbitrum',
@@ -235,7 +235,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     USDC[EvmChainId.AVALANCHE],
     new EvmToken({
       chainId: EvmChainId.AVALANCHE,
-      address: '0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664',
+      address: '0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664',
       decimals: 6,
       symbol: 'USDC.e',
       name: 'USD Coin',
@@ -243,7 +243,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     new EvmToken({
       // #4 token for other projects
       chainId: EvmChainId.AVALANCHE,
-      address: '0x152b9d0FdC40C096757F570A51E494bd4b943E50',
+      address: '0x152b9d0fdc40c096757f570a51e494bd4b943e50',
       decimals: 8,
       symbol: 'BTC.b',
       name: 'USD Coin',
@@ -251,7 +251,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     new EvmToken({
       // #7 token for other projects
       chainId: EvmChainId.AVALANCHE,
-      address: '0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE',
+      address: '0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be',
       decimals: 18,
       symbol: 'sAVAX',
       name: 'Staked AVAX',
@@ -259,14 +259,14 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     USDT[EvmChainId.AVALANCHE],
     new EvmToken({
       chainId: EvmChainId.AVALANCHE,
-      address: '0xc7198437980c041c805A1EDcbA50c1Ce5db95118',
+      address: '0xc7198437980c041c805a1edcba50c1ce5db95118',
       decimals: 6,
       symbol: 'USDT.e',
       name: 'Tether USD',
     }),
     new EvmToken({
       chainId: EvmChainId.AVALANCHE,
-      address: '0xd586E7F844cEa2F87f50152665BCbc2C279D8d70',
+      address: '0xd586e7f844cea2f87f50152665bcbc2c279d8d70',
       decimals: 18,
       symbol: 'DAI.e',
       name: 'Dai Stablecoin',
@@ -274,7 +274,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     MIM[EvmChainId.AVALANCHE],
     new EvmToken({
       chainId: EvmChainId.AVALANCHE,
-      address: '0x0da67235dD5787D67955420C84ca1cEcd4E5Bb3b',
+      address: '0x0da67235dd5787d67955420c84ca1cecd4e5bb3b',
       decimals: 18,
       name: 'Wrapped MEMO',
       symbol: 'WMEMO',
@@ -296,28 +296,28 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     DAI[EvmChainId.CELO],
     new EvmToken({
       chainId: EvmChainId.CELO,
-      address: '0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73',
+      address: '0xd8763cba276a3738e6de85b4b3bf5fded6d6ca73',
       decimals: 18,
       symbol: 'cEUR',
       name: 'Celo Euro',
     }),
     new EvmToken({
       chainId: EvmChainId.CELO,
-      address: '0x765DE816845861e75A25fCA122bb6898B8B1282a',
+      address: '0x765de816845861e75a25fca122bb6898b8b1282a',
       decimals: 18,
       symbol: 'cUSD',
       name: 'Celo Dollar',
     }),
     new EvmToken({
       chainId: EvmChainId.CELO,
-      address: '0x2DEf4285787d58a2f811AF24755A8150622f4361',
+      address: '0x2def4285787d58a2f811af24755a8150622f4361',
       decimals: 18,
       symbol: 'cETH',
       name: 'Celo Ether',
     }),
     new EvmToken({
       chainId: EvmChainId.CELO,
-      address: '0x66803FB87aBd4aaC3cbB3fAd7C3aa01f6F3FB207',
+      address: '0x66803fb87abd4aac3cbb3fad7c3aa01f6f3fb207',
       decimals: 18,
       symbol: 'WETH',
       name: 'Wrapped Ether (Wormhole)',
@@ -329,7 +329,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     USDC[EvmChainId.OPTIMISM],
     new EvmToken({
       chainId: EvmChainId.OPTIMISM,
-      address: '0x7F5c764cBc14f9669B88837ca1490cCa17c31607',
+      address: '0x7f5c764cbc14f9669b88837ca1490cca17c31607',
       decimals: 6,
       symbol: 'USDC',
       name: 'USD Coin (Bridged from Ethereum)',
@@ -341,7 +341,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     FRAX[EvmChainId.OPTIMISM],
     new EvmToken({
       chainId: EvmChainId.OPTIMISM,
-      address: '0xC84Da6c8ec7A57cD10B939E79eaF9d2D17834E04',
+      address: '0xc84da6c8ec7a57cd10b939e79eaf9d2d17834e04',
       decimals: 18,
       symbol: 'vUSD',
       name: 'vUSD',
@@ -352,7 +352,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     WNATIVE[EvmChainId.KAVA],
     new EvmToken({
       chainId: EvmChainId.KAVA,
-      address: '0x2DfD4dE5AE386Cd3f4fC8e2cb39240852E47F5E8',
+      address: '0x2dfd4de5ae386cd3f4fc8e2cb39240852e47f5e8',
       decimals: 18,
       symbol: 'WETH',
       name: 'Wrapped Ether',
@@ -360,7 +360,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     }),
     new EvmToken({
       chainId: EvmChainId.KAVA,
-      address: '0xAad094F6A75A14417d39f04E690fC216f080A41a',
+      address: '0xaad094f6a75a14417d39f04e690fc216f080a41a',
       decimals: 6,
       symbol: 'USDT',
       name: 'Tether USD',
@@ -441,7 +441,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     USDT[EvmChainId.ZKSYNC_ERA],
     new EvmToken({
       chainId: EvmChainId.ZKSYNC_ERA,
-      address: '0x5A7d6b2F92C77FAD6CCaBd7EE0624E64907Eaf3E',
+      address: '0x5a7d6b2f92c77fad6ccabd7ee0624e64907eaf3e',
       decimals: 18,
       symbol: 'ZK',
       name: 'ZKsync',
@@ -449,7 +449,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     new EvmToken({
       // real USDC (not bridged)
       chainId: EvmChainId.ZKSYNC_ERA,
-      address: '0x1d17CBcF0D6D143135aE902365D2E5e2A16538D4',
+      address: '0x1d17cbcf0d6d143135ae902365d2e5e2a16538d4',
       decimals: 6,
       symbol: 'USDC',
       name: 'USDC',
@@ -466,7 +466,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     WNATIVE[EvmChainId.BASE],
     new EvmToken({
       chainId: EvmChainId.BASE,
-      address: '0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22',
+      address: '0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22',
       decimals: 18,
       symbol: 'cbETH',
       name: 'Coinbase Wrapped Staked ETH',
@@ -477,7 +477,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     AERO[EvmChainId.BASE], // #9  for other projects
     new EvmToken({
       chainId: EvmChainId.BASE,
-      address: '0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA',
+      address: '0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca',
       decimals: 6,
       symbol: 'USDbC',
       name: 'USD Base Coin',
@@ -486,14 +486,14 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     DAI[EvmChainId.BASE],
     new EvmToken({
       chainId: EvmChainId.BASE,
-      address: '0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf',
+      address: '0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf',
       decimals: 8,
       symbol: 'cbBTC',
       name: 'Coinbase Wrapped BTC',
     }),
     new EvmToken({
       chainId: EvmChainId.BASE,
-      address: '0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b',
+      address: '0x0b3e328455c4059eeb9e3f84b5543f74e24e7e1b',
       decimals: 18,
       symbol: 'VIRTUAL',
       name: 'Virtual Protocol',
@@ -600,7 +600,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     WBTC[EvmChainId.KATANA],
     new EvmToken({
       chainId: EvmChainId.KATANA,
-      address: '0x9B8Df6E244526ab5F6e6400d331DB28C8fdDdb55',
+      address: '0x9b8df6e244526ab5f6e6400d331db28c8fdddb55',
       name: 'Solana (Universal)',
       symbol: 'uSOL',
       decimals: 18,

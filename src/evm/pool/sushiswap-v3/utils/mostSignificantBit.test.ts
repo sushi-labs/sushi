@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { MAX_UINT256 } from '~generic/math/constants.js'
+import { MAX_UINT256 } from '../../../../generic/math/constants.js'
 import { mostSignificantBit } from './mostSignificantBit.js'
 
 describe('mostSignificantBit', () => {

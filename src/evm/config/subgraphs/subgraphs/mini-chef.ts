@@ -1,4 +1,4 @@
-import { EvmChainId } from '~evm/chain/index.js'
+import { EvmChainId } from '../../../chain/index.js'
 import type { MiniChefChainId } from '../../features/mini-chef.js'
 import { getSubgraphUrlWrapper, wrapAsIdType } from '../get-subgraph-url.js'
 import { METIS_0XGRAPH_HOST, SUSHI_DEDICATED_GOLDSKY_HOST } from '../hosts.js'

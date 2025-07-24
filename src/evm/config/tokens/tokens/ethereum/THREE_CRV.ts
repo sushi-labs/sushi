@@ -1,8 +1,8 @@
-import { EvmChainId } from '~evm/chain/index.js'
+import { EvmChainId } from '../../../../chain/index.js'
 import { addressMapToTokenMap } from '../../address-map-to-token-map.js'
 
 export const ETHEREUM_THREE_CRV_ADDRESS = {
-  [EvmChainId.ETHEREUM]: '0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490',
+  [EvmChainId.ETHEREUM]: '0x6c3f90f043a72fa612cbac8115ee7e52bde6e490',
 } as const
 
 export const ETHEREUM_THREE_CRV = addressMapToTokenMap(

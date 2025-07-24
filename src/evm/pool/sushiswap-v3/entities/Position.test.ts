@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest'
-import { EvmToken } from '~evm/currency/token.js'
-import { Percent } from '~generic/math/percent.js'
+import { Percent } from '../../../../generic/math/percent.js'
 import {
   SushiSwapV3FeeAmount,
   TICK_SPACINGS,
 } from '../../../config/features/sushiswap-v3.js'
+import { EvmToken } from '../../../currency/token.js'
 import { encodeSqrtRatioX96 } from '../utils/encodeSqrtRatioX96.js'
 import { nearestUsableTick } from '../utils/nearestUsableTick.js'
 import { TickMath } from '../utils/tickMath.js'
@@ -14,14 +14,14 @@ import { SushiSwapV3Pool } from './SushiSwapV3Pool.js'
 describe('Position', () => {
   const USDC = new EvmToken({
     chainId: 1,
-    address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+    address: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
     decimals: 6,
     symbol: 'USDC',
     name: 'USD Coin',
   })
   const DAI = new EvmToken({
     chainId: 1,
-    address: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
+    address: '0x6b175474e89094c44da98b954eedeac495271d0f',
     decimals: 18,
     symbol: 'DAI',
     name: 'Dai Stablecoin',

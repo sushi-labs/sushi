@@ -1,8 +1,8 @@
 import { formatUnits, parseUnits } from 'viem/utils'
 import * as z from 'zod'
-import type { BigintIsh } from '~generic/types/bigintish.js'
 import { numberToFixed } from '../format/number.js'
 import { Fraction } from '../math/fraction.js'
+import type { BigintIsh } from '../types/bigintish.js'
 import type { Currency } from './currency.js'
 import type {
   SerializedCurrency,

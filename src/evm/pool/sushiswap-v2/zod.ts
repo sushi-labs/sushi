@@ -1,6 +1,6 @@
 import * as z from 'zod'
-import { serializedEvmTokenSchema } from '~evm/currency/token.js'
-import { serializedAmountSchema } from '~generic/index.js'
+import { serializedAmountSchema } from '../../../generic/index.js'
+import { serializedEvmTokenSchema } from '../../currency/token.js'
 
 export const sushiSwapV2PoolSchema = z.object({
   reserve0: serializedAmountSchema(serializedEvmTokenSchema),

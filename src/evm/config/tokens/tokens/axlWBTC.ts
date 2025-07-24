@@ -1,9 +1,9 @@
-import { EvmChainId } from '~evm/chain/index.js'
+import { EvmChainId } from '../../../chain/index.js'
 import { addressMapToTokenMap } from '../address-map-to-token-map.js'
 
 export const axlWBTC_ADDRESS = {
-  [EvmChainId.KAVA]: '0x1a35EE4640b0A3B87705B0A4B45D227Ba60Ca2ad',
-  [EvmChainId.HAQQ]: '0x5FD55A1B9FC24967C4dB09C513C3BA0DFa7FF687',
+  [EvmChainId.KAVA]: '0x1a35ee4640b0a3b87705b0a4b45d227ba60ca2ad',
+  [EvmChainId.HAQQ]: '0x5fd55a1b9fc24967c4db09c513c3ba0dfa7ff687',
 } as const
 
 export const axlWBTC = addressMapToTokenMap(

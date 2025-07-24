@@ -1,5 +1,5 @@
-import { TvmChainId } from '~tvm/chain/chains.js'
-import type { TvmAddress } from '~tvm/currency/token.js'
+import { TvmChainId } from '../../chain/chains.js'
+import type { TvmAddress } from '../../currency/token.js'
 
 export const MULTICALL_SUPPORTED_CHAIN_IDS = [TvmChainId.TRON] as const
 

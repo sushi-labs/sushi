@@ -1,13 +1,13 @@
-import { EvmChainId } from '~evm/chain/index.js'
+import { EvmChainId } from '../../../chain/index.js'
 import { addressMapToTokenMap } from '../address-map-to-token-map.js'
 
 export const SNX_ADDRESS = {
-  [EvmChainId.ETHEREUM]: '0xC011a73ee8576Fb46F5E1c5751cA3B9Fe0af2a6F',
-  [EvmChainId.POLYGON]: '0x50B728D8D964fd00C2d0AAD81718b71311feF68a',
-  [EvmChainId.FANTOM]: '0x56ee926bD8c72B2d5fa1aF4d9E4Cbb515a1E3Adc',
-  [EvmChainId.HARMONY]: '0x7b9c523d59AeFd362247Bd5601A89722e3774dD2',
-  [EvmChainId.AVALANCHE]: '0xBeC243C995409E6520D7C41E404da5dEba4b209B',
-  [EvmChainId.OPTIMISM]: '0x8700dAec35aF8Ff88c16BdF0418774CB3D7599B4',
+  [EvmChainId.ETHEREUM]: '0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f',
+  [EvmChainId.POLYGON]: '0x50b728d8d964fd00c2d0aad81718b71311fef68a',
+  [EvmChainId.FANTOM]: '0x56ee926bd8c72b2d5fa1af4d9e4cbb515a1e3adc',
+  [EvmChainId.HARMONY]: '0x7b9c523d59aefd362247bd5601a89722e3774dd2',
+  [EvmChainId.AVALANCHE]: '0xbec243c995409e6520d7c41e404da5deba4b209b',
+  [EvmChainId.OPTIMISM]: '0x8700daec35af8ff88c16bdf0418774cb3d7599b4',
 } as const
 
 export const SNX = addressMapToTokenMap(

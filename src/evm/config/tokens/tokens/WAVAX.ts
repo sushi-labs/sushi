@@ -1,8 +1,8 @@
-import { EvmChainId } from '~evm/chain/index.js'
+import { EvmChainId } from '../../../chain/index.js'
 import { addressMapToTokenMap } from '../address-map-to-token-map.js'
 
 export const WAVAX_ADDRESS = {
-  [EvmChainId.POLYGON]: '0x2C89bbc92BD86F8075d1DEcc58C7F4E0107f286b',
+  [EvmChainId.POLYGON]: '0x2c89bbc92bd86f8075d1decc58c7f4e0107f286b',
 } as const
 
 export const WAVAX = addressMapToTokenMap(

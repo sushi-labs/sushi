@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest'
-import { EvmChainId } from '~evm/chain/chains.js'
-import { WETH9 } from '~evm/config/index.js'
-import { EvmToken } from '~evm/currency/token.js'
-import { InsufficientInputAmountError } from '~evm/dex/errors.js'
-import { Price } from '~generic/currency/price.js'
-import { Amount } from '~generic/index.js'
+import { Price } from '../../../generic/currency/price.js'
+import { Amount } from '../../../generic/index.js'
+import { EvmChainId } from '../../chain/chains.js'
+import { WETH9 } from '../../config/index.js'
+import { EvmToken } from '../../currency/token.js'
+import { InsufficientInputAmountError } from '../../dex/errors.js'
 import { computeSushiSwapV2PoolAddress } from './compute-sushiswap-v2-pool-address.js'
 import { SushiSwapV2Pool } from './sushiswap-v2-pool.js'
 // import { EvmChainId, CurrencyAmount, Price, Token, V2_FACTORY_ADDRESSES, WETH9 } from '@uniswap/sdk-core'
@@ -13,14 +13,14 @@ describe('computePairAddress', () => {
   it('should correctly compute the pool address', () => {
     const tokenA = new EvmToken({
       chainId: EvmChainId.ETHEREUM,
-      address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+      address: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
       decimals: 18,
       symbol: 'USDC',
       name: 'USD Coin',
     })
     const tokenB = new EvmToken({
       chainId: EvmChainId.ETHEREUM,
-      address: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
+      address: '0x6b175474e89094c44da98b954eedeac495271d0f',
       decimals: 18,
       symbol: 'DAI',
       name: 'DAI Stablecoin',
@@ -31,19 +31,19 @@ describe('computePairAddress', () => {
       tokenB,
     })
 
-    expect(result).toEqual('0xbCfFCD50d09095E48CC5ea02d564CAEe61aBc004')
+    expect(result).toEqual('0xbcffcd50d09095e48cc5ea02d564caee61abc004')
   })
   it('should give same result regardless of token order', () => {
     const USDC = new EvmToken({
       chainId: EvmChainId.ETHEREUM,
-      address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+      address: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
       decimals: 18,
       symbol: 'USDC',
       name: 'USD Coin',
     })
     const DAI = new EvmToken({
       chainId: EvmChainId.ETHEREUM,
-      address: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
+      address: '0x6b175474e89094c44da98b954eedeac495271d0f',
       decimals: 18,
       symbol: 'DAI',
       name: 'DAI Stablecoin',
@@ -71,14 +71,14 @@ describe('computePairAddress', () => {
 describe('Pair', () => {
   const USDC = new EvmToken({
     chainId: EvmChainId.ETHEREUM,
-    address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+    address: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
     decimals: 18,
     symbol: 'USDC',
     name: 'USD Coin',
   })
   const DAI = new EvmToken({
     chainId: EvmChainId.ETHEREUM,
-    address: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
+    address: '0x6b175474e89094c44da98b954eedeac495271d0f',
     decimals: 18,
     symbol: 'DAI',
     name: 'DAI Stablecoin',
@@ -99,7 +99,7 @@ describe('Pair', () => {
   describe('#getAddress', () => {
     it('returns the correct address', () => {
       expect(SushiSwapV2Pool.getAddress(USDC, DAI)).toEqual(
-        '0xAaF5110db6e744ff70fB339DE037B990A20bdace',
+        '0xaaf5110db6e744ff70fb339de037b990a20bdace',
       )
     })
   })
@@ -305,7 +305,7 @@ describe('Pair', () => {
     // const BLASTERSSellFeeBps = 350n
     const BLASTERS = new EvmToken({
       chainId: EvmChainId.ETHEREUM,
-      address: '0xab98093C7232E98A47D7270CE0c1c2106f61C73b',
+      address: '0xab98093c7232e98a47d7270ce0c1c2106f61c73b',
       decimals: 9,
       symbol: 'BLAST',
       name: 'BLASTERS',
@@ -314,7 +314,7 @@ describe('Pair', () => {
     })
     const BLASTERS_WITHOUT_TAX = new EvmToken({
       chainId: EvmChainId.ETHEREUM,
-      address: '0xab98093C7232E98A47D7270CE0c1c2106f61C73b',
+      address: '0xab98093c7232e98a47d7270ce0c1c2106f61c73b',
       decimals: 9,
       symbol: 'BLAST',
       name: 'BLASTERS',

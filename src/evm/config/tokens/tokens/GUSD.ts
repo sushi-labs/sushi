@@ -1,8 +1,8 @@
-import { EvmChainId } from '~evm/chain/index.js'
+import { EvmChainId } from '../../../chain/index.js'
 import { addressMapToTokenMap } from '../address-map-to-token-map.js'
 
 export const GUSD_ADDRESS = {
-  [EvmChainId.ETHEREUM]: '0x056Fd409E1d7A124BD7017459dFEa2F387b6d5Cd',
+  [EvmChainId.ETHEREUM]: '0x056fd409e1d7a124bd7017459dfea2f387b6d5cd',
 } as const
 
 export const GUSD = addressMapToTokenMap(

@@ -2,7 +2,7 @@ import type {
   BlockExplorers,
   Chain,
   NetType,
-} from '~generic/chain/interface.js'
+} from '../../generic/chain/interface.js'
 import type { MvmChainId, MvmChainKey } from './chains.js'
 
 export type MvmChainType = 'mvm'

@@ -1,10 +1,10 @@
 import * as z from 'zod'
+import { Native } from '../../generic/currency/native.js'
 import {
   type EvmChainId,
   getEvmChainById,
   isEvmChainId,
-} from '~evm/chain/chains.js'
-import { Native } from '~generic/currency/native.js'
+} from '../chain/chains.js'
 import { WNATIVE } from '../config/tokens/wrapped-native.js'
 import type { EvmToken } from './token.js'
 

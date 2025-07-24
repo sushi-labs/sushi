@@ -1,6 +1,6 @@
 import type { Address } from 'viem'
-import type { EvmChainId } from '~evm/chain/chains.js'
-import type { EvmToken } from '~evm/currency/token.js'
+import type { EvmChainId } from '../../chain/chains.js'
+import type { EvmToken } from '../../currency/token.js'
 import type { PoolId } from './pool-id.js'
 import type { PoolIfIncentivized } from './pool-if-incentivized.js'
 import type { PoolWithIncentiveApr } from './pool-with-aprs.js'

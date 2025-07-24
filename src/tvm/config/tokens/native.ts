@@ -1,5 +1,5 @@
-import { TvmChainId } from '~tvm/chain/chains.js'
-import { TvmNative } from '~tvm/currency/native.js'
+import { TvmChainId } from '../../chain/chains.js'
+import { TvmNative } from '../../currency/native.js'
 
 export const NATIVE = {
   [TvmChainId.TRON]: new TvmNative({

@@ -1,4 +1,4 @@
-import { TvmChainId } from '~tvm/chain/chains.js'
+import { TvmChainId } from '../../../chain/chains.js'
 import { addressMapToTokenMap } from '../address-map-to-token-map.js'
 
 export const BICOIN_ADDRESS = {

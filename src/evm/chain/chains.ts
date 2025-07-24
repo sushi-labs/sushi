@@ -42,7 +42,7 @@ import {
 } from 'viem/chains'
 import { defineEvmChain } from './define-chain.js'
 
-import type { Replace, UnionToIntersection } from '~generic/types/index.js'
+import type { Replace, UnionToIntersection } from '../../generic/types/index.js'
 
 const ethereum = /* @__PURE__ */ defineEvmChain(ethereumViem, {
   key: 'ethereum',
@@ -95,7 +95,7 @@ const bobaBnb = /* @__PURE__ */ defineEvmChain(
     netType: 'mainnet',
     contracts: {
       multicall3: {
-        address: '0x67dA5f2FfaDDfF067AB9d5F025F8810634d84287',
+        address: '0x67da5f2ffaddff067ab9d5f025f8810634d84287',
         blockCreated: 18871,
       },
     },
@@ -178,7 +178,7 @@ const haqq = /* @__PURE__ */ defineEvmChain(haqqViem, {
   key: 'haqq',
   contracts: {
     multicall3: {
-      address: '0xfe2D04A5018AC1B366F599A13BF4e0C760b2aE6b',
+      address: '0xfe2d04a5018ac1b366f599a13bf4e0c760b2ae6b',
       blockCreated: 6589598,
     },
   },
@@ -268,7 +268,7 @@ const zklink = /* @__PURE__ */ defineEvmChain(zklinkViem, {
   key: 'zklink',
   contracts: {
     multicall3: {
-      address: '0x825267E0fA5CAe92F98540828a54198dcB3Eaeb5',
+      address: '0x825267e0fa5cae92f98540828a54198dcb3eaeb5',
       blockCreated: 146055,
     },
   },
@@ -291,7 +291,7 @@ const hemi = /* @__PURE__ */ defineEvmChain(hemiViem, {
   key: 'hemi',
   contracts: {
     multicall3: {
-      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
       blockCreated: 484490,
     },
   },
@@ -323,7 +323,7 @@ const katana = /* @__PURE__ */ defineEvmChain(
     testnet: false,
     contracts: {
       multicall3: {
-        address: '0xcA11bde05977b3631167028862bE2a173976CA11',
+        address: '0xca11bde05977b3631167028862be2a173976ca11',
         blockCreated: 0,
       },
     },
@@ -371,7 +371,7 @@ const tatara = /* @__PURE__ */ defineEvmChain(
     testnet: true,
     contracts: {
       multicall3: {
-        address: '0xcA11bde05977b3631167028862bE2a173976CA11',
+        address: '0xca11bde05977b3631167028862be2a173976ca11',
         blockCreated: 0,
       },
     },
@@ -407,7 +407,7 @@ const hyperevm = /* @__PURE__ */ defineEvmChain(
     testnet: false,
     contracts: {
       multicall3: {
-        address: '0xcA11bde05977b3631167028862bE2a173976CA11',
+        address: '0xca11bde05977b3631167028862be2a173976ca11',
         blockCreated: 13051,
       },
     },

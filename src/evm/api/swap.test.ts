@@ -1,12 +1,12 @@
 import { describe, expect, it } from 'vitest'
-import { EvmChainId } from '~evm/chain/index.js'
-import { WNATIVE_ADDRESS } from '~evm/config/tokens/index.js'
+import { EvmChainId } from '../chain/index.js'
+import { WNATIVE_ADDRESS } from '../config/tokens/index.js'
 import { type SwapRequest, getSwap } from './swap.js'
 
 const baseSwapRequest = {
   chainId: EvmChainId.ETHEREUM,
-  tokenIn: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
-  tokenOut: '0x6B3595068778DD592e39A122f4f5a5cF09C90fE2',
+  tokenIn: '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+  tokenOut: '0x6b3595068778dd592e39a122f4f5a5cf09c90fe2',
   amount: 100000000000000000n,
   maxSlippage: 0.005,
   sender: WNATIVE_ADDRESS[EvmChainId.ETHEREUM],

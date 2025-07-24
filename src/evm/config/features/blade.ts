@@ -1,4 +1,4 @@
-import { EvmChainId } from '~evm/chain/index.js'
+import { EvmChainId } from '../../chain/index.js'
 
 export const BLADE_SUPPORTED_CHAIN_IDS = [
   EvmChainId.ETHEREUM,

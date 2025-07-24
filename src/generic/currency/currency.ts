@@ -1,4 +1,4 @@
-import type { ChainId } from '~generic/chain/chains.js'
+import type { ChainId } from '../chain/chains.js'
 import type { ID } from '../types/id.js'
 import type { SerializedCurrency } from './serialized-currency.js'
 import type { Token } from './token.js'

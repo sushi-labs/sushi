@@ -1,5 +1,5 @@
-import type { EvmToken } from '~evm/currency/token.js'
-import { Price } from '~generic/currency/price.js'
+import { Price } from '../../../../generic/currency/price.js'
+import type { EvmToken } from '../../../currency/token.js'
 import { Q192 } from '../internalConstants.js'
 import { encodeSqrtRatioX96 } from './encodeSqrtRatioX96.js'
 import { TickMath } from './tickMath.js'

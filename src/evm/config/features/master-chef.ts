@@ -1,13 +1,13 @@
-import { EvmChainId } from '~evm/chain/index.js'
+import { EvmChainId } from '../../chain/index.js'
 
 export const MASTERCHEF_ADDRESS = {
-  [EvmChainId.ETHEREUM]: '0xc2EdaD668740f1aA35E4D8f227fB8E17dcA888Cd',
-  // [EvmChainId.ROPSTEN]: '0x80C7DD17B01855a6D2347444a0FCC36136a314de',
-  // [EvmChainId.RINKEBY]: '0x80C7DD17B01855a6D2347444a0FCC36136a314de',
-  // [EvmChainId.GÖRLI]: '0x80C7DD17B01855a6D2347444a0FCC36136a314de',
-  // [EvmChainId.KOVAN]: '0x80C7DD17B01855a6D2347444a0FCC36136a314de',
+  [EvmChainId.ETHEREUM]: '0xc2edad668740f1aa35e4d8f227fb8e17dca888cd',
+  // [EvmChainId.ROPSTEN]: '0x80c7dd17b01855a6d2347444a0fcc36136a314de',
+  // [EvmChainId.RINKEBY]: '0x80c7dd17b01855a6d2347444a0fcc36136a314de',
+  // [EvmChainId.GÖRLI]: '0x80c7dd17b01855a6d2347444a0fcc36136a314de',
+  // [EvmChainId.KOVAN]: '0x80c7dd17b01855a6d2347444a0fcc36136a314de',
 } as const
 
 export const MASTERCHEF_V2_ADDRESS = {
-  [EvmChainId.ETHEREUM]: '0xEF0881eC094552b2e128Cf945EF17a6752B4Ec5d',
+  [EvmChainId.ETHEREUM]: '0xef0881ec094552b2e128cf945ef17a6752b4ec5d',
 } as const

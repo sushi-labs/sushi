@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { EvmToken } from '~/evm/currency/token.js'
+import { EvmToken } from '../../../../evm/currency/token.js'
 import { SushiSwapV3FeeAmount } from '../../../config/index.js'
 import { computeSushiSwapV3PoolAddress } from './computePoolAddress.js'
 
@@ -8,14 +8,14 @@ describe('#computePoolAddress', () => {
   it('should correctly compute the pool address', () => {
     const tokenA = new EvmToken({
       chainId: 1,
-      address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+      address: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
       decimals: 18,
       symbol: 'USDC',
       name: 'USD Coin',
     })
     const tokenB = new EvmToken({
       chainId: 1,
-      address: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
+      address: '0x6b175474e89094c44da98b954eedeac495271d0f',
       decimals: 18,
       symbol: 'DAI',
       name: 'Dai Stablecoin',
@@ -27,20 +27,20 @@ describe('#computePoolAddress', () => {
       tokenB,
     })
 
-    expect(result).toEqual('0x90B1b09A9715CaDbFD9331b3A7652B24BfBEfD32')
+    expect(result).toEqual('0x90b1b09a9715cadbfd9331b3a7652b24bfbefd32')
   })
 
   it('should correctly compute the pool address', () => {
     const USDC = new EvmToken({
       chainId: 1,
-      address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+      address: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
       decimals: 18,
       symbol: 'USDC',
       name: 'USD Coin',
     })
     const DAI = new EvmToken({
       chainId: 1,
-      address: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
+      address: '0x6b175474e89094c44da98b954eedeac495271d0f',
       decimals: 18,
       symbol: 'DAI',
       name: 'Dai Stablecoin',
@@ -83,12 +83,12 @@ describe('#computePoolAddress', () => {
       name: 'Wrapped Ether',
     })
     const result = computeSushiSwapV3PoolAddress({
-      factoryAddress: '0x7680D4B43f3d1d54d6cfEeB2169463bFa7a6cf0d',
+      factoryAddress: '0x7680d4b43f3d1d54d6cfeeb2169463bfa7a6cf0d',
       fee: SushiSwapV3FeeAmount.MEDIUM,
       tokenA,
       tokenB,
     })
 
-    expect(result).toEqual('0xCd03572e7cFB94996beEbaA539234CE5c23AE1d6')
+    expect(result).toEqual('0xcd03572e7cfb94996beebaa539234ce5c23ae1d6')
   })
 })

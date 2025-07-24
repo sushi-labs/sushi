@@ -1,4 +1,4 @@
-import type { BigintIsh } from '~generic/index.js'
+import type { BigintIsh } from '../../../../generic/index.js'
 
 import { Q96 } from '../internalConstants.js'
 

@@ -1,4 +1,4 @@
-import { EvmChainId } from '~evm/chain/index.js'
+import { EvmChainId } from '../../chain/index.js'
 
 export const AGGREGATOR_ONLY_CHAIN_IDS = [
   EvmChainId.CRONOS,

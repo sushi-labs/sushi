@@ -1,6 +1,6 @@
 import type { Address } from 'viem'
-import type { EvmChainId } from '~evm/chain/index.js'
-import { EvmToken, type EvmTokenOrigin } from '~evm/currency/token.js'
+import type { EvmChainId } from '../../chain/index.js'
+import { EvmToken, type EvmTokenOrigin } from '../../currency/token.js'
 
 export function addressMapToTokenMap<ChainId extends EvmChainId>(
   {

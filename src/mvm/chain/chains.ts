@@ -1,5 +1,5 @@
-import type { Replace } from '~generic/types/replace.js'
-import type { UnionToIntersection } from '~generic/types/union-to-intersection.js'
+import type { Replace } from '../../generic/types/replace.js'
+import type { UnionToIntersection } from '../../generic/types/union-to-intersection.js'
 import { defineMvmChain } from './define-chain.js'
 
 const aptos = defineMvmChain({

@@ -1,5 +1,5 @@
-import { TvmChainId } from '~tvm/chain/chains.js'
-import type { TvmCurrency } from '~tvm/currency/currency.js'
+import { TvmChainId } from '../../../chain/chains.js'
+import type { TvmCurrency } from '../../../currency/currency.js'
 import { NATIVE } from '../native.js'
 import { BTC } from '../tokens/BTC.js'
 import { USDT } from '../tokens/USDT.js'

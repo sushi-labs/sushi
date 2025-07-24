@@ -1,5 +1,5 @@
-import { TvmChainId } from '~tvm/chain/chains.js'
-import { type TvmAddress, TvmToken } from '~tvm/currency/token.js'
+import { TvmChainId } from '../../chain/chains.js'
+import { type TvmAddress, TvmToken } from '../../currency/token.js'
 
 export const WNATIVE_ADDRESS = {
   [TvmChainId.TRON]: 'TNUC9Qb1rRpS5CbWLmNMxXBjyFoydXjWFR',

@@ -1,6 +1,6 @@
 import { getAddress as _getAddress } from 'viem/utils'
-import type { EvmCurrency } from '~/evm/currency/currency.js'
-import { EvmChainId } from '~evm/chain/index.js'
+import type { EvmCurrency } from '../../../../evm/currency/currency.js'
+import { EvmChainId } from '../../../chain/index.js'
 import {
   APE_USD,
   ARB,
@@ -27,9 +27,9 @@ import {
   axlUSDC,
   axlUSDT,
   axlWBTC,
-} from '~evm/config/tokens/tokens/index.js'
-import { EvmNative } from '~evm/currency/native.js'
-import { EvmToken } from '~evm/currency/token.js'
+} from '../../../config/tokens/tokens/index.js'
+import { EvmNative } from '../../../currency/native.js'
+import { EvmToken } from '../../../currency/token.js'
 import { WNATIVE } from '../wrapped-native.js'
 
 /*
@@ -111,7 +111,7 @@ export const EVM_DEFAULT_BASES = {
     axlUSDC[EvmChainId.FANTOM],
     new EvmToken({
       chainId: EvmChainId.FANTOM,
-      address: '0x28a92dde19D9989F39A49905d7C9C2FAc7799bDf',
+      address: '0x28a92dde19d9989f39a49905d7c9c2fac7799bdf',
       decimals: 6,
       symbol: 'USDC',
       name: 'USD Coin',
@@ -120,7 +120,7 @@ export const EVM_DEFAULT_BASES = {
     }),
     new EvmToken({
       chainId: EvmChainId.FANTOM,
-      address: '0xcc1b99dDAc1a33c201a742A1851662E87BC7f22C',
+      address: '0xcc1b99ddac1a33c201a742a1851662e87bc7f22c',
       decimals: 6,
       symbol: 'USDT',
       name: 'Tether USD',
@@ -129,7 +129,7 @@ export const EVM_DEFAULT_BASES = {
     }),
     new EvmToken({
       chainId: EvmChainId.FANTOM,
-      address: '0x695921034f0387eAc4e11620EE91b1b15A6A09fE',
+      address: '0x695921034f0387eac4e11620ee91b1b15a6a09fe',
       decimals: 18,
       symbol: 'WETH',
       name: 'Wrapped Ether',
@@ -138,7 +138,7 @@ export const EVM_DEFAULT_BASES = {
     }),
     new EvmToken({
       chainId: EvmChainId.FANTOM,
-      address: '0xf1648C50d2863f780c57849D812b4B7686031A3D',
+      address: '0xf1648c50d2863f780c57849d812b4b7686031a3d',
       decimals: 18,
       symbol: 'WBTC',
       name: 'Wrapped BTC',
@@ -189,7 +189,7 @@ export const EVM_DEFAULT_BASES = {
     axlWBTC[EvmChainId.KAVA],
     new EvmToken({
       chainId: EvmChainId.KAVA,
-      address: '0x2DfD4dE5AE386Cd3f4fC8e2cb39240852E47F5E8',
+      address: '0x2dfd4de5ae386cd3f4fc8e2cb39240852e47f5e8',
       decimals: 18,
       symbol: 'WETH',
       name: 'Wrapped Ether',
@@ -282,7 +282,7 @@ export const EVM_DEFAULT_BASES = {
       symbol: 'USDbC',
       name: 'USD Base Coin',
       decimals: 6,
-      address: '0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA',
+      address: '0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca',
       metadata: { approved: true },
     }),
     USDC[EvmChainId.BASE],
@@ -291,7 +291,7 @@ export const EVM_DEFAULT_BASES = {
       symbol: 'OX',
       name: 'OX Coin',
       decimals: 18,
-      address: '0xba0Dda8762C24dA9487f5FA026a9B64b695A07Ea',
+      address: '0xba0dda8762c24da9487f5fa026a9b64b695a07ea',
       metadata: { approved: true },
     }),
   ],
@@ -337,7 +337,7 @@ export const EVM_DEFAULT_BASES = {
     USDT0[EvmChainId.ROOTSTOCK],
     new EvmToken({
       chainId: EvmChainId.ROOTSTOCK,
-      address: '0x1D931Bf8656d795E50eF6D639562C5bD8Ac2B78f',
+      address: '0x1d931bf8656d795e50ef6d639562c5bd8ac2b78f',
       decimals: 18,
       symbol: 'ETHs',
       name: 'ETHs',

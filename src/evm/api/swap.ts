@@ -1,9 +1,9 @@
 import type { Address } from 'viem'
 import { z } from 'zod'
-import { version } from '~/version.js'
-import { szevm } from '~evm/validate/zod.js'
-import { sz } from '~generic/validate/zod.js'
+import { sz } from '../../generic/validate/zod.js'
+import { version } from '../../version.js'
 import type { ExtractorSupportedChainId } from '../config/index.js'
+import { szevm } from '../validate/zod.js'
 import {
   RouteStatus,
   type RouterLiquiditySource,

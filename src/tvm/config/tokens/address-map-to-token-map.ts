@@ -1,9 +1,9 @@
-import type { TvmChainId } from '~tvm/chain/index.js'
+import type { TvmChainId } from '../../chain/index.js'
 import {
   type TvmAddress,
   TvmToken,
   type TvmTokenOrigin,
-} from '~tvm/currency/token.js'
+} from '../../currency/token.js'
 
 export function addressMapToTokenMap<ChainId extends TvmChainId>(
   {

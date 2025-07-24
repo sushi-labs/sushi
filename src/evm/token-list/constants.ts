@@ -90,5 +90,5 @@ export const DEFAULT_ACTIVE_LIST_URLS: string[] = [
 
 export const BLACKLIST_TOKEN_IDS: string[] = [
   // Fake Aptos token
-  '0x8CDf7AF57E4c8B930e1B23c477c22f076530585e',
+  '0x8cdf7af57e4c8b930e1b23c477c22f076530585e',
 ]

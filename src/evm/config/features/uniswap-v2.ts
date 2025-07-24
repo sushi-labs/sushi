@@ -1,18 +1,18 @@
-import { EvmChainId } from '~evm/chain/index.js'
+import { EvmChainId } from '../../chain/index.js'
 
 export const UNISWAP_V2_FACTORY_ADDRESS: Record<
   UniswapV2ChainId,
   `0x${string}`
 > = {
-  [EvmChainId.ETHEREUM]: '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f',
-  [EvmChainId.OPTIMISM]: '0x0c3c1c532F1e39EdF36BE9Fe0bE1410313E074Bf',
-  [EvmChainId.ARBITRUM]: '0xf1D7CC64Fb4452F05c498126312eBE29f30Fbcf9',
-  [EvmChainId.AVALANCHE]: '0x9e5A52f57b3038F1B8EeE45F28b3C1967e22799C',
+  [EvmChainId.ETHEREUM]: '0x5c69bee701ef814a2b6a3edd4b1652cb9cc5aa6f',
+  [EvmChainId.OPTIMISM]: '0x0c3c1c532f1e39edf36be9fe0be1410313e074bf',
+  [EvmChainId.ARBITRUM]: '0xf1d7cc64fb4452f05c498126312ebe29f30fbcf9',
+  [EvmChainId.AVALANCHE]: '0x9e5a52f57b3038f1b8eee45f28b3c1967e22799c',
   [EvmChainId.BASE]: '0x8909dc15e40173ff4699343b6eb8132c65e18ec6',
-  [EvmChainId.BSC]: '0x8909Dc15e40173Ff4699343b6eB8132c65e18eC6',
-  [EvmChainId.POLYGON]: '0x9e5A52f57b3038F1B8EeE45F28b3C1967e22799C',
-  [EvmChainId.CELO]: '0x79a530c8e2fA8748B7B40dd3629C0520c2cCf03f',
-  [EvmChainId.BLAST]: '0x5C346464d33F90bABaf70dB6388507CC889C1070',
+  [EvmChainId.BSC]: '0x8909dc15e40173ff4699343b6eb8132c65e18ec6',
+  [EvmChainId.POLYGON]: '0x9e5a52f57b3038f1b8eee45f28b3c1967e22799c',
+  [EvmChainId.CELO]: '0x79a530c8e2fa8748b7b40dd3629c0520c2ccf03f',
+  [EvmChainId.BLAST]: '0x5c346464d33f90babaf70db6388507cc889c1070',
 }
 
 export const UNISWAP_V2_INIT_CODE_HASH =

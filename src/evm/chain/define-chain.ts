@@ -1,10 +1,10 @@
 import type { Address, Hex, Chain as ViemChain } from 'viem'
-import type { EvmChainId, EvmChainKey } from '~evm/chain/chains.js'
 import type {
   BlockExplorers,
   Chain,
   NetType,
-} from '~generic/chain/interface.js'
+} from '../../generic/chain/interface.js'
+import type { EvmChainId, EvmChainKey } from '../chain/chains.js'
 import type { EvmAddress } from '../currency/token.js'
 
 export type EvmChainType = 'evm'

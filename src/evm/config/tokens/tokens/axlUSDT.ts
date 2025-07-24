@@ -1,8 +1,8 @@
-import { EvmChainId } from '~evm/chain/index.js'
+import { EvmChainId } from '../../../chain/index.js'
 import { addressMapToTokenMap } from '../address-map-to-token-map.js'
 
 export const axlUSDT_ADDRESS = {
-  [EvmChainId.HAQQ]: '0xd567B3d7B8FE3C79a1AD8dA978812cfC4Fa05e75',
+  [EvmChainId.HAQQ]: '0xd567b3d7b8fe3c79a1ad8da978812cfc4fa05e75',
 } as const
 
 export const axlUSDT = addressMapToTokenMap(
