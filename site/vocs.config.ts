@@ -62,9 +62,9 @@ export default defineConfig({
   ],
   vite: {
     ssr: {
-      noExternal: ['sushi'] // <— force vocs to bundle sushi
+      noExternal: ['sushi'], // <— force vocs to bundle sushi
     },
-  }
+  },
 })
 
 function toPatchVersionRange(version: string) {
