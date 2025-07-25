@@ -60,6 +60,11 @@ export default defineConfig({
       link: 'https://www.sushi.com/twitter',
     },
   ],
+  vite: {
+    ssr: {
+      noExternal: ['sushi'] // <— force vocs to bundle sushi
+    },
+  }
 })
 
 function toPatchVersionRange(version: string) {
