@@ -1,18 +1,17 @@
 import type { FC, ReactElement } from 'react'
-import { EvmChain } from 'sushi/chain'
-import type { Address } from 'sushi/types'
+import { type EvmAddress, type EvmChainId, getEvmChainById } from 'sushi/evm'
 
 export type NetworkTableFormatter = ({
   chainId,
   value,
 }: {
-  chainId: number
-  value: string
+  chainId: EvmChainId
+  value: EvmAddress
 }) => ReactElement
 
 const formatExplorerLink: NetworkTableFormatter = ({ chainId, value }) => (
   <a
-    href={EvmChain.from(chainId)?.getAccountUrl(value)}
+    href={getEvmChainById(chainId).getAccountUrl(value)}
     target={'_blank'}
     rel={'noopener noreferrer'}
   >
@@ -26,7 +25,7 @@ const formatCode: NetworkTableFormatter = ({ value }) => (
 
 interface NetworkTable {
   title: string
-  data: Record<number, string>
+  data: Record<EvmChainId, EvmAddress>
   formatter?: NetworkTableFormatter
 }
 
@@ -45,13 +44,14 @@ export const NetworkTable: FC<NetworkTable> = ({
       </thead>
       <tbody>
         {Object.entries(data).map(([key, value]) => {
+          const chainId = +key as EvmChainId
           return (
             <tr key={key} className="vocs_TableRow">
               <td className="vocs_TableCell">
-                {EvmChain.from(+key)?.name.toUpperCase()}
+                {getEvmChainById(chainId).name.toUpperCase()}
               </td>
               <td className="vocs_TableCell">
-                {formatter ? formatter({ chainId: +key, value }) : value}
+                {formatter ? formatter({ chainId, value }) : value}
               </td>
             </tr>
           )
@@ -61,7 +61,7 @@ export const NetworkTable: FC<NetworkTable> = ({
   )
 }
 
-export const AddressTable: FC<{ data: Record<number, Address> }> = ({
+export const AddressTable: FC<{ data: Record<EvmChainId, EvmAddress> }> = ({
   data,
 }) => {
   return (
@@ -92,7 +92,7 @@ export const LinkTable: FC<LinkTable> = ({ title, data }) => {
           return (
             <tr key={key} className="vocs_TableRow">
               <td className="vocs_TableCell">
-                {EvmChain.from(+key)?.name.toUpperCase()}
+                {getEvmChainById(+key as EvmChainId)?.name.toUpperCase()}
               </td>
               <td className="vocs_TableCell">
                 <a

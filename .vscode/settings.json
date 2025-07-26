@@ -1,0 +1,9 @@
+{
+  "typescript.preferences.importModuleSpecifier": "shortest",
+  "typescript.preferences.autoImportFileExcludePatterns": [
+    "/src/**/index.ts",
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always"
+  }
+}

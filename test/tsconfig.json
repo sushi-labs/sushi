@@ -6,8 +6,5 @@
       "target": "ESNext",
       "types": ["@types/bun", "@types/node"],
       "baseUrl": ".",
-      "paths": {
-        "~sushi/*": ["../src/*"]
-      }
     }
   }
