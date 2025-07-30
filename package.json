@@ -3,9 +3,9 @@
   "type": "module",
   "scripts": {
     "build": "pnpm clean && pnpm build:cjs && pnpm build:esm && pnpm build:types",
-    "build:cjs": "tsc --project ./tsconfig.build.json --module commonjs --outDir ./src/_cjs --removeComments --verbatimModuleSyntax false --esModuleInterop true && printf '{\"type\":\"commonjs\"}' > ./src/_cjs/package.json",
-    "build:esm": "tsc --project ./tsconfig.build.json --module es2020 --outDir ./src/_esm && printf '{\"type\": \"module\",\"sideEffects\":false}' > ./src/_esm/package.json",
-    "build:types": "tsc --project ./tsconfig.build.json --module esnext --declarationDir ./src/_types --emitDeclarationOnly --declaration --declarationMap",
+    "build:cjs": "tsc -p tsconfig.build.cjs.json && printf '{\"type\":\"commonjs\"}' > ./src/_cjs/package.json",
+    "build:esm": "tsc -p tsconfig.build.esm.json && printf '{\"type\": \"module\",\"sideEffects\":false}' > ./src/_esm/package.json",
+    "build:types": "tsc -p tsconfig.build.types.json",
     "changeset:prepublish": "bun scripts/prepublish-only.ts && bun scripts/update-version.ts && pnpm build",
     "changeset:publish": "pnpm changeset:prepublish && changeset publish",
     "changeset:version": "changeset version && pnpm install --lockfile-only && pnpm format",
@@ -14,12 +14,10 @@
     "docs:dev": "pnpm --filter site dev",
     "docs:build": "pnpm --filter site build",
     "format": "biome format --write .",
-    "generate": "pnpm tsx ./src/chain/evm/generate.ts",
     "lint": "biome check --write .",
     "lint:dryrun": "biome check .",
     "lint:repo": "sherif",
     "lint:unused": "pnpm clean && knip",
-    "prepare": "pnpm generate",
     "preinstall": "pnpx only-allow pnpm",
     "prepublishOnly": "bun scripts/prepublish-only.ts",
     "test": "vitest -c ./test/vitest.config.ts dev",
@@ -36,16 +34,15 @@
     "@types/node": "20.16.5",
     "@types/seedrandom": "3.0.1",
     "@viem/anvil": "0.0.10",
-    "@vitest/coverage-v8": "2.1.1",
-    "@vitest/ui": "2.1.1",
+    "@vitest/coverage-v8": "3.2.2",
+    "@vitest/ui": "3.2.2",
     "bun": "1.1.28",
     "knip": "5.30.2",
     "sherif": "1.0.0",
-    "tsc-alias": "1.8.10",
     "tsx": "4.19.1",
-    "typescript": "5.5.4",
-    "viem": "2.21.55",
-    "vitest": "2.1.1",
+    "typescript": "5.8.3",
+    "viem": "2.29.0",
+    "vitest": "3.2.2",
     "zod": "3.24.1"
   },
   "packageManager": "pnpm@10.4.1",
@@ -69,10 +66,7 @@
         "project": "scripts/*.ts"
       },
       "src": {
-        "entry": [
-          "index.ts!",
-          "{abi,address,api,calculate,chain,config,contract,currency,data,dex,format,log,math,pool,router,sort,token-list,types,validate}/index.ts!"
-        ],
+        "entry": ["index.ts!", "{generic,evm,tvm,mvm}/index.ts!"],
         "ignore": []
       },
       "site": {
