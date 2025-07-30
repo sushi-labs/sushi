@@ -41,6 +41,14 @@ export abstract class Currency<
 
   abstract get id(): ID<TChainId, string, true>
 
+  get isNative(): boolean {
+    return this.type === 'native'
+  }
+
+  get isToken(): boolean {
+    return this.type === 'token'
+  }
+
   public isSame(other: Currency): boolean {
     return (
       this.chainId === other.chainId &&
