@@ -1,11 +1,12 @@
 import type { ChainId } from '../chain/chains.js'
 import type { ID } from '../types/id.js'
+import type { Native } from './native.js'
 import type { SerializedCurrency } from './serialized-currency.js'
 import type { Token } from './token.js'
 
 export type CurrencyMetadata = Record<string, unknown>
 
-export abstract class Currency<
+export abstract class BaseCurrency<
   TChainId extends ChainId = ChainId,
   TMetadata extends CurrencyMetadata = Record<string, unknown>,
 > {
@@ -17,6 +18,8 @@ export abstract class Currency<
   public readonly metadata: TMetadata
 
   public abstract readonly type: 'native' | 'token'
+  public abstract readonly isNative: boolean
+  public abstract readonly isToken: boolean
 
   constructor({
     chainId,
@@ -41,15 +44,7 @@ export abstract class Currency<
 
   abstract get id(): ID<TChainId, string, true>
 
-  get isNative(): boolean {
-    return this.type === 'native'
-  }
-
-  get isToken(): boolean {
-    return this.type === 'token'
-  }
-
-  public isSame(other: Currency): boolean {
+  public isSame(other: BaseCurrency): boolean {
     return (
       this.chainId === other.chainId &&
       this.decimals === other.decimals &&
@@ -61,3 +56,8 @@ export abstract class Currency<
 
   public abstract toJSON(): SerializedCurrency
 }
+
+export type Currency<
+  TChainId extends ChainId = ChainId,
+  TMetadata extends CurrencyMetadata = Record<string, unknown>,
+> = Native<TChainId> | Token<TChainId, string, TMetadata>
