@@ -1,13 +1,15 @@
 import type { ChainId } from '../chain/chains.js'
 import type { ID } from '../types/id.js'
-import { Currency, type CurrencyMetadata } from './currency.js'
+import { BaseCurrency, type CurrencyMetadata } from './currency.js'
 
 export abstract class Token<
   TChainId extends ChainId = ChainId,
   TAddress extends string = string,
   TMetadata extends CurrencyMetadata = Record<string, unknown>,
-> extends Currency<TChainId, TMetadata> {
+> extends BaseCurrency<TChainId, TMetadata> {
   override readonly type = 'token'
+  override readonly isNative = false
+  override readonly isToken = true
 
   private readonly _address: TAddress
 
@@ -16,7 +18,7 @@ export abstract class Token<
     ...rest
   }: {
     address: TAddress
-  } & ConstructorParameters<typeof Currency<TChainId, TMetadata>>[0]) {
+  } & ConstructorParameters<typeof BaseCurrency<TChainId, TMetadata>>[0]) {
     super(rest)
     this._address = address
   }
@@ -29,7 +31,7 @@ export abstract class Token<
     return `${this.chainId}:${this.address}`
   }
 
-  public override isSame(other: Currency): boolean {
+  public override isSame(other: BaseCurrency): boolean {
     return (
       super.isSame(other) &&
       other instanceof Token &&

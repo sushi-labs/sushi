@@ -1,10 +1,14 @@
 import { it } from 'node:test'
 import { describe, expectTypeOf } from 'vitest'
+import type { EvmCurrency } from '~/evm/currency/currency.js'
 import { EvmNative } from '../../evm/currency/native.js'
 import type { EvmToken } from '../../evm/currency/token.js'
 import { MvmToken } from '../../mvm/currency/token.js'
 import { TvmNative } from '../../tvm/currency/native.js'
 import type { TvmToken } from '../../tvm/currency/token.js'
+import type { Currency } from './currency.js'
+import type { Native } from './native.js'
+import type { Token } from './token.js'
 
 describe('generic/currency/currency.ts types', () => {
   describe('wrapCurrency', () => {
@@ -40,6 +44,48 @@ describe('generic/currency/currency.ts types', () => {
       })
 
       expectTypeOf(tvmMockToken.wrap()).toEqualTypeOf<TvmToken>()
+    })
+  })
+
+  describe('isNative/isToken', () => {
+    it('should correctly narrow the type based on isNative', () => {
+      const mockCurrency = {} as Currency
+
+      expectTypeOf(mockCurrency)
+        .extract<{ isNative: true }>()
+        .toEqualTypeOf<Native>()
+      expectTypeOf(mockCurrency)
+        .extract<{ isNative: false }>()
+        .toEqualTypeOf<Token>()
+
+      const mockEvmCurrency = {} as EvmCurrency
+
+      expectTypeOf(mockEvmCurrency)
+        .extract<{ isNative: true }>()
+        .toEqualTypeOf<EvmNative>()
+      expectTypeOf(mockEvmCurrency)
+        .extract<{ isNative: false }>()
+        .toEqualTypeOf<EvmToken>()
+    })
+
+    it('should correctly narrow the type based on isToken', () => {
+      const evmMockCurrency = {} as EvmCurrency
+
+      expectTypeOf(evmMockCurrency)
+        .extract<{ isToken: true }>()
+        .toEqualTypeOf<EvmToken>()
+      expectTypeOf(evmMockCurrency)
+        .extract<{ isToken: false }>()
+        .toEqualTypeOf<EvmNative>()
+
+      const mockEvmCurrency = {} as EvmCurrency
+
+      expectTypeOf(mockEvmCurrency)
+        .extract<{ isToken: true }>()
+        .toEqualTypeOf<EvmToken>()
+      expectTypeOf(mockEvmCurrency)
+        .extract<{ isToken: false }>()
+        .toEqualTypeOf<EvmNative>()
     })
   })
 })
