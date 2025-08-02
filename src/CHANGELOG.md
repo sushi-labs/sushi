@@ -1,5 +1,11 @@
 # sushi
 
+## 6.0.1
+
+### Patch Changes
+
+- [#246](https://github.com/sushi-labs/sushi/pull/246) [`0b6a723`](https://github.com/sushi-labs/sushi/commit/0b6a7236bc3bb0f0fad75e1687f8db89cf9fb01f) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Fixed isNative/isToken type narrowing
+
 ## 6.0.0
 
 ### Major Changes
