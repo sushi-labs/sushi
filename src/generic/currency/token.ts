@@ -11,7 +11,7 @@ export abstract class Token<
   override readonly isNative = false
   override readonly isToken = true
 
-  private readonly _address: TAddress
+  public readonly address: TAddress
 
   constructor({
     address,
@@ -20,11 +20,8 @@ export abstract class Token<
     address: TAddress
   } & ConstructorParameters<typeof BaseCurrency<TChainId, TMetadata>>[0]) {
     super(rest)
-    this._address = address
-  }
 
-  get address(): TAddress {
-    return this._address.toLowerCase() as TAddress
+    this.address = address.toLowerCase() as TAddress
   }
 
   override get id(): ID<TChainId, TAddress> {

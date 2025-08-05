@@ -53,7 +53,7 @@ export abstract class BaseCurrency<
     )
   }
 
-  public abstract wrap(): Token<TChainId, string, TMetadata>
+  public abstract wrap(): BaseCurrency<TChainId, TMetadata, TCurrencyType>
 
   public abstract toJSON(): SerializedCurrency
 }

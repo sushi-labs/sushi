@@ -1,16 +1,51 @@
 import { it } from 'node:test'
 import { describe, expectTypeOf } from 'vitest'
+import type { EvmChainId } from '~/evm/chain/chains.js'
 import type { EvmCurrency } from '~/evm/currency/currency.js'
+import type { EvmID } from '~/evm/types/id.js'
 import { EvmNative } from '../../evm/currency/native.js'
-import type { EvmToken } from '../../evm/currency/token.js'
+import { type EvmAddress, EvmToken } from '../../evm/currency/token.js'
 import { MvmToken } from '../../mvm/currency/token.js'
 import { TvmNative } from '../../tvm/currency/native.js'
 import type { TvmToken } from '../../tvm/currency/token.js'
-import type { Currency } from './currency.js'
+import { getChainIdAddressFromId } from '../utils/id.js'
+import {
+  BaseCurrency,
+  type Currency,
+  type CurrencyMetadata,
+} from './currency.js'
 import type { Native } from './native.js'
+import type { SerializedCurrency } from './serialized-currency.js'
 import type { Token } from './token.js'
 
 describe('generic/currency/currency.ts types', () => {
+  describe('id', () => {
+    it('should return the correct id for EvmNative', () => {
+      const evmMockNative = new EvmNative({
+        chainId: 1,
+        symbol: 'ETH',
+        name: 'Ethereum',
+        decimals: 18,
+      })
+
+      expectTypeOf(evmMockNative.id).toEqualTypeOf<`${EvmChainId}:NATIVE`>()
+    })
+
+    it('should return the correct id for EvmToken', () => {
+      const evmMockToken = new EvmToken({
+        chainId: 1,
+        address: '0x1234567890abcdef1234567890abcdef12345678',
+        symbol: 'USDT',
+        name: 'Tether USD',
+        decimals: 6,
+      })
+
+      expectTypeOf(
+        evmMockToken.id,
+      ).toEqualTypeOf<`${EvmChainId}:${EvmAddress}`>()
+    })
+  })
+
   describe('wrapCurrency', () => {
     it('should return the same chaintype - EVM', () => {
       const evmMockNative = new EvmNative({
@@ -86,6 +121,131 @@ describe('generic/currency/currency.ts types', () => {
       expectTypeOf(mockEvmCurrency)
         .extract<{ isToken: false }>()
         .toEqualTypeOf<EvmNative>()
+    })
+  })
+
+  describe('currency type extension', () => {
+    type CustomAddress = `${EvmAddress}-${EvmAddress}`
+
+    class CustomToken<
+        TMetadata extends CurrencyMetadata = Record<string, unknown>,
+      >
+      extends BaseCurrency<EvmChainId, TMetadata, 'vault-token'>
+      implements
+        Omit<Token<EvmChainId, CustomAddress>, 'type' | 'isToken' | 'wrap'>
+    {
+      override readonly type = 'vault-token'
+      override readonly isNative = false
+      override readonly isToken = false
+
+      public readonly tokenAddress
+      public readonly vaultAddress
+
+      public readonly address
+
+      constructor({
+        tokenAddress,
+        vaultAddress,
+        ...rest
+      }: { tokenAddress: EvmAddress; vaultAddress: EvmAddress } & Omit<
+        ConstructorParameters<
+          typeof Token<EvmChainId, CustomAddress, TMetadata>
+        >[0],
+        'address'
+      >) {
+        super({ ...rest })
+
+        this.tokenAddress = tokenAddress.toLowerCase() as EvmAddress
+        this.vaultAddress = vaultAddress.toLowerCase() as EvmAddress
+
+        this.address = `${this.vaultAddress}-${this.tokenAddress}` as const
+      }
+
+      get id() {
+        return `${this.chainId}:${this.vaultAddress}-${this.tokenAddress}` as const
+      }
+
+      wrap(): CustomToken<TMetadata> {
+        return this
+      }
+
+      toJSON() {
+        return {} as SerializedCurrency
+      }
+    }
+
+    type ExtendedCurrency = CustomToken | EvmNative | EvmToken
+
+    it('should narrow to the correct type', () => {
+      const customToken = new CustomToken({
+        chainId: 1,
+        vaultAddress: '0x1234567890abcdef1234567890abcdef12345678',
+        tokenAddress: '0xabcdefabcdefabcdefabcdefabcdefabcdefabcd',
+        symbol: 'CTK',
+        name: 'Custom Token',
+        decimals: 18,
+      }) as ExtendedCurrency
+
+      expectTypeOf(customToken)
+        .extract<{ type: 'vault-token' }>()
+        .toEqualTypeOf<CustomToken>()
+    })
+
+    it('should wrap to itself', () => {
+      const customToken = new CustomToken({
+        chainId: 1,
+        vaultAddress: '0x1234567890abcdef1234567890abcdef12345678',
+        tokenAddress: '0xabcdefabcdefabcdefabcdefabcdefabcdefabcd',
+        symbol: 'CTK',
+        name: 'Custom Token',
+        decimals: 18,
+      })
+
+      expectTypeOf(customToken.wrap()).toEqualTypeOf<CustomToken>()
+    })
+
+    it('should wrap to a union if a part of a union', () => {
+      const customToken = new CustomToken({
+        chainId: 1,
+        vaultAddress: '0x1234567890abcdef1234567890abcdef12345678',
+        tokenAddress: '0xabcdefabcdefabcdefabcdefabcdefabcdefabcd',
+        symbol: 'CTK',
+        name: 'Custom Token',
+        decimals: 18,
+      }) as ExtendedCurrency
+
+      expectTypeOf(customToken.wrap()).toEqualTypeOf<CustomToken | EvmToken>()
+    })
+
+    it('should have the correct id', () => {
+      const customToken = new CustomToken({
+        chainId: 1,
+        vaultAddress: '0x1234567890abcdef1234567890abcdef12345678',
+        tokenAddress: '0xabcdefabcdefabcdefabcdefabcdefabcdefabcd',
+        symbol: 'CTK',
+        name: 'Custom Token',
+        decimals: 18,
+      })
+
+      expectTypeOf(
+        customToken.id,
+      ).toEqualTypeOf<`${EvmChainId}:${EvmAddress}-${EvmAddress}`>()
+
+      expectTypeOf(getChainIdAddressFromId(customToken.id)).toEqualTypeOf<{
+        chainId: EvmChainId
+        address: `${EvmAddress}-${EvmAddress}`
+      }>()
+
+      const extendedCurrency = customToken as ExtendedCurrency
+
+      expectTypeOf(extendedCurrency.id).toEqualTypeOf<
+        `${EvmChainId}:${EvmAddress}-${EvmAddress}` | EvmID<true>
+      >()
+
+      expectTypeOf(getChainIdAddressFromId(extendedCurrency.id)).toEqualTypeOf<{
+        chainId: EvmChainId
+        address: `${EvmAddress}-${EvmAddress}` | EvmAddress | 'NATIVE'
+      }>
     })
   })
 })
