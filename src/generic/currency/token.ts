@@ -6,7 +6,7 @@ export abstract class Token<
   TChainId extends ChainId = ChainId,
   TAddress extends string = string,
   TMetadata extends CurrencyMetadata = Record<string, unknown>,
-> extends BaseCurrency<TChainId, TMetadata> {
+> extends BaseCurrency<TChainId, TMetadata, 'token'> {
   override readonly type = 'token'
   override readonly isNative = false
   override readonly isToken = true

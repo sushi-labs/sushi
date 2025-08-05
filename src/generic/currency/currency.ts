@@ -9,6 +9,7 @@ export type CurrencyMetadata = Record<string, unknown>
 export abstract class BaseCurrency<
   TChainId extends ChainId = ChainId,
   TMetadata extends CurrencyMetadata = Record<string, unknown>,
+  TCurrencyType extends string = string,
 > {
   public readonly chainId: TChainId
   public readonly symbol: string
@@ -17,7 +18,7 @@ export abstract class BaseCurrency<
 
   public readonly metadata: TMetadata
 
-  public abstract readonly type: 'native' | 'token'
+  public abstract readonly type: TCurrencyType
   public abstract readonly isNative: boolean
   public abstract readonly isToken: boolean
 
