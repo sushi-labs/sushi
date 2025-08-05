@@ -10,7 +10,13 @@ export function getChainIdAddressFromId<
   chainId: TChainId
   address: TAddress
 } {
-  const [chainId, address] = id.split(':') as [TChainId, TAddress]
+  const [chainId, address, ...rest] = id.split(':') as [TChainId, TAddress]
+
+  if (rest.length > 0) {
+    throw new Error(
+      `Invalid ID format: ${id}. Expected format is "chainId:address".`,
+    )
+  }
 
   if (!chainId || !address) {
     throw new Error(
