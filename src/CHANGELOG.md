@@ -1,5 +1,11 @@
 # sushi
 
+## 6.0.4
+
+### Patch Changes
+
+- [#252](https://github.com/sushi-labs/sushi/pull/252) [`0d530ed`](https://github.com/sushi-labs/sushi/commit/0d530edb5f4c708c0177abca5817711c1df0db1d) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Fix Currency 'toJSON' type compatibility
+
 ## 6.0.3
 
 ### Patch Changes
