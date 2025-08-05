@@ -1,5 +1,11 @@
 # sushi
 
+## 6.0.2
+
+### Patch Changes
+
+- [#248](https://github.com/sushi-labs/sushi/pull/248) [`114a0ff`](https://github.com/sushi-labs/sushi/commit/114a0ff4bbed8094075dff456f01ec4b8c161457) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Loosen currency type to allow for simpler extensions
+
 ## 6.0.1
 
 ### Patch Changes
