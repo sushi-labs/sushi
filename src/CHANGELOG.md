@@ -1,5 +1,11 @@
 # sushi
 
+## 6.0.3
+
+### Patch Changes
+
+- [#250](https://github.com/sushi-labs/sushi/pull/250) [`fe19aa7`](https://github.com/sushi-labs/sushi/commit/fe19aa725e2b2b49eb3cf65736231583edbbe05b) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Improve currency extensibility
+
 ## 6.0.2
 
 ### Patch Changes
