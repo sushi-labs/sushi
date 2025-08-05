@@ -15,7 +15,6 @@ import {
   type CurrencyMetadata,
 } from './currency.js'
 import type { Native } from './native.js'
-import type { SerializedCurrency } from './serialized-currency.js'
 import type { Token } from './token.js'
 
 describe('generic/currency/currency.ts types', () => {
@@ -126,13 +125,30 @@ describe('generic/currency/currency.ts types', () => {
 
   describe('currency type extension', () => {
     type CustomAddress = `${EvmAddress}-${EvmAddress}`
+    type SerializedCustomToken = {
+      chainId: EvmChainId
+      vaultAddress: EvmAddress
+      tokenAddress: EvmAddress
+      symbol: string
+      name: string
+      decimals: number
+      type: 'vault-token'
+    }
 
     class CustomToken<
         TMetadata extends CurrencyMetadata = Record<string, unknown>,
       >
-      extends BaseCurrency<EvmChainId, TMetadata, 'vault-token'>
+      extends BaseCurrency<
+        EvmChainId,
+        TMetadata,
+        'vault-token',
+        SerializedCustomToken
+      >
       implements
-        Omit<Token<EvmChainId, CustomAddress>, 'type' | 'isToken' | 'wrap'>
+        Omit<
+          Token<EvmChainId, CustomAddress>,
+          'type' | 'isToken' | 'wrap' | 'toJSON'
+        >
     {
       override readonly type = 'vault-token'
       override readonly isNative = false
@@ -169,8 +185,16 @@ describe('generic/currency/currency.ts types', () => {
         return this
       }
 
-      toJSON() {
-        return {} as SerializedCurrency
+      toJSON(): SerializedCustomToken {
+        return {
+          chainId: this.chainId,
+          vaultAddress: this.vaultAddress,
+          tokenAddress: this.tokenAddress,
+          symbol: this.symbol,
+          name: this.name,
+          decimals: this.decimals,
+          type: this.type,
+        }
       }
     }
 

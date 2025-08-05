@@ -10,6 +10,7 @@ export abstract class BaseCurrency<
   TChainId extends ChainId = ChainId,
   TMetadata extends CurrencyMetadata = Record<string, unknown>,
   TCurrencyType extends string = string,
+  TSerializedCurrency extends object = SerializedCurrency,
 > {
   public readonly chainId: TChainId
   public readonly symbol: string
@@ -53,9 +54,14 @@ export abstract class BaseCurrency<
     )
   }
 
-  public abstract wrap(): BaseCurrency<TChainId, TMetadata, TCurrencyType>
+  public abstract wrap(): BaseCurrency<
+    TChainId,
+    TMetadata,
+    TCurrencyType,
+    TSerializedCurrency
+  >
 
-  public abstract toJSON(): SerializedCurrency
+  public abstract toJSON(): TSerializedCurrency
 }
 
 export type Currency<
