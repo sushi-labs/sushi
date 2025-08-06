@@ -46,7 +46,9 @@ export abstract class BaseCurrency<
 
   abstract get id(): ID<TChainId, string, true>
 
-  public isSame(other: BaseCurrency): boolean {
+  public isSame(
+    other: BaseCurrency<ChainId, CurrencyMetadata, string, object>,
+  ): boolean {
     return (
       this.chainId === other.chainId &&
       this.decimals === other.decimals &&

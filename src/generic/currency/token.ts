@@ -28,7 +28,9 @@ export abstract class Token<
     return `${this.chainId}:${this.address}`
   }
 
-  public override isSame(other: BaseCurrency): boolean {
+  public override isSame(
+    other: BaseCurrency<ChainId, CurrencyMetadata, string, object>,
+  ): boolean {
     return (
       super.isSame(other) &&
       other instanceof Token &&
