@@ -1,5 +1,11 @@
 # sushi
 
+## 6.0.5
+
+### Patch Changes
+
+- [#255](https://github.com/sushi-labs/sushi/pull/255) [`33515e0`](https://github.com/sushi-labs/sushi/commit/33515e06ea6660fca3826be3eb594951b184d22d) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Fix isSame function on BaseCurrency
+
 ## 6.0.4
 
 ### Patch Changes
