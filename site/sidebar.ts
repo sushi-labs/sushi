@@ -143,6 +143,7 @@ export const sidebar = {
             { text: 'xSUSHI', link: '/contracts/xsushi' },
           ],
         },
+        { text: 'Blade', link: '/contracts/blade' },
       ],
     },
     {
@@ -153,6 +154,7 @@ export const sidebar = {
         { text: 'clAMM (SushiSwap V3)', link: '/subgraphs/clamm' },
         { text: 'cpAMM (SushiSwap V2)', link: '/subgraphs/cpamm' },
         { text: 'xSUSHI', link: '/subgraphs/xsushi' },
+        { text: 'Blade', link: '/subgraphs/blade' },
         // { text: 'Quote', link: '/api/quote' },
       ],
     },
@@ -171,6 +173,7 @@ export const sidebar = {
             },
           ],
         },
+       
         {
           text: 'AMM',
           collapsed: true,
@@ -191,6 +194,85 @@ export const sidebar = {
             //   text: 'lbAMM',
             //   link: '/amm/lbamm',
             // },
+          ],
+        },
+        {
+          text: 'Blade',
+          collapsed: true,
+          items: [
+            {
+              text: 'Introduction',
+              collapsed: false,
+              items: [
+                {
+                  text: 'What is Blade?',
+                  link: '/blade/introduction',
+                },
+                {
+                  text: 'How Blade Makes Money for LPs',
+                  link: '/blade/introduction/how-blade-makes-money-for-lps',
+                },
+                {
+                  text: 'How LPs Earn from Arbitrage',
+                  link: '/blade/introduction/how-lps-earn-from-arbitrage',
+                },
+                {
+                  text: 'Blade\'s Benchmark: No Impermanent Loss',
+                  collapsed: true,
+                  items: [
+                    {
+                      text: 'Overview',
+                      link: '/blade/introduction/blades-benchmark-no-impermanent-loss',
+                    },
+                    {
+                      text: 'Blade vs. CPMMs vs. HODLing',
+                      link: '/blade/introduction/blades-benchmark-no-impermanent-loss/blade-vs-cpmms-vs-hodling',
+                    },
+                    {
+                      text: 'Appendix: Math',
+                      link: '/blade/introduction/blades-benchmark-no-impermanent-loss/appendix-math',
+                    },
+                  ],
+                },
+                {
+                  text: 'Why Blade Has Better Trading Prices',
+                  link: '/blade/introduction/why-blade-has-better-trading-prices',
+                },
+              ],
+            },
+            {
+              text: 'How to Use Blade',
+              collapsed: true,
+              items: [
+                {
+                  text: 'Liquidity Pools',
+                  collapsed: true,
+                  items: [
+                    {
+                      text: 'Overview',
+                      link: '/blade/how-to-use-blade/liquidity-pools',
+                    },
+                    {
+                      text: 'Depositing & Withdrawing',
+                      link: '/blade/how-to-use-blade/liquidity-pools/depositing-and-withdrawing',
+                    },
+                    {
+                      text: 'Farming Pools',
+                      link: '/blade/how-to-use-blade/liquidity-pools/farming-pools',
+                    },
+                  ],
+                },
+                {
+                  text: 'Trading',
+                  link: '/blade/how-to-use-blade/trading',
+                },
+                {
+                  text: 'FAQs',
+                  link: '/blade/how-to-use-blade/faqs',
+                },
+              ],
+            },
+
           ],
         },
       ],

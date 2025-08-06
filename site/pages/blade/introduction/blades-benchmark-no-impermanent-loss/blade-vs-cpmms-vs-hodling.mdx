@@ -1,0 +1,34 @@
+# Blade vs. CPMMs vs. HODLing
+
+Blade's rebalancing strategy generally performs better than CPMMs (used by most DEXs) or HODLing, but it of course depends on market behavior.
+
+### Blade vs. The CPMM
+
+Both Blade and the CPMM provide beta exposure (return attributed to overall market returns) to the assets in their respective pools. However, the similarities end there. Instead of rebalancing as conceived of in Modern Portfolio Theory, the CPMM trades according to its inherent x\*y = k function. While Blade provides alpha, the CPMM generates _negative_ alpha, better known as impermanent loss. At best, if prices haven't moved by the end of the period the CPMM generates no loss. If prices have moved in either direction, there is substantial loss. The CPMM generates no profit from short-term volatility and loses money from long-term volatility. Meanwhile, yield comes not from the rebalancing process but rather from arbitrary fees charged to traders on top of trade prices.
+
+In other words, impermanent loss is not an attribute of all DEXs, it is an attribute solely of CPMM-based AMMs. Conceptually, the CPMM "sells low and buys high" as prices change, which is the opposite of Blade's strategy (and common sense). The below figure shows how CPMMs only account for an asset's beginning and ending prices. In contrast, Blade's strategy accounts for price movements in the interim and profits from volatility.
+
+<div align="center">
+
+![CPMM vs Blade Strategy Comparison](/images/blade/image%20(2).png)
+
+</div>
+
+As you can see, the attributes of the CPMM are not very favorable to LPs. Why then is it used by all first-generation DEXs? Because it is extremely simple to implement. It is also simple to calculate on-chain, which makes gas costs low. This tradeoff between gas and complexity is what Blade's FMM architecture overcomes.
+
+👉 **See Appendix for math on the CPMM vs** Blade
+
+### Comparing Yields
+
+Because the DeFi community is so used to CPMM DEXs, APY comparisons assume all pools are structured as CPMMs with trading fees and impermanent loss. Because Blade does not have explicit trading fees or impermanent loss, it's difficult to directly compare Blade's bottom-line LP figures with the top-line revenue numbers CPMM-based DEXs use. To ensure full transparency and keep LPs informed, Blade reports comparable metrics and historical earnings on Blade's data dashboard.
+
+### Blade vs. HODLing
+
+Blade has an objectively better risk-return profile than HODLing and should outperform it in current market regimes. However, there are price series' that could result in better returns from HODLing. To provide concrete data, below are several months of Blade's performance vs. HODLing an equivalent initial portfolio.
+
+| Month      | Blade's Performance (bps) | HODL Performance (bps) |
+| ---------- | ------------------------- | ---------------------- |
+| April 2023 | +213                      | +185                   |
+| May 2023   | -5                        | -14                    |
+| June 2023  | +472                      | +458                   |
+| July 2023  | -169                      | -177                   |

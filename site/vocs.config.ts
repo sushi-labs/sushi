@@ -1,6 +1,8 @@
 import { defineConfig } from 'vocs'
 import pkg from '../src/package.json'
 import { sidebar } from './sidebar'
+import remarkMath from 'remark-math'
+import rehypeMathjax from 'rehype-mathjax'
 
 export default defineConfig({
   baseUrl:
@@ -60,6 +62,14 @@ export default defineConfig({
       link: 'https://www.sushi.com/twitter',
     },
   ],
+  markdown: { 
+    remarkPlugins: [ 
+      [remarkMath, { singleDollarTextMath: false }],
+    ],
+    rehypePlugins: [
+      rehypeMathjax
+    ]
+  }, 
   vite: {
     ssr: {
       noExternal: ['sushi'], // <— force vocs to bundle sushi

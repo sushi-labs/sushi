@@ -1,0 +1,66 @@
+# Appendix: Math
+
+## Setup
+
+Each day we have five relevant values:
+
+* Yesterday's asset prices in dollars, p'
+* Today's asset prices in dollars, p
+* Yesterday's (human) quantity vector, q' on a _per LP token_ basis
+* Today's (human) quantity vector, q on a _per LP token_ basis
+* Our target wealths vector, v, which we take to be wealth fractions:
+
+$$
+\sum_i v_i = 1 \ \ \ v_i \geq 0
+$$
+
+Observe that v should _tend to_ be proportional to the actual wealth (q\_i\*p\_i) on each asset i.
+
+### Calculating Daily Returns & Benchmarks
+
+All of these benchmarks are designed so that 0 represents no change. Since the values are expected to be small, they may not need to have log taken for additive basis points.
+
+**Daily $ Returns**
+
+$$
+\frac{\sum_i p_iq_i - \sum_i p'_iq'_i}{\sum_i p'_iq'_i}
+$$
+
+This measures how much the portfolio increased in $ terms since yesterday.
+
+### Daily Crypto Basis Returns
+
+$$
+\frac{\sum_i p_iq_i - \sum_i p_iq'_i}{\sum_i p_iq'_i}
+$$
+
+This value will be negative if we would prefer yesterday's portfolio to today's portfolio at today's prices.
+
+### Rebalanced Portfolio Benchmark
+
+$$
+\sum_i \left(\frac{p_i}{p'_i}\right) v_i - 1
+$$
+
+This is our target benchmark for Blade: our daily dollar gain should track it closely and ideally outperform.
+
+Observe that a rebalanced portfolio can _outperform_ a static ("held") portfolio consisting of any (!) initial combination of the assets themselves. For instance, imagine the two-asset case consisting of a risky asset and a stablecoin. On day one, the risky asset doubles in price. On day two the risky asset returns to its original value. It can be verified that a 50-50 rebalanced portfolio will return 1.125x, vs. 1x for simply holding any combination of assets for the two days.
+
+### CPMM Loss Benchmark
+
+In the CPMM, we have that:
+
+$$
+\begin{align*} 
+\prod q_i^{v_i} & = C \\
+\sum_i v_i \log q_i & = \log C
+\end{align*}
+$$
+
+Day-to-day, the portfolio of the CPMM changes to have wealth proportional to the new set of prices. By working out this constant log-sum, we get the following expression for how much "impermanent" loss a CPMM mechanism takes on:
+
+$$
+\frac{\prod_i \left( \frac{p_i}{p'_i} \right)^{v_i} - \sum_i \left( \frac{p_i}{p'_i} \right)v_i}{\sum_i \left( \frac{p_i}{p'_i} \right)v_i}
+$$
+
+This value is at most 0 when the prices are the same. Blade's crypto performance (loss or gain) should substantially outperform this benchmark.
