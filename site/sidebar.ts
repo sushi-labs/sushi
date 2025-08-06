@@ -256,15 +256,7 @@ export const sidebar = {
                       text: 'Depositing & Withdrawing',
                       link: '/blade/how-to-use-blade/liquidity-pools/depositing-and-withdrawing',
                     },
-                    {
-                      text: 'Farming Pools',
-                      link: '/blade/how-to-use-blade/liquidity-pools/farming-pools',
-                    },
                   ],
-                },
-                {
-                  text: 'Trading',
-                  link: '/blade/how-to-use-blade/trading',
                 },
                 {
                   text: 'FAQs',
