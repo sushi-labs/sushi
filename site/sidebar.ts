@@ -173,7 +173,7 @@ export const sidebar = {
             },
           ],
         },
-       
+
         {
           text: 'AMM',
           collapsed: true,
@@ -217,7 +217,7 @@ export const sidebar = {
                   link: '/blade/introduction/how-lps-earn-from-arbitrage',
                 },
                 {
-                  text: 'Blade\'s Benchmark: No Impermanent Loss',
+                  text: "Blade's Benchmark: No Impermanent Loss",
                   collapsed: true,
                   items: [
                     {
@@ -264,7 +264,6 @@ export const sidebar = {
                 },
               ],
             },
-
           ],
         },
       ],

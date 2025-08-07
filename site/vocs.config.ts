@@ -63,18 +63,12 @@ export default defineConfig({
       link: 'https://www.sushi.com/twitter',
     },
   ],
-  markdown: { 
-    remarkPlugins: [ 
-      [remarkMath, { singleDollarTextMath: false }],
-    ],
-    rehypePlugins: [
-      rehypeMathjax
-    ]
-  }, 
+  markdown: {
+    remarkPlugins: [[remarkMath, { singleDollarTextMath: false }]],
+    rehypePlugins: [rehypeMathjax],
+  },
   llms: {
-    extensions: [
-      mathToMarkdown()
-    ]
+    extensions: [mathToMarkdown()],
   },
   vite: {
     ssr: {

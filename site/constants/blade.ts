@@ -52,16 +52,17 @@ export const BLADE_COVE_ADDRESSES: Record<BladeChainId, EvmAddress[]> = {
 }
 
 // Blade Permit Router addresses (for gasless transactions)
-export const BLADE_PERMIT_ROUTER_ADDRESSES: Record<BladeChainId, EvmAddress[]> = {
-  [EvmChainId.ETHEREUM]: [],
-  [EvmChainId.POLYGON]: ['0xF33141BC4E9D1d92a2Adba2fa27A09c2DA2AF3eB'],
-  [EvmChainId.POLYGON_ZKEVM]: ['0x93a5943e3091e94aA16f0813BB6901C3E9D4eB98'],
-  [EvmChainId.OPTIMISM]: ['0xF33141BC4E9D1d92a2Adba2fa27A09c2DA2AF3eB'],
-  [EvmChainId.ARBITRUM]: ['0x93a5943e3091e94aA16f0813BB6901C3E9D4eB98'],
-  [EvmChainId.BASE]: ['0x41c5362ADf3a2Cf6815454F7633172e7F6C1f834'],
-  [EvmChainId.MANTLE]: [],
-  [EvmChainId.KATANA]: [],
-}
+export const BLADE_PERMIT_ROUTER_ADDRESSES: Record<BladeChainId, EvmAddress[]> =
+  {
+    [EvmChainId.ETHEREUM]: [],
+    [EvmChainId.POLYGON]: ['0xF33141BC4E9D1d92a2Adba2fa27A09c2DA2AF3eB'],
+    [EvmChainId.POLYGON_ZKEVM]: ['0x93a5943e3091e94aA16f0813BB6901C3E9D4eB98'],
+    [EvmChainId.OPTIMISM]: ['0xF33141BC4E9D1d92a2Adba2fa27A09c2DA2AF3eB'],
+    [EvmChainId.ARBITRUM]: ['0x93a5943e3091e94aA16f0813BB6901C3E9D4eB98'],
+    [EvmChainId.BASE]: ['0x41c5362ADf3a2Cf6815454F7633172e7F6C1f834'],
+    [EvmChainId.MANTLE]: [],
+    [EvmChainId.KATANA]: [],
+  }
 
 // LP Transfer contracts
 export const BLADE_LP_TRANSFER_ADDRESSES: Record<BladeChainId, EvmAddress[]> = {
@@ -105,7 +106,10 @@ export const BLADE_FEE_SPLIT_ADDRESSES: Record<BladeChainId, EvmAddress[]> = {
 }
 
 // Blade Farm Fee Split contracts
-export const BLADE_FARM_FEE_SPLIT_ADDRESSES: Record<BladeChainId, EvmAddress[]> = {
+export const BLADE_FARM_FEE_SPLIT_ADDRESSES: Record<
+  BladeChainId,
+  EvmAddress[]
+> = {
   [EvmChainId.ETHEREUM]: [
     '0xD0454428ecd868A9AC615125FCbDB5Da9027436e', // Farm fee split
   ],
@@ -137,7 +141,10 @@ export const BLADE_VAULT_ADDRESSES: Record<BladeChainId, EvmAddress[]> = {
 }
 
 // Blade Farming Helper contracts
-export const BLADE_FARMING_HELPER_ADDRESSES: Record<BladeChainId, EvmAddress[]> = {
+export const BLADE_FARMING_HELPER_ADDRESSES: Record<
+  BladeChainId,
+  EvmAddress[]
+> = {
   [EvmChainId.ETHEREUM]: [
     '0x6e3FB8a019E78785E80cea1d413Bc3Ab650c2449', // Farming helper
   ],
@@ -153,7 +160,10 @@ export const BLADE_FARMING_HELPER_ADDRESSES: Record<BladeChainId, EvmAddress[]> 
 }
 
 // Blade Transfer Helper contracts
-export const BLADE_TRANSFER_HELPER_ADDRESSES: Record<BladeChainId, EvmAddress[]> = {
+export const BLADE_TRANSFER_HELPER_ADDRESSES: Record<
+  BladeChainId,
+  EvmAddress[]
+> = {
   [EvmChainId.ETHEREUM]: [
     '0x12bb166F997146D3d33645146eEdBC4a923195D7', // Transfer helper
   ],

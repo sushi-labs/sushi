@@ -70,9 +70,9 @@ export const NetworkTable: FC<NetworkTable> = ({
   )
 }
 
-export const AddressTable: FC<{ data: Record<EvmChainId, EvmAddress | EvmAddress[]> }> = ({
-  data,
-}) => {
+export const AddressTable: FC<{
+  data: Record<EvmChainId, EvmAddress | EvmAddress[]>
+}> = ({ data }) => {
   return (
     <NetworkTable
       data={data}
