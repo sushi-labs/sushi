@@ -3,6 +3,7 @@ import pkg from '../src/package.json'
 import { sidebar } from './sidebar'
 import remarkMath from 'remark-math'
 import rehypeMathjax from 'rehype-mathjax'
+import { mathToMarkdown } from 'mdast-util-math'
 
 export default defineConfig({
   baseUrl:
@@ -70,6 +71,11 @@ export default defineConfig({
       rehypeMathjax
     ]
   }, 
+  llms: {
+    extensions: [
+      mathToMarkdown()
+    ]
+  },
   vite: {
     ssr: {
       noExternal: ['sushi'], // <— force vocs to bundle sushi

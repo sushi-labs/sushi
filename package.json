@@ -50,7 +50,10 @@
     "node": "20.x"
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["@biomejs/biome"]
+    "onlyBuiltDependencies": ["@biomejs/biome"],
+    "patchedDependencies": {
+      "vocs": "patches/vocs.patch"
+    }
   },
   "knip": {
     "ignore": [".github/**", "environments/**", "vectors/**"],

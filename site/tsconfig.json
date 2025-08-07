@@ -20,5 +20,10 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["**/*.ts", "**/*.tsx", "pages/sdk/viem.mdx"]
+  "mdx": {
+    "plugins": [
+      ["remark-math", { "singleDollarTextMath": false }]
+    ]
+  },
+  "include": ["**/*.ts", "**/*.tsx", "pages/**/*.mdx"]
 }
