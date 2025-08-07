@@ -1,4 +1,4 @@
-import { EvmChainId, type BladeChainId, type EvmAddress } from 'sushi/evm'
+import { type BladeChainId, type EvmAddress, EvmChainId } from 'sushi/evm'
 
 // Blade Pool addresses by chain (multiple pools per chain)
 export const BLADE_POOL_ADDRESSES: Record<BladeChainId, EvmAddress[]> = {
