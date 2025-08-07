@@ -18,11 +18,11 @@ _**Note:** Blade is "Clipper" in the chart below; Clipper was the initial name o
 
 Blade was within 1 bps of the DRP for more than three-quarters of the days in the period. For those days where Blade and the DRP diverged by more than 1 bps, Blade was in the leading position more than two-thirds of the time (23% vs. 10% of days).
 
-<div align="center">
-
-![Blade LP Daily Performance vs Benchmark](/images/blade/blade-lp-daily-perf-vs-benchmark.png)
-
-</div>
+| **Blade LP Daily Performance vs. Benchmark** | **Frequency** |
+| -------------------------------------------- | ----------- |
+| > 1 basis point worse                        | 10%         |
+| 1 basis point worse to 1 basis point better  | 77%         |
+| > 1 basis point better                       | 23%         |
 
 The reason for return divergence is that Blade's FMM will make trades continuously with traders over the course of a day, while the theoretical DRP is simulated to costlessly rebalance _once_ per day. Despite the divergences, the daily correlation of percent returns to the returns of the DRP was extremely high at ρ = 0.9996.
 
