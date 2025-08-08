@@ -1,0 +1,41 @@
+import { Callout } from 'vocs/components'
+
+# How LPs Earn from Arbitrage
+
+Rather than from trading fees, Blade generates LP returns by pursuing a statistical arbitrage strategy similar to many traditional finance asset managers. However, it does so permissionlessly according to a formula that anyone can observe, predict, and verify for themselves. This ensures composability and enables non-custodial liquidity.
+
+The specific strategy is a Daily Rebalancing Portfolio (DRP). This is a common strategy for commodities trading.
+
+> **Example of how rebalancing works:** Imagine a $2,000 dual-asset portfolio with target allocations of 50% ETH and 50% USDC. On day one, ETH doubles in price, raising the ETH allocation in the portfolio from $1,000 to $2,000. The portfolio allocation is now 66% ETH ($2,000) and 33% USDC ($1,000) and must be rebalanced back to 50/50. This is accomplished by selling $500 worth of ETH for USDC, returning the portfolio to 50% ETH ($1,500) and 50% USDC ($1,500).
+
+Daily rebalancing works whenever assets have high daily volatility and mean reversion relative to monthly/yearly volatility. This is because daily rebalancing has the effect of systematically buying low and selling high each day. It generates profits each day, which are the source of yield for Blade LPs. This is a well-researched phenomenon that earned Harry Markowitz the [Nobel Prize](https://www.nobelprize.org/prizes/economic-sciences/1990/press-release/?ref=docs.sushi.com) in Economics in 1990.
+
+> **Example of how rebalancing profits:** Imagine the aforementioned 50/50 ETH-USDC portfolio. On day two, ETH drops to its original value of $1,000. The portfolio again must be rebalanced by selling $375 USDC for ETH, resulting in $1,125 in ETH and $1,125 USDC, totaling $2,250. This is a 1.125x return. If the same assets had simply been held for the two days, the return would only be 1x (no return).
+
+👉 [**Spreadsheet**](https://docs.google.com/spreadsheets/d/1cZbJ18QvBuIcTofajTeAzVAdT5CmoUGzIN2nr12-8os/edit#gid=0) **showing how this works.**
+
+👉 **Research on** [**Portfolio Rebalancing**](https://seekingalpha.com/article/4046116-investors-alpha-systematic-portfolio-rebalancing?ref=docs.sushi.com) **and** [**A Mathematical and Empirical Analysis of Rebalancing Alpha**](https://www.researchgate.net/publication/228179008_Optimal_Rebalancing_A_Scalable_Solution?ref=docs.sushi.com)
+
+It turns out that blue-chip crypto assets, specifically ETH and WBTC, trade like commodities, just like gold and oil. This means a daily rebalancing statistical arbitrage strategy will work for them.
+
+> **Evidence:** A Hurst Exponent test we ran (below) on the price movements of ETH from late 2015 through May 2023 shows that from mid-2018 onward ETH has typically been either memoryless or mean reverting, whereas prior to that it was noticeably momentum driven. This verifies that ETH prices seem to be more mean reverting as the asset has matured, making it a prime candidate for rebalancing. This is typically the case with blue-chip crypto assets, such as the Core Assets included in Clipper's Core pools.
+
+<Callout type="note">
+In a memoryless price series, variance over 90-day windows should be 3x the variance at the 30-day window. A momentum price series will be above 3, and a mean-reverting series will be below 3.
+</Callout>
+
+<div align="center">
+
+![Hurst Exponent Analysis](/images/blade/hurst-exponent-analysis.png)
+
+</div>
+
+This strategy is especially attractive because Blade rebalances without having to pay transaction costs that otherwise create "performance drag." Instead, Blade executes its trades with the noisy order flow from traders. Volume in Blade's pools turns over extremely fast—sometimes multiple times per week. This means that traders will quickly rebalance Blade's pools for it. In other words, traders pay the transaction costs instead of Blade, eliminating performance drag.
+
+👉 **Research on** [**Rebalancing Portfolios With and Without Transaction Costs**](https://www.cs.cmu.edu/~avrim/Papers/portfolio.pdf?ref=docs.sushi.com)
+
+### The Diversified Portfolio Also Reduces Risk
+
+A well-diversified, rebalancing portfolio has other benefits as well. Modern Portfolio Theory states that such a portfolio results in better long-term returns at a lower level of risk than investing solely in any one asset. Many financial advisors recommend a classic personal portfolio of [60% stocks and 40% bonds](https://www.nytimes.com/2015/04/12/business/mutfund/the-value-of-a-classic-in-a-turbocharged-world.html). Theoretically, this is an optimal way to gain exposure to an asset class. This long-term additional return further enhances Blade's yields.
+
+👉 **Research on** [**Universal Portfolios**](https://isl.stanford.edu/~cover/papers/paper93.pdf?ref=docs.sushi.com)**, which increase long-term return while decreasing risk**

@@ -25,7 +25,7 @@ const formatCode: NetworkTableFormatter = ({ value }) => (
 
 interface NetworkTable {
   title: string
-  data: Record<EvmChainId, EvmAddress>
+  data: Record<EvmChainId, EvmAddress | EvmAddress[]>
   formatter?: NetworkTableFormatter
 }
 
@@ -45,13 +45,22 @@ export const NetworkTable: FC<NetworkTable> = ({
       <tbody>
         {Object.entries(data).map(([key, value]) => {
           const chainId = +key as EvmChainId
+          if (!value || value.length === 0) return null
           return (
             <tr key={key} className="vocs_TableRow">
               <td className="vocs_TableCell">
                 {getEvmChainById(chainId).name.toUpperCase()}
               </td>
               <td className="vocs_TableCell">
-                {formatter ? formatter({ chainId, value }) : value}
+                {Array.isArray(value) ? (
+                  <ul>
+                    {value.map((v) => (
+                      <li key={v}>{formatter({ chainId, value: v })}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  formatter({ chainId, value })
+                )}
               </td>
             </tr>
           )
@@ -61,9 +70,9 @@ export const NetworkTable: FC<NetworkTable> = ({
   )
 }
 
-export const AddressTable: FC<{ data: Record<EvmChainId, EvmAddress> }> = ({
-  data,
-}) => {
+export const AddressTable: FC<{
+  data: Record<EvmChainId, EvmAddress | EvmAddress[]>
+}> = ({ data }) => {
   return (
     <NetworkTable
       data={data}

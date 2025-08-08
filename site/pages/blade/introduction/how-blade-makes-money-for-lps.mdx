@@ -1,0 +1,23 @@
+import { Callout } from 'vocs/components'
+
+# How Blade Makes Money for LPs
+
+Blade makes money for LPs through arbitrage. This requires significantly more sophisticated formulas than can be supported on-chain, given gas prices and block time constraints. Thus, Blade does not rely on the Constant Product Market Maker (CPMM) used by most DEXs. Instead, Blade has a unique architecture called the Formula Market Maker (FMM), which enables off-chain computation without compromising custody.
+
+### FMM Architecture
+
+Blade's FMM is a hybrid mechanism that has both on-chain and off-chain components. Unlike CPMMs whose pricing formulas only consider token ratios in pools, the FMM pricing function utilizes both token ratios and external real-time market prices from centralized and decentralized oracles. Blade's FMM performs pricing computations off-chain then verifies and validates them on-chain to prevent malicious quotes and determine if there have been any significant price changes between the time pricing data was pulled off-chain and applied to an on-chain swap. This design is highly efficient--keeping the hard work of solving formulas off-chain and verifying them on-chain avoids high gas costs while keeping the entire system trustless and transparent.
+
+While the above describes how the FMM operates on the Polygon, Optimism, and Arbitrum versions of Blade, on **Ethereum** it performs the comparative price computations and validations off-chain against the on-chain data. This further reduced Blade's gas usage on Ethereum, resulting in even lower gas costs for both traders and LPs—_both relative to the previous iteration and other leading DEXs._
+
+### No Impermanent Loss
+
+There's a major misconception that impermanent loss (IL) is an unavoidable feature of DEX liquidity pools. The misconception came about because most DEXs utilize a CPMM. CPMMs _are_ inherently prone to IL due to how they balance liquidity pool assets. Tokens on CPMM-based DEXs are priced by a constant function (x\*y=k) and IL is caused by arbitrageurs exploiting discrepancies between the prices set by the CPMM and external market prices. While arbitrage activity keeps CPMM prices in line with the rest of the market, the profit arbitrageurs extract is siphoned from LP holdings.
+
+> 💡 Despite its name, _impermanent loss_ is a real risk that can have lasting and detrimental effects on LP returns. LPs realize this loss if upon withdrawing their stake from the pool, the value of the assets they retrieve is lower (at current market prices) than if they had simply held them.
+
+Impermanent loss can be avoided by using a more sophisticated market maker with better pricing information. Blade's FMM uses both the token ratios in pools and decentralized price oracles to balance assets, instead of a constant function. The price oracles make it so that when external market prices change, Blade's prices update without the need for arbitrage trades. **The absence of impermanent loss contributes to superior LP yields!**
+
+<Callout type="note">
+Note: This doesn't mean that Blade LPs are always profitable; all yield-generating opportunities come with a degree of risk. Blade tracks the rebalancing portfolio you may have learned about in [Modern Portfolio Theory](https://en.wikipedia.org/wiki/Modern_portfolio_theory). This portfolio provides optimal risk-adjusted beta exposure while generating free alpha from volatility along the way. It's the approach that won a Nobel Prize in 1990.
+</Callout>

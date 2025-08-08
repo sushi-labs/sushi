@@ -1,0 +1,23 @@
+import { Callout } from 'vocs/components'
+
+# Depositing & Withdrawing
+
+## Depositing
+
+The only requirement for providing liquidity on Blade is that your wallet is not on the OFAC list. To deposit, simply connect your wallet and follow the on-screen prompts.
+
+### Blade LP Tokens
+
+Upon deposit, you will receive LP tokens. These tokens represent your fractional ownership of the underlying pool and have **no value** other than this representation. Their purpose is to enable Blade to normalize each LP's deposits and withdrawal amounts by calculating their pool ownership value per token. Hold on to your LP tokens, **you will need them for withdrawal**.
+
+The rewards you collect as an LP will be added to the overall value of your deposit and can be withdrawn at the same time as your principal.
+
+## Withdrawing LP Deposits & Rewards
+
+<Callout type="note">
+Blade is a non-custodial mechanism. Even if the Blade web page goes down, unlocking and burning LP tokens to withdraw assets are operations that are always available by directly interacting with the smart contracts on the blockchain.
+</Callout>
+
+To withdraw, you must redeem (burn) your LP tokens. You will have the option to withdraw either a single asset or a pro rata share of all tokens in the multi-asset pool.
+
+If you choose the second option, the relative composition of tokens is determined by each asset's external market prices, which Blade uses to calculate the value per token for the pool. This is done by taking the value of the assets at those external market prices and dividing that value by the total number of tokens in the pool.

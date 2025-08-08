@@ -1,0 +1,61 @@
+# FAQs
+
+### General
+
+**Who is the team behind Blade?**
+
+Blade was built by Shipyard Software, a leading design shop that develops custom-built DEXs, under Sushi Labs.
+
+**Can I use a hardware wallet on Blade?**
+
+Yes, any hardware wallet that is compatible with your crypto assets' token standards can be used with Blade.
+
+### Liquidity
+
+**Who can be a Blade LP?**
+
+The only requirement is that your wallet is not on the OFAC list.
+
+**Is there a limit on how much liquidity I can deposit?**
+
+No.
+
+**Is there any lockup period for LP deposits?**
+
+No.
+
+**How does a token's current balance in a Core pool affect the value of a deposit?**
+
+LPs will be granted a larger number of pool tokens (and therefore, a higher percentage of pool ownership) for depositing assets that are currently undersupplied in the pool.
+
+By looking at the star rating next to each asset in Core pools, you can see how its supply in the pool will impact your deposit. (i.e., an asset with a 3-star rating is undersupplied, therefore a deposit of this asset may be more likely to increase in value. An asset with a 1-star or 0-star rating is oversupplied in the pool, therefore a deposit of this asset may be less likely to increase in value.)
+
+**On the Blade data page, what is "Profit Yield"?**
+
+This net trading gain figure is the sum of the positive difference between Blade input and output on swaps, according to on-chain price oracles. This figure is the best entirely on-chain auditable proxy for Blade LP's excess gains over and above the DRP benchmark. This is what the DAO takes its fees from.
+
+**On the Blade data page, what is "Comparable APY"? How does it relate to impermanent loss?**
+
+Top-line yield that includes the impermanent loss (IL) avoided by Blade's FMM design. These APYs are directly comparable with the APYs reported by most other DEXs like SushiSwap.
+
+The annualized yields (APYs) shared by these DEXs are calculated from "fees" that include a great deal of IL. Blade's innovative FMM design not only allows LPs to avoid the impermanent loss that other DEXs face but also to calculate the counterfactual of the amount of IL that LPs _would have_ suffered. We call that counterfactual amount "avoided IL".
+
+Avoided IL is calculated by comparing Blade LPs' gain/loss on a crypto-basis (i.e., measured in crypto, not USD) to the crypto-basis loss of the CPMM mechanism used by SushiSwap, etc. This crypto-basis loss can be calculated from (and will change based on) the difference in dollar values of the assets at the start and end of a time period. Comparable APY is then calculated by taking **Blade**'s profit yield and adding it to the avoided IL.
+
+We believe Comparable APY represents the best and most accurate expression of Blade's "yield" when LPs are considering which DEX to deposit into.
+
+### Transactions
+
+**Should I be concerned about front running, MEV, or sandwich attacks when trading on Blade?**
+
+These kinds of attacks can happen with decentralized exchanges that do not offer traders guaranteed rates in swaps. Bots watch pending transactions and can construct ways to give traders a worse rate, pocketing the surplus.
+
+A unique aspect of Blade is that all signed quotes are firm, so you do not need to worry about bots stealing from your intended transactions.
+
+**Why is my transaction pending for so long?**
+
+The most likely explanation is that the gas price associated with your transaction was too low for miners to consider including it in a new block. Depending on your wallet, you may be able to cancel your pending transaction or re-submit it with a higher gas price. Etherscan maintains a [**detailed "Gas Tracker" page**](https://etherscan.io/gastracker) with frequently updated estimates of execution price and timeliness.
+
+**Will my gas costs be refunded?**
+
+As is typical for interactions on blockchains, any gas that was not consumed by a transaction on Blade will be refunded to its sender.

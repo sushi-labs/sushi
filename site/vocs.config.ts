@@ -1,3 +1,6 @@
+import { mathToMarkdown } from 'mdast-util-math'
+import rehypeMathjax from 'rehype-mathjax'
+import remarkMath from 'remark-math'
 import { defineConfig } from 'vocs'
 import pkg from '../src/package.json'
 import { sidebar } from './sidebar'
@@ -60,6 +63,13 @@ export default defineConfig({
       link: 'https://www.sushi.com/twitter',
     },
   ],
+  markdown: {
+    remarkPlugins: [[remarkMath, { singleDollarTextMath: false }]],
+    rehypePlugins: [rehypeMathjax],
+  },
+  llms: {
+    extensions: [mathToMarkdown()],
+  },
   vite: {
     ssr: {
       noExternal: ['sushi'], // <— force vocs to bundle sushi
