@@ -1,5 +1,11 @@
 # sushi
 
+## 6.0.6
+
+### Patch Changes
+
+- [#257](https://github.com/sushi-labs/sushi/pull/257) [`2e62ba5`](https://github.com/sushi-labs/sushi/commit/2e62ba59e4536ff29b72045599ac8baadef72495) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - update katana explorer
+
 ## 6.0.5
 
 ### Patch Changes
