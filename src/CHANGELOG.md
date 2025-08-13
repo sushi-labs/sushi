@@ -1,5 +1,11 @@
 # sushi
 
+## 6.0.7
+
+### Patch Changes
+
+- [#259](https://github.com/sushi-labs/sushi/pull/259) [`cd4bfd5`](https://github.com/sushi-labs/sushi/commit/cd4bfd526be27651aaf14ac00435e302801d8665) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - fix amount serialization
+
 ## 6.0.6
 
 ### Patch Changes
