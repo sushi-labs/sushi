@@ -250,8 +250,27 @@ describe('Amount', () => {
 
     it('converts to JSON', () => {
       const json = amount.toJSON()
-      expect(json.amount).toBe(amount.amount)
+
+      // amount should be a string now (JSON-safe)
+      expect(typeof json.amount).toBe('string')
+      expect(json.amount).toBe(amount.amount.toString())
+
+      // currency passthrough
       expect(json.currency).toEqual(mockToken.toJSON())
+
+      // Should not throw when stringifying the instance itself
+      expect(() => JSON.stringify(amount)).not.toThrow()
+
+      // Simulate React Query queryKey usage
+      const key = ['positions', amount]
+      expect(() => JSON.stringify(key)).not.toThrow()
+
+      // Ensure parsed shape matches expectation
+      const parsed = JSON.parse(JSON.stringify(amount))
+      expect(parsed).toEqual({
+        currency: mockToken.toJSON(),
+        amount: amount.amount.toString()
+      })
     })
 
     it('converts to string with default formatting', () => {
