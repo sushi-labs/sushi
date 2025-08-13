@@ -11,7 +11,7 @@ import type {
 
 export type SerializedAmount<TCurrency extends SerializedCurrency> = {
   currency: TCurrency
-  amount: bigint
+  amount: string
 }
 
 /**
@@ -204,7 +204,7 @@ export class Amount<TCurrency extends Currency = Currency> {
   public toJSON(): SerializedAmount<SerializedCurrency> {
     return {
       currency: this.currency.toJSON(),
-      amount: this.amount,
+      amount: this.amount.toString(),
     } as const
   }
 
@@ -234,6 +234,6 @@ export function serializedAmountSchema<
 >(currencySchema: TSchema) {
   return z.object({
     currency: currencySchema,
-    amount: z.bigint(),
+    amount: z.string(),
   })
 }
