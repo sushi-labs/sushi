@@ -269,7 +269,7 @@ describe('Amount', () => {
       const parsed = JSON.parse(JSON.stringify(amount))
       expect(parsed).toEqual({
         currency: mockToken.toJSON(),
-        amount: amount.amount.toString()
+        amount: amount.amount.toString(),
       })
     })
 
