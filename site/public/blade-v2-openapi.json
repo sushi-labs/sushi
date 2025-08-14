@@ -144,45 +144,27 @@
                           ],
                           "pairs": [
                             {
-                              "assets": [
-                                "ETH",
-                                "USDC"
-                              ],
+                              "assets": ["ETH", "USDC"],
                               "fee_in_basis_points": 9
                             },
                             {
-                              "assets": [
-                                "ETH",
-                                "USDT"
-                              ],
+                              "assets": ["ETH", "USDT"],
                               "fee_in_basis_points": 9
                             },
                             {
-                              "assets": [
-                                "ETH",
-                                "DAI"
-                              ],
+                              "assets": ["ETH", "DAI"],
                               "fee_in_basis_points": 8
                             },
                             {
-                              "assets": [
-                                "USDC",
-                                "USDT"
-                              ],
+                              "assets": ["USDC", "USDT"],
                               "fee_in_basis_points": 5
                             },
                             {
-                              "assets": [
-                                "USDC",
-                                "DAI"
-                              ],
+                              "assets": ["USDC", "DAI"],
                               "fee_in_basis_points": 5
                             },
                             {
-                              "assets": [
-                                "USDT",
-                                "DAI"
-                              ],
+                              "assets": ["USDT", "DAI"],
                               "fee_in_basis_points": 5
                             }
                           ]
@@ -201,7 +183,7 @@
                             "chain_id": 1,
                             "address": "0x655eDCE464CC797526600a462A8154650EEe4B77",
                             "num_assets": 4,
-                            "pool_tokens": 1.3792871898369242e+24,
+                            "pool_tokens": 1.3792871898369242e24,
                             "value_in_usd": 1978682.496424432,
                             "swaps_enabled": true
                           },
@@ -485,10 +467,7 @@
                       },
                       "clipper_exchange_address": "0x989E8F547FbCa65f4FB0af41e50e4058e6c68166",
                       "extra_data": "0x000000000000000000000000000000000000000098b593221fc2d138f0a669c5000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000e475704f93603000000000000000000000000000000000000000000000000019257a485f5ec7000000",
-                      "deposit_amounts": [
-                        "0",
-                        "2000000000000000000"
-                      ],
+                      "deposit_amounts": ["0", "2000000000000000000"],
                       "lock_time": 720
                     }
                   },
@@ -645,7 +624,14 @@
             "description": "Represents if the swaps are available for the chain"
           }
         },
-        "required": ["chain_id", "address", "num_assets", "pool_tokens", "value_in_usd", "swaps_enabled"]
+        "required": [
+          "chain_id",
+          "address",
+          "num_assets",
+          "pool_tokens",
+          "value_in_usd",
+          "swaps_enabled"
+        ]
       },
       "OffChainPool": {
         "type": "object",
@@ -680,7 +666,15 @@
             "description": "Represents if the swaps are available for the chain"
           }
         },
-        "required": ["chain_id", "address", "num_assets", "k", "time_in_seconds", "default_time_in_seconds", "swaps_enabled"]
+        "required": [
+          "chain_id",
+          "address",
+          "num_assets",
+          "k",
+          "time_in_seconds",
+          "default_time_in_seconds",
+          "swaps_enabled"
+        ]
       },
       "OnChainAsset": {
         "type": "object",
@@ -713,7 +707,14 @@
             "description": "USD target value for this asset in the pool"
           }
         },
-        "required": ["name", "address", "balance", "price_in_usd", "value_in_usd", "target_value_in_usd"]
+        "required": [
+          "name",
+          "address",
+          "balance",
+          "price_in_usd",
+          "value_in_usd",
+          "target_value_in_usd"
+        ]
       },
       "OffChainAsset": {
         "type": "object",
@@ -812,7 +813,20 @@
             "description": "swap rate"
           }
         },
-        "required": ["id", "must_accept_by", "good_until", "chain_id", "input_asset_address", "input_amount", "output_asset_address", "output_amount", "input_value_in_usd", "output_value_in_usd", "created_at", "rate"],
+        "required": [
+          "id",
+          "must_accept_by",
+          "good_until",
+          "chain_id",
+          "input_asset_address",
+          "input_amount",
+          "output_asset_address",
+          "output_amount",
+          "input_value_in_usd",
+          "output_value_in_usd",
+          "created_at",
+          "rate"
+        ],
         "example": {
           "id": "05a51aa6-41b5-4c61-a452-f1b95d0d43e4",
           "must_accept_by": "2023-10-13 22:24:20.932560+00:00",
@@ -938,7 +952,13 @@
             "description": "Encode LP token price and prices list into ABI-compatible bytes. Only supported by the Katana pool."
           }
         },
-        "required": ["sender", "good_until", "pool_tokens", "signature", "clipper_exchange_address"]
+        "required": [
+          "sender",
+          "good_until",
+          "pool_tokens",
+          "signature",
+          "clipper_exchange_address"
+        ]
       },
       "EIP2098Signature": {
         "type": "object",
