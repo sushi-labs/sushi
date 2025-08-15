@@ -1,5 +1,11 @@
 # sushi
 
+## 6.0.8
+
+### Patch Changes
+
+- [#262](https://github.com/sushi-labs/sushi/pull/262) [`df1b133`](https://github.com/sushi-labs/sushi/commit/df1b13306e10453bbaa16a540ebe1b145186215c) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Add currancy->tryFromHuman
+
 ## 6.0.7
 
 ### Patch Changes
