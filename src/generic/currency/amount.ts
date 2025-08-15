@@ -44,6 +44,20 @@ export class Amount<TCurrency extends Currency = Currency> {
   }
 
   /**
+   * Creates an Amount from a human-readable value, e.g. "1.5".
+   */
+  public static tryFromHuman<TCurrency extends Currency>(
+    currency: TCurrency,
+    human: bigint | number | string,
+  ): Amount<TCurrency> | undefined {
+    try {
+      return Amount.fromHuman(currency, human)
+    } catch {
+      return undefined
+    }
+  }
+
+  /**
    * Wraps the amount's currency into a Token.
    */
   public wrap() {
