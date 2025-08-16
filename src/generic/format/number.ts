@@ -104,6 +104,10 @@ export function numberToFixed(
   num: string | number,
   args: { maxFixed: number } | { fixed: number } | { significant: number },
 ) {
+  if (typeof num === 'string') {
+    return stringToFixed(num, args)
+  }
+
   num = Number(num)
 
   if ('fixed' in args) {
@@ -114,12 +118,86 @@ export function numberToFixed(
     return Number.parseFloat(num.toPrecision(args.significant)).toString()
   }
 
-  // maxFixed
-  const str = num.toFixed(args.maxFixed)
-  let end = str.length
+  if ('maxFixed' in args) {
+    const str = num.toFixed(args.maxFixed)
+    let end = str.length
 
-  while (end && str.charCodeAt(end - 1) === 48) --end
-  if (end && str.charCodeAt(end - 1) === 46) --end
+    while (end && str.charCodeAt(end - 1) === 48) --end
+    if (end && str.charCodeAt(end - 1) === 46) --end
 
-  return `${str.slice(0, end)}`
+    return `${str.slice(0, end)}`
+  }
+
+  throw new Error('Invalid arguments for numberToFixed')
+}
+
+function stringToFixed(
+  _str: string,
+  args: Parameters<typeof numberToFixed>[1],
+) {
+  const str = withoutScientificNotation(_str)
+
+  if (!str) {
+    throw new Error('Invalid number string')
+  }
+
+  const [integerPart = '0', decimalPart = ''] = str.split('.')
+
+  if ('fixed' in args) {
+    const fixedDecimal = decimalPart
+      .slice(0, args.fixed)
+      .padEnd(args.fixed, '0')
+
+    const res = `${integerPart}${fixedDecimal ? `.${fixedDecimal}` : ''}`
+    return roundString(str, res)
+  }
+
+  if ('significant' in args) {
+    let remainingLength = args.significant - integerPart.length
+
+    if (integerPart === '0' || integerPart.includes('-')) {
+      remainingLength += 1
+    }
+
+    // Handle leading zeros in decimal part
+    for (let i = 0; i < decimalPart.length; i++) {
+      if (decimalPart[i] === '0') {
+        remainingLength += 1
+      }
+    }
+
+    const significantDecimal = decimalPart
+      .slice(0, remainingLength)
+      .padEnd(remainingLength, '0')
+
+    const res = `${integerPart}${significantDecimal ? `.${significantDecimal}` : ''}`
+    return roundString(str, res)
+  }
+
+  if ('maxFixed' in args) {
+    let fixedDecimal = decimalPart.slice(0, args.maxFixed)
+    while (fixedDecimal.endsWith('0')) {
+      fixedDecimal = fixedDecimal.slice(0, -1)
+    }
+
+    return `${integerPart}${fixedDecimal ? `.${fixedDecimal}` : ''}`
+  }
+
+  throw new Error('Invalid arguments for stringToFixed')
+}
+
+function roundString(original: string, formatted: string) {
+  const nextDigitIndex = formatted.length
+
+  let nextDigit = original.charCodeAt(nextDigitIndex)
+  if (nextDigit === '.'.charCodeAt(0)) {
+    nextDigit = original.charCodeAt(nextDigitIndex + 1)
+  }
+
+  if (!Number.isNaN(nextDigit) && nextDigit >= '5'.charCodeAt(0)) {
+    const lastDigit = formatted.charCodeAt(formatted.length - 1)
+    return `${formatted.substring(0, formatted.length - 1)}${String.fromCharCode(lastDigit + 1)}`
+  }
+
+  return formatted
 }

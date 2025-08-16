@@ -34,6 +34,7 @@ export class Amount<TCurrency extends Currency = Currency> {
 
   /**
    * Creates an Amount from a human-readable value, e.g. "1.5".
+   * Just a wrapper around viem's `parseUnits` to handle the currency's decimals.
    */
   public static fromHuman<TCurrency extends Currency>(
     currency: TCurrency,
