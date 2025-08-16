@@ -500,6 +500,186 @@
         }
       }
     },
+    "/rfq/v2/quote-sign/{chainId}": {
+      "get": {
+        "tags": ["Quote"],
+        "summary": "Quote and sign in one request",
+        "description": "This endpoint streamlines the swap process by combining the quote generation and signing steps into a single request. Users can obtain real-time pricing information for an asset swap and simultaneously receive the required signature and transaction data for execution on the blockchain. This unified flow reduces latency, simplifies integration, and ensures secure, ready-to-broadcast transactions without the need for multiple API calls.",
+        "operationId": "quoteAndSign",
+        "parameters": [
+          {
+            "name": "chainId",
+            "in": "path",
+            "description": "ID of the blockchain network",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "example": 137
+          },
+          {
+            "name": "pool_address",
+            "in": "query",
+            "description": "Address of the pool. If not present, the best pool will be calculated",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x655eDCE464CC797526600a462A8154650EEe4B77"
+          },
+          {
+            "name": "time_in_seconds",
+            "in": "query",
+            "description": "Amount of time between accepting a quote and receiving the quote on the blockchain. As this value increases, the quote will get worse for the user.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            },
+            "example": 30
+          },
+          {
+            "name": "output_amount",
+            "in": "query",
+            "description": "Desired quantity of assets to receive as part of the swap. This field is mutually exclusive with `input_amount`",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "18000"
+          },
+          {
+            "name": "input_amount",
+            "in": "query",
+            "description": "Desired quantity of assets you are willing to exchange. This field is mutually exclusive with `output_amount`",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "18000"
+          },
+          {
+            "name": "input_asset_symbol",
+            "in": "query",
+            "description": "Identifier of the asset you want to provide for the swap. Should correspond to the asset name returned from the pool call",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ETH"
+          },
+          {
+            "name": "output_asset_symbol",
+            "in": "query",
+            "description": "Identifier of the asset you want to receive in the swap. Should correspond to the asset name returned from the pool call",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "DAI"
+          },
+          {
+            "name": "destination_address",
+            "in": "query",
+            "description": "Address that will receive the output token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x960376b3F62f41E7e66809a05D1C5afdFD60A0E9"
+          },
+          {
+            "name": "sender_address",
+            "in": "query",
+            "description": "For DEX aggregator partners that are using their own smart contract to mediate the interaction between users and Blade. Aggregators should use the address of the account that they will pull tokens from (i.e., the EOA user address) as opposed to the address of their deployed contract. By default, `destination_address` will be used.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x960376b3F62f41E7e66809a05D1C5afdFD60A0E9"
+          },
+          {
+            "name": "aux_data",
+            "in": "query",
+            "description": "For use with the calldata swap feature, it can be set to any string and is used for identification purposes in the event logs. By default is `0x436c697070657200000000000000000000000000000000000000000000000000` that is the representation of `Clipper`",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x31494e4348000000000000000000000000000000000000000000000000000000"
+          },
+          {
+            "name": "calldata",
+            "in": "query",
+            "description": "Send this as true if we want to get the bytes representation of the swap in the response. Client can use this to be sent directly to the pool contract for execution.",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "example": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Quote and signature generated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuoteSignResponse"
+                },
+                "examples": {
+                  "quote-sign-response": {
+                    "summary": "Quote Sign Response",
+                    "description": "Combined quote and signature response for immediate swap execution",
+                    "value": {
+                      "chain_id": 1,
+                      "input_asset_address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+                      "output_asset_address": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+                      "input_amount": "780000000000000",
+                      "output_amount": "3504443835292476928",
+                      "good_until": "451117153933605942738249439739673213871765011081718076541610938493960",
+                      "destination_address": "0x960376b3F62f41E7e66809a05D1C5afdFD60A0E9",
+                      "signature": {
+                        "v": 28,
+                        "r": "0xb996d67a0f80da5322e0fba14afd82e63e51cfc9ed09cc3377e84c7dfd05f9a1",
+                        "s": "0x378c0baaa171606042171fd8886ac007017854f98aa0a85b5ae0c9ce892f1aae"
+                      },
+                      "clipper_exchange_address": "0x655eDCE464CC797526600a462A8154650EEe4B77",
+                      "id": "34ad40e0-b445-438a-94b7-3f82104d701e",
+                      "input_value_in_usd": 3.54,
+                      "output_value_in_usd": 3.5,
+                      "created_at": 1755212736,
+                      "rate": 4492.876711913433
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "409": {
+            "$ref": "#/components/responses/QuoteProblems"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidInputData"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ExternalServiceError"
+          }
+        }
+      }
+    },
     "/rfq/v2/deposit": {
       "post": {
         "tags": ["Deposit"],
@@ -981,6 +1161,90 @@
           "input_asset_address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
           "output_asset_address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
         }
+      },
+      "QuoteSignResponse": {
+        "type": "object",
+        "properties": {
+          "chain_id": {
+            "type": "integer",
+            "description": "Represents the ID of the chain"
+          },
+          "input_asset_address": {
+            "type": "string",
+            "description": "Contract address of the asset you want to provide for the swap"
+          },
+          "output_asset_address": {
+            "type": "string",
+            "description": "Contract address of the asset you want to receive in the swap"
+          },
+          "input_amount": {
+            "type": "string",
+            "description": "Amount of assets to be exchanged"
+          },
+          "output_amount": {
+            "type": "string",
+            "description": "Amount of assets you will receive in the exchange"
+          },
+          "good_until": {
+            "type": "string",
+            "description": "Number of seconds that quotes live. It can also contained a packed representation of the state"
+          },
+          "destination_address": {
+            "type": "string",
+            "description": "Address will receive the output token"
+          },
+          "signature": {
+            "$ref": "#/components/schemas/EIP2098Signature"
+          },
+          "clipper_exchange_address": {
+            "type": "string",
+            "description": "Blade contract address of the pool, is the address used when executing a transaction"
+          },
+          "calldata": {
+            "type": "string",
+            "description": "Bytes representation of the swap function and parameters to be sent directly to the `clipper_exchange_address` for execution. Only present when `calldata=true` in request."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Internal identifier"
+          },
+          "input_value_in_usd": {
+            "type": "number",
+            "format": "float",
+            "description": "Amount in dollars to be exchanged"
+          },
+          "output_value_in_usd": {
+            "type": "number",
+            "format": "float",
+            "description": "Amount in dollars you will receive in the exchange"
+          },
+          "created_at": {
+            "type": "integer",
+            "description": "Unix Timestamp indicating the date and time when the quote was created"
+          },
+          "rate": {
+            "type": "number",
+            "format": "float",
+            "description": "swap rate"
+          }
+        },
+        "required": [
+          "chain_id",
+          "input_asset_address",
+          "output_asset_address",
+          "input_amount",
+          "output_amount",
+          "good_until",
+          "destination_address",
+          "signature",
+          "clipper_exchange_address",
+          "id",
+          "input_value_in_usd",
+          "output_value_in_usd",
+          "created_at",
+          "rate"
+        ]
       },
       "SignRequest": {
         "type": "object",
