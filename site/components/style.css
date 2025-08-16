@@ -210,8 +210,9 @@ body {
   background: var(--secondary-bg-color);
 }
 
-.swagger-ui .body-param__example, .swagger-ui .opblock-body pre.microlight {
-  background-color: rgba(0,0,0,.6) !important;
+.swagger-ui .body-param__example,
+.swagger-ui .opblock-body pre.microlight {
+  background-color: rgba(0, 0, 0, 0.6) !important;
   border-radius: var(--block-border-radius) !important;
 }
 
