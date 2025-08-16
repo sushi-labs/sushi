@@ -320,4 +320,189 @@ describe('Amount', () => {
       expect(result.amount).toBe(1000000001000000000n)
     })
   })
+
+  describe('critical edge cases and bug scenarios', () => {
+    describe('fromHuman precision edge cases', () => {
+      it('should handle very small amounts', () => {
+        const amount = Amount.fromHuman(mockToken, '0.000000000000000001')
+        expect(amount.amount).toBe(1n) // 1 wei for 18 decimals
+      })
+
+      it('should handle very large amounts', () => {
+        const largeValue = '999999999999999999999'
+        const amount = Amount.fromHuman(mockToken, largeValue)
+        expect(amount.amount).toBeGreaterThan(0n)
+      })
+
+      it('should throw on invalid decimal strings', () => {
+        expect(() => Amount.fromHuman(mockToken, 'not a number')).toThrow()
+        expect(() => Amount.fromHuman(mockToken, '1.2.3')).toThrow()
+      })
+
+      it('should handle different token decimals correctly', () => {
+        const amount6 = Amount.fromHuman(otherToken, '1.5')
+        const amount18 = Amount.fromHuman(mockToken, '1.5')
+
+        expect(amount6.amount).toBe(1500000n) // 6 decimals
+        expect(amount18.amount).toBe(1500000000000000000n) // 18 decimals
+      })
+    })
+
+    describe('tryFromHuman safety', () => {
+      it('should return undefined for invalid inputs instead of throwing', () => {
+        expect(Amount.tryFromHuman(mockToken, 'invalid')).toBeUndefined()
+        expect(Amount.tryFromHuman(mockToken, '1.2.3')).toBeUndefined()
+        expect(Amount.tryFromHuman(mockToken, 'NaN')).toBeUndefined()
+      })
+
+      it('should return valid Amount for good inputs', () => {
+        const result = Amount.tryFromHuman(mockToken, '1.5')
+        expect(result).toBeInstanceOf(Amount)
+        expect(result?.amount).toBe(1500000000000000000n)
+      })
+    })
+
+    describe('Fraction scaling edge cases', () => {
+      it('should handle very large Fraction operations without overflow', () => {
+        const amount = new Amount(mockToken, 1000000000000000000n)
+        const largeFraction = new Fraction({
+          numerator: 2n ** 50n,
+          denominator: 2n ** 50n + 1n,
+        })
+
+        // This should not overflow due to scaling
+        expect(() => amount.add(largeFraction)).not.toThrow()
+        expect(() => amount.sub(largeFraction)).not.toThrow()
+      })
+
+      it('should handle zero Fraction operations', () => {
+        const amount = new Amount(mockToken, 1000000000000000000n)
+        const zeroFraction = new Fraction({ numerator: 0, denominator: 1 })
+
+        const addResult = amount.add(zeroFraction)
+        const subResult = amount.sub(zeroFraction)
+
+        expect(addResult.amount).toBe(amount.amount)
+        expect(subResult.amount).toBe(amount.amount)
+      })
+    })
+
+    describe('human operations precision', () => {
+      it('should handle addHuman with high precision', () => {
+        const amount = new Amount(mockToken, 1000000000000000000n) // 1.0
+        const result = amount.addHuman('0.000000000000000001') // + 1 wei
+
+        expect(result.amount).toBe(1000000000000000001n)
+      })
+
+      it('should handle subHuman with precision for different decimals', () => {
+        const amount = new Amount(otherToken, 1000000n) // 1.0 USDC (6 decimals)
+
+        // Try to subtract more precision than token supports - should round
+        const result = amount.subHuman('0.0000001') // 7 decimals for 6-decimal token
+        expect(result.amount).toBe(1000000n) // Should remain unchanged due to rounding
+      })
+
+      it('should handle mulHuman edge cases', () => {
+        const amount = new Amount(mockToken, 1000000000000000000n)
+
+        const doubled = amount.mulHuman('2')
+        expect(doubled.amount).toBe(2000000000000000000n)
+
+        const zeroed = amount.mulHuman('0')
+        expect(zeroed.amount).toBe(0n)
+
+        const halved = amount.mulHuman('0.5')
+        expect(halved.amount).toBe(500000000000000000n)
+      })
+
+      it('should handle div edge cases', () => {
+        const amount = new Amount(mockToken, 1000000000000000000n)
+
+        const halved = amount.div('2')
+        expect(halved.amount).toBe(500000000000000000n)
+
+        expect(() => amount.div('0')).toThrow('Cannot divide by zero')
+
+        const doubled = amount.div('0.5')
+        expect(doubled.amount).toBe(2000000000000000000n)
+      })
+    })
+
+    describe('formatting edge cases', () => {
+      it('should handle toString with very small amounts', () => {
+        const amount = new Amount(mockToken, 1n) // 1 wei
+        const human = amount.toString()
+        expect(human).toBe('0.000000000000000001')
+      })
+
+      it('should handle toString with very large amounts', () => {
+        const largeAmount = new Amount(mockToken, 1000000000000000000000000n)
+        const human = largeAmount.toString()
+        expect(human).toBe('1000000')
+      })
+
+      it('should handle toString precision', () => {
+        const amount = new Amount(mockToken, 1500000000000000000n) // 1.5
+        expect(amount.toString()).toBe('1.5')
+
+        const precise = new Amount(mockToken, 1234567890123456789n)
+        console.log(precise.toString())
+        expect(precise.toString()).toBe('1.234567890123456789')
+      })
+    })
+
+    describe('arithmetic overflow scenarios', () => {
+      it('should handle negative results in subtraction', () => {
+        const amount = new Amount(mockToken, 1000000000000000000n)
+        const larger = new Amount(mockToken, 2000000000000000000n)
+
+        const result = amount.sub(larger)
+        expect(result.amount).toBe(-1000000000000000000n)
+      })
+
+      it('should handle multiplication overflow potential', () => {
+        const large = new Amount(mockToken, 2n ** 100n)
+        const result = large.mul(2n)
+        expect(result.amount).toBe(2n ** 101n)
+      })
+
+      it('should handle cross-multiplication in Fraction addition', () => {
+        const amount = new Amount(mockToken, 2n ** 50n)
+        const fraction = new Fraction({ numerator: 2n ** 50n, denominator: 1n })
+
+        // This tests potential overflow in cross-multiplication
+        expect(() => amount.add(fraction)).not.toThrow()
+      })
+    })
+
+    describe('extreme decimal precision', () => {
+      it('should handle zero-decimal tokens', () => {
+        const zeroDecimalToken = new TestToken({
+          chainId: 1,
+          address: '0x789',
+          symbol: 'ZERO',
+          name: 'Zero',
+          decimals: 0,
+        })
+
+        const amount = Amount.fromHuman(zeroDecimalToken, '5')
+        expect(amount.amount).toBe(5n)
+        expect(amount.toString()).toBe('5')
+      })
+
+      it('should handle high-decimal tokens', () => {
+        const highDecimalToken = new TestToken({
+          chainId: 1,
+          address: '0xabc',
+          symbol: 'HIGH',
+          name: 'High Decimal',
+          decimals: 30,
+        })
+
+        const amount = Amount.fromHuman(highDecimalToken, '1')
+        expect(amount.amount).toBe(10n ** 30n)
+      })
+    })
+  })
 })

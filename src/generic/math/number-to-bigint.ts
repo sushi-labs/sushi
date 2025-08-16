@@ -1,6 +1,6 @@
 export function numberToBigInt(value: number): bigint {
   const v = Math.abs(value)
-  if (v < Number.MAX_SAFE_INTEGER) return BigInt(Math.round(value))
+  if (v <= Number.MAX_SAFE_INTEGER) return BigInt(Math.round(value))
 
   const exp = Math.floor(Math.log(v) / Math.LN2)
   console.assert(exp >= 51, 'Internal Error 314')
