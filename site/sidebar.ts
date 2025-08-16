@@ -73,6 +73,16 @@ export const sidebar = {
             },
           ],
         },
+        {
+          text: 'Blade',
+          collapsed: false,
+          items: [
+            {
+              text: 'Swagger',
+              link: '/api/blade/swagger',
+            },
+          ],
+        },
       ],
     },
     {
