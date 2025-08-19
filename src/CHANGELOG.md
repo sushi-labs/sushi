@@ -1,5 +1,11 @@
 # sushi
 
+## 6.0.9
+
+### Patch Changes
+
+- [#265](https://github.com/sushi-labs/sushi/pull/265) [`ff76074`](https://github.com/sushi-labs/sushi/commit/ff76074180caf81e284128babaeddd1e799a3c31) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add RP9 config
+
 ## 6.0.8
 
 ### Patch Changes
