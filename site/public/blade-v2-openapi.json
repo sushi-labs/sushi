@@ -1,0 +1,1606 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Blade API",
+    "description": "Documentation for interacting with the Blade API",
+    "version": "2.0.0",
+    "contact": {
+      "email": "aggregators@shipyardsoftware.org",
+      "name": "Blade API Support"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://blade-api.sushi.com",
+      "description": "Blade API Production Server"
+    }
+  ],
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Pool",
+      "description": "Pool information and liquidity data endpoints"
+    },
+    {
+      "name": "Quote",
+      "description": "Quote generation and signing"
+    },
+    {
+      "name": "Deposit",
+      "description": "Liquidity pool deposit operations"
+    }
+  ],
+  "paths": {
+    "/rfq/v2/pool/{chainId}": {
+      "get": {
+        "tags": ["Pool"],
+        "summary": "Get pool information",
+        "description": "This endpoint provides comprehensive information about all the pools on the selected chain, including details about its assets, the contract address of its liquidity pool, and other relevant data. This information is crucial for making off-chain calculations and predicting quotes.",
+        "operationId": "getPoolInfo",
+        "parameters": [
+          {
+            "name": "chainId",
+            "in": "path",
+            "description": "ID of the blockchain network",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "example": 137
+          },
+          {
+            "name": "pool_address",
+            "in": "query",
+            "description": "The address of the pool. If not provided, all pools on the selected chain will be returned.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x655eDCE464CC797526600a462A8154650EEe4B77"
+          },
+          {
+            "name": "time_in_seconds",
+            "in": "query",
+            "description": "The time duration for which a quote will be available. This value is used to calculate the fees; as you decrease the time, you will see lower fees. By default, the system sets a predefined value. Note: For on-chain data, this field is not considered.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            },
+            "example": 30
+          },
+          {
+            "name": "fieldset",
+            "in": "query",
+            "description": "Determines whether the API should make calls to the blockchain to return on-chain data. If the parameter is not provided, it will default to handling on-chain data.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["offchain-data"]
+            },
+            "example": "offchain-data"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Pool information retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/OnChainPoolResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/OffChainPoolResponse"
+                    }
+                  ]
+                },
+                "examples": {
+                  "offchain-data-polygon": {
+                    "summary": "Off-chain data for Polygon chain (chain_id=137)",
+                    "description": "Example response when requesting off-chain data using fieldset=offchain-data parameter",
+                    "value": {
+                      "pool_type": "offchain",
+                      "pools": [
+                        {
+                          "pool": {
+                            "chain_id": 1,
+                            "address": "0x655eDCE464CC797526600a462A8154650EEe4B77",
+                            "num_assets": 4,
+                            "k": 0.06,
+                            "time_in_seconds": 60,
+                            "default_time_in_seconds": 60,
+                            "swaps_enabled": true
+                          },
+                          "assets": [
+                            {
+                              "name": "ETH",
+                              "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+                              "price_in_usd": 2076.799,
+                              "listing_weight": 79
+                            },
+                            {
+                              "name": "USDC",
+                              "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+                              "price_in_usd": 1,
+                              "listing_weight": 188
+                            },
+                            {
+                              "name": "USDT",
+                              "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+                              "price_in_usd": 1,
+                              "listing_weight": 305
+                            },
+                            {
+                              "name": "DAI",
+                              "address": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+                              "price_in_usd": 1,
+                              "listing_weight": 250
+                            }
+                          ],
+                          "pairs": [
+                            {
+                              "assets": ["ETH", "USDC"],
+                              "fee_in_basis_points": 9
+                            },
+                            {
+                              "assets": ["ETH", "USDT"],
+                              "fee_in_basis_points": 9
+                            },
+                            {
+                              "assets": ["ETH", "DAI"],
+                              "fee_in_basis_points": 8
+                            },
+                            {
+                              "assets": ["USDC", "USDT"],
+                              "fee_in_basis_points": 5
+                            },
+                            {
+                              "assets": ["USDC", "DAI"],
+                              "fee_in_basis_points": 5
+                            },
+                            {
+                              "assets": ["USDT", "DAI"],
+                              "fee_in_basis_points": 5
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "onchain-data-mainnet": {
+                    "summary": "On-chain data for Ethereum Mainnet (chain_id=1)",
+                    "description": "Example response when requesting on-chain data with a specific pool address",
+                    "value": {
+                      "pool_type": "onchain",
+                      "pools": [
+                        {
+                          "pool": {
+                            "chain_id": 1,
+                            "address": "0x655eDCE464CC797526600a462A8154650EEe4B77",
+                            "num_assets": 4,
+                            "pool_tokens": 1.3792871898369242e24,
+                            "value_in_usd": 1978682.496424432,
+                            "swaps_enabled": true
+                          },
+                          "assets": [
+                            {
+                              "name": "USDC",
+                              "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+                              "balance": "417751254142",
+                              "price_in_usd": 1,
+                              "value_in_usd": 417751.254142,
+                              "target_value_in_usd": 416727.89356391726
+                            },
+                            {
+                              "name": "USDT",
+                              "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+                              "balance": "259059412007",
+                              "price_in_usd": 1,
+                              "value_in_usd": 259059.412007,
+                              "target_value_in_usd": 256868.3409508736
+                            },
+                            {
+                              "name": "DAI",
+                              "address": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+                              "balance": "309714519494182375269440",
+                              "price_in_usd": 1,
+                              "value_in_usd": 309714.5194941824,
+                              "target_value_in_usd": 313379.3759600658
+                            },
+                            {
+                              "name": "ETH",
+                              "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+                              "balance": "476877882758190421102",
+                              "price_in_usd": 2080.527,
+                              "value_in_usd": 992157.3107812497,
+                              "target_value_in_usd": 991706.8859495752
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ExternalServiceError"
+          }
+        }
+      }
+    },
+    "/rfq/v2/quote/{chainId}": {
+      "get": {
+        "tags": ["Quote"],
+        "summary": "Generate a quote",
+        "description": "This endpoint facilitates the creation of a potential quote for executing a swap between two assets. It allows users to obtain pricing information and other essential details necessary to initiate asset swaps within the system. Use this endpoint to explore the potential cost and feasibility of asset exchanges before finalizing transactions.",
+        "operationId": "generateQuote",
+        "parameters": [
+          {
+            "name": "chainId",
+            "in": "path",
+            "description": "ID of the blockchain network",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "example": 137
+          },
+          {
+            "name": "pool_address",
+            "in": "query",
+            "description": "Address of the pool. If not present, the best pool will be calculated",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x655eDCE464CC797526600a462A8154650EEe4B77"
+          },
+          {
+            "name": "time_in_seconds",
+            "in": "query",
+            "description": "Amount of time between accepting a quote and receiving the quote on the blockchain. As this value increases, the quote will get worse for the user.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            },
+            "example": 30
+          },
+          {
+            "name": "output_amount",
+            "in": "query",
+            "description": "Desired quantity of assets to receive as part of the swap. This field is mutually exclusive with `input_amount`",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "18000"
+          },
+          {
+            "name": "input_amount",
+            "in": "query",
+            "description": "Desired quantity of assets you are willing to exchange. This field is mutually exclusive with `output_amount`",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "18000"
+          },
+          {
+            "name": "input_asset_symbol",
+            "in": "query",
+            "description": "Identifier of the asset you want to provide for the swap. Should correspond to the asset name returned from the pool call",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ETH"
+          },
+          {
+            "name": "output_asset_symbol",
+            "in": "query",
+            "description": "Identifier of the asset you want to receive in the swap. Should correspond to the asset name returned from the pool call",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "DAI"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Quote generated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuoteResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "409": {
+            "$ref": "#/components/responses/QuoteProblems"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidInputData"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ExternalServiceError"
+          }
+        }
+      }
+    },
+    "/rfq/sign": {
+      "post": {
+        "tags": ["Quote"],
+        "summary": "Sign a quote for swap execution",
+        "description": "This endpoint plays a pivotal role in the preparation and execution of secure asset swaps on the blockchain. By providing a Quote ID and a destination address, users can initiate the signing process, resulting in the generation of the essential signature and transaction data. This signature and data package, in turn, is integral for ensuring the validity and security of asset transfers within the blockchain network.",
+        "operationId": "signQuote",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignRequest"
+              },
+              "examples": {
+                "without-calldata": {
+                  "summary": "Sign without calldata",
+                  "description": "Sign a quote and manually use the values in the response to create the transaction",
+                  "value": {
+                    "destination_address": "0x960376b3F62f41E7e66809a05D1C5afdFD60A0E9",
+                    "quote_id": "4c707e45-7019-4b81-b875-c5eb6fe061d6"
+                  }
+                },
+                "with-calldata": {
+                  "summary": "Sign with calldata",
+                  "description": "Sign a quote and get the bytes representation of the swap to be sent directly to the pool contract for execution",
+                  "value": {
+                    "destination_address": "0x960376b3F62f41E7e66809a05D1C5afdFD60A0E9",
+                    "quote_id": "4c707e45-7019-4b81-b875-c5eb6fe061d6",
+                    "calldata": true,
+                    "aux_data": "0x31494e4348000000000000000000000000000000000000000000000000000000"
+                  }
+                },
+                "with-native-input": {
+                  "summary": "Sign with native input token",
+                  "description": "Sign a quote using native input token (e.g. raw ETH) and get the bytes representation of the swap",
+                  "value": {
+                    "destination_address": "0x960376b3F62f41E7e66809a05D1C5afdFD60A0E9",
+                    "quote_id": "4c707e45-7019-4b81-b875-c5eb6fe061d6",
+                    "calldata": true,
+                    "aux_data": "0x31494e4348000000000000000000000000000000000000000000000000000000",
+                    "native_input": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Quote signed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SignResponse"
+                },
+                "examples": {
+                  "without-calldata-response": {
+                    "summary": "Sign Response without calldata",
+                    "description": "Response when signing a quote without requesting calldata",
+                    "value": {
+                      "chain_id": 1,
+                      "input_asset_address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+                      "output_asset_address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+                      "input_amount": "10000000000000000000",
+                      "output_amount": "5661947917",
+                      "good_until": "364238673390486983853316167090878487969884185392043445686993915855904",
+                      "destination_address": "0x960376b3F62f41E7e66809a05D1C5afdFD60A0E9",
+                      "signature": {
+                        "v": 28,
+                        "r": "0xfb8599e4ef2c89b03e1ebc3067f0ba38ecea64517bafa932e5c642318ec923d9",
+                        "s": "0x1d3c7e38951b23bc459ac91ad668dede2a681bc4c98b915116983f4ae1dcdaa7"
+                      },
+                      "clipper_exchange_address": "0xE7b0CE0526fbE3969035a145C9e9691d4d9D216c"
+                    }
+                  },
+                  "with-calldata-response": {
+                    "summary": "Sign Response with calldata",
+                    "description": "Response when signing a quote with calldata for direct contract execution",
+                    "value": {
+                      "chain_id": 1,
+                      "input_asset_address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+                      "output_asset_address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+                      "input_amount": "10000000000000000000",
+                      "output_amount": "5661947917",
+                      "good_until": "364266596581665814407146313234570973398742125152679878859837657433201",
+                      "destination_address": "0x960376b3F62f41E7e66809a05D1C5afdFD60A0E9",
+                      "signature": {
+                        "v": 28,
+                        "r": "0x762ad0475b3a7c42735686d7911f117a2ff6fca1bc3c5c75f4ee43df8da2a61b",
+                        "s": "0x1eceffea0a50d12566e9fa6b4d9ed826106143d321389654c3c327c648f6f3f6"
+                      },
+                      "clipper_exchange_address": "0xE7b0CE0526fbE3969035a145C9e9691d4d9D216c",
+                      "calldata": "0x2b651a6c000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2000000000000000000000000a0b86991c6218b36c1d19d4a2e9eb0ce3606eb480000000000000000000000000000000000000000000000008ac7230489e8000000000000000000000000000000000000000000000000000000000001517a780d0000000d82eb0b930000000005f7906e00b1a2bc2ec50000006400bc6529c471000000000000000000000000960376b3f62f41e7e66809a05d1c5afdfd60a0e9000000000000000000000000000000000000000000000000000000000000001c762ad0475b3a7c42735686d7911f117a2ff6fca1bc3c5c75f4ee43df8da2a61b1eceffea0a50d12566e9fa6b4d9ed826106143d321389654c3c327c648f6f3f60000000000000000000000000000000000000000000000000000000000000140000000000000000000000000000000000000000000000000000000000000002031494e4348000000000000000000000000000000000000000000000000000000"
+                    }
+                  },
+                  "with-native-input-response": {
+                    "summary": "Sign Response with native input",
+                    "description": "Response when signing a quote with native input token (e.g. raw ETH)",
+                    "value": {
+                      "chain_id": 1,
+                      "input_asset_address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+                      "output_asset_address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+                      "input_amount": "10000000000000000000",
+                      "output_amount": "5661947917",
+                      "good_until": "364126526759930684504042968316937832960196094624343681678885719229598",
+                      "destination_address": "0x960376b3F62f41E7e66809a05D1C5afdFD60A0E9",
+                      "signature": {
+                        "v": 28,
+                        "r": "0x1a8fc0856ff121e3ba5a244ee0837cef3d6c6ea96c593decc1b9d074c74c0139",
+                        "s": "0x60bd1d8700fca625b58cbc4fe84c61b29bf46c9855146eda18da557ab0e079d5"
+                      },
+                      "clipper_exchange_address": "0xE7b0CE0526fbE3969035a145C9e9691d4d9D216c",
+                      "calldata": "0x27a9b424000000000000000000000000a0b86991c6218b36c1d19d4a2e9eb0ce3606eb480000000000000000000000000000000000000000000000008ac7230489e8000000000000000000000000000000000000000000000000000000000001517a780d0000000d81968de90000000005f7911f00b1a2bc2ec50000006400bc6529c49e000000000000000000000000960376b3f62f41e7e66809a05d1c5afdfd60a0e9000000000000000000000000000000000000000000000000000000000000001c1a8fc0856ff121e3ba5a244ee0837cef3d6c6ea96c593decc1b9d074c74c013960bd1d8700fca625b58cbc4fe84c61b29bf46c9855146eda18da557ab0e079d50000000000000000000000000000000000000000000000000000000000000120000000000000000000000000000000000000000000000000000000000000002031494e4348000000000000000000000000000000000000000000000000000000"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidInputData"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ExternalServiceError"
+          }
+        }
+      }
+    },
+    "/rfq/v2/quote-sign/{chainId}": {
+      "get": {
+        "tags": ["Quote"],
+        "summary": "Quote and sign in one request",
+        "description": "This endpoint streamlines the swap process by combining the quote generation and signing steps into a single request. Users can obtain real-time pricing information for an asset swap and simultaneously receive the required signature and transaction data for execution on the blockchain. This unified flow reduces latency, simplifies integration, and ensures secure, ready-to-broadcast transactions without the need for multiple API calls.",
+        "operationId": "quoteAndSign",
+        "parameters": [
+          {
+            "name": "chainId",
+            "in": "path",
+            "description": "ID of the blockchain network",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "example": 137
+          },
+          {
+            "name": "pool_address",
+            "in": "query",
+            "description": "Address of the pool. If not present, the best pool will be calculated",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x655eDCE464CC797526600a462A8154650EEe4B77"
+          },
+          {
+            "name": "time_in_seconds",
+            "in": "query",
+            "description": "Amount of time between accepting a quote and receiving the quote on the blockchain. As this value increases, the quote will get worse for the user.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            },
+            "example": 30
+          },
+          {
+            "name": "output_amount",
+            "in": "query",
+            "description": "Desired quantity of assets to receive as part of the swap. This field is mutually exclusive with `input_amount`",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "18000"
+          },
+          {
+            "name": "input_amount",
+            "in": "query",
+            "description": "Desired quantity of assets you are willing to exchange. This field is mutually exclusive with `output_amount`",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "18000"
+          },
+          {
+            "name": "input_asset_symbol",
+            "in": "query",
+            "description": "Identifier of the asset you want to provide for the swap. Should correspond to the asset name returned from the pool call",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ETH"
+          },
+          {
+            "name": "output_asset_symbol",
+            "in": "query",
+            "description": "Identifier of the asset you want to receive in the swap. Should correspond to the asset name returned from the pool call",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "DAI"
+          },
+          {
+            "name": "destination_address",
+            "in": "query",
+            "description": "Address that will receive the output token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x960376b3F62f41E7e66809a05D1C5afdFD60A0E9"
+          },
+          {
+            "name": "sender_address",
+            "in": "query",
+            "description": "For DEX aggregator partners that are using their own smart contract to mediate the interaction between users and Blade. Aggregators should use the address of the account that they will pull tokens from (i.e., the EOA user address) as opposed to the address of their deployed contract. By default, `destination_address` will be used.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x960376b3F62f41E7e66809a05D1C5afdFD60A0E9"
+          },
+          {
+            "name": "aux_data",
+            "in": "query",
+            "description": "For use with the calldata swap feature, it can be set to any string and is used for identification purposes in the event logs. By default is `0x436c697070657200000000000000000000000000000000000000000000000000` that is the representation of `Clipper`",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x31494e4348000000000000000000000000000000000000000000000000000000"
+          },
+          {
+            "name": "calldata",
+            "in": "query",
+            "description": "Send this as true if we want to get the bytes representation of the swap in the response. Client can use this to be sent directly to the pool contract for execution.",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "example": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Quote and signature generated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuoteSignResponse"
+                },
+                "examples": {
+                  "quote-sign-response": {
+                    "summary": "Quote Sign Response",
+                    "description": "Combined quote and signature response for immediate swap execution",
+                    "value": {
+                      "chain_id": 1,
+                      "input_asset_address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+                      "output_asset_address": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+                      "input_amount": "780000000000000",
+                      "output_amount": "3504443835292476928",
+                      "good_until": "451117153933605942738249439739673213871765011081718076541610938493960",
+                      "destination_address": "0x960376b3F62f41E7e66809a05D1C5afdFD60A0E9",
+                      "signature": {
+                        "v": 28,
+                        "r": "0xb996d67a0f80da5322e0fba14afd82e63e51cfc9ed09cc3377e84c7dfd05f9a1",
+                        "s": "0x378c0baaa171606042171fd8886ac007017854f98aa0a85b5ae0c9ce892f1aae"
+                      },
+                      "clipper_exchange_address": "0x655eDCE464CC797526600a462A8154650EEe4B77",
+                      "id": "34ad40e0-b445-438a-94b7-3f82104d701e",
+                      "input_value_in_usd": 3.54,
+                      "output_value_in_usd": 3.5,
+                      "created_at": 1755212736,
+                      "rate": 4492.876711913433
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "409": {
+            "$ref": "#/components/responses/QuoteProblems"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidInputData"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ExternalServiceError"
+          }
+        }
+      }
+    },
+    "/rfq/v2/deposit": {
+      "post": {
+        "tags": ["Deposit"],
+        "summary": "Deposit assets into liquidity pool",
+        "description": "This endpoint allows users to deposit assets into a liquidity pool by submitting the required details, such as the pool contract address and the amount of assets to be deposited. This process is crucial for users who want to increase the liquidity of the pool and potentially earn rewards or fees. Use this endpoint to securely and efficiently add assets to the pool, contributing to the stability and performance of the ecosystem.",
+        "operationId": "depositAssets",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DepositRequest"
+              },
+              "examples": {
+                "multiple-assets-deposit": {
+                  "summary": "Deposit Multiple Assets",
+                  "description": "Example of depositing multiple assets into a liquidity pool",
+                  "value": {
+                    "deposit": {
+                      "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1": "2000000000000000000"
+                    },
+                    "sender": "0x54298A80a06068587E13b9dC1AC090259A98D5cD",
+                    "days_to_lock": 10,
+                    "chain_id": 10,
+                    "single_asset": false,
+                    "pool_address": "0x5130f6cE257B8F9bF7fac0A0b519Bd588120ed40"
+                  }
+                },
+                "katana-deposit": {
+                  "summary": "Katana Pool Deposit",
+                  "description": "Example of depositing into Katana pool (uses lock_time instead of days_to_lock)",
+                  "value": {
+                    "deposit": {
+                      "0x0913DA6Da4b42f538B445599b46Bb4622342Cf52": "2000000000000000000"
+                    },
+                    "sender": "0x54298A80a06068587E13b9dC1AC090259A98D5cD",
+                    "lock_time": 720,
+                    "chain_id": 747474,
+                    "single_asset": false,
+                    "pool_address": "0x989E8F547FbCa65f4FB0af41e50e4058e6c68166"
+                  }
+                },
+                "single-asset-with-pool-tokens": {
+                  "summary": "Deposit With Specific output pool token",
+                  "description": "If you want to deposit and specify how many pool tokens receive.",
+                  "value": {
+                    "sender": "0x54298A80a06068587E13b9dC1AC090259A98D5cD",
+                    "days_to_lock": 10,
+                    "chain_id": 10,
+                    "single_asset": true,
+                    "output_pool_tokens": 29438108002416884,
+                    "single_token": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
+                    "pool_address": "0x5130f6cE257B8F9bF7fac0A0b519Bd588120ed40"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Deposit processed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DepositResponse"
+                },
+                "examples": {
+                  "multiple-assets-response": {
+                    "summary": "Multiple Assets Deposit Response",
+                    "description": "Response for depositing multiple assets into a liquidity pool",
+                    "value": {
+                      "sender": "0x54298A80a06068587E13b9dC1AC090259A98D5cD",
+                      "n_days": 10,
+                      "pool_tokens": "29438108002416884",
+                      "good_until": 1729657240,
+                      "signature": {
+                        "v": 28,
+                        "r": "0x7c37b52021ea25ed38cbaf4def111eb9b5e6f0c1dc6c34ded53b9824c40febbf",
+                        "s": "0x66ce09126a23cadf277877e556f2d6c5bc3ad1e7080368a13bb0349208d30396"
+                      },
+                      "clipper_exchange_address": "0x5130f6cE257B8F9bF7fac0A0b519Bd588120ed40",
+                      "deposit_amounts": [
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "2000000000000000000",
+                        "0",
+                        "0"
+                      ]
+                    }
+                  },
+                  "katana-response": {
+                    "summary": "Katana Pool Deposit Response",
+                    "description": "Response for depositing into Katana pool with extra_data and lock_time",
+                    "value": {
+                      "sender": "0x54298A80a06068587E13b9dC1AC090259A98D5cD",
+                      "pool_tokens": "1911697202535426211354545867456512",
+                      "good_until": 1754952442,
+                      "signature": {
+                        "v": 27,
+                        "r": "0xa4be6ab4120b2d55e383f9489e317c05911097cf38b92f8dffe393fed23c07ec",
+                        "s": "0x66d48deb50124d9e4d20c5f6ce570fd930f6bb8a1cd67bae68daef5fbf89112c"
+                      },
+                      "clipper_exchange_address": "0x989E8F547FbCa65f4FB0af41e50e4058e6c68166",
+                      "extra_data": "0x000000000000000000000000000000000000000098b593221fc2d138f0a669c5000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000e475704f93603000000000000000000000000000000000000000000000000019257a485f5ec7000000",
+                      "deposit_amounts": ["0", "2000000000000000000"],
+                      "lock_time": 720
+                    }
+                  },
+                  "single-asset-response": {
+                    "summary": "Deposit With Specific output pool token Response",
+                    "description": "Response for deposit with specific pool tokens specified",
+                    "value": {
+                      "sender": "0x54298A80a06068587E13b9dC1AC090259A98D5cD",
+                      "n_days": 10,
+                      "pool_tokens": "29438108002416884",
+                      "good_until": 1729657750,
+                      "signature": {
+                        "v": 28,
+                        "r": "0x8abcd885e7c151158e21288124b6cac461088ecd9ac07938752667277de2f581",
+                        "s": "0x4716077b4ee2eaf0668d0c219c507581efa61c287e1bdfe32597fb5d19609641"
+                      },
+                      "clipper_exchange_address": "0x5130f6cE257B8F9bF7fac0A0b519Bd588120ed40",
+                      "amount": "1998512049104122112",
+                      "token": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidInputData"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ExternalServiceError"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key",
+        "description": "API key required for all endpoints. In order to prevent abuse on the API we implement rate limits on the requests, to overcome these limits as an aggregator get in contact with the [support team](mailto:aggregators@shipyardsoftware.org) to get API credentials."
+      }
+    },
+    "schemas": {
+      "OnChainPoolResponse": {
+        "type": "object",
+        "properties": {
+          "pool_type": {
+            "type": "string",
+            "enum": ["onchain"],
+            "description": "Indicates this is on-chain pool data"
+          },
+          "pools": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OnChainPoolData"
+            }
+          }
+        },
+        "required": ["pool_type", "pools"]
+      },
+      "OffChainPoolResponse": {
+        "type": "object",
+        "properties": {
+          "pool_type": {
+            "type": "string",
+            "enum": ["offchain"],
+            "description": "Indicates this is off-chain pool data"
+          },
+          "pools": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OffChainPoolData"
+            }
+          }
+        },
+        "required": ["pool_type", "pools"]
+      },
+      "OnChainPoolData": {
+        "type": "object",
+        "properties": {
+          "pool": {
+            "$ref": "#/components/schemas/OnChainPool"
+          },
+          "assets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OnChainAsset"
+            }
+          }
+        },
+        "required": ["pool", "assets"]
+      },
+      "OffChainPoolData": {
+        "type": "object",
+        "properties": {
+          "pool": {
+            "$ref": "#/components/schemas/OffChainPool"
+          },
+          "assets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OffChainAsset"
+            }
+          },
+          "pairs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Pair"
+            }
+          }
+        },
+        "required": ["pool", "assets", "pairs"]
+      },
+      "OnChainPool": {
+        "type": "object",
+        "properties": {
+          "chain_id": {
+            "type": "integer",
+            "description": "ID of the chain"
+          },
+          "address": {
+            "type": "string",
+            "description": "Blade contract address of the pool, is the address used when executing a transaction"
+          },
+          "num_assets": {
+            "type": "integer",
+            "description": "The total of assets available in the chain"
+          },
+          "pool_tokens": {
+            "type": "number",
+            "description": "The total number of pool tokens"
+          },
+          "value_in_usd": {
+            "type": "number",
+            "format": "float",
+            "description": "Value of the pool in USD"
+          },
+          "swaps_enabled": {
+            "type": "boolean",
+            "description": "Represents if the swaps are available for the chain"
+          }
+        },
+        "required": [
+          "chain_id",
+          "address",
+          "num_assets",
+          "pool_tokens",
+          "value_in_usd",
+          "swaps_enabled"
+        ]
+      },
+      "OffChainPool": {
+        "type": "object",
+        "properties": {
+          "chain_id": {
+            "type": "integer",
+            "description": "ID of the chain"
+          },
+          "address": {
+            "type": "string",
+            "description": "Blade contract address of the pool, is the address used when executing a transaction"
+          },
+          "num_assets": {
+            "type": "integer",
+            "description": "The total of assets available in the chain"
+          },
+          "k": {
+            "type": "number",
+            "format": "float",
+            "description": "K factor"
+          },
+          "time_in_seconds": {
+            "type": "integer",
+            "description": "Number of seconds were used to calculate the fees of a swap, this number indicates the number of seconds that quotes are live"
+          },
+          "default_time_in_seconds": {
+            "type": "integer",
+            "description": "Default number of seconds that quotes are live, is value used to calculate fees when don't send the query param time_in_seconds"
+          },
+          "swaps_enabled": {
+            "type": "boolean",
+            "description": "Represents if the swaps are available for the chain"
+          }
+        },
+        "required": [
+          "chain_id",
+          "address",
+          "num_assets",
+          "k",
+          "time_in_seconds",
+          "default_time_in_seconds",
+          "swaps_enabled"
+        ]
+      },
+      "OnChainAsset": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the asset, this value should be used when making a quote"
+          },
+          "address": {
+            "type": "string",
+            "description": "The contract address of the asset"
+          },
+          "balance": {
+            "type": "string",
+            "description": "The balance of the asset in the pool"
+          },
+          "price_in_usd": {
+            "type": "number",
+            "format": "float",
+            "description": "Current price in dollars for the asset"
+          },
+          "value_in_usd": {
+            "type": "number",
+            "format": "float",
+            "description": "Value of the pool in USD"
+          },
+          "target_value_in_usd": {
+            "type": "number",
+            "format": "float",
+            "description": "USD target value for this asset in the pool"
+          }
+        },
+        "required": [
+          "name",
+          "address",
+          "balance",
+          "price_in_usd",
+          "value_in_usd",
+          "target_value_in_usd"
+        ]
+      },
+      "OffChainAsset": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the asset, this value should be used when making a quote"
+          },
+          "address": {
+            "type": "string",
+            "description": "The contract address of the asset"
+          },
+          "price_in_usd": {
+            "type": "number",
+            "format": "float",
+            "description": "Current price in dollars for the asset"
+          },
+          "listing_weight": {
+            "type": "integer",
+            "description": "asset weight within the pool"
+          }
+        },
+        "required": ["name", "address", "price_in_usd", "listing_weight"]
+      },
+      "Pair": {
+        "type": "object",
+        "properties": {
+          "assets": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Pair of assets available to make a swap - e.g: [\"ETH\", \"MATIC\"]"
+          },
+          "fee_in_basis_points": {
+            "type": "number",
+            "format": "float",
+            "description": "Fee for make a swap between the pair"
+          }
+        },
+        "required": ["assets", "fee_in_basis_points"]
+      },
+      "QuoteResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Id of the quote, use this value when signing a quote"
+          },
+          "must_accept_by": {
+            "type": "string",
+            "description": "Human-readable UTC timestamp by which you must accept the quote and should be expected to be a short duration. If this time has passed already, request a new quote - the server will not sign a quote after must_accept_by has passed"
+          },
+          "good_until": {
+            "type": "integer",
+            "description": "number of seconds that quotes live"
+          },
+          "chain_id": {
+            "type": "integer",
+            "description": "Represents the ID of the chain"
+          },
+          "input_asset_address": {
+            "type": "string",
+            "description": "Contract address of the asset you want to provide for the swap"
+          },
+          "input_amount": {
+            "type": "string",
+            "description": "Amount of assets to be exchanged"
+          },
+          "output_asset_address": {
+            "type": "string",
+            "description": "Contract address of the asset you want to receive in the swap"
+          },
+          "output_amount": {
+            "type": "string",
+            "description": "Amount of assets you will receive in the exchange"
+          },
+          "input_value_in_usd": {
+            "type": "number",
+            "format": "float",
+            "description": "Amount in dollars to be exchanged"
+          },
+          "output_value_in_usd": {
+            "type": "number",
+            "format": "float",
+            "description": "Amount in dollars you will receive in the exchange"
+          },
+          "created_at": {
+            "type": "integer",
+            "description": "Unix Timestamp indicating the date and time when the quote was created"
+          },
+          "rate": {
+            "type": "number",
+            "format": "float",
+            "description": "swap rate"
+          }
+        },
+        "required": [
+          "id",
+          "must_accept_by",
+          "good_until",
+          "chain_id",
+          "input_asset_address",
+          "input_amount",
+          "output_asset_address",
+          "output_amount",
+          "input_value_in_usd",
+          "output_value_in_usd",
+          "created_at",
+          "rate"
+        ],
+        "example": {
+          "id": "05a51aa6-41b5-4c61-a452-f1b95d0d43e4",
+          "must_accept_by": "2023-10-13 22:24:20.932560+00:00",
+          "good_until": 1697235920,
+          "chain_id": 1,
+          "input_amount": "10000000000000000000",
+          "output_amount": "5661947917",
+          "input_value_in_usd": 15595.15,
+          "output_value_in_usd": 5668.12,
+          "created_at": 1697235848,
+          "rate": 566.1947917,
+          "input_asset_address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+          "output_asset_address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+        }
+      },
+      "QuoteSignResponse": {
+        "type": "object",
+        "properties": {
+          "chain_id": {
+            "type": "integer",
+            "description": "Represents the ID of the chain"
+          },
+          "input_asset_address": {
+            "type": "string",
+            "description": "Contract address of the asset you want to provide for the swap"
+          },
+          "output_asset_address": {
+            "type": "string",
+            "description": "Contract address of the asset you want to receive in the swap"
+          },
+          "input_amount": {
+            "type": "string",
+            "description": "Amount of assets to be exchanged"
+          },
+          "output_amount": {
+            "type": "string",
+            "description": "Amount of assets you will receive in the exchange"
+          },
+          "good_until": {
+            "type": "string",
+            "description": "Number of seconds that quotes live. It can also contained a packed representation of the state"
+          },
+          "destination_address": {
+            "type": "string",
+            "description": "Address will receive the output token"
+          },
+          "signature": {
+            "$ref": "#/components/schemas/EIP2098Signature"
+          },
+          "clipper_exchange_address": {
+            "type": "string",
+            "description": "Blade contract address of the pool, is the address used when executing a transaction"
+          },
+          "calldata": {
+            "type": "string",
+            "description": "Bytes representation of the swap function and parameters to be sent directly to the `clipper_exchange_address` for execution. Only present when `calldata=true` in request."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Internal identifier"
+          },
+          "input_value_in_usd": {
+            "type": "number",
+            "format": "float",
+            "description": "Amount in dollars to be exchanged"
+          },
+          "output_value_in_usd": {
+            "type": "number",
+            "format": "float",
+            "description": "Amount in dollars you will receive in the exchange"
+          },
+          "created_at": {
+            "type": "integer",
+            "description": "Unix Timestamp indicating the date and time when the quote was created"
+          },
+          "rate": {
+            "type": "number",
+            "format": "float",
+            "description": "swap rate"
+          }
+        },
+        "required": [
+          "chain_id",
+          "input_asset_address",
+          "output_asset_address",
+          "input_amount",
+          "output_amount",
+          "good_until",
+          "destination_address",
+          "signature",
+          "clipper_exchange_address",
+          "id",
+          "input_value_in_usd",
+          "output_value_in_usd",
+          "created_at",
+          "rate"
+        ]
+      },
+      "SignRequest": {
+        "type": "object",
+        "properties": {
+          "quote_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The id of the quote returned in quote endpoint",
+            "example": "4c707e45-7019-4b81-b875-c5eb6fe061d6"
+          },
+          "destination_address": {
+            "type": "string",
+            "description": "Address that will receive the output token",
+            "example": "0x960376b3F62f41E7e66809a05D1C5afdFD60A0E9"
+          },
+          "sender_address": {
+            "type": "string",
+            "description": "For DEX aggregator partners that are using their own smart contract to mediate the interaction between users and Blade. Aggregators should use the address of the account that they will pull tokens from (i.e., the EOA user address) as opposed to the address of their deployed contract. By default, `destination_address` will be used.",
+            "example": "0x960376b3F62f41E7e66809a05D1C5afdFD60A0E9"
+          },
+          "aux_data": {
+            "type": "string",
+            "description": "For use with the calldata swap feature, it can be set to any string and is used for identification purposes in the event logs. By default is` 0x436c697070657200000000000000000000000000000000000000000000000000` that is the representation of `Clipper`",
+            "example": "0x31494e4348000000000000000000000000000000000000000000000000000000",
+            "default": "0x436c697070657200000000000000000000000000000000000000000000000000"
+          },
+          "calldata": {
+            "type": "boolean",
+            "description": "Send this as true if we want to get the bytes representation of the swap in the response. Client can use this to be sent directly to the pool contract for execution.",
+            "default": false
+          },
+          "native_input": {
+            "type": "boolean",
+            "description": "If the input token is native (e.g. raw ETH), this value must be true. This will use the `sellEthForToken` contract function and will take the `msg.value` for the input. e.g `ETH -> USDC`. This field is mutually exclusive with `native_output`.",
+            "default": false
+          },
+          "native_output": {
+            "type": "boolean",
+            "description": "If the output token is native (i.e. raw ETH), this value must be true. This will use the `sellTokenForEth` contract function. e.g `USDC -> ETH`. This field is mutually exclusive with `native_input`.",
+            "default": false
+          }
+        },
+        "required": ["quote_id", "destination_address"]
+      },
+      "SignResponse": {
+        "type": "object",
+        "properties": {
+          "chain_id": {
+            "type": "integer",
+            "description": "Represents the ID of the chain"
+          },
+          "input_asset_address": {
+            "type": "string",
+            "description": "Contract address of the asset you want to provide for the swap"
+          },
+          "output_asset_address": {
+            "type": "string",
+            "description": "Contract address of the asset you want to receive in the swap"
+          },
+          "input_amount": {
+            "type": "string",
+            "description": "Amount of assets to be exchanged"
+          },
+          "output_amount": {
+            "type": "string",
+            "description": "Amount of assets you will receive in the exchange"
+          },
+          "good_until": {
+            "type": "string",
+            "description": "Number of seconds that quotes live. It can also contained a packed representation of the state"
+          },
+          "destination_address": {
+            "type": "string",
+            "description": "Address will receive the output token"
+          },
+          "signature": {
+            "$ref": "#/components/schemas/EIP2098Signature"
+          },
+          "clipper_exchange_address": {
+            "type": "string",
+            "description": "Blade contract address of the pool, is the address used when executing a transaction"
+          },
+          "calldata": {
+            "type": "string",
+            "description": "Bytes representation of the swap function and parameters to be sent directly to the `clipper_exchange_address` for execution. Only present when `calldata=true` in request."
+          }
+        },
+        "required": [
+          "chain_id",
+          "input_asset_address",
+          "output_asset_address",
+          "input_amount",
+          "output_amount",
+          "good_until",
+          "destination_address",
+          "signature",
+          "clipper_exchange_address"
+        ]
+      },
+      "DepositRequest": {
+        "type": "object",
+        "properties": {
+          "sender": {
+            "type": "string",
+            "description": "The address of the user initiating the deposit transaction.",
+            "example": "0x960376b3F62f41E7e66809a05D1C5afdFD60A0E9"
+          },
+          "pool_address": {
+            "type": "string",
+            "description": "The address of the pool",
+            "example": "0x989E8F547FbCa65f4FB0af41e50e4058e6c68166"
+          },
+          "days_to_lock": {
+            "type": "integer",
+            "description": "Number of days to lock the deposit in the liquidity pool. Required for all pools except Katana, which uses `lock_time` instead.",
+            "example": 5
+          },
+          "lock_time": {
+            "type": "integer",
+            "description": "Number of minutes to lock the deposit in the liquidity pool. Only supported by the Katana pool. For other pools, use `days_to_lock`.",
+            "example": 5
+          },
+          "deposit": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "An object containing the asset address and the amount to deposit as a string. The amount should be in its machine-readable form. This parameter is required only if `single_asset` is false.",
+            "example": {
+              "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599": "400000000",
+              "0x6B175474E89094C44Da98b954EedeAC495271d0F": "2000000000000000000",
+              "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2": "1000000000000000000",
+              "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48": "2000000"
+            }
+          },
+          "chain_id": {
+            "type": "integer",
+            "description": "The unique identifier of the blockchain network where the deposit will be made.",
+            "example": 1
+          },
+          "output_pool_tokens": {
+            "type": "integer",
+            "description": "The total number of pool tokens the user wants to receive. It is only valid for single-asset deposits.",
+            "example": 10000
+          },
+          "single_asset": {
+            "type": "boolean",
+            "description": "A boolean that indicates whether only one asset is being deposited.",
+            "default": false,
+            "example": true
+          },
+          "single_token": {
+            "type": "string",
+            "description": "Required only when `single_asset` is true. This represents the address of the single asset being deposited.",
+            "example": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"
+          }
+        },
+        "required": ["sender", "pool_address", "chain_id"]
+      },
+      "DepositResponse": {
+        "type": "object",
+        "properties": {
+          "sender": {
+            "type": "string",
+            "description": "The address of the user who initiated the deposit transaction."
+          },
+          "n_days": {
+            "type": "integer",
+            "description": "The number of days the assets will be locked in the pool, matching the `days_to_lock` from the request. Supported for all pools except Katana. For katana, returns `lock_time`."
+          },
+          "lock_time": {
+            "type": "integer",
+            "description": "The number of minutes the assets will be locked in the pool, matching the `lock_time` from the request. Only supported by the Katana pool. For other pools, returns `n_days`."
+          },
+          "good_until": {
+            "type": "integer",
+            "description": "The timestamp indicating how long the deposit details, including the signature, are valid."
+          },
+          "pool_tokens": {
+            "type": "string",
+            "description": "The total number of pool tokens that will be given to the user as a result of the deposit."
+          },
+          "signature": {
+            "$ref": "#/components/schemas/EIP2098Signature"
+          },
+          "clipper_exchange_address": {
+            "type": "string",
+            "description": "The address of the Blade exchange contract where the deposit is being made."
+          },
+          "deposit_amounts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "A list of the amounts to be deposited for each asset. If an asset was not provided in the request, the amount returned will be 0. For example, if 3 assets were provided in a 4-asset pool, the response will include an amount of 0 for the missing asset. For single asset deposit this field is not present"
+          },
+          "amount": {
+            "type": "string",
+            "description": "(Single-asset deposits only) The total amount of the single asset that is being deposited into the pool."
+          },
+          "token": {
+            "type": "string",
+            "description": "(Single-asset deposits only) The address of the token that is being deposited into the pool."
+          },
+          "extra_data": {
+            "type": "string",
+            "description": "Encode LP token price and prices list into ABI-compatible bytes. Only supported by the Katana pool."
+          }
+        },
+        "required": [
+          "sender",
+          "good_until",
+          "pool_tokens",
+          "signature",
+          "clipper_exchange_address"
+        ]
+      },
+      "EIP2098Signature": {
+        "type": "object",
+        "description": "A EIP 2098 'short signature' representation for the signature from the Blade Exchange server",
+        "properties": {
+          "v": {
+            "type": "integer",
+            "description": "Recovery identifier"
+          },
+          "r": {
+            "type": "string",
+            "description": "ECDSA signature r"
+          },
+          "s": {
+            "type": "string",
+            "description": "ECDSA signature s"
+          }
+        },
+        "required": ["v", "r", "s"]
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errorMessage": {
+            "type": "string",
+            "description": "Description of the error"
+          },
+          "errorType": {
+            "type": "string",
+            "description": "Type of the error"
+          },
+          "errorCode": {
+            "type": "integer",
+            "description": "Error code (returned only when we have a blade code for the error)"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "Additional error data (returned only when the input data is invalid)"
+          }
+        },
+        "required": ["errorMessage", "errorType"]
+      }
+    },
+    "responses": {
+      "BadRequest": {
+        "description": "Bad Request - Invalid data in the request",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            }
+          }
+        }
+      },
+      "Unauthorized": {
+        "description": "Unauthorized - Missing or invalid API key. Ensure you include a valid `x-api-key` header.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "errorMessage": "Auth: Access is forbidden",
+              "errorType": "Forbidden"
+            }
+          }
+        }
+      },
+      "Forbidden": {
+        "description": "Forbidden Error - Access denied",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            }
+          }
+        }
+      },
+      "InternalServerError": {
+        "description": "Internal Server Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            }
+          }
+        }
+      },
+      "ExternalServiceError": {
+        "description": "External Service Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            }
+          }
+        }
+      },
+      "InvalidInputData": {
+        "description": "Invalid input data",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "errorMessage": "Invalid input data",
+              "errorType": "BadData",
+              "errorCode": 422,
+              "data": [
+                {
+                  "type": "missing",
+                  "loc": ["chain_id"],
+                  "msg": "Field required",
+                  "input": {
+                    "input_amount": "18000",
+                    "input_asset_symbol": "ETH",
+                    "output_asset_symbol": "WBTC",
+                    "time_in_seconds": 60
+                  },
+                  "url": "https://errors.pydantic.dev/2.1/v/missing"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "QuoteProblems": {
+        "description": "Quote problems",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  }
+}

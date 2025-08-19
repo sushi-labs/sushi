@@ -210,13 +210,13 @@ body {
   background: var(--secondary-bg-color);
 }
 
-.swagger-ui .body-param__example {
-  background-color: var(--secondary-bg-color) !important;
+.swagger-ui .body-param__example,
+.swagger-ui .opblock-body pre.microlight {
+  background-color: rgba(0, 0, 0, 0.6) !important;
   border-radius: var(--block-border-radius) !important;
 }
 
 .swagger-ui .example {
-  background-color: var(--secondary-bg-color) !important;
   border-radius: var(--block-border-radius) !important;
 }
 
@@ -420,6 +420,9 @@ body {
 
   --get-method-color: var(--vocs-color_backgroundAccent);
   --get-method-background-color: var(--vocs-color_background2);
+
+  --post-method-color: #49cc90;
+  --post-method-background-color: rgba(73, 204, 144, 0.1);
 
   --all-bg-color: var(--vocs-color_background);
   --secondary-bg-color: var(--vocs-color_background);
