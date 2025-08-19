@@ -6,7 +6,7 @@ import { type SwapRequest, getSwap } from './swap.js'
 const baseSwapRequest = {
   chainId: EvmChainId.ETHEREUM,
   tokenIn: '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
-  tokenOut: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+  tokenOut: '0x6b3595068778dd592e39a122f4f5a5cf09c90fe2',
   amount: 100000000000000000n,
   maxSlippage: 0.005,
   sender: WNATIVE_ADDRESS[EvmChainId.ETHEREUM],
