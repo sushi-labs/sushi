@@ -46,7 +46,7 @@ describe('numberToFixed', () => {
       expect(numberToFixed(1.2, { maxFixed: 3 })).toBe('1.2')
       expect(numberToFixed(1.0, { maxFixed: 3 })).toBe('1')
       expect(numberToFixed(1.234, { maxFixed: 2 })).toBe('1.23')
-      expect(numberToFixed(1.230, { maxFixed: 3 })).toBe('1.23')
+      expect(numberToFixed(1.23, { maxFixed: 3 })).toBe('1.23')
     })
 
     it('should handle string inputs with maxFixed', () => {
@@ -66,7 +66,7 @@ describe('numberToFixed', () => {
       // Very precise string that loses precision when converted to Number
       const preciseString = '0.1234567890123456789012345678901234567890'
       const result = numberToFixed(preciseString, { maxFixed: 20 })
-      
+
       // Current implementation converts to Number first, losing precision
       expect(result).not.toBe('0.12345678901234568')
       expect(result.length).toBeLessThan(preciseString.length)
@@ -75,7 +75,7 @@ describe('numberToFixed', () => {
     it('should demonstrate precision preservation with very large numbers', () => {
       const largeString = '123456789012345678901234567890.123456789'
       const result = numberToFixed(largeString, { maxFixed: 10 })
-      
+
       // New implementation preserves precision for string inputs
       expect(result).toBe('123456789012345678901234567890.123456789')
       expect(result).toBe(largeString)
@@ -84,7 +84,7 @@ describe('numberToFixed', () => {
     it('should demonstrate precision preservation with very small numbers', () => {
       const smallString = '0.123456789012345678901234567890123456789'
       const result = numberToFixed(smallString, { maxFixed: 35 })
-      
+
       // New implementation preserves precision for string inputs
       expect(result).toBe('0.12345678901234567890123456789012345')
       expect(result.length).toBeGreaterThan(20)
