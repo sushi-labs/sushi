@@ -1,5 +1,13 @@
 # sushi
 
+## 6.0.10
+
+### Patch Changes
+
+- [#264](https://github.com/sushi-labs/sushi/pull/264) [`8a6c403`](https://github.com/sushi-labs/sushi/commit/8a6c403971ff964c6c3c34f2109206a745419da3) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Increase precision for strings passed to numberToFixed
+
+- [#268](https://github.com/sushi-labs/sushi/pull/268) [`4387fc0`](https://github.com/sushi-labs/sushi/commit/4387fc0f8493883c7577e0a35dbef89037945139) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Add RP9 to Katana
+
 ## 6.0.9
 
 ### Patch Changes
