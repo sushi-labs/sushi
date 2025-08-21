@@ -266,6 +266,7 @@ export const ROUTE_PROCESSOR_9_SUPPORTED_CHAIN_IDS = [
   EvmChainId.APE,
   EvmChainId.SONIC,
   EvmChainId.HEMI,
+  EvmChainId.KATANA,
 ] as const
 export type RouteProcessor9ChainId =
   (typeof ROUTE_PROCESSOR_9_SUPPORTED_CHAIN_IDS)[number]
@@ -311,6 +312,7 @@ export const ROUTE_PROCESSOR_9_ADDRESS: Record<
   [EvmChainId.APE]: '0x81602EF321C46d73f5Ba7f476947AE1a862957dc',
   [EvmChainId.SONIC]: '0x81602EF321C46d73f5Ba7f476947AE1a862957dc',
   [EvmChainId.HEMI]: '0x81602EF321C46d73f5Ba7f476947AE1a862957dc',
+  [EvmChainId.KATANA]: '0x81602EF321C46d73f5Ba7f476947AE1a862957dc',
 } as const
 export const isRouteProcessor9ChainId = (
   chainId: number,
