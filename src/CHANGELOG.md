@@ -1,5 +1,11 @@
 # sushi
 
+## 6.0.12
+
+### Patch Changes
+
+- [#273](https://github.com/sushi-labs/sushi/pull/273) [`77179e7`](https://github.com/sushi-labs/sushi/commit/77179e7ecbd4169a1de53859d963271d56c7fb52) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Fix NonfungiblePositionManager collect
+
 ## 6.0.11
 
 ### Patch Changes
