@@ -1,5 +1,11 @@
 # sushi
 
+## 6.0.11
+
+### Patch Changes
+
+- [#271](https://github.com/sushi-labs/sushi/pull/271) [`37ce5c9`](https://github.com/sushi-labs/sushi/commit/37ce5c95035e6a27b931282fb6574f4d52f79c7d) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Add RP7 address for Katana
+
 ## 6.0.10
 
 ### Patch Changes
