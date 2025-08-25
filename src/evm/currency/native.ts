@@ -1,4 +1,5 @@
 import * as z from 'zod'
+import type { CurrencyMetadata } from '~/generic/currency/currency.js'
 import { Native } from '../../generic/currency/native.js'
 import {
   type EvmChainId,
@@ -7,7 +8,6 @@ import {
 } from '../chain/chains.js'
 import { WNATIVE } from '../config/tokens/wrapped-native.js'
 import { EvmToken } from './token.js'
-import type { CurrencyMetadata } from '~/generic/currency/currency.js'
 
 export class EvmNative<
   TMetadata extends CurrencyMetadata = Record<string, unknown>,
