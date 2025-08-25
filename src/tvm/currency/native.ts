@@ -1,10 +1,10 @@
 import * as z from 'zod'
+import type { CurrencyMetadata } from '~/generic/currency/currency.js'
 import { Native } from '../../generic/currency/native.js'
 import { type TvmChainId, isTvmChainId } from '../chain/chains.js'
 import { NATIVE } from '../config/index.js'
 import { WNATIVE } from '../config/tokens/wrapped-native.js'
 import { TvmToken } from './token.js'
-import type { CurrencyMetadata } from '~/generic/currency/currency.js'
 
 export class TvmNative<
   TMetadata extends CurrencyMetadata = Record<string, unknown>,
