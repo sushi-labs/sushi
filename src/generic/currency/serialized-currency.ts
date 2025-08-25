@@ -8,21 +8,32 @@ import {
   type serializedTvmNativeSchema,
   type serializedTvmTokenSchema,
 } from '../../tvm/index.js'
+import type { CurrencyMetadata } from './currency.js'
 
-export type SerializedCurrencySchema =
-  | typeof serializedEvmTokenSchema
-  | typeof serializedEvmNativeSchema
-  | typeof serializedEvmCurrencySchema
-  | typeof serializedMvmTokenSchema
-  | typeof serializedTvmTokenSchema
-  | typeof serializedTvmNativeSchema
-  | typeof serializedTvmCurrencySchema
-  | typeof serializedCurrencySchema
+export type SerializedCurrencySchema<
+  TMetadata extends CurrencyMetadata = CurrencyMetadata,
+> = ReturnType<
+  | typeof serializedEvmTokenSchema<TMetadata>
+  | typeof serializedEvmNativeSchema<TMetadata>
+  | typeof serializedEvmCurrencySchema<TMetadata>
+  | typeof serializedMvmTokenSchema<TMetadata>
+  | typeof serializedTvmTokenSchema<TMetadata>
+  | typeof serializedTvmNativeSchema<TMetadata>
+  | typeof serializedTvmCurrencySchema<TMetadata>
+  | typeof serializedCurrencySchema<TMetadata>
+>
 
-export const serializedCurrencySchema = z.union([
-  serializedEvmCurrencySchema,
-  serializedMvmTokenSchema,
-  serializedTvmCurrencySchema,
-])
+export const serializedCurrencySchema = <
+  TMetadata extends {} = CurrencyMetadata,
+>(
+  opts: { metadata?: z.ZodType<TMetadata> } = {},
+) =>
+  z.union([
+    serializedEvmCurrencySchema(opts),
+    serializedMvmTokenSchema(opts),
+    serializedTvmCurrencySchema(opts),
+  ])
 
-export type SerializedCurrency = z.infer<typeof serializedCurrencySchema>
+export type SerializedCurrency<
+  TMetadata extends CurrencyMetadata = CurrencyMetadata,
+> = z.infer<ReturnType<typeof serializedCurrencySchema<TMetadata>>>
