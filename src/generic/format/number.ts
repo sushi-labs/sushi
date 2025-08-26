@@ -166,9 +166,10 @@ function stringToFixed(
       }
     }
 
-    const significantDecimal = decimalPart
-      .slice(0, remainingLength)
-      .padEnd(remainingLength, '0')
+    let significantDecimal = decimalPart.slice(0, remainingLength)
+    while (significantDecimal.endsWith('0')) {
+      significantDecimal = significantDecimal.slice(0, -1)
+    }
 
     const res = `${integerPart}${significantDecimal ? `.${significantDecimal}` : ''}`
     return roundString(str, res)
