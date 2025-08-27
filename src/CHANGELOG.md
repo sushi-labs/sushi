@@ -1,5 +1,13 @@
 # sushi
 
+## 6.0.13
+
+### Patch Changes
+
+- [#277](https://github.com/sushi-labs/sushi/pull/277) [`07ca891`](https://github.com/sushi-labs/sushi/commit/07ca891776c66cfe7b9290d5ebadec8550f11b3d) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Fix stringToFixed's toSignificant
+
+- [#276](https://github.com/sushi-labs/sushi/pull/276) [`3170cc5`](https://github.com/sushi-labs/sushi/commit/3170cc57546ab52d40c8c0ade91c61704ac26e81) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Fix package.json exports
+
 ## 6.0.12
 
 ### Patch Changes
