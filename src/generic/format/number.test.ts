@@ -33,11 +33,13 @@ describe('numberToFixed', () => {
       expect(numberToFixed(1234.5678, { significant: 4 })).toBe('1235')
       expect(numberToFixed(0.001234, { significant: 3 })).toBe('0.00123')
       expect(numberToFixed(123.456, { significant: 2 })).toBe('120')
+      expect(numberToFixed(0, { significant: 2 })).toBe('0')
     })
 
     it('should handle string inputs with significant digits', () => {
       expect(numberToFixed('1234.5678', { significant: 4 })).toBe('1235')
       expect(numberToFixed('0.001234', { significant: 3 })).toBe('0.00123')
+      expect(numberToFixed('0.000', { significant: 2 })).toBe('0')
     })
   })
 
