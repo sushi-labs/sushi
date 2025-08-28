@@ -1,5 +1,11 @@
 # sushi
 
+## 6.0.14
+
+### Patch Changes
+
+- [#279](https://github.com/sushi-labs/sushi/pull/279) [`dba8be2`](https://github.com/sushi-labs/sushi/commit/dba8be29e99b3198e078360efc3e724ca8c9326c) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add berachain config
+
 ## 6.0.13
 
 ### Patch Changes
