@@ -363,6 +363,7 @@ export const LSDS = {
     }),
   ],
   [EvmChainId.HYPEREVM]: [],
+  [EvmChainId.BERACHAIN]: [],
 
   // TESTNETS
   [EvmChainId.ARBITRUM_SEPOLIA]: [],

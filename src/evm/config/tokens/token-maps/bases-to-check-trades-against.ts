@@ -610,4 +610,9 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     WNATIVE[EvmChainId.HYPEREVM],
     USDT[EvmChainId.HYPEREVM],
   ],
+  [EvmChainId.BERACHAIN]: [
+    WNATIVE[EvmChainId.BERACHAIN],
+    USDT[EvmChainId.BERACHAIN],
+    WETH9[EvmChainId.BERACHAIN]
+  ],
 }

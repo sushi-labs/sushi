@@ -243,6 +243,7 @@ export const STABLES = {
     AUSD[EvmChainId.KATANA],
   ],
   [EvmChainId.HYPEREVM]: [USDT[EvmChainId.HYPEREVM]],
+  [EvmChainId.BERACHAIN]: [USDT[EvmChainId.BERACHAIN]],
   // TESTNETS
   [EvmChainId.ARBITRUM_SEPOLIA]: [],
   [EvmChainId.SEPOLIA]: [],

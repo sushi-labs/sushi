@@ -10,6 +10,7 @@ export const AGGREGATOR_ONLY_CHAIN_IDS = [
   EvmChainId.ZKLINK,
   EvmChainId.APE,
   EvmChainId.HYPEREVM,
+  EvmChainId.BERACHAIN
 ] as const
 
 export type AggregatorOnlyChainId = (typeof AGGREGATOR_ONLY_CHAIN_IDS)[number]
