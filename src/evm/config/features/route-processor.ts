@@ -139,7 +139,7 @@ export const ROUTE_PROCESSOR_7_SUPPORTED_CHAIN_IDS = [
   EvmChainId.SEPOLIA,
   EvmChainId.KATANA,
   EvmChainId.HYPEREVM,
-  EvmChainId.BERACHAIN
+  EvmChainId.BERACHAIN,
 ] as const
 export type RouteProcessor7ChainId =
   (typeof ROUTE_PROCESSOR_7_SUPPORTED_CHAIN_IDS)[number]
@@ -274,7 +274,7 @@ export const ROUTE_PROCESSOR_9_SUPPORTED_CHAIN_IDS = [
   EvmChainId.HEMI,
   EvmChainId.KATANA,
   EvmChainId.HYPEREVM,
-  EvmChainId.BERACHAIN
+  EvmChainId.BERACHAIN,
 ] as const
 export type RouteProcessor9ChainId =
   (typeof ROUTE_PROCESSOR_9_SUPPORTED_CHAIN_IDS)[number]
