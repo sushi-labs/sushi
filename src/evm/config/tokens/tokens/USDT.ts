@@ -38,6 +38,7 @@ export const USDT_ADDRESS = {
   [EvmChainId.MANTLE]: '0x201eba5cc46d216ce6dc03f6a759e8e766e956ae',
   [EvmChainId.KATANA]: '0x2dca96907fde857dd3d816880a0df407eeb2d2f2',
   [EvmChainId.HYPEREVM]: '0xb8ce59fc3717ada4c02eadf9682a9e934f625ebb',
+  [EvmChainId.BERACHAIN]: '0x779ded0c9e1022225f8e0630b35a9b54be713736',
 } as const
 
 export const USDT = {

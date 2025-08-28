@@ -6,6 +6,7 @@ import {
   arbitrum as arbitrumViem,
   avalanche as avalancheViem,
   base as baseViem,
+  berachain as berachainViem,
   blast as blastViem,
   boba as bobaViem,
   bsc as bscViem,
@@ -335,6 +336,46 @@ const katana = /* @__PURE__ */ defineEvmChain(
   },
 )
 
+const hyperevm = /* @__PURE__ */ defineEvmChain(
+  /* @__PURE__ */ defineViemChain({
+    id: 999,
+    name: 'HyperEVM',
+    nativeCurrency: {
+      decimals: 18,
+      name: 'Hyperliquid',
+      symbol: 'HYPE',
+    },
+    rpcUrls: {
+      default: {
+        http: ['https://rpc.hyperliquid.xyz/evm'],
+      },
+    },
+    blockExplorers: {
+      default: {
+        name: 'HyperEVM Explorer',
+        url: 'https://hyperevmscan.io',
+        apiUrl: 'https://api.hyperevmscan.io/api',
+      },
+    },
+    testnet: false,
+    contracts: {
+      multicall3: {
+        address: '0xca11bde05977b3631167028862be2a173976ca11',
+        blockCreated: 13051,
+      },
+    },
+  }),
+  {
+    key: 'hyperevm',
+    shortName: 'hyperevm',
+  },
+)
+
+const berachain = /* @__PURE__ */ defineEvmChain(berachainViem, {
+  key: 'berachain',
+  shortName: 'bera',
+})
+
 // Testnets
 const sepolia = /* @__PURE__ */ defineEvmChain(sepoliaViem, {
   key: 'sepolia',
@@ -383,41 +424,6 @@ const tatara = /* @__PURE__ */ defineEvmChain(
   },
 )
 
-const hyperevm = /* @__PURE__ */ defineEvmChain(
-  /* @__PURE__ */ defineViemChain({
-    id: 999,
-    name: 'HyperEVM',
-    nativeCurrency: {
-      decimals: 18,
-      name: 'Hyperliquid',
-      symbol: 'HYPE',
-    },
-    rpcUrls: {
-      default: {
-        http: ['https://rpc.hyperliquid.xyz/evm'],
-      },
-    },
-    blockExplorers: {
-      default: {
-        name: 'HyperEVM Explorer',
-        url: 'https://hyperevmscan.io',
-        apiUrl: 'https://api.hyperevmscan.io/api',
-      },
-    },
-    testnet: false,
-    contracts: {
-      multicall3: {
-        address: '0xca11bde05977b3631167028862be2a173976ca11',
-        blockCreated: 13051,
-      },
-    },
-  }),
-  {
-    key: 'hyperevm',
-    shortName: 'hyperevm',
-  },
-)
-
 export const evmChains = [
   bobaBnb,
   ethereum,
@@ -459,6 +465,7 @@ export const evmChains = [
   hemi,
   katana,
   hyperevm,
+  berachain,
 
   sepolia,
   arbitrumSepolia,

@@ -43,6 +43,7 @@ export const WETH9_ADDRESS = {
   [EvmChainId.TATARA]: '0x17b8ee96e3bcb3b04b3e8334de4524520c51cab4',
   [EvmChainId.KATANA]: '0xee7d8bcfb72bc1880d0cf19822eb0a2e6577ab62',
   [EvmChainId.HYPEREVM]: '0x5555555555555555555555555555555555555555',
+  [EvmChainId.BERACHAIN]: '0x2f6f07cdcf3588944bf4c42ac74ff24bf56e7590',
 } as const
 
 export const WETH9 = {
