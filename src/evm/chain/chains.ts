@@ -424,8 +424,6 @@ const tatara = /* @__PURE__ */ defineEvmChain(
   },
 )
 
-
-
 export const evmChains = [
   bobaBnb,
   ethereum,
