@@ -1,5 +1,11 @@
 # sushi
 
+## 6.0.15
+
+### Patch Changes
+
+- [#281](https://github.com/sushi-labs/sushi/pull/281) [`8946a9d`](https://github.com/sushi-labs/sushi/commit/8946a9d39f4555ae6507500188c582079674f4f1) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Remove outdated token lists
+
 ## 6.0.14
 
 ### Patch Changes
