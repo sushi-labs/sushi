@@ -3,10 +3,6 @@ export const BA_LIST =
 
 export const UNSUPPORTED_TOKEN_LIST_URLS: string[] = [BA_LIST]
 
-export const SUSHI_DEFAULT_TOKEN_LIST = 'https://token-list.sushi.com'
-export const SUSHI_CHAINLINK_TOKEN_LIST =
-  'https://token-list.sushi.com/chainlink'
-
 export const UNI_LIST = 'https://gateway.ipfs.io/ipns/tokens.uniswap.org'
 export const UNI_EXTENDED_LIST =
   'https://gateway.ipfs.io/ipns/extendedtokens.uniswap.org'
@@ -52,7 +48,6 @@ export const PANCAKESWAP_BNB =
 // this is the default list of lists that are exposed to users
 // lower index == higher priority for token import
 export const DEFAULT_TOKEN_LIST_OF_TOKEN_LISTS_TO_DISPLAY: string[] = [
-  SUSHI_DEFAULT_TOKEN_LIST,
   // UNI_LIST, // The specific IPFS gateway does not allow CORS
   // UNI_EXTENDED_LIST,
   COMPOUND_LIST,
@@ -82,11 +77,7 @@ export const DEFAULT_LIST_OF_LISTS: string[] = [
 ]
 
 // default lists to be 'active' aka searched across
-export const DEFAULT_ACTIVE_LIST_URLS: string[] = [
-  SUSHI_DEFAULT_TOKEN_LIST,
-  SUSHI_CHAINLINK_TOKEN_LIST,
-  OPTIMISM_LIST,
-]
+export const DEFAULT_ACTIVE_LIST_URLS: string[] = [OPTIMISM_LIST]
 
 export const BLACKLIST_TOKEN_IDS: string[] = [
   // Fake Aptos token
