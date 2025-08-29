@@ -1,5 +1,0 @@
----
-"sushi": patch
----
-
-fix cjs

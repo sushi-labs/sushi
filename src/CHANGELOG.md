@@ -1,5 +1,11 @@
 # sushi
 
+## 6.0.16
+
+### Patch Changes
+
+- [#283](https://github.com/sushi-labs/sushi/pull/283) [`23960ac`](https://github.com/sushi-labs/sushi/commit/23960acf86c187337738ad499b3d1784979e6b3b) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - fix cjs
+
 ## 6.0.15
 
 ### Patch Changes
