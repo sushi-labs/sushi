@@ -1,3 +1,4 @@
+import { nativeAddress } from '../../evm/config/simple-constants.js'
 import type { ChainId } from '../chain/chains.js'
 import type { ID } from '../types/id.js'
 
@@ -30,12 +31,25 @@ export function getChainIdAddressFromId<
 export function getIdFromChainIdAddress<
   TChainId extends ChainId,
   TAddress extends string,
->(chainId: TChainId, address: TAddress): ID<TChainId, TAddress> {
+  TTranslateNative extends boolean = false,
+>(
+  chainId: TChainId,
+  address: TAddress,
+  options: { translateNative?: TTranslateNative } = {},
+) {
   if (!chainId || !address) {
     throw new Error(
       `Invalid chainId or address: ${chainId}, ${address}. Both must be provided.`,
     )
   }
 
-  return `${chainId}:${address.toLowerCase()}` as ID<TChainId, TAddress>
+  address = address.toLowerCase() as TAddress
+
+  if (address === nativeAddress && options.translateNative) {
+    address = 'NATIVE' as TAddress
+  }
+
+  return `${chainId}:${address}` as TTranslateNative extends true
+    ? ID<TChainId, TAddress | 'NATIVE'>
+    : ID<TChainId, TAddress>
 }
