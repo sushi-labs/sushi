@@ -1,5 +1,11 @@
 # sushi
 
+## 6.0.17
+
+### Patch Changes
+
+- [`eeb894d`](https://github.com/sushi-labs/sushi/commit/eeb894db20144181509aa1c2291cb94d2dd197c2) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Enfore lowercase ids
+
 ## 6.0.16
 
 ### Patch Changes
