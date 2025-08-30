@@ -1,5 +1,11 @@
 # sushi
 
+## 6.0.18
+
+### Patch Changes
+
+- [`214b188`](https://github.com/sushi-labs/sushi/commit/214b1886ef328cd9f9b76e00f29712fe066a2c16) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Easier native address handling
+
 ## 6.0.17
 
 ### Patch Changes
