@@ -15,12 +15,19 @@ export type TvmCurrency<
   TMetadata extends CurrencyMetadata = Record<string, unknown>,
 > = TvmNative | TvmToken<TMetadata>
 
-export const serializedTvmCurrencySchema = z.discriminatedUnion('type', [
-  serializedTvmTokenSchema,
-  serializedTvmNativeSchema,
-])
+export const serializedTvmCurrencySchema = <
+  TMetadata extends {} = CurrencyMetadata,
+>(
+  opts: { metadata?: z.ZodType<TMetadata> } = {},
+) =>
+  z.discriminatedUnion('type', [
+    serializedTvmTokenSchema(opts),
+    serializedTvmNativeSchema(opts),
+  ])
 
-export type SerializedTvmCurrency = z.infer<typeof serializedTvmCurrencySchema>
+export type SerializedTvmCurrency<
+  TMetadata extends CurrencyMetadata = CurrencyMetadata,
+> = z.infer<ReturnType<typeof serializedTvmCurrencySchema<TMetadata>>>
 
 function deserializeTvmCurrency(data: SerializedTvmToken): TvmToken
 function deserializeTvmCurrency(data: SerializedTvmNative): TvmNative
