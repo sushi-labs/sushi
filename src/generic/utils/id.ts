@@ -37,5 +37,5 @@ export function getIdFromChainIdAddress<
     )
   }
 
-  return `${chainId}:${address}` as ID<TChainId, TAddress>
+  return `${chainId}:${address.toLowerCase()}` as ID<TChainId, TAddress>
 }
