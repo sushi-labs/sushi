@@ -23,5 +23,5 @@ export function unwrapToken<TCurrency extends Currency>(currency: TCurrency) {
     return currency
   }
 
-  throw invariant('Unsupported currency type')
+  throw invariant(false, 'Unsupported currency type')
 }
