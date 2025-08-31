@@ -1,6 +1,6 @@
 import { EvmChainId } from '../../chain/index.js'
 
-export const EXTRACTOR_SUPPORTED_CHAIN_IDS = [
+export const SWAP_API_SUPPORTED_CHAIN_IDS = [
   EvmChainId.ARBITRUM,
   EvmChainId.ARBITRUM_NOVA,
   EvmChainId.AVALANCHE,
@@ -45,10 +45,10 @@ export const EXTRACTOR_SUPPORTED_CHAIN_IDS = [
   EvmChainId.BERACHAIN,
 ] as const
 
-export type ExtractorSupportedChainId =
-  (typeof EXTRACTOR_SUPPORTED_CHAIN_IDS)[number]
+export type SwapApiSupportedChainId =
+  (typeof SWAP_API_SUPPORTED_CHAIN_IDS)[number]
 
-export const isExtractorSupportedChainId = (
+export const isSwapApiSupportedChainId = (
   chainId: number,
-): chainId is ExtractorSupportedChainId =>
-  EXTRACTOR_SUPPORTED_CHAIN_IDS.includes(chainId as ExtractorSupportedChainId)
+): chainId is SwapApiSupportedChainId =>
+  SWAP_API_SUPPORTED_CHAIN_IDS.includes(chainId as SwapApiSupportedChainId)
