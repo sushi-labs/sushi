@@ -1,5 +1,11 @@
 # sushi
 
+## 6.0.19
+
+### Patch Changes
+
+- [`4736aff`](https://github.com/sushi-labs/sushi/commit/4736aff477942803e4aeaf0dfea0219250285110) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Make ChainId a number for getChainIdAddressFromId
+
 ## 6.0.18
 
 ### Patch Changes
