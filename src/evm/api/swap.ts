@@ -2,7 +2,7 @@ import type { Address } from 'viem'
 import { z } from 'zod'
 import { sz } from '../../generic/validate/zod.js'
 import { version } from '../../version.js'
-import type { ExtractorSupportedChainId } from '../config/index.js'
+import type { SwapApiSupportedChainId } from '../config/index.js'
 import { szevm } from '../validate/zod.js'
 import {
   RouteStatus,
@@ -11,7 +11,7 @@ import {
 } from './types.js'
 
 export type SwapRequest<Simulate extends boolean = true> = {
-  chainId: ExtractorSupportedChainId
+  chainId: SwapApiSupportedChainId
   tokenIn: Address
   tokenOut: Address
   amount: bigint
