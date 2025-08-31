@@ -1,5 +1,5 @@
 import type { Address } from 'viem'
-import type { ExtractorSupportedChainId } from '../config/features/extractor.js'
+import type { ExtractorSupportedChainId } from '../config/features/api.js'
 
 export async function getPrices(
   chainId: ExtractorSupportedChainId,

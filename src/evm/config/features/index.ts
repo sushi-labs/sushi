@@ -1,5 +1,5 @@
 export * from './aggregator.js'
-export * from './extractor.js'
+export * from './api.js'
 export * from './master-chef.js'
 export * from './merkl.js'
 export * from './mini-chef.js'
