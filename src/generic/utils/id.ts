@@ -25,7 +25,7 @@ export function getChainIdAddressFromId<
     )
   }
 
-  return { chainId, address }
+  return { chainId: +chainId as TChainId, address }
 }
 
 export function getIdFromChainIdAddress<
