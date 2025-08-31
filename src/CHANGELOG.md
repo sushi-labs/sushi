@@ -1,5 +1,11 @@
 # sushi
 
+## 6.0.20
+
+### Patch Changes
+
+- [#288](https://github.com/sushi-labs/sushi/pull/288) [`3571a4b`](https://github.com/sushi-labs/sushi/commit/3571a4b57bfa9bac7edc181aac6577d96c7f3397) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - rename ExtractorSupportedChainId -> SwapApiSupportedChainId
+
 ## 6.0.19
 
 ### Patch Changes
