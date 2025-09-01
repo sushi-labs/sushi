@@ -1,5 +1,11 @@
 # sushi
 
+## 6.0.21
+
+### Patch Changes
+
+- [`bbd0811`](https://github.com/sushi-labs/sushi/commit/bbd0811f59c7817cfcab542c277e6bc33f5e8907) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Fix toSignificant
+
 ## 6.0.20
 
 ### Patch Changes
