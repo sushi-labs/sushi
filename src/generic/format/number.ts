@@ -115,6 +115,10 @@ export function numberToFixed(
   }
 
   if ('significant' in args) {
+    if (Math.abs(num) >= 10 ** args.significant) {
+      return Math.round(num).toString()
+    }
+
     return Number.parseFloat(num.toPrecision(args.significant)).toString()
   }
 
@@ -166,7 +170,7 @@ function stringToFixed(
       }
     }
 
-    let significantDecimal = decimalPart.slice(0, remainingLength)
+    let significantDecimal = decimalPart.slice(0, Math.max(remainingLength, 0))
     while (significantDecimal.endsWith('0')) {
       significantDecimal = significantDecimal.slice(0, -1)
     }

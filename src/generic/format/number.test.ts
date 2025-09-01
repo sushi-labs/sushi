@@ -30,14 +30,20 @@ describe('numberToFixed', () => {
 
   describe('significant digits', () => {
     it('should format numbers with significant digits', () => {
+      expect(numberToFixed(123456789.123456, { significant: 4 })).toBe(
+        '123456789',
+      )
       expect(numberToFixed(1234.5678, { significant: 4 })).toBe('1235')
       expect(numberToFixed(0.001234, { significant: 3 })).toBe('0.00123')
-      expect(numberToFixed(123.456, { significant: 2 })).toBe('120')
+      expect(numberToFixed(123.456, { significant: 2 })).toBe('123')
       expect(numberToFixed(0, { significant: 2 })).toBe('0')
     })
 
     it('should handle string inputs with significant digits', () => {
       expect(numberToFixed('1234.5678', { significant: 4 })).toBe('1235')
+      expect(numberToFixed('123456789.123456', { significant: 4 })).toBe(
+        '123456789',
+      )
       expect(numberToFixed('0.001234', { significant: 3 })).toBe('0.00123')
       expect(numberToFixed('0.000', { significant: 2 })).toBe('0')
     })
@@ -94,7 +100,7 @@ describe('numberToFixed', () => {
   })
 
   describe('edge cases', () => {
-    it('should handle empty and zero values', () => {
+    it('should handle empty and z8ero values', () => {
       expect(numberToFixed(0, { maxFixed: 2 })).toBe('0')
       expect(numberToFixed('0', { maxFixed: 2 })).toBe('0')
       expect(numberToFixed('0.00', { maxFixed: 2 })).toBe('0')
