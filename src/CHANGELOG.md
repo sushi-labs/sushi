@@ -1,5 +1,11 @@
 # sushi
 
+## 6.0.22
+
+### Patch Changes
+
+- [`2a17c08`](https://github.com/sushi-labs/sushi/commit/2a17c0888c086baa0606f7ec9afb1525add81c5d) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Fix toSignificant roundup
+
 ## 6.0.21
 
 ### Patch Changes
