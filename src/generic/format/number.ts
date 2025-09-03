@@ -200,8 +200,20 @@ function roundString(original: string, formatted: string) {
   }
 
   if (!Number.isNaN(nextDigit) && nextDigit >= '5'.charCodeAt(0)) {
-    const lastDigit = formatted.charCodeAt(formatted.length - 1)
-    return `${formatted.substring(0, formatted.length - 1)}${String.fromCharCode(lastDigit + 1)}`
+    const lastDigit = () => formatted.charCodeAt(formatted.length - 1)
+
+    const nine = '9'.charCodeAt(0)
+    if (lastDigit() === nine) {
+      // Rounding up would cause a carry
+      while (lastDigit() === nine) {
+        formatted = formatted.slice(0, -1)
+      }
+      if (formatted.endsWith('.')) {
+        formatted = formatted.slice(0, -1)
+      }
+    }
+
+    return `${formatted.substring(0, formatted.length - 1)}${String.fromCharCode(lastDigit() + 1)}`
   }
 
   return formatted
