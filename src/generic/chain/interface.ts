@@ -1,9 +1,14 @@
+import type { ChainwebChainType } from '~/chainweb/index.js'
 import type { EvmChainType } from '../../evm/chain/define-chain.js'
 import type { MvmChainType } from '../../mvm/chain/define-chain.js'
 import type { TvmChainType } from '../../tvm/chain/define-chain.js'
 import type { ChainId, ChainKey } from './chains.js'
 
-export type ChainType = EvmChainType | MvmChainType | TvmChainType
+export type ChainType =
+  | EvmChainType
+  | MvmChainType
+  | TvmChainType
+  | ChainwebChainType
 
 export type NetType = 'mainnet' | 'testnet'
 

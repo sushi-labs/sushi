@@ -15,6 +15,7 @@ export default defineConfig({
       '~evm': join(__dirname, '../src/evm'),
       '~mvm': join(__dirname, '../src/mvm'),
       '~tvm': join(__dirname, '../src/tvm'),
+      '~chainweb': join(__dirname, '../src/chainweb'),
     },
     benchmark: {
       outputFile: './bench/report.json',

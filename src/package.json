@@ -15,6 +15,7 @@
     "evm",
     "mvm",
     "tvm",
+    "chainweb",
     "package.json"
   ],
   "exports": {
@@ -42,13 +43,20 @@
       "require": "./_cjs/tvm/index.js",
       "default": "./_esm/tvm/index.js"
     },
+    "./chainweb": {
+      "types": "./_types/chainweb/index.d.ts",
+      "import": "./_esm/chainweb/index.js",
+      "require": "./_cjs/chainweb/index.js",
+      "default": "./_esm/chainweb/index.js"
+    },
     "./package.json": "./package.json"
   },
   "typesVersions": {
     "*": {
       "evm": ["_types/evm/index.d.ts"],
       "mvm": ["_types/mvm/index.d.ts"],
-      "tvm": ["_types/tvm/index.d.ts"]
+      "tvm": ["_types/tvm/index.d.ts"],
+      "chainweb": ["_types/chainweb/index.d.ts"]
     }
   },
   "dependencies": {

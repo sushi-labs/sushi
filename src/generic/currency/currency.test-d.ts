@@ -1,5 +1,6 @@
 import { it } from 'node:test'
 import { describe, expectTypeOf } from 'vitest'
+import { ChainwebToken } from '~/chainweb/index.js'
 import type { EvmChainId } from '~/evm/chain/chains.js'
 import type { EvmCurrency } from '~/evm/currency/currency.js'
 import type { EvmID } from '~/evm/types/id.js'
@@ -78,6 +79,18 @@ describe('generic/currency/currency.ts types', () => {
       })
 
       expectTypeOf(tvmMockToken.wrap()).toEqualTypeOf<TvmToken>()
+    })
+
+    it('should return the same chaintype - Chainweb', () => {
+      const chainwebMockToken = new ChainwebToken({
+        chainId: -3,
+        symbol: 'CWT',
+        name: 'Chainweb Token',
+        decimals: 12,
+        address: 'my-namespace.my-token',
+      })
+
+      expectTypeOf(chainwebMockToken.wrap()).toEqualTypeOf<ChainwebToken>()
     })
   })
 

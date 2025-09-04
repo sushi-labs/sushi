@@ -1,4 +1,5 @@
 import * as z from 'zod'
+import { serializedChainwebTokenSchema } from '~/chainweb/index.js'
 import { serializedEvmCurrencySchema } from '../../evm/currency/currency.js'
 import type { serializedEvmTokenSchema } from '../../evm/currency/token.js'
 import type { serializedEvmNativeSchema } from '../../evm/index.js'
@@ -18,11 +19,13 @@ export type SerializedCurrencySchema =
   | typeof serializedTvmNativeSchema
   | typeof serializedTvmCurrencySchema
   | typeof serializedCurrencySchema
+  | typeof serializedChainwebTokenSchema
 
 export const serializedCurrencySchema = z.union([
   serializedEvmCurrencySchema,
   serializedMvmTokenSchema,
   serializedTvmCurrencySchema,
+  serializedChainwebTokenSchema,
 ])
 
 export type SerializedCurrency = z.infer<typeof serializedCurrencySchema>
