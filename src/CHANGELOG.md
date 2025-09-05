@@ -1,5 +1,11 @@
 # sushi
 
+## 6.0.23
+
+### Patch Changes
+
+- [#292](https://github.com/sushi-labs/sushi/pull/292) [`fdc2522`](https://github.com/sushi-labs/sushi/commit/fdc25220ed735ca1257ff09926894629bc461a68) Thanks [@danielr18](https://github.com/danielr18)! - Add Blade protocol
+
 ## 6.0.22
 
 ### Patch Changes
