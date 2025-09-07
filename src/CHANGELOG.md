@@ -1,5 +1,13 @@
 # sushi
 
+## 6.0.24
+
+### Patch Changes
+
+- [#295](https://github.com/sushi-labs/sushi/pull/295) [`a830e52`](https://github.com/sushi-labs/sushi/commit/a830e52b03498cc3edd984e5fd6aa8858a408e9f) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Cleanup subgraph urls
+
+- [#275](https://github.com/sushi-labs/sushi/pull/275) [`e76ef8d`](https://github.com/sushi-labs/sushi/commit/e76ef8d7a550a101973532a094f09c722e52263d) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Metadata serialization for currencies
+
 ## 6.0.23
 
 ### Patch Changes
