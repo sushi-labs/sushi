@@ -1,5 +1,11 @@
 # sushi
 
+## 6.0.25
+
+### Patch Changes
+
+- [#297](https://github.com/sushi-labs/sushi/pull/297) [`8c6dcb3`](https://github.com/sushi-labs/sushi/commit/8c6dcb3c20fd4e517d24344fe87102a3a19db430) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Update linea token list
+
 ## 6.0.24
 
 ### Patch Changes
