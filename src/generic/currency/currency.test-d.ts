@@ -1,10 +1,16 @@
 import { it } from 'node:test'
 import { describe, expectTypeOf } from 'vitest'
+import * as z from 'zod'
 import type { EvmChainId } from '~/evm/chain/chains.js'
 import type { EvmCurrency } from '~/evm/currency/currency.js'
 import type { EvmID } from '~/evm/types/id.js'
 import { EvmNative } from '../../evm/currency/native.js'
-import { type EvmAddress, EvmToken } from '../../evm/currency/token.js'
+import {
+  type EvmAddress,
+  EvmToken,
+  type SerializedEvmToken,
+  serializedEvmTokenSchema,
+} from '../../evm/currency/token.js'
 import { MvmToken } from '../../mvm/currency/token.js'
 import { TvmNative } from '../../tvm/currency/native.js'
 import type { TvmToken } from '../../tvm/currency/token.js'
@@ -270,6 +276,114 @@ describe('generic/currency/currency.ts types', () => {
         chainId: EvmChainId
         address: `${EvmAddress}-${EvmAddress}` | EvmAddress | 'NATIVE'
       }>
+    })
+  })
+
+  describe('serialization', () => {
+    describe('SerializedEvmToken', () => {
+      it('should have correct type with default metadata', () => {
+        type DefaultSerializedEvmToken = SerializedEvmToken
+
+        expectTypeOf<DefaultSerializedEvmToken>().toEqualTypeOf<{
+          chainId: EvmChainId
+          address: EvmAddress
+          symbol: string
+          name: string
+          decimals: number
+          type: 'token'
+          metadata: Record<string, unknown>
+        }>()
+      })
+
+      it('should infer metadata type from toJSON', () => {
+        const tokenWithDefaultMetadata = new EvmToken({
+          chainId: 1,
+          address: '0x1234567890abcdef1234567890abcdef12345678',
+          symbol: 'TEST',
+          name: 'Test Token',
+          decimals: 18,
+        })
+
+        expectTypeOf(tokenWithDefaultMetadata.toJSON().metadata).toEqualTypeOf<
+          Record<string, unknown>
+        >()
+
+        type CustomMetadata = {
+          logoUrl?: string
+          verified: boolean
+        }
+
+        const tokenWithCustomMetadata = new EvmToken<CustomMetadata>({
+          chainId: 1,
+          address: '0x1234567890abcdef1234567890abcdef12345678',
+          symbol: 'TEST',
+          name: 'Test Token',
+          decimals: 18,
+          metadata: {
+            logoUrl: 'https://example.com/logo.png',
+            verified: true,
+          },
+        })
+
+        expectTypeOf(
+          tokenWithCustomMetadata.toJSON().metadata,
+        ).toEqualTypeOf<CustomMetadata>()
+      })
+    })
+
+    describe('serializedEvmTokenSchema', () => {
+      it('should create schema with default metadata', () => {
+        const schema = serializedEvmTokenSchema()
+        type InferredType = z.infer<typeof schema>
+
+        expectTypeOf<InferredType>().toEqualTypeOf<{
+          chainId: EvmChainId
+          address: EvmAddress
+          symbol: string
+          name: string
+          decimals: number
+          type: 'token'
+          metadata: Record<string, unknown>
+        }>()
+      })
+
+      it('should create schema with custom metadata type', () => {
+        const customMetadataSchema = z.object({
+          logoUrl: z.string().optional(),
+          tags: z.array(z.string()).optional(),
+          verified: z.boolean(),
+        })
+
+        const schema = serializedEvmTokenSchema({
+          metadata: customMetadataSchema,
+        })
+
+        type InferredType = z.infer<typeof schema>
+
+        expectTypeOf<InferredType>().toEqualTypeOf<{
+          chainId: EvmChainId
+          address: EvmAddress
+          symbol: string
+          name: string
+          decimals: number
+          type: 'token'
+          metadata: {
+            logoUrl?: string
+            tags?: string[]
+            verified: boolean
+          }
+        }>()
+      })
+
+      it('should handle optional metadata parameter', () => {
+        const schemaWithoutMetadata = serializedEvmTokenSchema()
+        const schemaWithEmptyOptions = serializedEvmTokenSchema({})
+
+        type TypeWithoutMetadata = z.infer<typeof schemaWithoutMetadata>
+        type TypeWithEmptyOptions = z.infer<typeof schemaWithEmptyOptions>
+
+        expectTypeOf<TypeWithoutMetadata>().toEqualTypeOf<TypeWithEmptyOptions>()
+      })
     })
   })
 })

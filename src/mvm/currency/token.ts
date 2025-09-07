@@ -17,7 +17,7 @@ export class MvmToken<
     return this
   }
 
-  public override toJSON(): SerializedMvmToken {
+  public override toJSON(): SerializedMvmToken<TMetadata> {
     return {
       chainId: this.chainId,
       address: this.address,
@@ -25,21 +25,37 @@ export class MvmToken<
       name: this.name,
       decimals: this.decimals,
       type: this.type,
+
+      metadata: this.metadata,
     } as const
   }
 
-  static fromJSON(data: SerializedMvmToken): MvmToken {
+  static fromJSON<TMetadata extends CurrencyMetadata>(
+    data: Omit<SerializedMvmToken<TMetadata>, 'metadata'> & {
+      metadata?: TMetadata
+    },
+  ): MvmToken<TMetadata> {
     return new this(data)
   }
 }
 
-export const serializedMvmTokenSchema = z.object({
-  chainId: z.number().int().refine(isMvmChainId),
-  address: z.string().refine(isMvmAddress),
-  symbol: z.string(),
-  name: z.string(),
-  decimals: z.number().int().nonnegative(),
-  type: z.literal('token'),
-})
+export const serializedMvmTokenSchema = <
+  TMetadata extends {} = CurrencyMetadata,
+>({
+  metadata,
+}: { metadata?: z.ZodType<TMetadata> } = {}) =>
+  z.object({
+    chainId: z.number().int().refine(isMvmChainId),
+    address: z.string().refine(isMvmAddress),
+    symbol: z.string(),
+    name: z.string(),
+    decimals: z.number().int().nonnegative(),
+    type: z.literal('token'),
 
-export type SerializedMvmToken = z.infer<typeof serializedMvmTokenSchema>
+    metadata: (metadata ||
+      z.record(z.unknown()).optional().default({})) as z.ZodType<TMetadata>,
+  })
+
+export type SerializedMvmToken<
+  TMetadata extends CurrencyMetadata = CurrencyMetadata,
+> = z.infer<ReturnType<typeof serializedMvmTokenSchema<TMetadata>>>

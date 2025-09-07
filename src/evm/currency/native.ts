@@ -1,4 +1,5 @@
 import * as z from 'zod'
+import type { CurrencyMetadata } from '~/generic/currency/currency.js'
 import { Native } from '../../generic/currency/native.js'
 import {
   type EvmChainId,
@@ -6,24 +7,35 @@ import {
   isEvmChainId,
 } from '../chain/chains.js'
 import { WNATIVE } from '../config/tokens/wrapped-native.js'
-import type { EvmToken } from './token.js'
+import { EvmToken } from './token.js'
 
-export class EvmNative extends Native<EvmChainId> {
-  public override wrap(): EvmToken {
-    return WNATIVE[this.chainId]
+export class EvmNative<
+  TMetadata extends CurrencyMetadata = Record<string, unknown>,
+> extends Native<EvmChainId, TMetadata> {
+  public override wrap(): EvmToken<TMetadata> {
+    return new EvmToken({
+      ...WNATIVE[this.chainId],
+      metadata: structuredClone(this.metadata),
+    })
   }
 
-  public override toJSON(): SerializedEvmNative {
+  public override toJSON(): SerializedEvmNative<TMetadata> {
     return {
       chainId: this.chainId,
       symbol: this.symbol,
       name: this.name,
       decimals: this.decimals,
       type: this.type,
+
+      metadata: this.metadata,
     } as const
   }
 
-  public static fromJSON(data: SerializedEvmNative): EvmNative {
+  static fromJSON<TMetadata extends CurrencyMetadata>(
+    data: Omit<SerializedEvmNative<TMetadata>, 'metadata'> & {
+      metadata?: TMetadata
+    },
+  ): EvmNative<TMetadata> {
     return new this(data)
   }
 
@@ -39,12 +51,22 @@ export class EvmNative extends Native<EvmChainId> {
   }
 }
 
-export const serializedEvmNativeSchema = z.object({
-  chainId: z.number().int().refine(isEvmChainId),
-  symbol: z.string(),
-  name: z.string(),
-  decimals: z.number().int().nonnegative(),
-  type: z.literal('native'),
-})
+export const serializedEvmNativeSchema = <
+  TMetadata extends {} = CurrencyMetadata,
+>({
+  metadata,
+}: { metadata?: z.ZodType<TMetadata> } = {}) =>
+  z.object({
+    chainId: z.number().int().refine(isEvmChainId),
+    symbol: z.string(),
+    name: z.string(),
+    decimals: z.number().int().nonnegative(),
+    type: z.literal('native'),
 
-export type SerializedEvmNative = z.infer<typeof serializedEvmNativeSchema>
+    metadata: (metadata ||
+      z.record(z.unknown()).optional().default({})) as z.ZodType<TMetadata>,
+  })
+
+export type SerializedEvmNative<
+  TMetadata extends CurrencyMetadata = CurrencyMetadata,
+> = z.infer<ReturnType<typeof serializedEvmNativeSchema<TMetadata>>>
