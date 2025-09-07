@@ -36,7 +36,7 @@ export const PLASMA_BNB_LIST =
   'https://raw.githubusercontent.com/plasmadlt/plasma-finance-token-list/master/bnb.json'
 
 export const LINEA_LIST =
-  'https://raw.githubusercontent.com/Consensys/linea-token-list/main/json/linea-mainnet-token-fulllist.json'
+  'https://raw.githubusercontent.com/Consensys/linea-token-list/main/json/linea-mainnet-token-shortlist.json'
 
 export const PANCAKESWAP_EXTENDED =
   'https://tokens.pancakeswap.finance/pancakeswap-extended.json'
