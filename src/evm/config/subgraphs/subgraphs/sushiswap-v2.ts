@@ -1,3 +1,4 @@
+import type { TestnetChainId } from '../../../../generic/chain/chains.js'
 import { EvmChainId } from '../../../chain/index.js'
 import type { SushiSwapV2ChainId } from '../../features/sushiswap-v2.js'
 import { getSubgraphUrlWrapper, wrapAsIdType } from '../get-subgraph-url.js'
@@ -47,8 +48,6 @@ const SUSHISWAP_V2_OTHER_URLS = {
   [EvmChainId.SKALE_EUROPA]: `${SKALE_HOST}/sushi/v2-skale-europa`,
   [EvmChainId.ROOTSTOCK]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v2-rootstock/gn`,
   [EvmChainId.HEMI]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v2-hemi/gn`,
-  [EvmChainId.SEPOLIA]: '',
-  [EvmChainId.TATARA]: '',
 } as const satisfies Partial<Record<SushiSwapV2ChainId, string>>
 
 export const getSushiSwapV2SubgraphUrl = getSubgraphUrlWrapper({
@@ -57,21 +56,23 @@ export const getSushiSwapV2SubgraphUrl = getSubgraphUrlWrapper({
     ...wrapAsIdType(SUSHISWAP_V2_DECENTRALIZED_SUBGRAPH_IDS, 'subgraphId'),
   },
   otherUrls: SUSHISWAP_V2_OTHER_URLS,
-})<SushiSwapV2ChainId, 'COMPLETE'>()
+})<SushiSwapV2ChainId, 'PARTIAL'>()
 
-export const V2SubgraphTemplateMap: Record<SushiSwapV2ChainId, string> =
-  Object.fromEntries(
-    Object.entries({
-      ...SUSHISWAP_V2_DECENTRALIZED_DEPLOYMENT_IDS,
-      ...SUSHISWAP_V2_DECENTRALIZED_SUBGRAPH_IDS,
-      ...SUSHISWAP_V2_OTHER_URLS,
+export const V2SubgraphTemplateMap: Record<
+  Exclude<SushiSwapV2ChainId, TestnetChainId>,
+  string
+> = Object.fromEntries(
+  Object.entries({
+    ...SUSHISWAP_V2_DECENTRALIZED_DEPLOYMENT_IDS,
+    ...SUSHISWAP_V2_DECENTRALIZED_SUBGRAPH_IDS,
+    ...SUSHISWAP_V2_OTHER_URLS,
+  })
+    .map(([chainId]) => {
+      const url = getSushiSwapV2SubgraphUrl(
+        Number(chainId) as SushiSwapV2ChainId,
+        { decentralizedKey: '${GRAPH_KEY}' },
+      )
+      return [Number(chainId), url ? `https://${url}` : undefined]
     })
-      .map(([chainId]) => {
-        const url = getSushiSwapV2SubgraphUrl(
-          Number(chainId) as SushiSwapV2ChainId,
-          { decentralizedKey: '${GRAPH_KEY}' },
-        )
-        return [Number(chainId), url ? `https://${url}` : undefined]
-      })
-      .filter(([, url]) => !!url),
-  ) as Record<SushiSwapV2ChainId, string>
+    .filter(([, url]) => !!url),
+)
