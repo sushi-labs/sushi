@@ -1,5 +1,11 @@
 # sushi
 
+## 6.0.26
+
+### Patch Changes
+
+- [#299](https://github.com/sushi-labs/sushi/pull/299) [`3403fd5`](https://github.com/sushi-labs/sushi/commit/3403fd51a852fc100ea9b8f8fb10635e9fd83057) Thanks [@danielr18](https://github.com/danielr18)! - Update Blade subgraphs for Base and Katana
+
 ## 6.0.25
 
 ### Patch Changes
