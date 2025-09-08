@@ -1,5 +1,11 @@
 # sushi
 
+## 6.0.27
+
+### Patch Changes
+
+- [#301](https://github.com/sushi-labs/sushi/pull/301) [`c139b01`](https://github.com/sushi-labs/sushi/commit/c139b01e14bf9b9cd6dad474d4b0d4c6e6faf01d) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add additional stablecoins to berachain config
+
 ## 6.0.26
 
 ### Patch Changes
