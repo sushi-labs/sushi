@@ -2,42 +2,40 @@ import * as z from 'zod'
 import type { CurrencyMetadata } from '../../generic/currency/currency.js'
 import { Token } from '../../generic/currency/token.js'
 
-import { type ChainwebChainId, isChainwebChainId } from '../chain/chains.js'
+import { type KvmChainId, isKvmChainId } from '../chain/chains.js'
 
-export type ChainwebTokenAddress = `${string}.${string}` | 'coin'
+export type KvmTokenAddress = `${string}.${string}` | 'coin'
 
-export function isChainwebTokenAddress(
-  address: string,
-): address is ChainwebTokenAddress {
+export function isKvmTokenAddress(address: string): address is KvmTokenAddress {
   if (address === 'coin') return true
   // `${string}.${string}` - namespace.name - string parts can include alphanumeric characters, underscores, and dashes
   return !!address.match(/^([A-Za-z0-9_-]+)\.([A-Za-z0-9_-]+)$/)
 }
 
-export type ChainwebTokenOrigin = 'native'
+export type KvmTokenOrigin = 'native'
 
-export class ChainwebToken<
+export class KvmToken<
   TMetadata extends CurrencyMetadata = Record<string, unknown>,
-> extends Token<ChainwebChainId, ChainwebTokenAddress, TMetadata> {
-  public readonly origin: ChainwebTokenOrigin | undefined
+> extends Token<KvmChainId, KvmTokenAddress, TMetadata> {
+  public readonly origin: KvmTokenOrigin | undefined
 
   constructor({
     origin,
     ...rest
   }: {
-    origin?: ChainwebTokenOrigin | undefined
+    origin?: KvmTokenOrigin | undefined
   } & ConstructorParameters<
-    typeof Token<ChainwebChainId, ChainwebTokenAddress, TMetadata>
+    typeof Token<KvmChainId, KvmTokenAddress, TMetadata>
   >[0]) {
     super(rest)
     this.origin = origin
   }
 
-  public override wrap(): ChainwebToken<TMetadata> {
+  public override wrap(): KvmToken<TMetadata> {
     return this
   }
 
-  public override toJSON(): SerializedChainwebToken<TMetadata> {
+  public override toJSON(): SerializedKvmToken<TMetadata> {
     return {
       chainId: this.chainId,
       address: this.address,
@@ -51,22 +49,22 @@ export class ChainwebToken<
   }
 
   static fromJSON<TMetadata extends CurrencyMetadata>(
-    data: Omit<SerializedChainwebToken<TMetadata>, 'metadata'> & {
+    data: Omit<SerializedKvmToken<TMetadata>, 'metadata'> & {
       metadata?: TMetadata
     },
-  ): ChainwebToken<TMetadata> {
+  ): KvmToken<TMetadata> {
     return new this(data)
   }
 }
 
-export const serializedChainwebTokenSchema = <
+export const serializedKvmTokenSchema = <
   TMetadata extends {} = CurrencyMetadata,
 >({
   metadata,
 }: { metadata?: z.ZodType<TMetadata> } = {}) =>
   z.object({
-    chainId: z.number().int().refine(isChainwebChainId),
-    address: z.string().refine(isChainwebTokenAddress),
+    chainId: z.number().int().refine(isKvmChainId),
+    address: z.string().refine(isKvmTokenAddress),
     symbol: z.string(),
     name: z.string(),
     decimals: z.number().int().nonnegative(),
@@ -76,6 +74,6 @@ export const serializedChainwebTokenSchema = <
       z.record(z.unknown()).optional().default({})) as z.ZodType<TMetadata>,
   })
 
-export type SerializedChainwebToken<
+export type SerializedKvmToken<
   TMetadata extends CurrencyMetadata = CurrencyMetadata,
-> = z.infer<ReturnType<typeof serializedChainwebTokenSchema<TMetadata>>>
+> = z.infer<ReturnType<typeof serializedKvmTokenSchema<TMetadata>>>

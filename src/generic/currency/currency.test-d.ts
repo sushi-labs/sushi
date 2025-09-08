@@ -1,7 +1,7 @@
 import { it } from 'node:test'
 import { describe, expectTypeOf } from 'vitest'
 import * as z from 'zod'
-import { ChainwebToken } from '~/chainweb/index.js'
+import { KvmToken } from '~/kvm/index.js'
 import type { EvmChainId } from '~/evm/chain/chains.js'
 import type { EvmCurrency } from '~/evm/currency/currency.js'
 import type { EvmID } from '~/evm/types/id.js'
@@ -87,16 +87,16 @@ describe('generic/currency/currency.ts types', () => {
       expectTypeOf(tvmMockToken.wrap()).toEqualTypeOf<TvmToken>()
     })
 
-    it('should return the same chaintype - Chainweb', () => {
-      const chainwebMockToken = new ChainwebToken({
+    it('should return the same chaintype - Kvm', () => {
+      const kvmMockToken = new KvmToken({
         chainId: -3,
-        symbol: 'CWT',
-        name: 'Chainweb Token',
+        symbol: 'KVM',
+        name: 'Kvm Token',
         decimals: 12,
         address: 'my-namespace.my-token',
       })
 
-      expectTypeOf(chainwebMockToken.wrap()).toEqualTypeOf<ChainwebToken>()
+      expectTypeOf(kvmMockToken.wrap()).toEqualTypeOf<KvmToken>()
     })
   })
 

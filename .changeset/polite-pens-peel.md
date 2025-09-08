@@ -2,4 +2,4 @@
 "sushi": minor
 ---
 
-Add exports for chainweb (kadena)
+Add exports for kvm (kadena)

@@ -1,4 +1,4 @@
-import { chainwebChains } from '~/chainweb/index.js'
+import { kvmChains } from '../../kvm/index.js'
 import { evmChains } from '../../evm/chain/index.js'
 import { mvmChains } from '../../mvm/chain/chains.js'
 import { tvmChains } from '../../tvm/chain/chains.js'
@@ -9,7 +9,7 @@ export const chains = [
   ...evmChains,
   ...mvmChains,
   ...tvmChains,
-  ...chainwebChains,
+  ...kvmChains,
 ] as const
 
 // ChainId

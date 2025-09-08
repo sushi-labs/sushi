@@ -3,16 +3,13 @@ import type {
   Chain,
   NetType,
 } from '../../generic/chain/interface.js'
-import type { ChainwebChainId, ChainwebChainKey } from './chains.js'
+import type { KvmChainId, KvmChainKey } from './chains.js'
 
-export type ChainwebChainType = 'chainweb'
+export type KvmChainType = 'kvm'
 
-type ChainwebChainBase<
-  TChainId extends number,
-  TChainKey extends string,
-> = Chain<
-  ChainwebChainType,
-  // @ts-expect-error prevent infinite loop
+type KvmChainBase<TChainId extends number, TChainKey extends string> = Chain<
+  KvmChainType,
+  // @ts-ignore infinite loop
   TChainId,
   TChainKey,
   Readonly<string>,
@@ -23,24 +20,22 @@ type ChainwebChainBase<
   string
 >
 
-export type ChainwebChain = ChainwebChainBase<ChainwebChainId, ChainwebChainKey>
+export type KvmChain = KvmChainBase<KvmChainId, KvmChainKey>
 
-type ChainwebChainInput = Omit<
-  ChainwebChainBase<number, string>,
+type KvmChainInput = Omit<
+  KvmChainBase<number, string>,
   'type' | 'getTransactionUrl' | 'getAccountUrl' | 'getTokenUrl' | 'networdId'
 >
 
-export function defineChainwebChain<const T extends ChainwebChainInput>(
-  chain: T,
-) {
+export function defineKvmChain<const T extends KvmChainInput>(chain: T) {
   return {
     ...chain,
-    type: 'chainweb' as const,
+    type: 'kvm' as const,
     getTransactionUrl: (input: string) =>
       `${chain.blockExplorers.default.url}/txdetail/${input}`,
     getAccountUrl: (input: string) =>
       `${chain.blockExplorers.default.url}/account/${input}`,
     getTokenUrl: (input: string) =>
       `${chain.blockExplorers.default.url}/account/${input}`,
-  } as const satisfies ChainwebChainBase<number, string>
+  } as const satisfies KvmChainBase<number, string>
 }

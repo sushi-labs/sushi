@@ -15,7 +15,7 @@
     "evm",
     "mvm",
     "tvm",
-    "chainweb",
+    "kvm",
     "package.json"
   ],
   "exports": {
@@ -43,11 +43,11 @@
       "require": "./_cjs/tvm/index.js",
       "default": "./_esm/tvm/index.js"
     },
-    "./chainweb": {
-      "types": "./_types/chainweb/index.d.ts",
-      "import": "./_esm/chainweb/index.js",
-      "require": "./_cjs/chainweb/index.js",
-      "default": "./_esm/chainweb/index.js"
+    "./kvm": {
+      "types": "./_types/kvm/index.d.ts",
+      "import": "./_esm/kvm/index.js",
+      "require": "./_cjs/kvm/index.js",
+      "default": "./_esm/kvm/index.js"
     },
     "./package.json": "./package.json"
   },
@@ -56,7 +56,7 @@
       "evm": ["_types/evm/index.d.ts"],
       "mvm": ["_types/mvm/index.d.ts"],
       "tvm": ["_types/tvm/index.d.ts"],
-      "chainweb": ["_types/chainweb/index.d.ts"]
+      "kvm": ["_types/kvm/index.d.ts"]
     }
   },
   "dependencies": {

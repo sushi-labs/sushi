@@ -51,7 +51,7 @@
 			"~evm/*": ["./src/evm/*"],
 			"~mvm/*": ["./src/mvm/*"],
 			"~tvm/*": ["./src/tvm/*"],
-			"~chainweb/*": ["./src/chainweb/*"]
+			"~kvm/*": ["./src/kvm/*"]
 		}
 	}
 }
