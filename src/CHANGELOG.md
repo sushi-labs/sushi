@@ -1,5 +1,11 @@
 # sushi
 
+## 6.1.1
+
+### Patch Changes
+
+- [`bf09cca`](https://github.com/sushi-labs/sushi/commit/bf09cca9d850a5309e2b8ac91f3fec56c118e08c) Thanks [@danielr18](https://github.com/danielr18)! - Use Blade subgraph ids for Base, Katana, Optimism
+
 ## 6.1.0
 
 ### Minor Changes
