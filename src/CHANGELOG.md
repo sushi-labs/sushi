@@ -1,5 +1,11 @@
 # sushi
 
+## 6.1.0
+
+### Minor Changes
+
+- [#305](https://github.com/sushi-labs/sushi/pull/305) [`1633e34`](https://github.com/sushi-labs/sushi/commit/1633e340e9a5b024311e0e1d606e8990823aa0f0) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Add exports for kvm (kadena)
+
 ## 6.0.28
 
 ### Patch Changes
