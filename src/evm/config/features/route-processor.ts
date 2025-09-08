@@ -282,13 +282,13 @@ export const ROUTE_PROCESSOR_9_ADDRESS: Record<
   RouteProcessor9ChainId,
   Address
 > = {
-  [EvmChainId.ETHEREUM]: '0x81602ef321c46d73f5ba7f476947ae1a862957dc',
-  [EvmChainId.ARBITRUM]: '0x81602ef321c46d73f5ba7f476947ae1a862957dc',
+  [EvmChainId.ETHEREUM]: '0x3b0aa7d38bf3c103bf02d1de2e37568cbed3d6e8',
+  [EvmChainId.ARBITRUM]: '0x3b0aa7d38bf3c103bf02d1de2e37568cbed3d6e8',
   [EvmChainId.OPTIMISM]: '0x81602ef321c46d73f5ba7f476947ae1a862957dc',
-  [EvmChainId.BASE]: '0x81602ef321c46d73f5ba7f476947ae1a862957dc',
+  [EvmChainId.BASE]: '0x3b0aa7d38bf3c103bf02d1de2e37568cbed3d6e8',
   [EvmChainId.POLYGON]: '0x81602ef321c46d73f5ba7f476947ae1a862957dc',
   [EvmChainId.AVALANCHE]: '0x81602ef321c46d73f5ba7f476947ae1a862957dc',
-  [EvmChainId.BSC]: '0x81602ef321c46d73f5ba7f476947ae1a862957dc',
+  [EvmChainId.BSC]: '0x3b0aa7d38bf3c103bf02d1de2e37568cbed3d6e8',
   [EvmChainId.LINEA]: '0x81602ef321c46d73f5ba7f476947ae1a862957dc',
   [EvmChainId.ARBITRUM_NOVA]: '0x81602ef321c46d73f5ba7f476947ae1a862957dc',
   [EvmChainId.GNOSIS]: '0x81602ef321c46d73f5ba7f476947ae1a862957dc',
@@ -300,7 +300,7 @@ export const ROUTE_PROCESSOR_9_ADDRESS: Record<
   [EvmChainId.KAVA]: '0x81602ef321c46d73f5ba7f476947ae1a862957dc',
   [EvmChainId.METIS]: '0x81602ef321c46d73f5ba7f476947ae1a862957dc',
   [EvmChainId.THUNDERCORE]: '0x81602ef321c46d73f5ba7f476947ae1a862957dc',
-  [EvmChainId.SCROLL]: '0x81602ef321c46d73f5ba7f476947ae1a862957dc',
+  [EvmChainId.SCROLL]: '0x3b0aa7d38bf3c103bf02d1de2e37568cbed3d6e8',
   [EvmChainId.ZETACHAIN]: '0x81602ef321c46d73f5ba7f476947ae1a862957dc',
   [EvmChainId.POLYGON_ZKEVM]: '0x81602ef321c46d73f5ba7f476947ae1a862957dc',
   [EvmChainId.HARMONY]: '0x81602ef321c46d73f5ba7f476947ae1a862957dc',
@@ -311,7 +311,7 @@ export const ROUTE_PROCESSOR_9_ADDRESS: Record<
   [EvmChainId.BLAST]: '0x81602ef321c46d73f5ba7f476947ae1a862957dc',
   [EvmChainId.SKALE_EUROPA]: '0x81602ef321c46d73f5ba7f476947ae1a862957dc',
   [EvmChainId.ROOTSTOCK]: '0x81602ef321c46d73f5ba7f476947ae1a862957dc',
-  [EvmChainId.ZKSYNC_ERA]: '0x81602ef321c46d73f5ba7f476947ae1a862957dc',
+  [EvmChainId.ZKSYNC_ERA]: '0x3b0aa7d38bf3c103bf02d1de2e37568cbed3d6e8',
   [EvmChainId.MANTLE]: '0x81602ef321c46d73f5ba7f476947ae1a862957dc',
   [EvmChainId.MANTA]: '0x81602ef321c46d73f5ba7f476947ae1a862957dc',
   [EvmChainId.MODE]: '0x81602ef321c46d73f5ba7f476947ae1a862957dc',
@@ -329,33 +329,4 @@ export const isRouteProcessor9ChainId = (
 ): chainId is RouteProcessor9ChainId =>
   ROUTE_PROCESSOR_9_SUPPORTED_CHAIN_IDS.includes(
     chainId as RouteProcessor9ChainId,
-  )
-
-// v9_1
-export const ROUTE_PROCESSOR_9_1_SUPPORTED_CHAIN_IDS = [
-  EvmChainId.ETHEREUM,
-  EvmChainId.ARBITRUM,
-  EvmChainId.BASE,
-  EvmChainId.BSC,
-  EvmChainId.SCROLL,
-  EvmChainId.ZKSYNC_ERA,
-] as const
-export type RouteProcessor9_1ChainId =
-  (typeof ROUTE_PROCESSOR_9_1_SUPPORTED_CHAIN_IDS)[number]
-export const ROUTE_PROCESSOR_9_1_ADDRESS: Record<
-  RouteProcessor9_1ChainId,
-  Address
-> = {
-  [EvmChainId.ETHEREUM]: '0x3b0aa7d38bf3c103bf02d1de2e37568cbed3d6e8',
-  [EvmChainId.ARBITRUM]: '0x3b0aa7d38bf3c103bf02d1de2e37568cbed3d6e8',
-  [EvmChainId.BASE]: '0x3b0aa7d38bf3c103bf02d1de2e37568cbed3d6e8',
-  [EvmChainId.BSC]: '0x3b0aa7d38bf3c103bf02d1de2e37568cbed3d6e8',
-  [EvmChainId.SCROLL]: '0x3b0aa7d38bf3c103bf02d1de2e37568cbed3d6e8',
-  [EvmChainId.ZKSYNC_ERA]: '0x3b0aa7d38bf3c103bf02d1de2e37568cbed3d6e8',
-} as const
-export const isRouteProcessor9_1ChainId = (
-  chainId: number,
-): chainId is RouteProcessor9_1ChainId =>
-  ROUTE_PROCESSOR_9_1_SUPPORTED_CHAIN_IDS.includes(
-    chainId as RouteProcessor9_1ChainId,
   )
