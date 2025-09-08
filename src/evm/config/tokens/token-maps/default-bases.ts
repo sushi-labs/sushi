@@ -30,8 +30,8 @@ import {
 } from '../../../config/tokens/tokens/index.js'
 import { EvmNative } from '../../../currency/native.js'
 import { EvmToken } from '../../../currency/token.js'
-import { WNATIVE } from '../wrapped-native.js'
 import { HONEY } from '../tokens/berachain/HONEY.js'
+import { WNATIVE } from '../wrapped-native.js'
 
 /*
   Currencies that are shown at the top of the token selector by default
