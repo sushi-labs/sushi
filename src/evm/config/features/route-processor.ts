@@ -330,3 +330,32 @@ export const isRouteProcessor9ChainId = (
   ROUTE_PROCESSOR_9_SUPPORTED_CHAIN_IDS.includes(
     chainId as RouteProcessor9ChainId,
   )
+
+// v9_1
+export const ROUTE_PROCESSOR_9_1_SUPPORTED_CHAIN_IDS = [
+  EvmChainId.ETHEREUM,
+  EvmChainId.ARBITRUM,
+  EvmChainId.BASE,
+  EvmChainId.BSC,
+  EvmChainId.SCROLL,
+  EvmChainId.ZKSYNC_ERA,
+] as const
+export type RouteProcessor9_1ChainId =
+  (typeof ROUTE_PROCESSOR_9_1_SUPPORTED_CHAIN_IDS)[number]
+export const ROUTE_PROCESSOR_9_1_ADDRESS: Record<
+  RouteProcessor9_1ChainId,
+  Address
+> = {
+  [EvmChainId.ETHEREUM]: '0x3b0aa7d38bf3c103bf02d1de2e37568cbed3d6e8',
+  [EvmChainId.ARBITRUM]: '0x3b0aa7d38bf3c103bf02d1de2e37568cbed3d6e8',
+  [EvmChainId.BASE]: '0x3b0aa7d38bf3c103bf02d1de2e37568cbed3d6e8',
+  [EvmChainId.BSC]: '0x3b0aa7d38bf3c103bf02d1de2e37568cbed3d6e8',
+  [EvmChainId.SCROLL]: '0x3b0aa7d38bf3c103bf02d1de2e37568cbed3d6e8',
+  [EvmChainId.ZKSYNC_ERA]: '0x3b0aa7d38bf3c103bf02d1de2e37568cbed3d6e8',
+} as const
+export const isRouteProcessor9_1ChainId = (
+  chainId: number,
+): chainId is RouteProcessor9_1ChainId =>
+  ROUTE_PROCESSOR_9_1_SUPPORTED_CHAIN_IDS.includes(
+    chainId as RouteProcessor9_1ChainId,
+  )
