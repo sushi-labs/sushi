@@ -1,5 +1,11 @@
 # sushi
 
+## 6.0.28
+
+### Patch Changes
+
+- [#303](https://github.com/sushi-labs/sushi/pull/303) [`4326d1f`](https://github.com/sushi-labs/sushi/commit/4326d1f7d86ef5ac7288989b6e19cb18eb3a9b79) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add RouteProcessor9_1 config
+
 ## 6.0.27
 
 ### Patch Changes
