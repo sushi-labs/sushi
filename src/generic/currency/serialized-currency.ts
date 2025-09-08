@@ -2,6 +2,7 @@ import * as z from 'zod'
 import { serializedEvmCurrencySchema } from '../../evm/currency/currency.js'
 import type { serializedEvmTokenSchema } from '../../evm/currency/token.js'
 import type { serializedEvmNativeSchema } from '../../evm/index.js'
+import { serializedKvmTokenSchema } from '../../kvm/index.js'
 import { serializedMvmTokenSchema } from '../../mvm/currency/token.js'
 import {
   serializedTvmCurrencySchema,
@@ -21,6 +22,7 @@ export type SerializedCurrencySchema<
   | typeof serializedTvmNativeSchema<TMetadata>
   | typeof serializedTvmCurrencySchema<TMetadata>
   | typeof serializedCurrencySchema<TMetadata>
+  | typeof serializedKvmTokenSchema<TMetadata>
 >
 
 export const serializedCurrencySchema = <
@@ -32,6 +34,7 @@ export const serializedCurrencySchema = <
     serializedEvmCurrencySchema(opts),
     serializedMvmTokenSchema(opts),
     serializedTvmCurrencySchema(opts),
+    serializedKvmTokenSchema(opts),
   ])
 
 export type SerializedCurrency<

@@ -1,0 +1,41 @@
+import type {
+  BlockExplorers,
+  Chain,
+  NetType,
+} from '../../generic/chain/interface.js'
+import type { KvmChainId, KvmChainKey } from './chains.js'
+
+export type KvmChainType = 'kvm'
+
+type KvmChainBase<TChainId extends number, TChainKey extends string> = Chain<
+  KvmChainType,
+  // @ts-ignore infinite loop
+  TChainId,
+  TChainKey,
+  Readonly<string>,
+  Readonly<string>,
+  NetType,
+  BlockExplorers,
+  string,
+  string
+>
+
+export type KvmChain = KvmChainBase<KvmChainId, KvmChainKey>
+
+type KvmChainInput = Omit<
+  KvmChainBase<number, string>,
+  'type' | 'getTransactionUrl' | 'getAccountUrl' | 'getTokenUrl' | 'networdId'
+>
+
+export function defineKvmChain<const T extends KvmChainInput>(chain: T) {
+  return {
+    ...chain,
+    type: 'kvm' as const,
+    getTransactionUrl: (input: string) =>
+      `${chain.blockExplorers.default.url}/txdetail/${input}`,
+    getAccountUrl: (input: string) =>
+      `${chain.blockExplorers.default.url}/account/${input}`,
+    getTokenUrl: (input: string) =>
+      `${chain.blockExplorers.default.url}/account/${input}`,
+  } as const satisfies KvmChainBase<number, string>
+}

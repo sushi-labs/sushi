@@ -1,10 +1,16 @@
 import { evmChains } from '../../evm/chain/index.js'
+import { kvmChains } from '../../kvm/index.js'
 import { mvmChains } from '../../mvm/chain/chains.js'
 import { tvmChains } from '../../tvm/chain/chains.js'
 import type { Replace } from '../types/replace.js'
 import type { UnionToIntersection } from '../types/union-to-intersection.js'
 
-export const chains = [...evmChains, ...mvmChains, ...tvmChains] as const
+export const chains = [
+  ...evmChains,
+  ...mvmChains,
+  ...tvmChains,
+  ...kvmChains,
+] as const
 
 // ChainId
 

@@ -4,6 +4,7 @@ import * as z from 'zod'
 import type { EvmChainId } from '~/evm/chain/chains.js'
 import type { EvmCurrency } from '~/evm/currency/currency.js'
 import type { EvmID } from '~/evm/types/id.js'
+import { KvmToken } from '~/kvm/index.js'
 import { EvmNative } from '../../evm/currency/native.js'
 import {
   type EvmAddress,
@@ -84,6 +85,18 @@ describe('generic/currency/currency.ts types', () => {
       })
 
       expectTypeOf(tvmMockToken.wrap()).toEqualTypeOf<TvmToken>()
+    })
+
+    it('should return the same chaintype - Kvm', () => {
+      const kvmMockToken = new KvmToken({
+        chainId: -3,
+        symbol: 'KVM',
+        name: 'Kvm Token',
+        decimals: 12,
+        address: 'my-namespace.my-token',
+      })
+
+      expectTypeOf(kvmMockToken.wrap()).toEqualTypeOf<KvmToken>()
     })
   })
 
