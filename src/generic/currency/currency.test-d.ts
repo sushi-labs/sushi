@@ -1,10 +1,10 @@
 import { it } from 'node:test'
 import { describe, expectTypeOf } from 'vitest'
 import * as z from 'zod'
-import { KvmToken } from '~/kvm/index.js'
 import type { EvmChainId } from '~/evm/chain/chains.js'
 import type { EvmCurrency } from '~/evm/currency/currency.js'
 import type { EvmID } from '~/evm/types/id.js'
+import { KvmToken } from '~/kvm/index.js'
 import { EvmNative } from '../../evm/currency/native.js'
 import {
   type EvmAddress,
