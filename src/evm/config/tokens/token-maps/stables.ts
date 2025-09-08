@@ -38,6 +38,7 @@ import {
 } from '../../../config/tokens/tokens/index.js'
 import { EvmToken } from '../../../currency/token.js'
 import { AUSD } from '../tokens/AUSD.js'
+import { HONEY } from '../tokens/berachain/HONEY.js'
 import { USDT0 } from '../tokens/USDT0.js'
 
 export const STABLES = {
@@ -243,7 +244,7 @@ export const STABLES = {
     AUSD[EvmChainId.KATANA],
   ],
   [EvmChainId.HYPEREVM]: [USDT[EvmChainId.HYPEREVM]],
-  [EvmChainId.BERACHAIN]: [USDT[EvmChainId.BERACHAIN]],
+  [EvmChainId.BERACHAIN]: [USDT[EvmChainId.BERACHAIN], USDC[EvmChainId.BERACHAIN], HONEY[EvmChainId.BERACHAIN]],
   // TESTNETS
   [EvmChainId.ARBITRUM_SEPOLIA]: [],
   [EvmChainId.SEPOLIA]: [],

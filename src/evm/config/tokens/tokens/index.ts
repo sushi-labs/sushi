@@ -1,5 +1,6 @@
 export * from './ape/index.js'
 export * from './base/index.js'
+export * from './berachain/index.js'
 export * from './bttc/index.js'
 export * from './ethereum/index.js'
 export * from './filecoin/index.js'

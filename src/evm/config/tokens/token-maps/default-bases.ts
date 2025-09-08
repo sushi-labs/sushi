@@ -31,6 +31,7 @@ import {
 import { EvmNative } from '../../../currency/native.js'
 import { EvmToken } from '../../../currency/token.js'
 import { WNATIVE } from '../wrapped-native.js'
+import { HONEY } from '../tokens/berachain/HONEY.js'
 
 /*
   Currencies that are shown at the top of the token selector by default
@@ -420,5 +421,7 @@ export const EVM_DEFAULT_BASES = {
     EvmNative.fromChainId(EvmChainId.BERACHAIN),
     WNATIVE[EvmChainId.BERACHAIN],
     USDT[EvmChainId.BERACHAIN],
+    USDC[EvmChainId.BERACHAIN],
+    HONEY[EvmChainId.BERACHAIN],
   ],
 } as const satisfies Record<EvmChainId, Readonly<EvmCurrency[]>>
