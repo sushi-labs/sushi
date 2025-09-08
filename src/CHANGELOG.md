@@ -1,5 +1,43 @@
 # sushi
 
+## 6.0.28
+
+### Patch Changes
+
+- [#303](https://github.com/sushi-labs/sushi/pull/303) [`4326d1f`](https://github.com/sushi-labs/sushi/commit/4326d1f7d86ef5ac7288989b6e19cb18eb3a9b79) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add RouteProcessor9_1 config
+
+## 6.0.27
+
+### Patch Changes
+
+- [#301](https://github.com/sushi-labs/sushi/pull/301) [`c139b01`](https://github.com/sushi-labs/sushi/commit/c139b01e14bf9b9cd6dad474d4b0d4c6e6faf01d) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add additional stablecoins to berachain config
+
+## 6.0.26
+
+### Patch Changes
+
+- [#299](https://github.com/sushi-labs/sushi/pull/299) [`3403fd5`](https://github.com/sushi-labs/sushi/commit/3403fd51a852fc100ea9b8f8fb10635e9fd83057) Thanks [@danielr18](https://github.com/danielr18)! - Update Blade subgraphs for Base and Katana
+
+## 6.0.25
+
+### Patch Changes
+
+- [#297](https://github.com/sushi-labs/sushi/pull/297) [`8c6dcb3`](https://github.com/sushi-labs/sushi/commit/8c6dcb3c20fd4e517d24344fe87102a3a19db430) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Update linea token list
+
+## 6.0.24
+
+### Patch Changes
+
+- [#295](https://github.com/sushi-labs/sushi/pull/295) [`a830e52`](https://github.com/sushi-labs/sushi/commit/a830e52b03498cc3edd984e5fd6aa8858a408e9f) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Cleanup subgraph urls
+
+- [#275](https://github.com/sushi-labs/sushi/pull/275) [`e76ef8d`](https://github.com/sushi-labs/sushi/commit/e76ef8d7a550a101973532a094f09c722e52263d) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Metadata serialization for currencies
+
+## 6.0.23
+
+### Patch Changes
+
+- [#292](https://github.com/sushi-labs/sushi/pull/292) [`fdc2522`](https://github.com/sushi-labs/sushi/commit/fdc25220ed735ca1257ff09926894629bc461a68) Thanks [@danielr18](https://github.com/danielr18)! - Add Blade protocol
+
 ## 6.0.22
 
 ### Patch Changes

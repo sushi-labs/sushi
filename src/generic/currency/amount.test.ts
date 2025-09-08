@@ -447,7 +447,6 @@ describe('Amount', () => {
         expect(amount.toString()).toBe('1.5')
 
         const precise = new Amount(mockToken, 1234567890123456789n)
-        console.log(precise.toString())
         expect(precise.toString()).toBe('1.234567890123456789')
       })
     })

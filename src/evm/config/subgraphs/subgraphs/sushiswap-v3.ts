@@ -1,3 +1,4 @@
+import type { TestnetChainId } from '../../../../generic/chain/chains.js'
 import { EvmChainId } from '../../../chain/index.js'
 import type { SushiSwapV3ChainId } from '../../features/sushiswap-v3.js'
 import { getSubgraphUrlWrapper, wrapAsIdType } from '../get-subgraph-url.js'
@@ -24,11 +25,6 @@ const SUSHISWAP_V3_DECENTRALIZED_DEPLOYMENT_IDS = {
   [EvmChainId.LINEA]: `QmVUWgFKqLABaX7QDaJFxXai2MZeZtqjvLuPqCrED8eJfN`,
   [EvmChainId.SCROLL]: `QmNqxqVfBETuMhV91BfquULGBLFvPZwr3ADVFTMgGZcqNf`,
   [EvmChainId.SONIC]: `Qmaa6gJsqzeSnDBjq4NnwerMGMSaSDLqRMDkrevGXwVUt1`,
-
-  // Deprecated chains
-  // [EvmChainId.FUSE]: `QmakqW3KCpEXJGTSuyfXHGg6C8ppbrPdSqVXWj3Guor9zA`,
-  // [EvmChainId.MOONRIVER]: `QmStbnz4sErrK1jzaU5iKAutA1Q2w47EsgAoFbdCiequtZ`,
-  // [EvmChainId.POLYGON_ZKEVM]: `QmWH5ChjmF4Yp5Yhiaxczh5QwbG6HFSEi8bRwbKaUrJA6C`,
 } as const satisfies Partial<Record<SushiSwapV3ChainId, string>>
 
 const SUSHISWAP_V3_DECENTRALIZED_SUBGRAPH_IDS = {
@@ -49,7 +45,6 @@ const SUSHISWAP_V3_OTHER_URLS = {
   [EvmChainId.SKALE_EUROPA]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-skale-europa-2/gn`,
   [EvmChainId.ROOTSTOCK]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-rootstock-3/gn`,
   [EvmChainId.HEMI]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-hemi/gn`,
-  [EvmChainId.TATARA]: '',
 } as const satisfies Partial<Record<SushiSwapV3ChainId, string>>
 
 export const getSushiSwapV3SubgraphUrl = getSubgraphUrlWrapper({
@@ -58,21 +53,23 @@ export const getSushiSwapV3SubgraphUrl = getSubgraphUrlWrapper({
     ...wrapAsIdType(SUSHISWAP_V3_DECENTRALIZED_SUBGRAPH_IDS, 'subgraphId'),
   },
   otherUrls: SUSHISWAP_V3_OTHER_URLS,
-})<SushiSwapV3ChainId, 'COMPLETE'>()
+})<SushiSwapV3ChainId, 'PARTIAL'>()
 
-export const V3SubgraphTemplateMap: Record<SushiSwapV3ChainId, string> =
-  Object.fromEntries(
-    Object.entries({
-      ...SUSHISWAP_V3_DECENTRALIZED_DEPLOYMENT_IDS,
-      ...SUSHISWAP_V3_DECENTRALIZED_SUBGRAPH_IDS,
-      ...SUSHISWAP_V3_OTHER_URLS,
+export const V3SubgraphTemplateMap: Record<
+  Exclude<SushiSwapV3ChainId, TestnetChainId>,
+  string
+> = Object.fromEntries(
+  Object.entries({
+    ...SUSHISWAP_V3_DECENTRALIZED_DEPLOYMENT_IDS,
+    ...SUSHISWAP_V3_DECENTRALIZED_SUBGRAPH_IDS,
+    ...SUSHISWAP_V3_OTHER_URLS,
+  })
+    .map(([chainId]) => {
+      const url = getSushiSwapV3SubgraphUrl(
+        Number(chainId) as SushiSwapV3ChainId,
+        { decentralizedKey: '${GRAPH_KEY}' },
+      )
+      return [Number(chainId), url ? `https://${url}` : undefined]
     })
-      .map(([chainId]) => {
-        const url = getSushiSwapV3SubgraphUrl(
-          Number(chainId) as SushiSwapV3ChainId,
-          { decentralizedKey: '${GRAPH_KEY}' },
-        )
-        return [Number(chainId), url ? `https://${url}` : undefined]
-      })
-      .filter(([, url]) => !!url),
-  ) as Record<SushiSwapV3ChainId, string>
+    .filter(([, url]) => !!url),
+) as Record<SushiSwapV3ChainId, string>

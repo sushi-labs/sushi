@@ -8,12 +8,15 @@ export type EvmCurrency<
   TMetadata extends CurrencyMetadata = Record<string, unknown>,
 > = EvmToken<TMetadata> | EvmNative
 
-export const serializedEvmCurrencySchema = z.discriminatedUnion('type', [
-  serializedEvmTokenSchema,
-  serializedEvmNativeSchema,
-])
-
-export type SerializedEvmCurrency = z.infer<typeof serializedEvmCurrencySchema>
+export const serializedEvmCurrencySchema = <
+  TMetadata extends {} = CurrencyMetadata,
+>(
+  opts: { metadata?: z.ZodType<TMetadata> } = {},
+) =>
+  z.discriminatedUnion('type', [
+    serializedEvmTokenSchema(opts),
+    serializedEvmNativeSchema(opts),
+  ])
 
 /**
  *
@@ -22,3 +25,7 @@ export type SerializedEvmCurrency = z.infer<typeof serializedEvmCurrencySchema>
 export function getEvmCurrencyAddress(currency: EvmCurrency) {
   return currency.type === 'native' ? nativeAddress : currency.address
 }
+
+export type SerializedEvmCurrency<
+  TMetadata extends CurrencyMetadata = CurrencyMetadata,
+> = z.infer<ReturnType<typeof serializedEvmCurrencySchema<TMetadata>>>

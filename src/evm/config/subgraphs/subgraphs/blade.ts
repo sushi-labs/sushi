@@ -7,9 +7,9 @@ const BLADE_DECENTRALIZED_DEPLOYMENT_IDS = {
   [EvmChainId.POLYGON]: 'QmW7Rp8UXMnoHz3DAAaUNTbvFe71KrwR6hCRkJ5haiV6Yk',
   [EvmChainId.OPTIMISM]: 'QmUS5FA22qocHFHb1XDukygsGEv5x4S2UV3aa6keKKfJ9E',
   [EvmChainId.ARBITRUM]: 'Qmb3MJDypPkH95axcoCiejg8axYQbxqxmzNbGdVzKYUtbH',
-  [EvmChainId.BASE]: 'QmSY4Po9S5e9zucCc8RHEFjLSdDKTz3UDDrLeFJonFwvBV',
+  [EvmChainId.BASE]: 'QmUUPnzXRcNuCv4b1xmt4mz9FNPRAFT6VfYhBqR2YyaqKL',
   [EvmChainId.POLYGON_ZKEVM]: 'QmR3LJRrSbMaYoySh6LY9LKfS8QmnUANEU8XAGJLCHGWqb',
-  [EvmChainId.KATANA]: 'QmP1zV6CGTjm2EgcXer7xEo9Sbz1itpZKikrRqfhC6eZ9w',
+  [EvmChainId.KATANA]: 'QmPhhtgBoospTsRQb14NHwBW5Yp8oddaWP5GXfqhvupcHu',
 } as const satisfies Partial<Record<BladeChainId, string>>
 
 const BLADE_DECENTRALIZED_SUBGRAPH_IDS = {} as const satisfies Partial<
