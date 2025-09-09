@@ -2,6 +2,7 @@
 
 ## Overview
 The Quote API provides functionality to generate a quote.
+The `sushi` package [also exposes](/sdk/quote) a wrapper function for this API called `getQuote`, available under the `sushi/evm` export.
 
 ## Example
 
@@ -34,3 +35,4 @@ const res = await fetch(QUOTE_API_URL.toString())
 const data = await res.json() as QuoteResponse
 console.log(data)
 ```
+

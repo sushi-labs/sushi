@@ -10,6 +10,6 @@ export enum TransferValue {
 }
 
 export enum RouterLiquiditySource {
-  Sender = 'Sender', // msg.sender
-  XSwap = 'XSwap',
+  Sender = 'sender', // msg.sender
+  Self = 'self',
 }

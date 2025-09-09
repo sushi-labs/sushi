@@ -2,6 +2,7 @@
 
 ## Overview
 The Swap API provides functionality to generate swap call data necessary for executing a swap transaction.
+The `sushi` package [also exposes](/sdk/swap) a wrapper function for this API called `getSwap`, available under the `sushi/evm` export.
 
 ## Example
 
@@ -78,3 +79,55 @@ if (data.status === 'Success') {
   console.log('Tx: ', hash)
 }
 ```
+
+## Response
+
+The endpoint returns a `SwapResponse`, which includes the route status and, on success, the prepared transaction to execute the swap.
+
+- Status: one of `Success`, `Partial`, or `NoWay`.
+- Tokens: array of involved tokens with `address`, `decimals`, `symbol`, and `name`.
+- Token indexes: `tokenFrom` and `tokenTo` are indexes into `tokens` and are also expanded to the full token objects in the response.
+- Pricing: `swapPrice` (price tokenIn → tokenOut) and `priceImpact` (as a fraction, e.g. `0.005` for 0.5%).
+- Amounts: `amountIn` and `assumedAmountOut` as stringified integers in token base units.
+- Transaction: `tx` with `from`, `to`, `gasPrice` (number), `data` (hex), and `value` (stringified integer, may be omitted or "0" for ERC-20 → ERC-20). When `simulate=true` is passed, `tx.gas` is also included as a string.
+
+Example (Success):
+
+```json
+{
+  "status": "Success",
+  "tokens": [
+    {
+      "address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "decimals": 18,
+      "symbol": "ETH",
+      "name": "Ether"
+    },
+    {
+      "address": "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2",
+      "decimals": 18,
+      "symbol": "SUSHI",
+      "name": "SushiToken"
+    }
+  ],
+  "tokenFrom": 0,
+  "tokenTo": 1,
+  "swapPrice": 2300.12,
+  "priceImpact": 0.0012,
+  "amountIn": "1000000000000000",
+  "assumedAmountOut": "1234567890000000000",
+  "tx": {
+    "from": "0x0000000000000000000000000000000000000000",
+    "to": "0x0000000000000000000000000000000000000000",
+    "gasPrice": 1000000000,
+    "data": "0x…",
+    "value": "1000000000000000"
+    // when simulate=true, a string field "gas" is also included
+  }
+}
+```
+
+If `status` is `NoWay`, only the `status` field is returned, indicating that no route satisfying the constraints was found. `Partial` indicates a route is available but cannot fully satisfy the requested amount under the given constraints.
+
+Errors are returned with RFC 7807 problem details; see API error references under [Errors](/api/errors).
+

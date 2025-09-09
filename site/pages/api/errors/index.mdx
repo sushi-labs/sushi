@@ -1,0 +1,41 @@
+# API Errors
+
+Below is an index of API error reference pages, auto-generated from the files in this folder. Each page documents when the error occurs and includes an RFC 7807 problem-details example.
+
+export const entries = Object.entries(
+  import.meta.glob('./*.mdx', { as: 'raw', eager: true })
+)
+  .filter(([path]) => !path.endsWith('index.mdx'))
+  .map(([path, raw]) => {
+    const slug = path.replace('./', '').replace(/\.mdx$/, '')
+    const h1 = raw.match(/^#\s+(.+)$/m)?.[1]?.trim()
+    const table = raw.match(/\|https?:\/\/[^|]+\|([^|]+)\|([^|]+)\|/)
+    const title = h1 ?? slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
+    const status = table?.[2]?.trim() ?? ''
+    return { slug, title, status }
+  })
+  .sort((a, b) => a.title.localeCompare(b.title))
+
+// Local anchor to avoid MDX link remapping passing unknown props to DOM
+function A(props: { href: string; children: React.ReactNode }) {
+  return <a href={props.href} className="vocs_Link">{props.children}</a>
+}
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ textAlign: 'left' }}>Error</th>
+      <th style={{ textAlign: 'right' }}>Status</th>
+      <th style={{ textAlign: 'left' }}>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    {entries.map((e) => (
+      <tr key={e.slug}>
+        <td>{e.title}</td>
+        <td style={{ textAlign: 'right' }}>{e.status}</td>
+        <td><A href={`/api/errors/${e.slug}`}>/api/errors/{e.slug}</A></td>
+      </tr>
+    ))}
+  </tbody>
+  </table>
