@@ -192,6 +192,8 @@ function stringToFixed(
 }
 
 function roundString(original: string, formatted: string) {
+  const decimalIndex = original.indexOf('.')
+
   const nextDigitIndex = formatted.length
 
   let nextDigit = original.charCodeAt(nextDigitIndex)
@@ -213,7 +215,10 @@ function roundString(original: string, formatted: string) {
       }
     }
 
-    return `${formatted.substring(0, formatted.length - 1)}${String.fromCharCode(lastDigit() + 1)}`
+    return `${formatted.substring(0, formatted.length - 1)}${String.fromCharCode(lastDigit() + 1)}`.padEnd(
+      decimalIndex,
+      '0',
+    )
   }
 
   return formatted
