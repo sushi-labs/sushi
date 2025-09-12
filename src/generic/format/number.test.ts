@@ -30,6 +30,8 @@ describe('numberToFixed', () => {
 
   describe('significant digits', () => {
     it('should format numbers with significant digits', () => {
+      expect(numberToFixed(1234.5678, { significant: 4 })).toBe('1235')
+      expect(numberToFixed(2779.6772866, { significant: 4 })).toBe('2780')
       expect(numberToFixed(123456789.123456, { significant: 4 })).toBe(
         '123456789',
       )
@@ -46,6 +48,9 @@ describe('numberToFixed', () => {
 
     it('should handle string inputs with significant digits', () => {
       expect(numberToFixed('1234.5678', { significant: 4 })).toBe('1235')
+      expect(numberToFixed('2779.677286642591274414', { significant: 4 })).toBe(
+        '2780',
+      )
       expect(numberToFixed('123456789.123456', { significant: 4 })).toBe(
         '123456789',
       )
