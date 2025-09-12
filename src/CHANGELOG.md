@@ -1,5 +1,11 @@
 # sushi
 
+## 6.1.2
+
+### Patch Changes
+
+- [#311](https://github.com/sushi-labs/sushi/pull/311) [`e5e28b8`](https://github.com/sushi-labs/sushi/commit/e5e28b84e7a9d0fa8d90a7ef5d1d09c1b490fd93) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - update remaining RP9_1 addresses
+
 ## 6.1.1
 
 ### Patch Changes
