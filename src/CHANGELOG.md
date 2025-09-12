@@ -1,5 +1,11 @@
 # sushi
 
+## 6.1.3
+
+### Patch Changes
+
+- [#313](https://github.com/sushi-labs/sushi/pull/313) [`ddad134`](https://github.com/sushi-labs/sushi/commit/ddad134898970d65690c4da0691e86676dfffce5) Thanks [@LufyCZ](https://github.com/LufyCZ)! - ToSignificant integer rounding
+
 ## 6.1.2
 
 ### Patch Changes
