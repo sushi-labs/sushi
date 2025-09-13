@@ -1,5 +1,11 @@
 # sushi
 
+## 6.1.4
+
+### Patch Changes
+
+- [#316](https://github.com/sushi-labs/sushi/pull/316) [`7ee1d2c`](https://github.com/sushi-labs/sushi/commit/7ee1d2c850a29292f86c52d1821eb3ff1278b1d3) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Keep KvmToken address case
+
 ## 6.1.3
 
 ### Patch Changes
