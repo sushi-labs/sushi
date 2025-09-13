@@ -97,9 +97,7 @@ describe('generic/currency/currency.ts types', () => {
         decimals: 18,
       })
 
-      expect(tvmMockToken.address).toBe(
-        't1234567890abcdef1234567890abcdef1',
-      )
+      expect(tvmMockToken.address).toBe('t1234567890abcdef1234567890abcdef1')
     })
 
     it('should not lowercase the address - Kvm', () => {
