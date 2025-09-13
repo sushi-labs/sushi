@@ -77,7 +77,9 @@ export const serializedEvmTokenSchema = <
   TMetadata extends {} = CurrencyMetadata,
 >({
   metadata,
-}: { metadata?: z.ZodType<TMetadata> } = {}) =>
+}: {
+  metadata?: z.ZodType<TMetadata>
+} = {}) =>
   z.object({
     chainId: z.number().int().refine(isEvmChainId),
     address: z.string().refine(isEvmAddress),

@@ -2,6 +2,7 @@ import type { EvmCurrency } from '../../../../evm/currency/currency.js'
 import { EvmChainId } from '../../../chain/chains.js'
 import {
   APE_USD,
+  axlUSDC,
   BASE_USDbC,
   BTTC_USDC_BSC,
   BTTC_USDC_ETHEREUM,
@@ -23,23 +24,22 @@ import {
   THUNDERCORE_ANY_BUSD,
   THUNDERCORE_ANY_USDC,
   THUNDERCORE_ANY_USDT,
+  USD_PLUS,
   USDB,
   USDC,
+  USDe,
   USDP,
   USDPLUS,
   USDT,
-  USD_PLUS,
-  USDe,
   ZETA_USDC_BSC,
   ZETA_USDC_ETH,
   ZETA_USDT_BSC,
   ZETA_USDT_ETH,
-  axlUSDC,
 } from '../../../config/tokens/tokens/index.js'
 import { EvmToken } from '../../../currency/token.js'
 import { AUSD } from '../tokens/AUSD.js'
-import { USDT0 } from '../tokens/USDT0.js'
 import { HONEY } from '../tokens/berachain/HONEY.js'
+import { USDT0 } from '../tokens/USDT0.js'
 
 export const STABLES = {
   [EvmChainId.ARBITRUM]: [

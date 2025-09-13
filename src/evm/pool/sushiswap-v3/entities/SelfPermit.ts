@@ -1,4 +1,4 @@
-import { type Hex, encodeFunctionData } from 'viem'
+import { encodeFunctionData, type Hex } from 'viem'
 import type { BigintIsh } from '../../../../generic/index.js'
 import {
   selfPermitAbi_selfPermit,

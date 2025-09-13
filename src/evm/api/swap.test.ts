@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { EvmChainId } from '../chain/index.js'
 import { WNATIVE_ADDRESS } from '../config/tokens/index.js'
-import { type SwapRequest, getSwap } from './swap.js'
+import { getSwap, type SwapRequest } from './swap.js'
 
 const baseSwapRequest = {
   chainId: EvmChainId.ETHEREUM,

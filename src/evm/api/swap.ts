@@ -5,8 +5,8 @@ import { version } from '../../version.js'
 import type { SwapApiSupportedChainId } from '../config/index.js'
 import { szevm } from '../validate/zod.js'
 import {
-  RouteStatus,
   type RouterLiquiditySource,
+  RouteStatus,
   type TransferValue,
 } from './types.js'
 

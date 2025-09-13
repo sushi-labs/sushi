@@ -1,4 +1,4 @@
-import { type Hex, encodeFunctionData } from 'viem'
+import { encodeFunctionData, type Hex } from 'viem'
 import { multicallAbi_multicall } from '../../../abi/multicallAbi/multicallAbi_multicall.js'
 
 export abstract class Multicall {

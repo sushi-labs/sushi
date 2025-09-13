@@ -2,7 +2,7 @@ import * as z from 'zod'
 import type { CurrencyMetadata } from '../../generic/currency/currency.js'
 import { Token } from '../../generic/currency/token.js'
 
-import { type KvmChainId, isKvmChainId } from '../chain/chains.js'
+import { isKvmChainId, type KvmChainId } from '../chain/chains.js'
 
 export type KvmTokenAddress = `${string}.${string}` | 'coin'
 
@@ -61,7 +61,9 @@ export const serializedKvmTokenSchema = <
   TMetadata extends {} = CurrencyMetadata,
 >({
   metadata,
-}: { metadata?: z.ZodType<TMetadata> } = {}) =>
+}: {
+  metadata?: z.ZodType<TMetadata>
+} = {}) =>
   z.object({
     chainId: z.number().int().refine(isKvmChainId),
     address: z.string().refine(isKvmTokenAddress),

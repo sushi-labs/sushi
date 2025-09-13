@@ -11,7 +11,7 @@ export type EvmChainType = 'evm'
 
 type EvmChainBase<TChainId extends number, TChainKey extends string> = Chain<
   EvmChainType,
-  // @ts-ignore infinite loop
+  // @ts-expect-error infinite loop
   TChainId,
   TChainKey,
   Readonly<string>,

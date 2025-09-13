@@ -3,6 +3,7 @@ import {
   APE_USD,
   ARB,
   AUSD,
+  axlUSDC,
   BUSD,
   GNO,
   OP,
@@ -12,7 +13,6 @@ import {
   USDT,
   USDT0,
   WETH9,
-  axlUSDC,
 } from '../../../config/tokens/tokens/index.js'
 import type { EvmCurrency } from '../../../currency/currency.js'
 import { EvmNative } from '../../../currency/native.js'

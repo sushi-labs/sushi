@@ -3,18 +3,18 @@ import type { Address } from 'viem'
 import { Amount } from '../../../generic/currency/amount.js'
 import { Price } from '../../../generic/currency/price.js'
 import {
+  _997,
+  _1000,
   FIVE,
   ONE,
   ZERO,
-  _997,
-  _1000,
 } from '../../../generic/math/constants.js'
 import { sqrt } from '../../../generic/math/sqrt.js'
 import type { BigintIsh } from '../../../generic/types/bigintish.js'
 import { getEvmChainById } from '../../chain/index.js'
 import {
-  SUSHISWAP_V2_FACTORY_ADDRESS,
   isSushiSwapV2ChainId,
+  SUSHISWAP_V2_FACTORY_ADDRESS,
 } from '../../config/features/sushiswap-v2.js'
 import { EvmToken } from '../../currency/index.js'
 import {

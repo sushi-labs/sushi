@@ -1,9 +1,5 @@
-import {
-  SUSHISWAP_V2_SUPPORTED_CHAIN_IDS,
-  SUSHISWAP_V3_SUPPORTED_CHAIN_IDS,
-} from '../features/index.js'
-import type { SushiSwapV2ChainId } from './sushiswap-v2.js'
-import type { SushiSwapV3ChainId } from './sushiswap-v3.js'
+import { SUSHISWAP_V2_SUPPORTED_CHAIN_IDS, type SushiSwapV2ChainId } from './sushiswap-v2.js'
+import { SUSHISWAP_V3_SUPPORTED_CHAIN_IDS, type SushiSwapV3ChainId } from './sushiswap-v3.js'
 
 export const SUSHISWAP_SUPPORTED_CHAIN_IDS = Array.from(
   new Set([

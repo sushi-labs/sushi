@@ -83,6 +83,10 @@ export const getDrpcRpcUrl = ({
   chainId,
   key,
   subdomain = 'lb',
-}: { chainId: DrpcChainId; key: string; subdomain?: 'lb' | 'direct' }) => {
+}: {
+  chainId: DrpcChainId
+  key: string
+  subdomain?: 'lb' | 'direct'
+}) => {
   return `https://${subdomain}.drpc.org/ogrpc?network=${drpcNetworkMapping[chainId]}&dkey=${key}`
 }

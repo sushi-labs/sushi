@@ -41,9 +41,8 @@ import {
   zkLinkNova as zklinkViem,
   zksync as zksyncViem,
 } from 'viem/chains'
-import { defineEvmChain } from './define-chain.js'
-
 import type { Replace, UnionToIntersection } from '../../generic/types/index.js'
+import { defineEvmChain } from './define-chain.js'
 
 const ethereum = /* @__PURE__ */ defineEvmChain(ethereumViem, {
   key: 'ethereum',

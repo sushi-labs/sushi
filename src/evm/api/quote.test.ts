@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { type QuoteRequest, getQuote } from './quote.js'
+import { getQuote, type QuoteRequest } from './quote.js'
 
 const baseQuoteRequest = {
   chainId: 1,

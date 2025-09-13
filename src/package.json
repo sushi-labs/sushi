@@ -53,10 +53,18 @@
   },
   "typesVersions": {
     "*": {
-      "evm": ["_types/evm/index.d.ts"],
-      "mvm": ["_types/mvm/index.d.ts"],
-      "tvm": ["_types/tvm/index.d.ts"],
-      "kvm": ["_types/kvm/index.d.ts"]
+      "evm": [
+        "_types/evm/index.d.ts"
+      ],
+      "mvm": [
+        "_types/mvm/index.d.ts"
+      ],
+      "tvm": [
+        "_types/tvm/index.d.ts"
+      ],
+      "kvm": [
+        "_types/kvm/index.d.ts"
+      ]
     }
   },
   "dependencies": {
@@ -94,5 +102,12 @@
       "url": "https://github.com/sponsors/sushi-labs"
     }
   ],
-  "keywords": ["eth", "ethereum", "dapps", "wallet", "web3", "typescript"]
+  "keywords": [
+    "eth",
+    "ethereum",
+    "dapps",
+    "wallet",
+    "web3",
+    "typescript"
+  ]
 }

@@ -1,8 +1,7 @@
 import { describe, expect, expectTypeOf, it } from 'vitest'
-import { getSushiSwapV3SubgraphUrl } from './subgraphs/sushiswap-v3.js'
-
 import { EvmChainId } from '../../chain/index.js'
 import { getBlocksSubgraphUrl } from './subgraphs/blocks.js'
+import { getSushiSwapV3SubgraphUrl } from './subgraphs/sushiswap-v3.js'
 
 describe('subgraph urls', () => {
   it('with subgraph id matches', () => {

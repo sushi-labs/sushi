@@ -26,7 +26,7 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.5-nightly.81fdedb",
+    "@biomejs/biome": "2.2.4",
     "@changesets/changelog-github": "0.4.8",
     "@changesets/cli": "2.26.2",
     "@types/big.js": "6.2.0",
@@ -50,30 +50,57 @@
     "node": "20.x"
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["@biomejs/biome"],
+    "onlyBuiltDependencies": [
+      "@biomejs/biome"
+    ],
     "patchedDependencies": {
       "vocs": "patches/vocs.patch"
     }
   },
   "knip": {
-    "ignore": [".github/**", "environments/**", "vectors/**"],
-    "ignoreBinaries": ["dev", "forge", "only-allow", "printf"],
-    "ignoreDependencies": ["bun", "@size-limit/preset-big-lib"],
-    "ignoreWorkspaces": ["examples/**", "test"],
+    "ignore": [
+      ".github/**",
+      "environments/**",
+      "vectors/**"
+    ],
+    "ignoreBinaries": [
+      "dev",
+      "forge",
+      "only-allow",
+      "printf"
+    ],
+    "ignoreDependencies": [
+      "bun",
+      "@size-limit/preset-big-lib"
+    ],
+    "ignoreWorkspaces": [
+      "examples/**",
+      "test"
+    ],
     "vitest": {
-      "config": ["test/vitest.config.ts"],
-      "entry": ["**/*.{bench,bench-d,test,test-d,spec}.?(c|m)[jt]s?(x)"]
+      "config": [
+        "test/vitest.config.ts"
+      ],
+      "entry": [
+        "**/*.{bench,bench-d,test,test-d,spec}.?(c|m)[jt]s?(x)"
+      ]
     },
     "workspaces": {
       ".": {
         "project": "scripts/*.ts"
       },
       "src": {
-        "entry": ["index.ts!", "{generic,evm,tvm,mvm}/index.ts!"],
+        "entry": [
+          "index.ts!",
+          "{generic,evm,tvm,mvm}/index.ts!"
+        ],
         "ignore": []
       },
       "site": {
-        "project": ["**/*.ts", "**/*.tsx"]
+        "project": [
+          "**/*.ts",
+          "**/*.tsx"
+        ]
       }
     }
   }

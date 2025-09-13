@@ -1,10 +1,14 @@
-import { getAddress as _getAddress } from 'viem/utils'
 import type { EvmCurrency } from '../../../../evm/currency/currency.js'
 import { EvmChainId } from '../../../chain/index.js'
 import {
   APE_USD,
   ARB,
   AUSD,
+  axlDAI,
+  axlETH,
+  axlUSDC,
+  axlUSDT,
+  axlWBTC,
   DAI,
   FRAX,
   GNO,
@@ -12,8 +16,8 @@ import {
   MIM,
   RBTC,
   SKL,
-  SUSHI,
   SolvBTC,
+  SUSHI,
   USDB,
   USDC,
   USDT,
@@ -22,11 +26,6 @@ import {
   WETH9,
   ZETA_USDC_ETH,
   ZETA_USDT_ETH,
-  axlDAI,
-  axlETH,
-  axlUSDC,
-  axlUSDT,
-  axlWBTC,
 } from '../../../config/tokens/tokens/index.js'
 import { EvmNative } from '../../../currency/native.js'
 import { EvmToken } from '../../../currency/token.js'

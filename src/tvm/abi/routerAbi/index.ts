@@ -1,5 +1,4 @@
 export * from './routerAbi.js'
-export * from './routerAbi_WETH.js'
 export * from './routerAbi_addLiquidity.js'
 export * from './routerAbi_addLiquidityETH.js'
 export * from './routerAbi_factory.js'
@@ -21,3 +20,4 @@ export * from './routerAbi_swapExactTokensForETHSupportingFeeOnTransferTokens.js
 export * from './routerAbi_swapExactTokensForTokens.js'
 export * from './routerAbi_swapTokensForExactETH.js'
 export * from './routerAbi_swapTokensForExactTokens.js'
+export * from './routerAbi_WETH.js'

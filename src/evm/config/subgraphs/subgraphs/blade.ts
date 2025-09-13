@@ -27,19 +27,3 @@ export const getBladeSubgraphUrl = getSubgraphUrlWrapper({
   },
   otherUrls: BLADE_OTHER_URLS,
 })<BladeChainId, 'COMPLETE'>()
-
-export const BladeSubgraphTemplateMap: Record<BladeChainId, string> =
-  Object.fromEntries(
-    Object.entries({
-      ...BLADE_DECENTRALIZED_DEPLOYMENT_IDS,
-      ...BLADE_DECENTRALIZED_SUBGRAPH_IDS,
-      ...BLADE_OTHER_URLS,
-    })
-      .map(([chainId]) => {
-        const url = getBladeSubgraphUrl(Number(chainId) as BladeChainId, {
-          decentralizedKey: '${GRAPH_KEY}',
-        })
-        return [Number(chainId), url ? `https://${url}` : undefined]
-      })
-      .filter(([, url]) => !!url),
-  ) as Record<BladeChainId, string>

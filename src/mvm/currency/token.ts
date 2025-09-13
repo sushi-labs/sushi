@@ -1,7 +1,7 @@
 import * as z from 'zod'
 import type { CurrencyMetadata } from '../../generic/currency/currency.js'
 import { Token } from '../../generic/currency/token.js'
-import { type MvmChainId, isMvmChainId } from '../chain/chains.js'
+import { isMvmChainId, type MvmChainId } from '../chain/chains.js'
 
 export type MvmAddress = `0x${string}::${string}::${string}`
 
@@ -43,7 +43,9 @@ export const serializedMvmTokenSchema = <
   TMetadata extends {} = CurrencyMetadata,
 >({
   metadata,
-}: { metadata?: z.ZodType<TMetadata> } = {}) =>
+}: {
+  metadata?: z.ZodType<TMetadata>
+} = {}) =>
   z.object({
     chainId: z.number().int().refine(isMvmChainId),
     address: z.string().refine(isMvmAddress),
