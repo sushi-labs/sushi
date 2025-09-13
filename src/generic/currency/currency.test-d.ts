@@ -1,5 +1,5 @@
 import { it } from 'node:test'
-import { describe, expectTypeOf } from 'vitest'
+import { describe, expect, expectTypeOf } from 'vitest'
 import * as z from 'zod'
 import type { EvmChainId } from '~/evm/chain/chains.js'
 import type { EvmCurrency } from '~/evm/currency/currency.js'
@@ -14,7 +14,7 @@ import {
 } from '../../evm/currency/token.js'
 import { MvmToken } from '../../mvm/currency/token.js'
 import { TvmNative } from '../../tvm/currency/native.js'
-import type { TvmToken } from '../../tvm/currency/token.js'
+import { TvmToken } from '../../tvm/currency/token.js'
 import { getChainIdAddressFromId } from '../utils/id.js'
 import {
   BaseCurrency,
@@ -62,6 +62,54 @@ describe('generic/currency/currency.ts types', () => {
       })
 
       expectTypeOf(evmMockNative.wrap()).toEqualTypeOf<EvmToken>()
+    })
+
+    it('should lowercase the address - Evm / Mvm / Tvm', () => {
+      const evmMockToken = new EvmToken({
+        chainId: 1,
+        address: '0x1234567890ABCDEF1234567890ABCDEF12345678',
+        symbol: 'USDT',
+        name: 'Tether USD',
+        decimals: 6,
+      })
+
+      expect(evmMockToken.address).toBe(
+        '0x1234567890abcdef1234567890abcdef12345678',
+      )
+
+      const mvmMockToken = new MvmToken({
+        chainId: -1,
+        address: '0x1234567890ABCDEF1234567890ABCDEF12345678::mvm::token',
+        symbol: 'MVM',
+        name: 'MVM Token',
+        decimals: 18,
+      })
+
+      expect(mvmMockToken.address).toBe(
+        '0x1234567890abcdef1234567890abcdef12345678::mvm::token',
+      )
+
+      const tvmMockToken = new TvmToken({
+        chainId: -2,
+        address: 'T1234567890ABCDEF1234567890ABCDEF1',
+        symbol: 'TVM',
+        name: 'Tvm Token',
+        decimals: 18,
+      })
+
+      expect(tvmMockToken.address).toBe('t1234567890abcdef1234567890abcdef1')
+    })
+
+    it('should not lowercase the address - Kvm', () => {
+      const kvmMockToken = new KvmToken({
+        chainId: -3,
+        symbol: 'KVM',
+        name: 'Kvm Token',
+        decimals: 12,
+        address: 'My-Namespace.My-Token',
+      })
+
+      expect(kvmMockToken.address).toBe('My-Namespace.My-Token')
     })
 
     it('should return the same chaintype - Mvm', () => {

@@ -20,8 +20,7 @@ export abstract class Token<
     address: TAddress
   } & ConstructorParameters<typeof BaseCurrency<TChainId, TMetadata>>[0]) {
     super(rest)
-
-    this.address = address.toLowerCase() as TAddress
+    this.address = address
   }
 
   override get id(): ID<TChainId, TAddress> {
