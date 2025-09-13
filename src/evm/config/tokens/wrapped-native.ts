@@ -1,5 +1,5 @@
-import { zeroAddress } from 'viem'
 import type { Address } from 'viem'
+import { zeroAddress } from 'viem'
 import type { EvmCurrency } from '../../../evm/currency/currency.js'
 import { EvmChainId } from '../../chain/index.js'
 import { EvmToken } from '../../currency/token.js'
@@ -249,7 +249,10 @@ export const isWNativeSupported = (chainId: EvmChainId) =>
 export function isWrapOrUnwrap({
   from,
   to,
-}: { from: EvmCurrency; to: EvmCurrency }): boolean {
+}: {
+  from: EvmCurrency
+  to: EvmCurrency
+}): boolean {
   if (from.type === 'native' && from.wrap().isSame(to)) {
     return true
   }

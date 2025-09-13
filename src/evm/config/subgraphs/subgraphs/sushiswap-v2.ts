@@ -1,4 +1,3 @@
-import type { TestnetChainId } from '../../../../generic/chain/chains.js'
 import { EvmChainId } from '../../../chain/index.js'
 import type { SushiSwapV2ChainId } from '../../features/sushiswap-v2.js'
 import { getSubgraphUrlWrapper, wrapAsIdType } from '../get-subgraph-url.js'
@@ -57,22 +56,3 @@ export const getSushiSwapV2SubgraphUrl = getSubgraphUrlWrapper({
   },
   otherUrls: SUSHISWAP_V2_OTHER_URLS,
 })<SushiSwapV2ChainId, 'PARTIAL'>()
-
-export const V2SubgraphTemplateMap: Record<
-  Exclude<SushiSwapV2ChainId, TestnetChainId>,
-  string
-> = Object.fromEntries(
-  Object.entries({
-    ...SUSHISWAP_V2_DECENTRALIZED_DEPLOYMENT_IDS,
-    ...SUSHISWAP_V2_DECENTRALIZED_SUBGRAPH_IDS,
-    ...SUSHISWAP_V2_OTHER_URLS,
-  })
-    .map(([chainId]) => {
-      const url = getSushiSwapV2SubgraphUrl(
-        Number(chainId) as SushiSwapV2ChainId,
-        { decentralizedKey: '${GRAPH_KEY}' },
-      )
-      return [Number(chainId), url ? `https://${url}` : undefined]
-    })
-    .filter(([, url]) => !!url),
-)

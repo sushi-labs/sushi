@@ -9,7 +9,7 @@ export type KvmChainType = 'kvm'
 
 type KvmChainBase<TChainId extends number, TChainKey extends string> = Chain<
   KvmChainType,
-  // @ts-ignore infinite loop
+  // @ts-expect-error infinite loop
   TChainId,
   TChainKey,
   Readonly<string>,

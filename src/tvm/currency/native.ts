@@ -1,7 +1,7 @@
 import * as z from 'zod'
 import type { CurrencyMetadata } from '~/generic/currency/currency.js'
 import { Native } from '../../generic/currency/native.js'
-import { type TvmChainId, isTvmChainId } from '../chain/chains.js'
+import { isTvmChainId, type TvmChainId } from '../chain/chains.js'
 import { NATIVE } from '../config/index.js'
 import { WNATIVE } from '../config/tokens/wrapped-native.js'
 import { TvmToken } from './token.js'
@@ -45,7 +45,9 @@ export const serializedTvmNativeSchema = <
   TMetadata extends {} = CurrencyMetadata,
 >({
   metadata,
-}: { metadata?: z.ZodType<TMetadata> } = {}) =>
+}: {
+  metadata?: z.ZodType<TMetadata>
+} = {}) =>
   z.object({
     chainId: z.number().int().refine(isTvmChainId),
     symbol: z.string(),

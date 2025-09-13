@@ -2,9 +2,9 @@ import type { EvmCurrency } from '../../../../evm/currency/currency.js'
 import { EvmChainId } from '../../../chain/chains.js'
 import {
   METH,
+  rETH,
   STONE,
   WstETH,
-  rETH,
 } from '../../../config/tokens/tokens/index.js'
 import { EvmToken } from '../../../currency/token.js'
 

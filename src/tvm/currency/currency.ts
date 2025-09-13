@@ -2,13 +2,13 @@ import * as z from 'zod'
 import type { CurrencyMetadata } from '../../generic/currency/currency.js'
 import {
   type SerializedTvmNative,
-  type TvmNative,
   serializedTvmNativeSchema,
+  type TvmNative,
 } from './native.js'
 import {
   type SerializedTvmToken,
-  type TvmToken,
   serializedTvmTokenSchema,
+  type TvmToken,
 } from './token.js'
 
 export type TvmCurrency<

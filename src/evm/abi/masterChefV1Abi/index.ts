@@ -1,5 +1,5 @@
-export * from './masterChefV1Abi_BONUS_MULTIPLIER.js'
 export * from './masterChefV1Abi_add.js'
+export * from './masterChefV1Abi_BONUS_MULTIPLIER.js'
 export * from './masterChefV1Abi_bonusEndBlock.js'
 export * from './masterChefV1Abi_deposit.js'
 export * from './masterChefV1Abi_dev.js'

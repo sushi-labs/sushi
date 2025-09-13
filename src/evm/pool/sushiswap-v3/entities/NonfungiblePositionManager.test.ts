@@ -1,7 +1,7 @@
 import invariant from 'tiny-invariant'
 import {
-  type Hex,
   decodeAbiParameters,
+  type Hex,
   isHex,
   maxUint128,
   zeroAddress,

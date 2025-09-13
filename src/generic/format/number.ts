@@ -78,7 +78,7 @@ export function withoutScientificNotation(value: string): string | undefined {
   const [integer, fraction] = m.split('.')
 
   const mantissa = (integer + (fraction ?? '')).replace(/^0+/, '')
-  const exponent = Number.parseInt(n ?? 0) - (fraction ?? '').length
+  const exponent = Number.parseInt(n ?? 0, 10) - (fraction ?? '').length
 
   if (exponent >= 0) {
     return sign + mantissa + '0'.repeat(exponent)

@@ -1,35 +1,36 @@
 {
   "$schema": "node_modules/@biomejs/biome/configuration_schema.json",
   "files": {
-    "ignore": [
-      ".vscode",
-      "_cjs",
-      "_esm",
-      "_types",
-      ".turbo",
-      ".next",
-      ".mesh",
-      ".graphclient",
-      ".storybook",
-      "storybook-static",
-      "node_modules",
-      "**/node_modules",
-      "CHANGELOG.md",
-      "dist",
-      "artifacts",
-      "cache",
-      "coverage",
-      "deployments",
-      "test-results",
-      "test/contracts",
-      "typechain",
-      "tsconfig.json",
-      "tsconfig.*.json",
-      "packages/graph-client",
-      "apps/web/src/lib/wagmi/hooks/exploits/data/rp2-approvals.json",
-      "**/*-env.d.ts",
-      "**/*-cache.d.ts",
-      "**/generated-chain-data.ts"
+    "includes": [
+      "**",
+      "!**/.vscode",
+      "!**/_cjs",
+      "!**/_esm",
+      "!**/_types",
+      "!**/.turbo",
+      "!**/.next",
+      "!**/.mesh",
+      "!**/.graphclient",
+      "!**/.storybook",
+      "!**/storybook-static",
+      "!**/node_modules",
+      "!**/node_modules",
+      "!**/CHANGELOG.md",
+      "!**/dist",
+      "!**/artifacts",
+      "!**/cache",
+      "!**/coverage",
+      "!**/deployments",
+      "!**/test-results",
+      "!**/test/contracts",
+      "!**/typechain",
+      "!**/tsconfig.json",
+      "!**/tsconfig.*.json",
+      "!**/packages/graph-client",
+      "!**/apps/web/src/lib/wagmi/hooks/exploits/data/rp2-approvals.json",
+      "!**/*-env.d.ts",
+      "!**/*-cache.d.ts",
+      "!**/generated-chain-data.ts"
     ]
   },
   "formatter": {
@@ -53,9 +54,20 @@
       "style": {
         "noNonNullAssertion": "off",
         "noParameterAssign": "off",
-        "useShorthandArrayType": "error",
         "noUselessElse": "off",
-        "noUnusedTemplateLiteral": "off"
+        "noUnusedTemplateLiteral": "off",
+        "useAsConstAssertion": "error",
+        "useDefaultParameterLast": "error",
+        "useEnumInitializers": "error",
+        "useSelfClosingElements": "error",
+        "useSingleVarDeclarator": "error",
+        "useNumberNamespace": "error",
+        "noInferrableTypes": "error",
+        "noDescendingSpecificity": "off",
+        "useConsistentArrayType": {
+          "level": "error",
+          "options": { "syntax": "shorthand" }
+        }
       },
       "suspicious": {
         "noArrayIndexKey": "off",
@@ -67,7 +79,8 @@
         "noForEach": "off",
         "noStaticOnlyClass": "off",
         "noThisInStatic": "off",
-        "useSimpleNumberKeys": "off"
+        "useSimpleNumberKeys": "off",
+        "noImportantStyles": "off"
       },
       "security": {
         "noDangerouslySetInnerHtml": "off"
@@ -81,9 +94,7 @@
       "semicolons": "asNeeded"
     }
   },
-  "organizeImports": {
-    "enabled": true
-  },
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "vcs": {
     "enabled": true,
     "clientKind": "git",

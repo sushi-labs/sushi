@@ -1,5 +1,5 @@
 import { ChainId } from 'sushi'
-import { http, createPublicClient } from 'viem'
+import { createPublicClient, http } from 'viem'
 import { mainnet } from 'viem/chains'
 
 const client = createPublicClient({
