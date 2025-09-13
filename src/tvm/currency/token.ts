@@ -18,13 +18,14 @@ export class TvmToken<
 
   constructor({
     origin,
+    address,
     ...rest
   }: {
     origin?: TvmTokenOrigin | undefined
   } & ConstructorParameters<
     typeof Token<TvmChainId, TvmAddress, TMetadata>
   >[0]) {
-    super(rest)
+    super({ address: address.toLowerCase() as TvmAddress, ...rest })
     this.origin = origin
   }
 

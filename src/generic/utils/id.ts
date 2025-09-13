@@ -1,4 +1,5 @@
 import { nativeAddress } from '../../evm/config/simple-constants.js'
+import { isKvmTokenAddress } from '../../kvm/currency/token.js'
 import type { ChainId } from '../chain/chains.js'
 import type { ID } from '../types/id.js'
 
@@ -43,7 +44,10 @@ export function getIdFromChainIdAddress<
     )
   }
 
-  address = address.toLowerCase() as TAddress
+  // Kvm addresses are case-sensitive
+  if (!isKvmTokenAddress(address)) {
+    address = address.toLowerCase() as TAddress
+  }
 
   if (address === nativeAddress && options.translateNative) {
     address = 'NATIVE' as TAddress

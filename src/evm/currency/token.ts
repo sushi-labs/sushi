@@ -25,13 +25,14 @@ export class EvmToken<
 
   constructor({
     origin,
+    address,
     ...rest
   }: {
     origin?: EvmTokenOrigin | undefined
   } & ConstructorParameters<
     typeof Token<EvmChainId, EvmAddress, TMetadata>
   >[0]) {
-    super(rest)
+    super({ address: address.toLowerCase() as EvmAddress, ...rest })
     this.origin = origin
   }
 
