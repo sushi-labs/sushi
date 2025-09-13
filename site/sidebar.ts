@@ -43,6 +43,10 @@ export const sidebar = {
           collapsed: true,
           items: [
             {
+              text: 'Overview',
+              link: '/api/errors',
+            },
+            {
               text: 'Estimate Gas',
               link: '/api/errors/estimate-gas',
             },
@@ -106,6 +110,17 @@ export const sidebar = {
       items: [
         { text: 'Installation', link: '/sdk/installation' },
         // { text: 'Quote', link: '/sdk/quote' },
+        {
+          text: 'Primitives',
+          collapsed: true,
+          items: [
+            { text: 'Overview', link: '/sdk/primitives' },
+            { text: 'Amount', link: '/sdk/primitives/amount' },
+            { text: 'Fraction', link: '/sdk/primitives/fraction' },
+            { text: 'Token', link: '/sdk/primitives/token' },
+            { text: 'Native', link: '/sdk/primitives/native' },
+          ],
+        },
         {
           text: 'Examples',
           collapsed: true,

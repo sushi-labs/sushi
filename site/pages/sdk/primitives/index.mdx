@@ -1,0 +1,8 @@
+# Primitives
+
+| Primitive | Summary |
+|---|---|
+| [Amount](amount) | Quantity of a currency/token in raw units (bigint). Human parsing, arithmetic, comparisons, formatting, JSON serialization, wrapping. |
+| [Fraction](fraction) | Precise rational numbers (bigint numerator/denominator) for ratios, comparisons, and formatting without float errors. |
+| [Token](token) | Base for fungible, addressable currencies. Identity, equality, serialization; extend per-chain (e.g., EVM token). |
+| [Native](native) | Base for chain native currency with `wrap()` to the canonical wrapped token. Identity, flags, serialization. |

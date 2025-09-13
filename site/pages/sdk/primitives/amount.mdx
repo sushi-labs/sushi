@@ -1,0 +1,118 @@
+# Amount
+
+An `Amount` represents a quantity of a specific currency/token using an integer `amount` (raw units) and a `currency` that carries decimals and metadata.
+
+- `currency`: The currency or token this amount is for.
+- `amount`: The raw integer value (`bigint`), typically smallest units (e.g. wei).
+
+```ts twoslash
+import { Amount } from 'sushi/generic'
+import { EvmToken } from 'sushi/evm'
+
+const USDC = new EvmToken({
+  chainId: 1,
+  address: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+  symbol: 'USDC',
+  name: 'USD Coin',
+  decimals: 6,
+})
+
+// Construct from raw units (smallest unit)
+const raw = new Amount(USDC, 1_000_000n) // 1.0 USDC
+
+// Construct from human-readable value (respects currency.decimals)
+const a = Amount.fromHuman(USDC, '1.5')   // 1.5 USDC -> 1_500_000n
+const b = Amount.fromHuman(USDC, 2.25)    // 2.25 USDC -> 2_250_000n
+```
+
+## Creating Amounts
+
+- From raw integer: `new Amount(currency, bigint | number | string)` // Throws on invalid, e.g. non-integer
+- From human value: `Amount.fromHuman(currency, bigint | number | string)` // Throws on invalid
+- Safe parse: `Amount.tryFromHuman(currency, value) // returns undefined on invalid`
+
+```ts twoslash
+import { Amount } from 'sushi/generic'
+
+// @noErrors
+const amt = new Amount(USDC, 500_000n) // 0.5 USDC
+const fromStr = Amount.fromHuman(USDC, '0.000001') // 1 micro USDC
+const maybe = Amount.tryFromHuman(USDC, 'not-a-number') // undefined
+```
+
+## Arithmetic
+
+All operations return a new `Amount` and keep the left-hand side currency.
+
+- Add/Subtract: `add`, `sub`, `addHuman`, `subHuman`
+- Multiply/Divide: `mul`, `mulHuman`, `div`
+- Fractional division: `divToFraction()` returns a precise `Fraction` ratio
+
+```ts twoslash
+import { Amount, Fraction } from 'sushi/generic'
+
+// @noErrors
+const one = Amount.fromHuman(USDC, '1')
+const half = Amount.fromHuman(USDC, '0.5')
+
+const sum = one.add(half)              // 1.5 USDC
+const sum2 = one.addHuman('0.25')      // 1.25 USDC
+const diff = one.sub(half)             // 0.5 USDC
+
+const times = one.mulHuman('2.5')      // 2.5 USDC
+const halfDiv = one.div('2')           // 0.5 USDC
+
+// Use Fraction for ratios without rounding the divisor
+const priceImpact = new Fraction({ numerator: 3n, denominator: 2n })
+const impacted = one.mul(priceImpact)  // 1.5 USDC
+
+// For precise ratio of two raw amounts
+const ratio = one.divToFraction(half)  // 1 / 0.5 => 2/1
+```
+
+## Comparison
+
+- `gt`, `gte`, `lt`, `lte`, `eq` compare raw values.
+
+```ts twoslash
+// @noErrors
+sum.gt(one)   // true
+half.lte(one) // true
+```
+
+## Formatting
+
+Convert to human-readable strings using the currency decimals.
+
+- Default: `toString()` is equal to `toString({ fixed: decimals })`.
+- Fixed decimals: `toString({ fixed: n })` always shows exactly `n` decimals.
+- Maximum decimals: `toString({ maxFixed: n })` shows up to `n` decimals, trimming trailing zeros.
+- Significant digits: `toSignificant(n)` keeps `n` significant digits.
+
+```ts twoslash
+// @noErrors
+one.toString()                 // '1'
+one.toString({ fixed: 2 })     // '1.00'
+sum.toString({ maxFixed: 6 })  // e.g. '1.5'
+sum.toSignificant(4)           // e.g. '1.5'
+```
+
+## Serialization
+
+`toJSON()` returns a JSON-safe object `{ currency, amount }` where `amount` is a string.
+
+```ts twoslash
+// @noErrors
+const json = one.toJSON()
+// { currency: { ... }, amount: '1000000' }
+JSON.stringify(json)
+```
+
+## Wrapping
+
+`wrap()` converts the underlying currency to its wrapped representation and keeps the same raw amount (useful for native -> wrapped token).
+
+```ts twoslash
+// @noErrors
+const wrapped = one.wrap() // Amount with wrapped currency
+```
