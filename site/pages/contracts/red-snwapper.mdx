@@ -74,3 +74,42 @@ function snwapMultiple(
 ## Deployments
 
 <AddressTable data={RED_SNWAPPER_ADDRESS} />
+
+## Examples
+
+### Using a contract to call RedSnwapper
+
+Below is an example Solidity contract that can be used to call RedSnwapper.
+
+It expects "self" as the `source` parameter when calling the API, and will pre-fund RedSnwapper with the input tokens before executing the swap.
+In case "sender" is used as the `source`, the contract can be simplified by removing the token transfer logic, although an `approve` call is still be needed.
+
+The `source` parameter is disregarded when the input token is native (ETH), in which case the contract must be pre-funded with enough ETH to cover the swap.
+ 
+```solidity
+contract RedSnwapperProxy {
+  constant address NATIVE = 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE;
+  constant address RED_SNWAPPER = 0xac4c6e212a361c968f1725b4d055b47e63f80b75;
+
+  function swap(bytes calldata data) external payable returns (uint256 amountOut) {
+    // Skip the first 4 bytes (function selector), decode the input token and amountIn
+    (address tokenIn, uint256 amountIn) = abi.decode(data[4:], (address, uint256));
+
+    // If the "source" parameter used to call the API is "self", we need to pre-fund the contract
+    uint256 nativeAmount = 0;
+    if (tokenIn == NATIVE) {
+      require(msg.value >= amountIn, "Not enough ETH sent");
+      nativeAmount = amountIn;
+    } else {
+      IERC20(tokenIn).transfer(RED_SNWAPPER, amountIn);
+    }
+
+    // Call RedSnwapper
+    (bool success, bytes memory returnData) = RED_SNWAPPER.call{value: nativeAmount}(data);
+    require(success, "RedSnwapper call failed");
+
+    amountOut = abi.decode(returnData, (uint256));
+  }
+}
+
+```

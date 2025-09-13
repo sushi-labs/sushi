@@ -25,43 +25,54 @@ export const sidebar = {
     {
       text: 'API',
       items: [
-        // {
-        //   text: 'Pricing',
-        //   link: '/api/pricing',
-        // },
         {
           text: 'Swagger',
           link: '/api/swagger',
         },
         {
           text: 'Examples',
-          collapsed: true,
+          collapsed: false,
           items: [
-            {
-              text: 'Quote',
-              link: '/api/quote',
-            },
-            {
-              text: 'Swap',
-              link: '/api/swap',
-            },
+            { text: 'Pricing', link: '/api/examples/pricing' },
+            { text: 'Quote', link: '/api/examples/quote' },
+            { text: 'Swap', link: '/api/examples/swap' },
           ],
         },
         {
           text: 'Errors',
           collapsed: true,
           items: [
-            // {
-            //   text: 'Bad Request',
-            //   link: '/api/errors/bad-request',
-            // },
+            {
+              text: 'Overview',
+              link: '/api/errors',
+            },
+            {
+              text: 'Estimate Gas',
+              link: '/api/errors/estimate-gas',
+            },
+            {
+              text: 'Insufficient Allowance',
+              link: '/api/errors/insufficient-allowance',
+            },
+            {
+              text: 'Insufficient Balance',
+              link: '/api/errors/insufficient-balance',
+            },
+            {
+              text: 'Invalid Api Key',
+              link: '/api/errors/invalid-api-key',
+            },
+            {
+              text: 'No Fresh Data',
+              link: '/api/errors/no-fresh-data',
+            },
             {
               text: 'Not Found',
               link: '/api/errors/not-found',
             },
             {
-              text: 'Validation',
-              link: '/api/errors/validation',
+              text: 'Ratelimit Exceeded',
+              link: '/api/errors/ratelimit-exceeded',
             },
             {
               text: 'Server',
@@ -70,6 +81,14 @@ export const sidebar = {
             {
               text: 'Service Unavailable',
               link: '/api/errors/service-unavailable',
+            },
+            {
+              text: 'Unauthorized',
+              link: '/api/errors/unauthorized',
+            },
+            {
+              text: 'Validation',
+              link: '/api/errors/validation',
             },
           ],
         },
@@ -91,6 +110,17 @@ export const sidebar = {
       items: [
         { text: 'Installation', link: '/sdk/installation' },
         // { text: 'Quote', link: '/sdk/quote' },
+        {
+          text: 'Primitives',
+          collapsed: true,
+          items: [
+            { text: 'Overview', link: '/sdk/primitives' },
+            { text: 'Amount', link: '/sdk/primitives/amount' },
+            { text: 'Fraction', link: '/sdk/primitives/fraction' },
+            { text: 'Token', link: '/sdk/primitives/token' },
+            { text: 'Native', link: '/sdk/primitives/native' },
+          ],
+        },
         {
           text: 'Examples',
           collapsed: true,

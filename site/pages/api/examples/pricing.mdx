@@ -1,0 +1,51 @@
+# Pricing API Documentation
+
+## Overview
+The Pricing API provides token prices across multiple chains.
+The `sushi` package [also exposes](/sdk/price) wrapper functions for this API — `getPrice` and `getPrices` — under the `sushi/evm` export.
+
+## Endpoints
+
+- `GET /price/v1/{chainId}`: Returns a map of token address → price (in USD) for the specified `chainId`.
+- `GET /price/v1/{chainId}/{address}`: Returns a single token price (in USD) for `address` on the specified `chainId`.
+
+## Example
+
+```ts twoslash
+// Fetch prices for many tokens (address → number)
+const chainId = 1
+const PRICES_API_URL = new URL('https://api.sushi.com/price/v1/' + chainId)
+
+console.log(PRICES_API_URL.toString())
+const pricesRes = await fetch(PRICES_API_URL.toString())
+const prices = await pricesRes.json() as Record<string, number>
+console.log(prices)
+
+// Fetch price for a single token
+const address = '0x6b3595068778dd592e39a122f4f5a5cf09c90fe2' // SUSHI on mainnet
+const PRICE_API_URL = new URL(`https://api.sushi.com/price/v1/${chainId}/${address}`)
+
+console.log(PRICE_API_URL.toString())
+const priceRes = await fetch(PRICE_API_URL.toString())
+const price = await priceRes.json() as number
+console.log(price)
+```
+
+## Response
+
+- Multiple prices (`/price/v1/{chainId}`): object mapping token address to numeric USD price.
+- Single price (`/price/v1/{chainId}/{address}`): a single numeric USD price.
+
+Examples:
+
+```jsonc
+// GET /price/v1/1
+{
+  "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": 2523.45,
+  "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2": 1.12
+}
+
+// GET /price/v1/1/0x6b3595068778dd592e39a122f4f5a5cf09c90fe2
+1.12
+```
+

@@ -1,0 +1,102 @@
+# Token
+
+`Token` is the abstract base for fungible, addressable currencies. It extends `BaseCurrency` and adds a chain-specific `address`, identity `id`, and equality semantics.
+
+This page explains features and how to extend `Token` for a new network type.
+
+## Features
+
+- Identity: `id = "<chainId>:<address>"` (lowercased address)
+- Flags: `type = 'token'`, `isToken = true`, `isNative = false`
+- Equality: `isSame(other)` checks chainId, decimals, type, and address
+- Serialization: implement `toJSON()` (and an optional static `fromJSON`)
+- Wrapping: `wrap()` returns a token (no-op for tokens on most chains)
+
+## Usage Example
+
+On EVM, `EvmToken` extends `Token` and adds helpers like `sortsBefore`.
+
+```ts twoslash
+import { EvmToken } from 'sushi/evm'
+
+const USDC = new EvmToken({
+  chainId: 1,
+  address: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+  symbol: 'USDC',
+  name: 'USD Coin',
+  decimals: 6,
+})
+
+USDC.id           // '1:0xa0b8...e48'
+USDC.isToken      // true
+USDC.isNative     // false
+USDC.toJSON()     // stable, JSON-safe shape
+```
+
+## Metadata
+
+Currencies support an arbitrary `metadata` bag typed via the generic parameter. This is useful for attaching ancillary data such as a logo URL, tags, price feed hints, etc.
+
+```ts twoslash
+import { EvmToken } from 'sushi/evm'
+
+type TokenMetadata = {
+  logoURI?: string
+  tags?: string[]
+  coingeckoId?: string
+  origin?: 'native' | 'bridge' | 'celer' | 'stargate' | 'wormhole'
+}
+
+const DAI = new EvmToken<TokenMetadata>({
+  chainId: 1,
+  address: '0x6b175474e89094c44da98b954eedeac495271d0f',
+  symbol: 'DAI',
+  name: 'Dai Stablecoin',
+  decimals: 18,
+  metadata: {
+    logoURI: 'https://assets.coingecko.com/coins/images/9956/large/4943.png',
+    tags: ['stablecoin', 'defi'],
+    coingeckoId: 'dai',
+    origin: 'native',
+  },
+})
+
+DAI.metadata.tags?.includes('stablecoin') // true
+
+const json = DAI.toJSON()
+json.metadata?.logoURI // preserved in serialized form
+```
+
+Note: You don’t need to pre‑type `metadata` — TypeScript infers it from the constructor object. If desired, you can still use a generic or `satisfies { ... }` for stricter typing.
+
+## Validation with Zod
+Each concrete token class exposes a Zod schema factory for its serialized shape. On EVM, use `serializedEvmTokenSchema({ metadata })` to validate parsed JSON. You can supply a custom `metadata` schema to enforce structure; if omitted, metadata defaults to a permissive `record(unknown).optional().default({})`.
+
+```ts twoslash
+import { z } from 'zod'
+import { EvmToken, serializedEvmTokenSchema } from 'sushi/evm'
+
+// Optional: a stricter metadata schema
+const metadataSchema = z.object({
+  logoURI: z.string().url().optional(),
+  tags: z.array(z.string()).optional(),
+  coingeckoId: z.string().optional(),
+})
+
+// Build the schema for serialized tokens
+const schema = serializedEvmTokenSchema({ metadata: metadataSchema })
+
+// Example validation
+const input = {
+  chainId: 1,
+  address: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+  symbol: 'USDC',
+  name: 'USD Coin',
+  decimals: 6,
+  type: 'token' as const,
+  metadata: {},
+}
+const parsed = schema.parse(input)
+
+const token = EvmToken.fromJSON(parsed)
+```

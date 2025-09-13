@@ -1,0 +1,27 @@
+# Native
+
+`Native` is the abstract base for a chain’s native currency (e.g., ETH). It extends `BaseCurrency` and models non-addressable currencies with a `wrap()` method to obtain the canonical wrapped token.
+
+## Features
+
+- Identity: `id = "<chainId>:NATIVE"`
+- Flags: `type = 'native'`, `isNative = true`, `isToken = false`
+- Wrapping: `wrap()` returns the wrapped token representation (e.g., WETH)
+- Serialization: implement `toJSON()` (and optional static `fromJSON`)
+
+Note on metadata: `Native` also supports an optional `metadata` bag just like `Token`. For details on typing, validating, and serializing `metadata`, see [Token](/sdk/primitives/token#metadata).
+
+## Usage Example
+
+On EVM, `EvmNative` implements `wrap()` via the `WNATIVE` map and can be constructed from a chain id.
+
+```ts twoslash
+import { EvmNative } from 'sushi/evm'
+
+const eth = EvmNative.fromChainId(1)
+eth.isNative        // true
+eth.id              // '1:NATIVE'
+
+const weth = eth.wrap() // EvmToken for WETH on chain 1
+weth.isToken        // true
+```

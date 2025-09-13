@@ -1,0 +1,54 @@
+# Fraction
+
+`Fraction` is a precise rational number type backed by bigint numerators/denominators. Use it for ratios, percentages, and lossless math where floating point could introduce errors.
+
+## Arithmetic & Formatting
+
+Common operations with examples of string formatting and JSON output.
+
+```ts twoslash
+import { Fraction } from 'sushi/generic'
+
+const oneHalf = new Fraction({ numerator: 1n, denominator: 2n })
+const three = new Fraction(3) // shorthand for 3/1
+
+const sum = oneHalf.add(three)      // 3.5 => 7/2
+const diff = three.sub(oneHalf)     // 2.5 => 5/2
+const prod = oneHalf.mul(three)     // 1.5 => 3/2
+const div  = three.div(oneHalf)     // 6 => 6/1
+
+// Formatting helpers
+sum.toSignificant(4)            // '3.5'
+sum.toString({ fixed: 2 })      // '3.50'
+sum.toString({ maxFixed: 4 })   // '3.5'
+sum.toString({ significant: 3 })// '3.5'
+
+// Inversion and JSON
+const inv = oneHalf.invert()    // 2/1
+inv.toString({ fixed: 0 })      // '2'
+// Object vs string forms
+sum.toJSON()                    // { n: '7', d: '2' }
+```
+
+## Comparison
+
+Relational operators using exact rational arithmetic (no float rounding).
+
+```ts twoslash
+import { Fraction } from 'sushi/generic'
+
+const a = new Fraction({ numerator: 1n, denominator: 3n }) // ~0.3333
+const b = new Fraction({ numerator: 2n, denominator: 5n }) // 0.4
+const c = new Fraction({ numerator: 1n, denominator: 3n }) // equal to a
+
+a.lt(b)   // true
+a.lte(b)  // true
+a.eq(b)   // false
+a.gte(b)  // false
+a.gt(b)   // false
+a.neq(b)  // true
+
+a.eq(c)   // true
+a.lte(c)  // true
+a.gte(c)  // true
+```

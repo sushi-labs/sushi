@@ -442,3 +442,7 @@ body {
   --secondary-icon-opacity: 0.6;
   --black-icons-filter: invert(1);
 }
+
+aside {
+  scrollbar-gutter: stable;
+}
