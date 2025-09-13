@@ -13,6 +13,15 @@ export function isMvmAddress(address: string): address is MvmAddress {
 export class MvmToken<
   TMetadata extends CurrencyMetadata = Record<string, unknown>,
 > extends Token<MvmChainId, MvmAddress, TMetadata> {
+  constructor({
+    address,
+    ...rest
+  }: ConstructorParameters<
+    typeof Token<MvmChainId, MvmAddress, TMetadata>
+  >[0]) {
+    super({ address: address.toLowerCase() as MvmAddress, ...rest })
+  }
+
   public override wrap(): MvmToken<TMetadata> {
     return this
   }
