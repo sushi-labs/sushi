@@ -1,7 +1,24 @@
 import { numberToFixed } from '../format/number.js'
+import type { BigintIsh } from '../types/bigintish.js'
 import { Fraction } from './fraction.js'
 
 export class Percent extends Fraction {
+  public override add(other: Fraction | BigintIsh): Percent {
+    return new Percent(super.add(other))
+  }
+
+  public override sub(other: Fraction | BigintIsh): Fraction {
+    return new Percent(super.sub(other))
+  }
+
+  public override mul(other: Fraction | BigintIsh): Percent {
+    return new Percent(super.mul(other))
+  }
+
+  public override div(other: Fraction | BigintIsh): Percent {
+    return new Percent(super.div(other))
+  }
+
   /**
    *
    * @param args.maxFixed - The maximum number of fixed decimal places to display, only if relevant, eg. "0" for 0, "1.23" for 0.0123, etc.
