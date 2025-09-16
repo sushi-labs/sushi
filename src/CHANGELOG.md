@@ -1,5 +1,11 @@
 # sushi
 
+## 6.1.5
+
+### Patch Changes
+
+- [#319](https://github.com/sushi-labs/sushi/pull/319) [`a81d238`](https://github.com/sushi-labs/sushi/commit/a81d2387c43ebbfaf44273c1994ceb367ccefc02) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Fix Percent math
+
 ## 6.1.4
 
 ### Patch Changes
