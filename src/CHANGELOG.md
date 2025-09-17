@@ -1,5 +1,11 @@
 # sushi
 
+## 6.1.6
+
+### Patch Changes
+
+- [#322](https://github.com/sushi-labs/sushi/pull/322) [`61dff92`](https://github.com/sushi-labs/sushi/commit/61dff92b11b22dfb0a08c147715e69e1d0c70b75) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - minor chain id fixes
+
 ## 6.1.5
 
 ### Patch Changes
