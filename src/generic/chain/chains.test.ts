@@ -45,4 +45,23 @@ describe('generic/chain/chains.ts functions', () => {
     expect(isTestnetChainId(ChainId.SEPOLIA)).toBe(true)
     expect(isTestnetChainId(ChainId.ETHEREUM)).toBe(false)
   })
+
+  it('should return keys for ChainId when using Object.keys', () => {
+    const keys = Object.keys(ChainId)
+    expect(keys.length).toBeGreaterThan(0)
+  })
+
+  it('should return entries for ChainId when using Object.entries', () => {
+    const entries = Object.entries(ChainId)
+    expect(entries.length).toBeGreaterThan(0)
+  })
+
+  it('should iterate over ChainId keys using for...in', () => {
+    let seen = false
+    for (const _ in ChainId) {
+      seen = true
+      break
+    }
+    expect(seen).toBe(true)
+  })
 })
