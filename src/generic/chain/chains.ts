@@ -35,9 +35,13 @@ export const ChainId = /* @__PURE__ */ new Proxy<ChainIdMap>({} as ChainIdMap, {
 
     return chain.chainId
   },
+  ownKeys: () => chains.map((c) => c.key),
+  getOwnPropertyDescriptor: () => {
+    return { enumerable: true, configurable: true }
+  },
 })
 
-export const chainIds = /* @__PURE__ */ evmChains.map((chain) => chain.chainId)
+export const chainIds = /* @__PURE__ */ chains.map((chain) => chain.chainId)
 
 export function isChainId(chainId: number): chainId is ChainId {
   return chains.some((chain) => chain.chainId === chainId)
