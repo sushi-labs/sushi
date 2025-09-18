@@ -1,5 +1,11 @@
 # sushi
 
+## 6.1.8
+
+### Patch Changes
+
+- [#326](https://github.com/sushi-labs/sushi/pull/326) [`543f855`](https://github.com/sushi-labs/sushi/commit/543f85512fa0db6bfa3b4b435ab28dd5a5ce795b) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Formatters for kvm
+
 ## 6.1.7
 
 ### Patch Changes
