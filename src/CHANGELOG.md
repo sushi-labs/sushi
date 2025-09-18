@@ -1,5 +1,11 @@
 # sushi
 
+## 6.1.7
+
+### Patch Changes
+
+- [#324](https://github.com/sushi-labs/sushi/pull/324) [`7b68827`](https://github.com/sushi-labs/sushi/commit/7b68827111c8863d944206a09dc9eb0130986bbd) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - update price constructor
+
 ## 6.1.6
 
 ### Patch Changes
