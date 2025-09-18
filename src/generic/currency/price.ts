@@ -23,7 +23,7 @@ export class Price<
   ) {
     if ('baseAmount' in args && 'quoteAmount' in args) {
       const { baseAmount, quoteAmount } = args
-      super({ numerator: baseAmount.amount, denominator: quoteAmount.amount })
+      super({ numerator: quoteAmount.amount, denominator: baseAmount.amount })
 
       this.base = baseAmount.currency
       this.quote = quoteAmount.currency
