@@ -1,5 +1,11 @@
 # sushi
 
+## 6.1.9
+
+### Patch Changes
+
+- [#328](https://github.com/sushi-labs/sushi/pull/328) [`7012bfd`](https://github.com/sushi-labs/sushi/commit/7012bfda9231907a93c9bc945f7b7b847573a2a3) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Fix string format export
+
 ## 6.1.8
 
 ### Patch Changes
