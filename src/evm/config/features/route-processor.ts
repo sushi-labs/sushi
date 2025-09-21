@@ -275,6 +275,7 @@ export const ROUTE_PROCESSOR_9_SUPPORTED_CHAIN_IDS = [
   EvmChainId.KATANA,
   EvmChainId.HYPEREVM,
   EvmChainId.BERACHAIN,
+  EvmChainId.SEPOLIA,
 ] as const
 export type RouteProcessor9ChainId =
   (typeof ROUTE_PROCESSOR_9_SUPPORTED_CHAIN_IDS)[number]
@@ -323,6 +324,7 @@ export const ROUTE_PROCESSOR_9_ADDRESS: Record<
   [EvmChainId.KATANA]: '0x3b0aa7d38bf3c103bf02d1de2e37568cbed3d6e8',
   [EvmChainId.HYPEREVM]: '0x3b0aa7d38bf3c103bf02d1de2e37568cbed3d6e8',
   [EvmChainId.BERACHAIN]: '0x3b0aa7d38bf3c103bf02d1de2e37568cbed3d6e8',
+  [EvmChainId.SEPOLIA]: '0x3b0aa7d38bf3c103bf02d1de2e37568cbed3d6e8',
 } as const
 export const isRouteProcessor9ChainId = (
   chainId: number,

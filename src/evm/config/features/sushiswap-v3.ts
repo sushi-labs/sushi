@@ -63,6 +63,7 @@ export const SUSHISWAP_V3_FACTORY_ADDRESS: Record<
   [EvmChainId.HEMI]: '0xcdbcd51a5e8728e0af4895ce5771b7d17ff71959',
   [EvmChainId.TATARA]: '0x9b3336186a38e1b6c21955d112dbb0343ee061ee',
   [EvmChainId.KATANA]: '0x203e8740894c8955cb8950759876d7e7e45e04c1',
+  [EvmChainId.SEPOLIA]: '0x1f2fcf1d036b375b384012e61d3aa33f8c256bbe',
 } as const
 
 export const SUSHISWAP_V3_INIT_CODE_HASH: Record<
@@ -100,6 +101,7 @@ export const SUSHISWAP_V3_INIT_CODE_HASH: Record<
   [EvmChainId.TATARA]: POOL_INIT_CODE_HASH,
   [EvmChainId.KATANA]:
     '0xe040f12c7cee3904b78f24f8fc395629c2e69525c2815da7a659f7483e378ecb',
+  [EvmChainId.SEPOLIA]: POOL_INIT_CODE_HASH,
 } as const
 
 export const SUSHISWAP_V3_POSITION_MANAGER: Record<
@@ -135,6 +137,7 @@ export const SUSHISWAP_V3_POSITION_MANAGER: Record<
   [EvmChainId.HEMI]: '0xe43ca1dee3f0fc1e2df73a0745674545f11a59f5',
   [EvmChainId.TATARA]: '0x1400fefd6f9b897970f00df6237ff2b8b27dc82c',
   [EvmChainId.KATANA]: '0x2659c6085d26144117d904c46b48b6d180393d27',
+  [EvmChainId.SEPOLIA]: '0x544ba588efd839d2692fc31ea991cd39993c135f',
 } as const
 
 export const SUSHISWAP_V3_TICK_LENS: Record<
@@ -170,6 +173,7 @@ export const SUSHISWAP_V3_TICK_LENS: Record<
   [EvmChainId.HEMI]: '0x1f2fcf1d036b375b384012e61d3aa33f8c256bbe',
   [EvmChainId.TATARA]: '0xb46e319390de313b8cc95ea5aa30c7bbfd79da94',
   [EvmChainId.KATANA]: '0x35dc3e13469e980c37b6f288bbb9822b1f9bd435',
+  [EvmChainId.SEPOLIA]: '0xc3ec4e1511c6935ed2f92b9a61881a1b95bb1566',
 } as const
 
 export const SUSHISWAP_V3_SUPPORTED_CHAIN_IDS = [
@@ -201,6 +205,7 @@ export const SUSHISWAP_V3_SUPPORTED_CHAIN_IDS = [
   EvmChainId.HEMI,
   EvmChainId.TATARA,
   EvmChainId.KATANA,
+  EvmChainId.SEPOLIA,
 ] as const
 
 export const SushiSwapV3ChainIds = SUSHISWAP_V3_SUPPORTED_CHAIN_IDS
