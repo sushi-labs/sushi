@@ -39,6 +39,7 @@ export const UNISWAP_V3_SUPPORTED_CHAIN_IDS = [
   EvmChainId.POLYGON,
   EvmChainId.BASE,
   EvmChainId.AVALANCHE,
+  EvmChainId.SEPOLIA,
   EvmChainId.BOBA,
   EvmChainId.ROOTSTOCK,
   EvmChainId.SCROLL,
@@ -76,6 +77,7 @@ export const UNISWAP_V3_INIT_CODE_HASH: Record<
   [EvmChainId.CELO]: POOL_INIT_CODE_HASH,
   [EvmChainId.BASE]: POOL_INIT_CODE_HASH,
   [EvmChainId.AVALANCHE]: POOL_INIT_CODE_HASH,
+  [EvmChainId.SEPOLIA]: POOL_INIT_CODE_HASH,
   // OKU
   [EvmChainId.SCROLL]: POOL_INIT_CODE_HASH,
   [EvmChainId.ROOTSTOCK]: POOL_INIT_CODE_HASH,
@@ -106,6 +108,7 @@ export const UNISWAP_V3_FACTORY_ADDRESS: Record<
   [EvmChainId.CELO]: '0xafe208a311b21f13ef87e33a90049fc17a7acdec',
   [EvmChainId.BASE]: '0x33128a8fc17869897dce68ed026d694621f6fdfd',
   [EvmChainId.AVALANCHE]: '0x740b1c1de25031c31ff4fc9a62f554a55cdc1bad',
+  [EvmChainId.SEPOLIA]: '0x0227628f3f023bb0b980b67d528571c95c6dac1c',
   // OKU
   [EvmChainId.SCROLL]: '0x70c62c8b8e801124a4aa81ce07b637a3e83cb919',
   [EvmChainId.ROOTSTOCK]: '0xaf37ec98a00fd63689cf3060bf3b6784e00cad82',
