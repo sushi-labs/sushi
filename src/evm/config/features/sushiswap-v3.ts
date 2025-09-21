@@ -205,7 +205,7 @@ export const SUSHISWAP_V3_SUPPORTED_CHAIN_IDS = [
   EvmChainId.HEMI,
   EvmChainId.TATARA,
   EvmChainId.KATANA,
-  EvmChainId.SEPOLIA
+  EvmChainId.SEPOLIA,
 ] as const
 
 export const SushiSwapV3ChainIds = SUSHISWAP_V3_SUPPORTED_CHAIN_IDS

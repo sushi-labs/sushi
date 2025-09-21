@@ -29,7 +29,7 @@ export const UNISWAP_V2_SUPPORTED_CHAIN_IDS = [
   EvmChainId.POLYGON,
   EvmChainId.CELO,
   EvmChainId.BLAST,
-  EvmChainId.SEPOLIA
+  EvmChainId.SEPOLIA,
 ] as const
 
 export const UniswapV2ChainIds = UNISWAP_V2_SUPPORTED_CHAIN_IDS
