@@ -1,5 +1,5 @@
 import { evmChains } from '../../evm/chain/index.js'
-import { kvmChains } from '../../kvm/index.js'
+import { kvmChains } from '../../kvm/chain/chains.js'
 import { mvmChains } from '../../mvm/chain/chains.js'
 import { tvmChains } from '../../tvm/chain/chains.js'
 import type { Replace } from '../types/replace.js'

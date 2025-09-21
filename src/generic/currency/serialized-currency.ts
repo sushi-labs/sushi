@@ -1,8 +1,8 @@
 import * as z from 'zod'
 import { serializedEvmCurrencySchema } from '../../evm/currency/currency.js'
+import type { serializedEvmNativeSchema } from '../../evm/currency/native.js'
 import type { serializedEvmTokenSchema } from '../../evm/currency/token.js'
-import type { serializedEvmNativeSchema } from '../../evm/index.js'
-import { serializedKvmTokenSchema } from '../../kvm/index.js'
+import { serializedKvmTokenSchema } from '../../kvm/currency/token.js'
 import { serializedMvmTokenSchema } from '../../mvm/currency/token.js'
 import {
   serializedTvmCurrencySchema,
