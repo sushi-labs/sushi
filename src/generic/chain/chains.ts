@@ -1,5 +1,5 @@
 import { evmChains } from '../../evm/chain/index.js'
-import { kvmChains } from '../../kvm/index.js'
+import { kvmChains } from '../../kvm/chain/chains.js'
 import { mvmChains } from '../../mvm/chain/chains.js'
 import { tvmChains } from '../../tvm/chain/chains.js'
 import type { Replace } from '../types/replace.js'
@@ -18,12 +18,12 @@ export type ChainId = (typeof chains)[number]['chainId']
 
 type ChainIdMap = UnionToIntersection<
   (typeof chains)[number] extends infer I
-    ? I extends { key: infer K; chainId: infer C }
-      ? K extends string
-        ? { [key in K as Uppercase<Replace<key, '-', '_'>>]: C }
-        : never
-      : never
-    : never
+  ? I extends { key: infer K; chainId: infer C }
+  ? K extends string
+  ? { [key in K as Uppercase<Replace<key, '-', '_'>>]: C }
+  : never
+  : never
+  : never
 >
 
 export const ChainId = /* @__PURE__ */ new Proxy<ChainIdMap>({} as ChainIdMap, {

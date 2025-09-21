@@ -138,9 +138,6 @@ importers:
       date-fns:
         specifier: 3.3.1
         version: 3.3.1
-      decimal.js-light:
-        specifier: 2.5.1
-        version: 2.5.1
       seedrandom:
         specifier: 3.0.5
         version: 3.0.5
