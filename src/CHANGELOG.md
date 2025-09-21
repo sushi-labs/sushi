@@ -1,5 +1,11 @@
 # sushi
 
+## 6.1.11
+
+### Patch Changes
+
+- [#332](https://github.com/sushi-labs/sushi/pull/332) [`a19db38`](https://github.com/sushi-labs/sushi/commit/a19db38779e3e9894bff03c3335fc10339f4cb77) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Remove pact decimal
+
 ## 6.1.10
 
 ### Patch Changes
