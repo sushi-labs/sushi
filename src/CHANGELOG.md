@@ -1,5 +1,11 @@
 # sushi
 
+## 6.1.10
+
+### Patch Changes
+
+- [#330](https://github.com/sushi-labs/sushi/pull/330) [`94ee1d1`](https://github.com/sushi-labs/sushi/commit/94ee1d1c06447c664d3a67a281fe5f35c0a37e6b) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - sepolia config
+
 ## 6.1.9
 
 ### Patch Changes
