@@ -18,12 +18,12 @@ export type ChainId = (typeof chains)[number]['chainId']
 
 type ChainIdMap = UnionToIntersection<
   (typeof chains)[number] extends infer I
-  ? I extends { key: infer K; chainId: infer C }
-  ? K extends string
-  ? { [key in K as Uppercase<Replace<key, '-', '_'>>]: C }
-  : never
-  : never
-  : never
+    ? I extends { key: infer K; chainId: infer C }
+      ? K extends string
+        ? { [key in K as Uppercase<Replace<key, '-', '_'>>]: C }
+        : never
+      : never
+    : never
 >
 
 export const ChainId = /* @__PURE__ */ new Proxy<ChainIdMap>({} as ChainIdMap, {
