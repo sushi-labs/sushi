@@ -208,7 +208,7 @@ export const STABLES = {
     DOC[EvmChainId.ROOTSTOCK],
     USDT0[EvmChainId.ROOTSTOCK],
   ],
-  [EvmChainId.MANTLE]: [USDC[EvmChainId.MANTLE]],
+  [EvmChainId.MANTLE]: [USDC[EvmChainId.MANTLE], USDT[EvmChainId.MANTLE]],
   [EvmChainId.ZKSYNC_ERA]: [
     USDC[EvmChainId.ZKSYNC_ERA],
     USDT[EvmChainId.ZKSYNC_ERA],
