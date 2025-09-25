@@ -247,9 +247,8 @@ export const WNATIVE = {
     address: WNATIVE_ADDRESS[EvmChainId.PLASMA],
     decimals: 18,
     symbol: 'WXPL',
-    name: 'Wrapped XPL'
+    name: 'Wrapped XPL',
   }),
-  
 } as const satisfies Record<EvmChainId, EvmToken>
 
 export const isWNativeSupported = (chainId: EvmChainId) =>

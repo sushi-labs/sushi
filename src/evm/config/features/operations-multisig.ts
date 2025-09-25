@@ -85,7 +85,7 @@ export const MULTISIG_ADDRESS: Record<MultisigChainId, `0x${string}`> = {
   [EvmChainId.KATANA]: '0xd304f5018e5be487f78487cfbc0c313a034f0e9e',
   [EvmChainId.HYPEREVM]: '0x19dd154f7528fce4a0cc7b9817aa39d4b42990e4',
   [EvmChainId.BERACHAIN]: '0xbb0ebe7b041a456da9e2295931af31dc0f9d8ced',
-  [EvmChainId.PLASMA]: ''
+  [EvmChainId.PLASMA]: '',
 } as const
 
 export const isMultisigChainId = (

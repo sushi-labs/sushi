@@ -54,7 +54,7 @@ export const UNISWAP_V3_SUPPORTED_CHAIN_IDS = [
   EvmChainId.GNOSIS,
   EvmChainId.SONIC,
   EvmChainId.HEMI,
-  EvmChainId.PLASMA
+  EvmChainId.PLASMA,
 ] as const
 
 export const UniswapV3ChainIds = UNISWAP_V3_SUPPORTED_CHAIN_IDS
@@ -126,5 +126,5 @@ export const UNISWAP_V3_FACTORY_ADDRESS: Record<
   [EvmChainId.GNOSIS]: '0xe32f7dd7e3f098d518ff19a22d5f028e076489b1',
   [EvmChainId.SONIC]: '0xcb2436774c3e191c85056d248ef4260ce5f27a9d',
   [EvmChainId.HEMI]: '0x346239972d1fa486fc4a521031bc81bfb7d6e8a4',
-  [EvmChainId.PLASMA]: '0xcb2436774c3e191c85056d248ef4260ce5f27a9d'
+  [EvmChainId.PLASMA]: '0xcb2436774c3e191c85056d248ef4260ce5f27a9d',
 } as const

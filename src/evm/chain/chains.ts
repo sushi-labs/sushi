@@ -377,36 +377,37 @@ const berachain = /* @__PURE__ */ defineEvmChain(berachainViem, {
 
 const plasma = /* @__PURE__ */ defineEvmChain(
   /* @__PURE__ */ defineViemChain({
-      id: 9745,
+    id: 9745,
+    name: 'Plasma',
+    nativeCurrency: {
       name: 'Plasma',
-      nativeCurrency: {
-        name: 'Plasma',
-        symbol: 'XPL',
-        decimals: 18,
+      symbol: 'XPL',
+      decimals: 18,
+    },
+    rpcUrls: {
+      default: {
+        http: ['https://rpc.plasma.to'],
       },
-      rpcUrls: {
-        default: {
-          http: ['https://rpc.plasma.to'],
-        },
+    },
+    blockExplorers: {
+      default: {
+        name: 'PlasmaScan',
+        url: 'https://plasmascan.to',
       },
-      blockExplorers: {
-        default: {
-          name: 'PlasmaScan',
-          url: 'https://plasmascan.to',
-        },
+    },
+    testnet: false,
+    contracts: {
+      multicall3: {
+        address: '0xca11bde05977b3631167028862be2a173976ca11',
+        blockCreated: 0,
       },
-      testnet: false,
-      contracts: {
-        multicall3: {
-          address: '0xca11bde05977b3631167028862be2a173976ca11',
-          blockCreated: 0,
-        }
-      }
+    },
   }),
   {
     key: 'plasma',
     shortName: 'plasma',
-})
+  },
+)
 
 // Testnets
 const sepolia = /* @__PURE__ */ defineEvmChain(sepoliaViem, {
