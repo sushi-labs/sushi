@@ -43,6 +43,7 @@ export const SWAP_API_SUPPORTED_CHAIN_IDS = [
   EvmChainId.KATANA,
   EvmChainId.HYPEREVM,
   EvmChainId.BERACHAIN,
+  EvmChainId.PLASMA,
 ] as const
 
 export type SwapApiSupportedChainId =

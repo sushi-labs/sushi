@@ -423,4 +423,10 @@ export const EVM_DEFAULT_BASES = {
     USDC[EvmChainId.BERACHAIN],
     HONEY[EvmChainId.BERACHAIN],
   ],
+  [EvmChainId.PLASMA]: [
+    EvmNative.fromChainId(EvmChainId.PLASMA),
+    WNATIVE[EvmChainId.PLASMA],
+    USDT[EvmChainId.PLASMA],
+    WETH9[EvmChainId.PLASMA],
+  ],
 } as const satisfies Record<EvmChainId, Readonly<EvmCurrency[]>>

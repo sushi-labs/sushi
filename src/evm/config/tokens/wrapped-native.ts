@@ -51,6 +51,7 @@ export const WNATIVE_ADDRESS = {
   [EvmChainId.KATANA]: WETH9_ADDRESS[EvmChainId.KATANA],
   [EvmChainId.HYPEREVM]: WETH9_ADDRESS[EvmChainId.HYPEREVM],
   [EvmChainId.BERACHAIN]: '0x6969696969696969696969696969696969696969',
+  [EvmChainId.PLASMA]: '0x6100e367285b01f48d07953803a2d8dca5d19873',
 } as const satisfies Record<EvmChainId, Address>
 
 export const WNATIVE = {
@@ -240,6 +241,13 @@ export const WNATIVE = {
     decimals: 18,
     symbol: 'WBERA',
     name: 'Wrapped BERA',
+  }),
+  [EvmChainId.PLASMA]: new EvmToken({
+    chainId: EvmChainId.PLASMA,
+    address: WNATIVE_ADDRESS[EvmChainId.PLASMA],
+    decimals: 18,
+    symbol: 'WXPL',
+    name: 'Wrapped XPL',
   }),
 } as const satisfies Record<EvmChainId, EvmToken>
 
