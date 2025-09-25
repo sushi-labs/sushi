@@ -1,5 +1,11 @@
 # sushi
 
+## 6.1.12
+
+### Patch Changes
+
+- [#335](https://github.com/sushi-labs/sushi/pull/335) [`971edbc`](https://github.com/sushi-labs/sushi/commit/971edbc0ed32b35cdf20cbcaade74be961351c16) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add plasma chain config
+
 ## 6.1.11
 
 ### Patch Changes
