@@ -26,6 +26,7 @@ export const WBTC_ADDRESS = {
   [EvmChainId.ZKLINK]: '0xda4aaed3a53962c83b35697cd138cc6df43af71f',
   [EvmChainId.LINEA]: '0x3aab2285ddcddad8edf438c1bab47e1a9d05a9b4',
   [EvmChainId.KATANA]: '0x0913da6da4b42f538b445599b46bb4622342cf52',
+  [EvmChainId.HEMI]: '0x03c7054bcb39f7b2e5b2c7acb37583e32d70cfa3',
 } as const
 
 export const WBTC = addressMapToTokenMap(
