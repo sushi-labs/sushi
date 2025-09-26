@@ -6,7 +6,7 @@ export const USDe_ADDRESS = {
   [EvmChainId.MANTLE]: '0x5d3a1ff2b6bab83b63cd9ad0787074081a52ef34',
   [EvmChainId.ARBITRUM]: '0x5d3a1ff2b6bab83b63cd9ad0787074081a52ef34',
   [EvmChainId.BLAST]: '0x5d3a1ff2b6bab83b63cd9ad0787074081a52ef34',
-  [EvmChainId.PLASMA]: '0x5d3a1ff2b6bab83b63cd9ad0787074081a52ef34'
+  [EvmChainId.PLASMA]: '0x5d3a1ff2b6bab83b63cd9ad0787074081a52ef34',
 } as const
 
 export const USDe = addressMapToTokenMap(
