@@ -29,7 +29,8 @@ import {
 } from '../../../config/tokens/tokens/index.js'
 import { EvmNative } from '../../../currency/native.js'
 import { EvmToken } from '../../../currency/token.js'
-import { HONEY } from '../tokens/berachain/HONEY.js'
+import { BERACHAIN_HONEY } from '../tokens/berachain/HONEY.js'
+import { HEMI_HEMI } from '../tokens/hemi/HEMI.js'
 import { WNATIVE } from '../wrapped-native.js'
 
 /*
@@ -398,6 +399,8 @@ export const EVM_DEFAULT_BASES = {
     WNATIVE[EvmChainId.HEMI],
     USDC[EvmChainId.HEMI],
     USDT[EvmChainId.HEMI],
+    WBTC[EvmChainId.HEMI],
+    HEMI_HEMI[EvmChainId.HEMI],
   ],
   [EvmChainId.TATARA]: [
     EvmNative.fromChainId(EvmChainId.TATARA),
@@ -421,7 +424,7 @@ export const EVM_DEFAULT_BASES = {
     WNATIVE[EvmChainId.BERACHAIN],
     USDT[EvmChainId.BERACHAIN],
     USDC[EvmChainId.BERACHAIN],
-    HONEY[EvmChainId.BERACHAIN],
+    BERACHAIN_HONEY[EvmChainId.BERACHAIN],
   ],
   [EvmChainId.PLASMA]: [
     EvmNative.fromChainId(EvmChainId.PLASMA),
