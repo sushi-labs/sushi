@@ -1,5 +1,11 @@
 # sushi
 
+## 6.1.14
+
+### Patch Changes
+
+- [#339](https://github.com/sushi-labs/sushi/pull/339) [`1b2d052`](https://github.com/sushi-labs/sushi/commit/1b2d0522f3677d5a9c7e98fa3f8359f6748f9920) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - update token config
+
 ## 6.1.13
 
 ### Patch Changes
