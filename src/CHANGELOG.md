@@ -1,5 +1,11 @@
 # sushi
 
+## 6.1.15
+
+### Patch Changes
+
+- [#342](https://github.com/sushi-labs/sushi/pull/342) [`3631474`](https://github.com/sushi-labs/sushi/commit/36314741c46a058177dea64635c33eefd8eab322) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Remove approved metadata
+
 ## 6.1.14
 
 ### Patch Changes
