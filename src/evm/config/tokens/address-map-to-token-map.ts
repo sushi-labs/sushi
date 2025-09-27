@@ -26,8 +26,7 @@ export function addressMapToTokenMap<ChainId extends EvmChainId>(
         symbol,
         name,
         origin,
-        metadata: { approved: true },
       }),
     ]),
-  ) as Record<ChainId, EvmToken<{ approved: boolean }>>
+  ) as Record<ChainId, EvmToken>
 }
