@@ -140,6 +140,7 @@ export const ROUTE_PROCESSOR_7_SUPPORTED_CHAIN_IDS = [
   EvmChainId.KATANA,
   EvmChainId.HYPEREVM,
   EvmChainId.BERACHAIN,
+  EvmChainId.PLASMA,
 ] as const
 export type RouteProcessor7ChainId =
   (typeof ROUTE_PROCESSOR_7_SUPPORTED_CHAIN_IDS)[number]
@@ -189,6 +190,7 @@ export const ROUTE_PROCESSOR_7_ADDRESS: Record<
   [EvmChainId.KATANA]: '0x3ced11c610556e5292fbc2e75d68c3899098c14c',
   [EvmChainId.HYPEREVM]: '0x3ced11c610556e5292fbc2e75d68c3899098c14c',
   [EvmChainId.BERACHAIN]: '0x3ced11c610556e5292fbc2e75d68c3899098c14c',
+  [EvmChainId.PLASMA]: '0x3ced11c610556e5292fbc2e75d68c3899098c14c',
 } as const
 export const isRouteProcessor7ChainId = (
   chainId: number,
@@ -276,6 +278,7 @@ export const ROUTE_PROCESSOR_9_SUPPORTED_CHAIN_IDS = [
   EvmChainId.HYPEREVM,
   EvmChainId.BERACHAIN,
   EvmChainId.SEPOLIA,
+  EvmChainId.PLASMA,
 ] as const
 export type RouteProcessor9ChainId =
   (typeof ROUTE_PROCESSOR_9_SUPPORTED_CHAIN_IDS)[number]
@@ -325,6 +328,7 @@ export const ROUTE_PROCESSOR_9_ADDRESS: Record<
   [EvmChainId.HYPEREVM]: '0x3b0aa7d38bf3c103bf02d1de2e37568cbed3d6e8',
   [EvmChainId.BERACHAIN]: '0x3b0aa7d38bf3c103bf02d1de2e37568cbed3d6e8',
   [EvmChainId.SEPOLIA]: '0x3b0aa7d38bf3c103bf02d1de2e37568cbed3d6e8',
+  [EvmChainId.PLASMA]: '0x3b0aa7d38bf3c103bf02d1de2e37568cbed3d6e8',
 } as const
 export const isRouteProcessor9ChainId = (
   chainId: number,

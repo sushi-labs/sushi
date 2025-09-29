@@ -150,10 +150,31 @@ components:
       required: false
       schema:
         type: string
+    excludeDEX:
+      in: query
+      name: excludeDEX
+      description: a list of DEX names separated by comma. If exists in the request then pools from these DEXes are excluded in the response route. List of all supported DEXes can be obtained with /liquidity-provider request
+      required: false
+      schema:
+        type: string
     onlyPools:
       in: query
       name: onlyPools
       description: a list of pools addresses separated by comma. If exists in the request then only these pools are used in the response route
+      required: false
+      schema:
+        type: string
+    excludePools:
+      in: query
+      name: excludePools
+      description: a list of pools addresses separated by comma. If exists in the request then these pools are excluded in the response route
+      required: false
+      schema:
+        type: string
+    excludeTokens:
+      in: query
+      name: excludeTokens
+      description: a list of token addresses separated by comma. If exists in the request then pools with these tokens are excluded in the response route
       required: false
       schema:
         type: string
@@ -210,6 +231,9 @@ paths:
         - $ref: "#/components/parameters/maxSlippage"
         - $ref: "#/components/parameters/onlyDEX"
         - $ref: "#/components/parameters/onlyPools"
+        - $ref: "#/components/parameters/excludeDEX"
+        - $ref: "#/components/parameters/excludePools"
+        - $ref: "#/components/parameters/excludeTokens"
         - $ref: "#/components/parameters/vizualize"
       responses:
         '200':
@@ -269,6 +293,9 @@ paths:
         - $ref: "#/components/parameters/source"
         - $ref: "#/components/parameters/onlyDEX"
         - $ref: "#/components/parameters/onlyPools"
+        - $ref: "#/components/parameters/excludeDEX"
+        - $ref: "#/components/parameters/excludePools"
+        - $ref: "#/components/parameters/excludeTokens"
         - $ref: "#/components/parameters/vizualize"
         - $ref: "#/components/parameters/simulate"
         - $ref: "#/components/parameters/override"

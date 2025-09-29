@@ -1,5 +1,29 @@
 # sushi
 
+## 6.1.15
+
+### Patch Changes
+
+- [#342](https://github.com/sushi-labs/sushi/pull/342) [`3631474`](https://github.com/sushi-labs/sushi/commit/36314741c46a058177dea64635c33eefd8eab322) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Remove approved metadata
+
+## 6.1.14
+
+### Patch Changes
+
+- [#339](https://github.com/sushi-labs/sushi/pull/339) [`1b2d052`](https://github.com/sushi-labs/sushi/commit/1b2d0522f3677d5a9c7e98fa3f8359f6748f9920) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - update token config
+
+## 6.1.13
+
+### Patch Changes
+
+- [#337](https://github.com/sushi-labs/sushi/pull/337) [`6e84284`](https://github.com/sushi-labs/sushi/commit/6e842849a52e047770908b018f37e53a7ae79f05) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - update token config
+
+## 6.1.12
+
+### Patch Changes
+
+- [#335](https://github.com/sushi-labs/sushi/pull/335) [`971edbc`](https://github.com/sushi-labs/sushi/commit/971edbc0ed32b35cdf20cbcaade74be961351c16) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add plasma chain config
+
 ## 6.1.11
 
 ### Patch Changes

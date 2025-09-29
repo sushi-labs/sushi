@@ -29,7 +29,8 @@ import {
 } from '../../../config/tokens/tokens/index.js'
 import { EvmNative } from '../../../currency/native.js'
 import { EvmToken } from '../../../currency/token.js'
-import { HONEY } from '../tokens/berachain/HONEY.js'
+import { BERACHAIN_HONEY } from '../tokens/berachain/HONEY.js'
+import { HEMI_HEMI } from '../tokens/hemi/HEMI.js'
 import { WNATIVE } from '../wrapped-native.js'
 
 /*
@@ -115,7 +116,6 @@ export const EVM_DEFAULT_BASES = {
       decimals: 6,
       symbol: 'USDC',
       name: 'USD Coin',
-      metadata: { approved: true },
       // origin: 'stargate'
     }),
     new EvmToken({
@@ -124,7 +124,6 @@ export const EVM_DEFAULT_BASES = {
       decimals: 6,
       symbol: 'USDT',
       name: 'Tether USD',
-      metadata: { approved: true },
       // origin: 'stargate'
     }),
     new EvmToken({
@@ -133,7 +132,6 @@ export const EVM_DEFAULT_BASES = {
       decimals: 18,
       symbol: 'WETH',
       name: 'Wrapped Ether',
-      metadata: { approved: true },
       // origin: 'stargate'
     }),
     new EvmToken({
@@ -142,7 +140,6 @@ export const EVM_DEFAULT_BASES = {
       decimals: 18,
       symbol: 'WBTC',
       name: 'Wrapped BTC',
-      metadata: { approved: true },
       // origin: 'stargate'
     }),
     axlUSDC[EvmChainId.FANTOM],
@@ -193,7 +190,6 @@ export const EVM_DEFAULT_BASES = {
       decimals: 18,
       symbol: 'WETH',
       name: 'Wrapped Ether',
-      metadata: { approved: true },
       // origin: 'stargate'
     }),
     axlUSDC[EvmChainId.KAVA],
@@ -283,7 +279,6 @@ export const EVM_DEFAULT_BASES = {
       name: 'USD Base Coin',
       decimals: 6,
       address: '0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca',
-      metadata: { approved: true },
     }),
     USDC[EvmChainId.BASE],
     new EvmToken({
@@ -292,7 +287,6 @@ export const EVM_DEFAULT_BASES = {
       name: 'OX Coin',
       decimals: 18,
       address: '0xba0dda8762c24da9487f5fa026a9b64b695a07ea',
-      metadata: { approved: true },
     }),
   ],
   [EvmChainId.SCROLL]: [
@@ -398,6 +392,8 @@ export const EVM_DEFAULT_BASES = {
     WNATIVE[EvmChainId.HEMI],
     USDC[EvmChainId.HEMI],
     USDT[EvmChainId.HEMI],
+    WBTC[EvmChainId.HEMI],
+    HEMI_HEMI[EvmChainId.HEMI],
   ],
   [EvmChainId.TATARA]: [
     EvmNative.fromChainId(EvmChainId.TATARA),
@@ -421,6 +417,12 @@ export const EVM_DEFAULT_BASES = {
     WNATIVE[EvmChainId.BERACHAIN],
     USDT[EvmChainId.BERACHAIN],
     USDC[EvmChainId.BERACHAIN],
-    HONEY[EvmChainId.BERACHAIN],
+    BERACHAIN_HONEY[EvmChainId.BERACHAIN],
+  ],
+  [EvmChainId.PLASMA]: [
+    EvmNative.fromChainId(EvmChainId.PLASMA),
+    WNATIVE[EvmChainId.PLASMA],
+    USDT[EvmChainId.PLASMA],
+    WETH9[EvmChainId.PLASMA],
   ],
 } as const satisfies Record<EvmChainId, Readonly<EvmCurrency[]>>

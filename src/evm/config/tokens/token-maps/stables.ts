@@ -36,9 +36,10 @@ import {
   ZETA_USDT_BSC,
   ZETA_USDT_ETH,
 } from '../../../config/tokens/tokens/index.js'
-import { EvmToken } from '../../../currency/token.js'
+import type { EvmToken } from '../../../currency/token.js'
 import { AUSD } from '../tokens/AUSD.js'
-import { HONEY } from '../tokens/berachain/HONEY.js'
+import { BERACHAIN_HONEY } from '../tokens/berachain/HONEY.js'
+import { HEMI_VUSD } from '../tokens/hemi/VUSD.js'
 import { USDT0 } from '../tokens/USDT0.js'
 
 export const STABLES = {
@@ -230,13 +231,7 @@ export const STABLES = {
   [EvmChainId.HEMI]: [
     USDC[EvmChainId.HEMI],
     USDT[EvmChainId.HEMI],
-    new EvmToken({
-      chainId: EvmChainId.HEMI,
-      address: '0x7a06c4aef988e7925575c50261297a946ad204a8',
-      decimals: 18,
-      name: 'VUSD',
-      symbol: 'VUSD',
-    }),
+    HEMI_VUSD[EvmChainId.HEMI],
   ],
   [EvmChainId.KATANA]: [
     USDC[EvmChainId.KATANA],
@@ -247,8 +242,9 @@ export const STABLES = {
   [EvmChainId.BERACHAIN]: [
     USDT[EvmChainId.BERACHAIN],
     USDC[EvmChainId.BERACHAIN],
-    HONEY[EvmChainId.BERACHAIN],
+    BERACHAIN_HONEY[EvmChainId.BERACHAIN],
   ],
+  [EvmChainId.PLASMA]: [USDT[EvmChainId.PLASMA], USDe[EvmChainId.PLASMA]],
   // TESTNETS
   [EvmChainId.ARBITRUM_SEPOLIA]: [],
   [EvmChainId.SEPOLIA]: [USDC[EvmChainId.SEPOLIA]],
