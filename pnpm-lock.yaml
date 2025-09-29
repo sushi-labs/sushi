@@ -60,22 +60,22 @@ importers:
         version: 5.8.3
       viem:
         specifier: 2.29.0
-        version: 2.29.0(typescript@5.8.3)(zod@3.24.1)
+        version: 2.29.0(typescript@5.8.3)(zod@4.1.11)
       vitest:
         specifier: 3.2.2
         version: 3.2.2(@types/debug@4.1.12)(@types/node@20.16.5)(@vitest/ui@3.2.2)(jiti@2.4.2)(lightningcss@1.29.3)(tsx@4.19.1)(yaml@2.7.1)
       zod:
-        specifier: 3.24.1
-        version: 3.24.1
+        specifier: 4.1.11
+        version: 4.1.11
 
   examples/_template:
     dependencies:
       sushi:
         specifier: latest
-        version: 6.1.7(typescript@5.8.3)(viem@2.37.6(typescript@5.8.3)(zod@3.24.1))(zod@3.24.1)
+        version: 6.1.7(typescript@5.8.3)(viem@2.37.6(typescript@5.8.3)(zod@4.1.11))(zod@4.1.11)
       viem:
         specifier: latest
-        version: 2.37.6(typescript@5.8.3)(zod@3.24.1)
+        version: 2.37.6(typescript@5.8.3)(zod@4.1.11)
     devDependencies:
       typescript:
         specifier: 5.8.3
@@ -5991,6 +5991,9 @@ packages:
   zod@3.24.1:
     resolution: {integrity: sha512-muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A==}
 
+  zod@4.1.11:
+    resolution: {integrity: sha512-WPsqwxITS2tzx1bzhIKsEs19ABD5vmCVa4xBo2tq/SrV4RNZtfws1EnCWQXM6yh8bD08a1idvkB5MZSBiZsjwg==}
+
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
@@ -8557,10 +8560,15 @@ snapshots:
       typescript: 5.8.3
       zod: 3.24.1
 
-  abitype@1.1.0(typescript@5.8.3)(zod@3.24.1):
+  abitype@1.0.8(typescript@5.8.3)(zod@4.1.11):
     optionalDependencies:
       typescript: 5.8.3
-      zod: 3.24.1
+      zod: 4.1.11
+
+  abitype@1.1.0(typescript@5.8.3)(zod@4.1.11):
+    optionalDependencies:
+      typescript: 5.8.3
+      zod: 4.1.11
 
   acorn-jsx@5.3.2(acorn@8.14.1):
     dependencies:
@@ -11197,7 +11205,21 @@ snapshots:
     transitivePeerDependencies:
       - zod
 
-  ox@0.9.3(typescript@5.8.3)(zod@3.24.1):
+  ox@0.6.9(typescript@5.8.3)(zod@4.1.11):
+    dependencies:
+      '@adraffy/ens-normalize': 1.11.0
+      '@noble/curves': 1.8.2
+      '@noble/hashes': 1.7.2
+      '@scure/bip32': 1.6.2
+      '@scure/bip39': 1.5.4
+      abitype: 1.0.8(typescript@5.8.3)(zod@4.1.11)
+      eventemitter3: 5.0.1
+    optionalDependencies:
+      typescript: 5.8.3
+    transitivePeerDependencies:
+      - zod
+
+  ox@0.9.3(typescript@5.8.3)(zod@4.1.11):
     dependencies:
       '@adraffy/ens-normalize': 1.11.0
       '@noble/ciphers': 1.3.0
@@ -11205,7 +11227,7 @@ snapshots:
       '@noble/hashes': 1.8.0
       '@scure/bip32': 1.7.0
       '@scure/bip39': 1.6.0
-      abitype: 1.1.0(typescript@5.8.3)(zod@3.24.1)
+      abitype: 1.1.0(typescript@5.8.3)(zod@4.1.11)
       eventemitter3: 5.0.1
     optionalDependencies:
       typescript: 5.8.3
@@ -12242,7 +12264,7 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  sushi@6.1.7(typescript@5.8.3)(viem@2.37.6(typescript@5.8.3)(zod@3.24.1))(zod@3.24.1):
+  sushi@6.1.7(typescript@5.8.3)(viem@2.37.6(typescript@5.8.3)(zod@4.1.11))(zod@4.1.11):
     dependencies:
       '@uniswap/token-lists': 1.0.0-beta.33
       big.js: 6.1.1
@@ -12253,8 +12275,8 @@ snapshots:
       toformat: 2.0.0
     optionalDependencies:
       typescript: 5.8.3
-      viem: 2.37.6(typescript@5.8.3)(zod@3.24.1)
-      zod: 3.24.1
+      viem: 2.37.6(typescript@5.8.3)(zod@4.1.11)
+      zod: 4.1.11
 
   swagger-client@3.35.0:
     dependencies:
@@ -12631,15 +12653,32 @@ snapshots:
       - utf-8-validate
       - zod
 
-  viem@2.37.6(typescript@5.8.3)(zod@3.24.1):
+  viem@2.29.0(typescript@5.8.3)(zod@4.1.11):
+    dependencies:
+      '@noble/curves': 1.8.2
+      '@noble/hashes': 1.7.2
+      '@scure/bip32': 1.6.2
+      '@scure/bip39': 1.5.4
+      abitype: 1.0.8(typescript@5.8.3)(zod@4.1.11)
+      isows: 1.0.6(ws@8.18.1)
+      ox: 0.6.9(typescript@5.8.3)(zod@4.1.11)
+      ws: 8.18.1
+    optionalDependencies:
+      typescript: 5.8.3
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+      - zod
+
+  viem@2.37.6(typescript@5.8.3)(zod@4.1.11):
     dependencies:
       '@noble/curves': 1.9.1
       '@noble/hashes': 1.8.0
       '@scure/bip32': 1.7.0
       '@scure/bip39': 1.6.0
-      abitype: 1.1.0(typescript@5.8.3)(zod@3.24.1)
+      abitype: 1.1.0(typescript@5.8.3)(zod@4.1.11)
       isows: 1.0.7(ws@8.18.3)
-      ox: 0.9.3(typescript@5.8.3)(zod@3.24.1)
+      ox: 0.9.3(typescript@5.8.3)(zod@4.1.11)
       ws: 8.18.3
     optionalDependencies:
       typescript: 5.8.3
@@ -13015,5 +13054,7 @@ snapshots:
       zod: 3.24.1
 
   zod@3.24.1: {}
+
+  zod@4.1.11: {}
 
   zwitch@2.0.4: {}
