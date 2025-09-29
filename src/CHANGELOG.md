@@ -1,5 +1,11 @@
 # sushi
 
+## 6.2.0
+
+### Minor Changes
+
+- [#334](https://github.com/sushi-labs/sushi/pull/334) [`19822a2`](https://github.com/sushi-labs/sushi/commit/19822a25c9c992aaf8f42716731dee78843b9291) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - migrate to zod v4
+
 ## 6.1.15
 
 ### Patch Changes
