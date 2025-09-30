@@ -22,32 +22,27 @@
     ".": {
       "types": "./_types/generic/index.d.ts",
       "import": "./_esm/generic/index.js",
-      "require": "./_cjs/generic/index.js",
-      "default": "./_esm/generic/index.js"
+      "default": "./_cjs/generic/index.js"
     },
     "./evm": {
       "types": "./_types/evm/index.d.ts",
       "import": "./_esm/evm/index.js",
-      "require": "./_cjs/evm/index.js",
-      "default": "./_esm/evm/index.js"
+      "default": "./_cjs/evm/index.js"
     },
     "./mvm": {
       "types": "./_types/mvm/index.d.ts",
       "import": "./_esm/mvm/index.js",
-      "require": "./_cjs/mvm/index.js",
-      "default": "./_esm/mvm/index.js"
+      "default": "./_cjs/mvm/index.js"
     },
     "./tvm": {
       "types": "./_types/tvm/index.d.ts",
       "import": "./_esm/tvm/index.js",
-      "require": "./_cjs/tvm/index.js",
-      "default": "./_esm/tvm/index.js"
+      "default": "./_cjs/tvm/index.js"
     },
     "./kvm": {
       "types": "./_types/kvm/index.d.ts",
       "import": "./_esm/kvm/index.js",
-      "require": "./_cjs/kvm/index.js",
-      "default": "./_esm/kvm/index.js"
+      "default": "./_cjs/kvm/index.js"
     },
     "./package.json": "./package.json"
   },
