@@ -158,9 +158,7 @@ export const sidebar = {
         {
           text: 'Aggregator',
           collapsed: true,
-          items: [
-            { text: 'RedSnwapper', link: '/contracts/red-snwapper' },
-          ],
+          items: [{ text: 'RedSnwapper', link: '/contracts/red-snwapper' }],
         },
         {
           text: 'AMM',
