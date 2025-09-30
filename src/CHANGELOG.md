@@ -1,5 +1,11 @@
 # sushi
 
+## 6.2.1
+
+### Patch Changes
+
+- [`6488f0f`](https://github.com/sushi-labs/sushi/commit/6488f0fb69665d162ee123b8f805b664c3765a98) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Export evm/api/types
+
 ## 6.2.0
 
 ### Minor Changes
