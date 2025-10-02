@@ -22,3 +22,4 @@ export * from './sushiSwapV2RouterAbi_swapExactTokensForTokensSupportingFeeOnTra
 export * from './sushiSwapV2RouterAbi_swapTokensForExactETH.js'
 export * from './sushiSwapV2RouterAbi_swapTokensForExactTokens.js'
 export * from './sushiSwapV2RouterAbi_WETH.js'
+export * from './sushiswapV2RouterAbi.js'
