@@ -1,5 +1,11 @@
 # sushi
 
+## 6.2.3
+
+### Patch Changes
+
+- [#348](https://github.com/sushi-labs/sushi/pull/348) [`19c6a10`](https://github.com/sushi-labs/sushi/commit/19c6a1072b712e1534655c5ebae506faa25b0265) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - abi cleanup
+
 ## 6.2.2
 
 ### Patch Changes
