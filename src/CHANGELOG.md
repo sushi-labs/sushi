@@ -1,5 +1,11 @@
 # sushi
 
+## 6.2.2
+
+### Patch Changes
+
+- [#345](https://github.com/sushi-labs/sushi/pull/345) [`590cabb`](https://github.com/sushi-labs/sushi/commit/590cabb548e914643525da8e8baebc8d5ad9031f) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - remove routeprocessor config
+
 ## 6.2.1
 
 ### Patch Changes
