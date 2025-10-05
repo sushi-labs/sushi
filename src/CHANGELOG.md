@@ -1,5 +1,11 @@
 # sushi
 
+## 6.2.4
+
+### Patch Changes
+
+- [#350](https://github.com/sushi-labs/sushi/pull/350) [`9c5b9f2`](https://github.com/sushi-labs/sushi/commit/9c5b9f2ce147c771ec9d3faa394444473fd63a93) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - bump viem pkg
+
 ## 6.2.3
 
 ### Patch Changes
