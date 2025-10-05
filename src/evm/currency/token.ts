@@ -82,15 +82,15 @@ export const serializedEvmTokenSchema = <
   metadata?: z.ZodType<TMetadata>
 } = {}) =>
   z.object({
-    chainId: z.number().int().refine(isEvmChainId),
-    address: z.string().refine(isEvmAddress),
+    chainId: z.number().int().refine(isEvmChainId).transform((chainId) => chainId as EvmChainId),
+    address: z.string().refine(isEvmAddress).transform((address) => address as EvmAddress),
     symbol: z.string(),
     name: z.string(),
     decimals: z.number().int().nonnegative(),
     type: z.literal('token'),
 
     metadata: (metadata ||
-      z.record(z.unknown()).optional().default({})) as z.ZodType<TMetadata>,
+      z.record(z.string(), z.unknown()).optional().default({})) as z.ZodType<TMetadata>,
   })
 
 export type SerializedEvmToken<

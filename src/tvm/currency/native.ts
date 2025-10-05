@@ -49,14 +49,14 @@ export const serializedTvmNativeSchema = <
   metadata?: z.ZodType<TMetadata>
 } = {}) =>
   z.object({
-    chainId: z.number().int().refine(isTvmChainId),
+    chainId: z.number().int().refine(isTvmChainId).transform((chainId) => chainId as TvmChainId),
     symbol: z.string(),
     name: z.string(),
     decimals: z.number().int().nonnegative(),
     type: z.literal('native'),
 
     metadata: (metadata ||
-      z.record(z.unknown()).optional().default({})) as z.ZodType<TMetadata>,
+      z.record(z.string(), z.unknown()).optional().default({})) as z.ZodType<TMetadata>,
   })
 
 export type SerializedTvmNative<
