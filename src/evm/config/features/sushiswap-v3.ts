@@ -176,6 +176,42 @@ export const SUSHISWAP_V3_TICK_LENS: Record<
   [EvmChainId.SEPOLIA]: '0xc3ec4e1511c6935ed2f92b9a61881a1b95bb1566',
 } as const
 
+export const SUSHISWAP_V3_QUOTER: Record<
+  SushiSwapV3ChainId | DeprecatedSushiSwapV3ChainId,
+  Address
+> = {
+  [EvmChainId.ARBITRUM_NOVA]: '0xb1e835dc2785b52265711e17fccb0fd018226a6e',
+  [EvmChainId.ARBITRUM]: '0x0524e833ccd057e4d7a296e3aaab9f7675964ce1',
+  [EvmChainId.AVALANCHE]: '0xb1e835dc2785b52265711e17fccb0fd018226a6e',
+  [EvmChainId.BSC]: '0xb1e835dc2785b52265711e17fccb0fd018226a6e',
+  [EvmChainId.BTTC]: '0x0389879e0156033202c44bf784ac18fc02edee4f',
+  [EvmChainId.ETHEREUM]: '0x64e8802fe490fa7cc61d3463958199161bb608a7',
+  [EvmChainId.FANTOM]: '0xb1e835dc2785b52265711e17fccb0fd018226a6e',
+  [EvmChainId.GNOSIS]: '0xb1e835dc2785b52265711e17fccb0fd018226a6e',
+  [EvmChainId.KAVA]: '0x5abedac449a8301467c3e124b98e7151641f1e56',
+  [EvmChainId.METIS]: '0xfbc12984689e5f15626bad03ad60160fe98b303c',
+  [EvmChainId.OPTIMISM]: '0xb1e835dc2785b52265711e17fccb0fd018226a6e',
+  [EvmChainId.POLYGON]: '0xb1e835dc2785b52265711e17fccb0fd018226a6e',
+  [EvmChainId.BOBA]: '0xb1e835dc2785b52265711e17fccb0fd018226a6e',
+  [EvmChainId.POLYGON_ZKEVM]: '0xb1e835dc2785b52265711e17fccb0fd018226a6e',
+  [EvmChainId.THUNDERCORE]: '0x49244385bd56f557ce5201d8504c6d7f42da8ef6',
+  [EvmChainId.HAQQ]: '0x734583f62bb6ace3c9ba9bd5a53143ca2ce8c55a',
+  [EvmChainId.CORE]: '0x640129e6b5c31b3b12640a5b39fecdca9f81c640',
+  [EvmChainId.LINEA]: '0xfb7ef66a7e61224dd6fcd0d7d9c3be5c8b049b9f',
+  [EvmChainId.BASE]: '0xb1e835dc2785b52265711e17fccb0fd018226a6e',
+  [EvmChainId.SCROLL]: '0xe43ca1dee3f0fc1e2df73a0745674545f11a59f5',
+  [EvmChainId.FILECOIN]: '0x9b3ff703fa9c8b467f5886d7b61e61ba07a9b51c',
+  [EvmChainId.ZETACHAIN]: '0x57bffa72db682f7eb6c132dae03ff36bbeb0c459',
+  [EvmChainId.BLAST]: '0xd93a91442afd80243cf12f7110f48ab276fff33f',
+  [EvmChainId.SKALE_EUROPA]: '0x25281328d69fd3452d16ffab96e5edd1c0a0ac43',
+  [EvmChainId.ROOTSTOCK]: '0xe43ca1dee3f0fc1e2df73a0745674545f11a59f5',
+  [EvmChainId.SONIC]: '0xe43ca1dee3f0fc1e2df73a0745674545f11a59f5',
+  [EvmChainId.HEMI]: '0x1400fefd6f9b897970f00df6237ff2b8b27dc82c',
+  [EvmChainId.TATARA]: '0x33d91116e0370970444b0281ab117e161febfcdd',
+  [EvmChainId.KATANA]: '0x92dea23ed1c683940ff1a2f8fe23fe98c5d3041c',
+  [EvmChainId.SEPOLIA]: '0x039e87ab90205f9d87c5b40d4b28e2be45da4a20',
+} as const
+
 export const SUSHISWAP_V3_SUPPORTED_CHAIN_IDS = [
   EvmChainId.ARBITRUM_NOVA,
   EvmChainId.ARBITRUM,
