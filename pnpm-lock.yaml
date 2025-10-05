@@ -154,7 +154,7 @@ importers:
         specifier: '*'
         version: 2.37.12(typescript@5.8.3)(zod@4.1.11)
       zod:
-        specifier: '*'
+        specifier: '>=4'
         version: 4.1.11
 
   test: {}
@@ -2645,7 +2645,6 @@ packages:
 
   bun@1.1.28:
     resolution: {integrity: sha512-grJam/0GtwFqI+d4gRshk0CNSLwv5H0cRmdtFVjxrC3FlzMD6XBQ5/k9i23byQzlxnqZhn99dzShN9pwG+zC+g==}
-    cpu: [arm64, x64]
     os: [darwin, linux, win32]
     hasBin: true
 
