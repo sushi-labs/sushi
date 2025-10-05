@@ -59,14 +59,21 @@ export const serializedEvmNativeSchema = <
   metadata?: z.ZodType<TMetadata>
 } = {}) =>
   z.object({
-    chainId: z.number().int().refine(isEvmChainId),
+    chainId: z
+      .number()
+      .int()
+      .refine(isEvmChainId)
+      .transform((chainId) => chainId as EvmChainId),
     symbol: z.string(),
     name: z.string(),
     decimals: z.number().int().nonnegative(),
     type: z.literal('native'),
 
     metadata: (metadata ||
-      z.record(z.unknown()).optional().default({})) as z.ZodType<TMetadata>,
+      z
+        .record(z.string(), z.unknown())
+        .optional()
+        .default({})) as z.ZodType<TMetadata>,
   })
 
 export type SerializedEvmNative<

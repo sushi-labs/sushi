@@ -63,15 +63,25 @@ export const serializedTvmTokenSchema = <
   metadata?: z.ZodType<TMetadata>
 } = {}) =>
   z.object({
-    chainId: z.number().int().refine(isTvmChainId),
-    address: z.string().refine(isTvmAddress),
+    chainId: z
+      .number()
+      .int()
+      .refine(isTvmChainId)
+      .transform((chainId) => chainId as TvmChainId),
+    address: z
+      .string()
+      .refine(isTvmAddress)
+      .transform((chainId) => chainId as TvmAddress),
     symbol: z.string(),
     name: z.string(),
     decimals: z.number().int().nonnegative(),
     type: z.literal('token'),
 
     metadata: (metadata ||
-      z.record(z.unknown()).optional().default({})) as z.ZodType<TMetadata>,
+      z
+        .record(z.string(), z.unknown())
+        .optional()
+        .default({})) as z.ZodType<TMetadata>,
   })
 
 export type SerializedTvmToken<
