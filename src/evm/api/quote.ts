@@ -132,5 +132,7 @@ export async function getQuote<Visualize extends boolean = false>(
     throw new Error(`Failed to fetch quote: ${await res.text()}`)
   }
 
-  return quoteResponseSchema(params.visualize).parse(await res.json()) as QuoteResponse<Visualize>
+  return quoteResponseSchema(params.visualize).parse(
+    await res.json(),
+  ) as QuoteResponse<Visualize>
 }

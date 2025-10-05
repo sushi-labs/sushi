@@ -152,5 +152,7 @@ export async function getSwap<Simulate extends boolean = true>(
     throw new Error(`Failed to fetch swap: ${await res.text()}`)
   }
 
-  return swapResponseSchema(params.simulate).parse(await res.json()) as SwapResponse<Simulate>
+  return swapResponseSchema(params.simulate).parse(
+    await res.json(),
+  ) as SwapResponse<Simulate>
 }

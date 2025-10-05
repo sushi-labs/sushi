@@ -65,15 +65,25 @@ export const serializedKvmTokenSchema = <
   metadata?: z.ZodType<TMetadata>
 } = {}) =>
   z.object({
-    chainId: z.number().int().refine(isKvmChainId).transform((chainId) => chainId as KvmChainId),
-    address: z.string().refine(isKvmTokenAddress).transform((address) => address as KvmTokenAddress),
+    chainId: z
+      .number()
+      .int()
+      .refine(isKvmChainId)
+      .transform((chainId) => chainId as KvmChainId),
+    address: z
+      .string()
+      .refine(isKvmTokenAddress)
+      .transform((address) => address as KvmTokenAddress),
     symbol: z.string(),
     name: z.string(),
     decimals: z.number().int().nonnegative(),
     type: z.literal('token'),
 
     metadata: (metadata ||
-      z.record(z.string(), z.unknown()).optional().default({})) as z.ZodType<TMetadata>,
+      z
+        .record(z.string(), z.unknown())
+        .optional()
+        .default({})) as z.ZodType<TMetadata>,
   })
 
 export type SerializedKvmToken<
