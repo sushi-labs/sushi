@@ -1,5 +1,11 @@
 # sushi
 
+## 6.2.5
+
+### Patch Changes
+
+- [#353](https://github.com/sushi-labs/sushi/pull/353) [`13415e8`](https://github.com/sushi-labs/sushi/commit/13415e8b023bb45cd93a0215247880503f587eae) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Add V3 Position Helper addresses and abis
+
 ## 6.2.4
 
 ### Patch Changes
