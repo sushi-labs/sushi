@@ -32,10 +32,10 @@ export function defineKvmChain<const T extends KvmChainInput>(chain: T) {
     ...chain,
     type: 'kvm' as const,
     getTransactionUrl: (input: string) =>
-      `${chain.blockExplorers.default.url}/txdetail/${input}`,
+      `${chain.blockExplorers.default.url}/transactions/${input}`,
     getAccountUrl: (input: string) =>
       `${chain.blockExplorers.default.url}/account/${input}`,
     getTokenUrl: (input: string) =>
-      `${chain.blockExplorers.default.url}/account/${input}`,
+      `${chain.blockExplorers.default.url}/token/${input}`,
   } as const satisfies KvmChainBase<number, string>
 }

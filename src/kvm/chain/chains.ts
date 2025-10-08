@@ -10,7 +10,7 @@ const kadena = defineKvmChain({
   blockExplorers: {
     default: {
       name: 'Kadena Explorer',
-      url: 'https://explorer.chainweb.com/mainnet',
+      url: 'https://kadscan.io',
     },
   },
   netType: 'mainnet',
