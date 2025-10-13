@@ -152,7 +152,7 @@ export const SURPLUS_FEE_COLLECTOR_ADDRESS: Record<
   [EvmChainId.HYPEREVM]: '0x5c2e112783a6854653b4bc7dc22248d3e592559c',
   [EvmChainId.BERACHAIN]: '0x5c2e112783a6854653b4bc7dc22248d3e592559c',
   [EvmChainId.PLASMA]: '0x5c2e112783a6854653b4bc7dc22248d3e592559c',
-  [EvmChainId.FUSE]: '0x5c2e112783a6854653b4bc7dc22248d3e592559c'
+  [EvmChainId.FUSE]: '0x5c2e112783a6854653b4bc7dc22248d3e592559c',
 } as const
 export const isSurplusFeeCollectorChainId = isFeeCollectorChainId
 

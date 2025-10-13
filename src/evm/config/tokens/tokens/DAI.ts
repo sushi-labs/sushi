@@ -25,7 +25,7 @@ export const DAI_ADDRESS = {
   [EvmChainId.ROOTSTOCK]: '0x6b1a73d547f4009a26b8485b63d7015d248ad406',
   [EvmChainId.TAIKO]: '0x7d02a3e0180451b17e5d7f29ef78d06f8117106c',
   [EvmChainId.ZKLINK]: '0xf573fa04a73d5ac442f3dea8741317feaa3cdeab',
-  [EvmChainId.FUSE]: '0x94ba7a27c7a95863d1bdc7645ac2951e0cca06ba'
+  [EvmChainId.FUSE]: '0x94ba7a27c7a95863d1bdc7645ac2951e0cca06ba',
 } as const
 
 export const DAI = addressMapToTokenMap(
