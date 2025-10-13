@@ -1,5 +1,11 @@
 # sushi
 
+## 6.2.8
+
+### Patch Changes
+
+- [#360](https://github.com/sushi-labs/sushi/pull/360) [`6ac5537`](https://github.com/sushi-labs/sushi/commit/6ac5537e067d3f1da832966313c835ebb5fb5b35) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Move fuse to deprecated sushiswapv3
+
 ## 6.2.7
 
 ### Patch Changes
