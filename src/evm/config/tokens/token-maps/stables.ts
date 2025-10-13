@@ -245,6 +245,11 @@ export const STABLES = {
     BERACHAIN_HONEY[EvmChainId.BERACHAIN],
   ],
   [EvmChainId.PLASMA]: [USDT[EvmChainId.PLASMA], USDe[EvmChainId.PLASMA]],
+  [EvmChainId.FUSE]: [
+    USDC[EvmChainId.FUSE],
+    USDT[EvmChainId.FUSE],
+    DAI[EvmChainId.FUSE],
+  ],
   // TESTNETS
   [EvmChainId.ARBITRUM_SEPOLIA]: [],
   [EvmChainId.SEPOLIA]: [USDC[EvmChainId.SEPOLIA]],
