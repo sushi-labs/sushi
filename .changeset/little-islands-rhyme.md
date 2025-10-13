@@ -1,5 +1,0 @@
----
-"sushi": patch
----
-
-fuse config

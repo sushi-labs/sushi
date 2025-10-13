@@ -1,5 +1,11 @@
 # sushi
 
+## 6.2.6
+
+### Patch Changes
+
+- [#357](https://github.com/sushi-labs/sushi/pull/357) [`ad767a5`](https://github.com/sushi-labs/sushi/commit/ad767a5cdb2ac79370b8d7c0b9c4ec0fe1cd58bf) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - fuse config
+
 ## 6.2.5
 
 ### Patch Changes
