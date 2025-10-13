@@ -248,7 +248,6 @@ export const SUSHISWAP_V3_POSITION_HELPER: Record<SushiSwapV3ChainId, Address> =
     [EvmChainId.KATANA]: '0xc85C59A05EC888aa055Ec3b3A7263d173cc6E111',
     [EvmChainId.TATARA]: '0x34026A9b9Cb6DF84880C4B2f778F5965F5679c16',
     [EvmChainId.SEPOLIA]: '0x34026A9b9Cb6DF84880C4B2f778F5965F5679c16',
-    [EvmChainId.FUSE]: '0x34026A9b9Cb6DF84880C4B2f778F5965F5679c16',
   } as const
 
 export const SUSHISWAP_V3_SUPPORTED_CHAIN_IDS = [
@@ -281,7 +280,6 @@ export const SUSHISWAP_V3_SUPPORTED_CHAIN_IDS = [
   EvmChainId.TATARA,
   EvmChainId.KATANA,
   EvmChainId.SEPOLIA,
-  EvmChainId.FUSE,
 ] as const
 
 export const SushiSwapV3ChainIds = SUSHISWAP_V3_SUPPORTED_CHAIN_IDS
@@ -296,6 +294,7 @@ export const isSushiSwapV3ChainId = (
 
 export const DEPRECATED_SUSHISWAP_V3_CHAIN_IDS = [
   EvmChainId.POLYGON_ZKEVM,
+  EvmChainId.FUSE,
 ] as const
 
 export const DeprecatedSushiSwapV3ChainIds = DEPRECATED_SUSHISWAP_V3_CHAIN_IDS
