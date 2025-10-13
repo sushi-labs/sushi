@@ -17,6 +17,7 @@ import {
   mainnet as ethereumViem,
   fantom as fantomViem,
   filecoin as filecoinViem,
+  fuse as fuseViem,
   gnosis as gnosisViem,
   haqqMainnet as haqqViem,
   harmonyOne as harmonyViem,
@@ -172,6 +173,11 @@ const thundercore = /* @__PURE__ */ defineEvmChain(thundercoreViem, {
 const filecoin = /* @__PURE__ */ defineEvmChain(filecoinViem, {
   key: 'filecoin',
   shortName: 'fil',
+})
+
+const fuse = /* @__PURE__ */ defineEvmChain(fuseViem, {
+  key: 'fuse',
+  shortName: 'fuse',
 })
 
 const haqq = /* @__PURE__ */ defineEvmChain(haqqViem, {
@@ -477,6 +483,7 @@ export const evmChains = [
   polygonZkevm,
   thundercore,
   filecoin,
+  fuse,
   haqq,
   core,
   zksync,
