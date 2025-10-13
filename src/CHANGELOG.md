@@ -1,5 +1,11 @@
 # sushi
 
+## 6.2.7
+
+### Patch Changes
+
+- [#356](https://github.com/sushi-labs/sushi/pull/356) [`b3f868f`](https://github.com/sushi-labs/sushi/commit/b3f868f2003a1a3cc61d512e742053748dd6a3cd) Thanks [@solidityteam](https://github.com/solidityteam)! - Change to the Kadena block explorer
+
 ## 6.2.6
 
 ### Patch Changes
