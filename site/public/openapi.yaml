@@ -462,54 +462,54 @@ paths:
           description: request parameters invalid.
         "500":
           description: internal server error.
-  /chain-ids:
-    get:
-      tags:
-        - other
-      summary: Returns all currently supported chain ids
-      description: Returns all currently supported chain ids
-      operationId: getChainIds
-      responses:
-        "200":
-          description: chain ids
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: number
-                example:
-                  - 1
-                  - 137
-                  - 42161
-                  - 8453
-  /chains:
-    get:
-      tags:
-        - other
-      summary: Returns all currently chains
-      description: Returns all currently supported chains
-      operationId: getChains
-      responses:
-        "200":
-          description: chains
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    id:
-                      type: number
-                    name:
-                      type: string
-              example:
-                - id: 1
-                  name: ethereum
-                - id: 137
-                  name: polygon
-                - id: 42161
-                  name: arbitrum
-                - id: 8453
-                  name: base
+  # /chain-ids:
+  #   get:
+  #     tags:
+  #       - other
+  #     summary: Returns all currently supported chain ids
+  #     description: Returns all currently supported chain ids
+  #     operationId: getChainIds
+  #     responses:
+  #       "200":
+  #         description: chain ids
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: array
+  #               items:
+  #                 type: number
+  #               example:
+  #                 - 1
+  #                 - 137
+  #                 - 42161
+  #                 - 8453
+  # /chains:
+  #   get:
+  #     tags:
+  #       - other
+  #     summary: Returns all currently chains
+  #     description: Returns all currently supported chains
+  #     operationId: getChains
+  #     responses:
+  #       "200":
+  #         description: chains
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: array
+  #               items:
+  #                 type: object
+  #                 properties:
+  #                   id:
+  #                     type: number
+  #                   name:
+  #                     type: string
+  #             example:
+  #               - id: 1
+  #                 name: ethereum
+  #               - id: 137
+  #                 name: polygon
+  #               - id: 42161
+  #                 name: arbitrum
+  #               - id: 8453
+  #                 name: base
