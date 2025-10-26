@@ -463,6 +463,42 @@ const tatara = /* @__PURE__ */ defineEvmChain(
   },
 )
 
+const bokuto = /* @__PURE__ */ defineEvmChain(
+  /* @__PURE__ */ defineViemChain({
+    id: 737373,
+    name: 'Bokuto',
+    nativeCurrency: {
+      decimals: 18,
+      name: 'Ether',
+      symbol: 'ETH',
+    },
+    rpcUrls: {
+      default: {
+        http: ['https://rpc-bokuto.katanarpc.com'],
+      },
+    },
+    blockExplorers: {
+      default: {
+        name: 'Bokuto Explorer',
+        url: 'https://bokuto.katanascan.com',
+        apiUrl: 'https://api-bokuto.katanascan.com/api',
+      },
+    },
+    testnet: true,
+    contracts: {
+      multicall3: {
+        address: '0xca11bde05977b3631167028862be2a173976ca11',
+        blockCreated: 0,
+      },
+    },
+  }),
+  {
+    key: 'bokuto',
+    shortName: 'bokuto',
+    parentChainId: sepolia.chainId,
+  },
+)
+
 export const evmChains = [
   ethereum,
   bobaBnb,
@@ -511,6 +547,7 @@ export const evmChains = [
   sepolia,
   arbitrumSepolia,
   tatara,
+  bokuto
 ] as const
 
 // EvmChainId
