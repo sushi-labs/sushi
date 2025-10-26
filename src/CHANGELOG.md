@@ -1,5 +1,11 @@
 # sushi
 
+## 6.2.10
+
+### Patch Changes
+
+- [#366](https://github.com/sushi-labs/sushi/pull/366) [`f1fb9fc`](https://github.com/sushi-labs/sushi/commit/f1fb9fcd738c864105ecd607c2eca191154ac33d) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add bokuto config
+
 ## 6.2.9
 
 ### Patch Changes
