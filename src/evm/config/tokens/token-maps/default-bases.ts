@@ -434,4 +434,10 @@ export const EVM_DEFAULT_BASES = {
     USDT[EvmChainId.FUSE],
     DAI[EvmChainId.FUSE],
   ],
+  [EvmChainId.BOKUTO]: [
+    EvmNative.fromChainId(EvmChainId.BOKUTO),
+    WNATIVE[EvmChainId.BOKUTO],
+    USDC[EvmChainId.BOKUTO],
+    USDT[EvmChainId.BOKUTO],
+  ],
 } as const satisfies Record<EvmChainId, Readonly<EvmCurrency[]>>

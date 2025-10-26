@@ -371,6 +371,7 @@ export const LSDS = {
   [EvmChainId.ARBITRUM_SEPOLIA]: [],
   [EvmChainId.SEPOLIA]: [],
   [EvmChainId.TATARA]: [],
+  [EvmChainId.BOKUTO]: [],
 } as const satisfies Record<EvmChainId, EvmToken[]>
 
 export function isLsd(currency: EvmCurrency): boolean {

@@ -254,6 +254,7 @@ export const STABLES = {
   [EvmChainId.ARBITRUM_SEPOLIA]: [],
   [EvmChainId.SEPOLIA]: [USDC[EvmChainId.SEPOLIA]],
   [EvmChainId.TATARA]: [AUSD[EvmChainId.TATARA]],
+  [EvmChainId.BOKUTO]: [USDC[EvmChainId.BOKUTO], USDT[EvmChainId.BOKUTO]],
 } as const satisfies Record<EvmChainId, EvmToken[]>
 
 export function isStable(currency: EvmCurrency): boolean {

@@ -36,6 +36,7 @@ export const SUSHISWAP_V2_SUPPORTED_CHAIN_IDS = [
   // Eth testnets
   EvmChainId.SEPOLIA,
   EvmChainId.TATARA,
+  EvmChainId.BOKUTO,
 ] as const
 
 export const SushiSwapV2ChainIds = SUSHISWAP_V2_SUPPORTED_CHAIN_IDS
@@ -131,14 +132,17 @@ export const SUSHISWAP_V2_INIT_CODE_HASH: Record<
     '0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303',
   [EvmChainId.HEMI]:
     '0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303',
-  [EvmChainId.SEPOLIA]:
-    '0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303',
-  [EvmChainId.TATARA]:
-    '0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303',
   [EvmChainId.KATANA]:
     '0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303',
   [EvmChainId.FUSE]:
     '0x1901958ef8b470f2c0a3875a79ee0bd303866d85102c0f1ea820d317024d50b5',
+  // testnets
+  [EvmChainId.SEPOLIA]:
+    '0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303',
+  [EvmChainId.TATARA]:
+    '0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303',
+  [EvmChainId.BOKUTO]:
+    '0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303',
 }
 
 export const SUSHISWAP_V2_FACTORY_ADDRESS: Record<
@@ -175,10 +179,12 @@ export const SUSHISWAP_V2_FACTORY_ADDRESS: Record<
   [EvmChainId.ROOTSTOCK]: '0xb45e53277a7e0f1d35f2a77160e91e25507f1763',
   [EvmChainId.SONIC]: '0xb45e53277a7e0f1d35f2a77160e91e25507f1763',
   [EvmChainId.HEMI]: '0x9b3336186a38e1b6c21955d112dbb0343ee061ee',
-  [EvmChainId.SEPOLIA]: '0x734583f62bb6ace3c9ba9bd5a53143ca2ce8c55a',
-  [EvmChainId.TATARA]: '0xb45e53277a7e0f1d35f2a77160e91e25507f1763',
   [EvmChainId.KATANA]: '0x72d111b4d6f31b38919ae39779f570b747d6acd9',
   [EvmChainId.FUSE]: '0x43ea90e2b786728520e4f930d2a71a477bf2737c',
+  // testnets
+  [EvmChainId.SEPOLIA]: '0x734583f62bb6ace3c9ba9bd5a53143ca2ce8c55a',
+  [EvmChainId.TATARA]: '0xb45e53277a7e0f1d35f2a77160e91e25507f1763',
+  [EvmChainId.BOKUTO]: '0x0389879e0156033202c44bf784ac18fc02edee4f',
 }
 
 export const SUSHISWAP_V2_ROUTER_ADDRESS: Record<
@@ -215,8 +221,10 @@ export const SUSHISWAP_V2_ROUTER_ADDRESS: Record<
   [EvmChainId.ROOTSTOCK]: '0x9b3336186a38e1b6c21955d112dbb0343ee061ee',
   [EvmChainId.SONIC]: '0x9b3336186a38e1b6c21955d112dbb0343ee061ee',
   [EvmChainId.HEMI]: '0x46b3fdf7b5cde91ac049936bf0bdb12c5d22202e',
-  [EvmChainId.SEPOLIA]: '0xeabce3e74ef41fb40024a21cc2ee2f5ddc615791',
-  [EvmChainId.TATARA]: '0x57bffa72db682f7eb6c132dae03ff36bbeb0c459',
   [EvmChainId.KATANA]: '0x69cc349932ae18ed406eeb917d79b9b3033fb68e',
   [EvmChainId.FUSE]: '0xf4d73326c13a4fc5fd7a064217e12780e9bd62c3',
+  // testnets
+  [EvmChainId.SEPOLIA]: '0xeabce3e74ef41fb40024a21cc2ee2f5ddc615791',
+  [EvmChainId.TATARA]: '0x57bffa72db682f7eb6c132dae03ff36bbeb0c459',
+  [EvmChainId.BOKUTO]: '0xe43ca1dee3f0fc1e2df73a0745674545f11a59f5',
 }

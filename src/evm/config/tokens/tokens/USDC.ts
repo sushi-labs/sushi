@@ -42,6 +42,7 @@ export const USDC_ADDRESS = {
   [EvmChainId.KATANA]: '0x203a662b0bd271a6ed5a60edfbd04bfce608fd36',
   [EvmChainId.BERACHAIN]: '0x549943e04f40284185054145c6e4e9568c1d3241',
   [EvmChainId.FUSE]: '0x620fd5fa44be6af63715ef4e65ddfa0387ad13f5',
+  [EvmChainId.BOKUTO]: '0xc2a4c310f2512a17ac0047cf871acaed3e62bb4b',
 } as const
 
 export const USDC = {

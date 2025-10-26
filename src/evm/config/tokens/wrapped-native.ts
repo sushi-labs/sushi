@@ -53,6 +53,7 @@ export const WNATIVE_ADDRESS = {
   [EvmChainId.BERACHAIN]: '0x6969696969696969696969696969696969696969',
   [EvmChainId.PLASMA]: '0x6100e367285b01f48d07953803a2d8dca5d19873',
   [EvmChainId.FUSE]: '0x0be9e53fd7edac9f859882afdda116645287c629',
+  [EvmChainId.BOKUTO]: WETH9_ADDRESS[EvmChainId.BOKUTO],
 } as const satisfies Record<EvmChainId, Address>
 
 export const WNATIVE = {
@@ -257,6 +258,7 @@ export const WNATIVE = {
     symbol: 'WFUSE',
     name: 'Wrapped FUSE',
   }),
+  [EvmChainId.BOKUTO]: WETH9[EvmChainId.BOKUTO],
 } as const satisfies Record<EvmChainId, EvmToken>
 
 export const isWNativeSupported = (chainId: EvmChainId) =>
