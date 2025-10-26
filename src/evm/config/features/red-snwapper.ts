@@ -48,7 +48,7 @@ export const RED_SNWAPPER_SUPPORTED_CHAIN_IDS = [
   // testnets
   EvmChainId.SEPOLIA,
   EvmChainId.TATARA,
-  EvmChainId.BOKUTO
+  EvmChainId.BOKUTO,
 ] as const
 
 export type RedSnwapperChainId =

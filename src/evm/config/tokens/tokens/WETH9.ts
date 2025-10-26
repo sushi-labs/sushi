@@ -46,7 +46,7 @@ export const WETH9_ADDRESS = {
   [EvmChainId.BERACHAIN]: '0x2f6f07cdcf3588944bf4c42ac74ff24bf56e7590',
   [EvmChainId.PLASMA]: '0x9895d81bb462a195b4922ed7de0e3acd007c32cb',
   [EvmChainId.FUSE]: '0xa722c13135930332eb3d749b2f0906559d2c5b99',
-  [EvmChainId.BOKUTO]: '0x84b3493fa9b125a8eff1ccc1328bd84d0b4a2dbf'
+  [EvmChainId.BOKUTO]: '0x84b3493fa9b125a8eff1ccc1328bd84d0b4a2dbf',
 } as const
 
 export const WETH9 = {

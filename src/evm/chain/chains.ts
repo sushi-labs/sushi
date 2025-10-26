@@ -547,7 +547,7 @@ export const evmChains = [
   sepolia,
   arbitrumSepolia,
   tatara,
-  bokuto
+  bokuto,
 ] as const
 
 // EvmChainId
