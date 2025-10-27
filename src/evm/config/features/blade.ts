@@ -9,6 +9,7 @@ export const BLADE_SUPPORTED_CHAIN_IDS = [
   EvmChainId.BASE,
   EvmChainId.MANTLE,
   EvmChainId.KATANA,
+  EvmChainId.BSC,
 ] as const
 
 export type BladeChainId = (typeof BLADE_SUPPORTED_CHAIN_IDS)[number]
