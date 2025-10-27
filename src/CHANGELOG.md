@@ -1,5 +1,11 @@
 # sushi
 
+## 6.2.11
+
+### Patch Changes
+
+- [#365](https://github.com/sushi-labs/sushi/pull/365) [`b2d44c1`](https://github.com/sushi-labs/sushi/commit/b2d44c1ff3bd741b1cd9ea38058a3f3d025eb98f) Thanks [@danielr18](https://github.com/danielr18)! - update Blade subgraphs for Arbitrum and Mantle. Add BSC as supported chain
+
 ## 6.2.10
 
 ### Patch Changes
