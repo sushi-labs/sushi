@@ -1,5 +1,11 @@
 # sushi
 
+## 6.2.12
+
+### Patch Changes
+
+- [#369](https://github.com/sushi-labs/sushi/pull/369) [`c974327`](https://github.com/sushi-labs/sushi/commit/c9743278e182d6cedf09bf41fca358e8b6d02acd) Thanks [@danielr18](https://github.com/danielr18)! - update Blade subgraph URLs
+
 ## 6.2.11
 
 ### Patch Changes
