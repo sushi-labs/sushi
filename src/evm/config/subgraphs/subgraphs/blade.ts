@@ -3,7 +3,9 @@ import type { BladeChainId } from '../../../config/features/blade.js'
 import { getSubgraphUrlWrapper, wrapAsIdType } from '../get-subgraph-url.js'
 import { SUSHI_DEDICATED_GOLDSKY_HOST } from '../hosts.js'
 
-const BLADE_DECENTRALIZED_DEPLOYMENT_IDS = {} as const satisfies Partial<Record<BladeChainId, string>>
+const BLADE_DECENTRALIZED_DEPLOYMENT_IDS = {} as const satisfies Partial<
+  Record<BladeChainId, string>
+>
 
 const BLADE_DECENTRALIZED_SUBGRAPH_IDS = {
   [EvmChainId.ETHEREUM]: '2BhN8mygHMmRkceMmod7CEEsGkcxh91ExRbEfRVkpVGM',
