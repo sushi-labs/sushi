@@ -50,6 +50,7 @@ components:
       required: false
       schema:
         type: string
+        default: none
     tokenIn:
       in: query
       name: tokenIn
@@ -95,7 +96,7 @@ components:
       schema:
         type: number
         minimum: 0
-        maximum: 1
+        maximum: 0.5
         default: 0
     feeBy:
       in: query
@@ -121,8 +122,9 @@ components:
       schema:
         type: number
         minimum: 0
+        exclusiveMinimum: true
         maximum: 1
-        exclusiveMaximum: true
+        default: 1
     maxSlippage:
       in: query
       name: maxSlippage
@@ -178,9 +180,9 @@ components:
       required: false
       schema:
         type: string
-    vizualize:
+    visualize:
       in: query
-      name: vizualize
+      name: visualize
       description: vizulaization
       required: false
       schema:
@@ -193,7 +195,7 @@ components:
       required: false
       schema:
         type: boolean
-        default: true
+        default: false
     override:
       in: query
       name: override
@@ -209,7 +211,8 @@ components:
       required: false
       schema:
         type: boolean
-        default: true
+        default: false
+
 paths:
   /quote/v7/{chainId}:
     get:
@@ -234,7 +237,7 @@ paths:
         - $ref: "#/components/parameters/excludeDEX"
         - $ref: "#/components/parameters/excludePools"
         - $ref: "#/components/parameters/excludeTokens"
-        - $ref: "#/components/parameters/vizualize"
+        - $ref: "#/components/parameters/visualize"
       responses:
         '200':
           description: quote
@@ -296,7 +299,7 @@ paths:
         - $ref: "#/components/parameters/excludeDEX"
         - $ref: "#/components/parameters/excludePools"
         - $ref: "#/components/parameters/excludeTokens"
-        - $ref: "#/components/parameters/vizualize"
+        - $ref: "#/components/parameters/visualize"
         - $ref: "#/components/parameters/simulate"
         - $ref: "#/components/parameters/override"
         - $ref: "#/components/parameters/validate"
@@ -335,7 +338,6 @@ paths:
                    gasPrice: 682394289
                    data: "0x5f3bd1c8000000000000000000000000eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee000000000000000000000000000000000000000000000000002386f26fc10000000000000000000000000000d8da6bf26964af9d7eed9e03e53415d37aa960450000000000000000000000006b3595068778dd592e39a122f4f5a5cf09c90fe20000000000000000000000000000000000000000000000018969823f2df6281000000000000000000000000085cd07ea01423b1e937929b44e4ad8c40bbb5e7100000000000000000000000000000000000000000000000000000000000000e000000000000000000000000000000000000000000000000000000000000001a4dd9c5f96000000000000000000000000eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee000000000000000000000000000000000000000000000000002386f26fc100000000000000000000000000006b3595068778dd592e39a122f4f5a5cf09c90fe200000000000000000000000000000000000000000000000189ce52b6a87f80000000000000000000000000000000000000000000000000018969823f2df62810000000000000000000000000d8da6bf26964af9d7eed9e03e53415d37aa960450000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000700301ffff0201CE84867c3c02B05dc570d0135103d3fB9CC19433C02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc204C02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc200CE84867c3c02B05dc570d0135103d3fB9CC194330085CD07Ea01423b1E937929B44E4Ad8c40BbB5E71000bb80000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
                    value: "10000000000000000"
-                  
         '422':
           description: request parameters invalid
         '500':
