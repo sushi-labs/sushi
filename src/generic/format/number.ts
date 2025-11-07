@@ -207,11 +207,17 @@ function roundString(original: string, formatted: string) {
     const nine = '9'.charCodeAt(0)
     if (lastDigit() === nine) {
       // Rounding up would cause a carry
-      while (lastDigit() === nine) {
+      while (formatted.length && lastDigit() === nine) {
         formatted = formatted.slice(0, -1)
+        if (formatted.endsWith('.')) {
+          formatted = formatted.slice(0, -1)
+        }
       }
-      if (formatted.endsWith('.')) {
-        formatted = formatted.slice(0, -1)
+      // handle full carry (e.g., "9.9" -> "10")
+      if (formatted.length === 0 || formatted === '-') {
+        const negative = original.startsWith('-');
+        const zeros = Math.max(decimalIndex, 0);
+        return `${negative ? '-' : ''}1${'0'.repeat(zeros)}`;
       }
     }
 
