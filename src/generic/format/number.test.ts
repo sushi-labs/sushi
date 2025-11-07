@@ -68,9 +68,9 @@ describe('numberToFixed', () => {
 
       expect(numberToFixed('0.99', { significant: 1 })).toBe('1')
       expect(numberToFixed('0.099999999', { significant: 5 })).toBe('0.1')
-      expect(numberToFixed('9.9' , { significant: 1 })).toBe('10')
-      expect(numberToFixed('999.9' , { significant: 2 })).toBe('1000')
-      expect(numberToFixed('999.9' , { significant: 3 })).toBe('1000')
+      expect(numberToFixed('9.9', { significant: 1 })).toBe('10')
+      expect(numberToFixed('999.9', { significant: 2 })).toBe('1000')
+      expect(numberToFixed('999.9', { significant: 3 })).toBe('1000')
       expect(numberToFixed('6789.97605', { significant: 4 })).toBe('6790')
       expect(numberToFixed('31229.976058', { significant: 5 })).toBe('31230')
     })

@@ -215,9 +215,9 @@ function roundString(original: string, formatted: string) {
       }
       // handle full carry (e.g., "9.9" -> "10")
       if (formatted.length === 0 || formatted === '-') {
-        const negative = original.startsWith('-');
-        const zeros = Math.max(decimalIndex, 0);
-        return `${negative ? '-' : ''}1${'0'.repeat(zeros)}`;
+        const negative = original.startsWith('-')
+        const zeros = Math.max(decimalIndex, 0)
+        return `${negative ? '-' : ''}1${'0'.repeat(zeros)}`
       }
     }
 
