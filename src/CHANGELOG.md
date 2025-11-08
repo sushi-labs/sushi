@@ -1,5 +1,11 @@
 # sushi
 
+## 6.2.13
+
+### Patch Changes
+
+- [#372](https://github.com/sushi-labs/sushi/pull/372) [`875a19c`](https://github.com/sushi-labs/sushi/commit/875a19c2ceb5795039e5129cd90734a52174a7ea) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - fix roundString bug
+
 ## 6.2.12
 
 ### Patch Changes
