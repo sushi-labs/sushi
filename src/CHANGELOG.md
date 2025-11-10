@@ -1,5 +1,11 @@
 # sushi
 
+## 6.2.14
+
+### Patch Changes
+
+- [#374](https://github.com/sushi-labs/sushi/pull/374) [`d9d6d7a`](https://github.com/sushi-labs/sushi/commit/d9d6d7aec1d9a41311cc90d6d59603030660cad0) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - update drpc url
+
 ## 6.2.13
 
 ### Patch Changes
