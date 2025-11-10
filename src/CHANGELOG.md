@@ -1,5 +1,11 @@
 # sushi
 
+## 6.2.15
+
+### Patch Changes
+
+- [#376](https://github.com/sushi-labs/sushi/pull/376) [`934c524`](https://github.com/sushi-labs/sushi/commit/934c5243e913a03392528d42507860e8aceef8f9) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - remove unused date-fns dependency
+
 ## 6.2.14
 
 ### Patch Changes
