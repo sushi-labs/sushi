@@ -1,5 +1,11 @@
 # sushi
 
+## 6.2.16
+
+### Patch Changes
+
+- [#379](https://github.com/sushi-labs/sushi/pull/379) [`18fc88a`](https://github.com/sushi-labs/sushi/commit/18fc88ae47255c2916e7fc9537fb4b18ed032d9a) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - cleanup unused dependencies
+
 ## 6.2.15
 
 ### Patch Changes
