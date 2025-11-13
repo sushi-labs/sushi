@@ -446,7 +446,7 @@ const monad = /* @__PURE__ */ defineEvmChain(
   {
     key: 'monad',
     shortName: 'mon',
-    parentChainId: ethereum.chainId
+    parentChainId: ethereum.chainId,
   },
 )
 

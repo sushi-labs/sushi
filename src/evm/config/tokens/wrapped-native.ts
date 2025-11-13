@@ -266,7 +266,7 @@ export const WNATIVE = {
     decimals: 18,
     symbol: 'WMON',
     name: 'Wrapped MON',
-  })
+  }),
 } as const satisfies Record<EvmChainId, EvmToken>
 
 export const isWNativeSupported = (chainId: EvmChainId) =>

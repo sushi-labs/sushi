@@ -97,7 +97,7 @@ export const UNISWAP_V3_INIT_CODE_HASH: Record<
   [EvmChainId.SONIC]: POOL_INIT_CODE_HASH,
   [EvmChainId.HEMI]: POOL_INIT_CODE_HASH,
   [EvmChainId.PLASMA]: POOL_INIT_CODE_HASH,
-  [EvmChainId.MONAD]: POOL_INIT_CODE_HASH
+  [EvmChainId.MONAD]: POOL_INIT_CODE_HASH,
 } as const
 
 export const UNISWAP_V3_FACTORY_ADDRESS: Record<
