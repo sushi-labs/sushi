@@ -17,6 +17,10 @@ export enum SushiSwapV3FeeAmount {
   MEDIUM = 3000,
   /** 1% */
   HIGH = 10000,
+  /** 2% */
+  HIGHER = 20000, // KATANA only
+  /** 4% */
+  HIGHEST = 40000, // KATANA only
 }
 
 /**
@@ -27,6 +31,8 @@ export const TICK_SPACINGS: { [_amount in SushiSwapV3FeeAmount]: number } = {
   [SushiSwapV3FeeAmount.LOW]: 10,
   [SushiSwapV3FeeAmount.MEDIUM]: 60,
   [SushiSwapV3FeeAmount.HIGH]: 200,
+  [SushiSwapV3FeeAmount.HIGHER]: 400, // KATANA only
+  [SushiSwapV3FeeAmount.HIGHEST]: 800, // KATANA only
 }
 
 // SUSHISWAP
