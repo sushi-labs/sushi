@@ -250,6 +250,11 @@ export const STABLES = {
     USDT[EvmChainId.FUSE],
     DAI[EvmChainId.FUSE],
   ],
+  [EvmChainId.MONAD]: [
+    USDC[EvmChainId.MONAD],
+    USDT0[EvmChainId.MONAD],
+    AUSD[EvmChainId.MONAD],
+  ],
   // TESTNETS
   [EvmChainId.ARBITRUM_SEPOLIA]: [],
   [EvmChainId.SEPOLIA]: [USDC[EvmChainId.SEPOLIA]],

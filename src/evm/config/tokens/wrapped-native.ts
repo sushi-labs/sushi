@@ -54,6 +54,7 @@ export const WNATIVE_ADDRESS = {
   [EvmChainId.PLASMA]: '0x6100e367285b01f48d07953803a2d8dca5d19873',
   [EvmChainId.FUSE]: '0x0be9e53fd7edac9f859882afdda116645287c629',
   [EvmChainId.BOKUTO]: WETH9_ADDRESS[EvmChainId.BOKUTO],
+  [EvmChainId.MONAD]: '0x3bd359c1119da7da1d913d1c4d2b7c461115433a',
 } as const satisfies Record<EvmChainId, Address>
 
 export const WNATIVE = {
@@ -259,6 +260,13 @@ export const WNATIVE = {
     name: 'Wrapped FUSE',
   }),
   [EvmChainId.BOKUTO]: WETH9[EvmChainId.BOKUTO],
+  [EvmChainId.MONAD]: new EvmToken({
+    chainId: EvmChainId.MONAD,
+    address: WNATIVE_ADDRESS[EvmChainId.MONAD],
+    decimals: 18,
+    symbol: 'WMON',
+    name: 'Wrapped MON',
+  }),
 } as const satisfies Record<EvmChainId, EvmToken>
 
 export const isWNativeSupported = (chainId: EvmChainId) =>

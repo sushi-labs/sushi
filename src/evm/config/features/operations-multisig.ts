@@ -42,6 +42,7 @@ export const MULTISIG_CHAIN_IDS = [
   EvmChainId.BERACHAIN,
   EvmChainId.PLASMA,
   EvmChainId.FUSE,
+  EvmChainId.MONAD,
 ] as const
 
 export type MultisigChainId = (typeof MULTISIG_CHAIN_IDS)[number]
@@ -87,7 +88,8 @@ export const MULTISIG_ADDRESS: Record<MultisigChainId, `0x${string}`> = {
   [EvmChainId.HYPEREVM]: '0x19dd154f7528fce4a0cc7b9817aa39d4b42990e4',
   [EvmChainId.BERACHAIN]: '0xbb0ebe7b041a456da9e2295931af31dc0f9d8ced',
   [EvmChainId.PLASMA]: '0x5bf386459cb52d4cf9dbf8e602d5f9045921375b',
-  [EvmChainId.FUSE]: '0x33b6beb37837459Ee84a1Ffed2C6a4ca22e5F316',
+  [EvmChainId.FUSE]: '0x33b6beb37837459ee84a1ffed2c6a4ca22e5f316',
+  [EvmChainId.MONAD]: '0xc4c2fc252f51b3fad6120963acf0d560526abb00',
 } as const
 
 export const isMultisigChainId = (
