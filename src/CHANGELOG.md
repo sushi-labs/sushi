@@ -1,5 +1,11 @@
 # sushi
 
+## 6.2.18
+
+### Patch Changes
+
+- [#382](https://github.com/sushi-labs/sushi/pull/382) [`eecd6fc`](https://github.com/sushi-labs/sushi/commit/eecd6fc59d6f606cafa3b1cd03eedbeeb0017414) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add new v3 fee tiers to katana
+
 ## 6.2.17
 
 ### Patch Changes
