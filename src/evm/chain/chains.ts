@@ -420,19 +420,19 @@ const monad = /* @__PURE__ */ defineEvmChain(
     id: 143,
     name: 'Monad',
     nativeCurrency: {
-      name: 'MON Token', // TODO
+      name: 'Monad',
       symbol: 'MON',
       decimals: 18,
     },
     rpcUrls: {
       default: {
-        http: ['https://rpc.monad.xyz'], // TODO
+        http: ['https://rpc.monad.xyz'],
       },
     },
     blockExplorers: {
       default: {
         name: 'MonVision',
-        url: 'https://monvision.io', // TODO
+        url: 'https://monvision.io',
       },
     },
     testnet: false,
