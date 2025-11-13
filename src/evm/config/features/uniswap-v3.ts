@@ -55,6 +55,7 @@ export const UNISWAP_V3_SUPPORTED_CHAIN_IDS = [
   EvmChainId.SONIC,
   EvmChainId.HEMI,
   EvmChainId.PLASMA,
+  EvmChainId.MONAD,
 ] as const
 
 export const UniswapV3ChainIds = UNISWAP_V3_SUPPORTED_CHAIN_IDS
@@ -96,6 +97,7 @@ export const UNISWAP_V3_INIT_CODE_HASH: Record<
   [EvmChainId.SONIC]: POOL_INIT_CODE_HASH,
   [EvmChainId.HEMI]: POOL_INIT_CODE_HASH,
   [EvmChainId.PLASMA]: POOL_INIT_CODE_HASH,
+  [EvmChainId.MONAD]: POOL_INIT_CODE_HASH
 } as const
 
 export const UNISWAP_V3_FACTORY_ADDRESS: Record<
@@ -127,4 +129,5 @@ export const UNISWAP_V3_FACTORY_ADDRESS: Record<
   [EvmChainId.SONIC]: '0xcb2436774c3e191c85056d248ef4260ce5f27a9d',
   [EvmChainId.HEMI]: '0x346239972d1fa486fc4a521031bc81bfb7d6e8a4',
   [EvmChainId.PLASMA]: '0xcb2436774c3e191c85056d248ef4260ce5f27a9d',
+  [EvmChainId.MONAD]: '0x204faca1764b154221e35c0d20abb3c525710498',
 } as const

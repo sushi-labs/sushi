@@ -366,6 +366,7 @@ export const LSDS = {
   [EvmChainId.BERACHAIN]: [],
   [EvmChainId.PLASMA]: [],
   [EvmChainId.FUSE]: [],
+  [EvmChainId.MONAD]: [],
 
   // TESTNETS
   [EvmChainId.ARBITRUM_SEPOLIA]: [],

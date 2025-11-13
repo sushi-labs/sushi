@@ -36,6 +36,7 @@ export const PANCAKESWAP_V3_SUPPORTED_CHAIN_IDS = [
   EvmChainId.LINEA,
   EvmChainId.POLYGON_ZKEVM,
   EvmChainId.ZKSYNC_ERA,
+  EvmChainId.MONAD,
 ] as const
 
 export const PancakeSwapV3ChainIds = PANCAKESWAP_V3_SUPPORTED_CHAIN_IDS
@@ -60,6 +61,7 @@ export const PANCAKESWAP_V3_INIT_CODE_HASH: Record<
   [EvmChainId.POLYGON_ZKEVM]: POOL_INIT_CODE_HASH,
   [EvmChainId.ZKSYNC_ERA]:
     '0x01001487a7c45b21c52a0bc0558bf48d897d14792f1d0cc82733c8271d069178',
+  [EvmChainId.MONAD]: POOL_INIT_CODE_HASH,
 } as const
 
 export const PANCAKESWAP_V3_FACTORY_ADDRESS: Record<
@@ -73,6 +75,7 @@ export const PANCAKESWAP_V3_FACTORY_ADDRESS: Record<
   [EvmChainId.LINEA]: '0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865',
   [EvmChainId.POLYGON_ZKEVM]: '0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865',
   [EvmChainId.ZKSYNC_ERA]: '0x1bb72e0cbbea93c08f535fc7856e0338d7f7a8ab',
+  [EvmChainId.MONAD]: '0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865',
 } as const
 
 export const PANCAKESWAP_V3_DEPLOYER_ADDRESS: Record<
@@ -86,4 +89,5 @@ export const PANCAKESWAP_V3_DEPLOYER_ADDRESS: Record<
   [EvmChainId.LINEA]: '0x41ff9aa7e16b8b1a8a8dc4f0efacd93d02d071c9',
   [EvmChainId.POLYGON_ZKEVM]: '0x41ff9aa7e16b8b1a8a8dc4f0efacd93d02d071c9',
   [EvmChainId.ZKSYNC_ERA]: '0x7f71382044a6a62595d5d357fe75ca8199123ad6',
+  [EvmChainId.MONAD]: '0x41ff9aa7e16b8b1a8a8dc4f0efacd93d02d071c9',
 } as const

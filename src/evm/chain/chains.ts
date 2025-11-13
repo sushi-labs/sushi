@@ -415,6 +415,41 @@ const plasma = /* @__PURE__ */ defineEvmChain(
   },
 )
 
+const monad = /* @__PURE__ */ defineEvmChain(
+  /* @__PURE__ */ defineViemChain({
+    id: 143,
+    name: 'Monad',
+    nativeCurrency: {
+      name: 'MON Token', // TODO
+      symbol: 'MON',
+      decimals: 18,
+    },
+    rpcUrls: {
+      default: {
+        http: ['https://rpc.monad.xyz'], // TODO
+      },
+    },
+    blockExplorers: {
+      default: {
+        name: 'MonVision',
+        url: 'https://monvision.io', // TODO
+      },
+    },
+    testnet: false,
+    contracts: {
+      multicall3: {
+        address: '0xca11bde05977b3631167028862be2a173976ca11',
+        blockCreated: 9248132,
+      },
+    },
+  }),
+  {
+    key: 'monad',
+    shortName: 'mon',
+    parentChainId: ethereum.chainId
+  },
+)
+
 // Testnets
 const sepolia = /* @__PURE__ */ defineEvmChain(sepoliaViem, {
   key: 'sepolia',
@@ -543,6 +578,7 @@ export const evmChains = [
   hyperevm,
   berachain,
   plasma,
+  monad,
 
   sepolia,
   arbitrumSepolia,
