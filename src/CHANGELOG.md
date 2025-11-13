@@ -1,5 +1,11 @@
 # sushi
 
+## 6.2.17
+
+### Patch Changes
+
+- [#381](https://github.com/sushi-labs/sushi/pull/381) [`1d4e713`](https://github.com/sushi-labs/sushi/commit/1d4e71383f397e4fd74b02a236d2d18579121e9d) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add monad config
+
 ## 6.2.16
 
 ### Patch Changes
