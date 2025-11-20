@@ -81,7 +81,7 @@ export const USDC = {
 
 export const STARGATE_USDC_ADDRESS = {
   [EvmChainId.FANTOM]: '0x28a92dde19d9989f39a49905d7c9c2fac7799bdf',
-  [EvmChainId.PLUME]: '0x78add880a697070c1e765ac44d65323a0dcce913'
+  [EvmChainId.PLUME]: '0x78add880a697070c1e765ac44d65323a0dcce913',
 } as const
 
 export const STARGATE_USDC = addressMapToTokenMap(

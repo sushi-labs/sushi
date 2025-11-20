@@ -454,5 +454,5 @@ export const EVM_DEFAULT_BASES = {
     WNATIVE[EvmChainId.PLUME],
     USDC[EvmChainId.PLUME],
     PLUME_pUSD[EvmChainId.PLUME],
-  ]
+  ],
 } as const satisfies Record<EvmChainId, Readonly<EvmCurrency[]>>
