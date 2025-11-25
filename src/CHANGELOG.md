@@ -1,5 +1,11 @@
 # sushi
 
+## 6.2.19
+
+### Patch Changes
+
+- [#386](https://github.com/sushi-labs/sushi/pull/386) [`718399e`](https://github.com/sushi-labs/sushi/commit/718399e44e26ec39bf6c6438c645ddaa40286b3f) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - update monad explorer
+
 ## 6.2.18
 
 ### Patch Changes
