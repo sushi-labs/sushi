@@ -431,8 +431,8 @@ const monad = /* @__PURE__ */ defineEvmChain(
     },
     blockExplorers: {
       default: {
-        name: 'MonVision',
-        url: 'https://monvision.io',
+        name: 'Monadscan',
+        url: 'https://monadscan.com',
       },
     },
     testnet: false,
