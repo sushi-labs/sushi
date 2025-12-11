@@ -16,6 +16,7 @@
     "mvm",
     "tvm",
     "kvm",
+    "stellar",
     "package.json"
   ],
   "exports": {
@@ -48,6 +49,12 @@
       "import": "./_esm/kvm/index.js",
       "require": "./_cjs/kvm/index.js",
       "default": "./_esm/kvm/index.js"
+    },
+    "./stellar": {
+      "types": "./_types/stellar/index.d.ts",
+      "import": "./_esm/stellar/index.js",
+      "require": "./_cjs/stellar/index.js",
+      "default": "./_esm/stellar/index.js"
     },
     "./package.json": "./package.json"
   },

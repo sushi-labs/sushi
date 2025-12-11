@@ -1,0 +1,5 @@
+---
+"sushi": minor
+---
+
+Add stellar
