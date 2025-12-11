@@ -7,19 +7,21 @@ import type { StellarChainId, StellarChainKey } from './chains.js'
 
 export type StellarChainType = 'stellar'
 
-type StellarChainBase<TChainId extends number, TChainKey extends string> =
-  Chain<
-    StellarChainType,
-    // @ts-expect-error prevent infinite loop
-    TChainId,
-    TChainKey,
-    Readonly<string>,
-    Readonly<string>,
-    NetType,
-    BlockExplorers,
-    string,
-    string
-  >
+type StellarChainBase<
+  TChainId extends number,
+  TChainKey extends string,
+> = Chain<
+  StellarChainType,
+  // @ts-expect-error prevent infinite loop
+  TChainId,
+  TChainKey,
+  Readonly<string>,
+  Readonly<string>,
+  NetType,
+  BlockExplorers,
+  string,
+  string
+>
 
 export type StellarChain = StellarChainBase<StellarChainId, StellarChainKey>
 
@@ -43,4 +45,3 @@ export function defineStellarChain<const T extends StellarChainInput>(
       `${chain.blockExplorers.default.url}/asset/${input}`,
   } as const satisfies StellarChainBase<number, string>
 }
-

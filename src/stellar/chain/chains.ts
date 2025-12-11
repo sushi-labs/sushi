@@ -8,7 +8,10 @@ const stellar = defineStellarChain({
   shortName: 'xlm',
   key: 'stellar',
   blockExplorers: {
-    default: { name: 'StellarExpert', url: 'https://stellar.expert/explorer/public' },
+    default: {
+      name: 'StellarExpert',
+      url: 'https://stellar.expert/explorer/public',
+    },
   },
   netType: 'mainnet',
 })
@@ -102,4 +105,3 @@ export function getStellarChainByKey<C extends StellarChainKey>(key: C) {
     { key: C }
   >
 }
-

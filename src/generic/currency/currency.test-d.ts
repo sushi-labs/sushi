@@ -429,8 +429,8 @@ describe('generic/currency/currency.ts types', () => {
           decimals: number
           type: 'token'
           metadata: {
-            logoUrl?: string
-            tags?: string[]
+            logoUrl?: string | undefined
+            tags?: string[] | undefined
             verified: boolean
           }
         }>()
