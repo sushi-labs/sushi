@@ -1,5 +1,11 @@
 # sushi
 
+## 6.3.0
+
+### Minor Changes
+
+- [#390](https://github.com/sushi-labs/sushi/pull/390) [`8ec5b3d`](https://github.com/sushi-labs/sushi/commit/8ec5b3d478f68f2c305c4d620b8260ded05104ec) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Add stellar
+
 ## 6.2.19
 
 ### Patch Changes
