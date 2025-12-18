@@ -1,3 +1,4 @@
+import { svmChains } from '~/svm/chain/chains.js'
 import { evmChains } from '../../evm/chain/index.js'
 import { kvmChains } from '../../kvm/chain/chains.js'
 import { mvmChains } from '../../mvm/chain/chains.js'
@@ -12,6 +13,7 @@ export const chains = [
   ...tvmChains,
   ...kvmChains,
   ...stellarChains,
+  ...svmChains,
 ] as const
 
 // ChainId
