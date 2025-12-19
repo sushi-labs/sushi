@@ -15,6 +15,13 @@ describe('generic/chain/chains.ts functions', () => {
     expect(id).toBe(1)
   })
 
+  it('should return an id for solana chain key', () => {
+    const id = ChainId.SOLANA
+
+    expect(id).toBeDefined()
+    expect(id).toBe(-5)
+  })
+
   it('should return undefined for an invalid chain key', () => {
     expect((ChainId as any).STRING).toBeUndefined()
   })

@@ -4,6 +4,9 @@ import type { serializedEvmNativeSchema } from '../../evm/currency/native.js'
 import type { serializedEvmTokenSchema } from '../../evm/currency/token.js'
 import { serializedKvmTokenSchema } from '../../kvm/currency/token.js'
 import { serializedMvmTokenSchema } from '../../mvm/currency/token.js'
+import { serializedSvmCurrencySchema } from '../../svm/currency/currency.js'
+import type { serializedSvmNativeSchema } from '../../svm/currency/native.js'
+import type { serializedSvmTokenSchema } from '../../svm/index.js'
 import {
   serializedTvmCurrencySchema,
   type serializedTvmNativeSchema,
@@ -23,6 +26,9 @@ export type SerializedCurrencySchema<
   | typeof serializedTvmCurrencySchema<TMetadata>
   | typeof serializedCurrencySchema<TMetadata>
   | typeof serializedKvmTokenSchema<TMetadata>
+  | typeof serializedSvmNativeSchema<TMetadata>
+  | typeof serializedSvmTokenSchema<TMetadata>
+  | typeof serializedSvmCurrencySchema<TMetadata>
 >
 
 export const serializedCurrencySchema = <
@@ -35,6 +41,7 @@ export const serializedCurrencySchema = <
     serializedMvmTokenSchema(opts),
     serializedTvmCurrencySchema(opts),
     serializedKvmTokenSchema(opts),
+    serializedSvmCurrencySchema(opts),
   ])
 
 export type SerializedCurrency<
