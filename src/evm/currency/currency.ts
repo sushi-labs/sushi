@@ -1,4 +1,4 @@
-import { z } from 'zod'
+import * as z from 'zod'
 import type { CurrencyMetadata } from '../../generic/currency/currency.js'
 import { nativeAddress } from '../config/simple-constants.js'
 import { type EvmNative, serializedEvmNativeSchema } from './native.js'

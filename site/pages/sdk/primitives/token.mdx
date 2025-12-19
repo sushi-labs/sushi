@@ -73,7 +73,7 @@ Note: You don’t need to pre‑type `metadata` — TypeScript infers it from th
 Each concrete token class exposes a Zod schema factory for its serialized shape. On EVM, use `serializedEvmTokenSchema({ metadata })` to validate parsed JSON. You can supply a custom `metadata` schema to enforce structure; if omitted, metadata defaults to a permissive `record(unknown).optional().default({})`.
 
 ```ts twoslash
-import { z } from 'zod'
+import * as z from 'zod'
 import { EvmToken, serializedEvmTokenSchema } from 'sushi/evm'
 
 // Optional: a stricter metadata schema

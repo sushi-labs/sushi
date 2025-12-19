@@ -1,5 +1,5 @@
 import type { Address } from 'viem'
-import { z } from 'zod'
+import * as z from 'zod'
 import { version } from '../../version.js'
 import type { SwapApiSupportedChainId } from '../config/index.js'
 import { szevm } from '../validate/zod.js'
