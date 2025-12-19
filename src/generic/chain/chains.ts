@@ -1,4 +1,4 @@
-import { svmChains } from '~/svm/chain/chains.js'
+import { svmChains } from '../../svm/chain/chains.js'
 import { evmChains } from '../../evm/chain/index.js'
 import { kvmChains } from '../../kvm/chain/chains.js'
 import { mvmChains } from '../../mvm/chain/chains.js'

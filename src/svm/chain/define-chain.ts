@@ -3,7 +3,7 @@ import type {
   Chain,
   NetType,
 } from '../../generic/chain/interface.js'
-import type { SvmAddress } from '../currency/token.js';
+import type { SvmAddress } from '../currency/token.js'
 import type { SvmChainId, SvmChainKey } from './chains.js'
 
 export type SvmChainType = 'svm'

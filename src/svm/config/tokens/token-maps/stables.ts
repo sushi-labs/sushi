@@ -1,6 +1,6 @@
-import { SvmChainId } from '~/svm/chain/index.js'
-import type { SvmCurrency } from '~/svm/currency/currency.js'
-import type { SvmToken } from '~/svm/currency/token.js'
+import { SvmChainId } from '../../../../svm/chain/index.js'
+import type { SvmCurrency } from '../../../../svm/currency/currency.js'
+import type { SvmToken } from '../../../../svm/currency/token.js'
 import { SVM_USDC } from '../tokens/USDC.js'
 import { SVM_USDT } from '../tokens/USDT.js'
 

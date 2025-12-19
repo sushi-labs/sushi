@@ -95,6 +95,9 @@
     "zod": ">=4"
   },
   "peerDependenciesMeta": {
+    "@solana/addresses": {
+      "optional": true
+    },
     "typescript": {
       "optional": true
     },

@@ -1,4 +1,4 @@
-import { SvmChainId } from '~/svm/chain/index.js'
+import { SvmChainId } from '../../../svm/chain/index.js'
 import { WSOL, WSOL_ADDRESS } from './tokens/WSOL.js'
 
 export const SVM_WNATIVE_ADDRESS = {

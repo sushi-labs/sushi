@@ -1,6 +1,6 @@
-import { SvmChainId, svmChainIds } from '~/svm/chain/index.js'
-import type { SvmCurrency } from '~/svm/currency/currency.js'
-import { SvmNative } from '~/svm/currency/native.js'
+import { SvmChainId, svmChainIds } from '../../../../svm/chain/index.js'
+import type { SvmCurrency } from '../../../../svm/currency/currency.js'
+import { SvmNative } from '../../../../svm/currency/native.js'
 import { SVM_USDC } from '../tokens/USDC.js'
 
 export const svmDefaultCurrency = {

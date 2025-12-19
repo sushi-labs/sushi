@@ -1,5 +1,5 @@
-import { SvmChainId } from '~/svm/chain/index.js'
-import { type SvmAddress, SvmToken } from '~/svm/currency/token.js'
+import { SvmChainId } from '../../../../svm/chain/index.js'
+import { type SvmAddress, SvmToken } from '../../../../svm/currency/token.js'
 
 export const WSOL_ADDRESS = {
   [SvmChainId.SOLANA]:

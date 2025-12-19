@@ -10,7 +10,7 @@ import {
   type SvmChainId,
   SvmNative,
   SvmToken,
-} from '~/svm/index.js'
+} from '../../svm/index.js'
 import { EvmNative } from '../../evm/currency/native.js'
 import {
   type EvmAddress,
