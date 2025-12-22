@@ -1,5 +1,13 @@
 # sushi
 
+## 6.3.1
+
+### Patch Changes
+
+- [#394](https://github.com/sushi-labs/sushi/pull/394) [`999022e`](https://github.com/sushi-labs/sushi/commit/999022e27b67b1d1702e1a42edb159ab28485e3a) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Fix Stellar exports
+
+- [#395](https://github.com/sushi-labs/sushi/pull/395) [`24c2219`](https://github.com/sushi-labs/sushi/commit/24c2219f68c9a77b556eaa010e0e87bfc540f60c) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Fix stellar exports
+
 ## 6.3.0
 
 ### Minor Changes
