@@ -71,6 +71,9 @@
       ],
       "kvm": [
         "_types/kvm/index.d.ts"
+      ],
+      "stellar": [
+        "_types/stellar/index.d.ts"
       ]
     }
   },
