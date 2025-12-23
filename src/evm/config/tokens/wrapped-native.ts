@@ -55,6 +55,7 @@ export const WNATIVE_ADDRESS = {
   [EvmChainId.FUSE]: '0x0be9e53fd7edac9f859882afdda116645287c629',
   [EvmChainId.BOKUTO]: WETH9_ADDRESS[EvmChainId.BOKUTO],
   [EvmChainId.MONAD]: '0x3bd359c1119da7da1d913d1c4d2b7c461115433a',
+  [EvmChainId.PLUME]: '0xea237441c92cae6fc17caaf9a7acb3f953be4bd1',
 } as const satisfies Record<EvmChainId, Address>
 
 export const WNATIVE = {
@@ -266,6 +267,13 @@ export const WNATIVE = {
     decimals: 18,
     symbol: 'WMON',
     name: 'Wrapped MON',
+  }),
+  [EvmChainId.PLUME]: new EvmToken({
+    chainId: EvmChainId.PLUME,
+    address: WNATIVE_ADDRESS[EvmChainId.PLUME],
+    decimals: 18,
+    symbol: 'WPLUME',
+    name: 'Wrapped Plume',
   }),
 } as const satisfies Record<EvmChainId, EvmToken>
 
