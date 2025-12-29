@@ -1,132 +1,132 @@
 {
-	"name": "sushi",
-	"description": "Sushi",
-	"version": "6.3.1",
-	"type": "module",
-	"main": "./_cjs/generic/index.js",
-	"module": "./_esm/generic/index.js",
-	"types": "./_types/generic/index.d.ts",
-	"sideEffects": false,
-	"files": [
-		"_cjs",
-		"_esm",
-		"_types",
-		"generic",
-		"evm",
-		"mvm",
-		"tvm",
-		"kvm",
-		"stellar",
-		"svm",
-		"package.json"
-	],
-	"exports": {
-		".": {
-			"types": "./_types/generic/index.d.ts",
-			"import": "./_esm/generic/index.js",
-			"require": "./_cjs/generic/index.js",
-			"default": "./_esm/generic/index.js"
-		},
-		"./evm": {
-			"types": "./_types/evm/index.d.ts",
-			"import": "./_esm/evm/index.js",
-			"require": "./_cjs/evm/index.js",
-			"default": "./_esm/evm/index.js"
-		},
-		"./mvm": {
-			"types": "./_types/mvm/index.d.ts",
-			"import": "./_esm/mvm/index.js",
-			"require": "./_cjs/mvm/index.js",
-			"default": "./_esm/mvm/index.js"
-		},
-		"./tvm": {
-			"types": "./_types/tvm/index.d.ts",
-			"import": "./_esm/tvm/index.js",
-			"require": "./_cjs/tvm/index.js",
-			"default": "./_esm/tvm/index.js"
-		},
-		"./kvm": {
-			"types": "./_types/kvm/index.d.ts",
-			"import": "./_esm/kvm/index.js",
-			"require": "./_cjs/kvm/index.js",
-			"default": "./_esm/kvm/index.js"
-		},
-		"./stellar": {
-			"types": "./_types/stellar/index.d.ts",
-			"import": "./_esm/stellar/index.js",
-			"require": "./_cjs/stellar/index.js",
-			"default": "./_esm/stellar/index.js"
-		},
-		"./svm": {
-			"types": "./_types/svm/index.d.ts",
-			"import": "./_esm/svm/index.js",
-			"require": "./_cjs/svm/index.js",
-			"default": "./_esm/svm/index.js"
-		},
-		"./package.json": "./package.json"
-	},
-	"typesVersions": {
-		"*": {
-			"evm": [
-				"_types/evm/index.d.ts"
-			],
-			"mvm": [
-				"_types/mvm/index.d.ts"
-			],
-			"tvm": [
-				"_types/tvm/index.d.ts"
-			],
-			"kvm": [
-				"_types/kvm/index.d.ts"
-			],
-			"stellar": [
-				"_types/stellar/index.d.ts"
-			],
-			"svm": [
-				"_types/svm/index.d.ts"
-			]
-		}
-	},
-	"dependencies": {
-		"@uniswap/token-lists": "1.0.0-beta.33",
-		"tiny-invariant": "1.3.3"
-	},
-	"peerDependencies": {
-		"@solana/addresses": ">=5",
-		"typescript": ">= 5.8.3 < 6",
-		"viem": "*",
-		"zod": ">=4"
-	},
-	"peerDependenciesMeta": {
-		"@solana/addresses": {
-			"optional": true
-		},
-		"typescript": {
-			"optional": true
-		},
-		"viem": {
-			"optional": true
-		},
-		"zod": {
-			"optional": true
-		}
-	},
-	"license": "MIT",
-	"homepage": "https://sushi.com",
-	"repository": "sushi-labs/sushi",
-	"author": "Matthew Lilley <hello@matthewLilley.com>",
-	"funding": [
-		{
-			"type": "github",
-			"url": "https://github.com/sponsors/sushi-labs"
-		}
-	],
-	"keywords": [
-		"eth",
-		"ethereum",
-		"dapps",
-		"wallet",
-		"web3",
-		"typescript"
-	]
+  "name": "sushi",
+  "description": "Sushi",
+  "version": "6.3.1",
+  "type": "module",
+  "main": "./_cjs/generic/index.js",
+  "module": "./_esm/generic/index.js",
+  "types": "./_types/generic/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "_cjs",
+    "_esm",
+    "_types",
+    "generic",
+    "evm",
+    "mvm",
+    "tvm",
+    "kvm",
+    "stellar",
+    "svm",
+    "package.json"
+  ],
+  "exports": {
+    ".": {
+      "types": "./_types/generic/index.d.ts",
+      "import": "./_esm/generic/index.js",
+      "require": "./_cjs/generic/index.js",
+      "default": "./_esm/generic/index.js"
+    },
+    "./evm": {
+      "types": "./_types/evm/index.d.ts",
+      "import": "./_esm/evm/index.js",
+      "require": "./_cjs/evm/index.js",
+      "default": "./_esm/evm/index.js"
+    },
+    "./mvm": {
+      "types": "./_types/mvm/index.d.ts",
+      "import": "./_esm/mvm/index.js",
+      "require": "./_cjs/mvm/index.js",
+      "default": "./_esm/mvm/index.js"
+    },
+    "./tvm": {
+      "types": "./_types/tvm/index.d.ts",
+      "import": "./_esm/tvm/index.js",
+      "require": "./_cjs/tvm/index.js",
+      "default": "./_esm/tvm/index.js"
+    },
+    "./kvm": {
+      "types": "./_types/kvm/index.d.ts",
+      "import": "./_esm/kvm/index.js",
+      "require": "./_cjs/kvm/index.js",
+      "default": "./_esm/kvm/index.js"
+    },
+    "./stellar": {
+      "types": "./_types/stellar/index.d.ts",
+      "import": "./_esm/stellar/index.js",
+      "require": "./_cjs/stellar/index.js",
+      "default": "./_esm/stellar/index.js"
+    },
+    "./svm": {
+      "types": "./_types/svm/index.d.ts",
+      "import": "./_esm/svm/index.js",
+      "require": "./_cjs/svm/index.js",
+      "default": "./_esm/svm/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "evm": [
+        "_types/evm/index.d.ts"
+      ],
+      "mvm": [
+        "_types/mvm/index.d.ts"
+      ],
+      "tvm": [
+        "_types/tvm/index.d.ts"
+      ],
+      "kvm": [
+        "_types/kvm/index.d.ts"
+      ],
+      "stellar": [
+        "_types/stellar/index.d.ts"
+      ],
+      "svm": [
+        "_types/svm/index.d.ts"
+      ]
+    }
+  },
+  "dependencies": {
+    "@uniswap/token-lists": "1.0.0-beta.33",
+    "tiny-invariant": "1.3.3"
+  },
+  "peerDependencies": {
+    "@solana/addresses": ">=5",
+    "typescript": ">= 5.8.3 < 6",
+    "viem": "*",
+    "zod": ">=4"
+  },
+  "peerDependenciesMeta": {
+    "@solana/addresses": {
+      "optional": true
+    },
+    "typescript": {
+      "optional": true
+    },
+    "viem": {
+      "optional": true
+    },
+    "zod": {
+      "optional": true
+    }
+  },
+  "license": "MIT",
+  "homepage": "https://sushi.com",
+  "repository": "sushi-labs/sushi",
+  "author": "Matthew Lilley <hello@matthewLilley.com>",
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/sushi-labs"
+    }
+  ],
+  "keywords": [
+    "eth",
+    "ethereum",
+    "dapps",
+    "wallet",
+    "web3",
+    "typescript"
+  ]
 }
