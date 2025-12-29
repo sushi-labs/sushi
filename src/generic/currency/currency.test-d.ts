@@ -5,12 +5,6 @@ import type { EvmChainId } from '~/evm/chain/chains.js'
 import type { EvmCurrency } from '~/evm/currency/currency.js'
 import type { EvmID } from '~/evm/types/id.js'
 import { KvmToken } from '~/kvm/index.js'
-import {
-  type SvmAddress,
-  type SvmChainId,
-  SvmNative,
-  SvmToken,
-} from '../../svm/index.js'
 import { EvmNative } from '../../evm/currency/native.js'
 import {
   type EvmAddress,
@@ -19,6 +13,12 @@ import {
   serializedEvmTokenSchema,
 } from '../../evm/currency/token.js'
 import { MvmToken } from '../../mvm/currency/token.js'
+import {
+  type SvmAddress,
+  type SvmChainId,
+  SvmNative,
+  SvmToken,
+} from '../../svm/index.js'
 import { TvmNative } from '../../tvm/currency/native.js'
 import { TvmToken } from '../../tvm/currency/token.js'
 import { getChainIdAddressFromId } from '../utils/id.js'
