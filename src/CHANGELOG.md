@@ -1,5 +1,11 @@
 # sushi
 
+## 6.4.0
+
+### Minor Changes
+
+- [#393](https://github.com/sushi-labs/sushi/pull/393) [`8dac62e`](https://github.com/sushi-labs/sushi/commit/8dac62ef9cf0587b3aa365872ee884881ec33f4d) Thanks [@Ty-Sir](https://github.com/Ty-Sir)! - Initial Solana support
+
 ## 6.3.1
 
 ### Patch Changes
