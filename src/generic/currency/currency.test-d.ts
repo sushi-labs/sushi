@@ -5,6 +5,7 @@ import type { EvmChainId } from '~/evm/chain/chains.js'
 import type { EvmCurrency } from '~/evm/currency/currency.js'
 import type { EvmID } from '~/evm/types/id.js'
 import { KvmToken } from '~/kvm/index.js'
+import { svmAddress } from '~/svm/currency/token.js'
 import { EvmNative } from '../../evm/currency/native.js'
 import {
   type EvmAddress,
@@ -13,6 +14,12 @@ import {
   serializedEvmTokenSchema,
 } from '../../evm/currency/token.js'
 import { MvmToken } from '../../mvm/currency/token.js'
+import {
+  type SvmAddress,
+  type SvmChainId,
+  SvmNative,
+  SvmToken,
+} from '../../svm/index.js'
 import { TvmNative } from '../../tvm/currency/native.js'
 import { TvmToken } from '../../tvm/currency/token.js'
 import { getChainIdAddressFromId } from '../utils/id.js'
@@ -37,6 +44,17 @@ describe('generic/currency/currency.ts types', () => {
       expectTypeOf(evmMockNative.id).toEqualTypeOf<`${EvmChainId}:NATIVE`>()
     })
 
+    it('should return the correct id for SvmNative', () => {
+      const svmMockNative = new SvmNative({
+        chainId: -5,
+        symbol: 'SVM',
+        name: 'Svm Native',
+        decimals: 9,
+      })
+
+      expectTypeOf(svmMockNative.id).toEqualTypeOf<`${SvmChainId}:NATIVE`>()
+    })
+
     it('should return the correct id for EvmToken', () => {
       const evmMockToken = new EvmToken({
         chainId: 1,
@@ -49,6 +67,20 @@ describe('generic/currency/currency.ts types', () => {
       expectTypeOf(
         evmMockToken.id,
       ).toEqualTypeOf<`${EvmChainId}:${EvmAddress}`>()
+    })
+
+    it('should return the correct id for SvmToken', () => {
+      const svmMockToken = new SvmToken({
+        chainId: -5,
+        address: svmAddress('EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v'),
+        symbol: 'USDC',
+        name: 'USD Coin',
+        decimals: 6,
+      })
+
+      expectTypeOf(
+        svmMockToken.id,
+      ).toEqualTypeOf<`${SvmChainId}:${SvmAddress}`>()
     })
   })
 
@@ -100,7 +132,7 @@ describe('generic/currency/currency.ts types', () => {
       expect(tvmMockToken.address).toBe('t1234567890abcdef1234567890abcdef1')
     })
 
-    it('should not lowercase the address - Kvm', () => {
+    it('should not lowercase the address - Kvm / Svm', () => {
       const kvmMockToken = new KvmToken({
         chainId: -3,
         symbol: 'KVM',
@@ -110,6 +142,18 @@ describe('generic/currency/currency.ts types', () => {
       })
 
       expect(kvmMockToken.address).toBe('My-Namespace.My-Token')
+
+      const svmMockToken = new SvmToken({
+        chainId: -5,
+        symbol: 'USDC',
+        name: 'USD Coin',
+        decimals: 6,
+        address: svmAddress('EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v'),
+      })
+
+      expect(svmMockToken.address).toBe(
+        'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v',
+      )
     })
 
     it('should return the same chaintype - Mvm', () => {
@@ -133,6 +177,17 @@ describe('generic/currency/currency.ts types', () => {
       })
 
       expectTypeOf(tvmMockToken.wrap()).toEqualTypeOf<TvmToken>()
+    })
+
+    it('should return the same chaintype - Svm', () => {
+      const svmMockNative = new SvmNative({
+        chainId: -5,
+        symbol: 'SVM',
+        name: 'Svm Native',
+        decimals: 9,
+      })
+
+      expectTypeOf(svmMockNative.wrap()).toEqualTypeOf<SvmToken>()
     })
 
     it('should return the same chaintype - Kvm', () => {
