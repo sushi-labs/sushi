@@ -7,10 +7,7 @@ export function unwrapSvmToken(currency: SvmCurrency): SvmCurrency {
     return currency
   }
 
-  if (
-    currency.address.toLowerCase() ===
-    SVM_WNATIVE_ADDRESS[currency.chainId].toLowerCase()
-  ) {
+  if (currency.address === SVM_WNATIVE_ADDRESS[currency.chainId]) {
     return SvmNative.fromChainId(currency.chainId)
   }
 

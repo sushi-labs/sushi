@@ -5,6 +5,7 @@ import type { EvmChainId } from '~/evm/chain/chains.js'
 import type { EvmCurrency } from '~/evm/currency/currency.js'
 import type { EvmID } from '~/evm/types/id.js'
 import { KvmToken } from '~/kvm/index.js'
+import { svmAddress } from '~/svm/currency/token.js'
 import { EvmNative } from '../../evm/currency/native.js'
 import {
   type EvmAddress,
@@ -71,7 +72,7 @@ describe('generic/currency/currency.ts types', () => {
     it('should return the correct id for SvmToken', () => {
       const svmMockToken = new SvmToken({
         chainId: -5,
-        address: 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v',
+        address: svmAddress('EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v'),
         symbol: 'USDC',
         name: 'USD Coin',
         decimals: 6,
@@ -147,7 +148,7 @@ describe('generic/currency/currency.ts types', () => {
         symbol: 'USDC',
         name: 'USD Coin',
         decimals: 6,
-        address: 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v',
+        address: svmAddress('EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v'),
       })
 
       expect(svmMockToken.address).toBe(

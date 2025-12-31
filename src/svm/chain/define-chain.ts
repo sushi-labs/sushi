@@ -23,7 +23,7 @@ type SvmChainBase<TChainId extends number, TChainKey extends string> = Chain<
   Readonly<string>,
   NetType,
   BlockExplorers,
-  string,
+  SvmAddress,
   string
 > & {
   nativeCurrency: SvmChainNativeCurrency
@@ -42,7 +42,7 @@ export function defineSvmChain<const T extends SvmChainInput>(chain: T) {
     type: 'svm' as const,
     getTransactionUrl: (input: string) =>
       `${chain.blockExplorers.default.url}/tx/${input}`,
-    getAccountUrl: (input: SvmAddress) =>
+    getAccountUrl: (input: string) =>
       `${chain.blockExplorers.default.url}/account/${input}`,
     getTokenUrl: (input: SvmAddress) =>
       `${chain.blockExplorers.default.url}/token/${input}`,

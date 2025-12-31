@@ -1,9 +1,10 @@
 import { SvmChainId } from '../../../../svm/chain/index.js'
-import { type SvmAddress, SvmToken } from '../../../../svm/currency/token.js'
+import { SvmToken, svmAddress } from '../../../../svm/currency/token.js'
 
 export const SVM_USDT_ADDRESS = {
-  [SvmChainId.SOLANA]:
-    'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB' as SvmAddress<'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB'>,
+  [SvmChainId.SOLANA]: svmAddress(
+    'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB',
+  ),
 } as const
 
 export const SVM_USDT = {

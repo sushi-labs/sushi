@@ -1,16 +1,15 @@
-import { isAddress as _isSvmAddress, type Address } from '@solana/addresses'
+import {
+  isAddress as isSvmAddress,
+  type Address as SvmAddress,
+  address as svmAddress,
+} from '@solana/addresses'
 import * as z from 'zod'
 import type { CurrencyMetadata } from '../../generic/currency/currency.js'
 import { Token } from '../../generic/currency/token.js'
 import { isSvmChainId, type SvmChainId } from '../chain/chains.js'
 
-export type SvmAddress<TAddress extends string = string> =
-  | Address<TAddress>
-  | string
+export { type SvmAddress, svmAddress, isSvmAddress }
 
-export function isSvmAddress(address: string): address is SvmAddress {
-  return _isSvmAddress(address)
-}
 export type SvmTokenOrigin = 'native' | 'native-bridge'
 
 export class SvmToken<

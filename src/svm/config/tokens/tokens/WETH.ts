@@ -1,9 +1,10 @@
 import { SvmChainId } from '../../../../svm/chain/index.js'
-import { type SvmAddress, SvmToken } from '../../../../svm/currency/token.js'
+import { SvmToken, svmAddress } from '../../../../svm/currency/token.js'
 
 export const SVM_WETH_ADDRESS = {
-  [SvmChainId.SOLANA]:
-    '7vfCXTUXx5WJV5JADk17DUJ4ksgau7utNKj4b963voxs' as SvmAddress<'7vfCXTUXx5WJV5JADk17DUJ4ksgau7utNKj4b963voxs'>,
+  [SvmChainId.SOLANA]: svmAddress(
+    '7vfCXTUXx5WJV5JADk17DUJ4ksgau7utNKj4b963voxs',
+  ),
 } as const
 
 export const SVM_WETH = {
