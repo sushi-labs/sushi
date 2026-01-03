@@ -6,7 +6,7 @@ import {
   isSvmChainId,
   type SvmChainId,
 } from '../chain/chains.js'
-import { SVM_WNATIVE } from '../config/index.js'
+import { SVM_WNATIVE } from '../config/tokens/wrapped-native.js'
 import { SvmToken } from './token.js'
 
 export class SvmNative<

@@ -1,4 +1,4 @@
-import { SVM_WNATIVE_ADDRESS } from '../config/index.js'
+import { SVM_WNATIVE_ADDRESS } from '../config/tokens/wrapped-native.js'
 import type { SvmCurrency } from './currency.js'
 import { SvmNative } from './native.js'
 
