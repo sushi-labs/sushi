@@ -1,5 +1,11 @@
 # sushi
 
+## 6.4.1
+
+### Patch Changes
+
+- [#398](https://github.com/sushi-labs/sushi/pull/398) [`44210ef`](https://github.com/sushi-labs/sushi/commit/44210effe6b3fdb0231375aff51dedbcdbdc564c) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Fix Solana token map export
+
 ## 6.4.0
 
 ### Minor Changes
