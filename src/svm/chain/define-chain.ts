@@ -44,7 +44,7 @@ export function defineSvmChain<const T extends SvmChainInput>(chain: T) {
       `${chain.blockExplorers.default.url}/tx/${input}`,
     getAccountUrl: (input: string) =>
       `${chain.blockExplorers.default.url}/account/${input}`,
-    getTokenUrl: (input: SvmAddress) =>
+    getTokenUrl: (input: string) =>
       `${chain.blockExplorers.default.url}/token/${input}`,
   } as const satisfies SvmChainBase<number, string>
 }
