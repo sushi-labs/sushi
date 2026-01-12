@@ -1,5 +1,11 @@
 # sushi
 
+## 6.4.2
+
+### Patch Changes
+
+- [#400](https://github.com/sushi-labs/sushi/pull/400) [`ae61fee`](https://github.com/sushi-labs/sushi/commit/ae61fee680c28a624c46e8976ab47f82f0a41ef3) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - fix svm getTokenUrl
+
 ## 6.4.1
 
 ### Patch Changes
