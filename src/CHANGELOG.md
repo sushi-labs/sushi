@@ -1,5 +1,11 @@
 # sushi
 
+## 6.4.4
+
+### Patch Changes
+
+- [#404](https://github.com/sushi-labs/sushi/pull/404) [`e7d1a04`](https://github.com/sushi-labs/sushi/commit/e7d1a04167ee6a1586cb46253f85d4e61c922196) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Fix imports in AddressFor
+
 ## 6.4.3
 
 ### Patch Changes
