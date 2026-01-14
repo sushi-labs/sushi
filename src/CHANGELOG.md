@@ -1,5 +1,11 @@
 # sushi
 
+## 6.4.5
+
+### Patch Changes
+
+- [#406](https://github.com/sushi-labs/sushi/pull/406) [`985b32c`](https://github.com/sushi-labs/sushi/commit/985b32c8e957e7bc0de231921524f45925761440) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Add for-chain types
+
 ## 6.4.4
 
 ### Patch Changes
