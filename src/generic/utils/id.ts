@@ -1,5 +1,6 @@
 import { nativeAddress } from '../../evm/config/simple-constants.js'
 import { isKvmTokenAddress } from '../../kvm/currency/token.js'
+import { isSvmAddress } from '../../svm/currency/token.js'
 import type { ChainId } from '../chain/chains.js'
 import type { ID } from '../types/id.js'
 
@@ -44,8 +45,8 @@ export function getIdFromChainIdAddress<
     )
   }
 
-  // Kvm addresses are case-sensitive
-  if (!isKvmTokenAddress(address)) {
+  // Kvm and Solana addresses are case-sensitive
+  if (!isKvmTokenAddress(address) && !isSvmAddress(address)) {
     address = address.toLowerCase() as TAddress
   }
 
