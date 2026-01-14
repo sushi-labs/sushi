@@ -1,5 +1,11 @@
 # sushi
 
+## 6.4.3
+
+### Patch Changes
+
+- [#402](https://github.com/sushi-labs/sushi/pull/402) [`38999a0`](https://github.com/sushi-labs/sushi/commit/38999a0c54d3144d5b2b136f418fa17898b0f91d) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Add the AddressFor type
+
 ## 6.4.2
 
 ### Patch Changes
