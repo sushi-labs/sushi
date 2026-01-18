@@ -2,6 +2,7 @@ import * as z from 'zod'
 import type { CurrencyMetadata } from '../../generic/currency/currency.js'
 import { Token } from '../../generic/currency/token.js'
 import { isTvmChainId, type TvmChainId } from '../chain/chains.js'
+import { normalizeTvmAddress } from '../utils/normalize-address.js'
 
 export type TvmAddress = `T${string}`
 
@@ -25,7 +26,7 @@ export class TvmToken<
   } & ConstructorParameters<
     typeof Token<TvmChainId, TvmAddress, TMetadata>
   >[0]) {
-    super({ address: address.toLowerCase() as TvmAddress, ...rest })
+    super({ address: normalizeTvmAddress(address), ...rest })
     this.origin = origin
   }
 

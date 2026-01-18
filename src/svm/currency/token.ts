@@ -7,6 +7,7 @@ import * as z from 'zod'
 import type { CurrencyMetadata } from '../../generic/currency/currency.js'
 import { Token } from '../../generic/currency/token.js'
 import { isSvmChainId, type SvmChainId } from '../chain/chains.js'
+import { normalizeSvmAddress } from '../utils/normalize-address.js'
 
 export { type SvmAddress, svmAddress, isSvmAddress }
 
@@ -19,13 +20,14 @@ export class SvmToken<
 
   constructor({
     origin,
+    address,
     ...rest
   }: {
     origin?: SvmTokenOrigin | undefined
   } & ConstructorParameters<
     typeof Token<SvmChainId, SvmAddress, TMetadata>
   >[0]) {
-    super({ ...rest })
+    super({ address: normalizeSvmAddress(address), ...rest })
     this.origin = origin
   }
 

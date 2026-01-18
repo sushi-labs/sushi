@@ -1,3 +1,6 @@
 export * from './id.js'
 export * from './lowercase-map.js'
+export * from './native-address.js'
+export * from './normalize-address.js'
+export * from './assert-never.js'
 export * from './subtract-slippage.js'

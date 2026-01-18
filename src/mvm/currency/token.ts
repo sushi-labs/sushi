@@ -2,6 +2,7 @@ import * as z from 'zod'
 import type { CurrencyMetadata } from '../../generic/currency/currency.js'
 import { Token } from '../../generic/currency/token.js'
 import { isMvmChainId, type MvmChainId } from '../chain/chains.js'
+import { normalizeMvmAddress } from '../utils/normalize-address.js'
 
 export type MvmAddress = `0x${string}::${string}::${string}`
 
@@ -19,7 +20,7 @@ export class MvmToken<
   }: ConstructorParameters<
     typeof Token<MvmChainId, MvmAddress, TMetadata>
   >[0]) {
-    super({ address: address.toLowerCase() as MvmAddress, ...rest })
+    super({ address: normalizeMvmAddress(address), ...rest })
   }
 
   public override wrap(): MvmToken<TMetadata> {

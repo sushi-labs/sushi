@@ -1,5 +1,5 @@
 import * as z from 'zod'
-import type { CurrencyMetadata } from '~/generic/currency/currency.js'
+import type { CurrencyMetadata } from '../../generic/currency/currency.js'
 import { Native } from '../../generic/currency/native.js'
 import {
   getSvmChainById,
