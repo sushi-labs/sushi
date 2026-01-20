@@ -1,5 +1,11 @@
 # sushi
 
+## 6.4.7
+
+### Patch Changes
+
+- [#410](https://github.com/sushi-labs/sushi/pull/410) [`9c9b70f`](https://github.com/sushi-labs/sushi/commit/9c9b70f65b7c973a87c886d46e31e7f43e790134) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Generic WNativeSupported
+
 ## 6.4.6
 
 ### Patch Changes
