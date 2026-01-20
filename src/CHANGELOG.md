@@ -1,5 +1,11 @@
 # sushi
 
+## 6.4.6
+
+### Patch Changes
+
+- [#408](https://github.com/sushi-labs/sushi/pull/408) [`5016a17`](https://github.com/sushi-labs/sushi/commit/5016a172b349494f5560d661bf2bc46ccaa90ecb) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Extend generic support, nativeAddress -> evmNativeAddress
+
 ## 6.4.5
 
 ### Patch Changes
