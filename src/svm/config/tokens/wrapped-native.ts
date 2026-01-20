@@ -1,5 +1,5 @@
-import type { SvmAddress, SvmToken } from '../../currency/token.js'
 import { SvmChainId } from '../../../svm/chain/index.js'
+import type { SvmAddress, SvmToken } from '../../currency/token.js'
 import { WSOL, WSOL_ADDRESS } from './tokens/WSOL.js'
 
 export const SVM_WNATIVE_ADDRESS = {
