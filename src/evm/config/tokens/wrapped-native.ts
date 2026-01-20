@@ -269,7 +269,7 @@ export const WNATIVE = {
   }),
 } as const satisfies Record<EvmChainId, EvmToken>
 
-export const isWNativeSupported = (chainId: EvmChainId) =>
+export const isEvmWNativeSupported = (chainId: EvmChainId) =>
   WNATIVE_ADDRESS[chainId] !== zeroAddress
 
 export function isWrapOrUnwrap({
