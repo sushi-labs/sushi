@@ -1,0 +1,2 @@
+export const stellarNativeAddress =
+  'GAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' as const

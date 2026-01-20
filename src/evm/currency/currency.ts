@@ -1,6 +1,6 @@
 import * as z from 'zod'
 import type { CurrencyMetadata } from '../../generic/currency/currency.js'
-import { nativeAddress } from '../config/simple-constants.js'
+import { evmNativeAddress } from '../config/simple-constants.js'
 import { type EvmNative, serializedEvmNativeSchema } from './native.js'
 import { type EvmToken, serializedEvmTokenSchema } from './token.js'
 
@@ -23,7 +23,7 @@ export const serializedEvmCurrencySchema = <
  * @returns The address of the currency. If the currency is native, returns the native address constant.
  */
 export function getEvmCurrencyAddress(currency: EvmCurrency) {
-  return currency.type === 'native' ? nativeAddress : currency.address
+  return currency.type === 'native' ? evmNativeAddress : currency.address
 }
 
 export type SerializedEvmCurrency<

@@ -1,8 +1,8 @@
-import { nativeAddress } from '../../evm/config/simple-constants.js'
-import { isKvmTokenAddress } from '../../kvm/currency/token.js'
-import { isSvmAddress } from '../../svm/currency/token.js'
 import type { ChainId } from '../chain/chains.js'
+import type { AddressFor } from '../types/for-chain.js'
 import type { ID } from '../types/id.js'
+import { getNativeAddress } from './native-address.js'
+import { normalizeAddress } from './normalize-address.js'
 
 export function getChainIdAddressFromId<
   TChainId extends ChainId,
@@ -13,13 +13,16 @@ export function getChainIdAddressFromId<
   chainId: TChainId
   address: TAddress
 } {
-  const [chainId, address, ...rest] = id.split(':') as [TChainId, TAddress]
+  const separatorIndex = id.indexOf(':')
 
-  if (rest.length > 0) {
+  if (separatorIndex === -1) {
     throw new Error(
       `Invalid ID format: ${id}. Expected format is "chainId:address".`,
     )
   }
+
+  const chainId = +id.slice(0, separatorIndex) as TChainId
+  const address = id.slice(separatorIndex + 1) as TAddress
 
   if (!chainId || !address) {
     throw new Error(
@@ -27,16 +30,15 @@ export function getChainIdAddressFromId<
     )
   }
 
-  return { chainId: +chainId as TChainId, address }
+  return { chainId, address }
 }
 
 export function getIdFromChainIdAddress<
   TChainId extends ChainId,
-  TAddress extends string,
   TTranslateNative extends boolean = false,
 >(
   chainId: TChainId,
-  address: TAddress,
+  address: AddressFor<TChainId>,
   options: { translateNative?: TTranslateNative } = {},
 ) {
   if (!chainId || !address) {
@@ -45,16 +47,13 @@ export function getIdFromChainIdAddress<
     )
   }
 
-  // Kvm and Solana addresses are case-sensitive
-  if (!isKvmTokenAddress(address) && !isSvmAddress(address)) {
-    address = address.toLowerCase() as TAddress
-  }
+  address = normalizeAddress(chainId, address)
 
-  if (address === nativeAddress && options.translateNative) {
-    address = 'NATIVE' as TAddress
+  if (address === getNativeAddress(chainId) && options.translateNative) {
+    address = 'NATIVE' as AddressFor<TChainId>
   }
 
   return `${chainId}:${address}` as TTranslateNative extends true
-    ? ID<TChainId, TAddress | 'NATIVE'>
-    : ID<TChainId, TAddress>
+    ? ID<TChainId, AddressFor<TChainId> | 'NATIVE'>
+    : ID<TChainId, AddressFor<TChainId>>
 }

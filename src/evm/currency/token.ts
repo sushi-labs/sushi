@@ -4,6 +4,7 @@ import * as z from 'zod'
 import type { CurrencyMetadata } from '../../generic/currency/currency.js'
 import { Token } from '../../generic/currency/token.js'
 import { type EvmChainId, isEvmChainId } from '../chain/chains.js'
+import { normalizeEvmAddress } from '../utils/normalize-address.js'
 
 export type EvmAddress = Address
 
@@ -32,7 +33,7 @@ export class EvmToken<
   } & ConstructorParameters<
     typeof Token<EvmChainId, EvmAddress, TMetadata>
   >[0]) {
-    super({ address: address.toLowerCase() as EvmAddress, ...rest })
+    super({ address: normalizeEvmAddress(address), ...rest })
     this.origin = origin
   }
 
