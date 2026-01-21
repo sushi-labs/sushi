@@ -450,6 +450,41 @@ const monad = /* @__PURE__ */ defineEvmChain(
   },
 )
 
+const megaeth = /* @__PURE__ */ defineEvmChain(
+  /* @__PURE__ */ defineViemChain({
+    id: 4326,
+    name: 'MegaETH',
+    nativeCurrency: {
+      name: 'Ether',
+      symbol: 'ETH',
+      decimals: 18,
+    },
+    rpcUrls: {
+      default: {
+        http: ['https://mainnet.megaeth.com/rpc'],
+      },
+    },
+    blockExplorers: {
+      default: {
+        name: 'MegaETH Explorer',
+        url: 'https://megaeth.blockscout.com',
+      },
+    },
+    testnet: false,
+    contracts: {
+      multicall3: {
+        address: '0xca11bde05977b3631167028862be2a173976ca11',
+        blockCreated: 0,
+      },
+    },
+  }),
+  {
+    key: 'megaeth',
+    shortName: 'megaeth',
+    parentChainId: ethereum.chainId,
+  },
+)
+
 // Testnets
 const sepolia = /* @__PURE__ */ defineEvmChain(sepoliaViem, {
   key: 'sepolia',
@@ -579,6 +614,7 @@ export const evmChains = [
   berachain,
   plasma,
   monad,
+  megaeth,
 
   sepolia,
   arbitrumSepolia,

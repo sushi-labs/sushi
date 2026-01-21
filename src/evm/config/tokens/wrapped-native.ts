@@ -55,6 +55,7 @@ export const WNATIVE_ADDRESS = {
   [EvmChainId.FUSE]: '0x0be9e53fd7edac9f859882afdda116645287c629',
   [EvmChainId.BOKUTO]: WETH9_ADDRESS[EvmChainId.BOKUTO],
   [EvmChainId.MONAD]: '0x3bd359c1119da7da1d913d1c4d2b7c461115433a',
+  [EvmChainId.MEGAETH]: WETH9_ADDRESS[EvmChainId.MEGAETH],
 } as const satisfies Record<EvmChainId, Address>
 
 export const WNATIVE = {
@@ -267,6 +268,7 @@ export const WNATIVE = {
     symbol: 'WMON',
     name: 'Wrapped MON',
   }),
+  [EvmChainId.MEGAETH]: WETH9[EvmChainId.BOKUTO]
 } as const satisfies Record<EvmChainId, EvmToken>
 
 export const isEvmWNativeSupported = (chainId: EvmChainId) =>

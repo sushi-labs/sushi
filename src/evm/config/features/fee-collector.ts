@@ -46,6 +46,7 @@ export const FEE_COLLECTOR_CHAIN_IDS = [
   EvmChainId.PLASMA,
   EvmChainId.FUSE,
   EvmChainId.MONAD,
+  EvmChainId.MEGAETH, // TODO
 ] as const
 
 type FeeCollectorChainId = (typeof FEE_COLLECTOR_CHAIN_IDS)[number]
@@ -104,6 +105,7 @@ export const UI_FEE_COLLECTOR_ADDRESS: Record<
   [EvmChainId.PLASMA]: '0xde7259893af7cdbc9fd806c6ba61d22d581d5667',
   [EvmChainId.FUSE]: '0xde7259893af7cdbc9fd806c6ba61d22d581d5667',
   [EvmChainId.MONAD]: '0xde7259893af7cdbc9fd806c6ba61d22d581d5667',
+  [EvmChainId.MEGAETH]: '0xde7259893af7cdbc9fd806c6ba61d22d581d5667',
 } as const
 export const isUIFeeCollectorChainId = isFeeCollectorChainId
 
@@ -156,6 +158,7 @@ export const SURPLUS_FEE_COLLECTOR_ADDRESS: Record<
   [EvmChainId.PLASMA]: '0x5c2e112783a6854653b4bc7dc22248d3e592559c',
   [EvmChainId.FUSE]: '0x5c2e112783a6854653b4bc7dc22248d3e592559c',
   [EvmChainId.MONAD]: '0x5c2e112783a6854653b4bc7dc22248d3e592559c',
+  [EvmChainId.MEGAETH]: '0x5c2e112783a6854653b4bc7dc22248d3e592559c',
 } as const
 export const isSurplusFeeCollectorChainId = isFeeCollectorChainId
 
@@ -208,5 +211,6 @@ export const PROTOCOL_FEE_COLLECTOR_ADDRESS: Record<
   [EvmChainId.PLASMA]: '0xdbeca8fb948c42634256609bce5a3768c9b3e9eb',
   [EvmChainId.FUSE]: '0xdbeca8fb948c42634256609bce5a3768c9b3e9eb',
   [EvmChainId.MONAD]: '0xdbeca8fb948c42634256609bce5a3768c9b3e9eb',
+  [EvmChainId.MEGAETH]: '0xdbeca8fb948c42634256609bce5a3768c9b3e9eb',
 } as const
 export const isProtocolFeeCollectorChainId = isFeeCollectorChainId

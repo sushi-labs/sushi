@@ -255,6 +255,9 @@ export const STABLES = {
     USDT0[EvmChainId.MONAD],
     AUSD[EvmChainId.MONAD],
   ],
+  [EvmChainId.MEGAETH]: [
+    USDT0[EvmChainId.MEGAETH],
+  ],
   // TESTNETS
   [EvmChainId.ARBITRUM_SEPOLIA]: [],
   [EvmChainId.SEPOLIA]: [USDC[EvmChainId.SEPOLIA]],

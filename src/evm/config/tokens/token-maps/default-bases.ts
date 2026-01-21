@@ -448,4 +448,9 @@ export const EVM_DEFAULT_BASES = {
     USDT0[EvmChainId.MONAD],
     AUSD[EvmChainId.MONAD],
   ],
+  [EvmChainId.MEGAETH]: [
+    EvmNative.fromChainId(EvmChainId.MEGAETH),
+    WNATIVE[EvmChainId.MEGAETH],
+    USDT0[EvmChainId.MEGAETH]
+  ]
 } as const satisfies Record<EvmChainId, Readonly<EvmCurrency[]>>
