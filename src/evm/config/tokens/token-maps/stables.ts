@@ -40,6 +40,7 @@ import type { EvmToken } from '../../../currency/token.js'
 import { AUSD } from '../tokens/AUSD.js'
 import { BERACHAIN_HONEY } from '../tokens/berachain/HONEY.js'
 import { HEMI_VUSD } from '../tokens/hemi/VUSD.js'
+import { MEGAETH_USDm } from '../tokens/megaeth/USDm.js'
 import { USDT0 } from '../tokens/USDT0.js'
 
 export const STABLES = {
@@ -255,7 +256,10 @@ export const STABLES = {
     USDT0[EvmChainId.MONAD],
     AUSD[EvmChainId.MONAD],
   ],
-  [EvmChainId.MEGAETH]: [USDT0[EvmChainId.MEGAETH]],
+  [EvmChainId.MEGAETH]: [
+    USDT0[EvmChainId.MEGAETH],
+    MEGAETH_USDm[EvmChainId.MEGAETH],
+  ],
   // TESTNETS
   [EvmChainId.ARBITRUM_SEPOLIA]: [],
   [EvmChainId.SEPOLIA]: [USDC[EvmChainId.SEPOLIA]],
