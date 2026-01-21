@@ -45,7 +45,7 @@ export const SWAP_API_SUPPORTED_CHAIN_IDS = [
   EvmChainId.BERACHAIN,
   EvmChainId.PLASMA,
   EvmChainId.MONAD,
-  EvmChainId.MEGAETH
+  EvmChainId.MEGAETH,
 ] as const
 
 export type SwapApiSupportedChainId =

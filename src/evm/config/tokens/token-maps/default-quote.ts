@@ -82,5 +82,5 @@ export const defaultQuoteCurrency = {
   [EvmChainId.FUSE]: USDC[EvmChainId.FUSE],
   [EvmChainId.BOKUTO]: USDC[EvmChainId.BOKUTO],
   [EvmChainId.MONAD]: USDC[EvmChainId.MONAD],
-  [EvmChainId.MEGAETH]: USDT0[EvmChainId.MEGAETH]
+  [EvmChainId.MEGAETH]: USDT0[EvmChainId.MEGAETH],
 } as const satisfies Record<EvmChainId, EvmCurrency>
