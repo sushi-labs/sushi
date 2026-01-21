@@ -23,7 +23,7 @@ importers:
         specifier: 2.26.2
         version: 2.26.2
       '@solana/addresses':
-        specifier: 5.1.0
+        specifier: '>=5'
         version: 5.1.0(typescript@5.8.3)
       '@types/big.js':
         specifier: 6.2.0
