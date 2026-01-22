@@ -44,6 +44,7 @@ export const USDC_ADDRESS = {
   [EvmChainId.FUSE]: '0x620fd5fa44be6af63715ef4e65ddfa0387ad13f5',
   [EvmChainId.BOKUTO]: '0xc2a4c310f2512a17ac0047cf871acaed3e62bb4b',
   [EvmChainId.MONAD]: '0x754704bc059f8c67012fed69bc8a327a5aafb603',
+  [EvmChainId.PLUME]: '0x222365ef19f7947e5484218551b56bb3965aa7af',
 } as const
 
 export const USDC = {
@@ -80,6 +81,7 @@ export const USDC = {
 
 export const STARGATE_USDC_ADDRESS = {
   [EvmChainId.FANTOM]: '0x28a92dde19d9989f39a49905d7c9c2fac7799bdf',
+  [EvmChainId.PLUME]: '0x78add880a697070c1e765ac44d65323a0dcce913',
 } as const
 
 export const STARGATE_USDC = addressMapToTokenMap(

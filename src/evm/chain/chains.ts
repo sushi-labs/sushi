@@ -29,6 +29,7 @@ import {
   metis as metisViem,
   mode as modeViem,
   optimism as optimismViem,
+  plumeMainnet as plumeViem,
   polygon as polygonViem,
   polygonZkEvm as polygonZkevmViem,
   rootstock as rootstockViem,
@@ -450,6 +451,11 @@ const monad = /* @__PURE__ */ defineEvmChain(
   },
 )
 
+const plume = /* @__PURE__ */ defineEvmChain(plumeViem, {
+  key: 'plume',
+  shortName: 'plume',
+})
+
 // Testnets
 const sepolia = /* @__PURE__ */ defineEvmChain(sepoliaViem, {
   key: 'sepolia',
@@ -579,6 +585,7 @@ export const evmChains = [
   berachain,
   plasma,
   monad,
+  plume,
 
   sepolia,
   arbitrumSepolia,
