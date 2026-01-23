@@ -1,5 +1,11 @@
 # sushi
 
+## 6.4.9
+
+### Patch Changes
+
+- [#415](https://github.com/sushi-labs/sushi/pull/415) [`5de7804`](https://github.com/sushi-labs/sushi/commit/5de78043210f569b7bcd955ace36c7aef14eaebb) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add megaeth config
+
 ## 6.4.8
 
 ### Patch Changes
