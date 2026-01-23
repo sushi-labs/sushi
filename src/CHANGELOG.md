@@ -1,5 +1,11 @@
 # sushi
 
+## 6.4.8
+
+### Patch Changes
+
+- [#412](https://github.com/sushi-labs/sushi/pull/412) [`4aae5c6`](https://github.com/sushi-labs/sushi/commit/4aae5c6c6a2aee6fbb46b65223636f903a4e8724) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Force @solana/addresses install
+
 ## 6.4.7
 
 ### Patch Changes
