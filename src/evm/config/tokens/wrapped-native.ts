@@ -268,7 +268,7 @@ export const WNATIVE = {
     symbol: 'WMON',
     name: 'Wrapped MON',
   }),
-  [EvmChainId.MEGAETH]: WETH9[EvmChainId.BOKUTO],
+  [EvmChainId.MEGAETH]: WETH9[EvmChainId.MEGAETH],
 } as const satisfies Record<EvmChainId, EvmToken>
 
 export const isEvmWNativeSupported = (chainId: EvmChainId) =>
