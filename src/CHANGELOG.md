@@ -1,5 +1,11 @@
 # sushi
 
+## 6.4.10
+
+### Patch Changes
+
+- [#417](https://github.com/sushi-labs/sushi/pull/417) [`a618a95`](https://github.com/sushi-labs/sushi/commit/a618a95568c544384d02865531f2f93073deb348) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - additional megaeth token config
+
 ## 6.4.9
 
 ### Patch Changes
