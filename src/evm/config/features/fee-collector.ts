@@ -46,7 +46,7 @@ export const FEE_COLLECTOR_CHAIN_IDS = [
   EvmChainId.PLASMA,
   EvmChainId.FUSE,
   EvmChainId.MONAD,
-  EvmChainId.MEGAETH, // TODO
+  EvmChainId.MEGAETH,
 ] as const
 
 type FeeCollectorChainId = (typeof FEE_COLLECTOR_CHAIN_IDS)[number]

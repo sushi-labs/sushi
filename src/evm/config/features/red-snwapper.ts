@@ -46,7 +46,7 @@ export const RED_SNWAPPER_SUPPORTED_CHAIN_IDS = [
   EvmChainId.PLASMA,
   EvmChainId.FUSE,
   EvmChainId.MONAD,
-  EvmChainId.MEGAETH, // TODO
+  EvmChainId.MEGAETH,
   // testnets
   EvmChainId.SEPOLIA,
   EvmChainId.TATARA,
