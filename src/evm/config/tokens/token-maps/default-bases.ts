@@ -31,6 +31,7 @@ import { EvmNative } from '../../../currency/native.js'
 import { EvmToken } from '../../../currency/token.js'
 import { BERACHAIN_HONEY } from '../tokens/berachain/HONEY.js'
 import { HEMI_HEMI } from '../tokens/hemi/HEMI.js'
+import { MEGAETH_USDm } from '../tokens/megaeth/USDm.js'
 import { WNATIVE } from '../wrapped-native.js'
 
 /*
@@ -447,5 +448,11 @@ export const EVM_DEFAULT_BASES = {
     USDC[EvmChainId.MONAD],
     USDT0[EvmChainId.MONAD],
     AUSD[EvmChainId.MONAD],
+  ],
+  [EvmChainId.MEGAETH]: [
+    EvmNative.fromChainId(EvmChainId.MEGAETH),
+    WNATIVE[EvmChainId.MEGAETH],
+    USDT0[EvmChainId.MEGAETH],
+    MEGAETH_USDm[EvmChainId.MEGAETH],
   ],
 } as const satisfies Record<EvmChainId, Readonly<EvmCurrency[]>>
