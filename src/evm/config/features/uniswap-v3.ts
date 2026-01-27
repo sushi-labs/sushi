@@ -56,7 +56,7 @@ export const UNISWAP_V3_SUPPORTED_CHAIN_IDS = [
   EvmChainId.HEMI,
   EvmChainId.PLASMA,
   EvmChainId.MONAD,
-  EvmChainId.XLAYER
+  EvmChainId.XLAYER,
 ] as const
 
 export const UniswapV3ChainIds = UNISWAP_V3_SUPPORTED_CHAIN_IDS
