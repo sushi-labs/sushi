@@ -275,8 +275,8 @@ export const WNATIVE = {
     address: WNATIVE_ADDRESS[EvmChainId.XLAYER],
     decimals: 18,
     symbol: 'WOKB',
-    name: 'Wrapped OKB'
-  })
+    name: 'Wrapped OKB',
+  }),
 } as const satisfies Record<EvmChainId, EvmToken>
 
 export const isEvmWNativeSupported = (chainId: EvmChainId) =>

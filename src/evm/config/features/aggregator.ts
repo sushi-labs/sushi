@@ -14,7 +14,7 @@ export const AGGREGATOR_ONLY_CHAIN_IDS = [
   EvmChainId.PLASMA,
   EvmChainId.MONAD,
   EvmChainId.MEGAETH,
-  EvmChainId.XLAYER
+  EvmChainId.XLAYER,
 ] as const
 
 export type AggregatorOnlyChainId = (typeof AGGREGATOR_ONLY_CHAIN_IDS)[number]
