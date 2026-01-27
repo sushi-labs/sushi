@@ -15,6 +15,7 @@ export const UNISWAP_V2_FACTORY_ADDRESS: Record<
   [EvmChainId.BLAST]: '0x5c346464d33f90babaf70db6388507cc889c1070',
   [EvmChainId.SEPOLIA]: '0xf62c03e08ada871a0beb309762e260a7a6a880e6',
   [EvmChainId.MONAD]: '0x182a927119d56008d921126764bf884221b10f59',
+  [EvmChainId.XLAYER]: '0xdf38f24fe153761634be942f9d859f3dba857e95',
 }
 
 export const UNISWAP_V2_INIT_CODE_HASH =
@@ -32,6 +33,7 @@ export const UNISWAP_V2_SUPPORTED_CHAIN_IDS = [
   EvmChainId.BLAST,
   EvmChainId.SEPOLIA,
   EvmChainId.MONAD,
+  EvmChainId.XLAYER
 ] as const
 
 export const UniswapV2ChainIds = UNISWAP_V2_SUPPORTED_CHAIN_IDS
