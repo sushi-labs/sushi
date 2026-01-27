@@ -455,4 +455,12 @@ export const EVM_DEFAULT_BASES = {
     USDT0[EvmChainId.MEGAETH],
     MEGAETH_USDm[EvmChainId.MEGAETH],
   ],
+  [EvmChainId.XLAYER]: [
+    EvmNative.fromChainId(EvmChainId.XLAYER),
+    WNATIVE[EvmChainId.XLAYER],
+    WETH9[EvmChainId.XLAYER],
+    USDT[EvmChainId.XLAYER],
+    USDT0[EvmChainId.XLAYER],
+    USDC[EvmChainId.XLAYER],
+  ]
 } as const satisfies Record<EvmChainId, Readonly<EvmCurrency[]>>

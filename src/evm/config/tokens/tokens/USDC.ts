@@ -44,6 +44,7 @@ export const USDC_ADDRESS = {
   [EvmChainId.FUSE]: '0x620fd5fa44be6af63715ef4e65ddfa0387ad13f5',
   [EvmChainId.BOKUTO]: '0xc2a4c310f2512a17ac0047cf871acaed3e62bb4b',
   [EvmChainId.MONAD]: '0x754704bc059f8c67012fed69bc8a327a5aafb603',
+  [EvmChainId.XLAYER]: '0x74b7f16337b8972027f6196a17a631ac6de26d22'
 } as const
 
 export const USDC = {
