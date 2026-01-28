@@ -260,6 +260,11 @@ export const STABLES = {
     USDT0[EvmChainId.MEGAETH],
     MEGAETH_USDm[EvmChainId.MEGAETH],
   ],
+  [EvmChainId.XLAYER]: [
+    USDT[EvmChainId.XLAYER],
+    USDT0[EvmChainId.XLAYER],
+    USDC[EvmChainId.XLAYER],
+  ],
   // TESTNETS
   [EvmChainId.ARBITRUM_SEPOLIA]: [],
   [EvmChainId.SEPOLIA]: [USDC[EvmChainId.SEPOLIA]],

@@ -38,6 +38,7 @@ import {
   sonic as sonicViem,
   taiko as taikoViem,
   thunderCore as thundercoreViem,
+  xLayer as xLayerViem,
   zetachain as zetachainViem,
   zkLinkNova as zklinkViem,
   zksync as zksyncViem,
@@ -480,10 +481,15 @@ const megaeth = /* @__PURE__ */ defineEvmChain(
   }),
   {
     key: 'megaeth',
-    shortName: 'megaeth',
+    shortName: 'mega',
     parentChainId: ethereum.chainId,
   },
 )
+
+const xLayer = /* @__PURE__ */ defineEvmChain(xLayerViem, {
+  key: 'xlayer',
+  shortName: 'xlayer',
+})
 
 // Testnets
 const sepolia = /* @__PURE__ */ defineEvmChain(sepoliaViem, {
@@ -615,6 +621,7 @@ export const evmChains = [
   plasma,
   monad,
   megaeth,
+  xLayer,
 
   sepolia,
   arbitrumSepolia,

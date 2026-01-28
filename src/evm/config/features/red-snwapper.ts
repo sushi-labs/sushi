@@ -47,6 +47,7 @@ export const RED_SNWAPPER_SUPPORTED_CHAIN_IDS = [
   EvmChainId.FUSE,
   EvmChainId.MONAD,
   EvmChainId.MEGAETH,
+  EvmChainId.XLAYER,
   // testnets
   EvmChainId.SEPOLIA,
   EvmChainId.TATARA,
@@ -102,6 +103,7 @@ export const RED_SNWAPPER_ADDRESS: Record<RedSnwapperChainId, Address> = {
   [EvmChainId.FUSE]: '0xac4c6e212a361c968f1725b4d055b47e63f80b75',
   [EvmChainId.MONAD]: '0xac4c6e212a361c968f1725b4d055b47e63f80b75',
   [EvmChainId.MEGAETH]: '0xac4c6e212a361c968f1725b4d055b47e63f80b75',
+  [EvmChainId.XLAYER]: '0xac4c6e212a361c968f1725b4d055b47e63f80b75',
   // testnets
   [EvmChainId.SEPOLIA]: '0xac4c6e212a361c968f1725b4d055b47e63f80b75',
   [EvmChainId.TATARA]: '0xac4c6e212a361c968f1725b4d055b47e63f80b75',
