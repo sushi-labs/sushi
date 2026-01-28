@@ -20,7 +20,7 @@
     "swagger-ui-react": "5.19.0",
     "typescript": "5.8.3",
     "viem": "2.37.12",
-    "vocs": "1.0.13"
+    "vocs": "1.4.1"
   },
   "devDependencies": {
     "@types/react": "19.1.0",

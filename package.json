@@ -53,10 +53,7 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "@biomejs/biome"
-    ],
-    "patchedDependencies": {
-      "vocs": "patches/vocs.patch"
-    }
+    ]
   },
   "knip": {
     "ignore": [
