@@ -1,4 +1,3 @@
-import { mathToMarkdown } from 'mdast-util-math'
 import rehypeMathjax from 'rehype-mathjax'
 import remarkMath from 'remark-math'
 import { defineConfig } from 'vocs'
@@ -66,9 +65,6 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [[remarkMath, { singleDollarTextMath: false }]],
     rehypePlugins: [rehypeMathjax],
-  },
-  llms: {
-    extensions: [mathToMarkdown()],
   },
   vite: {
     ssr: {
