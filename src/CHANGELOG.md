@@ -1,5 +1,11 @@
 # sushi
 
+## 6.4.11
+
+### Patch Changes
+
+- [#419](https://github.com/sushi-labs/sushi/pull/419) [`33e26153`](https://github.com/sushi-labs/sushi/commit/33e261538244a4f02c1a92665a64240259cf2c6a) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add xlayer config
+
 ## 6.4.10
 
 ### Patch Changes
