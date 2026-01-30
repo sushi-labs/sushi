@@ -487,8 +487,10 @@ const megaeth = /* @__PURE__ */ defineEvmChain(
 )
 
 const xLayer = /* @__PURE__ */ defineEvmChain(xLayerViem, {
+  name: 'X Layer',
   key: 'xlayer',
   shortName: 'xlayer',
+  parentChainId: ethereum.chainId,
 })
 
 // Testnets
