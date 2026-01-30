@@ -1,5 +1,11 @@
 # sushi
 
+## 6.4.12
+
+### Patch Changes
+
+- [#422](https://github.com/sushi-labs/sushi/pull/422) [`2e53058e`](https://github.com/sushi-labs/sushi/commit/2e53058e092d83909d35b4edd8bcad82a1aa22f5) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - update xlayer chain name
+
 ## 6.4.11
 
 ### Patch Changes
