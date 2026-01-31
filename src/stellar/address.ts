@@ -1,4 +1,5 @@
 export type StellarAddress = `G${string}`
+export type StellarTxHash = string
 
 const stellarAddressRegex = /^G[A-Z2-7]{55}$/
 

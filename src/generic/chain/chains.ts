@@ -4,6 +4,7 @@ import { mvmChains } from '../../mvm/chain/chains.js'
 import { stellarChains } from '../../stellar/chain/chains.js'
 import { svmChains } from '../../svm/chain/chains.js'
 import { tvmChains } from '../../tvm/chain/chains.js'
+import type { AddressFor, TxHashFor } from '../types/for-chain.js'
 import type { Replace } from '../types/replace.js'
 import type { UnionToIntersection } from '../types/union-to-intersection.js'
 
@@ -51,11 +52,17 @@ export function isChainId(chainId: number): chainId is ChainId {
   return chains.some((chain) => chain.chainId === chainId)
 }
 
+type ChainById<C extends ChainId> = Extract<
+  (typeof chains)[number],
+  { chainId: C }
+> & {
+  getTransactionUrl: (input: TxHashFor<C>) => string
+  getAccountUrl: (input: AddressFor<C>) => string
+  getTokenUrl: (input: AddressFor<C>) => string
+}
+
 export function getChainById<C extends ChainId>(chainId: C) {
-  return chains.find((chain) => chain.chainId === chainId)! as Extract<
-    (typeof chains)[number],
-    { chainId: C }
-  >
+  return chains.find((chain) => chain.chainId === chainId)! as ChainById<C>
 }
 
 // MainnetChainId

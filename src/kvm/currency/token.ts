@@ -5,6 +5,7 @@ import { Token } from '../../generic/currency/token.js'
 import { isKvmChainId, type KvmChainId } from '../chain/chains.js'
 
 export type KvmTokenAddress = `${string}.${string}` | 'coin'
+export type KvmTxHash = string
 
 export function isKvmTokenAddress(address: string): address is KvmTokenAddress {
   if (address === 'coin') return true

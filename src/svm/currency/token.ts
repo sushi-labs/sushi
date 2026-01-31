@@ -10,6 +10,7 @@ import { isSvmChainId, type SvmChainId } from '../chain/chains.js'
 import { normalizeSvmAddress } from '../utils/normalize-address.js'
 
 export { type SvmAddress, svmAddress, isSvmAddress }
+export type SvmTxHash = string
 
 export type SvmTokenOrigin = 'native' | 'native-bridge'
 
