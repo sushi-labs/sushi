@@ -5,6 +5,7 @@ import { isMvmChainId, type MvmChainId } from '../chain/chains.js'
 import { normalizeMvmAddress } from '../utils/normalize-address.js'
 
 export type MvmAddress = `0x${string}::${string}::${string}`
+export type MvmTxHash = string
 
 export function isMvmAddress(address: string): address is MvmAddress {
   // 0x${string}::${string}::${string}

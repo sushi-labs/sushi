@@ -5,6 +5,7 @@ import { isTvmChainId, type TvmChainId } from '../chain/chains.js'
 import { normalizeTvmAddress } from '../utils/normalize-address.js'
 
 export type TvmAddress = `T${string}`
+export type TvmTxHash = string
 
 export function isTvmAddress(address: string): address is TvmAddress {
   return !!address.match(/^T[1-9A-HJ-NP-Za-km-z]{33}$/)

@@ -1,5 +1,5 @@
 import invariant from 'tiny-invariant'
-import { type Address, isAddress } from 'viem'
+import { type Address, type Hex, isAddress } from 'viem'
 import * as z from 'zod'
 import type { CurrencyMetadata } from '../../generic/currency/currency.js'
 import { Token } from '../../generic/currency/token.js'
@@ -7,6 +7,7 @@ import { type EvmChainId, isEvmChainId } from '../chain/chains.js'
 import { normalizeEvmAddress } from '../utils/normalize-address.js'
 
 export type EvmAddress = Address
+export type EvmTxHash = Hex
 
 export function isEvmAddress(address: string): address is EvmAddress {
   return isAddress(address, { strict: false })

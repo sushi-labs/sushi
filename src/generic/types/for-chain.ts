@@ -1,20 +1,40 @@
 import type { EvmChainId } from '../../evm/chain/chains.js'
 import type { EvmCurrency } from '../../evm/currency/currency.js'
-import type { EvmAddress, EvmToken } from '../../evm/currency/token.js'
+import type {
+  EvmAddress,
+  EvmToken,
+  EvmTxHash,
+} from '../../evm/currency/token.js'
 import type { EvmID } from '../../evm/types/id.js'
 import type { KvmChainId } from '../../kvm/chain/chains.js'
-import type { KvmToken, KvmTokenAddress } from '../../kvm/currency/token.js'
+import type {
+  KvmToken,
+  KvmTokenAddress,
+  KvmTxHash,
+} from '../../kvm/currency/token.js'
 import type { MvmChainId } from '../../mvm/chain/chains.js'
-import type { MvmAddress, MvmToken } from '../../mvm/currency/token.js'
-import type { StellarAddress } from '../../stellar/address.js'
+import type {
+  MvmAddress,
+  MvmToken,
+  MvmTxHash,
+} from '../../mvm/currency/token.js'
+import type { StellarAddress, StellarTxHash } from '../../stellar/address.js'
 import type { StellarChainId } from '../../stellar/chain/chains.js'
 import type { SvmChainId } from '../../svm/chain/chains.js'
 import type { SvmCurrency } from '../../svm/currency/currency.js'
-import type { SvmAddress, SvmToken } from '../../svm/currency/token.js'
+import type {
+  SvmAddress,
+  SvmToken,
+  SvmTxHash,
+} from '../../svm/currency/token.js'
 import type { SvmID } from '../../svm/types/id.js'
 import type { TvmChainId } from '../../tvm/chain/chains.js'
 import type { TvmCurrency } from '../../tvm/currency/currency.js'
-import type { TvmAddress, TvmToken } from '../../tvm/currency/token.js'
+import type {
+  TvmAddress,
+  TvmToken,
+  TvmTxHash,
+} from '../../tvm/currency/token.js'
 import type { ChainId } from '../chain/chains.js'
 import type { CurrencyMetadata } from '../currency/currency.js'
 
@@ -60,6 +80,20 @@ export type AddressFor<TChainId extends ChainId> = TChainId extends EvmChainId
           ? SvmAddress
           : TChainId extends StellarChainId
             ? StellarAddress
+            : never
+
+export type TxHashFor<TChainId extends ChainId> = TChainId extends EvmChainId
+  ? EvmTxHash
+  : TChainId extends MvmChainId
+    ? MvmTxHash
+    : TChainId extends TvmChainId
+      ? TvmTxHash
+      : TChainId extends KvmChainId
+        ? KvmTxHash
+        : TChainId extends SvmChainId
+          ? SvmTxHash
+          : TChainId extends StellarChainId
+            ? StellarTxHash
             : never
 
 export type IDFor<
