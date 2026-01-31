@@ -1,5 +1,11 @@
 # sushi
 
+## 6.4.13
+
+### Patch Changes
+
+- [#424](https://github.com/sushi-labs/sushi/pull/424) [`9eb653c3`](https://github.com/sushi-labs/sushi/commit/9eb653c3162dae7d90a34f341973d4ec08266268) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Loosen getChainById types
+
 ## 6.4.12
 
 ### Patch Changes
