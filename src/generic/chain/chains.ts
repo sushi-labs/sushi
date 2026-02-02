@@ -3,7 +3,6 @@ import { kvmChains } from '../../kvm/chain/chains.js'
 import { mvmChains } from '../../mvm/chain/chains.js'
 import { stellarChains } from '../../stellar/chain/chains.js'
 import { svmChains } from '../../svm/chain/chains.js'
-import { tvmChains } from '../../tvm/chain/chains.js'
 import type { AddressFor, TxHashFor } from '../types/for-chain.js'
 import type { Replace } from '../types/replace.js'
 import type { UnionToIntersection } from '../types/union-to-intersection.js'
@@ -11,7 +10,6 @@ import type { UnionToIntersection } from '../types/union-to-intersection.js'
 export const chains = [
   ...evmChains,
   ...mvmChains,
-  ...tvmChains,
   ...kvmChains,
   ...stellarChains,
   ...svmChains,

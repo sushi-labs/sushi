@@ -13,9 +13,6 @@ import { normalizeStellarAddress } from '../../stellar/utils/normalize-address.j
 import type { SvmChainId } from '../../svm/chain/chains.js'
 import { isSvmChainId } from '../../svm/chain/chains.js'
 import { normalizeSvmAddress } from '../../svm/utils/normalize-address.js'
-import type { TvmChainId } from '../../tvm/chain/chains.js'
-import { isTvmChainId } from '../../tvm/chain/chains.js'
-import { normalizeTvmAddress } from '../../tvm/utils/normalize-address.js'
 import type { ChainId } from '../chain/chains.js'
 import type { AddressFor } from '../types/for-chain.js'
 import { assertNever } from './assert-never.js'
@@ -33,12 +30,6 @@ export function normalizeAddress<TChainId extends ChainId>(
   if (isMvmChainId(chainId)) {
     return normalizeMvmAddress(
       address as AddressFor<MvmChainId>,
-    ) as AddressFor<TChainId>
-  }
-
-  if (isTvmChainId(chainId)) {
-    return normalizeTvmAddress(
-      address as AddressFor<TvmChainId>,
     ) as AddressFor<TChainId>
   }
 

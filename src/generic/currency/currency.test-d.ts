@@ -20,8 +20,6 @@ import {
   SvmNative,
   SvmToken,
 } from '../../svm/index.js'
-import { TvmNative } from '../../tvm/currency/native.js'
-import { TvmToken } from '../../tvm/currency/token.js'
 import { getChainIdAddressFromId } from '../utils/id.js'
 import {
   BaseCurrency,
@@ -96,7 +94,7 @@ describe('generic/currency/currency.ts types', () => {
       expectTypeOf(evmMockNative.wrap()).toEqualTypeOf<EvmToken>()
     })
 
-    it('should lowercase the address - Evm / Mvm / Tvm', () => {
+    it('should lowercase the address - Evm / Mvm', () => {
       const evmMockToken = new EvmToken({
         chainId: 1,
         address: '0x1234567890ABCDEF1234567890ABCDEF12345678',
@@ -120,16 +118,6 @@ describe('generic/currency/currency.ts types', () => {
       expect(mvmMockToken.address).toBe(
         '0x1234567890abcdef1234567890abcdef12345678::mvm::token',
       )
-
-      const tvmMockToken = new TvmToken({
-        chainId: -2,
-        address: 'T1234567890ABCDEF1234567890ABCDEF1',
-        symbol: 'TVM',
-        name: 'Tvm Token',
-        decimals: 18,
-      })
-
-      expect(tvmMockToken.address).toBe('t1234567890abcdef1234567890abcdef1')
     })
 
     it('should not lowercase the address - Kvm / Svm', () => {
@@ -166,17 +154,6 @@ describe('generic/currency/currency.ts types', () => {
       })
 
       expectTypeOf(mvmMockToken.wrap()).toEqualTypeOf<MvmToken>()
-    })
-
-    it('should return the same chaintype - Tvm', () => {
-      const tvmMockToken = new TvmNative({
-        chainId: -2,
-        symbol: 'TVM',
-        name: 'Tvm Native',
-        decimals: 18,
-      })
-
-      expectTypeOf(tvmMockToken.wrap()).toEqualTypeOf<TvmToken>()
     })
 
     it('should return the same chaintype - Svm', () => {

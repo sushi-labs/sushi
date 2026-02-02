@@ -8,8 +8,6 @@ import { isStellarChainId } from '../../stellar/chain/chains.js'
 import { stellarNativeAddress } from '../../stellar/config/simple-constants.js'
 import { isSvmChainId } from '../../svm/chain/chains.js'
 import { svmNativeAddress } from '../../svm/config/simple-constants.js'
-import { isTvmChainId } from '../../tvm/chain/chains.js'
-import { tvmNativeAddress } from '../../tvm/config/simple-constants.js'
 import type { ChainId } from '../chain/chains.js'
 import type { AddressFor } from '../types/for-chain.js'
 import { assertNever } from './assert-never.js'
@@ -23,10 +21,6 @@ export function getNativeAddress<TChainId extends ChainId>(
 
   if (isMvmChainId(chainId)) {
     return mvmNativeAddress as AddressFor<TChainId>
-  }
-
-  if (isTvmChainId(chainId)) {
-    return tvmNativeAddress as AddressFor<TChainId>
   }
 
   if (isKvmChainId(chainId)) {

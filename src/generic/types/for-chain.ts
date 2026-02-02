@@ -28,13 +28,6 @@ import type {
   SvmTxHash,
 } from '../../svm/currency/token.js'
 import type { SvmID } from '../../svm/types/id.js'
-import type { TvmChainId } from '../../tvm/chain/chains.js'
-import type { TvmCurrency } from '../../tvm/currency/currency.js'
-import type {
-  TvmAddress,
-  TvmToken,
-  TvmTxHash,
-} from '../../tvm/currency/token.js'
 import type { ChainId } from '../chain/chains.js'
 import type { CurrencyMetadata } from '../currency/currency.js'
 
@@ -45,13 +38,11 @@ export type TokenFor<
   ? EvmToken<Metadata>
   : TChainId extends MvmChainId
     ? MvmToken<Metadata>
-    : TChainId extends TvmChainId
-      ? TvmToken<Metadata>
-      : TChainId extends KvmChainId
-        ? KvmToken<Metadata>
-        : TChainId extends SvmChainId
-          ? SvmToken<Metadata>
-          : never
+    : TChainId extends KvmChainId
+      ? KvmToken<Metadata>
+      : TChainId extends SvmChainId
+        ? SvmToken<Metadata>
+        : never
 
 export type CurrencyFor<
   TChainId extends Exclude<ChainId, StellarChainId>,
@@ -62,39 +53,33 @@ export type CurrencyFor<
     ? MvmToken<Metadata>
     : TChainId extends KvmChainId
       ? KvmToken<Metadata>
-      : TChainId extends TvmChainId
-        ? TvmCurrency<Metadata>
-        : TChainId extends SvmChainId
-          ? SvmCurrency<Metadata>
-          : never
+      : TChainId extends SvmChainId
+        ? SvmCurrency<Metadata>
+        : never
 
 export type AddressFor<TChainId extends ChainId> = TChainId extends EvmChainId
   ? EvmAddress
   : TChainId extends MvmChainId
     ? MvmAddress
-    : TChainId extends TvmChainId
-      ? TvmAddress
-      : TChainId extends KvmChainId
-        ? KvmTokenAddress
-        : TChainId extends SvmChainId
-          ? SvmAddress
-          : TChainId extends StellarChainId
-            ? StellarAddress
-            : never
+    : TChainId extends KvmChainId
+      ? KvmTokenAddress
+      : TChainId extends SvmChainId
+        ? SvmAddress
+        : TChainId extends StellarChainId
+          ? StellarAddress
+          : never
 
 export type TxHashFor<TChainId extends ChainId> = TChainId extends EvmChainId
   ? EvmTxHash
   : TChainId extends MvmChainId
     ? MvmTxHash
-    : TChainId extends TvmChainId
-      ? TvmTxHash
-      : TChainId extends KvmChainId
-        ? KvmTxHash
-        : TChainId extends SvmChainId
-          ? SvmTxHash
-          : TChainId extends StellarChainId
-            ? StellarTxHash
-            : never
+    : TChainId extends KvmChainId
+      ? KvmTxHash
+      : TChainId extends SvmChainId
+        ? SvmTxHash
+        : TChainId extends StellarChainId
+          ? StellarTxHash
+          : never
 
 export type IDFor<
   TChainId extends EvmChainId | SvmChainId,
