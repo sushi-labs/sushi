@@ -1,14 +1,7 @@
 import { EvmChainId } from '../../../chain/index.js'
 import type { SushiSwapV3ChainId } from '../../features/sushiswap-v3.js'
 import { getSubgraphUrlWrapper, wrapAsIdType } from '../get-subgraph-url.js'
-import {
-  CORE_HOST,
-  HAQQ_HOST,
-  METIS_0XGRAPH_HOST,
-  SUSHI_DEDICATED_GOLDSKY_HOST,
-  SUSHI_GOLDSKY_HOST,
-  THUNDERCORE_HOST,
-} from '../hosts.js'
+import { SUSHI_DEDICATED_GOLDSKY_HOST } from '../hosts.js'
 
 const SUSHISWAP_V3_DECENTRALIZED_DEPLOYMENT_IDS = {
   [EvmChainId.ARBITRUM]: `QmecewJ7QhNTKycFQjySoim7eDrZ53MaR754GbEPqqMGHy`,
@@ -32,14 +25,7 @@ const SUSHISWAP_V3_DECENTRALIZED_SUBGRAPH_IDS = {
 
 const SUSHISWAP_V3_OTHER_URLS = {
   [EvmChainId.ARBITRUM_NOVA]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushi-v3/v3-arbitrum-nova/gn`,
-  [EvmChainId.THUNDERCORE]: `${THUNDERCORE_HOST}/sushi-v3/v3-thundercore-2`,
-  [EvmChainId.CORE]: `${CORE_HOST}/sushi-v3/v3-core-tvl-fix`,
-  [EvmChainId.KAVA]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushi-v3/v3-kava/gn`,
-  [EvmChainId.METIS]: `${METIS_0XGRAPH_HOST}/sushi-v3/v3-metis/v0.0.1/gn`,
-  [EvmChainId.BTTC]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushi-v3/v3-bttc/gn`,
   [EvmChainId.FILECOIN]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-filecoin/gn`,
-  [EvmChainId.HAQQ]: `${HAQQ_HOST}/sushi/v3-haqq-2`,
-  [EvmChainId.ZETACHAIN]: `${SUSHI_GOLDSKY_HOST}/v3-zetachain/1.0.0/gn`,
   [EvmChainId.BLAST]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-blast/gn`,
   [EvmChainId.SKALE_EUROPA]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-skale-europa-2/gn`,
   [EvmChainId.ROOTSTOCK]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-rootstock-3/gn`,

@@ -1,9 +1,6 @@
 import type { EvmChainId } from '../../evm/chain/chains.js'
 import { isEvmChainId } from '../../evm/chain/chains.js'
 import { normalizeEvmAddress } from '../../evm/utils/normalize-address.js'
-import type { KvmChainId } from '../../kvm/chain/chains.js'
-import { isKvmChainId } from '../../kvm/chain/chains.js'
-import { normalizeKvmAddress } from '../../kvm/utils/normalize-address.js'
 import type { MvmChainId } from '../../mvm/chain/chains.js'
 import { isMvmChainId } from '../../mvm/chain/chains.js'
 import { normalizeMvmAddress } from '../../mvm/utils/normalize-address.js'
@@ -13,9 +10,6 @@ import { normalizeStellarAddress } from '../../stellar/utils/normalize-address.j
 import type { SvmChainId } from '../../svm/chain/chains.js'
 import { isSvmChainId } from '../../svm/chain/chains.js'
 import { normalizeSvmAddress } from '../../svm/utils/normalize-address.js'
-import type { TvmChainId } from '../../tvm/chain/chains.js'
-import { isTvmChainId } from '../../tvm/chain/chains.js'
-import { normalizeTvmAddress } from '../../tvm/utils/normalize-address.js'
 import type { ChainId } from '../chain/chains.js'
 import type { AddressFor } from '../types/for-chain.js'
 import { assertNever } from './assert-never.js'
@@ -33,18 +27,6 @@ export function normalizeAddress<TChainId extends ChainId>(
   if (isMvmChainId(chainId)) {
     return normalizeMvmAddress(
       address as AddressFor<MvmChainId>,
-    ) as AddressFor<TChainId>
-  }
-
-  if (isTvmChainId(chainId)) {
-    return normalizeTvmAddress(
-      address as AddressFor<TvmChainId>,
-    ) as AddressFor<TChainId>
-  }
-
-  if (isKvmChainId(chainId)) {
-    return normalizeKvmAddress(
-      address as AddressFor<KvmChainId>,
     ) as AddressFor<TChainId>
   }
 

@@ -14,8 +14,6 @@
     "generic",
     "evm",
     "mvm",
-    "tvm",
-    "kvm",
     "stellar",
     "svm",
     "package.json"
@@ -39,18 +37,6 @@
       "require": "./_cjs/mvm/index.js",
       "default": "./_esm/mvm/index.js"
     },
-    "./tvm": {
-      "types": "./_types/tvm/index.d.ts",
-      "import": "./_esm/tvm/index.js",
-      "require": "./_cjs/tvm/index.js",
-      "default": "./_esm/tvm/index.js"
-    },
-    "./kvm": {
-      "types": "./_types/kvm/index.d.ts",
-      "import": "./_esm/kvm/index.js",
-      "require": "./_cjs/kvm/index.js",
-      "default": "./_esm/kvm/index.js"
-    },
     "./stellar": {
       "types": "./_types/stellar/index.d.ts",
       "import": "./_esm/stellar/index.js",
@@ -72,12 +58,6 @@
       ],
       "mvm": [
         "_types/mvm/index.d.ts"
-      ],
-      "tvm": [
-        "_types/tvm/index.d.ts"
-      ],
-      "kvm": [
-        "_types/kvm/index.d.ts"
       ],
       "stellar": [
         "_types/stellar/index.d.ts"
