@@ -1,5 +1,11 @@
 # sushi
 
+## 6.5.0
+
+### Minor Changes
+
+- [#426](https://github.com/sushi-labs/sushi/pull/426) [`1e7deafe`](https://github.com/sushi-labs/sushi/commit/1e7deafefb044928eb8d0904d1ca514417654401) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Remove tvm, kvm, deprecate multiple evm AMMs
+
 ## 6.4.13
 
 ### Patch Changes
