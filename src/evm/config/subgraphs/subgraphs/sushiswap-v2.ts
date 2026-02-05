@@ -1,10 +1,7 @@
 import { EvmChainId } from '../../../chain/index.js'
 import type { SushiSwapV2ChainId } from '../../features/sushiswap-v2.js'
 import { getSubgraphUrlWrapper, wrapAsIdType } from '../get-subgraph-url.js'
-import {
-  SKALE_HOST,
-  SUSHI_DEDICATED_GOLDSKY_HOST,
-} from '../hosts.js'
+import { SKALE_HOST, SUSHI_DEDICATED_GOLDSKY_HOST } from '../hosts.js'
 
 const SUSHISWAP_V2_DECENTRALIZED_DEPLOYMENT_IDS = {
   [EvmChainId.ETHEREUM]: `QmaR2nAMF6dCHBL1eFNQ4F5nGpJQs7V11PZobJB2FgQtbt`,
