@@ -155,7 +155,6 @@ describe('generic/currency/currency.ts types', () => {
 
       expectTypeOf(svmMockNative.wrap()).toEqualTypeOf<SvmToken>()
     })
-
   })
 
   describe('isNative/isToken', () => {
