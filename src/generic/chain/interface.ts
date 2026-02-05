@@ -1,5 +1,4 @@
 import type { EvmChainType } from '../../evm/chain/define-chain.js'
-import type { KvmChainType } from '../../kvm/chain/define-chain.js'
 import type { MvmChainType } from '../../mvm/chain/define-chain.js'
 import type { StellarChainType } from '../../stellar/chain/define-chain.js'
 import type { SvmChainType } from '../../svm/chain/define-chain.js'
@@ -8,7 +7,6 @@ import type { ChainId, ChainKey } from './chains.js'
 export type ChainType =
   | EvmChainType
   | MvmChainType
-  | KvmChainType
   | StellarChainType
   | SvmChainType
 

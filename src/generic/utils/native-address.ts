@@ -1,7 +1,5 @@
 import { isEvmChainId } from '../../evm/chain/chains.js'
 import { evmNativeAddress } from '../../evm/config/simple-constants.js'
-import { isKvmChainId } from '../../kvm/chain/chains.js'
-import { kvmNativeAddress } from '../../kvm/config/simple-constants.js'
 import { isMvmChainId } from '../../mvm/chain/chains.js'
 import { mvmNativeAddress } from '../../mvm/config/simple-constants.js'
 import { isStellarChainId } from '../../stellar/chain/chains.js'
@@ -21,10 +19,6 @@ export function getNativeAddress<TChainId extends ChainId>(
 
   if (isMvmChainId(chainId)) {
     return mvmNativeAddress as AddressFor<TChainId>
-  }
-
-  if (isKvmChainId(chainId)) {
-    return kvmNativeAddress as AddressFor<TChainId>
   }
 
   if (isSvmChainId(chainId)) {
