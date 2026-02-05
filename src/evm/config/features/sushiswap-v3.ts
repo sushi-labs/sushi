@@ -292,6 +292,7 @@ export const SUSHISWAP_V3_SUPPORTED_CHAIN_IDS = [
   EvmChainId.SONIC,
   EvmChainId.HEMI,
   EvmChainId.KATANA,
+  EvmChainId.BLAST,
   // testnets
   EvmChainId.SEPOLIA,
   EvmChainId.TATARA,
@@ -318,7 +319,6 @@ export const DEPRECATED_SUSHISWAP_V3_CHAIN_IDS = [
   EvmChainId.CORE,
   EvmChainId.THUNDERCORE,
   EvmChainId.HAQQ,
-  EvmChainId.BLAST,
 ] as const
 
 export const DeprecatedSushiSwapV3ChainIds = DEPRECATED_SUSHISWAP_V3_CHAIN_IDS

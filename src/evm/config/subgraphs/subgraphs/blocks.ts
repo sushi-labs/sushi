@@ -44,8 +44,8 @@ const BLOCKS_OTHER_URLS = {
   [EvmChainId.FILECOIN]: `${GOLDSKY_COMMUNITY_HOST}/blocks/filecoin-4760001/gn`,
   [EvmChainId.HAQQ]: `${HAQQ_HOST}/sushi/blocks-haqq`,
   [EvmChainId.ZETACHAIN]: `${SUSHI_GOLDSKY_HOST}/blocks-zetachain/1.0.0/gn`,
-  [EvmChainId.BLAST]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/blocks-blast/gn`,
-  [EvmChainId.MANTLE]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/blocks/v1-mantle/gn`,
+  [EvmChainId.BLAST]: `${GOLDSKY_COMMUNITY_HOST}/blocks/blast/gn`,
+  [EvmChainId.MANTLE]: `${GOLDSKY_COMMUNITY_HOST}/blocks/mantle/gn`,
   [EvmChainId.SKALE_EUROPA]: `${SKALE_HOST}/sushi/blocks-skale-europa`,
   [EvmChainId.ROOTSTOCK]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/blocks-rootstock/gn`,
 } as const satisfies Partial<Record<EvmChainId, string>>
