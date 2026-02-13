@@ -122,6 +122,15 @@ export const sidebar = {
           ],
         },
         {
+          text: 'Stellar',
+          collapsed: true,
+          items: [
+            { text: 'Overview', link: '/sdk/stellar' },
+            { text: 'Chains', link: '/sdk/stellar/chains' },
+            { text: 'Addresses', link: '/sdk/stellar/addresses' },
+          ],
+        },
+        {
           text: 'Examples',
           collapsed: true,
           items: [
