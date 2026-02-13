@@ -1,5 +1,11 @@
 # sushi
 
+## 6.5.1
+
+### Patch Changes
+
+- [#429](https://github.com/sushi-labs/sushi/pull/429) [`7290cd1d`](https://github.com/sushi-labs/sushi/commit/7290cd1dd42ab4fd3d0bca9d11d1d3ad933b7b8a) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - add steer types
+
 ## 6.5.0
 
 ### Minor Changes
