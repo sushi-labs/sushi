@@ -1,0 +1,99 @@
+# Chains
+
+The Stellar chain registry defines network metadata and provides typed helpers for working with Stellar chain IDs and keys.
+
+## Supported Chains
+
+| Name | Chain ID | Key | Short Name | Net Type | Explorer |
+|---|---|---|---|---|---|
+| Stellar | `-4` | `stellar` | `xlm` | mainnet | [StellarExpert](https://stellar.expert/explorer/public) |
+
+## StellarChainId
+
+`StellarChainId` is an enum-like proxy that maps uppercase chain keys to their numeric IDs. This mirrors the `ChainId` pattern used elsewhere in the SDK.
+
+```ts twoslash
+import { StellarChainId } from 'sushi/stellar'
+
+StellarChainId.STELLAR // -4
+```
+
+### Type Guard
+
+Use `isStellarChainId` to narrow an arbitrary number to a `StellarChainId`:
+
+```ts twoslash
+import { isStellarChainId } from 'sushi/stellar'
+
+isStellarChainId(-4)  // true
+isStellarChainId(1)   // false (Ethereum)
+```
+
+### Mainnet Guard
+
+Use `isStellarMainnetChainId` to check specifically for mainnet chain IDs:
+
+```ts twoslash
+import { isStellarMainnetChainId } from 'sushi/stellar'
+
+isStellarMainnetChainId(-4) // true
+```
+
+## Chain Lookup
+
+Retrieve the full chain object by ID or key:
+
+```ts twoslash
+import { getStellarChainById, getStellarChainByKey } from 'sushi/stellar'
+
+const byId = getStellarChainById(-4 as const)
+byId.name            // 'Stellar'
+byId.shortName       // 'xlm'
+byId.blockExplorers.default.url // 'https://stellar.expert/explorer/public'
+
+const byKey = getStellarChainByKey('stellar')
+byKey.chainId        // -4
+```
+
+## StellarChainKey
+
+`StellarChainKey` is a string literal union of all registered Stellar chain keys. Use `isStellarChainKey` to validate:
+
+```ts twoslash
+import { isStellarChainKey } from 'sushi/stellar'
+
+isStellarChainKey('stellar') // true
+isStellarChainKey('ethereum') // false
+```
+
+## Explorer URLs
+
+Each chain object exposes helpers for building block explorer links:
+
+```ts twoslash
+import { getStellarChainById } from 'sushi/stellar'
+
+const chain = getStellarChainById(-4 as const)
+
+chain.getTransactionUrl('abc123')
+// 'https://stellar.expert/explorer/public/tx/abc123'
+
+chain.getAccountUrl('GABC...')
+// 'https://stellar.expert/explorer/public/account/GABC...'
+
+chain.getTokenUrl('USDC-GABC...')
+// 'https://stellar.expert/explorer/public/asset/USDC-GABC...'
+```
+
+## stellarChains
+
+The `stellarChains` array contains all registered Stellar chain definitions. It is merged into the generic `chains` array from `sushi/generic`.
+
+```ts twoslash
+import { stellarChains } from 'sushi/stellar'
+
+for (const chain of stellarChains) {
+  console.log(chain.chainId, chain.name, chain.type)
+  // -4 'Stellar' 'stellar'
+}
+```
