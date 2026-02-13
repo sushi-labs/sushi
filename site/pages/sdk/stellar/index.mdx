@@ -1,0 +1,57 @@
+# Stellar
+
+The `sushi/stellar` module provides first-class support for the [Stellar](https://stellar.org) network, including chain metadata, typed addresses, validation, and normalization — all fully integrated into the generic `sushi` chain model.
+
+## Overview
+
+| Export | Summary |
+|---|---|
+| [Chains](chains) | Chain registry, `StellarChainId`, lookup helpers, block explorers. |
+| [Addresses](addresses) | `StellarAddress` / `StellarTxHash` types, validation via `isStellarAddress`, normalization. |
+
+## Quick Start
+
+Import from `sushi/stellar` for Stellar-specific types and helpers, or use the generic `sushi/generic` module for chain-agnostic code that automatically handles Stellar.
+
+```ts twoslash
+import { StellarChainId, isStellarChainId, stellarChains } from 'sushi/stellar'
+import { ChainId } from 'sushi/generic'
+
+// Access the Stellar mainnet chain ID via the enum-like proxy
+const chainId = StellarChainId.STELLAR // -4
+
+// Check whether a chain ID belongs to Stellar
+isStellarChainId(chainId) // true
+
+// Stellar is included in the unified chain list
+const chain = stellarChains[0]
+chain.name       // 'Stellar'
+chain.shortName  // 'xlm'
+chain.type       // 'stellar'
+```
+
+## Generic Integration
+
+Stellar is wired into the shared `sushi/generic` layer. The generic `AddressFor` and `TxHashFor` conditional types resolve to `StellarAddress` and `StellarTxHash` when given a Stellar chain ID, and utilities like `normalizeAddress` and `nativeAddress` delegate to their Stellar implementations automatically.
+
+```ts twoslash
+import { ChainId, chains } from 'sushi/generic'
+
+// Find Stellar in the unified chain list
+const stellar = chains.find((c) => c.type === 'stellar')
+stellar?.name // 'Stellar'
+```
+
+## Module Structure
+
+```
+sushi/stellar
+├── address.ts              # StellarAddress, StellarTxHash, isStellarAddress
+├── chain/
+│   ├── chains.ts           # Chain registry, StellarChainId, helpers
+│   └── define-chain.ts     # defineStellarChain, StellarChain type
+├── config/
+│   └── simple-constants.ts # stellarNativeAddress
+└── utils/
+    └── normalize-address.ts # normalizeStellarAddress
+```
