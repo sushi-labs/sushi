@@ -1,4 +1,4 @@
-import type { PoolId } from "./pool-id.js"
+import type { PoolId } from './pool-id.js'
 
 type PoolHasSteerVaultsRequired = {
   hasEnabledSteerVault: boolean
