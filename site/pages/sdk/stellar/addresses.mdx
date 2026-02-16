@@ -1,0 +1,91 @@
+# Addresses
+
+The Stellar module provides typed address primitives, validation, and normalization for the Stellar network.
+
+## StellarAddress
+
+`StellarAddress` is a branded string type representing a valid Stellar public key. Stellar addresses are [Ed25519](https://en.wikipedia.org/wiki/EdDSA) public keys encoded in [Strkey](https://stellar.org/protocol/sep-23) format — they always start with `G` followed by 55 uppercase base-32 characters.
+
+```ts twoslash
+import type { StellarAddress } from 'sushi/stellar'
+
+const address: StellarAddress = 'GAAZI4TCR3TY5OJHCTJC2A4QSY6CJWJH5IAJTGKIN2ER7LBNVKOCCWN7'
+```
+
+## StellarTxHash
+
+`StellarTxHash` represents a Stellar transaction hash:
+
+```ts twoslash
+import type { StellarTxHash } from 'sushi/stellar'
+
+const txHash: StellarTxHash = '3389e9f0f1a65f19736cacf544c2e825313e8447f569233bb8db39aa607c8889'
+```
+
+## Validation
+
+Use `isStellarAddress` to check whether a string is a valid Stellar address. It validates the `G`-prefix and the 56-character base-32 format:
+
+```ts twoslash
+import { isStellarAddress } from 'sushi/stellar'
+
+// Valid Stellar address
+isStellarAddress('GAAZI4TCR3TY5OJHCTJC2A4QSY6CJWJH5IAJTGKIN2ER7LBNVKOCCWN7')
+// true
+
+// Invalid — too short
+isStellarAddress('GAAZI4TCR3TY5')
+// false
+
+// Invalid — wrong prefix
+isStellarAddress('0x6B3595068778DD592e39A122f4f5a5cF09C90fE2')
+// false
+```
+
+The validation regex is:
+
+```
+/^G[A-Z2-7]{55}$/
+```
+
+## Normalization
+
+`normalizeStellarAddress` uppercases a Stellar address to ensure consistent formatting:
+
+```ts twoslash
+import { normalizeStellarAddress } from 'sushi/stellar'
+import type { StellarAddress } from 'sushi/stellar'
+
+const normalized = normalizeStellarAddress(
+  'GAAZI4TCR3TY5OJHCTJC2A4QSY6CJWJH5IAJTGKIN2ER7LBNVKOCCWN7' as StellarAddress
+)
+// 'GAAZI4TCR3TY5OJHCTJC2A4QSY6CJWJH5IAJTGKIN2ER7LBNVKOCCWN7'
+```
+
+When working with the generic layer, `normalizeAddress` from `sushi/generic` automatically delegates to `normalizeStellarAddress` for Stellar chain IDs.
+
+## Native Address
+
+The Stellar native asset (XLM) is represented by a special constant address:
+
+```ts twoslash
+import { stellarNativeAddress } from 'sushi/stellar'
+
+stellarNativeAddress
+// 'GAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+```
+
+Similarly, the generic `nativeAddress` from `sushi/generic` returns this constant when given a Stellar chain ID.
+
+## Generic Type Integration
+
+Stellar address and transaction hash types are integrated into the generic conditional types. When you use `AddressFor` or `TxHashFor` with a Stellar chain ID, they resolve to the correct Stellar types:
+
+```ts twoslash
+import type { AddressFor, TxHashFor } from 'sushi/generic'
+import type { StellarChainId } from 'sushi/stellar'
+
+// These resolve to StellarAddress and StellarTxHash
+type Addr = AddressFor<StellarChainId>  // StellarAddress
+type Hash = TxHashFor<StellarChainId>   // StellarTxHash
+```
