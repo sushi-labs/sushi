@@ -10,6 +10,8 @@ export function isStellarAddress(address: string): address is StellarAddress {
 
 const stellarContractAddressRegex = /^C[A-Z2-7]{55}$/
 
-export function isStellarContractAddress(address: string): address is StellarContractAddress {
+export function isStellarContractAddress(
+  address: string,
+): address is StellarContractAddress {
   return stellarContractAddressRegex.test(address)
 }

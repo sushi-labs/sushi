@@ -1,5 +1,5 @@
-import type { StellarContractAddress } from "../address.js"
-import { StellarChainId } from "../chain/chains.js"
+import type { StellarContractAddress } from '../address.js'
+import { StellarChainId } from '../chain/chains.js'
 
 export const stellarNativeAddress =
   'GAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' as const
@@ -8,13 +8,11 @@ export const SUSHISWAP_V3_FACTORY_ADDRESS: Record<
   StellarChainId,
   StellarContractAddress
 > = {
-  [StellarChainId.STELLAR]: 'CCRSMJDITH3VK5QOGYCVZDAKIY5GL3RCG4TCVLIAVB662IW2V5KJGZGF',
+  [StellarChainId.STELLAR]:
+    'CCRSMJDITH3VK5QOGYCVZDAKIY5GL3RCG4TCVLIAVB662IW2V5KJGZGF',
 }
 
-export const SUSHISWAP_V3_INIT_CODE_HASH: Record<
-  StellarChainId,
-  string
-> = {
+export const SUSHISWAP_V3_INIT_CODE_HASH: Record<StellarChainId, string> = {
   [StellarChainId.STELLAR]:
     '95a8e0018530226701ef8d31c7d4c2fe20ed9d7c303a14a70c3d96848ca4fa54',
 }
