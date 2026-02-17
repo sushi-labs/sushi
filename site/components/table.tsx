@@ -1,5 +1,5 @@
 import type { FC, ReactElement } from 'react'
-import { AddressFor, ChainId, getChainById } from 'sushi'
+import { type AddressFor, type ChainId, getChainById } from 'sushi'
 
 export type NetworkTableFormatter<C extends ChainId = ChainId> = ({
   chainId,
