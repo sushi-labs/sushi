@@ -42,7 +42,7 @@ export function defineStellarChain<const T extends StellarChainInput>(
       `${chain.blockExplorers.default.url}/tx/${input}`,
     getAccountUrl: (input: string) => {
       if (isStellarContractAddress(input)) {
-      return `${chain.blockExplorers.default.url}/contract/${input}`
+        return `${chain.blockExplorers.default.url}/contract/${input}`
       }
       return `${chain.blockExplorers.default.url}/account/${input}`
     },
