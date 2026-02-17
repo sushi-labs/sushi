@@ -1,5 +1,11 @@
 # sushi
 
+## 6.5.2
+
+### Patch Changes
+
+- [#435](https://github.com/sushi-labs/sushi/pull/435) [`eda89642`](https://github.com/sushi-labs/sushi/commit/eda89642284dffd94660081920435c6bafcc87c7) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Update stellar functions
+
 ## 6.5.1
 
 ### Patch Changes
