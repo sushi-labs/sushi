@@ -3,6 +3,7 @@ import type {
   Chain,
   NetType,
 } from '../../generic/chain/interface.js'
+import { isStellarContractAddress } from '../address.js'
 import type { StellarChainId, StellarChainKey } from './chains.js'
 
 export type StellarChainType = 'stellar'
@@ -39,8 +40,12 @@ export function defineStellarChain<const T extends StellarChainInput>(
 
     getTransactionUrl: (input: string) =>
       `${chain.blockExplorers.default.url}/tx/${input}`,
-    getAccountUrl: (input: string) =>
-      `${chain.blockExplorers.default.url}/account/${input}`,
+    getAccountUrl: (input: string) => {
+      if (isStellarContractAddress(input)) {
+        return `${chain.blockExplorers.default.url}/contract/${input}`
+      }
+      return `${chain.blockExplorers.default.url}/account/${input}`
+    },
     getTokenUrl: (input: string) =>
       `${chain.blockExplorers.default.url}/asset/${input}`,
   } as const satisfies StellarChainBase<number, string>

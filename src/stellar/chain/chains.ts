@@ -76,23 +76,6 @@ export function isStellarMainnetChainId(
   )
 }
 
-// // StellarTestnetChainId
-
-// export type StellarTestnetChainId = Extract<
-//   (typeof stellarChains)[number],
-//   { netType: 'testnet' }
-// >['chainId']
-
-// export function isStellarTestnetChainId(
-//   chainId: number,
-// ): chainId is StellarTestnetChainId {
-//   return stellarChains.some(
-//     (chain) => chain.chainId === chainId && chain.netType === 'testnet',
-//   )
-// }
-
-// StellarChainKey
-
 export type StellarChainKey = (typeof stellarChains)[number]['key']
 
 export function isStellarChainKey(key: string): key is StellarChainKey {
