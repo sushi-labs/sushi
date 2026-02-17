@@ -1,17 +1,17 @@
 import type { FC, ReactElement } from 'react'
-import { type EvmAddress, type EvmChainId, getEvmChainById } from 'sushi/evm'
+import { AddressFor, ChainId, getChainById } from 'sushi'
 
-export type NetworkTableFormatter = ({
+export type NetworkTableFormatter<C extends ChainId = ChainId> = ({
   chainId,
   value,
 }: {
-  chainId: EvmChainId
-  value: EvmAddress
+  chainId: C
+  value: AddressFor<C>
 }) => ReactElement
 
 const formatExplorerLink: NetworkTableFormatter = ({ chainId, value }) => (
   <a
-    href={getEvmChainById(chainId).getAccountUrl(value)}
+    href={getChainById(chainId).getAccountUrl(value)}
     target={'_blank'}
     rel={'noopener noreferrer'}
   >
@@ -23,10 +23,10 @@ const formatCode: NetworkTableFormatter = ({ value }) => (
   <code className="vocs_Code">{value}</code>
 )
 
-interface NetworkTable {
+interface NetworkTable<C extends ChainId = ChainId> {
   title: string
-  data: Record<EvmChainId, EvmAddress | EvmAddress[]>
-  formatter?: NetworkTableFormatter
+  data: Record<C, AddressFor<C> | AddressFor<C>[]>
+  formatter?: NetworkTableFormatter<C>
 }
 
 export const NetworkTable: FC<NetworkTable> = ({
@@ -44,12 +44,12 @@ export const NetworkTable: FC<NetworkTable> = ({
       </thead>
       <tbody>
         {Object.entries(data).map(([key, value]) => {
-          const chainId = +key as EvmChainId
+          const chainId = +key as ChainId
           if (!value || value.length === 0) return null
           return (
             <tr key={key} className="vocs_TableRow">
               <td className="vocs_TableCell">
-                {getEvmChainById(chainId).name.toUpperCase()}
+                {getChainById(chainId).name.toUpperCase()}
               </td>
               <td className="vocs_TableCell">
                 {Array.isArray(value) ? (
@@ -71,7 +71,7 @@ export const NetworkTable: FC<NetworkTable> = ({
 }
 
 export const AddressTable: FC<{
-  data: Record<EvmChainId, EvmAddress | EvmAddress[]>
+  data: Record<ChainId, AddressFor<ChainId> | AddressFor<ChainId>[]>
 }> = ({ data }) => {
   return (
     <NetworkTable
@@ -101,7 +101,7 @@ export const LinkTable: FC<LinkTable> = ({ title, data }) => {
           return (
             <tr key={key} className="vocs_TableRow">
               <td className="vocs_TableCell">
-                {getEvmChainById(+key as EvmChainId)?.name.toUpperCase()}
+                {getChainById(+key as ChainId)?.name.toUpperCase()}
               </td>
               <td className="vocs_TableCell">
                 <a
