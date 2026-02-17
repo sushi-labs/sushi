@@ -178,6 +178,7 @@ export const sidebar = {
             // { text: 'lbAMM', link: '/contracts/lbamm' },
           ],
         },
+        { text: 'Soroban (Stellar)', link: '/contracts/soroban' },
         {
           text: 'Governance',
           collapsed: true,
