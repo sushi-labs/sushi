@@ -40,6 +40,8 @@ function quoteResponseSchema<Visualize extends boolean>(visualize?: Visualize) {
 
       amountIn: z.string(),
       assumedAmountOut: z.string(),
+
+      gasSpent: z.number(),
     })
     .transform((data) => ({
       ...data,
