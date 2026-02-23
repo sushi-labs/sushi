@@ -1,5 +1,11 @@
 # sushi
 
+## 6.5.3
+
+### Patch Changes
+
+- [#438](https://github.com/sushi-labs/sushi/pull/438) [`5c1582e6`](https://github.com/sushi-labs/sushi/commit/5c1582e65daf8d3454da3765febd0a76d4e590ca) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Update Katana Blocks Subgraph
+
 ## 6.5.2
 
 ### Patch Changes
