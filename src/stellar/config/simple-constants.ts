@@ -14,7 +14,7 @@ export const SUSHISWAP_V3_FACTORY_ADDRESS: Record<
 
 export const SUSHISWAP_V3_INIT_CODE_HASH: Record<StellarChainId, string> = {
   [StellarChainId.STELLAR]:
-    '41ae735d2312f50975f5b7c70c3f71c2a0785113014dc24e474c3f3688e6224f',
+    '48b28121451497952c1c35d58d4556f315a5b468ccde9fcd03f510aefa07c117',
 }
 
 export const SUSHISWAP_V3_POSITION_MANAGER: Record<
