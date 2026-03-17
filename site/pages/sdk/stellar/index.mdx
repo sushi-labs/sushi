@@ -1,13 +1,13 @@
 # Stellar
 
-The `sushi/stellar` module provides first-class support for the [Stellar](https://stellar.org) network, including chain metadata, typed addresses, validation, and normalization — all fully integrated into the generic `sushi` chain model.
+The `sushi/stellar` module provides first-class support for the [Stellar](https://stellar.org) network, including chain metadata, explicit account vs contract address types, validation, and normalization in the generic `sushi` model.
 
 ## Overview
 
-| Export | Summary |
-|---|---|
-| [Chains](chains) | Chain registry, `StellarChainId`, lookup helpers, block explorers. |
-| [Addresses](addresses) | `StellarAddress` / `StellarTxHash` types, validation via `isStellarAddress`, normalization. |
+| Export                 | Summary                                                                                                          |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| [Chains](chains)       | Chain registry, `StellarChainId`, lookup helpers, block explorers.                                               |
+| [Addresses](addresses) | `StellarAccountAddress`, `StellarContractAddress`, `StellarAddress`, `StellarTxHash`, validators, normalization. |
 
 ## Quick Start
 
@@ -25,9 +25,9 @@ isStellarChainId(chainId) // true
 
 // Stellar is included in the unified chain list
 const chain = stellarChains[0]
-chain.name       // 'Stellar'
-chain.shortName  // 'xlm'
-chain.type       // 'stellar'
+chain.name // 'Stellar'
+chain.shortName // 'xlm'
+chain.type // 'stellar'
 ```
 
 ## Generic Integration
@@ -46,7 +46,7 @@ stellar?.name // 'Stellar'
 
 ```
 sushi/stellar
-├── address.ts              # StellarAddress, StellarTxHash, isStellarAddress
+├── address.ts              # StellarAccountAddress, StellarContractAddress, validators
 ├── chain/
 │   ├── chains.ts           # Chain registry, StellarChainId, helpers
 │   └── define-chain.ts     # defineStellarChain, StellarChain type

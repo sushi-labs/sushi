@@ -1,7 +1,7 @@
 import type { StellarAddress } from '../address.js'
 
-export function normalizeStellarAddress(
-  address: StellarAddress,
-): StellarAddress {
-  return address.toUpperCase() as StellarAddress
+export function normalizeStellarAddress<TAddress extends StellarAddress>(
+  address: TAddress,
+): TAddress {
+  return address.toUpperCase() as TAddress
 }
