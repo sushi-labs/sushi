@@ -1,5 +1,11 @@
 # sushi
 
+## 6.5.5
+
+### Patch Changes
+
+- [#442](https://github.com/sushi-labs/sushi/pull/442) [`1aa8ed3`](https://github.com/sushi-labs/sushi/commit/1aa8ed369a36f3af7823f5e67c326e417689041d) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Stellar Address Types
+
 ## 6.5.4
 
 ### Patch Changes
