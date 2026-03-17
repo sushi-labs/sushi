@@ -1,8 +1,11 @@
-import type { StellarContractAddress } from '../address.js'
+import type {
+  StellarAccountAddress,
+  StellarContractAddress,
+} from '../address.js'
 import { StellarChainId } from '../chain/chains.js'
 
 export const stellarNativeAddress =
-  'GAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' as const
+  'GAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' as const satisfies StellarAccountAddress
 
 export const SUSHISWAP_V3_FACTORY_ADDRESS: Record<
   StellarChainId,
