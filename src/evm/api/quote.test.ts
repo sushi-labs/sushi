@@ -32,6 +32,16 @@ describe('getQuote', () => {
     }
   })
 
+  it('should return gasSpent as a number on success', async () => {
+    const result = await getQuote(baseQuoteRequest)
+
+    expect(result.status).toBe('Success')
+    if (result.status === 'Success') {
+      expect(result.gasSpent).toBeTypeOf('number')
+      expect(result.gasSpent).toBeGreaterThan(0)
+    }
+  })
+
   it.skip('should return a quote when url is set to staging', async () => {
     const result = await getQuote({
       ...baseQuoteRequest,
