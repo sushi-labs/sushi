@@ -4,7 +4,7 @@ import { STELLAR_USDC } from '../tokens/USDC.js'
 import { STELLAR_XLM } from '../tokens/XLM.js'
 
 export const svmDefaultCurrency = {
-  [StellarChainId.STELLAR]: STELLAR_XLM[StellarChainId.STELLAR]
+  [StellarChainId.STELLAR]: STELLAR_XLM[StellarChainId.STELLAR],
 } as const satisfies Record<StellarChainId, StellarCurrency>
 
 export const svmDefaultQuoteCurrency = {
