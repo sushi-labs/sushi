@@ -6,7 +6,7 @@ export const STELLAR_EURC_ADDRESS = {
     'CDTKPWPLOURQA2SGTKTUQOWRCBZEORB4BWBOMJ3D3ZTQQSGE5F6JBQLV',
 } as const
 
-export const STELLAR_EURC = {
+export const STELLAR_EURC: Record<StellarChainId, StellarToken> = {
   [StellarChainId.STELLAR]: new StellarToken({
     chainId: StellarChainId.STELLAR,
     address: STELLAR_EURC_ADDRESS[StellarChainId.STELLAR],
