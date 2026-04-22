@@ -6,9 +6,7 @@ import { serializedMvmTokenSchema } from '../../mvm/currency/token.js'
 import { serializedStellarCurrencySchema } from '../../stellar/currency/currency.js'
 import type { serializedStellarTokenSchema } from '../../stellar/index.js'
 import { serializedSvmCurrencySchema } from '../../svm/currency/currency.js'
-import type {
-  serializedSvmNativeSchema,
-} from '../../svm/currency/native.js'
+import type { serializedSvmNativeSchema } from '../../svm/currency/native.js'
 import type { serializedSvmTokenSchema } from '../../svm/index.js'
 import type { CurrencyMetadata } from './currency.js'
 

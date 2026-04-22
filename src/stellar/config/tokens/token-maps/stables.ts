@@ -4,9 +4,7 @@ import type { StellarToken } from '../../../../stellar/currency/token.js'
 import { STELLAR_USDC } from '../tokens/USDC.js'
 
 export const STELLAR_STABLES = {
-  [StellarChainId.STELLAR]: [
-    STELLAR_USDC[StellarChainId.STELLAR],
-  ],
+  [StellarChainId.STELLAR]: [STELLAR_USDC[StellarChainId.STELLAR]],
 } as const satisfies Record<StellarChainId, StellarToken[]>
 
 export function isStellarStable(currency: StellarCurrency): boolean {
