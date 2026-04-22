@@ -1,5 +1,5 @@
-import { StellarChainId } from '~/stellar/chain/chains.js'
-import { StellarToken } from '~/stellar/currency/token.js'
+import { StellarChainId } from '../../../chain/chains.js'
+import { StellarToken } from '../../../currency/token.js'
 
 export const STELLAR_XLM_ADDRESS = {
   [StellarChainId.STELLAR]:
