@@ -14,6 +14,8 @@ import type {
 } from '../../mvm/currency/token.js'
 import type { StellarAddress, StellarTxHash } from '../../stellar/address.js'
 import type { StellarChainId } from '../../stellar/chain/chains.js'
+import type { StellarCurrency } from '../../stellar/currency/currency.js'
+import type { StellarToken } from '../../stellar/currency/token.js'
 import type { SvmChainId } from '../../svm/chain/chains.js'
 import type { SvmCurrency } from '../../svm/currency/currency.js'
 import type {
@@ -34,7 +36,9 @@ export type TokenFor<
     ? MvmToken<Metadata>
     : TChainId extends SvmChainId
       ? SvmToken<Metadata>
-      : never
+      : TChainId extends StellarChainId
+        ? StellarToken<Metadata>
+        : never
 
 export type CurrencyFor<
   TChainId extends Exclude<ChainId, StellarChainId>,
@@ -45,7 +49,9 @@ export type CurrencyFor<
     ? MvmToken<Metadata>
     : TChainId extends SvmChainId
       ? SvmCurrency<Metadata>
-      : never
+      : TChainId extends StellarChainId
+        ? StellarCurrency<Metadata>
+        : never
 
 export type AddressFor<TChainId extends ChainId> = TChainId extends EvmChainId
   ? EvmAddress
