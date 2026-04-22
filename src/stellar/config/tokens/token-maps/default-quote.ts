@@ -1,14 +1,12 @@
-import { SvmChainId, svmChainIds } from '../../../../svm/chain/index.js'
-import type { SvmCurrency } from '../../../../svm/currency/currency.js'
-import { SvmNative } from '../../../../svm/currency/native.js'
-import { SVM_USDC } from '../tokens/USDC.js'
+import { StellarChainId } from '../../../../stellar/chain/index.js'
+import type { StellarCurrency } from '../../../../stellar/currency/currency.js'
+import { STELLAR_USDC } from '../tokens/USDC.js'
+import { STELLAR_XLM } from '../tokens/XLM.js'
 
 export const svmDefaultCurrency = {
-  ...(Object.fromEntries(
-    svmChainIds.map((chainId) => [chainId, SvmNative.fromChainId(chainId)]),
-  ) as Record<SvmChainId, SvmCurrency>),
-} as const satisfies Record<SvmChainId, SvmCurrency>
+  [StellarChainId.STELLAR]: STELLAR_XLM[StellarChainId.STELLAR]
+} as const satisfies Record<StellarChainId, StellarCurrency>
 
 export const svmDefaultQuoteCurrency = {
-  [SvmChainId.SOLANA]: SVM_USDC[SvmChainId.SOLANA],
-} as const satisfies Record<SvmChainId, SvmCurrency>
+  [StellarChainId.STELLAR]: STELLAR_USDC[StellarChainId.STELLAR],
+} as const satisfies Record<StellarChainId, StellarCurrency>
