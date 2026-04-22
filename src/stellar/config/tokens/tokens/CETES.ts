@@ -19,4 +19,4 @@ export const STELLAR_CETES = {
       icon: 'https://assets.coingecko.com/coins/images/37855/standard/cetes.png',
     },
   }),
-} as const
+}

@@ -19,4 +19,4 @@ export const STELLAR_XSOLVBTC = {
       icon: 'https://raw.githubusercontent.com/solv-finance/solv-resources/main/xSolvBTC/xSolvBTC.svg',
     },
   }),
-} as const
+}

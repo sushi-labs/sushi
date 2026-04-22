@@ -19,4 +19,4 @@ export const STELLAR_USTRY = {
       icon: 'https://assets.coingecko.com/coins/images/52361/standard/-STABLEBOND-06.jpg',
     },
   }),
-} as const
+}

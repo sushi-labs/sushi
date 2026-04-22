@@ -19,4 +19,4 @@ export const STELLAR_USDC = {
       icon: 'https://stellar.myfilebase.com/ipfs/QmNcfZxs8e9uVyhEa3xoPWCsj3ZogGirtixMEC9Km4Fjm2',
     },
   }),
-} as const
+}

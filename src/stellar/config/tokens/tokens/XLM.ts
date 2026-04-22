@@ -19,4 +19,4 @@ export const STELLAR_XLM = {
       icon: 'https://assets.coingecko.com/coins/images/100/large/Stellar_symbol_black_RGB.png',
     },
   }),
-} as const
+}

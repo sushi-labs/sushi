@@ -19,4 +19,4 @@ export const STELLAR_USDY = {
       icon: 'https://assets.coingecko.com/coins/images/31700/standard/usdy_(1).png',
     },
   }),
-} as const
+}

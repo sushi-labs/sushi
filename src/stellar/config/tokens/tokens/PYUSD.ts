@@ -19,4 +19,4 @@ export const STELLAR_PYUSD = {
       icon: 'https://assets.coingecko.com/coins/images/31212/standard/PYUSD_Token_Logo_2x.png',
     },
   }),
-} as const
+}

@@ -19,4 +19,4 @@ export const STELLAR_EURC = {
       icon: 'https://stellar.myfilebase.com/ipfs/QmeRk7LG85cozSNey9QGARgbxYi1cG1dA1G6SNJGMTMdF2',
     },
   }),
-} as const
+}
