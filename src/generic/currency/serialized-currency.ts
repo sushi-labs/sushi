@@ -3,8 +3,12 @@ import { serializedEvmCurrencySchema } from '../../evm/currency/currency.js'
 import type { serializedEvmNativeSchema } from '../../evm/currency/native.js'
 import type { serializedEvmTokenSchema } from '../../evm/currency/token.js'
 import { serializedMvmTokenSchema } from '../../mvm/currency/token.js'
+import { serializedStellarCurrencySchema } from '../../stellar/currency/currency.js'
+import type { serializedStellarTokenSchema } from '../../stellar/index.js'
 import { serializedSvmCurrencySchema } from '../../svm/currency/currency.js'
-import type { serializedSvmNativeSchema } from '../../svm/currency/native.js'
+import type {
+  serializedSvmNativeSchema,
+} from '../../svm/currency/native.js'
 import type { serializedSvmTokenSchema } from '../../svm/index.js'
 import type { CurrencyMetadata } from './currency.js'
 
@@ -19,6 +23,8 @@ export type SerializedCurrencySchema<
   | typeof serializedSvmNativeSchema<TMetadata>
   | typeof serializedSvmTokenSchema<TMetadata>
   | typeof serializedSvmCurrencySchema<TMetadata>
+  | typeof serializedStellarCurrencySchema<TMetadata>
+  | typeof serializedStellarTokenSchema<TMetadata>
 >
 
 export const serializedCurrencySchema = <
@@ -30,6 +36,7 @@ export const serializedCurrencySchema = <
     serializedEvmCurrencySchema(opts),
     serializedMvmTokenSchema(opts),
     serializedSvmCurrencySchema(opts),
+    serializedStellarCurrencySchema(opts),
   ])
 
 export type SerializedCurrency<
