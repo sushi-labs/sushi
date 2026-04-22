@@ -14,7 +14,7 @@ export const STELLAR_EURC = {
     decimals: 7,
     symbol: 'EURC',
     name: 'EURC',
-    domain: 'circle.com',
+    origin: 'circle.com',
     metadata: {
       icon: 'https://stellar.myfilebase.com/ipfs/QmeRk7LG85cozSNey9QGARgbxYi1cG1dA1G6SNJGMTMdF2',
     },
