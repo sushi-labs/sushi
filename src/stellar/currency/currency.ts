@@ -12,10 +12,6 @@ export const serializedStellarCurrencySchema = <
   opts: { metadata?: z.ZodType<TMetadata> } = {},
 ) => z.discriminatedUnion('type', [serializedStellarTokenSchema(opts)])
 
-/**
- *
- * @returns The address of the currency. If the currency is native, returns the native address constant.
- */
 export function getStellarCurrencyAddress(currency: StellarCurrency) {
   return currency.address
 }

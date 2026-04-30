@@ -28,7 +28,7 @@ import type { ChainId } from '../chain/chains.js'
 import type { CurrencyMetadata } from '../currency/currency.js'
 
 export type TokenFor<
-  TChainId extends Exclude<ChainId, StellarChainId>,
+  TChainId extends ChainId,
   Metadata extends CurrencyMetadata = CurrencyMetadata,
 > = TChainId extends EvmChainId
   ? EvmToken<Metadata>
@@ -41,7 +41,7 @@ export type TokenFor<
         : never
 
 export type CurrencyFor<
-  TChainId extends Exclude<ChainId, StellarChainId>,
+  TChainId extends ChainId,
   Metadata extends CurrencyMetadata = CurrencyMetadata,
 > = TChainId extends EvmChainId
   ? EvmCurrency<Metadata>
