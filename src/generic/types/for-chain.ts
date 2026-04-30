@@ -16,6 +16,7 @@ import type { StellarAddress, StellarTxHash } from '../../stellar/address.js'
 import type { StellarChainId } from '../../stellar/chain/chains.js'
 import type { StellarCurrency } from '../../stellar/currency/currency.js'
 import type { StellarToken } from '../../stellar/currency/token.js'
+import type { StellarID } from '../../stellar/types/id.js'
 import type { SvmChainId } from '../../svm/chain/chains.js'
 import type { SvmCurrency } from '../../svm/currency/currency.js'
 import type {
@@ -74,10 +75,12 @@ export type TxHashFor<TChainId extends ChainId> = TChainId extends EvmChainId
         : never
 
 export type IDFor<
-  TChainId extends EvmChainId | SvmChainId,
+  TChainId extends EvmChainId | SvmChainId | StellarChainId,
   TIncludeNative extends boolean = false,
 > = TChainId extends EvmChainId
   ? EvmID<TIncludeNative>
   : TChainId extends SvmChainId
     ? SvmID<TIncludeNative>
-    : never
+    : TChainId extends StellarChainId
+      ? StellarID<TIncludeNative>
+      : never
