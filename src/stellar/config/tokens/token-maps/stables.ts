@@ -9,6 +9,6 @@ export const STELLAR_STABLES = {
 
 export function isStellarStable(currency: StellarCurrency): boolean {
   return STELLAR_STABLES[currency.chainId]?.some(
-    (stable) => stable.address.toLowerCase() === currency.address.toLowerCase(),
+    (stable) => stable.address === currency.address,
   )
 }

@@ -23,7 +23,7 @@ export class StellarToken<
     typeof Token<StellarChainId, StellarAddress, TMetadata>
   >[0]) {
     super({ address: normalizeStellarAddress(address), ...rest })
-    this.issuer = issuer
+    this.issuer = issuer ? normalizeStellarAddress(issuer) : issuer
     this.origin = origin
   }
 

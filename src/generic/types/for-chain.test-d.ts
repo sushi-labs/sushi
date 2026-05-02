@@ -1,9 +1,7 @@
 import { describe, expectTypeOf, it } from 'vitest'
-import type {
-  StellarAddress,
-  StellarChainId,
-  StellarID,
-} from '../../stellar/index.js'
+import type { StellarAddress } from '../../stellar/address.js'
+import type { StellarChainId } from '../../stellar/chain/chains.js'
+import type { StellarID } from '../../stellar/types/id.js'
 import type { SvmChainId } from '../../svm/index.js'
 import type { SvmID } from '../../svm/types/id.js'
 import type { IDFor } from './for-chain.js'
