@@ -1,5 +1,11 @@
 # sushi
 
+## 6.6.0
+
+### Minor Changes
+
+- [#446](https://github.com/sushi-labs/sushi/pull/446) [`ae882319`](https://github.com/sushi-labs/sushi/commit/ae882319cda25baba44c1e4d0b5cf0e6662a2534) Thanks [@0xMasayoshi](https://github.com/0xMasayoshi)! - stellar currency config
+
 ## 6.5.5
 
 ### Patch Changes
