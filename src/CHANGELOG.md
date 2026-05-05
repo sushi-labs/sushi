@@ -1,5 +1,11 @@
 # sushi
 
+## 6.6.1
+
+### Patch Changes
+
+- [#448](https://github.com/sushi-labs/sushi/pull/448) [`c4b331f6`](https://github.com/sushi-labs/sushi/commit/c4b331f67f692df91bbbb626dc3f3c9977c4b32a) Thanks [@OlaStenberg](https://github.com/OlaStenberg)! - Update graph key
+
 ## 6.6.0
 
 ### Minor Changes
