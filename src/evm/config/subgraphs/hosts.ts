@@ -26,7 +26,7 @@ export const SKALE_HOST =
   'elated-tan-skat-graph.skalenodes.com:8000/subgraphs/name'
 
 export const SUSHI_DOMAIN_RESTRICTED_API_KEY =
-  '5d5d00365d2b8f675e12952d6eb5b9b0'
+  'fedcaa96abee87a6343e9871d3020337'
 
 export const getDecentralizedHostBySubgraphId = (key: string) =>
   `gateway-arbitrum.network.thegraph.com/api/${key}/subgraphs/id`
