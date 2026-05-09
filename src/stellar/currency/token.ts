@@ -1,13 +1,18 @@
 import * as z from 'zod'
 import type { CurrencyMetadata } from '../../generic/currency/currency.js'
 import { Token } from '../../generic/currency/token.js'
-import { isStellarAddress, type StellarAddress } from '../address.js'
+import {
+  isStellarAddress,
+  isStellarContractAddress,
+  type StellarAddress,
+  type StellarContractAddress,
+} from '../address.js'
 import { isStellarChainId, type StellarChainId } from '../chain/chains.js'
 import { normalizeStellarAddress } from '../utils/normalize-address.js'
 
 export class StellarToken<
   TMetadata extends CurrencyMetadata = Record<string, unknown>,
-> extends Token<StellarChainId, StellarAddress, TMetadata> {
+> extends Token<StellarChainId, StellarContractAddress, TMetadata> {
   public readonly origin: string | undefined
   public readonly issuer: StellarAddress | undefined
 
@@ -20,7 +25,7 @@ export class StellarToken<
     issuer?: StellarAddress | undefined
     origin?: string
   } & ConstructorParameters<
-    typeof Token<StellarChainId, StellarAddress, TMetadata>
+    typeof Token<StellarChainId, StellarContractAddress, TMetadata>
   >[0]) {
     super({ address: normalizeStellarAddress(address), ...rest })
     this.issuer = issuer ? normalizeStellarAddress(issuer) : issuer
@@ -69,8 +74,8 @@ export const serializedStellarTokenSchema = <
       .transform((chainId) => chainId as StellarChainId),
     address: z
       .string()
-      .refine(isStellarAddress)
-      .transform((address) => address as StellarAddress),
+      .refine(isStellarContractAddress)
+      .transform((address) => address as StellarContractAddress),
     issuer: z
       .string()
       .refine(isStellarAddress)
