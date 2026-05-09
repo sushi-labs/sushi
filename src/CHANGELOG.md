@@ -1,5 +1,11 @@
 # sushi
 
+## 6.6.2
+
+### Patch Changes
+
+- [#450](https://github.com/sushi-labs/sushi/pull/450) [`2ee0adb6`](https://github.com/sushi-labs/sushi/commit/2ee0adb63a7b3c6fedf1a123da268928322d31ff) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Type `StellarToken` address as `StellarContractAddress` instead of `StellarAddress`.
+
 ## 6.6.1
 
 ### Patch Changes
