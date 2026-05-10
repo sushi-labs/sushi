@@ -1,5 +1,11 @@
 # sushi
 
+## 6.6.3
+
+### Patch Changes
+
+- [#452](https://github.com/sushi-labs/sushi/pull/452) [`bc0b9561`](https://github.com/sushi-labs/sushi/commit/bc0b9561fd1612d64b4c7f08a0ee25e09e97a1cf) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Type `StellarToken` issuer as `StellarAccountAddress` instead of `StellarAddress`. Stellar Classic asset issuers are always Ed25519 accounts (G-prefix), never Soroban contracts.
+
 ## 6.6.2
 
 ### Patch Changes
