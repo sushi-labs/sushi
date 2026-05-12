@@ -7,6 +7,7 @@ import {
   zeroAddress,
 } from 'viem'
 import { Amount } from '../../../../generic/currency/amount.js'
+import { Fraction } from '../../../../generic/math/fraction.js'
 import type { Percent } from '../../../../generic/math/percent.js'
 import type { BigintIsh } from '../../../../generic/types/bigintish.js'
 import {
@@ -131,6 +132,13 @@ export interface CollectOptions {
    * The account that should receive the tokens.
    */
   recipient: string
+}
+
+export interface CollectCallParametersOptions {
+  /**
+   * Reduces the unwrap and sweep minimums by the provided tolerance.
+   */
+  minimumAmountTolerance?: Fraction
 }
 
 export interface NFTPermitOptions {
@@ -318,9 +326,15 @@ export abstract class NonfungiblePositionManager {
     }
   }
 
-  private static encodeCollect(collectOptions: CollectOptions[]): Hex[] {
+  private static encodeCollect(
+    collectOptions: CollectOptions[],
+    minimumAmountMultiplier?: Fraction,
+  ): Hex[] {
     const calldatas: Hex[] = []
-    const nativeBalancesByRecipient = new Map<string, bigint>()
+    const nativeBalancesByRecipient = new Map<
+      string,
+      { currency: EvmCurrency; amount: bigint }
+    >()
     const sweepBalancesByRecipient = new Map<
       string,
       { token: EvmToken; amount: bigint; recipient: Hex }
@@ -353,6 +367,10 @@ export abstract class NonfungiblePositionManager {
           options.expectedCurrencyOwed0.currency.type === 'native'
             ? options.expectedCurrencyOwed0.amount
             : options.expectedCurrencyOwed1.amount
+        const ethCurrency =
+          options.expectedCurrencyOwed0.currency.type === 'native'
+            ? options.expectedCurrencyOwed0.currency
+            : options.expectedCurrencyOwed1.currency
         const token =
           options.expectedCurrencyOwed0.currency.type === 'native'
             ? (options.expectedCurrencyOwed1.currency as EvmToken)
@@ -363,11 +381,11 @@ export abstract class NonfungiblePositionManager {
             : options.expectedCurrencyOwed0.amount
 
         const currentNativeBalance =
-          nativeBalancesByRecipient.get(recipient) ?? 0n
-        nativeBalancesByRecipient.set(
-          recipient,
-          currentNativeBalance + ethAmount,
-        )
+          nativeBalancesByRecipient.get(recipient)?.amount ?? 0n
+        nativeBalancesByRecipient.set(recipient, {
+          currency: ethCurrency,
+          amount: currentNativeBalance + ethAmount,
+        })
 
         const balanceKey = `${token.address}-${recipient}`
         const accumulatedBalance = sweepBalancesByRecipient.get(balanceKey)
@@ -385,9 +403,16 @@ export abstract class NonfungiblePositionManager {
 
     for (const [
       recipient,
-      nativeAmount,
+      { currency, amount },
     ] of nativeBalancesByRecipient.entries()) {
-      calldatas.push(Payments.encodeUnwrapWETH9(nativeAmount, recipient as Hex))
+      calldatas.push(
+        Payments.encodeUnwrapWETH9(
+          minimumAmountMultiplier
+            ? new Amount(currency, amount).mul(minimumAmountMultiplier).amount
+            : amount,
+          recipient as Hex,
+        ),
+      )
     }
 
     for (const {
@@ -395,7 +420,15 @@ export abstract class NonfungiblePositionManager {
       amount,
       recipient,
     } of sweepBalancesByRecipient.values()) {
-      calldatas.push(Payments.encodeSweepToken(token, amount, recipient))
+      calldatas.push(
+        Payments.encodeSweepToken(
+          token,
+          minimumAmountMultiplier
+            ? new Amount(token, amount).mul(minimumAmountMultiplier).amount
+            : amount,
+          recipient,
+        ),
+      )
     }
 
     return calldatas
@@ -403,9 +436,24 @@ export abstract class NonfungiblePositionManager {
 
   public static collectCallParameters(
     options: CollectOptions | CollectOptions[],
+    callOptions: CollectCallParametersOptions = {},
   ): MethodParameters {
+    if (callOptions.minimumAmountTolerance) {
+      invariant(
+        callOptions.minimumAmountTolerance.denominator > 0n &&
+          callOptions.minimumAmountTolerance.gte(0n) &&
+          callOptions.minimumAmountTolerance.lte(1n),
+        'INVALID_MINIMUM_AMOUNT_TOLERANCE',
+      )
+    }
+
+    const minimumAmountMultiplier = callOptions.minimumAmountTolerance
+      ? new Fraction({ numerator: 1 }).sub(callOptions.minimumAmountTolerance)
+      : undefined
+
     const calldatas: Hex[] = NonfungiblePositionManager.encodeCollect(
       Array.isArray(options) ? options : [options],
+      minimumAmountMultiplier,
     )
 
     return {
