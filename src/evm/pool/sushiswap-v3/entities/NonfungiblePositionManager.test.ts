@@ -8,6 +8,7 @@ import {
 } from 'viem'
 import { describe, expect, it } from 'vitest'
 import { Amount } from '../../../../generic/currency/amount.js'
+import { Fraction } from '../../../../generic/math/fraction.js'
 import { Percent } from '../../../../generic/math/percent.js'
 import { multicallAbi_multicall } from '../../../abi/multicallAbi/multicallAbi_multicall.js'
 import { nonfungiblePositionManagerAbi_collect } from '../../../abi/nonfungiblePositionManagerAbi/nonfungiblePositionManagerAbi_collect.js'
@@ -249,6 +250,105 @@ describe('NonfungiblePositionManager', () => {
         '0xac9650d8000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000030000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000012000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000084fc6f78650000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004449404b7c00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000064df2ab5bb00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000300000000000000000000000000000000000000000000000000000000',
       )
       expect(value).toEqual('0x0')
+    })
+
+    it('applies minimum amount tolerance to eth unwraps and token sweeps', () => {
+      const { calldata, value } =
+        NonfungiblePositionManager.collectCallParameters(
+          {
+            tokenId,
+            expectedCurrencyOwed0: new Amount(token1, 2000n),
+            expectedCurrencyOwed1: new Amount(EvmNative.fromChainId(1), 1000n),
+            recipient,
+          },
+          {
+            minimumAmountTolerance: new Fraction({
+              numerator: 1n,
+              denominator: 1000n,
+            }),
+          },
+        )
+
+      const [[, encodedUnwrapParams, encodedSweepParams]] = decodeAbiParameters(
+        multicallAbi_multicall[0].inputs,
+        `0x${calldata.slice(10)}`,
+      )
+
+      const unwrapParams = decodeUnwrapParams(encodedUnwrapParams)
+      const sweepParams = decodeSweepParams(encodedSweepParams)
+
+      expect(unwrapParams).toEqual([999n, recipient])
+      expect(sweepParams).toEqual([token1.address, 1998n, recipient])
+      expect(value).toEqual('0x0')
+    })
+
+    it('applies minimum amount tolerance after aggregating collections', () => {
+      const { calldata, value } =
+        NonfungiblePositionManager.collectCallParameters(
+          [1, 2, 3].map((tokenId) => ({
+            tokenId,
+            expectedCurrencyOwed0: new Amount(token1, 1n),
+            expectedCurrencyOwed1: new Amount(EvmNative.fromChainId(1), 1n),
+            recipient,
+          })),
+          {
+            minimumAmountTolerance: new Fraction({
+              numerator: 1n,
+              denominator: 1000n,
+            }),
+          },
+        )
+
+      const [[, , , encodedUnwrapParams, encodedSweepParams]] =
+        decodeAbiParameters(
+          multicallAbi_multicall[0].inputs,
+          `0x${calldata.slice(10)}`,
+        )
+
+      const unwrapParams = decodeUnwrapParams(encodedUnwrapParams)
+      const sweepParams = decodeSweepParams(encodedSweepParams)
+
+      expect(unwrapParams).toEqual([2n, recipient])
+      expect(sweepParams).toEqual([token1.address, 2n, recipient])
+      expect(value).toEqual('0x0')
+    })
+
+    it('throws when minimum amount tolerance is greater than 100%', () => {
+      expect(() =>
+        NonfungiblePositionManager.collectCallParameters(
+          {
+            tokenId,
+            expectedCurrencyOwed0: new Amount(token1, 2000n),
+            expectedCurrencyOwed1: new Amount(EvmNative.fromChainId(1), 1000n),
+            recipient,
+          },
+          {
+            minimumAmountTolerance: new Fraction({
+              numerator: 1001n,
+              denominator: 1000n,
+            }),
+          },
+        ),
+      ).toThrow('INVALID_MINIMUM_AMOUNT_TOLERANCE')
+    })
+
+    it('throws when minimum amount tolerance has a zero denominator', () => {
+      expect(() =>
+        NonfungiblePositionManager.collectCallParameters(
+          {
+            tokenId,
+            expectedCurrencyOwed0: new Amount(token1, 2000n),
+            expectedCurrencyOwed1: new Amount(EvmNative.fromChainId(1), 1000n),
+            recipient,
+          },
+          {
+            minimumAmountTolerance: new Fraction({
+              numerator: 0n,
+              denominator: 0n,
+            }),
+          },
+        ),
+      ).toThrow('INVALID_MINIMUM_AMOUNT_TOLERANCE')
     })
 
     it('works with multiple collections', () => {
