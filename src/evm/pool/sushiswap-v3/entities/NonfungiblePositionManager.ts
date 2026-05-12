@@ -331,10 +331,7 @@ export abstract class NonfungiblePositionManager {
     minimumAmountMultiplier?: Fraction,
   ): Hex[] {
     const calldatas: Hex[] = []
-    const nativeBalancesByRecipient = new Map<
-      string,
-      { currency: EvmCurrency; amount: bigint }
-    >()
+    const nativeBalancesByRecipient = new Map<string, bigint>()
     const sweepBalancesByRecipient = new Map<
       string,
       { token: EvmToken; amount: bigint; recipient: Hex }
@@ -367,10 +364,6 @@ export abstract class NonfungiblePositionManager {
           options.expectedCurrencyOwed0.currency.type === 'native'
             ? options.expectedCurrencyOwed0.amount
             : options.expectedCurrencyOwed1.amount
-        const ethCurrency =
-          options.expectedCurrencyOwed0.currency.type === 'native'
-            ? options.expectedCurrencyOwed0.currency
-            : options.expectedCurrencyOwed1.currency
         const token =
           options.expectedCurrencyOwed0.currency.type === 'native'
             ? (options.expectedCurrencyOwed1.currency as EvmToken)
@@ -381,11 +374,11 @@ export abstract class NonfungiblePositionManager {
             : options.expectedCurrencyOwed0.amount
 
         const currentNativeBalance =
-          nativeBalancesByRecipient.get(recipient)?.amount ?? 0n
-        nativeBalancesByRecipient.set(recipient, {
-          currency: ethCurrency,
-          amount: currentNativeBalance + ethAmount,
-        })
+          nativeBalancesByRecipient.get(recipient) ?? 0n
+        nativeBalancesByRecipient.set(
+          recipient,
+          currentNativeBalance + ethAmount,
+        )
 
         const balanceKey = `${token.address}-${recipient}`
         const accumulatedBalance = sweepBalancesByRecipient.get(balanceKey)
@@ -403,13 +396,13 @@ export abstract class NonfungiblePositionManager {
 
     for (const [
       recipient,
-      { currency, amount },
+      nativeAmount,
     ] of nativeBalancesByRecipient.entries()) {
       calldatas.push(
         Payments.encodeUnwrapWETH9(
           minimumAmountMultiplier
-            ? new Amount(currency, amount).mul(minimumAmountMultiplier).amount
-            : amount,
+            ? minimumAmountMultiplier.mul(nativeAmount).quotient
+            : nativeAmount,
           recipient as Hex,
         ),
       )
@@ -424,7 +417,7 @@ export abstract class NonfungiblePositionManager {
         Payments.encodeSweepToken(
           token,
           minimumAmountMultiplier
-            ? new Amount(token, amount).mul(minimumAmountMultiplier).amount
+            ? minimumAmountMultiplier.mul(amount).quotient
             : amount,
           recipient,
         ),
