@@ -1,5 +1,11 @@
 # sushi
 
+## 6.6.4
+
+### Patch Changes
+
+- [#454](https://github.com/sushi-labs/sushi/pull/454) [`12f8cd83`](https://github.com/sushi-labs/sushi/commit/12f8cd83a6429d55f922ad782acf87df4680ad71) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Add optional collect minimum amount tolerance to SushiSwap V3 position manager calldata generation.
+
 ## 6.6.3
 
 ### Patch Changes
