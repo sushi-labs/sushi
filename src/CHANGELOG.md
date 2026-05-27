@@ -1,5 +1,11 @@
 # sushi
 
+## 6.6.5
+
+### Patch Changes
+
+- [#456](https://github.com/sushi-labs/sushi/pull/456) [`fd51919`](https://github.com/sushi-labs/sushi/commit/fd519190469b9c95b1368f2a8747dad7fea5f94a) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Fix SVM native address declaration emit to use the public address type.
+
 ## 6.6.4
 
 ### Patch Changes
