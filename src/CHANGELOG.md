@@ -1,5 +1,11 @@
 # sushi
 
+## 6.6.6
+
+### Patch Changes
+
+- [#458](https://github.com/sushi-labs/sushi/pull/458) [`cce4818`](https://github.com/sushi-labs/sushi/commit/cce4818753ae966959180e0a833254a651474e4c) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Add a general Stellar address validator for account and contract addresses.
+
 ## 6.6.5
 
 ### Patch Changes
