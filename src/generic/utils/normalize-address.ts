@@ -14,32 +14,26 @@ import type { ChainId } from '../chain/chains.js'
 import type { AddressFor } from '../types/for-chain.js'
 import { assertNever } from './assert-never.js'
 
-export function normalizeAddress<TChainId extends ChainId>(
-  chainId: TChainId,
-  address: AddressFor<TChainId>,
-): AddressFor<TChainId> {
+export function normalizeAddress<
+  TChainId extends ChainId,
+  TAddress extends AddressFor<TChainId>,
+>(chainId: TChainId, address: TAddress): TAddress {
   if (isEvmChainId(chainId)) {
-    return normalizeEvmAddress(
-      address as AddressFor<EvmChainId>,
-    ) as AddressFor<TChainId>
+    return normalizeEvmAddress(address as AddressFor<EvmChainId>) as TAddress
   }
 
   if (isMvmChainId(chainId)) {
-    return normalizeMvmAddress(
-      address as AddressFor<MvmChainId>,
-    ) as AddressFor<TChainId>
+    return normalizeMvmAddress(address as AddressFor<MvmChainId>) as TAddress
   }
 
   if (isSvmChainId(chainId)) {
-    return normalizeSvmAddress(
-      address as AddressFor<SvmChainId>,
-    ) as AddressFor<TChainId>
+    return normalizeSvmAddress(address as AddressFor<SvmChainId>) as TAddress
   }
 
   if (isStellarChainId(chainId)) {
     return normalizeStellarAddress(
       address as AddressFor<StellarChainId>,
-    ) as AddressFor<TChainId>
+    ) as TAddress
   }
 
   assertNever(chainId, `normalizeAddress, unsupported chainId: ${chainId}`)
