@@ -1,5 +1,11 @@
 # sushi
 
+## 6.6.7
+
+### Patch Changes
+
+- [#461](https://github.com/sushi-labs/sushi/pull/461) [`a5dfb05d`](https://github.com/sushi-labs/sushi/commit/a5dfb05d15c090fe944c6c8c078294393ab90e51) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Preserve address subtypes and allow normalizeAddress to infer chains by address format.
+
 ## 6.6.6
 
 ### Patch Changes
