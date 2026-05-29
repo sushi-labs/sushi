@@ -21,10 +21,11 @@ describe('stellar addresses', () => {
     expect(isStellarContractAddress(contractAddress)).toBe(true)
   })
 
-  it('accepts both account and contract addresses as Stellar addresses', () => {
+  it('accepts account and contract addresses as Stellar addresses', () => {
     expect(isStellarAddress(accountAddress)).toBe(true)
     expect(isStellarAddress(contractAddress)).toBe(true)
     expect(isStellarAddress('0x1234')).toBe(false)
+    expect(isStellarAddress(`M${'A'.repeat(68)}`)).toBe(false)
   })
 
   it('normalizes account, contract, and chain addresses', () => {
