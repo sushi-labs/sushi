@@ -1,12 +1,10 @@
-import { isAddress as isSvmAddress } from '@solana/addresses'
-import { isAddress as isEvmAddress } from 'viem'
 import type { EvmChainId } from '../../evm/chain/chains.js'
 import { isEvmChainId } from '../../evm/chain/chains.js'
-import type { EvmAddress } from '../../evm/currency/token.js'
+import { type EvmAddress, isEvmAddress } from '../../evm/currency/token.js'
 import { normalizeEvmAddress } from '../../evm/utils/normalize-address.js'
 import type { MvmChainId } from '../../mvm/chain/chains.js'
 import { isMvmChainId } from '../../mvm/chain/chains.js'
-import type { MvmAddress } from '../../mvm/currency/token.js'
+import { isMvmAddress } from '../../mvm/currency/token.js'
 import { normalizeMvmAddress } from '../../mvm/utils/normalize-address.js'
 import { isStellarAddress, type StellarAddress } from '../../stellar/address.js'
 import type { StellarChainId } from '../../stellar/chain/chains.js'
@@ -14,7 +12,7 @@ import { isStellarChainId } from '../../stellar/chain/chains.js'
 import { normalizeStellarAddress } from '../../stellar/utils/normalize-address.js'
 import type { SvmChainId } from '../../svm/chain/chains.js'
 import { isSvmChainId } from '../../svm/chain/chains.js'
-import type { SvmAddress } from '../../svm/currency/token.js'
+import { isSvmAddress, type SvmAddress } from '../../svm/currency/token.js'
 import { normalizeSvmAddress } from '../../svm/utils/normalize-address.js'
 import type { ChainId } from '../chain/chains.js'
 import type { AddressFor } from '../types/for-chain.js'
@@ -74,7 +72,7 @@ function normalizeAddressByFormat(
     return normalizeMvmAddress(address)
   }
 
-  if (isEvmAddress(address, { strict: false })) {
+  if (isEvmAddress(address)) {
     return normalizeEvmAddress(address as EvmAddress)
   }
 
@@ -87,8 +85,4 @@ function normalizeAddressByFormat(
   }
 
   throw new Error(`normalizeAddress, unsupported address: ${address}`)
-}
-
-function isMvmAddress(address: string): address is MvmAddress {
-  return /^0x([^:]+)::([^:]+)::([^:]+)$/.test(address)
 }
