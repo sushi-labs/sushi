@@ -2,4 +2,4 @@
 'sushi': patch
 ---
 
-Preserve Stellar account and contract address types when normalizing addresses.
+Preserve address subtypes and allow normalizeAddress to infer chains by address format.

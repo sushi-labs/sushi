@@ -1,40 +1,91 @@
+import { isAddress as isSvmAddress } from '@solana/addresses'
+import { isAddress as isEvmAddress } from 'viem'
 import type { EvmChainId } from '../../evm/chain/chains.js'
 import { isEvmChainId } from '../../evm/chain/chains.js'
+import type { EvmAddress } from '../../evm/currency/token.js'
 import { normalizeEvmAddress } from '../../evm/utils/normalize-address.js'
 import type { MvmChainId } from '../../mvm/chain/chains.js'
 import { isMvmChainId } from '../../mvm/chain/chains.js'
+import type { MvmAddress } from '../../mvm/currency/token.js'
 import { normalizeMvmAddress } from '../../mvm/utils/normalize-address.js'
+import { isStellarAddress, type StellarAddress } from '../../stellar/address.js'
 import type { StellarChainId } from '../../stellar/chain/chains.js'
 import { isStellarChainId } from '../../stellar/chain/chains.js'
 import { normalizeStellarAddress } from '../../stellar/utils/normalize-address.js'
 import type { SvmChainId } from '../../svm/chain/chains.js'
 import { isSvmChainId } from '../../svm/chain/chains.js'
+import type { SvmAddress } from '../../svm/currency/token.js'
 import { normalizeSvmAddress } from '../../svm/utils/normalize-address.js'
 import type { ChainId } from '../chain/chains.js'
 import type { AddressFor } from '../types/for-chain.js'
 import { assertNever } from './assert-never.js'
 
+type AnyAddress = AddressFor<ChainId>
+
+export function normalizeAddress<TAddress extends AnyAddress>(
+  address: TAddress,
+): TAddress
 export function normalizeAddress<
   TChainId extends ChainId,
   TAddress extends AddressFor<TChainId>,
->(chainId: TChainId, address: TAddress): TAddress {
+>(chainId: TChainId, address: TAddress): TAddress
+export function normalizeAddress(
+  chainIdOrAddress: ChainId | AnyAddress,
+  address?: AnyAddress,
+): AnyAddress {
+  if (address === undefined) {
+    if (typeof chainIdOrAddress !== 'string') {
+      throw new Error(
+        `normalizeAddress, unsupported address: ${chainIdOrAddress}`,
+      )
+    }
+
+    return normalizeAddressByFormat(chainIdOrAddress)
+  }
+
+  return normalizeAddressByChainId(chainIdOrAddress as ChainId, address)
+}
+
+function normalizeAddressByChainId(chainId: ChainId, address: AnyAddress) {
   if (isEvmChainId(chainId)) {
-    return normalizeEvmAddress(address as AddressFor<EvmChainId>) as TAddress
+    return normalizeEvmAddress(address as AddressFor<EvmChainId>)
   }
 
   if (isMvmChainId(chainId)) {
-    return normalizeMvmAddress(address as AddressFor<MvmChainId>) as TAddress
+    return normalizeMvmAddress(address as AddressFor<MvmChainId>)
   }
 
   if (isSvmChainId(chainId)) {
-    return normalizeSvmAddress(address as AddressFor<SvmChainId>) as TAddress
+    return normalizeSvmAddress(address as AddressFor<SvmChainId>)
   }
 
   if (isStellarChainId(chainId)) {
-    return normalizeStellarAddress(
-      address as AddressFor<StellarChainId>,
-    ) as TAddress
+    return normalizeStellarAddress(address as AddressFor<StellarChainId>)
   }
 
   assertNever(chainId, `normalizeAddress, unsupported chainId: ${chainId}`)
+}
+
+function normalizeAddressByFormat(address: AnyAddress): AnyAddress {
+  if (isMvmAddress(address)) {
+    return normalizeMvmAddress(address)
+  }
+
+  if (isEvmAddress(address, { strict: false })) {
+    return normalizeEvmAddress(address as EvmAddress)
+  }
+
+  if (isSvmAddress(address)) {
+    return normalizeSvmAddress(address as SvmAddress)
+  }
+
+  if (isStellarAddress(address.toUpperCase())) {
+    return normalizeStellarAddress(address as StellarAddress)
+  }
+
+  throw new Error(`normalizeAddress, unsupported address: ${address}`)
+}
+
+function isMvmAddress(address: string): address is MvmAddress {
+  return /^0x([^:]+)::([^:]+)::([^:]+)$/.test(address)
 }
