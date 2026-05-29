@@ -20,9 +20,7 @@ import type { ChainId } from '../chain/chains.js'
 import type { AddressFor } from '../types/for-chain.js'
 import { assertNever } from './assert-never.js'
 
-type AnyAddress = AddressFor<ChainId>
-
-export function normalizeAddress<TAddress extends AnyAddress>(
+export function normalizeAddress<TAddress extends AddressFor<ChainId>>(
   address: TAddress,
 ): TAddress
 export function normalizeAddress<
@@ -30,9 +28,9 @@ export function normalizeAddress<
   TAddress extends AddressFor<TChainId>,
 >(chainId: TChainId, address: TAddress): TAddress
 export function normalizeAddress(
-  chainIdOrAddress: ChainId | AnyAddress,
-  address?: AnyAddress,
-): AnyAddress {
+  chainIdOrAddress: ChainId | AddressFor<ChainId>,
+  address?: AddressFor<ChainId>,
+): AddressFor<ChainId> {
   if (address === undefined) {
     if (typeof chainIdOrAddress !== 'string') {
       throw new Error(
@@ -46,7 +44,10 @@ export function normalizeAddress(
   return normalizeAddressByChainId(chainIdOrAddress as ChainId, address)
 }
 
-function normalizeAddressByChainId(chainId: ChainId, address: AnyAddress) {
+function normalizeAddressByChainId(
+  chainId: ChainId,
+  address: AddressFor<ChainId>,
+) {
   if (isEvmChainId(chainId)) {
     return normalizeEvmAddress(address as AddressFor<EvmChainId>)
   }
@@ -66,7 +67,9 @@ function normalizeAddressByChainId(chainId: ChainId, address: AnyAddress) {
   assertNever(chainId, `normalizeAddress, unsupported chainId: ${chainId}`)
 }
 
-function normalizeAddressByFormat(address: AnyAddress): AnyAddress {
+function normalizeAddressByFormat(
+  address: AddressFor<ChainId>,
+): AddressFor<ChainId> {
   if (isMvmAddress(address)) {
     return normalizeMvmAddress(address)
   }
