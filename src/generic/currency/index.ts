@@ -1,5 +1,6 @@
 export * from './amount.js'
 export * from './currency.js'
+export * from './for-chain.js'
 export * from './native.js'
 export * from './price.js'
 export * from './serialized-currency.js'

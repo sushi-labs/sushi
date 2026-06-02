@@ -6,7 +6,7 @@ import { type EvmToken, serializedEvmTokenSchema } from './token.js'
 
 export type EvmCurrency<
   TMetadata extends CurrencyMetadata = Record<string, unknown>,
-> = EvmToken<TMetadata> | EvmNative
+> = EvmToken<TMetadata> | EvmNative<TMetadata>
 
 export const serializedEvmCurrencySchema = <
   TMetadata extends {} = CurrencyMetadata,
