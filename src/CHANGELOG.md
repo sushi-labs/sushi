@@ -1,5 +1,11 @@
 # sushi
 
+## 6.6.9
+
+### Patch Changes
+
+- [#467](https://github.com/sushi-labs/sushi/pull/467) [`b195fa3`](https://github.com/sushi-labs/sushi/commit/b195fa3b47cd54ced49218ea41974e237a266fe2) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Allow generic token factory inputs to use addresses derived from their chain id.
+
 ## 6.6.8
 
 ### Patch Changes
