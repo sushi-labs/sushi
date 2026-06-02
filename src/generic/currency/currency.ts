@@ -69,4 +69,4 @@ export abstract class BaseCurrency<
 export type Currency<
   TChainId extends ChainId = ChainId,
   TMetadata extends CurrencyMetadata = Record<string, unknown>,
-> = Native<TChainId> | Token<TChainId, string, TMetadata>
+> = Native<TChainId, TMetadata> | Token<TChainId, string, TMetadata>

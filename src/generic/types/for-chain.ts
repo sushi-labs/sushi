@@ -1,5 +1,6 @@
 import type { EvmChainId } from '../../evm/chain/chains.js'
 import type { EvmCurrency } from '../../evm/currency/currency.js'
+import type { EvmNative } from '../../evm/currency/native.js'
 import type {
   EvmAddress,
   EvmToken,
@@ -19,6 +20,7 @@ import type { StellarToken } from '../../stellar/currency/token.js'
 import type { StellarID } from '../../stellar/types/id.js'
 import type { SvmChainId } from '../../svm/chain/chains.js'
 import type { SvmCurrency } from '../../svm/currency/currency.js'
+import type { SvmNative } from '../../svm/currency/native.js'
 import type {
   SvmAddress,
   SvmToken,
@@ -53,6 +55,17 @@ export type CurrencyFor<
       : TChainId extends StellarChainId
         ? StellarCurrency<Metadata>
         : never
+
+export type NativeChainId = EvmChainId | SvmChainId
+
+export type NativeFor<
+  TChainId extends NativeChainId,
+  Metadata extends CurrencyMetadata = CurrencyMetadata,
+> = TChainId extends EvmChainId
+  ? EvmNative<Metadata>
+  : TChainId extends SvmChainId
+    ? SvmNative<Metadata>
+    : never
 
 export type AddressFor<TChainId extends ChainId> = TChainId extends EvmChainId
   ? EvmAddress

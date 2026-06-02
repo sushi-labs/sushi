@@ -6,7 +6,7 @@ import { type SvmToken, serializedSvmTokenSchema } from './token.js'
 
 export type SvmCurrency<
   TMetadata extends CurrencyMetadata = Record<string, unknown>,
-> = SvmToken<TMetadata> | SvmNative
+> = SvmToken<TMetadata> | SvmNative<TMetadata>
 
 export const serializedSvmCurrencySchema = <
   TMetadata extends {} = CurrencyMetadata,

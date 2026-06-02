@@ -16,6 +16,7 @@ import { MvmToken } from '../../mvm/currency/token.js'
 import {
   type SvmAddress,
   type SvmChainId,
+  type SvmCurrency,
   SvmNative,
   SvmToken,
 } from '../../svm/index.js'
@@ -196,6 +197,46 @@ describe('generic/currency/currency.ts types', () => {
       expectTypeOf(mockEvmCurrency)
         .extract<{ isToken: false }>()
         .toEqualTypeOf<EvmNative>()
+    })
+  })
+
+  describe('metadata generics', () => {
+    type Metadata = {
+      coingeckoId: string
+      verified: boolean
+    }
+
+    it('should preserve metadata on generic currency variants', () => {
+      const mockCurrency = {} as Currency<EvmChainId, Metadata>
+
+      expectTypeOf(mockCurrency)
+        .extract<{ isNative: true }>()
+        .toEqualTypeOf<Native<EvmChainId, Metadata>>()
+      expectTypeOf(mockCurrency)
+        .extract<{ isToken: true }>()
+        .toEqualTypeOf<Token<EvmChainId, string, Metadata>>()
+    })
+
+    it('should preserve metadata on EVM currency variants', () => {
+      const mockCurrency = {} as EvmCurrency<Metadata>
+
+      expectTypeOf(mockCurrency)
+        .extract<{ isNative: true }>()
+        .toEqualTypeOf<EvmNative<Metadata>>()
+      expectTypeOf(mockCurrency)
+        .extract<{ isToken: true }>()
+        .toEqualTypeOf<EvmToken<Metadata>>()
+    })
+
+    it('should preserve metadata on SVM currency variants', () => {
+      const mockCurrency = {} as SvmCurrency<Metadata>
+
+      expectTypeOf(mockCurrency)
+        .extract<{ isNative: true }>()
+        .toEqualTypeOf<SvmNative<Metadata>>()
+      expectTypeOf(mockCurrency)
+        .extract<{ isToken: true }>()
+        .toEqualTypeOf<SvmToken<Metadata>>()
     })
   })
 
