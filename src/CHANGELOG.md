@@ -1,5 +1,11 @@
 # sushi
 
+## 6.6.11
+
+### Patch Changes
+
+- [#473](https://github.com/sushi-labs/sushi/pull/473) [`419248b6`](https://github.com/sushi-labs/sushi/commit/419248b6b043d870379624500fa5e17754c97818) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Allow generic token factory inputs to use addresses derived from their chain id and keep generic token/native currency types assignable to generic currency types.
+
 ## 6.6.10
 
 ### Patch Changes
