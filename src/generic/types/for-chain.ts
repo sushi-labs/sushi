@@ -30,23 +30,24 @@ import type { SvmID } from '../../svm/types/id.js'
 import type { ChainId } from '../chain/chains.js'
 import type { CurrencyMetadata } from '../currency/currency.js'
 
+// Branch order (Evm, Svm, Mvm, Stellar) is kept identical across `TokenFor`,
+// `NativeFor` and `CurrencyFor` so TypeScript can relate the conditional types
+// branch-by-branch and prove `TokenFor<T>`/`NativeFor<T>` are assignable to
+// `CurrencyFor<T>` for a generic `T`. The chain families are disjoint, so the
+// order has no effect on the resolved type — only on relatability.
 export type TokenFor<
   TChainId extends ChainId,
   Metadata extends CurrencyMetadata = CurrencyMetadata,
 > = TChainId extends EvmChainId
   ? EvmToken<Metadata>
-  : TChainId extends MvmChainId
-    ? MvmToken<Metadata>
-    : TChainId extends SvmChainId
-      ? SvmToken<Metadata>
+  : TChainId extends SvmChainId
+    ? SvmToken<Metadata>
+    : TChainId extends MvmChainId
+      ? MvmToken<Metadata>
       : TChainId extends StellarChainId
         ? StellarToken<Metadata>
         : never
 
-// Branch order matches `NativeFor` (Evm, then Svm) so TypeScript can relate the
-// two conditional types and prove `NativeFor<T>` is assignable to
-// `CurrencyFor<T>` for a generic `T`. The chain families are disjoint, so the
-// order has no effect on the resolved type.
 export type CurrencyFor<
   TChainId extends ChainId,
   Metadata extends CurrencyMetadata = CurrencyMetadata,

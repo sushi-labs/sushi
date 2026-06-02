@@ -15,6 +15,7 @@ import type { SvmNative } from '../../svm/currency/native.js'
 import type { SvmToken } from '../../svm/currency/token.js'
 import type { SvmChainId } from '../../svm/index.js'
 import type { SvmID } from '../../svm/types/id.js'
+import type { ChainId } from '../chain/chains.js'
 import type {
   CurrencyFor,
   IDFor,
@@ -72,6 +73,20 @@ describe('generic/types/for-chain.ts types', () => {
       expectTypeOf<
         CurrencyFor<EvmChainId | SvmChainId, Metadata>
       >().toEqualTypeOf<EvmCurrency<Metadata> | SvmCurrency<Metadata>>()
+    })
+
+    it('should accept TokenFor for a generic chain id', () => {
+      // Regression guard: holds only because TokenFor's branch order matches
+      // CurrencyFor's, letting TypeScript relate the two conditional types for
+      // an unresolved generic `T`. The constraint `A extends B` fails to
+      // compile if TokenFor<T> is not assignable to CurrencyFor<T>.
+      type AssertAssignable<_A extends B, B> = true
+      type _Guard<T extends ChainId> = AssertAssignable<
+        TokenFor<T, Metadata>,
+        CurrencyFor<T, Metadata>
+      >
+
+      expectTypeOf<_Guard<ChainId>>().toEqualTypeOf<true>()
     })
   })
 
