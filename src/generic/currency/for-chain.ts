@@ -20,7 +20,12 @@ import {
 import { SvmNative } from '../../svm/currency/native.js'
 import { SvmToken } from '../../svm/currency/token.js'
 import type { ChainId } from '../chain/chains.js'
-import type { NativeChainId, NativeFor, TokenFor } from '../types/for-chain.js'
+import type {
+  AddressFor,
+  NativeChainId,
+  NativeFor,
+  TokenFor,
+} from '../types/for-chain.js'
 import { assertNever } from '../utils/assert-never.js'
 import type { CurrencyMetadata } from './currency.js'
 
@@ -38,18 +43,32 @@ type SvmTokenConstructorData<TMetadata extends CurrencyMetadata> =
 type StellarTokenConstructorData<TMetadata extends CurrencyMetadata> =
   ConstructorData<typeof StellarToken<TMetadata>>
 
+type GenericTokenConstructorData<
+  TChainId extends ChainId,
+  TMetadata extends CurrencyMetadata,
+> = {
+  chainId?: TChainId
+  address: AddressFor<TChainId>
+  symbol: string
+  name: string
+  decimals: number
+  metadata?: TMetadata
+}
+
 export type TokenConstructorDataFor<
   TChainId extends ChainId,
   TMetadata extends CurrencyMetadata = CurrencyMetadata,
-> = TChainId extends EvmChainId
-  ? EvmTokenConstructorData<TMetadata>
-  : TChainId extends MvmChainId
-    ? MvmTokenConstructorData<TMetadata>
-    : TChainId extends SvmChainId
-      ? SvmTokenConstructorData<TMetadata>
-      : TChainId extends StellarChainId
-        ? StellarTokenConstructorData<TMetadata>
-        : never
+> =
+  | GenericTokenConstructorData<TChainId, TMetadata>
+  | (TChainId extends EvmChainId
+      ? EvmTokenConstructorData<TMetadata>
+      : TChainId extends MvmChainId
+        ? MvmTokenConstructorData<TMetadata>
+        : TChainId extends SvmChainId
+          ? SvmTokenConstructorData<TMetadata>
+          : TChainId extends StellarChainId
+            ? StellarTokenConstructorData<TMetadata>
+            : never)
 
 export function getNativeFor<
   TChainId extends NativeChainId,
