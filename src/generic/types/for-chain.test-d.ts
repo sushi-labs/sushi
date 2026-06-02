@@ -101,6 +101,22 @@ describe('generic/types/for-chain.ts types', () => {
       >()
     })
 
+    it('should be assignable to CurrencyFor for a generic native chain id', () => {
+      // Regression guard: this only holds because CurrencyFor's branch order
+      // matches NativeFor's, letting TypeScript relate the two conditional
+      // types for an unresolved generic `T`. Concrete-type checks above pass
+      // regardless of order, so they don't cover this case. The constraint
+      // `A extends B` fails to compile if NativeFor<T> is not assignable to
+      // CurrencyFor<T>.
+      type AssertAssignable<_A extends B, B> = true
+      type _Guard<T extends NativeChainId> = AssertAssignable<
+        NativeFor<T, Metadata>,
+        CurrencyFor<T, Metadata>
+      >
+
+      expectTypeOf<_Guard<NativeChainId>>().toEqualTypeOf<true>()
+    })
+
     it('should reject token-only chain families', () => {
       type NativeForMvm = NativeFor<
         // @ts-expect-error MVM is intentionally excluded from NativeChainId.

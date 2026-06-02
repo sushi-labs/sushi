@@ -43,15 +43,19 @@ export type TokenFor<
         ? StellarToken<Metadata>
         : never
 
+// Branch order matches `NativeFor` (Evm, then Svm) so TypeScript can relate the
+// two conditional types and prove `NativeFor<T>` is assignable to
+// `CurrencyFor<T>` for a generic `T`. The chain families are disjoint, so the
+// order has no effect on the resolved type.
 export type CurrencyFor<
   TChainId extends ChainId,
   Metadata extends CurrencyMetadata = CurrencyMetadata,
 > = TChainId extends EvmChainId
   ? EvmCurrency<Metadata>
-  : TChainId extends MvmChainId
-    ? MvmToken<Metadata>
-    : TChainId extends SvmChainId
-      ? SvmCurrency<Metadata>
+  : TChainId extends SvmChainId
+    ? SvmCurrency<Metadata>
+    : TChainId extends MvmChainId
+      ? MvmToken<Metadata>
       : TChainId extends StellarChainId
         ? StellarCurrency<Metadata>
         : never
