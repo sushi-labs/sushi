@@ -1,5 +1,13 @@
 # sushi
 
+## 6.6.8
+
+### Patch Changes
+
+- [#464](https://github.com/sushi-labs/sushi/pull/464) [`14c7dd7`](https://github.com/sushi-labs/sushi/commit/14c7dd75e988850a6863ddb604d4b07478d5f6b9) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Add generic currency factory helpers for native currencies and tokens.
+
+- [#463](https://github.com/sushi-labs/sushi/pull/463) [`a5bf8c5`](https://github.com/sushi-labs/sushi/commit/a5bf8c5cd2389d3586246052a74e5eed4b5178f2) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Use Goldsky-hosted Katana V2 and V3 subgraphs.
+
 ## 6.6.7
 
 ### Patch Changes
