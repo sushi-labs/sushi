@@ -18,7 +18,7 @@ import {
   type SvmToken,
   svmAddress,
 } from '../../svm/currency/token.js'
-import type { NativeChainId } from '../types/for-chain.js'
+import type { AddressFor, NativeChainId, TokenFor } from '../types/for-chain.js'
 import {
   getNativeFor,
   getTokenFor,
@@ -199,6 +199,30 @@ describe('generic/currency/for-chain.ts types', () => {
 
       expectTypeOf(getTokenFor(chainId, data)).toEqualTypeOf<
         EvmToken<Metadata> | SvmToken<Metadata>
+      >()
+    })
+
+    it('accepts generic EVM/SVM token input with address derived from the chain id', () => {
+      type GenericTokenInput<TChainId extends EvmChainId | SvmChainId> = {
+        address: AddressFor<TChainId>
+        symbol: string
+        name: string
+        decimals: number
+        metadata: Metadata
+      }
+
+      function getGenericTokenFor<TChainId extends EvmChainId | SvmChainId>(
+        chainId: TChainId,
+        input: GenericTokenInput<TChainId>,
+      ) {
+        return getTokenFor(chainId, input)
+      }
+
+      const chainId = {} as EvmChainId | SvmChainId
+      const input = {} as GenericTokenInput<typeof chainId>
+
+      expectTypeOf(getGenericTokenFor(chainId, input)).toEqualTypeOf<
+        TokenFor<EvmChainId | SvmChainId, Metadata>
       >()
     })
 

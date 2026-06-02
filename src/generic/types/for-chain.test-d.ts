@@ -89,6 +89,18 @@ describe('generic/types/for-chain.ts types', () => {
       >()
     })
 
+    it('should be assignable to CurrencyFor for native chain families', () => {
+      expectTypeOf<NativeFor<EvmChainId, Metadata>>().toMatchTypeOf<
+        CurrencyFor<EvmChainId, Metadata>
+      >()
+      expectTypeOf<NativeFor<SvmChainId, Metadata>>().toMatchTypeOf<
+        CurrencyFor<SvmChainId, Metadata>
+      >()
+      expectTypeOf<NativeFor<NativeChainId, Metadata>>().toMatchTypeOf<
+        CurrencyFor<NativeChainId, Metadata>
+      >()
+    })
+
     it('should reject token-only chain families', () => {
       type NativeForMvm = NativeFor<
         // @ts-expect-error MVM is intentionally excluded from NativeChainId.
