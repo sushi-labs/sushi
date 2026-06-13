@@ -113,7 +113,7 @@ importers:
   src:
     dependencies:
       '@solana/addresses':
-        specifier: ^6.9.0
+        specifier: 6.9.0
         version: 6.9.0(typescript@6.0.3)
       '@uniswap/token-lists':
         specifier: 1.0.0-beta.33
