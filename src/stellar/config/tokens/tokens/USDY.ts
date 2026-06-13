@@ -10,12 +10,12 @@ export const STELLAR_USDY: Record<StellarChainId, StellarToken> = {
   [StellarChainId.STELLAR]: new StellarToken({
     chainId: StellarChainId.STELLAR,
     address: STELLAR_USDY_ADDRESS[StellarChainId.STELLAR],
+    issuer: 'GAJMPX5NBOG6TQFPQGRABJEEB2YE7RFRLUKJDZAZGAD5GFX4J7TADAZ6',
     decimals: 7,
     symbol: 'USDY',
     name: 'USDY',
     origin: 'ondo.finance',
     metadata: {
-      issuer: 'GAJMPX5NBOG6TQFPQGRABJEEB2YE7RFRLUKJDZAZGAD5GFX4J7TADAZ6',
       icon: 'https://assets.coingecko.com/coins/images/31700/standard/usdy_(1).png',
     },
   }),
