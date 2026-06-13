@@ -22,7 +22,6 @@ export default defineConfig({
       reporters: process.env.CI ? ['default'] : ['verbose'],
     },
     coverage: {
-      all: false,
       provider: 'v8',
       reporter: process.env.CI ? ['lcov'] : ['text', 'json', 'html'],
       exclude: [

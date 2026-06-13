@@ -7,7 +7,7 @@
 Common operations with examples of string formatting and JSON output.
 
 ```ts twoslash
-import { Fraction } from 'sushi/generic'
+import { Fraction } from 'sushi'
 
 const oneHalf = new Fraction({ numerator: 1n, denominator: 2n })
 const three = new Fraction(3) // shorthand for 3/1
@@ -35,7 +35,7 @@ sum.toJSON()                    // { n: '7', d: '2' }
 Relational operators using exact rational arithmetic (no float rounding).
 
 ```ts twoslash
-import { Fraction } from 'sushi/generic'
+import { Fraction } from 'sushi'
 
 const a = new Fraction({ numerator: 1n, denominator: 3n }) // ~0.3333
 const b = new Fraction({ numerator: 2n, denominator: 5n }) // 0.4

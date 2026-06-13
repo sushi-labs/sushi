@@ -11,11 +11,11 @@ The `sushi/stellar` module provides first-class support for the [Stellar](https:
 
 ## Quick Start
 
-Import from `sushi/stellar` for Stellar-specific types and helpers, or use the generic `sushi/generic` module for chain-agnostic code that automatically handles Stellar.
+Import from `sushi/stellar` for Stellar-specific types and helpers, or use the generic `sushi` module for chain-agnostic code that automatically handles Stellar.
 
 ```ts twoslash
 import { StellarChainId, isStellarChainId, stellarChains } from 'sushi/stellar'
-import { ChainId } from 'sushi/generic'
+import { ChainId } from 'sushi'
 
 // Access the Stellar mainnet chain ID via the enum-like proxy
 const chainId = StellarChainId.STELLAR // -4
@@ -32,10 +32,10 @@ chain.type // 'stellar'
 
 ## Generic Integration
 
-Stellar is wired into the shared `sushi/generic` layer. The generic `AddressFor` and `TxHashFor` conditional types resolve to `StellarAddress` and `StellarTxHash` when given a Stellar chain ID, and utilities like `normalizeAddress` and `nativeAddress` delegate to their Stellar implementations automatically.
+Stellar is wired into the shared `sushi` layer. The generic `AddressFor` and `TxHashFor` conditional types resolve to `StellarAddress` and `StellarTxHash` when given a Stellar chain ID, and utilities like `normalizeAddress` and `nativeAddress` delegate to their Stellar implementations automatically.
 
 ```ts twoslash
-import { ChainId, chains } from 'sushi/generic'
+import { ChainId, chains } from 'sushi'
 
 // Find Stellar in the unified chain list
 const stellar = chains.find((c) => c.type === 'stellar')

@@ -5,26 +5,26 @@
   "type": "module",
   "scripts": {
     "dev": "vocs dev",
-    "build": "vocs build",
+    "build": "NODE_OPTIONS=--max-old-space-size=8192 vocs build",
     "preview": "vocs preview"
   },
   "scarfSettings": {
     "enabled": false
   },
   "dependencies": {
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
     "rehype-mathjax": "7.1.0",
     "remark-math": "6.0.0",
     "sushi": "workspace:*",
-    "swagger-ui-react": "5.19.0",
-    "typescript": "5.8.3",
-    "viem": "2.37.12",
+    "swagger-ui-react": "5.32.6",
+    "typescript": "6.0.3",
+    "viem": "2.52.2",
     "vocs": "1.4.1"
   },
   "devDependencies": {
-    "@types/react": "19.1.0",
-    "@types/react-dom": "19.1.0",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
     "@types/swagger-ui-react": "5.18.0"
   }
 }

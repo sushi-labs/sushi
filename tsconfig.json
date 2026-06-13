@@ -6,8 +6,5 @@
     "src/_*",
     "src/decorator/**/*.ts"
   ],
-  "references": [{ "path": "./scripts/tsconfig.json" }],
-  "compilerOptions": {
-    "baseUrl": ".",
-  }
+  "references": [{ "path": "./scripts/tsconfig.json" }]
 }
