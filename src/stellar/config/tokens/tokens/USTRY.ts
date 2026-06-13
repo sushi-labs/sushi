@@ -10,12 +10,12 @@ export const STELLAR_USTRY: Record<StellarChainId, StellarToken> = {
   [StellarChainId.STELLAR]: new StellarToken({
     chainId: StellarChainId.STELLAR,
     address: STELLAR_USTRY_ADDRESS[StellarChainId.STELLAR],
-    issuer: 'GCRYUGD5NVARGXT56XEZI5CIFCQETYHAPQQTHO2O3IQZTHDH4LATMYWC',
     decimals: 7,
     symbol: 'USTRY',
     name: 'USTRY',
     origin: 'etherfuse.com',
     metadata: {
+      issuer: 'GCRYUGD5NVARGXT56XEZI5CIFCQETYHAPQQTHO2O3IQZTHDH4LATMYWC',
       icon: 'https://assets.coingecko.com/coins/images/52361/standard/-STABLEBOND-06.jpg',
     },
   }),

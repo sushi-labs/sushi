@@ -8,7 +8,10 @@ import type {
 } from '../../evm/currency/token.js'
 import { MvmChainId } from '../../mvm/chain/chains.js'
 import type { MvmAddress, MvmToken } from '../../mvm/currency/token.js'
-import type { StellarContractAddress } from '../../stellar/address.js'
+import type {
+  StellarAccountAddress,
+  StellarContractAddress,
+} from '../../stellar/address.js'
 import { StellarChainId } from '../../stellar/chain/chains.js'
 import type { StellarToken } from '../../stellar/currency/token.js'
 import { SvmChainId } from '../../svm/chain/chains.js'
@@ -121,18 +124,26 @@ describe('generic/currency/for-chain.ts types', () => {
       expectTypeOf(data.metadata).toMatchTypeOf<Metadata>()
     })
 
-    it('matches Stellar token constructor data including issuer and origin', () => {
+    it('matches Stellar token constructor data including metadata issuer and origin', () => {
+      type StellarMetadata = {
+        issuer: StellarAccountAddress | null
+      }
+
       const data = {
         address: 'CAS3J7GYLGXMF6TDJBBYYSE3HQ6BBSMLNUQ34T6TZMYMW2EVH34XOWMA',
-        issuer: 'GDMTVHLWJTHSUDMZVVMXXH6VJHA2ZV3HNG5LYNAZ6RTWB7GISM6PGTUV',
         symbol: 'XLM',
         name: 'XLM',
         decimals: 7,
         origin: 'stellar.org',
-      } satisfies TokenConstructorDataFor<StellarChainId>
+        metadata: {
+          issuer:
+            'GDMTVHLWJTHSUDMZVVMXXH6VJHA2ZV3HNG5LYNAZ6RTWB7GISM6PGTUV' as StellarAccountAddress,
+        },
+      } satisfies TokenConstructorDataFor<StellarChainId, StellarMetadata>
 
       expectTypeOf(data.address).toMatchTypeOf<StellarContractAddress>()
       expectTypeOf(data.origin).toMatchTypeOf<string>()
+      expectTypeOf(data.metadata).toMatchTypeOf<StellarMetadata>()
     })
 
     it('accepts chainId for compatibility', () => {
@@ -240,7 +251,16 @@ describe('generic/currency/for-chain.ts types', () => {
         symbol: 'APT',
         name: 'Aptos Coin',
         decimals: 8,
-        // @ts-expect-error issuer is Stellar-specific token data.
+        // @ts-expect-error issuer is not generic token constructor data.
+        issuer: 'GDMTVHLWJTHSUDMZVVMXXH6VJHA2ZV3HNG5LYNAZ6RTWB7GISM6PGTUV',
+      })
+
+      getTokenFor(StellarChainId.STELLAR, {
+        address: 'CAS3J7GYLGXMF6TDJBBYYSE3HQ6BBSMLNUQ34T6TZMYMW2EVH34XOWMA',
+        symbol: 'XLM',
+        name: 'XLM',
+        decimals: 7,
+        // @ts-expect-error issuer belongs in metadata.
         issuer: 'GDMTVHLWJTHSUDMZVVMXXH6VJHA2ZV3HNG5LYNAZ6RTWB7GISM6PGTUV',
       })
     })
