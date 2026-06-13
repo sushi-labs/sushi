@@ -10,6 +10,7 @@
       "src/abi/splitter.ts"
     ],
     "compilerOptions": {
+      "ignoreDeprecations": "6.0",
       "moduleResolution": "node",
       "sourceMap": true,
       "rootDir": "./src"
