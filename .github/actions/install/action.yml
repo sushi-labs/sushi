@@ -4,8 +4,5 @@ description: "Install dependencies"
 runs:
   using: "composite"
   steps:
-    - name: Set up foundry
-      uses: foundry-rs/foundry-toolchain@v1
-
     - name: Set up pnpm
       uses: sushi-labs/actions/.github/actions/pnpm@pnpm-10.4.1
