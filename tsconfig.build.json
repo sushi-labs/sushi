@@ -10,7 +10,7 @@
       "src/abi/splitter.ts"
     ],
     "compilerOptions": {
-      "moduleResolution": "node",
+      "moduleResolution": "bundler",
       "sourceMap": true,
       "rootDir": "./src"
     }

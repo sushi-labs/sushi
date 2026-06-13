@@ -6,7 +6,7 @@ An `Amount` represents a quantity of a specific currency/token using an integer 
 - `amount`: The raw integer value (`bigint`), typically smallest units (e.g. wei).
 
 ```ts twoslash
-import { Amount } from 'sushi/generic'
+import { Amount } from 'sushi'
 import { EvmToken } from 'sushi/evm'
 
 const USDC = new EvmToken({
@@ -32,7 +32,7 @@ const b = Amount.fromHuman(USDC, 2.25)    // 2.25 USDC -> 2_250_000n
 - Safe parse: `Amount.tryFromHuman(currency, value) // returns undefined on invalid`
 
 ```ts twoslash
-import { Amount } from 'sushi/generic'
+import { Amount } from 'sushi'
 
 // @noErrors
 const amt = new Amount(USDC, 500_000n) // 0.5 USDC
@@ -49,7 +49,7 @@ All operations return a new `Amount` and keep the left-hand side currency.
 - Fractional division: `divToFraction()` returns a precise `Fraction` ratio
 
 ```ts twoslash
-import { Amount, Fraction } from 'sushi/generic'
+import { Amount, Fraction } from 'sushi'
 
 // @noErrors
 const one = Amount.fromHuman(USDC, '1')

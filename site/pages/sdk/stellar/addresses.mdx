@@ -102,7 +102,7 @@ const normalizedGeneric = normalizeStellarAddress(
 )
 ```
 
-When working with the generic layer, `normalizeAddress` from `sushi/generic` automatically delegates to `normalizeStellarAddress` for Stellar chain IDs.
+When working with the generic layer, `normalizeAddress` from `sushi` automatically delegates to `normalizeStellarAddress` for Stellar chain IDs.
 
 ## Native Address
 
@@ -115,14 +115,14 @@ stellarNativeAddress
 // 'GAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
 ```
 
-Similarly, the generic `nativeAddress` from `sushi/generic` returns this constant when given a Stellar chain ID.
+Similarly, the generic `nativeAddress` from `sushi` returns this constant when given a Stellar chain ID.
 
 ## Generic Type Integration
 
 Stellar address and transaction hash types are integrated into the generic conditional types:
 
 ```ts twoslash
-import type { AddressFor, TxHashFor } from 'sushi/generic'
+import type { AddressFor, TxHashFor } from 'sushi'
 import type { StellarChainId } from 'sushi/stellar'
 
 type Addr = AddressFor<StellarChainId> // StellarAddress

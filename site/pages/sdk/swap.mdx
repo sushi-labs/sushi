@@ -3,7 +3,7 @@
 Call the Swap API and simulate the result:
 
 ```ts twoslash
-import { ChainId } from 'sushi/generic'
+import { ChainId } from 'sushi'
 import { getSwap } from 'sushi/evm'
 import { createPublicClient, createWalletClient, http, type Hex } from 'viem'
 import { privateKeyToAccount } from 'viem/accounts'
@@ -39,7 +39,7 @@ if (data.status === 'Success') {
   console.log('Output: ', callResult)
  
   // Send a transaction
-  const PRIVATE_KEY = process.env.PRIVATE_KEY as Hex
+  const PRIVATE_KEY = '0x...' as Hex
   const walletClient = createWalletClient({
     chain: mainnet,
     transport: http(),

@@ -1,7 +1,7 @@
 import type { FC, ReactElement } from 'react'
 import { type AddressFor, type ChainId, getChainById } from 'sushi'
 
-export type NetworkTableFormatter<C extends ChainId = ChainId> = ({
+type NetworkTableFormatter<C extends ChainId = ChainId> = ({
   chainId,
   value,
 }: {

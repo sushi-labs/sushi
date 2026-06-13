@@ -65,7 +65,7 @@ if (data.status === 'Success') {
   console.log('Output: ', callResult)
 
   // Send a transaction
-  const PRIVATE_KEY = process.env.PRIVATE_KEY as Hex
+  const PRIVATE_KEY = '0x...' as Hex
   const walletClient = createWalletClient({
     chain: mainnet,
     transport: http(),
@@ -130,4 +130,3 @@ Example (Success):
 If `status` is `NoWay`, only the `status` field is returned, indicating that no route satisfying the constraints was found. `Partial` indicates a route is available but cannot fully satisfy the requested amount under the given constraints.
 
 Errors are returned with RFC 7807 problem details; see API error references under [Errors](/api/errors).
-
