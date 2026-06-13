@@ -1,5 +1,11 @@
 # sushi
 
+## 6.7.0
+
+### Minor Changes
+
+- [#475](https://github.com/sushi-labs/sushi/pull/475) [`f8e4353f`](https://github.com/sushi-labs/sushi/commit/f8e4353f16bd738f4c4fd6910b9a00b59ed674fe) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Move Stellar token issuer data into token metadata. `StellarToken` and `SerializedStellarToken` no longer expose a top-level `issuer` field; use nullable `metadata.issuer` instead.
+
 ## 6.6.11
 
 ### Patch Changes
