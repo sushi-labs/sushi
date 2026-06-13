@@ -10,12 +10,12 @@ export const STELLAR_SOLVBTC: Record<StellarChainId, StellarToken> = {
   [StellarChainId.STELLAR]: new StellarToken({
     chainId: StellarChainId.STELLAR,
     address: STELLAR_SOLVBTC_ADDRESS[StellarChainId.STELLAR],
+    issuer: undefined,
     decimals: 8,
     symbol: 'SolvBTC',
     name: 'Solv BTC',
     origin: 'solv.finance',
     metadata: {
-      issuer: null,
       icon: 'https://raw.githubusercontent.com/solv-finance/solv-resources/main/SolvBTC/SolvBTC.svg',
     },
   }),
