@@ -10,12 +10,12 @@ export const STELLAR_XLM: Record<StellarChainId, StellarToken> = {
   [StellarChainId.STELLAR]: new StellarToken({
     chainId: StellarChainId.STELLAR,
     address: STELLAR_XLM_ADDRESS[StellarChainId.STELLAR],
+    issuer: 'GDMTVHLWJTHSUDMZVVMXXH6VJHA2ZV3HNG5LYNAZ6RTWB7GISM6PGTUV',
     decimals: 7,
     symbol: 'XLM',
     name: 'XLM',
     origin: 'stellar.org',
     metadata: {
-      issuer: null,
       icon: 'https://assets.coingecko.com/coins/images/100/large/Stellar_symbol_black_RGB.png',
     },
   }),

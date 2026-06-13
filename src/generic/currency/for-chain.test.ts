@@ -90,23 +90,19 @@ describe('generic/currency/for-chain.ts', () => {
     })
 
     it('creates Stellar tokens from constructor data', () => {
-      type Metadata = { issuer: null }
-      const metadata: Metadata = { issuer: null }
-
       const token = getTokenFor(StellarChainId.STELLAR, {
         address: 'CAS3J7GYLGXMF6TDJBBYYSE3HQ6BBSMLNUQ34T6TZMYMW2EVH34XOWMA',
+        issuer: 'GDMTVHLWJTHSUDMZVVMXXH6VJHA2ZV3HNG5LYNAZ6RTWB7GISM6PGTUV',
         symbol: 'XLM',
         name: 'XLM',
         decimals: 7,
         origin: 'stellar.org',
-        metadata,
       })
 
       expect(token).toBeInstanceOf(StellarToken)
       expect(token.chainId).toBe(StellarChainId.STELLAR)
       expect(token.origin).toBe('stellar.org')
-      expect(token.metadata.issuer).toBe(null)
-      expectTypeOf(token).toEqualTypeOf<StellarToken<Metadata>>()
+      expectTypeOf(token).toEqualTypeOf<StellarToken<Record<string, unknown>>>()
     })
   })
 })
