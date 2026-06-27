@@ -175,7 +175,9 @@ function stringToFixed(
       significantDecimal = significantDecimal.slice(0, -1)
     }
 
-    const res = `${integerPart}${significantDecimal ? `.${significantDecimal}` : ''}`
+    const res = `${integerPart}${
+      significantDecimal ? `.${significantDecimal}` : ''
+    }`
     return roundString(str, res)
   }
 
@@ -192,6 +194,10 @@ function stringToFixed(
 }
 
 function roundString(original: string, formatted: string) {
+  if (!original.match(/^-?\d*\.?\d+$/)) {
+    throw new Error('Invalid number string')
+  }
+
   const decimalIndex = original.indexOf('.')
 
   const nextDigitIndex = formatted.length
@@ -216,15 +222,16 @@ function roundString(original: string, formatted: string) {
       // handle full carry (e.g., "9.9" -> "10")
       if (formatted.length === 0 || formatted === '-') {
         const negative = original.startsWith('-')
-        const zeros = Math.max(decimalIndex, 0)
+        const digitsLeftOfDecimal = decimalIndex - (negative ? 1 : 0)
+        const zeros = Math.max(digitsLeftOfDecimal, 0)
         return `${negative ? '-' : ''}1${'0'.repeat(zeros)}`
       }
     }
 
-    return `${formatted.substring(0, formatted.length - 1)}${String.fromCharCode(lastDigit() + 1)}`.padEnd(
-      decimalIndex,
-      '0',
-    )
+    return `${formatted.substring(
+      0,
+      formatted.length - 1,
+    )}${String.fromCharCode(lastDigit() + 1)}`.padEnd(decimalIndex, '0')
   }
 
   return formatted

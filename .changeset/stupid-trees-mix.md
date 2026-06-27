@@ -1,0 +1,5 @@
+---
+"sushi": patch
+---
+
+formatNumber fixes
