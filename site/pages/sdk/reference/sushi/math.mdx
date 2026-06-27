@@ -1,0 +1,38 @@
+# Reference: `sushi` Math
+
+The math module provides BigInt-first helpers for DeFi amounts and ratios.
+
+## Exports
+
+| Export | Purpose |
+|---|---|
+| `Fraction` | Rational number with bigint numerator/denominator. |
+| `Percent` | Percent helper built on `Fraction`. |
+| `ZERO`, `ONE`, `TWO`, etc. | Common bigint constants. |
+| `MAX_UINT256`, `MAX_UINT128` | Common uint bounds. |
+| `abs`, `difference`, `maximum`, `minimum` | BigInt helpers. |
+| `numberToBigInt` | Convert safe numbers to bigint. |
+| `sqrt` | Integer square root. |
+
+## Fraction
+
+```ts twoslash
+import { Fraction, Percent } from 'sushi'
+
+const ratio = new Fraction({ numerator: 1n, denominator: 3n })
+const doubled = ratio.mul(2n)
+const slippage = new Percent({ numerator: 5n, denominator: 1000n })
+```
+
+| Method/property | Purpose |
+|---|---|
+| `quotient`, `remainder` | Integer division parts. |
+| `invert` | Swap numerator and denominator. |
+| `add`, `sub`, `mul`, `div` | Fraction arithmetic. |
+| `lt`, `lte`, `eq`, `gte`, `gt`, `neq` | Comparisons. |
+| `toNumber` | Convert to JavaScript number. |
+| `toString`, `toSignificant` | Display formatting. |
+| `toJSON` | Serialize numerator/denominator. |
+| `asFraction` | Return a plain `Fraction` from subclasses. |
+
+BigInt math preserves integer precision. Methods such as `toNumber` and formatting convert to JavaScript number/string and should be used for display, not critical accounting.

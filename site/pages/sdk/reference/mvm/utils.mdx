@@ -1,0 +1,11 @@
+# Reference: `sushi/mvm` Utils
+
+The MVM utils module exposes address normalization.
+
+```ts
+import { normalizeMvmAddress } from 'sushi/mvm'
+
+const normalized = normalizeMvmAddress('0x1::aptos_coin::AptosCoin')
+```
+
+Use `isMvmAddress` to validate unknown strings before constructing an `MvmToken`.

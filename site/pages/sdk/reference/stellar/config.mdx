@@ -1,0 +1,23 @@
+# Reference: `sushi/stellar` Config
+
+The Stellar config module exports native address constants, SushiSwap V3 contract constants, known tokens, default quote/base currencies, and stable-token helpers.
+
+## Exports
+
+| Export | Purpose |
+|---|---|
+| `stellarNativeAddress` | Stellar native address representation. |
+| `SUSHISWAP_V3_FACTORY_ADDRESS` | SushiSwap V3 factory addresses. |
+| `SUSHISWAP_V3_INIT_CODE_HASH` | SushiSwap V3 init code hashes. |
+| `SUSHISWAP_V3_POSITION_MANAGER` | SushiSwap V3 position manager addresses. |
+| `SUSHISWAP_V3_TICK_LENS` | SushiSwap V3 tick lens addresses. |
+| `SUSHISWAP_V3_QUOTER` | SushiSwap V3 quoter addresses. |
+| `STELLAR_DEFAULT_BASES` | Default base token map. |
+| `stellarDefaultCurrency`, `stellarDefaultQuoteCurrency` | Default currency and quote currency maps. |
+| `STELLAR_STABLES`, `isStellarStable` | Stable token map and guard. |
+| `STELLAR_XLM`, `STELLAR_USDC`, `STELLAR_EURC`, `STELLAR_PYUSD`, `STELLAR_SOLVBTC`, `STELLAR_XSOLVBTC`, `STELLAR_USDY`, `STELLAR_USTRY`, `STELLAR_CETES` | Known token maps. |
+| `STELLAR_XLM_ADDRESS`, `STELLAR_USDC_ADDRESS`, `STELLAR_EURC_ADDRESS`, `STELLAR_PYUSD_ADDRESS`, `STELLAR_SOLVBTC_ADDRESS`, `STELLAR_XSOLVBTC_ADDRESS`, `STELLAR_USDY_ADDRESS`, `STELLAR_USTRY_ADDRESS`, `STELLAR_CETES_ADDRESS` | Known token address maps. |
+
+```ts
+import { STELLAR_USDC, stellarDefaultQuoteCurrency } from 'sushi/stellar'
+```

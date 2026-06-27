@@ -1,0 +1,18 @@
+# Reference: `sushi/svm` Chain
+
+The SVM chain module exposes SVM-only chain metadata.
+
+| Export | Purpose |
+|---|---|
+| `svmChains`, `svmChainIds` | Known SVM chains and IDs. |
+| `SvmChainId` | Enum-like SVM chain ID lookup. |
+| `isSvmChainId`, `getSvmChainById` | Guard and lookup by ID. |
+| `SvmMainnetChainId`, `isSvmMainnetChainId` | Mainnet type and guard. |
+| `SvmChainKey`, `isSvmChainKey`, `getSvmChainByKey` | Chain key type, guard, and lookup. |
+| `defineSvmChain` | Define an SVM chain object. |
+
+```ts twoslash
+import { SvmChainId, getSvmChainById } from 'sushi/svm'
+
+const solana = getSvmChainById(SvmChainId.SOLANA)
+```

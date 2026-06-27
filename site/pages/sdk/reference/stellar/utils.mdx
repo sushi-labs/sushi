@@ -1,0 +1,11 @@
+# Reference: `sushi/stellar` Utils
+
+The Stellar utils module exposes address normalization.
+
+```ts
+import { normalizeStellarAddress } from 'sushi/stellar'
+
+const normalized = normalizeStellarAddress(address)
+```
+
+Use the address guards from [Address](/sdk/reference/stellar/address) when validating unknown strings before normalization.

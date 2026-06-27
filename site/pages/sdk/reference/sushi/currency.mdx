@@ -1,0 +1,63 @@
+# Reference: `sushi` Currency
+
+The root currency module contains shared currency abstractions and amount/price primitives.
+
+## Exports
+
+| Export | Purpose |
+|---|---|
+| `BaseCurrency` | Abstract base class for currencies. |
+| `Currency` | Union of native and token currencies. |
+| `Token` | Abstract addressable token base class. |
+| `Native` | Abstract native asset base class. |
+| `Amount` | Raw integer amount of a currency. |
+| `Price` | Price ratio between base and quote currencies. |
+| `serializedCurrencySchema` | Zod schema factory for serialized currencies. |
+| `serializedAmountSchema` | Zod schema factory for serialized amounts. |
+| `getNativeFor`, `getTokenFor` | Chain-aware currency constructors. |
+| `unwrapToken` | Convert wrapped/native representations where applicable. |
+
+## Amount
+
+```ts twoslash
+import { Amount, type Currency } from 'sushi'
+
+declare const currency: Currency
+
+const one = Amount.fromHuman(currency, '1')
+const two = one.addHuman('1')
+
+two.toString() // '2'
+two.toJSON()
+```
+
+| Method | Purpose |
+|---|---|
+| `new Amount(currency, amount)` | Construct from raw units. |
+| `Amount.fromHuman(currency, value)` | Parse a human decimal using currency decimals. |
+| `Amount.tryFromHuman(currency, value)` | Safe parse returning `undefined` on failure. |
+| `add`, `sub`, `mul`, `div` | Raw-unit arithmetic. |
+| `addHuman`, `subHuman`, `mulHuman` | Human-value helpers. |
+| `gt`, `gte`, `lt`, `lte`, `eq` | Compare raw values. |
+| `wrap` | Wrap the underlying currency. |
+| `toJSON` | Serialize safely. |
+| `toString`, `toSignificant` | Format for display. |
+
+## Price
+
+`Price` extends `Fraction` and represents a base-to-quote price.
+
+```ts twoslash
+import { Amount, Price, type Currency } from 'sushi'
+
+declare const base: Currency
+declare const quote: Currency
+
+const price = new Price({
+  baseAmount: Amount.fromHuman(base, '1'),
+  quoteAmount: Amount.fromHuman(quote, '2'),
+})
+
+price.invert()
+price.toSignificant(4)
+```

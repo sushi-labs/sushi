@@ -1,0 +1,33 @@
+# Reference: `sushi/evm` ABI
+
+The ABI module exports contract ABIs for viem reads and writes.
+
+## Exports
+
+| Export | Purpose |
+|---|---|
+| `eip2612Abi` | EIP-2612 permit ABI. |
+| `erc20Abi` | ERC-20 ABI. |
+| `masterChefV1Abi`, `masterChefV2Abi` | MasterChef ABIs. |
+| `miniChefAbi`, `miniChefV2Abi` | MiniChef ABIs. |
+| `multicallAbi`, `multicall2Abi`, `multicall3Abi` | Multicall ABIs. |
+| `nonfungiblePositionManagerAbi` | V3 nonfungible position manager ABI. |
+| `permit2Abi` | Permit2 ABI. |
+| `slot0Abi` | V3 slot0 ABI. |
+| `sushiSwapV2FactoryAbi`, `sushiSwapV2PairAbi`, `sushiSwapV2RouterAbi` | SushiSwap V2 ABIs. |
+| `sushiSwapV3FactoryAbi`, `sushiSwapV3PoolAbi`, `sushiSwapV3PositionHelperAbi` | SushiSwap V3 ABIs. |
+| `tickLensAbi` | TickLens ABI. |
+| `weth9Abi` | WETH9 ABI. |
+| `xsushiAbi` | xSUSHI ABI. |
+
+```ts
+import { erc20Abi } from 'sushi/evm'
+
+const decimals = await publicClient.readContract({
+  address: tokenAddress,
+  abi: erc20Abi,
+  functionName: 'decimals',
+})
+```
+
+Inspect the ABI export itself for the full function/event set.

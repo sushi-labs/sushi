@@ -1,0 +1,24 @@
+# Reference: `sushi/evm` Chain
+
+The EVM chain module exposes EVM-only chain metadata and type guards.
+
+| Export | Purpose |
+|---|---|
+| `evmChains`, `evmChainIds` | Known EVM chains and IDs. |
+| `EvmChainId` | Enum-like EVM chain ID lookup. |
+| `isEvmChainId`, `getEvmChainById` | Guard and lookup by ID. |
+| `EvmMainnetChainId`, `isEvmMainnetChainId` | Mainnet type and guard. |
+| `EvmTestnetChainId`, `isEvmTestnetChainId` | Testnet type and guard. |
+| `EvmChainKey`, `isEvmChainKey`, `getEvmChainByKey` | Chain key type, guard, and lookup. |
+| `defineEvmChain` | Define an EVM chain object. |
+
+```ts twoslash
+import { EvmChainId, getEvmChainById, getEvmChainByKey } from 'sushi/evm'
+
+const ethereum = getEvmChainById(EvmChainId.ETHEREUM)
+const base = getEvmChainByKey('base')
+
+ethereum.viemChain
+```
+
+EVM chain objects include viem chain metadata and explorer URL helpers. For feature support such as API, V2, or V3 availability, see [EVM Config](/sdk/reference/evm/config).

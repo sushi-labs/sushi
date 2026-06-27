@@ -1,0 +1,143 @@
+# Currency
+
+Sushi models currencies as either native chain assets or addressable tokens. The shared types live in `sushi`, while concrete chain implementations live in chain-specific entrypoints.
+
+## Core types
+
+| Type           | Purpose                                                   |
+| -------------- | --------------------------------------------------------- |
+| `BaseCurrency` | Abstract base for all currencies.                         |
+| `Native`       | Abstract base for native chain assets such as ETH or SOL. |
+| `Token`        | Abstract base for addressable fungible tokens.            |
+| `Currency`     | Union of `Native` and `Token`.                            |
+
+```ts twoslash
+import type { Currency, Native, Token } from "sushi";
+```
+
+`BaseCurrency` provides the fields shared by every currency:
+
+| Field                 | Description                                              |
+| --------------------- | -------------------------------------------------------- |
+| `chainId`             | Chain the currency belongs to.                           |
+| `symbol`              | Display symbol.                                          |
+| `name`                | Display name.                                            |
+| `decimals`            | Decimal precision used for human formatting and parsing. |
+| `metadata`            | Optional app-specific metadata.                          |
+| `type`                | Currency kind, usually `native` or `token`.              |
+| `isNative`, `isToken` | Runtime flags for narrowing.                             |
+| `id`                  | Stable Sushi currency ID.                                |
+
+## Native
+
+`Native` represents a chain gas asset. It is abstract; use concrete chain classes such as `EvmNative` and `SvmNative`.
+
+```ts twoslash
+import { EvmNative } from "sushi/evm";
+
+const eth = EvmNative.fromChainId(1);
+
+eth.isNative; // true
+eth.isToken; // false
+eth.id; // '1:NATIVE'
+```
+
+Native assets can be wrapped when the chain package knows the canonical wrapped token.
+
+```ts twoslash
+import { EvmNative } from "sushi/evm";
+
+const eth = EvmNative.fromChainId(1);
+const weth = eth.wrap();
+```
+
+## Token
+
+`Token` represents an addressable fungible currency. It is abstract; use concrete chain token classes.
+
+```ts twoslash
+import { EvmToken } from "sushi/evm";
+
+const USDC = new EvmToken({
+  chainId: 1,
+  address: "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  symbol: "USDC",
+  name: "USD Coin",
+  decimals: 6,
+});
+
+USDC.isToken; // true
+USDC.isNative; // false
+USDC.id; // '1:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
+```
+
+Tokens compare by chain, decimals, type, and normalized address.
+
+```ts twoslash
+import { EvmToken } from "sushi/evm";
+
+const a = new EvmToken({
+  chainId: 1,
+  address: "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  symbol: "USDC",
+  name: "USD Coin",
+  decimals: 6,
+});
+
+const b = EvmToken.fromJSON(a.toJSON());
+
+a.isSame(b); // true
+```
+
+## Concrete currency classes
+
+| Class                   | Import          | Notes                                                                |
+| ----------------------- | --------------- | -------------------------------------------------------------------- |
+| `EvmToken`, `EvmNative` | `sushi/evm`     | EVM tokens and native assets.                                        |
+| `SvmToken`, `SvmNative` | `sushi/svm`     | SVM/Solana tokens and native SOL.                                    |
+| `StellarToken`          | `sushi/stellar` | Stellar contract tokens with optional issuer.                        |
+| `MvmToken`              | `sushi/mvm`     | Move VM token type tags. No `MvmNative` class is currently exported. |
+
+## Chain-generic currency types
+
+Use the root type helpers when writing code that works across multiple chain environments.
+
+| Type                    | Purpose                               |
+| ----------------------- | ------------------------------------- |
+| `CurrencyFor<TChainId>` | Currency type for a chain ID.         |
+| `TokenFor<TChainId>`    | Token type for a chain ID.            |
+| `NativeFor<TChainId>`   | Native currency type for a chain ID.  |
+| `AddressFor<TChainId>`  | Address type for a chain ID.          |
+| `TxHashFor<TChainId>`   | Transaction hash type for a chain ID. |
+| `IDFor<TChainId>`       | Currency ID type for a chain ID.      |
+
+```ts twoslash
+import type { AddressFor, ChainId, CurrencyFor } from "sushi";
+
+function selectCurrency<TChainId extends ChainId>(
+  chainId: TChainId,
+  address: AddressFor<TChainId>,
+  currency: CurrencyFor<TChainId>,
+) {
+  return { chainId, address, currency };
+}
+```
+
+## Serialization
+
+Concrete currency classes expose `toJSON`, `fromJSON`, and serialized zod schemas.
+
+```ts twoslash
+import { EvmToken, serializedEvmTokenSchema } from "sushi/evm";
+
+const USDC = new EvmToken({
+  chainId: 1,
+  address: "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  symbol: "USDC",
+  name: "USD Coin",
+  decimals: 6,
+});
+
+const parsed = serializedEvmTokenSchema().parse(USDC.toJSON());
+const restored = EvmToken.fromJSON(parsed);
+```

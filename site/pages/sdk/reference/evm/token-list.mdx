@@ -1,0 +1,37 @@
+# Reference: `sushi/evm` Token List
+
+The token-list module re-exports `@uniswap/token-lists` and Sushi’s token-list URL constants.
+
+## Exports
+
+| Export | Purpose |
+|---|---|
+| `BA_LIST` | Blockchain Association SEC notice list URL. |
+| `UNSUPPORTED_TOKEN_LIST_URLS` | Token-list URLs used for unsupported-token loading. |
+| `UNI_LIST`, `UNI_EXTENDED_LIST` | Uniswap token-list URLs. |
+| `OPTIMISM_LIST` | Optimism token-list URL. |
+| `ARBITRUM_LIST` | Arbitrum token-list URL. |
+| `CELO_LIST` | Celo token-list URL. |
+| `PLASMA_BNB_LIST` | Plasma BNB token-list URL. |
+| `LINEA_LIST` | Linea token-list URL. |
+| `PANCAKESWAP_EXTENDED`, `PANCAKESWAP_COINGECKO`, `PANCAKESWAP_BNB` | PancakeSwap token-list URLs. |
+| `DEFAULT_TOKEN_LIST_OF_TOKEN_LISTS_TO_DISPLAY` | Default ordered list of displayed token-list URLs. |
+| `DEFAULT_LIST_OF_LISTS` | Displayed token lists plus unsupported-token lists. |
+| `DEFAULT_ACTIVE_LIST_URLS` | Default active token-list URLs. |
+| `BLACKLIST_TOKEN_IDS` | Token IDs excluded by default. |
+| `@uniswap/token-lists` exports | Token-list types and utilities re-exported from the dependency. |
+
+```ts twoslash
+import {
+  DEFAULT_ACTIVE_LIST_URLS,
+  DEFAULT_LIST_OF_LISTS,
+  type TokenList,
+} from 'sushi/evm'
+
+function countTokens(list: TokenList) {
+  return list.tokens.length
+}
+
+DEFAULT_ACTIVE_LIST_URLS
+DEFAULT_LIST_OF_LISTS
+```

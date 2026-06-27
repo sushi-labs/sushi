@@ -1,0 +1,18 @@
+# Reference: `sushi/svm` Config
+
+The SVM config module contains native address constants, wrapped native data, known tokens, default currencies, and stable token maps.
+
+| Export | Purpose |
+|---|---|
+| `svmNativeAddress` | Native SOL address representation. |
+| `SVM_WNATIVE_ADDRESS`, `SVM_WNATIVE` | Wrapped native address/token maps. |
+| `isSvmWNativeSupported` | Check wrapped native support. |
+| `SVM_DEFAULT_BASES` | Default base token map. |
+| `svmDefaultCurrency`, `svmDefaultQuoteCurrency` | Default currency and quote currency maps. |
+| `SVM_STABLES`, `isSvmStable` | Stable token maps and guard. |
+| `SVM_USDC`, `SVM_USDT`, `SVM_WBTC`, `SVM_WETH`, `WSOL` | Known token maps. |
+| `SVM_USDC_ADDRESS`, `SVM_USDT_ADDRESS`, `SVM_WBTC_ADDRESS`, `SVM_WETH_ADDRESS`, `WSOL_ADDRESS` | Known token address maps. |
+
+```ts
+import { SVM_WNATIVE, WSOL, svmDefaultQuoteCurrency } from 'sushi/svm'
+```

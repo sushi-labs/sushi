@@ -1,0 +1,14 @@
+# Reference: `sushi/evm` Format
+
+The EVM format module contains display helpers for EVM hashes and addresses.
+
+## `shortenHash`
+
+```ts twoslash
+import { shortenHash } from 'sushi/evm'
+
+shortenHash('0x1234567890abcdef1234567890abcdef12345678')
+shortenHash('0x1234567890abcdef1234567890abcdef12345678', 6)
+```
+
+Formatting is display-only. Use validation/normalization helpers for address correctness.

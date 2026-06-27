@@ -1,0 +1,57 @@
+# Reference: `sushi/evm` API
+
+The EVM API module wraps Sushi’s hosted price, quote, and swap APIs.
+
+## Exports
+
+| Export | Purpose |
+|---|---|
+| `getPrices` | Fetch all known prices for a chain. |
+| `getPrice` | Fetch one token price. |
+| `getQuote` | Fetch a route quote. |
+| `getSwap` | Fetch swap transaction data. |
+| `QuoteRequest`, `QuoteResponse` | Quote request/response types. |
+| `SwapRequest`, `SwapResponse` | Swap request/response types. |
+| `RouteStatus` | `Success`, `NoWay`, `Partial`. |
+| `TransferValue` | Fee transfer value mode. |
+| `RouterLiquiditySource` | Route source selection. |
+
+## Price
+
+```ts twoslash
+import { getPrice, getPrices } from 'sushi/evm'
+
+const price = await getPrice(1, '0x6B3595068778DD592e39A122f4f5a5cF09C90fE2')
+const prices = await getPrices(1)
+```
+
+## Quote request
+
+| Field | Required | Description |
+|---|---:|---|
+| `chainId` | Yes | Supported swap API chain ID. |
+| `tokenIn` | Yes | Input token address. |
+| `tokenOut` | Yes | Output token address. |
+| `amount` | Yes | Raw input amount. |
+| `maxSlippage` | Yes | Maximum slippage. |
+| `maxPriceImpact`, `fee`, `feeReceiver`, `feeBy`, `referrer`, `visualize`, `baseUrl` | No | Optional routing, fee, metadata, and API options. |
+
+## Swap request
+
+| Field | Required | Description |
+|---|---:|---|
+| `chainId` | Yes | Supported swap API chain ID. |
+| `tokenIn` | Yes | Input token address. |
+| `tokenOut` | Yes | Output token address. |
+| `amount` | Yes | Raw input amount. |
+| `sender` | Yes | Transaction sender. |
+| `maxSlippage` | Yes | Maximum slippage. |
+| `maxPriceImpact`, `source`, `fee`, `feeReceiver`, `feeBy`, `referrer`, `recipient`, `simulate`, `validate`, `apiKey`, `baseUrl` | No | Routing, fee, execution, simulation, key, and API options. |
+
+The SDK builds the URL, calls `fetch`, and parses the response. Pass standard `RequestInit` options as the second argument.
+
+```ts
+await getSwap(params, { signal: abortController.signal })
+```
+
+`Success` and `Partial` responses transform token indexes into token objects.

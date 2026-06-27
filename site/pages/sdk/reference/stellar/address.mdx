@@ -1,0 +1,23 @@
+# Reference: `sushi/stellar` Address
+
+The address module distinguishes Stellar account and contract addresses.
+
+| Export | Purpose |
+|---|---|
+| `StellarAccountAddress` | Account address type, usually `G...`. |
+| `StellarContractAddress` | Contract address type, usually `C...`. |
+| `StellarAddress` | Account or contract address. |
+| `StellarTxHash` | Stellar transaction hash type. |
+| `isStellarAccountAddress` | Account address guard. |
+| `isStellarContractAddress` | Contract address guard. |
+| `isStellarAddress` | Account-or-contract guard. |
+
+```ts twoslash
+import { isStellarAccountAddress, isStellarAddress, isStellarContractAddress } from 'sushi/stellar'
+
+isStellarAccountAddress('G...')
+isStellarContractAddress('C...')
+isStellarAddress('G...')
+```
+
+`StellarToken` uses a contract address as its token address and may also include an issuer account address.

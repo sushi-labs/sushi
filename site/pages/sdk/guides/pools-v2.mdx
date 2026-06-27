@@ -1,0 +1,48 @@
+# Guide: V2 Pools
+
+Use `SushiSwapV2Pool` from `sushi/evm` for local SushiSwap V2 pool math.
+
+This class does not fetch reserves from chain. You must provide current reserves from RPC, a subgraph, or your own indexer.
+
+```ts twoslash
+import { Amount } from 'sushi'
+import { EvmToken, SushiSwapV2Pool } from 'sushi/evm'
+
+const tokenA = new EvmToken({
+  chainId: 1,
+  address: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+  symbol: 'USDC',
+  name: 'USD Coin',
+  decimals: 6,
+})
+
+const tokenB = new EvmToken({
+  chainId: 1,
+  address: '0x6B3595068778DD592e39A122f4f5a5cF09C90fE2',
+  symbol: 'SUSHI',
+  name: 'SushiToken',
+  decimals: 18,
+})
+
+const poolAddress = SushiSwapV2Pool.getAddress(tokenA, tokenB)
+
+const pool = new SushiSwapV2Pool(
+  new Amount(tokenA, 1_000_000_000n),
+  new Amount(tokenB, 500_000_000_000_000_000_000n),
+)
+
+const [outputAmount] = pool.getOutputAmount(new Amount(tokenA, 1_000_000n))
+```
+
+## Common operations
+
+| Operation | API |
+|---|---|
+| Compute pool address | `SushiSwapV2Pool.getAddress` |
+| Get token prices | `token0Price`, `token1Price`, `priceOf` |
+| Quote exact input | `getOutputAmount` |
+| Quote exact output | `getInputAmount` |
+| Compute minted liquidity | `getLiquidityMinted` |
+| Compute liquidity value | `getLiquidityValue` |
+
+See [V2 Pool Reference](/sdk/reference/evm/pool-v2) and [EVM Config](/sdk/reference/evm/config).

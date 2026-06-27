@@ -1,0 +1,18 @@
+# Reference: `sushi/mvm` Chain
+
+The MVM chain module exposes Move VM chain metadata.
+
+| Export | Purpose |
+|---|---|
+| `mvmChains`, `mvmChainIds` | Known MVM chains and IDs. |
+| `MvmChainId` | Enum-like MVM chain ID lookup. |
+| `isMvmChainId`, `getMvmChainById` | Guard and lookup by ID. |
+| `MvmMainnetChainId`, `isMvmMainnetChainId` | Mainnet type and guard. |
+| `MvmChainKey`, `isMvmChainKey`, `getMvmChainByKey` | Chain key type, guard, and lookup. |
+| `defineMvmChain` | Define an MVM chain object. |
+
+```ts twoslash
+import { MvmChainId, getMvmChainById } from 'sushi/mvm'
+
+const aptos = getMvmChainById(MvmChainId.APTOS)
+```

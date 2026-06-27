@@ -1,0 +1,39 @@
+# Guide: Native vs Wrapped Tokens
+
+Native assets are chain gas assets such as ETH or SOL. Wrapped tokens are token contracts or token mints that represent those native assets, such as WETH or WSOL.
+
+## EVM
+
+```ts twoslash
+import { EvmNative, WNATIVE, WNATIVE_ADDRESS, isEvmWNativeSupported } from 'sushi/evm'
+
+const eth = EvmNative.fromChainId(1)
+const weth = eth.wrap()
+
+WNATIVE_ADDRESS[1]
+WNATIVE[1]
+isEvmWNativeSupported(1)
+```
+
+Use `EvmNative` to represent native gas assets. Use `wrap()` or `WNATIVE` when a token representation is required.
+
+## SVM
+
+```ts twoslash
+import { SvmNative, SVM_WNATIVE, SVM_WNATIVE_ADDRESS, isSvmWNativeSupported } from 'sushi/svm'
+
+const sol = new SvmNative({
+  chainId: -5,
+  symbol: 'SOL',
+  name: 'Solana',
+  decimals: 9,
+})
+
+const wsol = sol.wrap()
+
+SVM_WNATIVE_ADDRESS[-5]
+SVM_WNATIVE[-5]
+isSvmWNativeSupported(-5)
+```
+
+Use the native representation when the API or function expects the chain’s native asset. Use the wrapped token address when interacting with token contracts, token mints, or pool math that requires a token.

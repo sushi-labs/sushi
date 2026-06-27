@@ -1,0 +1,27 @@
+# Reference: `sushi/stellar` Currency
+
+The Stellar currency module exposes Stellar token and serialization helpers.
+
+| Export | Purpose |
+|---|---|
+| `StellarToken` | Stellar token class. |
+| `StellarCurrency` | Stellar currency type. |
+| `serializedStellarTokenSchema`, `serializedStellarCurrencySchema` | Zod schemas. |
+| `deserializeStellarCurrency` | Deserialize Stellar currency JSON. |
+| `getStellarCurrencyAddress` | Get token/native address representation. |
+| `unwrapStellarToken` | Unwrap wrapped/native representation where applicable. |
+
+```ts
+import { StellarToken } from 'sushi/stellar'
+
+const token = new StellarToken({
+  chainId: -4,
+  address: 'C...',
+  issuer: 'G...',
+  symbol: 'USDC',
+  name: 'USD Coin',
+  decimals: 7,
+})
+```
+
+`address` is the token contract address. `issuer` is optional account metadata. Both are normalized when provided.

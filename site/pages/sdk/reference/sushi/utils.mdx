@@ -1,0 +1,116 @@
+# Reference: `sushi` Utils
+
+The root utilities module contains chain-generic helpers exported from `sushi`.
+
+## Exports
+
+| Export | Purpose |
+|---|---|
+| `normalizeAddress` | Normalize an address by chain ID or detected address format. |
+| `getNativeAddress` | Get the native address sentinel for a chain. |
+| `isWNativeSupported` | Check whether a chain supports a canonical wrapped native token. |
+| `getChainIdAddressFromId` | Split a Sushi ID into `chainId` and `address`. |
+| `getIdFromChainIdAddress` | Build a Sushi ID from chain ID and address. |
+| `LowercaseMap` | `Map` subclass that lowercases string keys. |
+| `subtractSlippage` | Subtract a decimal slippage value from an `Amount`. |
+| `assertNever` | Exhaustiveness helper for unreachable branches. |
+
+## Normalize addresses
+
+`normalizeAddress` delegates to the correct chain-specific normalizer. Pass a chain ID when you know it, or pass only the address to infer by format.
+
+```ts twoslash
+import { ChainId, normalizeAddress } from 'sushi'
+
+const evm = normalizeAddress(
+  ChainId.ETHEREUM,
+  '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+)
+
+const inferred = normalizeAddress(
+  '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+)
+```
+
+## Native addresses
+
+`getNativeAddress` returns the native address representation for a chain.
+
+```ts twoslash
+import { ChainId, getNativeAddress } from 'sushi'
+
+const native = getNativeAddress(ChainId.ETHEREUM)
+```
+
+## IDs
+
+Sushi IDs use the `chainId:address` format. Native assets can optionally translate the native address to `NATIVE`.
+
+```ts twoslash
+import { ChainId, getChainIdAddressFromId, getIdFromChainIdAddress } from 'sushi'
+
+const id = getIdFromChainIdAddress(
+  ChainId.ETHEREUM,
+  '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+)
+
+const parsed = getChainIdAddressFromId(id)
+```
+
+## Wrapped native support
+
+```ts twoslash
+import { ChainId, isWNativeSupported } from 'sushi'
+
+isWNativeSupported(ChainId.ETHEREUM)
+```
+
+`isWNativeSupported` currently supports EVM and SVM chain IDs.
+
+## Slippage
+
+`subtractSlippage` subtracts a decimal slippage value from an `Amount`.
+
+```ts twoslash
+import { Amount, subtractSlippage } from 'sushi'
+
+declare const amount: Amount
+
+const minimum = subtractSlippage(amount, 0.01)
+```
+
+The `slippage` argument must be between `0` and `1`, where `0.01` means `1%`.
+
+## LowercaseMap
+
+`LowercaseMap` lowercases keys for `get`, `has`, `set`, and `delete`.
+
+```ts twoslash
+import { LowercaseMap } from 'sushi'
+
+const map = new LowercaseMap<string, number>()
+
+map.set('ABC', 1)
+map.get('abc') // 1
+```
+
+## assertNever
+
+Use `assertNever` to enforce exhaustive checks.
+
+```ts twoslash
+import { assertNever } from 'sushi'
+
+type State = 'idle' | 'loading'
+
+function label(state: State) {
+  switch (state) {
+    case 'idle':
+      return 'Idle'
+    case 'loading':
+      return 'Loading'
+    default:
+      return assertNever(state)
+  }
+}
+```

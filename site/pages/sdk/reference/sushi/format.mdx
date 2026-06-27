@@ -1,0 +1,82 @@
+# Reference: `sushi` Format
+
+The format module contains display helpers for addresses, numbers, percentages, prices, and strings.
+
+Use formatting for display only. Do not use these helpers for value math.
+
+## Exports
+
+| Export | Purpose |
+|---|---|
+| `shortenAddress` | Shorten an address-like string with a middle ellipsis. |
+| `formatNumber` | Format a number with compact suffixes such as `k`, `m`, `b`, and `t`. |
+| `withoutScientificNotation` | Convert scientific notation strings to decimal strings. |
+| `numberToFixed` | Format numbers or number strings using fixed, max fixed, or significant digits. |
+| `formatPercent` | Format decimal percent values as display strings. |
+| `formatUSD` | Format USD values with dollar sign and compact suffixes. |
+| `truncateString` | Truncate a string at the end or middle. |
+
+## Address
+
+```ts twoslash
+import { shortenAddress } from 'sushi'
+
+shortenAddress('0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48')
+shortenAddress('0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48', 6)
+```
+
+`shortenAddress` does not validate or checksum the input. It only shortens the string.
+
+## Number
+
+```ts twoslash
+import { formatNumber, numberToFixed, withoutScientificNotation } from 'sushi'
+
+formatNumber(1234.567) // '1.23k'
+formatNumber(0.00001234) // '0.000012'
+
+withoutScientificNotation('1.23e-5') // '0.0000123'
+
+numberToFixed('123.4567', { fixed: 2 }) // '123.46'
+numberToFixed('123.4567', { maxFixed: 2 }) // '123.45'
+numberToFixed('123.4567', { significant: 4 }) // '123.5'
+```
+
+`numberToFixed` supports three formatting modes:
+
+| Mode | Behavior |
+|---|---|
+| `{ fixed: n }` | Always show exactly `n` decimals and round. |
+| `{ maxFixed: n }` | Show up to `n` decimals and trim trailing zeroes. |
+| `{ significant: n }` | Show up to `n` significant digits. |
+
+## Percent
+
+`formatPercent` expects a decimal value. For example, `0.0123` formats as `1.23%`.
+
+```ts twoslash
+import { formatPercent } from 'sushi'
+
+formatPercent(0) // '0.00%'
+formatPercent(0.0123) // '1.23%'
+formatPercent(0.000001) // '<0.01%'
+```
+
+## USD price
+
+```ts twoslash
+import { formatUSD } from 'sushi'
+
+formatUSD(0) // '$0.00'
+formatUSD(0.0000001) // '<$0.01'
+formatUSD(1234.56) // '$1.23k'
+```
+
+## String
+
+```ts twoslash
+import { truncateString } from 'sushi'
+
+truncateString('abcdefghijklmnopqrstuvwxyz', 10, 'end') // 'abcdefghij...'
+truncateString('abcdefghijklmnopqrstuvwxyz', 10, 'middle') // 'abcde...vwxyz'
+```

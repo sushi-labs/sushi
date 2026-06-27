@@ -32,12 +32,6 @@ export default defineConfig({
       text: pkg.version,
       items: [
         {
-          text: `Migrating to ${toPatchVersionRange(pkg.version)}`,
-          link: `/docs/migration-guide#_${toPatchVersionRange(
-            pkg.version,
-          ).replace(/\./g, '-')}-breaking-changes`,
-        },
-        {
           text: 'Changelog',
           link: 'https://github.com/sushi-labs/sushi/blob/master/src/CHANGELOG.md',
         },
@@ -72,8 +66,3 @@ export default defineConfig({
     },
   },
 })
-
-function toPatchVersionRange(version: string) {
-  const [major, minor] = version.split('.').slice(0, 2)
-  return `${major}.${minor}.x`
-}

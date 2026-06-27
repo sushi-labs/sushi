@@ -1,0 +1,52 @@
+# Guide: V3 Pools and Positions
+
+Use `SushiSwapV3Pool` and `Position` from `sushi/evm` for local SushiSwap V3 pool and position math.
+
+These classes do not fetch pool state, tick data, or liquidity. You must supply current state from RPC, a subgraph, or your own indexer.
+
+## Construct a pool
+
+```ts twoslash
+import { EvmToken, SushiSwapV3Pool } from 'sushi/evm'
+
+const tokenA = new EvmToken({
+  chainId: 1,
+  address: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+  symbol: 'USDC',
+  name: 'USD Coin',
+  decimals: 6,
+})
+
+const tokenB = new EvmToken({
+  chainId: 1,
+  address: '0x6B3595068778DD592e39A122f4f5a5cF09C90fE2',
+  symbol: 'SUSHI',
+  name: 'SushiToken',
+  decimals: 18,
+})
+
+const pool = new SushiSwapV3Pool(
+  tokenA,
+  tokenB,
+  3000,
+  79228162514264337593543950336n,
+  1_000_000n,
+  0,
+)
+
+const price = pool.token0Price
+```
+
+## Required pool state
+
+| Value | Meaning |
+|---|---|
+| `fee` | Pool fee amount. |
+| `sqrtRatioX96` | Current square-root price in Q64.96 form. |
+| `liquidity` | Current in-range liquidity. |
+| `tickCurrent` | Current tick. |
+| `ticks` | Optional tick data provider or initialized ticks. |
+
+Some swap and position operations require tick data. Without tick data, only operations that do not cross initialized ticks are available.
+
+See [V3 Pool Reference](/sdk/reference/evm/pool-v3).

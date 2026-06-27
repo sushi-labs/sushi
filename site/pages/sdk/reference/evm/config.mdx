@@ -1,0 +1,30 @@
+# Reference: `sushi/evm` Config
+
+The EVM config module contains chain support maps, known token constants, contract addresses, wrapped native assets, and subgraph configuration.
+
+## Feature support
+
+Feature exports describe which chains support Sushi and related integrations.
+
+| Group | Examples |
+|---|---|
+| API and aggregator | API-supported chains, aggregator addresses. |
+| Sushi protocols | SushiSwap V2/V3, Sushi, RedSnwapper, Blade. |
+| External protocols | Uniswap V2/V3, PancakeSwap V2/V3. |
+| Rewards/admin | MasterChef, MiniChef, fee collector, operations multisig, Merkl. |
+| Token safety | Token security feature maps. |
+
+## Tokens
+
+| Export | Purpose |
+|---|---|
+| `WNATIVE_ADDRESS`, `WNATIVE` | Wrapped native addresses and tokens by chain. |
+| `isEvmWNativeSupported` | Check wrapped native support. |
+| `isWrapOrUnwrap` | Detect native/wrapped swap pairs. |
+| `STABLES`, `isStable` | Stable token maps and guard. |
+| Default bases/quotes | Common routing/display tokens. |
+| Known token exports | Chain-specific token constants. |
+
+## Subgraphs
+
+Subgraph config includes hosts, max page sizes, seconds between blocks, and subgraph URL maps. See [Subgraphs](/subgraphs/blocks) for user-facing subgraph docs.

@@ -1,0 +1,31 @@
+# Reference: `sushi` Chain
+
+Root chain exports provide a unified registry across EVM, SVM, MVM, and Stellar.
+
+| Export | Purpose |
+|---|---|
+| `chains` | All known chains. |
+| `ChainId` | Enum-like lookup from uppercase chain keys to chain IDs. |
+| `chainIds` | Known chain ID array. |
+| `isChainId` | Type guard for unknown numbers. |
+| `getChainById` | Lookup by chain ID. |
+| `MainnetChainId`, `isMainnetChainId` | Mainnet type and guard. |
+| `TestnetChainId`, `isTestnetChainId` | Testnet type and guard. |
+| `ChainKey`, `isChainKey`, `getChainByKey` | Chain key type, guard, and lookup. |
+
+`ChainId` converts uppercase property names to chain keys. For example, `ChainId.ETHEREUM` resolves the chain with key `ethereum`.
+
+```ts twoslash
+import { ChainId, chains, getChainById, getChainByKey, isChainId } from 'sushi'
+
+const ethereum = getChainById(ChainId.ETHEREUM)
+const base = getChainByKey('base')
+
+for (const chain of chains) {
+  console.log(chain.name)
+}
+
+if (isChainId(1)) {
+  getChainById(1)
+}
+```

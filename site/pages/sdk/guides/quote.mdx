@@ -1,0 +1,49 @@
+# Guide: Get a Swap Quote
+
+Use `getQuote` from `sushi/evm` to get an EVM swap quote without building transaction calldata.
+
+```ts twoslash
+import { ChainId } from "sushi";
+import { getQuote } from "sushi/evm";
+
+const quote = await getQuote({
+  chainId: ChainId.ETHEREUM,
+  tokenIn: "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+  tokenOut: "0x6B3595068778DD592e39A122f4f5a5cF09C90fE2",
+  amount: 1_000_000_000_000_000_000n,
+  maxSlippage: 0.005,
+});
+
+if (quote.status === "Success") {
+  console.log(quote.assumedAmountOut);
+}
+```
+
+## Request fields
+
+| Field            | Required | Description                                |
+| ---------------- | -------: | ------------------------------------------ |
+| `chainId`        |      Yes | Supported EVM swap API chain ID.           |
+| `tokenIn`        |      Yes | Input token address.                       |
+| `tokenOut`       |      Yes | Output token address.                      |
+| `amount`         |      Yes | Raw input amount in token base units.      |
+| `maxSlippage`    |      Yes | Maximum slippage as a decimal number.      |
+| `maxPriceImpact` |       No | Maximum accepted price impact.             |
+| `fee`            |       No | Integration fee amount.                    |
+| `feeReceiver`    |       No | Address receiving the fee.                 |
+| `feeBy`          |       No | Whether fee is taken from input or output. |
+| `referrer`       |       No | Custom referrer string.                    |
+| `visualize`      |       No | Include route visualization data.          |
+| `baseUrl`        |       No | Override API base URL.                     |
+
+`amount` is not a human decimal. Use raw units such as wei for ETH.
+
+## Response statuses
+
+| Status    | Meaning                                               |
+| --------- | ----------------------------------------------------- |
+| `Success` | A complete route was found.                           |
+| `Partial` | A route exists but may not fully satisfy the request. |
+| `NoWay`   | No route was found.                                   |
+
+`Success` and `Partial` responses include tokens, prices, price impact, `amountIn`, and `assumedAmountOut`. `NoWay` responses only indicate that no suitable route was found.

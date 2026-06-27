@@ -1,0 +1,64 @@
+# Reference: `sushi` Validate
+
+The root validation module exposes promise result guards and shared zod schema helpers.
+
+## Exports
+
+| Export | Purpose |
+|---|---|
+| `isPromiseFulfilled` | Type guard for fulfilled `Promise.allSettled` results. |
+| `isPromiseRejected` | Type guard for rejected `Promise.allSettled` results. |
+| `hex` | Zod schema factory for `0x`-prefixed hex strings. |
+| `sz` | Shared schema namespace. Includes `sz.hex` and `sz.evm`. |
+
+## Hex schema
+
+Use `hex()` or `sz.hex()` to validate `0x`-prefixed hex strings. Parsed values are lowercased and typed as viem `Hex`.
+
+```ts twoslash
+import { hex, sz } from 'sushi'
+
+const data = hex().parse('0xABCDEF')
+const same = sz.hex().parse('0xABCDEF')
+
+data // '0xabcdef'
+same // '0xabcdef'
+```
+
+Invalid values throw a zod error.
+
+```ts
+import { hex } from 'sushi'
+
+hex().parse('abcdef') // throws: missing 0x prefix
+```
+
+## EVM schemas
+
+`sz.evm` exposes the EVM schema helpers from `sushi/evm` through the root namespace.
+
+```ts twoslash
+import { sz } from 'sushi'
+
+const address = sz.evm.address().parse(
+  '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+)
+```
+
+Use `sushi/evm` directly when you only need EVM validation helpers. Use root `sz` when you are already working from the generic `sushi` entrypoint.
+
+## Promise result guards
+
+Use the promise settled-result guards when working with `Promise.allSettled`.
+
+```ts twoslash
+import { isPromiseFulfilled, isPromiseRejected } from 'sushi'
+
+const results = await Promise.allSettled([
+  Promise.resolve(1),
+  Promise.reject(new Error('failed')),
+])
+
+const values = results.filter(isPromiseFulfilled).map((result) => result.value)
+const errors = results.filter(isPromiseRejected).map((result) => result.reason)
+```

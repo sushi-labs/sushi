@@ -1,0 +1,29 @@
+# Reference: `sushi/svm` Currency
+
+The SVM currency module exposes Solana/SVM token and native currency helpers.
+
+| Export | Purpose |
+|---|---|
+| `SvmToken` | SVM token class. |
+| `SvmNative` | SVM native asset class. |
+| `SvmCurrency` | SVM token/native union. |
+| `SvmAddress`, `SvmTxHash` | Address/hash types. |
+| `isSvmAddress`, `svmAddress` | Re-exported address helpers from `@solana/addresses`. |
+| `serializedSvmTokenSchema`, `serializedSvmNativeSchema`, `serializedSvmCurrencySchema` | Zod schemas. |
+| `deserializeSvmCurrency` | Deserialize SVM currency JSON. |
+| `getSvmCurrencyAddress` | Get token/native address representation. |
+| `unwrapSvmToken` | Unwrap wrapped/native representation where applicable. |
+
+```ts
+import { SvmToken } from 'sushi/svm'
+
+const token = new SvmToken({
+  chainId: -5,
+  address: 'So11111111111111111111111111111111111111112',
+  symbol: 'WSOL',
+  name: 'Wrapped SOL',
+  decimals: 9,
+})
+```
+
+SVM address validation uses `@solana/addresses`.

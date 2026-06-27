@@ -1,0 +1,39 @@
+# Reference: `sushi/evm` Types
+
+The EVM types module exports reusable domain shapes for contracts, Sushi pool data, and Sushi position data.
+
+## Exports
+
+| Type | Purpose |
+|---|---|
+| `Contract` | viem contract parameter shape without `functionName` or `args`. |
+| `EvmID` | EVM currency ID type. |
+| `PoolId` | Minimal Sushi pool identity. |
+| `PoolBase` | Base Sushi pool data. |
+| `PoolV2`, `isPoolV2` | SushiSwap V2 pool type and guard. |
+| `PoolV3`, `isPoolV3` | SushiSwap V3 pool type and guard. |
+| `MaybeNestedPool`, `unnestPool` | Nested pool shape and unwrapping helper. |
+| `PoolHistory`, `PoolHistory1D`, `PoolHistory1W`, `PoolHistory1M` | Pool history data shapes. |
+| `PoolSwapFee` | Pool swap fee field shape. |
+| `PoolWithAprs`, `PoolWithIncentiveApr`, `PoolWithFeeAprs`, `PoolWithTotalAprs` | APR-augmented pool shapes. |
+| `PoolWithBuckets`, `PoolBucket` | Bucketed pool data shapes. |
+| `PoolWithIncentives`, `PoolIfIncentivized`, `Incentive`, `RewarderType`, `ChefType` | Incentive and reward data shapes. |
+| `PoolHasSteerVaults`, `PoolWithSteerVaults`, `SteerVaultId` | Steer vault pool shapes. |
+| `SushiSwapProtocol`, `SushiSwapV2Protocol`, `SushiSwapV3Protocol`, `BladeProtocol` | Protocol constants and types. |
+| `SushiPositionBase`, `SushiPositionStaked`, `SushiPositionWithPool` | Sushi position data shapes. |
+
+```ts twoslash
+import { isPoolV2, isPoolV3, type PoolId } from 'sushi/evm'
+
+function poolType(pool: PoolId) {
+  if (isPoolV2(pool)) {
+    return 'v2'
+  }
+
+  if (isPoolV3(pool)) {
+    return 'v3'
+  }
+
+  return 'unknown'
+}
+```

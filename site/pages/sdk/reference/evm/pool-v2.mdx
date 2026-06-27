@@ -1,0 +1,30 @@
+# Reference: `sushi/evm` V2 Pool
+
+V2 pool exports provide deterministic local math for SushiSwap V2-style pools.
+
+## Exports
+
+| Export | Purpose |
+|---|---|
+| `SushiSwapV2Pool` | Pool class built from two token reserve amounts. |
+| `computeSushiSwapV2PoolAddress` | Compute pair address from factory/token/init code hash inputs. |
+| V2 schemas | Serialize/validate V2 pool data. |
+
+## `SushiSwapV2Pool`
+
+| Member | Purpose |
+|---|---|
+| `getAddress(tokenA, tokenB)` | Compute the SushiSwap V2 pool address (static). |
+| `constructor(amountA, amountB)` | Construct from current reserves. |
+| `liquidityToken` | LP token representation. |
+| `swapGasCost`, `minLiquidity` | Constants used by pool logic. |
+| `involvesToken(token)` | Check whether token is in the pool. |
+| `token0Price`, `token1Price`, `priceOf(token)` | Mid-price helpers. |
+| `chainId`, `token0`, `token1`, `reserve0`, `reserve1` | Pool state accessors. |
+| `reserveOf(token)` | Reserve for a token. |
+| `getOutputAmount(inputAmount)` | Quote exact input and return updated pool. |
+| `getInputAmount(outputAmount)` | Quote exact output and return updated pool. |
+| `getLiquidityMinted(...)` | Compute LP tokens minted. |
+| `getLiquidityValue(...)` | Compute token value of LP liquidity. |
+
+Operations can throw for unsupported chains, token mismatches, zero reserves, insufficient input, insufficient reserves, or liquidity mismatches.

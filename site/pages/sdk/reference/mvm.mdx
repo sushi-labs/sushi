@@ -1,0 +1,16 @@
+# Reference: `sushi/mvm`
+
+`sushi/mvm` exposes Move VM chain metadata, token helpers, native address constants, and address normalization utilities.
+
+```ts
+import { MvmChainId, MvmToken, mvmNativeAddress } from 'sushi/mvm'
+```
+
+Current MVM currency support exposes `MvmToken` and `mvmNativeAddress`; there is no `MvmNative` class in the current public entrypoint.
+
+| Module | Docs | Purpose |
+|---|---|---|
+| `chain` | [Chain](/sdk/reference/mvm/chain) | MVM chain registry and lookup helpers. |
+| `currency` | [Currency](/sdk/reference/mvm/currency) | MVM token helpers. |
+| `config` | [Config](/sdk/reference/mvm/config) | Native address constants. |
+| `utils` | [Utils](/sdk/reference/mvm/utils) | Address normalization. |

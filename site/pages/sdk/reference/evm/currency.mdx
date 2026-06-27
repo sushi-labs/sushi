@@ -1,0 +1,50 @@
+# Reference: `sushi/evm` Currency
+
+The EVM currency module provides concrete currency classes for EVM chains.
+
+## Exports
+
+| Export | Purpose |
+|---|---|
+| `EvmToken` | EVM ERC-20-like token class. |
+| `EvmNative` | EVM native asset class. |
+| `EvmCurrency` | EVM token/native union. |
+| `EvmAddress`, `EvmTxHash` | EVM address/hash types. |
+| `isEvmAddress` | Address type guard. |
+| `EvmTokenOrigin` | Optional token origin metadata. |
+| `serializedEvmTokenSchema`, `serializedEvmNativeSchema`, `serializedEvmCurrencySchema` | Zod schemas. |
+| `deserializeEvmCurrency` | Deserialize an EVM currency. |
+| `getEvmCurrencyAddress` | Get the EVM address for a currency. |
+| `unwrapEvmToken` | Unwrap wrapped/native representation where applicable. |
+
+## Token
+
+```ts twoslash
+import { EvmToken } from 'sushi/evm'
+
+const USDC = new EvmToken({
+  chainId: 1,
+  address: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+  symbol: 'USDC',
+  name: 'USD Coin',
+  decimals: 6,
+})
+```
+
+| Member | Purpose |
+|---|---|
+| `origin` | Optional bridge/origin metadata. |
+| `sortsBefore(other)` | Deterministic token sorting for pool math. Throws for different chains or same address. |
+| `wrap()` | Returns itself. |
+| `toJSON()` / `fromJSON()` | Serialization roundtrip. |
+
+## Native
+
+```ts twoslash
+import { EvmNative } from 'sushi/evm'
+
+const eth = EvmNative.fromChainId(1)
+const weth = eth.wrap()
+```
+
+EVM addresses are validated with viem and normalized by the constructor.

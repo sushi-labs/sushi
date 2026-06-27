@@ -1,0 +1,26 @@
+# Reference: `sushi/evm`
+
+`sushi/evm` is the EVM-specific package entrypoint.
+
+```ts
+import { getQuote, EvmToken, SushiSwapV2Pool } from "sushi/evm";
+```
+
+## Modules
+
+| Module     | Docs                                    | Purpose                                                                     |
+| ---------- | --------------------------------------- | --------------------------------------------------------------------------- |
+| `api`      | [API](/sdk/reference/evm/api)           | Hosted Sushi price, quote, and swap helpers.                                |
+| `chain`    | [Chain](/sdk/reference/evm/chain)       | EVM chain registry and chain ID helpers.                                    |
+| `currency` | [Currency](/sdk/reference/evm/currency) | EVM tokens, native assets, schemas, and address helpers.                    |
+| `config`   | [Config](/sdk/reference/evm/config)     | Feature support, known tokens, wrapped native assets, subgraphs, addresses. |
+| `dex`      | [DEX](/sdk/reference/evm/dex)           | DEX enums and local math errors.                                            |
+| `pool`     | [Pool](/sdk/reference/evm/pool)         | Local V2/V3 pool and position math.                                         |
+| `abi`      | [ABI](/sdk/reference/evm/abi)           | Contract ABI exports for viem usage.                                        |
+| `token-list` | [Token List](/sdk/reference/evm/token-list) | Token-list types and URL constants.                                    |
+| `format`   | [Format](/sdk/reference/evm/format)     | EVM display helpers.                                                        |
+| `utils`    | [Utils](/sdk/reference/evm/utils)       | Low-level EVM helpers.                                                      |
+| `validate` | [Validate](/sdk/reference/evm/validate) | EVM validation helpers.                                                     |
+| `types`    | [Types](/sdk/reference/evm/types)       | EVM domain and API types.                                                   |
+
+API helpers call Sushi’s hosted API. Pool classes and utilities compute locally from data you provide.

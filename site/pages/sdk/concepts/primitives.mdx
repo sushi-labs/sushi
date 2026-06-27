@@ -1,0 +1,113 @@
+# Primitives
+
+Sushi uses `Amount`, `Price`, and `Fraction` for value math. These primitives avoid floating-point math for token amounts and ratios.
+
+## Amount
+
+`Amount` represents a raw integer quantity of a specific currency.
+
+```ts twoslash
+import { Amount } from 'sushi'
+import { EvmToken } from 'sushi/evm'
+
+const USDC = new EvmToken({
+  chainId: 1,
+  address: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+  symbol: 'USDC',
+  name: 'USD Coin',
+  decimals: 6,
+})
+
+const raw = new Amount(USDC, 1_000_000n)
+const human = Amount.fromHuman(USDC, '1.5')
+
+raw.toString() // '1'
+human.amount // 1500000n
+```
+
+Use raw units for transactions and API requests. Use `fromHuman` when parsing user-facing decimal values.
+
+| API | Purpose |
+|---|---|
+| `new Amount(currency, amount)` | Construct from raw units. |
+| `Amount.fromHuman(currency, value)` | Parse a decimal value using currency decimals. |
+| `Amount.tryFromHuman(currency, value)` | Safe parse returning `undefined` on invalid input. |
+| `add`, `sub`, `mul`, `div` | Raw-unit arithmetic. |
+| `addHuman`, `subHuman`, `mulHuman` | Human-value helpers. |
+| `gt`, `gte`, `lt`, `lte`, `eq` | Compare raw values. |
+| `wrap` | Wrap the underlying currency and keep the same raw amount. |
+| `toJSON` | Serialize as JSON-safe currency and amount strings. |
+| `toString`, `toSignificant` | Format for display. |
+
+## Price
+
+`Price` represents a ratio between a base currency and quote currency.
+
+```ts twoslash
+import { Amount, Price } from 'sushi'
+import { EvmToken } from 'sushi/evm'
+
+const USDC = new EvmToken({
+  chainId: 1,
+  address: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+  symbol: 'USDC',
+  name: 'USD Coin',
+  decimals: 6,
+})
+
+const SUSHI = new EvmToken({
+  chainId: 1,
+  address: '0x6b3595068778dd592e39a122f4f5a5cf09c90fe2',
+  symbol: 'SUSHI',
+  name: 'SushiToken',
+  decimals: 18,
+})
+
+const price = new Price({
+  baseAmount: Amount.fromHuman(SUSHI, '1'),
+  quoteAmount: Amount.fromHuman(USDC, '2.5'),
+})
+
+const quote = price.getQuote(Amount.fromHuman(SUSHI, '4'))
+
+quote.toString() // '10'
+```
+
+| API | Purpose |
+|---|---|
+| `new Price({ base, quote, numerator, denominator })` | Construct from explicit ratio. |
+| `new Price({ baseAmount, quoteAmount })` | Construct from two amounts. |
+| `getQuote(baseAmount)` | Convert a base amount to quote amount. |
+| `invert` | Invert base and quote. |
+| `toNumber`, `toString`, `toSignificant` | Convert for display. |
+
+## Fraction
+
+`Fraction` represents a precise rational value using bigint numerator and denominator.
+
+```ts twoslash
+import { Fraction, Percent } from 'sushi'
+
+const oneThird = new Fraction({ numerator: 1n, denominator: 3n })
+const doubled = oneThird.mul(2n)
+const slippage = new Percent({ numerator: 5n, denominator: 1000n })
+
+doubled.toSignificant(4)
+```
+
+| API | Purpose |
+|---|---|
+| `quotient`, `remainder` | Integer division parts. |
+| `invert` | Swap numerator and denominator. |
+| `add`, `sub`, `mul`, `div` | Fraction arithmetic. |
+| `lt`, `lte`, `eq`, `gte`, `gt`, `neq` | Comparisons without floating-point conversion. |
+| `toNumber` | Convert to JavaScript number. |
+| `toString`, `toSignificant` | Format for display. |
+| `toJSON` | Serialize numerator and denominator. |
+| `asFraction` | Return a plain `Fraction` from subclasses. |
+
+`Percent` extends `Fraction` and is useful for slippage, fees, and price impact values.
+
+## Precision notes
+
+`Amount`, `Price`, and `Fraction` keep core math in bigint-backed values. Methods such as `toNumber`, `toString`, and `toSignificant` are for display and can lose precision for very large values.

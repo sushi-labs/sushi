@@ -1,0 +1,21 @@
+# Reference: `sushi/evm` DEX
+
+The DEX module contains small domain enums and DEX math errors.
+
+| Export | Purpose |
+|---|---|
+| `Fee` | Fee enum used by DEX logic. |
+| `PoolType` | Pool type enum. |
+| `TradeType` | Exact input/exact output trade type. |
+| `InsufficientReservesError` | Error for insufficient reserves. |
+| `InsufficientInputAmountError` | Error for insufficient input amount. |
+
+```ts
+import { InsufficientInputAmountError } from 'sushi/evm'
+
+const error = new InsufficientInputAmountError()
+
+if (error instanceof InsufficientInputAmountError) {
+  console.log('Input amount is too small')
+}
+```

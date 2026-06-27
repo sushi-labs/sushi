@@ -1,0 +1,28 @@
+# Reference: `sushi/mvm` Currency
+
+The MVM currency module currently exposes token helpers.
+
+| Export | Purpose |
+|---|---|
+| `MvmToken` | Move VM token class. |
+| `MvmAddress` | Move type-tag address, `0x...::module::type`. |
+| `MvmTxHash` | Transaction hash type. |
+| `isMvmAddress` | Address/type-tag guard. |
+| `serializedMvmTokenSchema` | Zod schema for serialized MVM tokens. |
+| `SerializedMvmToken` | Serialized token type. |
+
+```ts twoslash
+import { MvmToken, serializedMvmTokenSchema } from 'sushi/mvm'
+
+const token = new MvmToken({
+  chainId: -1,
+  address: '0x1::aptos_coin::AptosCoin',
+  symbol: 'APT',
+  name: 'Aptos Coin',
+  decimals: 8,
+})
+
+const parsed = serializedMvmTokenSchema().parse(token.toJSON())
+```
+
+There is no `MvmNative` class in the current public entrypoint.

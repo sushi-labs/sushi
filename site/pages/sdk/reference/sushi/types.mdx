@@ -1,0 +1,27 @@
+# Reference: `sushi` Types
+
+The root entrypoint exposes utility types for chain-generic code.
+
+| Type | Purpose |
+|---|---|
+| `BigintIsh` | Values accepted by bigint constructors/helpers. |
+| `TokenFor` | Token type for a chain ID. |
+| `CurrencyFor` | Currency type for a chain ID. |
+| `NativeFor` | Native currency type for a chain ID. |
+| `AddressFor` | Address type for a chain ID. |
+| `TxHashFor` | Transaction hash type for a chain ID. |
+| `IDFor`, `ID` | Currency/chain ID string helpers. |
+| `Mutable`, `Replace`, `UnionToIntersection` | General TypeScript utility types. |
+
+```ts twoslash
+import type { AddressFor, ChainId } from 'sushi'
+
+function normalizeKnownAddress<TChainId extends ChainId>(
+  chainId: TChainId,
+  address: AddressFor<TChainId>,
+) {
+  return { chainId, address }
+}
+```
+
+Use these types when writing code that accepts more than one chain environment.

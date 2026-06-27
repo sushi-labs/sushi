@@ -1,0 +1,40 @@
+# Guide: Get Token Prices
+
+Use `getPrice` and `getPrices` from `sushi/evm` to read token prices from Sushi’s hosted price API.
+
+## Get one price
+
+```ts twoslash
+import { ChainId } from 'sushi'
+import { getPrice } from 'sushi/evm'
+
+const price = await getPrice(
+  ChainId.ETHEREUM,
+  '0x6b3595068778dd592e39a122f4f5a5cf09c90fe2',
+)
+
+console.log(price)
+```
+
+## Get all prices for a chain
+
+```ts twoslash
+import { ChainId } from 'sushi'
+import { getPrices } from 'sushi/evm'
+
+const prices = await getPrices(ChainId.ETHEREUM)
+
+const sushiPrice = prices['0x6b3595068778dd592e39a122f4f5a5cf09c90fe2']
+```
+
+`getPrice` returns a single `number`. `getPrices` returns a `Record<Address, number>` for the requested chain.
+
+## Notes
+
+- These helpers are EVM-only.
+- Token addresses must be EVM addresses.
+- EVM addresses in price responses are lowercased. Use lowercase keys when reading from the `getPrices` result.
+- Chain support follows the hosted price API, not just the global chain registry.
+- If a token is missing, the API may not currently have a price for it.
+
+See [EVM API Reference](/sdk/reference/evm/api) for the full API helper reference and [Pricing API Documentation](/api/examples/pricing) for direct REST usage.

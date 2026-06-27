@@ -1,0 +1,18 @@
+# Reference: `sushi/evm` Utils
+
+The EVM utilities module exposes low-level helpers for address normalization, create2 computation, and transaction gas margins.
+
+| Export | Purpose |
+|---|---|
+| `normalizeEvmAddress` | Normalize an EVM address. |
+| `getCreate2Address` | Compute a create2 contract address. |
+| `addGasMargin` | Add a safety margin to a gas value. |
+
+```ts twoslash
+import { addGasMargin, normalizeEvmAddress } from 'sushi/evm'
+
+const address = normalizeEvmAddress('0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48')
+const gas = addGasMargin(100_000n)
+```
+
+These are low-level helpers. Prefer higher-level SDK APIs unless you are building routing, pool, or contract integrations.

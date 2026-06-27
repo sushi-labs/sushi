@@ -1,0 +1,44 @@
+# Chains
+
+The root `sushi` entrypoint exposes a unified chain registry across supported environments.
+
+```ts twoslash
+import { ChainId, chains, getChainById, isChainId } from 'sushi'
+
+const ethereum = getChainById(ChainId.ETHEREUM)
+
+if (isChainId(1)) {
+  const chain = getChainById(1)
+  console.log(chain.name)
+}
+
+console.log(chains.length)
+```
+
+## Root chain exports
+
+| Export | Purpose |
+|---|---|
+| `chains` | All known chains across EVM, SVM, MVM, and Stellar. |
+| `ChainId` | Enum-like chain ID lookup by uppercase chain key. |
+| `chainIds` | Array of known chain IDs. |
+| `isChainId` | Type guard for unknown numbers. |
+| `getChainById` | Get chain metadata by ID. |
+| `isMainnetChainId` | Guard for mainnet chain IDs. |
+| `isTestnetChainId` | Guard for testnet chain IDs. |
+| `getChainByKey` | Get chain metadata by chain key. |
+
+## Chain-specific registries
+
+Use subpath exports when you only want one chain environment.
+
+```ts
+import { evmChains, EvmChainId } from 'sushi/evm'
+import { stellarChains, StellarChainId } from 'sushi/stellar'
+import { svmChains, SvmChainId } from 'sushi/svm'
+import { mvmChains, MvmChainId } from 'sushi/mvm'
+```
+
+## Chain support is not feature support
+
+A chain can be present in `chains` without supporting every Sushi feature. For EVM feature support, use the config exports from `sushi/evm`, such as API, V2, V3, subgraph, and contract support maps.

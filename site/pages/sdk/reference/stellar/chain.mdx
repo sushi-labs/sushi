@@ -1,0 +1,18 @@
+# Reference: `sushi/stellar` Chain
+
+The Stellar chain module exposes Stellar-only chain metadata.
+
+| Export | Purpose |
+|---|---|
+| `stellarChains`, `stellarChainIds` | Known Stellar chains and IDs. |
+| `StellarChainId` | Enum-like Stellar chain ID lookup. |
+| `isStellarChainId`, `getStellarChainById` | Guard and lookup by ID. |
+| `StellarMainnetChainId`, `isStellarMainnetChainId` | Mainnet type and guard. |
+| `StellarChainKey`, `isStellarChainKey`, `getStellarChainByKey` | Chain key type, guard, and lookup. |
+| `defineStellarChain` | Define a Stellar chain object. |
+
+```ts twoslash
+import { StellarChainId, getStellarChainById } from 'sushi/stellar'
+
+const stellar = getStellarChainById(StellarChainId.STELLAR)
+```

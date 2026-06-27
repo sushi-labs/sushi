@@ -1,0 +1,38 @@
+# Reference: `sushi/evm` V3 Pool
+
+V3 pool exports provide local SushiSwap V3 pool, tick, swap, and position math.
+
+## High-value exports
+
+| Export | Purpose |
+|---|---|
+| `SushiSwapV3Pool` | V3 pool state and swap math. |
+| `Position` | Concentrated liquidity position math. |
+| `Tick`, `TickDataProvider`, `TickListDataProvider` | Tick data model/providers. |
+| `TickMath`, `SqrtPriceMath`, `SwapMath`, `LiquidityMath` | Advanced V3 math utilities. |
+
+## `SushiSwapV3Pool`
+
+| Member | Purpose |
+|---|---|
+| `getAddress(tokenA, tokenB, fee, ...)` | Compute V3 pool address (static). |
+| `constructor(...)` | Construct from token pair, fee, sqrt price, liquidity, current tick, and optional ticks. |
+| `token0`, `token1`, `fee`, `sqrtRatioX96`, `liquidity`, `tickCurrent` | Pool state. |
+| `tickDataProvider` | Tick data provider used for swap math. |
+| `token0Price`, `token1Price`, `priceOf(token)` | Price helpers. |
+| `chainId`, `tickSpacing` | Chain and fee-derived spacing. |
+| `getOutputAmount`, `getInputAmount` | Swap math (async, return Promises). |
+
+## `Position`
+
+| Member | Purpose |
+|---|---|
+| `constructor({ pool, tickLower, tickUpper, liquidity })` | Construct a position. |
+| `token0PriceLower`, `token0PriceUpper` | Position boundary prices. |
+| `amount0`, `amount1` | Current token amounts. |
+| `mintAmounts` | Token amounts needed to mint. |
+| `mintAmountsWithSlippage` | Mint amounts adjusted for slippage. |
+| `burnAmountsWithSlippage` | Burn amounts adjusted for slippage. |
+| `fromAmounts`, `fromAmount0`, `fromAmount1` | Construct positions from desired token amounts. |
+
+Advanced utilities cover tick math, sqrt price math, liquidity math, calldata helpers, pool address computation, and price/tick conversion. Use them when building lower-level V3 integrations.

@@ -1,0 +1,12 @@
+# Reference: `sushi/evm` Pool
+
+The pool module exposes local V2 and V3 pool math.
+
+Pool classes do not fetch reserves, ticks, pool state, or liquidity. They compute from state you provide.
+
+| Area | Docs | Use for |
+|---|---|---|
+| V2 pools | [V2 Pool](/sdk/reference/evm/pool-v2) | Pair address computation, reserve math, price, liquidity value. |
+| V3 pools | [V3 Pool](/sdk/reference/evm/pool-v3) | V3 pool state, swap math, positions, tick/liquidity math. |
+
+Use RPC, subgraphs, or an indexer to obtain live pool state before constructing these classes.

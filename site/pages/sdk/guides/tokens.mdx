@@ -1,0 +1,80 @@
+# Guide: Tokens and Serialization
+
+Use concrete token classes from the chain-specific entrypoints.
+
+## EVM token
+
+```ts twoslash
+import { EvmToken } from 'sushi/evm'
+
+const USDC = new EvmToken({
+  chainId: 1,
+  address: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+  symbol: 'USDC',
+  name: 'USD Coin',
+  decimals: 6,
+})
+```
+
+## SVM token
+
+```ts
+import { SvmToken } from 'sushi/svm'
+
+const token = new SvmToken({
+  chainId: -5,
+  address: 'So11111111111111111111111111111111111111112',
+  symbol: 'WSOL',
+  name: 'Wrapped SOL',
+  decimals: 9,
+})
+```
+
+## Stellar token
+
+```ts
+import { StellarToken } from 'sushi/stellar'
+
+const token = new StellarToken({
+  chainId: -4,
+  address: 'C...',
+  issuer: 'G...',
+  symbol: 'USDC',
+  name: 'USD Coin',
+  decimals: 7,
+})
+```
+
+## MVM token
+
+```ts
+import { MvmToken } from 'sushi/mvm'
+
+const token = new MvmToken({
+  chainId: -1,
+  address: '0x1::aptos_coin::AptosCoin',
+  symbol: 'APT',
+  name: 'Aptos Coin',
+  decimals: 8,
+})
+```
+
+## Serialize and parse
+
+```ts twoslash
+import { EvmToken, serializedEvmTokenSchema } from 'sushi/evm'
+
+const USDC = new EvmToken({
+  chainId: 1,
+  address: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+  symbol: 'USDC',
+  name: 'USD Coin',
+  decimals: 6,
+})
+
+const json = USDC.toJSON()
+const parsed = serializedEvmTokenSchema().parse(json)
+const restored = EvmToken.fromJSON(parsed)
+```
+
+Token constructors normalize addresses where supported. Use serialized schemas when reading token JSON from storage or user-controlled input.

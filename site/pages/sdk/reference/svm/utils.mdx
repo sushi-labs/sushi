@@ -1,0 +1,11 @@
+# Reference: `sushi/svm` Utils
+
+The SVM utils module exposes address normalization.
+
+```ts
+import { normalizeSvmAddress } from 'sushi/svm'
+
+const normalized = normalizeSvmAddress(address)
+```
+
+Use `isSvmAddress` when validating unknown strings before normalization.
