@@ -226,6 +226,11 @@ describe('numberToFixed', () => {
   })
 
   describe('input validation', () => {
+    it('should accept trailing decimal strings', () => {
+      expect(numberToFixed('1.', { fixed: 2 })).toBe('1.00')
+      expect(numberToFixed('1.', { significant: 2 })).toBe('1')
+    })
+
     it('should reject invalid numeric strings', () => {
       expect(() => numberToFixed('invalid', { fixed: 2 })).toThrow(
         'Invalid number string',

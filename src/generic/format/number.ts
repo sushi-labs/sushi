@@ -194,7 +194,7 @@ function stringToFixed(
 }
 
 function roundString(original: string, formatted: string) {
-  if (!original.match(/^-?\d*\.?\d+$/)) {
+  if (!original.match(/^-?(?:\d+\.?|\d*\.\d+)$/)) {
     throw new Error('Invalid number string')
   }
 
