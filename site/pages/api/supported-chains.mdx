@@ -1,0 +1,14 @@
+import { Callout } from 'vocs/components'
+import { SupportedAggregatorChainsTable } from '../../components/table'
+
+# Supported Chains
+
+This page lists the chains currently supported by Sushi aggregator features: swap, quote, and price. The table is generated on page load from the live aggregator chains endpoint.
+
+<Callout type="note">
+The live endpoint is the source of truth for aggregator feature support. SDK chain support is broader and does not guarantee that every aggregator feature is available on a chain.
+</Callout>
+
+<SupportedAggregatorChainsTable />
+
+For the full local chain registry exposed by the SDK, see [SDK chains](/sdk/concepts/chains).

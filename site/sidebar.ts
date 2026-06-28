@@ -30,6 +30,10 @@ export const sidebar = {
           link: '/api/swagger',
         },
         {
+          text: 'Supported Chains',
+          link: '/api/supported-chains',
+        },
+        {
           text: 'Examples',
           collapsed: false,
           items: [
