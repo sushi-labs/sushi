@@ -1,7 +1,7 @@
 import { type FC, type ReactElement, useEffect, useState } from 'react'
 import { type AddressFor, type ChainId, getChainById, isChainId } from 'sushi'
 
-const SUPPORTED_AGGREGATOR_CHAINS_URL = 'https://staging.sushi.com/chains'
+const SUPPORTED_AGGREGATOR_CHAINS_URL = 'https://api.sushi.com/chains'
 
 type NetworkTableFormatter<C extends ChainId = ChainId> = ({
   chainId,
