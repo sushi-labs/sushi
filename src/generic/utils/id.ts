@@ -1,8 +1,14 @@
+import type { SvmAddress } from '~/svm/currency/token.js'
 import type { ChainId } from '../chain/chains.js'
 import type { AddressFor } from '../types/for-chain.js'
 import type { ID } from '../types/id.js'
 import { getNativeAddress } from './native-address.js'
 import { normalizeAddress } from './normalize-address.js'
+
+// Hacky fix, SvmAddress is a branded type, but when used in a template literal type, it loses its branding.
+type ReturnedAddress<TAddress extends string> = TAddress extends `${SvmAddress}`
+  ? SvmAddress
+  : TAddress
 
 export function getChainIdAddressFromId<
   TChainId extends ChainId,
@@ -11,7 +17,7 @@ export function getChainIdAddressFromId<
   id: ID<TChainId, TAddress>,
 ): {
   chainId: TChainId
-  address: TAddress
+  address: ReturnedAddress<TAddress>
 } {
   const separatorIndex = id.indexOf(':')
 
@@ -22,7 +28,7 @@ export function getChainIdAddressFromId<
   }
 
   const chainId = +id.slice(0, separatorIndex) as TChainId
-  const address = id.slice(separatorIndex + 1) as TAddress
+  const address = id.slice(separatorIndex + 1) as ReturnedAddress<TAddress>
 
   if (!chainId || !address) {
     throw new Error(
