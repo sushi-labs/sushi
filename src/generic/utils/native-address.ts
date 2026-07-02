@@ -7,26 +7,26 @@ import { stellarNativeAddress } from '../../stellar/config/simple-constants.js'
 import { isSvmChainId } from '../../svm/chain/chains.js'
 import { svmNativeAddress } from '../../svm/config/simple-constants.js'
 import type { ChainId } from '../chain/chains.js'
-import type { AddressFor } from '../types/for-chain.js'
+import type { ContractAddressFor } from '../types/for-chain.js'
 import { assertNever } from './assert-never.js'
 
 export function getNativeAddress<TChainId extends ChainId>(
   chainId: TChainId,
-): AddressFor<TChainId> {
+): ContractAddressFor<TChainId> {
   if (isEvmChainId(chainId)) {
-    return evmNativeAddress as AddressFor<TChainId>
+    return evmNativeAddress as ContractAddressFor<TChainId>
   }
 
   if (isMvmChainId(chainId)) {
-    return mvmNativeAddress as AddressFor<TChainId>
+    return mvmNativeAddress as ContractAddressFor<TChainId>
   }
 
   if (isSvmChainId(chainId)) {
-    return svmNativeAddress as AddressFor<TChainId>
+    return svmNativeAddress as ContractAddressFor<TChainId>
   }
 
   if (isStellarChainId(chainId)) {
-    return stellarNativeAddress as AddressFor<TChainId>
+    return stellarNativeAddress as ContractAddressFor<TChainId>
   }
 
   assertNever(chainId, `getNativeAddress, unsupported chainId: ${chainId}`)

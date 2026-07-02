@@ -13,7 +13,11 @@ import type {
   MvmToken,
   MvmTxHash,
 } from '../../mvm/currency/token.js'
-import type { StellarAddress, StellarTxHash } from '../../stellar/address.js'
+import type {
+  StellarAddress,
+  StellarContractAddress,
+  StellarTxHash,
+} from '../../stellar/address.js'
 import type { StellarChainId } from '../../stellar/chain/chains.js'
 import type { StellarCurrency } from '../../stellar/currency/currency.js'
 import type { StellarToken } from '../../stellar/currency/token.js'
@@ -81,6 +85,17 @@ export type AddressFor<TChainId extends ChainId> = TChainId extends EvmChainId
       : TChainId extends StellarChainId
         ? StellarAddress
         : never
+
+export type ContractAddressFor<TChainId extends ChainId> =
+  TChainId extends EvmChainId
+    ? EvmAddress
+    : TChainId extends MvmChainId
+      ? MvmAddress
+      : TChainId extends SvmChainId
+        ? SvmAddress
+        : TChainId extends StellarChainId
+          ? StellarContractAddress
+          : never
 
 export type TxHashFor<TChainId extends ChainId> = TChainId extends EvmChainId
   ? EvmTxHash

@@ -1,4 +1,4 @@
-import type { SvmAddress } from '~/svm/currency/token.js'
+import type { SvmAddress } from '../../svm/currency/token.js'
 import type { ChainId } from '../chain/chains.js'
 import type { AddressFor } from '../types/for-chain.js'
 import type { ID } from '../types/id.js'
