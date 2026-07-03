@@ -48,7 +48,8 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "@biomejs/biome"
+      "@biomejs/biome",
+      "bun"
     ],
     "peerDependencyRules": {
       "allowedVersions": {
