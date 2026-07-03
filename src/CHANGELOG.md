@@ -1,5 +1,19 @@
 # sushi
 
+## 6.7.0
+
+### Minor Changes
+
+- [#480](https://github.com/sushi-labs/sushi/pull/480) [`e85a74a`](https://github.com/sushi-labs/sushi/commit/e85a74af66b4f4e143732dbf77a849aad6035b68) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Add Zod address validators for SVM, MVM, and Stellar.
+
+### Patch Changes
+
+- [#483](https://github.com/sushi-labs/sushi/pull/483) [`925d80e`](https://github.com/sushi-labs/sushi/commit/925d80e3d03e917a7d3e42f8bed328d86e8778f2) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Return chain contract address types from getNativeAddress.
+
+- [#483](https://github.com/sushi-labs/sushi/pull/483) [`925d80e`](https://github.com/sushi-labs/sushi/commit/925d80e3d03e917a7d3e42f8bed328d86e8778f2) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Preserve branded SVM address types when parsing token IDs.
+
+- [#481](https://github.com/sushi-labs/sushi/pull/481) [`2b4d4d8`](https://github.com/sushi-labs/sushi/commit/2b4d4d86a3cb0e71b553ad9372958651306f3a18) Thanks [@LufyCZ](https://github.com/LufyCZ)! - formatNumber fixes
+
 ## 6.6.11
 
 ### Patch Changes
