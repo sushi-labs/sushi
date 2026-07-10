@@ -28,6 +28,7 @@ import {
   USDB,
   USDC,
   USDe,
+  USDG,
   USDP,
   USDPLUS,
   USDT,
@@ -247,6 +248,7 @@ export const STABLES = {
     BERACHAIN_HONEY[EvmChainId.BERACHAIN],
   ],
   [EvmChainId.PLASMA]: [USDT[EvmChainId.PLASMA], USDe[EvmChainId.PLASMA]],
+  [EvmChainId.ROBINHOOD]: [USDG[EvmChainId.ROBINHOOD]],
   [EvmChainId.FUSE]: [
     USDC[EvmChainId.FUSE],
     USDT[EvmChainId.FUSE],
