@@ -58,6 +58,7 @@ export const UNISWAP_V3_SUPPORTED_CHAIN_IDS = [
   EvmChainId.MONAD,
   EvmChainId.XLAYER,
   EvmChainId.MEGAETH,
+  EvmChainId.ROBINHOOD,
 ] as const
 
 export const UniswapV3ChainIds = UNISWAP_V3_SUPPORTED_CHAIN_IDS
@@ -102,6 +103,7 @@ export const UNISWAP_V3_INIT_CODE_HASH: Record<
   [EvmChainId.MONAD]: POOL_INIT_CODE_HASH,
   [EvmChainId.XLAYER]: POOL_INIT_CODE_HASH,
   [EvmChainId.MEGAETH]: POOL_INIT_CODE_HASH,
+  [EvmChainId.ROBINHOOD]: POOL_INIT_CODE_HASH,
 } as const
 
 export const UNISWAP_V3_FACTORY_ADDRESS: Record<
@@ -136,4 +138,5 @@ export const UNISWAP_V3_FACTORY_ADDRESS: Record<
   [EvmChainId.MONAD]: '0x204faca1764b154221e35c0d20abb3c525710498',
   [EvmChainId.XLAYER]: '0x4b2ab38dbf28d31d467aa8993f6c2585981d6804',
   [EvmChainId.MEGAETH]: '0x3a5f0cd7d62452b7f899b2a5758bfa57be0de478',
+  [EvmChainId.ROBINHOOD]: '0x1f7d7550b1b028f7571e69a784071f0205fd2efa',
 } as const
