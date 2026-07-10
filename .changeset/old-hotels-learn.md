@@ -2,4 +2,4 @@
 "sushi": minor
 ---
 
-Add Robinhood Chain support, V2 and V3
+Add SushiSwap V2 and V3 support for Robinhood Chain

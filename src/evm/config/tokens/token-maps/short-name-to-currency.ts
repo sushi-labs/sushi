@@ -12,7 +12,6 @@ import {
   UNI,
   USDB,
   USDC,
-  USDG,
   USDT,
   WBTC,
   WETH9,
@@ -20,6 +19,7 @@ import {
 import type { EvmCurrency } from '../../../currency/currency.js'
 import { EvmNative } from '../../../currency/native.js'
 import { EvmToken } from '../../../currency/token.js'
+import { ROBINHOOD_USDG } from '../tokens/robinhood/USDG.js'
 import { WNATIVE } from '../wrapped-native.js'
 
 const CHAIN_ID_SHORT_CURRENCY_NAME_TO_CURRENCY = {
@@ -267,7 +267,7 @@ const CHAIN_ID_SHORT_CURRENCY_NAME_TO_CURRENCY = {
   [EvmChainId.ROBINHOOD]: {
     ETH: EvmNative.fromChainId(EvmChainId.ROBINHOOD),
     WETH: WNATIVE[EvmChainId.ROBINHOOD],
-    USDG: USDG[EvmChainId.ROBINHOOD],
+    USDG: ROBINHOOD_USDG[EvmChainId.ROBINHOOD],
   },
 } as const
 

@@ -20,7 +20,6 @@ import {
   SUSHI,
   USDB,
   USDC,
-  USDG,
   USDT,
   USDT0,
   WBTC,
@@ -427,11 +426,6 @@ export const EVM_DEFAULT_BASES = {
     WNATIVE[EvmChainId.PLASMA],
     USDT[EvmChainId.PLASMA],
     WETH9[EvmChainId.PLASMA],
-  ],
-  [EvmChainId.ROBINHOOD]: [
-    EvmNative.fromChainId(EvmChainId.ROBINHOOD),
-    WNATIVE[EvmChainId.ROBINHOOD],
-    USDG[EvmChainId.ROBINHOOD],
   ],
   [EvmChainId.FUSE]: [
     EvmNative.fromChainId(EvmChainId.FUSE),

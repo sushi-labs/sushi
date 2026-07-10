@@ -18,7 +18,6 @@ export const UNISWAP_V2_FACTORY_ADDRESS: Record<
   [EvmChainId.XLAYER]: '0xdf38f24fe153761634be942f9d859f3dba857e95',
   [EvmChainId.ROBINHOOD]: '0x8bceaa40b9acdfaedf85adf4ff01f5ad6517937f',
   [EvmChainId.MEGAETH]: '0xbf56488c857a881ae7e3bed27cf99c10a7ab7e50',
-  [EvmChainId.ROBINHOOD]: '0x8bceaa40b9acdfaedf85adf4ff01f5ad6517937f',
 }
 
 export const UNISWAP_V2_INIT_CODE_HASH =
@@ -39,7 +38,6 @@ export const UNISWAP_V2_SUPPORTED_CHAIN_IDS = [
   EvmChainId.XLAYER,
   EvmChainId.ROBINHOOD,
   EvmChainId.MEGAETH,
-  EvmChainId.ROBINHOOD,
 ] as const
 
 export const UniswapV2ChainIds = UNISWAP_V2_SUPPORTED_CHAIN_IDS

@@ -44,7 +44,6 @@ export const SWAP_API_SUPPORTED_CHAIN_IDS = [
   EvmChainId.HYPEREVM,
   EvmChainId.BERACHAIN,
   EvmChainId.PLASMA,
-  EvmChainId.ROBINHOOD,
   EvmChainId.MONAD,
   EvmChainId.MEGAETH,
   EvmChainId.XLAYER,
