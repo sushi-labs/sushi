@@ -31,6 +31,7 @@ import {
   optimism as optimismViem,
   polygon as polygonViem,
   polygonZkEvm as polygonZkevmViem,
+  robinhood as robinhoodViem,
   rootstock as rootstockViem,
   scroll as scrollViem,
   sepolia as sepoliaViem,
@@ -416,6 +417,11 @@ const plasma = /* @__PURE__ */ defineEvmChain(
   },
 )
 
+const robinhood = /* @__PURE__ */ defineEvmChain(robinhoodViem, {
+  key: 'robinhood',
+  shortName: 'robinhood',
+})
+
 const monad = /* @__PURE__ */ defineEvmChain(
   /* @__PURE__ */ defineViemChain({
     id: 143,
@@ -621,6 +627,7 @@ export const evmChains = [
   hyperevm,
   berachain,
   plasma,
+  robinhood,
   monad,
   megaeth,
   xLayer,

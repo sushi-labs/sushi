@@ -19,7 +19,7 @@
     "sushi": "workspace:*",
     "swagger-ui-react": "5.32.6",
     "typescript": "6.0.3",
-    "viem": "2.52.2",
+    "viem": "2.55.0",
     "vocs": "1.4.1"
   },
   "devDependencies": {

@@ -45,6 +45,7 @@ export const WETH9_ADDRESS = {
   [EvmChainId.HYPEREVM]: '0x5555555555555555555555555555555555555555',
   [EvmChainId.BERACHAIN]: '0x2f6f07cdcf3588944bf4c42ac74ff24bf56e7590',
   [EvmChainId.PLASMA]: '0x9895d81bb462a195b4922ed7de0e3acd007c32cb',
+  [EvmChainId.ROBINHOOD]: '0x0bd7d308f8e1639fab988df18a8011f41eacad73',
   [EvmChainId.FUSE]: '0xa722c13135930332eb3d749b2f0906559d2c5b99',
   [EvmChainId.BOKUTO]: '0x84b3493fa9b125a8eff1ccc1328bd84d0b4a2dbf',
   [EvmChainId.MONAD]: '0xee8c0e9f1bffb4eb878d8f15f368a02a35481242',
@@ -67,5 +68,12 @@ export const WETH9 = {
     decimals: 18,
     symbol: 'ETH',
     name: 'Ether',
+  }),
+  [EvmChainId.ROBINHOOD]: new EvmToken({
+    chainId: EvmChainId.ROBINHOOD,
+    address: WETH9_ADDRESS[EvmChainId.ROBINHOOD],
+    decimals: 18,
+    symbol: 'WETH',
+    name: 'WETH',
   }),
 }
