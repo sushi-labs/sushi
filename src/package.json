@@ -69,7 +69,7 @@
     }
   },
   "dependencies": {
-    "@solana/addresses": "6.9.0",
+    "@solana/addresses": "7.0.0",
     "tiny-invariant": "1.3.3"
   },
   "peerDependencies": {

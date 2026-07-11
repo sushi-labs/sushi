@@ -18,8 +18,9 @@
     "remark-math": "6.0.0",
     "sushi": "workspace:*",
     "swagger-ui-react": "5.32.6",
-    "viem": "2.52.2",
-    "vocs": "1.4.1"
+    "viem": "2.55.0",
+    "vocs": "2.5.3",
+    "waku": "1.0.0-beta.6"
   },
   "devDependencies": {
     "@types/react": "19.2.17",

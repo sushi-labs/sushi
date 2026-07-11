@@ -1,6 +1,6 @@
 import rehypeMathjax from 'rehype-mathjax'
 import remarkMath from 'remark-math'
-import { defineConfig } from 'vocs'
+import { defineConfig } from 'vocs/config'
 import pkg from '../src/package.json'
 import { sidebar } from './sidebar'
 
@@ -10,6 +10,9 @@ export default defineConfig({
       ? 'https://docs.sushi.com'
       : process.env.VERCEL_URL,
   title: 'Sushi 🧑‍🍳',
+  // Twoslash surfaces relative links from dependency JSDoc (for example viem),
+  // which are not routes in this site.
+  checkDeadlinks: false,
   ogImageUrl:
     'https://vocs.dev/api/og?logo=%logo&title=%title&description=%description',
   titleTemplate: '%s · Sushi',
@@ -22,6 +25,7 @@ export default defineConfig({
   // logoUrl: { light: '/icon-light.png', dark: '/icon-dark.png' },
   sidebar,
   rootDir: '.',
+  srcDir: '.',
   topNav: [
     { text: 'Docs', link: '/what-is-sushi', match: '/' },
     {
@@ -59,6 +63,9 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [[remarkMath, { singleDollarTextMath: false }]],
     rehypePlugins: [rehypeMathjax],
+  },
+  codeHighlight: {
+    langAlias: { math: 'text' },
   },
   vite: {
     ssr: {
