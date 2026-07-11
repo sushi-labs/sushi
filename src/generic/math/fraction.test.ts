@@ -263,6 +263,26 @@ describe('Fraction', () => {
       expect(fraction.toString({ fixed: 2 })).toBe('-0.13')
       expect(fraction.toString({ maxFixed: 2 })).toBe('-0.12')
     })
+
+    it('formats zero-denominator fractions as non-finite numbers', () => {
+      const infinity = new Fraction({ numerator: 1n, denominator: 2n }).div(
+        new Fraction({ numerator: 0n }),
+      )
+
+      expect(infinity.toString({ fixed: 2 })).toBe('Infinity')
+      expect(infinity.toString({ maxFixed: 2 })).toBe('Infinity')
+      expect(infinity.toString({ significant: 2 })).toBe('Infinity')
+      expect(
+        new Fraction({ numerator: -1n, denominator: 0n }).toString({
+          maxFixed: 2,
+        }),
+      ).toBe('-Infinity')
+      expect(
+        new Fraction({ numerator: 0n, denominator: 0n }).toString({
+          maxFixed: 2,
+        }),
+      ).toBe('NaN')
+    })
   })
 
   describe('serialization', () => {

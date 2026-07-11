@@ -35,4 +35,4 @@ const slippage = new Percent({ numerator: 5n, denominator: 1000n })
 | `toJSON` | Serialize numerator/denominator. |
 | `asFraction` | Return a plain `Fraction` from subclasses. |
 
-BigInt math preserves integer precision. Methods such as `toNumber` and formatting convert to JavaScript number/string and should be used for display, not critical accounting.
+BigInt math preserves integer precision. `toString` and `toSignificant` format directly from the fraction's bigint values with the requested precision. `toNumber` converts to a JavaScript number and can lose precision, so it should be used for display rather than critical accounting.

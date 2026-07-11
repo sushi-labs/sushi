@@ -235,24 +235,33 @@ export class Fraction {
         Number.isSafeInteger(args.fixed) && args.fixed >= 0,
         'Fixed digits must be a non-negative safe integer',
       )
-      return this.formatDecimal(args.fixed, { round: true, trim: false })
-    }
-
-    if ('maxFixed' in args) {
+    } else if ('maxFixed' in args) {
       invariant(
         Number.isSafeInteger(args.maxFixed) && args.maxFixed >= 0,
         'Maximum fixed digits must be a non-negative safe integer',
       )
-      return this.formatDecimal(args.maxFixed, { round: false, trim: true })
-    }
-
-    if ('significant' in args) {
+    } else if ('significant' in args) {
       invariant(
         Number.isSafeInteger(args.significant) && args.significant > 0,
         'Significant digits must be a positive safe integer',
       )
-      invariant(this.denominator !== 0n, 'Cannot format a fraction by zero')
+    } else {
+      throw new Error('Invalid arguments for Fraction.toString')
+    }
 
+    if (this.denominator === 0n) {
+      return this.toNumber().toString()
+    }
+
+    if ('fixed' in args) {
+      return this.formatDecimal(args.fixed, { round: true, trim: false })
+    }
+
+    if ('maxFixed' in args) {
+      return this.formatDecimal(args.maxFixed, { round: false, trim: true })
+    }
+
+    if ('significant' in args) {
       if (this.numerator === 0n) return '0'
 
       const decimalPlaces = args.significant - this.getDecimalExponent() - 1
