@@ -3,3 +3,7 @@ packages:
   - 'site'
   - 'src'
   - 'test'
+
+catalog:
+  viem: 2.55.0
+  zod: 4.4.3

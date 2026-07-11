@@ -18,7 +18,7 @@
     "remark-math": "6.0.0",
     "sushi": "workspace:*",
     "swagger-ui-react": "5.32.6",
-    "viem": "2.55.0",
+    "viem": "catalog:",
     "vocs": "2.5.3",
     "waku": "1.0.0-beta.6"
   },
