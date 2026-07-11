@@ -1,6 +1,4 @@
 // import { foundry } from "viem/chains";
-// import type { NativeCurrency } from "~sushi/native/types.js";
-// import type { Token } from "~sushi/types/token.js";
 
 // Test accounts
 export const ACCOUNTS = [

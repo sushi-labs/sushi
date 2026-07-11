@@ -41,3 +41,8 @@ export const UNISWAP_V2_SUPPORTED_CHAIN_IDS = [
 export const UniswapV2ChainIds = UNISWAP_V2_SUPPORTED_CHAIN_IDS
 
 export type UniswapV2ChainId = (typeof UNISWAP_V2_SUPPORTED_CHAIN_IDS)[number]
+
+export const isUniswapV2ChainId = (
+  chainId: number,
+): chainId is UniswapV2ChainId =>
+  UNISWAP_V2_SUPPORTED_CHAIN_IDS.includes(chainId as UniswapV2ChainId)

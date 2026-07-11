@@ -3,8 +3,9 @@ import {
   type Address as SvmAddress,
   address as svmAddress,
 } from '@solana/addresses'
-import * as z from 'zod'
+import type * as z from 'zod'
 import type { CurrencyMetadata } from '../../generic/currency/currency.js'
+import { createSerializedTokenSchema } from '../../generic/currency/serialized-token.js'
 import { Token } from '../../generic/currency/token.js'
 import { isSvmChainId, type SvmChainId } from '../chain/chains.js'
 import { normalizeSvmAddress } from '../utils/normalize-address.js'
@@ -46,7 +47,7 @@ export class SvmToken<
       type: this.type,
 
       metadata: this.metadata,
-    } as const
+    }
   }
 
   static fromJSON<TMetadata extends CurrencyMetadata>(
@@ -65,26 +66,10 @@ export const serializedSvmTokenSchema = <
 }: {
   metadata?: z.ZodType<TMetadata>
 } = {}) =>
-  z.object({
-    chainId: z
-      .number()
-      .int()
-      .refine(isSvmChainId)
-      .transform((chainId) => chainId as SvmChainId),
-    address: z
-      .string()
-      .refine(isSvmAddress)
-      .transform((address) => address as SvmAddress),
-    symbol: z.string(),
-    name: z.string(),
-    decimals: z.number().int().nonnegative(),
-    type: z.literal('token'),
-
-    metadata: (metadata ||
-      z
-        .record(z.string(), z.unknown())
-        .optional()
-        .default({})) as z.ZodType<TMetadata>,
+  createSerializedTokenSchema({
+    isChainId: isSvmChainId,
+    isAddress: isSvmAddress,
+    metadata,
   })
 
 export type SerializedSvmToken<

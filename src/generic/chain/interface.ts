@@ -23,10 +23,11 @@ export type BlockExplorers = {
   }
 }
 
-export type Chain<
+/** @internal Used while constructing the registry that defines ChainId/ChainKey. */
+export type ChainDefinition<
   TType extends ChainType = ChainType,
-  TChainId extends ChainId = ChainId,
-  TKey extends ChainKey = ChainKey,
+  TChainId extends number = number,
+  TKey extends string = string,
   TName extends string = string,
   TShortName extends string = string,
   TNetType extends Readonly<NetType> = Readonly<NetType>,
@@ -42,7 +43,29 @@ export type Chain<
   netType: TNetType
   blockExplorers: TBlockExplorerKeys
 
-  getTransactionUrl: (input: TAddress) => string
-  getAccountUrl: (input: TTransactionHash) => string
+  getTransactionUrl: (input: TTransactionHash) => string
+  getAccountUrl: (input: TAddress) => string
   getTokenUrl: (input: TAddress) => string
 }>
+
+export type Chain<
+  TType extends ChainType = ChainType,
+  TChainId extends ChainId = ChainId,
+  TKey extends ChainKey = ChainKey,
+  TName extends string = string,
+  TShortName extends string = string,
+  TNetType extends Readonly<NetType> = Readonly<NetType>,
+  TBlockExplorerKeys extends BlockExplorers = BlockExplorers,
+  TAddress extends string = string,
+  TTransactionHash extends string = string,
+> = ChainDefinition<
+  TType,
+  TChainId,
+  TKey,
+  TName,
+  TShortName,
+  TNetType,
+  TBlockExplorerKeys,
+  TAddress,
+  TTransactionHash
+>
