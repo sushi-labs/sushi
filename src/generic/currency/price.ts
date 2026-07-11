@@ -11,6 +11,45 @@ export class Price<
   public readonly base: TBase
   public readonly quote: TQuote
 
+  /**
+   * Creates a Price from a human-readable quote-per-base value, e.g. "1.5".
+   */
+  public static fromHuman<TBase extends Currency, TQuote extends Currency>(
+    base: TBase,
+    quote: TQuote,
+    value: string,
+  ): Price<TBase, TQuote> {
+    if (!value.match(/^\d*\.?\d+$/)) {
+      throw new Error(`Invalid price: ${value}`)
+    }
+
+    const [whole = '', fraction = ''] = value.split('.')
+    const decimalScale = 10n ** BigInt(fraction.length)
+    const valueWithoutDecimals = BigInt(`${whole}${fraction}`)
+
+    return new Price({
+      base,
+      quote,
+      numerator: valueWithoutDecimals * 10n ** BigInt(quote.decimals),
+      denominator: decimalScale * 10n ** BigInt(base.decimals),
+    })
+  }
+
+  /**
+   * Tries to create a Price from a human-readable quote-per-base value.
+   */
+  public static tryFromHuman<TBase extends Currency, TQuote extends Currency>(
+    base: TBase,
+    quote: TQuote,
+    value: string,
+  ): Price<TBase, TQuote> | undefined {
+    try {
+      return Price.fromHuman(base, quote, value)
+    } catch {
+      return undefined
+    }
+  }
+
   constructor(
     args:
       | {
