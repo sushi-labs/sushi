@@ -1,5 +1,19 @@
 # sushi
 
+## 7.0.0
+
+### Major Changes
+
+- [#487](https://github.com/sushi-labs/sushi/pull/487) [`d29984b`](https://github.com/sushi-labs/sushi/commit/d29984b4e88b3b691f9bd6c5106b15cace6b9d6c) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Validate swap and quote request parameters and express integration fees as
+  fractional numbers instead of bigint values. Quote requests no longer accept a
+  fee receiver.
+
+  Add generic chain and currency serialization helpers, update Solana address
+  support, and remove the accidental `@uniswap/token-lists` re-exports.
+
+  Support TypeScript 7 while retaining the TypeScript 6 compatibility API for
+  documentation and test tooling.
+
 ## 6.7.1
 
 ### Patch Changes
