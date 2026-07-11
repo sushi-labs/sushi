@@ -77,7 +77,7 @@
     "zod": "catalog:"
   },
   "peerDependencies": {
-    "typescript": ">= 5.8.3 < 7",
+    "typescript": ">= 5.8.3 < 8",
     "viem": "*",
     "zod": ">=4"
   },

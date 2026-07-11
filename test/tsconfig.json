@@ -4,7 +4,6 @@
       "module": "nodenext",
       "moduleResolution": "nodenext",
       "target": "ESNext",
-      "types": ["@types/bun", "@types/node"],
-      "baseUrl": ".",
+      "types": ["node"],
     }
   }
