@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import { getQuote, type QuoteRequest } from './quote.js'
 
 const baseQuoteRequest = {
@@ -10,6 +10,8 @@ const baseQuoteRequest = {
 } as const satisfies QuoteRequest
 
 describe('getQuote', () => {
+  afterEach(() => vi.unstubAllGlobals())
+
   it('should return a quote', async () => {
     const result = await getQuote(baseQuoteRequest)
 
@@ -38,5 +40,36 @@ describe('getQuote', () => {
       baseUrl: 'https://staging.sushi.com',
     })
     expect(result).include({ status: 'Success' })
+  })
+
+  it('rejects parameters outside the aggregator bounds', async () => {
+    const fetchMock = vi.fn()
+    vi.stubGlobal('fetch', fetchMock)
+
+    await expect(
+      getQuote({ ...baseQuoteRequest, maxSlippage: 1 }),
+    ).rejects.toThrow()
+    await expect(
+      getQuote({ ...baseQuoteRequest, maxPriceImpact: 0 }),
+    ).rejects.toThrow()
+    await expect(
+      getQuote({ ...baseQuoteRequest, maxPriceImpact: 1.01 }),
+    ).rejects.toThrow()
+    await expect(getQuote({ ...baseQuoteRequest, fee: 0.51 })).rejects.toThrow()
+
+    expect(fetchMock).not.toHaveBeenCalled()
+  })
+
+  it('sends a fractional fee without requiring a fee receiver', async () => {
+    const fetchMock = vi.fn(async (_input: string | URL | Request) =>
+      Response.json({ status: 'NoWay' }),
+    )
+    vi.stubGlobal('fetch', fetchMock)
+
+    await getQuote({ ...baseQuoteRequest, fee: 0.003 })
+
+    const url = new URL(fetchMock.mock.calls[0]![0] as string)
+    expect(url.searchParams.get('fee')).toBe('0.003')
+    expect(url.searchParams.has('feeReceiver')).toBe(false)
   })
 })

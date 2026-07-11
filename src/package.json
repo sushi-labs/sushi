@@ -16,6 +16,7 @@
     "mvm",
     "stellar",
     "svm",
+    "LICENSE",
     "package.json"
   ],
   "exports": {
@@ -73,15 +74,11 @@
     "tiny-invariant": "1.3.3"
   },
   "peerDependencies": {
-    "@solana/addresses": ">=5",
     "typescript": ">= 5.8.3 < 7",
     "viem": "*",
     "zod": ">=4"
   },
   "peerDependenciesMeta": {
-    "@solana/addresses": {
-      "optional": true
-    },
     "typescript": {
       "optional": true
     },

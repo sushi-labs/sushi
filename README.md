@@ -37,7 +37,7 @@
 
 ## Install
 
-https://docs.sushi.com/sdk/installation
+https://docs.sushi.com/sdk
 
 
 
@@ -49,5 +49,3 @@ https://docs.sushi.com/sdk/installation
 [npm-url]: https://www.npmjs.com/package/sushi
 [issues-img]: https://img.shields.io/github/issues/sushi-labs/sushi
 [issues-url]: https://github.com/sushi-labs/sushi/issues
-[codecov-img]: https://codecov.io/gh/sushi-labs/sushi/branch/master/graph/badge.svg
-[codecov-url]: https://codecov.io/gh/sushi-labs/sushi

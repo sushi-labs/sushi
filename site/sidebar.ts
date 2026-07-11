@@ -7,9 +7,7 @@ export const sidebar = {
       items: [
         { text: '❓ What is Sushi', link: '/what-is-sushi' },
         { text: '🤔 Why Sushi', link: '/why-sushi' },
-        // { text: '🤝 Partnership', link: '/partnership' },
         { text: '🔒 Security', link: '/security' },
-        // { text: '🔗 Ecosystem', link: '/ecosystem' },
         // { text: '🚀 Roadmap', link: '/roadmap' },
         { text: '👨‍👩‍👧‍👦 Community', link: '/community' },
         { text: '📚 Resources', link: '/resources' },
@@ -216,21 +214,6 @@ export const sidebar = {
         },
       ],
     },
-    // {
-    //   text: 'Widget',
-    //   collapsed: true,
-    //   items: [],
-    // },
-    // {
-    //   text: 'App',
-    //   collapsed: true,
-    //   items: [
-    //     { text: 'Swap', link: '/app/swap' },
-    //     { text: 'Limit', link: '/app/limit' },
-    //     { text: 'DCA', link: '/app/dca' },
-    //     { text: 'Cross-Chain Swap', link: '/app/cross-chain-swap' },
-    //   ],
-    // },
     {
       text: 'Contracts',
       collapsed: true,
@@ -246,7 +229,6 @@ export const sidebar = {
           items: [
             { text: 'clAMM  (SushiSwap V3)', link: '/contracts/clamm' },
             { text: 'cpAMM  (SushiSwap V2)', link: '/contracts/cpamm' },
-            // { text: 'lbAMM', link: '/contracts/lbamm' },
           ],
         },
         {
@@ -269,7 +251,6 @@ export const sidebar = {
         { text: 'cpAMM (SushiSwap V2)', link: '/subgraphs/cpamm' },
         { text: 'xSUSHI', link: '/subgraphs/xsushi' },
         { text: 'Blade', link: '/subgraphs/blade' },
-        // { text: 'Quote', link: '/api/quote' },
       ],
     },
 
@@ -304,10 +285,6 @@ export const sidebar = {
               text: 'cpAMM',
               link: '/amm/cpamm',
             },
-            // {
-            //   text: 'lbAMM',
-            //   link: '/amm/lbamm',
-            // },
           ],
         },
         {
@@ -382,20 +359,5 @@ export const sidebar = {
         },
       ],
     },
-    // {
-    //   text: 'Guides',
-    //   items: [
-    //     { text: 'Swap', link: '/swap' },
-    //     { text: 'Cross-Chain Swap', link: '/cross-chain-swap' },
-    //     { text: 'Add Liquidity', link: '/add-liquidity' },
-    //     { text: 'Remove Liquidity', link: '/remove-liquidity' },
-    //     { text: 'Zap', link: '/zap' },
-    //     // { text: 'Migration Guide', link: '/migration-guide' },
-    //     // { text: 'Ethers v5 → viem', link: '/ethers-migration' },
-    //     // { text: 'TypeScript', link: '/typescript' },
-    //     // { text: 'Error Handling', link: '/error-handling' },
-    //     // { text: 'Blob Transactions', link: '/guides/blob-transactions' },
-    //   ],
-    // },
   ],
 } as const satisfies Sidebar

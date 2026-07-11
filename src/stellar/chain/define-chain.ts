@@ -1,6 +1,7 @@
+import { defineChain } from '../../generic/chain/define-chain.js'
 import type {
   BlockExplorers,
-  Chain,
+  ChainDefinition,
   NetType,
 } from '../../generic/chain/interface.js'
 import { isStellarContractAddress } from '../address.js'
@@ -11,9 +12,8 @@ export type StellarChainType = 'stellar'
 type StellarChainBase<
   TChainId extends number,
   TChainKey extends string,
-> = Chain<
+> = ChainDefinition<
   StellarChainType,
-  // @ts-expect-error prevent infinite loop
   TChainId,
   TChainKey,
   Readonly<string>,
@@ -34,19 +34,14 @@ type StellarChainInput = Omit<
 export function defineStellarChain<const T extends StellarChainInput>(
   chain: T,
 ) {
-  return {
-    ...chain,
-    type: 'stellar' as const,
-
-    getTransactionUrl: (input: string) =>
-      `${chain.blockExplorers.default.url}/tx/${input}`,
-    getAccountUrl: (input: string) => {
+  return defineChain('stellar', chain, {
+    transaction: (url, input) => `${url}/tx/${input}`,
+    account: (url, input) => {
       if (isStellarContractAddress(input)) {
-        return `${chain.blockExplorers.default.url}/contract/${input}`
+        return `${url}/contract/${input}`
       }
-      return `${chain.blockExplorers.default.url}/account/${input}`
+      return `${url}/account/${input}`
     },
-    getTokenUrl: (input: string) =>
-      `${chain.blockExplorers.default.url}/asset/${input}`,
-  } as const satisfies StellarChainBase<number, string>
+    token: (url, input) => `${url}/asset/${input}`,
+  })
 }

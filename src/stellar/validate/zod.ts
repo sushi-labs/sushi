@@ -1,35 +1,19 @@
-import * as z from 'zod'
+import { createAddressSchema } from '../../generic/validate/create-address-schema.js'
 import {
   isStellarAccountAddress,
   isStellarAddress,
   isStellarContractAddress,
-  type StellarAccountAddress,
-  type StellarAddress,
-  type StellarContractAddress,
 } from '../address.js'
 import { normalizeStellarAddress } from '../utils/normalize-address.js'
 
 export const stellarAddress = () =>
-  z
-    .string()
-    .transform((value) => normalizeStellarAddress(value as StellarAddress))
-    .refine(isStellarAddress, { message: 'Invalid address' })
+  createAddressSchema(isStellarAddress, normalizeStellarAddress, true)
 
 export const stellarAccountAddress = () =>
-  z
-    .string()
-    .transform((value) =>
-      normalizeStellarAddress(value as StellarAccountAddress),
-    )
-    .refine(isStellarAccountAddress, { message: 'Invalid address' })
+  createAddressSchema(isStellarAccountAddress, normalizeStellarAddress, true)
 
 export const stellarContractAddress = () =>
-  z
-    .string()
-    .transform((value) =>
-      normalizeStellarAddress(value as StellarContractAddress),
-    )
-    .refine(isStellarContractAddress, { message: 'Invalid address' })
+  createAddressSchema(isStellarContractAddress, normalizeStellarAddress, true)
 
 export const szstellar = {
   accountAddress: stellarAccountAddress,
