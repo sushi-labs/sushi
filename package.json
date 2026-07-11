@@ -38,9 +38,7 @@
     "only-allow": "1.2.1",
     "sherif": "1.13.0",
     "typescript": "6.0.3",
-    "viem": "2.55.0",
-    "vitest": "4.1.10",
-    "zod": "4.4.3"
+    "vitest": "4.1.10"
   },
   "packageManager": "pnpm@10.27.0",
   "engines": {
@@ -61,10 +59,6 @@
   "knip": {
     "ignoreBinaries": [
       "printf"
-    ],
-    "ignoreDependencies": [
-      "viem",
-      "zod"
     ],
     "ignoreIssues": {
       "src/evm/config/features/{merkl,pancakeswap-v2,pancakeswap-v3,sushiswap,sushiswap-v2,sushiswap-v3,uniswap-v2,uniswap-v3}.ts": [
