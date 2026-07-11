@@ -1,5 +1,12 @@
 # sushi
 
+## 6.7.1
+
+### Patch Changes
+
+- [#485](https://github.com/sushi-labs/sushi/pull/485) [`61213c0`](https://github.com/sushi-labs/sushi/commit/61213c0427ff4643d115e6ea33b0e6514217357e) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Add human-readable `Price.fromHuman` and `Price.tryFromHuman` constructors and
+  format `Fraction` and `Price` values without floating-point precision loss.
+
 ## 6.7.0
 
 ### Minor Changes
