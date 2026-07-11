@@ -188,6 +188,83 @@ describe('Fraction', () => {
     })
   })
 
+  describe('string formatting', () => {
+    it('formats terminating fractions without floating-point artifacts', () => {
+      const fraction = new Fraction({ numerator: 4n, denominator: 5n })
+
+      expect(fraction.toString({ maxFixed: 18 })).toBe('0.8')
+    })
+
+    it('truncates repeating fractions to maxFixed decimal places', () => {
+      const fraction = new Fraction({ numerator: 1n, denominator: 3n })
+
+      expect(fraction.toString({ maxFixed: 18 })).toBe('0.333333333333333333')
+    })
+
+    it('preserves very small fractions in ordinary decimal notation', () => {
+      const fraction = new Fraction({
+        numerator: 1n,
+        denominator: 10n ** 12n,
+      })
+
+      expect(fraction.toString({ maxFixed: 18 })).toBe('0.000000000001')
+      expect(fraction.toSignificant(6)).toBe('0.000000000001')
+    })
+
+    it('preserves integers beyond Number.MAX_SAFE_INTEGER', () => {
+      const fraction = new Fraction({
+        numerator: 9007199254740993n,
+        denominator: 1n,
+      })
+
+      expect(fraction.toString({ maxFixed: 18 })).toBe('9007199254740993')
+    })
+
+    it('rounds and pads fixed decimal places', () => {
+      expect(
+        new Fraction({ numerator: 1n, denominator: 8n }).toString({
+          fixed: 2,
+        }),
+      ).toBe('0.13')
+      expect(
+        new Fraction({ numerator: 1n, denominator: 2n }).toString({
+          fixed: 3,
+        }),
+      ).toBe('0.500')
+      expect(
+        new Fraction({ numerator: 199995n, denominator: 1000n }).toString({
+          fixed: 2,
+        }),
+      ).toBe('200.00')
+    })
+
+    it('rounds to significant digits without scientific notation', () => {
+      expect(
+        new Fraction({ numerator: 1n, denominator: 3n }).toString({
+          significant: 6,
+        }),
+      ).toBe('0.333333')
+      expect(
+        new Fraction({
+          numerator: 123456789123n,
+          denominator: 100n,
+        }).toString({ significant: 4 }),
+      ).toBe('1235000000')
+      expect(
+        new Fraction({ numerator: 9999n, denominator: 10n }).toString({
+          significant: 3,
+        }),
+      ).toBe('1000')
+    })
+
+    it('formats negative fractions', () => {
+      const fraction = new Fraction({ numerator: -1n, denominator: 8n })
+
+      expect(fraction.toString({ fixed: 2 })).toBe('-0.13')
+      expect(fraction.toString({ maxFixed: 2 })).toBe('-0.12')
+    })
+  })
+
   describe('serialization', () => {
     it('should serialize to JSON correctly', () => {
       const fraction = new Fraction({ numerator: 3, denominator: 4 })

@@ -1,4 +1,3 @@
-import { numberToFixed } from '../format/number.js'
 import { Fraction } from '../math/fraction.js'
 import type { BigintIsh } from '../types/bigintish.js'
 import { Amount } from './amount.js'
@@ -104,8 +103,8 @@ export class Price<
     return super.mul(this.scalar).toNumber()
   }
 
-  public override toString(args: Parameters<typeof numberToFixed>[1]): string {
-    return numberToFixed(this.toNumber(), args)
+  public override toString(args: Parameters<Fraction['toString']>[0]): string {
+    return super.mul(this.scalar).toString(args)
   }
 
   public override toSignificant(significantDigits = 5): string {

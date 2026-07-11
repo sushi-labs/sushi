@@ -39,6 +39,7 @@ describe('Price', () => {
       expect(price.numerator).toBe(125000000n)
       expect(price.denominator).toBe(10000000000n)
       expect(price.invert().toNumber()).toBe(0.8)
+      expect(price.invert().toString({ maxFixed: 18 })).toBe('0.8')
     })
 
     it('accepts a decimal without a leading zero', () => {
@@ -83,6 +84,49 @@ describe('Price', () => {
       'Infinity',
     ])('returns undefined for invalid input %j', (value) => {
       expect(Price.tryFromHuman(wbtc, usdc, value)).toBeUndefined()
+    })
+  })
+
+  describe('string formatting', () => {
+    it('formats very small prices without scientific notation', () => {
+      const price = Price.fromHuman(wbtc, usdc, '0.000000000001')
+
+      expect(price.toString({ maxFixed: 18 })).toBe('0.000000000001')
+      expect(price.toString({ significant: 6 })).toBe('0.000000000001')
+    })
+
+    it('truncates repeating prices to maxFixed decimal places', () => {
+      const price = new Price({
+        base: wbtc,
+        quote: wbtc,
+        numerator: 1n,
+        denominator: 3n,
+      })
+
+      expect(price.toString({ maxFixed: 18 })).toBe('0.333333333333333333')
+    })
+
+    it('preserves prices beyond Number.MAX_SAFE_INTEGER', () => {
+      const price = new Price({
+        base: wbtc,
+        quote: wbtc,
+        numerator: 9007199254740993n,
+      })
+
+      expect(price.toString({ maxFixed: 18 })).toBe('9007199254740993')
+    })
+
+    it('supports fixed, maxFixed, and significant formatting', () => {
+      const price = new Price({
+        base: wbtc,
+        quote: wbtc,
+        numerator: 1n,
+        denominator: 8n,
+      })
+
+      expect(price.toString({ fixed: 3 })).toBe('0.125')
+      expect(price.toString({ maxFixed: 2 })).toBe('0.12')
+      expect(price.toString({ significant: 2 })).toBe('0.13')
     })
   })
 })
