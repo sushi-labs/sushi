@@ -1,10 +1,8 @@
 import { it } from 'node:test'
 import { describe, expect, expectTypeOf } from 'vitest'
 import * as z from 'zod'
-import type { EvmChainId } from '~/evm/chain/chains.js'
-import type { EvmCurrency } from '~/evm/currency/currency.js'
-import type { EvmID } from '~/evm/types/id.js'
-import { svmAddress } from '~/svm/currency/token.js'
+import type { EvmChainId } from '../../evm/chain/chains.js'
+import type { EvmCurrency } from '../../evm/currency/currency.js'
 import { EvmNative } from '../../evm/currency/native.js'
 import {
   type EvmAddress,
@@ -12,7 +10,9 @@ import {
   type SerializedEvmToken,
   serializedEvmTokenSchema,
 } from '../../evm/currency/token.js'
+import type { EvmID } from '../../evm/types/id.js'
 import { MvmToken } from '../../mvm/currency/token.js'
+import { svmAddress } from '../../svm/currency/token.js'
 import {
   type SvmAddress,
   type SvmChainId,

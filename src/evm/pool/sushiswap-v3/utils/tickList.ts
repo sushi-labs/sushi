@@ -67,7 +67,6 @@ export abstract class TickList {
     let l = 0
     let r = ticks.length - 1
     let i
-    // eslint-disable-next-line no-constant-condition
     while (true) {
       i = Math.floor((l + r) / 2)
 

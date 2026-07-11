@@ -1,6 +1,6 @@
 # Reference: `sushi/evm` Token List
 
-The token-list module re-exports `@uniswap/token-lists` and Sushi’s token-list URL constants.
+The token-list module exports Sushi’s token-list URL constants.
 
 ## Exports
 
@@ -19,18 +19,8 @@ The token-list module re-exports `@uniswap/token-lists` and Sushi’s token-list
 | `DEFAULT_LIST_OF_LISTS` | Displayed token lists plus unsupported-token lists. |
 | `DEFAULT_ACTIVE_LIST_URLS` | Default active token-list URLs. |
 | `BLACKLIST_TOKEN_IDS` | Token IDs excluded by default. |
-| `@uniswap/token-lists` exports | Token-list types and utilities re-exported from the dependency. |
-
 ```ts twoslash
-import {
-  DEFAULT_ACTIVE_LIST_URLS,
-  DEFAULT_LIST_OF_LISTS,
-  type TokenList,
-} from 'sushi/evm'
-
-function countTokens(list: TokenList) {
-  return list.tokens.length
-}
+import { DEFAULT_ACTIVE_LIST_URLS, DEFAULT_LIST_OF_LISTS } from 'sushi/evm'
 
 DEFAULT_ACTIVE_LIST_URLS
 DEFAULT_LIST_OF_LISTS

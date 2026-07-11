@@ -48,9 +48,11 @@ export function isChainId(chainId: number): chainId is ChainId {
   return chains.some((chain) => chain.chainId === chainId)
 }
 
-type ChainById<C extends ChainId> = Extract<
-  (typeof chains)[number],
-  { chainId: C }
+type ChainUrlMethod = 'getTransactionUrl' | 'getAccountUrl' | 'getTokenUrl'
+
+type ChainById<C extends ChainId> = Omit<
+  Extract<(typeof chains)[number], { chainId: C }>,
+  ChainUrlMethod
 > & {
   getTransactionUrl: (input: TxHashFor<C>) => string
   getAccountUrl: (input: AddressFor<C>) => string
@@ -58,7 +60,9 @@ type ChainById<C extends ChainId> = Extract<
 }
 
 export function getChainById<C extends ChainId>(chainId: C) {
-  return chains.find((chain) => chain.chainId === chainId)! as ChainById<C>
+  return chains.find(
+    (chain) => chain.chainId === chainId,
+  )! as unknown as ChainById<C>
 }
 
 // MainnetChainId

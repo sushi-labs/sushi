@@ -1,6 +1,11 @@
 packages:
-  - 'examples/*'
   # - 'environments/*'
   - 'site'
   - 'src'
   - 'test'
+
+catalog:
+  '@typescript/native': npm:typescript@7.0.2
+  typescript: npm:@typescript/typescript6@6.0.2
+  viem: 2.55.0
+  zod: 4.4.3

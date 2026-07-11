@@ -1,15 +1,18 @@
+import { defineChain } from '../../generic/chain/define-chain.js'
 import type {
   BlockExplorers,
-  Chain,
+  ChainDefinition,
   NetType,
 } from '../../generic/chain/interface.js'
 import type { MvmChainId, MvmChainKey } from './chains.js'
 
 export type MvmChainType = 'mvm'
 
-type MvmChainBase<TChainId extends number, TChainKey extends string> = Chain<
+type MvmChainBase<
+  TChainId extends number,
+  TChainKey extends string,
+> = ChainDefinition<
   MvmChainType,
-  // @ts-expect-error prevent infinite loop
   TChainId,
   TChainKey,
   Readonly<string>,
@@ -28,15 +31,9 @@ type MvmChainInput = Omit<
 >
 
 export function defineMvmChain<const T extends MvmChainInput>(chain: T) {
-  return {
-    ...chain,
-    type: 'mvm' as const,
-
-    getTransactionUrl: (input: string) =>
-      `${chain.blockExplorers.default.url}/txn/${input}`,
-    getAccountUrl: (input: string) =>
-      `${chain.blockExplorers.default.url}/account/${input}`,
-    getTokenUrl: (input: string) =>
-      `${chain.blockExplorers.default.url}/coin/${input}`,
-  } as const satisfies MvmChainBase<number, string>
+  return defineChain('mvm', chain, {
+    transaction: (url, input) => `${url}/txn/${input}`,
+    account: (url, input) => `${url}/account/${input}`,
+    token: (url, input) => `${url}/coin/${input}`,
+  })
 }

@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import { EvmChainId } from '../chain/index.js'
 import { WNATIVE_ADDRESS } from '../config/tokens/index.js'
 import { getSwap, type SwapRequest } from './swap.js'
@@ -13,6 +13,8 @@ const baseSwapRequest = {
 } as const satisfies SwapRequest
 
 describe('getSwap', () => {
+  afterEach(() => vi.unstubAllGlobals())
+
   it('should return a swap when recipient is included', async () => {
     const result = await getSwap({
       ...baseSwapRequest,
@@ -44,5 +46,56 @@ describe('getSwap', () => {
     })
 
     expect(result).include({ status: 'Success' })
+  })
+
+  it('rejects parameters outside the aggregator bounds', async () => {
+    const fetchMock = vi.fn()
+    vi.stubGlobal('fetch', fetchMock)
+
+    await expect(
+      getSwap({ ...baseSwapRequest, maxSlippage: 1 }),
+    ).rejects.toThrow()
+    await expect(
+      getSwap({ ...baseSwapRequest, maxPriceImpact: 0 }),
+    ).rejects.toThrow()
+    await expect(getSwap({ ...baseSwapRequest, fee: 0.51 })).rejects.toThrow()
+
+    expect(fetchMock).not.toHaveBeenCalled()
+  })
+
+  it('requires fee and feeReceiver together', async () => {
+    const fetchMock = vi.fn()
+    vi.stubGlobal('fetch', fetchMock)
+
+    await expect(getSwap({ ...baseSwapRequest, fee: 0.003 })).rejects.toThrow(
+      'Fee receiver is required',
+    )
+    await expect(
+      getSwap({
+        ...baseSwapRequest,
+        feeReceiver: WNATIVE_ADDRESS[EvmChainId.ETHEREUM],
+      }),
+    ).rejects.toThrow('Fee is required')
+
+    expect(fetchMock).not.toHaveBeenCalled()
+  })
+
+  it('sends a valid fractional fee and receiver', async () => {
+    const fetchMock = vi.fn(async (_input: string | URL | Request) =>
+      Response.json({ status: 'NoWay' }),
+    )
+    vi.stubGlobal('fetch', fetchMock)
+
+    await getSwap({
+      ...baseSwapRequest,
+      fee: 0.003,
+      feeReceiver: WNATIVE_ADDRESS[EvmChainId.ETHEREUM],
+    })
+
+    const url = new URL(fetchMock.mock.calls[0]![0] as string)
+    expect(url.searchParams.get('fee')).toBe('0.003')
+    expect(url.searchParams.get('feeReceiver')).toBe(
+      WNATIVE_ADDRESS[EvmChainId.ETHEREUM],
+    )
   })
 })

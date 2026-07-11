@@ -1,7 +1,7 @@
 import type { Address, Hex, Chain as ViemChain } from 'viem'
 import type {
   BlockExplorers,
-  Chain,
+  ChainDefinition,
   NetType,
 } from '../../generic/chain/interface.js'
 import type { EvmChainId, EvmChainKey } from '../chain/chains.js'
@@ -9,9 +9,11 @@ import type { EvmAddress } from '../currency/token.js'
 
 export type EvmChainType = 'evm'
 
-type EvmChainBase<TChainId extends number, TChainKey extends string> = Chain<
+type EvmChainBase<
+  TChainId extends number,
+  TChainKey extends string,
+> = ChainDefinition<
   EvmChainType,
-  // @ts-expect-error infinite loop
   TChainId,
   TChainKey,
   Readonly<string>,

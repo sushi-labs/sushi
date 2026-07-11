@@ -1,9 +1,12 @@
 import type { Address } from 'viem'
 import * as z from 'zod'
 import { version } from '../../version.js'
-import type { SwapApiSupportedChainId } from '../config/index.js'
+import {
+  isSwapApiSupportedChainId,
+  type SwapApiSupportedChainId,
+} from '../config/index.js'
 import { szevm } from '../validate/zod.js'
-import { RouteStatus, type TransferValue } from './types.js'
+import { RouteStatus, TransferValue } from './types.js'
 
 export type QuoteRequest<Vizualize extends boolean = false> = {
   chainId: SwapApiSupportedChainId
@@ -12,13 +15,26 @@ export type QuoteRequest<Vizualize extends boolean = false> = {
   amount: bigint
   maxSlippage: number
   maxPriceImpact?: number
-  fee?: bigint
-  feeReceiver?: Address
+  fee?: number
   feeBy?: TransferValue
   referrer?: string
   visualize?: Vizualize
   baseUrl?: string
 }
+
+const quoteRequestSchema = z.object({
+  chainId: z.number().int().refine(isSwapApiSupportedChainId),
+  tokenIn: szevm.address(),
+  tokenOut: szevm.address(),
+  amount: z.bigint().positive(),
+  maxSlippage: z.number().gte(0).lt(1),
+  maxPriceImpact: z.number().positive().lte(1).optional(),
+  fee: z.number().gte(0).lte(0.5).optional(),
+  feeBy: z.enum(TransferValue).optional(),
+  referrer: z.string().min(1).optional(),
+  visualize: z.boolean().optional(),
+  baseUrl: z.url().optional(),
+})
 
 function quoteResponseSchema<Visualize extends boolean>(visualize?: Visualize) {
   const tokenSchema = z.object({
@@ -89,7 +105,7 @@ export async function getQuote<Visualize extends boolean = false>(
   params: QuoteRequest<Visualize>,
   options?: RequestInit,
 ): Promise<QuoteResponse<Visualize>> {
-  // TODO: VALIDATE PARAMS
+  params = quoteRequestSchema.parse(params) as QuoteRequest<Visualize>
   const url = new URL(
     `quote/v7/${params.chainId}`,
     params.baseUrl ?? 'https://api.sushi.com',
@@ -104,13 +120,8 @@ export async function getQuote<Visualize extends boolean = false>(
     url.searchParams.append('maxPriceImpact', params.maxPriceImpact.toString())
   }
 
-  if (
-    typeof params.fee === 'bigint' &&
-    params.fee > 0n &&
-    params.feeReceiver !== undefined
-  ) {
+  if (params.fee !== undefined && params.fee > 0) {
     url.searchParams.append('fee', params.fee.toString())
-    url.searchParams.append('feeReceiver', params.feeReceiver)
     if (params.feeBy !== undefined) {
       url.searchParams.append('feeBy', params.feeBy)
     }

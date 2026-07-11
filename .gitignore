@@ -5,14 +5,11 @@ _types
 .DS_Store
 .attest
 .eslintcache
-.next
 bench
 cache
 coverage
 node_modules
 tsconfig*.tsbuildinfo
-src/node/trustedSetups_esm.ts
-**/trusted-setups/**/*.txt
 .idea
 
 # local env files
@@ -25,7 +22,6 @@ src/node/trustedSetups_esm.ts
 
 # tests
 generated.ts
-vectors/**/*.json
 
 # docs
 site/dist

@@ -1,5 +1,6 @@
 import * as z from 'zod'
 import type { CurrencyMetadata } from '../../generic/currency/currency.js'
+import { createSerializedTokenSchema } from '../../generic/currency/serialized-token.js'
 import { Token } from '../../generic/currency/token.js'
 import {
   isStellarAccountAddress,
@@ -66,31 +67,17 @@ export const serializedStellarTokenSchema = <
 }: {
   metadata?: z.ZodType<TMetadata>
 } = {}) =>
-  z.object({
-    chainId: z
-      .number()
-      .int()
-      .refine(isStellarChainId)
-      .transform((chainId) => chainId as StellarChainId),
-    address: z
-      .string()
-      .refine(isStellarContractAddress)
-      .transform((address) => address as StellarContractAddress),
-    issuer: z
-      .string()
-      .refine(isStellarAccountAddress)
-      .transform((address) => address as StellarAccountAddress)
-      .optional(),
-    symbol: z.string(),
-    name: z.string(),
-    decimals: z.number().int().nonnegative(),
-    type: z.literal('token'),
-
-    metadata: (metadata ||
-      z
-        .record(z.string(), z.unknown())
-        .optional()
-        .default({})) as z.ZodType<TMetadata>,
+  createSerializedTokenSchema({
+    isChainId: isStellarChainId,
+    isAddress: isStellarContractAddress,
+    metadata,
+    extra: {
+      issuer: z
+        .string()
+        .refine(isStellarAccountAddress)
+        .transform((value) => value as StellarAccountAddress)
+        .optional(),
+    },
   })
 
 export type SerializedStellarToken<

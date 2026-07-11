@@ -11,12 +11,11 @@
 		"useDefineForClassFields": false, // Not enabled by default in `strict` mode unless we bump `target` to ES2022.
 		"noFallthroughCasesInSwitch": true, // Not enabled by default in `strict` mode.
 		"noImplicitReturns": true, // Not enabled by default in `strict` mode.
-		"useUnknownInCatchVariables": true, // TODO: This would normally be enabled in `strict` mode but would require some adjustments to the codebase.
+		"useUnknownInCatchVariables": true,
 		"noImplicitOverride": true, // Not enabled by default in `strict` mode.
 		"noUnusedLocals": true, // Not enabled by default in `strict` mode.
 		"noUnusedParameters": true, // Not enabled by default in `strict` mode.
 		"exactOptionalPropertyTypes": true,
-		// TODO: Uncomment and fix types.
 		"noUncheckedIndexedAccess": true,
 
 		// JavaScript support
@@ -39,17 +38,6 @@
 		// Skip type checking for node modules
 		"skipLibCheck": true,
 
-		"resolveJsonModule": true,
-
-		"paths": {
-			"~test/*": ["./test/*"],
-
-			"~/*": ["./src/*"],
-			"~generic/*": ["./src/generic/*"],
-			"~evm/*": ["./src/evm/*"],
-			"~mvm/*": ["./src/mvm/*"],
-			"~tvm/*": ["./src/tvm/*"],
-			"~kvm/*": ["./src/kvm/*"]
-		}
+		"resolveJsonModule": true
 	}
 }
