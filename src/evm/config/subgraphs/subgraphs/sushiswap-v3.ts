@@ -27,6 +27,7 @@ const SUSHISWAP_V3_OTHER_URLS = {
   [EvmChainId.ROOTSTOCK]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-rootstock-3/gn`,
   [EvmChainId.HEMI]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-hemi/gn`,
   [EvmChainId.KATANA]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-katana/gn`,
+  [EvmChainId.ROBINHOOD]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-robinhood/gn`,
 } as const satisfies Partial<Record<SushiSwapV3ChainId, string>>
 
 export const getSushiSwapV3SubgraphUrl = getSubgraphUrlWrapper({
