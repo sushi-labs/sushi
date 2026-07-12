@@ -31,6 +31,7 @@ import {
   optimism as optimismViem,
   polygon as polygonViem,
   polygonZkEvm as polygonZkevmViem,
+  robinhood as robinhoodViem,
   rootstock as rootstockViem,
   scroll as scrollViem,
   sepolia as sepoliaViem,
@@ -493,6 +494,11 @@ const xLayer = /* @__PURE__ */ defineEvmChain(xLayerViem, {
   parentChainId: ethereum.chainId,
 })
 
+const robinhood = /* @__PURE__ */ defineEvmChain(robinhoodViem, {
+  key: 'robinhood',
+  shortName: 'robinhood',
+})
+
 // Testnets
 const sepolia = /* @__PURE__ */ defineEvmChain(sepoliaViem, {
   key: 'sepolia',
@@ -624,7 +630,7 @@ export const evmChains = [
   monad,
   megaeth,
   xLayer,
-
+  robinhood,
   sepolia,
   arbitrumSepolia,
   tatara,
