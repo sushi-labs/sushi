@@ -266,9 +266,7 @@ export const STABLES = {
     USDT0[EvmChainId.XLAYER],
     USDC[EvmChainId.XLAYER],
   ],
-  [EvmChainId.ROBINHOOD]: [
-    ROBINHOOD_USDG[EvmChainId.ROBINHOOD],
-  ],
+  [EvmChainId.ROBINHOOD]: [ROBINHOOD_USDG[EvmChainId.ROBINHOOD]],
   // TESTNETS
   [EvmChainId.ARBITRUM_SEPOLIA]: [],
   [EvmChainId.SEPOLIA]: [USDC[EvmChainId.SEPOLIA]],
