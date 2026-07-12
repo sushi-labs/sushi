@@ -1,5 +1,11 @@
 # sushi
 
+## 7.0.1
+
+### Patch Changes
+
+- [#490](https://github.com/sushi-labs/sushi/pull/490) [`df96b80`](https://github.com/sushi-labs/sushi/commit/df96b80ed96a37f73b19ab5c2962a76e079f94dc) Thanks [@Okavango](https://github.com/Okavango)! - robinhood chain was added
+
 ## 7.0.0
 
 ### Major Changes
