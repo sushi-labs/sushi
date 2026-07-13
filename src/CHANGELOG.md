@@ -1,5 +1,11 @@
 # sushi
 
+## 7.1.0
+
+### Minor Changes
+
+- [#484](https://github.com/sushi-labs/sushi/pull/484) [`c74a93d`](https://github.com/sushi-labs/sushi/commit/c74a93dcbbcdd4ad9d4b86669880f182dcaeb680) Thanks [@Ty-Sir](https://github.com/Ty-Sir)! - Add SushiSwap V2 and V3 support for Robinhood Chain
+
 ## 7.0.1
 
 ### Patch Changes
