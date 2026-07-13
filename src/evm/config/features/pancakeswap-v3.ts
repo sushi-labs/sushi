@@ -78,7 +78,7 @@ export const PANCAKESWAP_V3_FACTORY_ADDRESS: Record<
   [EvmChainId.POLYGON_ZKEVM]: '0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865',
   [EvmChainId.ZKSYNC_ERA]: '0x1bb72e0cbbea93c08f535fc7856e0338d7f7a8ab',
   [EvmChainId.MONAD]: '0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865',
-  [EvmChainId.ROBINHOOD]: '0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865'
+  [EvmChainId.ROBINHOOD]: '0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865',
 } as const
 
 export const PANCAKESWAP_V3_DEPLOYER_ADDRESS: Record<
