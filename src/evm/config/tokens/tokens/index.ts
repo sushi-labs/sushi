@@ -1,4 +1,3 @@
-export * from '../tokens/robinhood/index.js'
 export * from './AAVE.js'
 export * from './AERO.js'
 export * from './AGEUR.js'
