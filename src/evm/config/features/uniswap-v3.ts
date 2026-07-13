@@ -59,7 +59,6 @@ export const UNISWAP_V3_SUPPORTED_CHAIN_IDS = [
   EvmChainId.XLAYER,
   EvmChainId.ROBINHOOD,
   EvmChainId.MEGAETH,
-  EvmChainId.ROBINHOOD,
 ] as const
 
 export const UniswapV3ChainIds = UNISWAP_V3_SUPPORTED_CHAIN_IDS

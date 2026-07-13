@@ -12,7 +12,6 @@ export const AGGREGATOR_ONLY_CHAIN_IDS = [
   EvmChainId.HYPEREVM,
   EvmChainId.BERACHAIN,
   EvmChainId.PLASMA,
-  EvmChainId.ROBINHOOD,
   EvmChainId.MONAD,
   EvmChainId.MEGAETH,
   EvmChainId.XLAYER,
