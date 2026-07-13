@@ -58,7 +58,6 @@ export const WNATIVE_ADDRESS = {
   [EvmChainId.MONAD]: '0x3bd359c1119da7da1d913d1c4d2b7c461115433a',
   [EvmChainId.MEGAETH]: WETH9_ADDRESS[EvmChainId.MEGAETH],
   [EvmChainId.XLAYER]: '0xe538905cf8410324e03a5a23c1c177a474d59b2b',
-  [EvmChainId.ROBINHOOD]: '0x0bd7d308f8e1639fab988df18a8011f41eacad73', // https://docs.robinhood.com/chain/contracts/
 } as const satisfies Record<EvmChainId, Address>
 
 export const WNATIVE = {
@@ -279,13 +278,6 @@ export const WNATIVE = {
     decimals: 18,
     symbol: 'WOKB',
     name: 'Wrapped OKB',
-  }),
-  [EvmChainId.ROBINHOOD]: new EvmToken({
-    chainId: EvmChainId.ROBINHOOD,
-    address: WNATIVE_ADDRESS[EvmChainId.ROBINHOOD],
-    decimals: 18,
-    symbol: 'WETH',
-    name: 'WETH',
   }),
 } as const satisfies Record<EvmChainId, EvmToken>
 
