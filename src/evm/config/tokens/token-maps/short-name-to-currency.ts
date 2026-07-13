@@ -12,6 +12,7 @@ import {
   UNI,
   USDB,
   USDC,
+  USDG,
   USDT,
   WBTC,
   WETH9,
@@ -262,6 +263,11 @@ const CHAIN_ID_SHORT_CURRENCY_NAME_TO_CURRENCY = {
     WNATIVE: WNATIVE[EvmChainId.ROOTSTOCK],
     WBTC: EvmNative.fromChainId(EvmChainId.ROOTSTOCK),
     WETH: WETH9[EvmChainId.ROOTSTOCK],
+  },
+  [EvmChainId.ROBINHOOD]: {
+    ETH: EvmNative.fromChainId(EvmChainId.ROBINHOOD),
+    WETH: WNATIVE[EvmChainId.ROBINHOOD],
+    USDG: USDG[EvmChainId.ROBINHOOD],
   },
 } as const
 

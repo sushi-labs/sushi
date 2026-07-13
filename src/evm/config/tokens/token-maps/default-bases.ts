@@ -20,6 +20,7 @@ import {
   SUSHI,
   USDB,
   USDC,
+  USDG,
   USDT,
   USDT0,
   WBTC,
@@ -32,7 +33,6 @@ import { EvmToken } from '../../../currency/token.js'
 import { BERACHAIN_HONEY } from '../tokens/berachain/HONEY.js'
 import { HEMI_HEMI } from '../tokens/hemi/HEMI.js'
 import { MEGAETH_USDm } from '../tokens/megaeth/USDm.js'
-import { ROBINHOOD_USDG } from '../tokens/robinhood/USDG.js'
 import { WNATIVE } from '../wrapped-native.js'
 
 /*
@@ -427,6 +427,11 @@ export const EVM_DEFAULT_BASES = {
     USDT[EvmChainId.PLASMA],
     WETH9[EvmChainId.PLASMA],
   ],
+  [EvmChainId.ROBINHOOD]: [
+    EvmNative.fromChainId(EvmChainId.ROBINHOOD),
+    WNATIVE[EvmChainId.ROBINHOOD],
+    USDG[EvmChainId.ROBINHOOD],
+  ],
   [EvmChainId.FUSE]: [
     EvmNative.fromChainId(EvmChainId.FUSE),
     WNATIVE[EvmChainId.FUSE],
@@ -463,10 +468,5 @@ export const EVM_DEFAULT_BASES = {
     USDT[EvmChainId.XLAYER],
     USDT0[EvmChainId.XLAYER],
     USDC[EvmChainId.XLAYER],
-  ],
-  [EvmChainId.ROBINHOOD]: [
-    EvmNative.fromChainId(EvmChainId.ROBINHOOD),
-    WNATIVE[EvmChainId.ROBINHOOD],
-    ROBINHOOD_USDG[EvmChainId.ROBINHOOD],
   ],
 } as const satisfies Record<EvmChainId, Readonly<EvmCurrency[]>>

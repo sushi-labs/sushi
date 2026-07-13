@@ -69,4 +69,11 @@ export const WETH9 = {
     symbol: 'ETH',
     name: 'Ether',
   }),
+  [EvmChainId.ROBINHOOD]: new EvmToken({
+    chainId: EvmChainId.ROBINHOOD,
+    address: WETH9_ADDRESS[EvmChainId.ROBINHOOD],
+    decimals: 18,
+    symbol: 'WETH',
+    name: 'WETH',
+  }),
 }

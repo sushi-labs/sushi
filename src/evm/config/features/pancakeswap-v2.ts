@@ -9,6 +9,7 @@ export const PANCAKESWAP_V2_SUPPORTED_CHAIN_IDS = [
   EvmChainId.LINEA,
   EvmChainId.BASE,
   EvmChainId.MONAD,
+  EvmChainId.ROBINHOOD,
 ] as const
 
 export const PancakeSwapV2ChainIds = PANCAKESWAP_V2_SUPPORTED_CHAIN_IDS
@@ -33,6 +34,7 @@ export const PANCAKESWAP_V2_FACTORY_ADDRESS: Record<
   [EvmChainId.LINEA]: '0x02a84c1b3bbd7401a5f7fa98a384ebc70bb5749e',
   [EvmChainId.BASE]: '0x02a84c1b3bbd7401a5f7fa98a384ebc70bb5749e',
   [EvmChainId.MONAD]: '0x02a84c1b3bbd7401a5f7fa98a384ebc70bb5749e',
+  [EvmChainId.ROBINHOOD]: '0x02a84c1b3bbd7401a5f7fa98a384ebc70bb5749e',
 } as const
 
 export const PANCAKESWAP_V2_INIT_CODE_HASH: Record<
@@ -54,5 +56,7 @@ export const PANCAKESWAP_V2_INIT_CODE_HASH: Record<
   [EvmChainId.BASE]:
     '0x57224589c67f3f30a6b0d7a1b54cf3153ab84563bc609ef41dfb34f8b2974d2d',
   [EvmChainId.MONAD]:
+    '0x57224589c67f3f30a6b0d7a1b54cf3153ab84563bc609ef41dfb34f8b2974d2d',
+  [EvmChainId.ROBINHOOD]:
     '0x57224589c67f3f30a6b0d7a1b54cf3153ab84563bc609ef41dfb34f8b2974d2d',
 } as const

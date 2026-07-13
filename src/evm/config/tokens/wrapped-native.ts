@@ -52,12 +52,12 @@ export const WNATIVE_ADDRESS = {
   [EvmChainId.HYPEREVM]: WETH9_ADDRESS[EvmChainId.HYPEREVM],
   [EvmChainId.BERACHAIN]: '0x6969696969696969696969696969696969696969',
   [EvmChainId.PLASMA]: '0x6100e367285b01f48d07953803a2d8dca5d19873',
+  [EvmChainId.ROBINHOOD]: WETH9_ADDRESS[EvmChainId.ROBINHOOD],
   [EvmChainId.FUSE]: '0x0be9e53fd7edac9f859882afdda116645287c629',
   [EvmChainId.BOKUTO]: WETH9_ADDRESS[EvmChainId.BOKUTO],
   [EvmChainId.MONAD]: '0x3bd359c1119da7da1d913d1c4d2b7c461115433a',
   [EvmChainId.MEGAETH]: WETH9_ADDRESS[EvmChainId.MEGAETH],
   [EvmChainId.XLAYER]: '0xe538905cf8410324e03a5a23c1c177a474d59b2b',
-  [EvmChainId.ROBINHOOD]: '0x0bd7d308f8e1639fab988df18a8011f41eacad73', // https://docs.robinhood.com/chain/contracts/
 } as const satisfies Record<EvmChainId, Address>
 
 export const WNATIVE = {
@@ -255,6 +255,7 @@ export const WNATIVE = {
     symbol: 'WXPL',
     name: 'Wrapped XPL',
   }),
+  [EvmChainId.ROBINHOOD]: WETH9[EvmChainId.ROBINHOOD],
   [EvmChainId.FUSE]: new EvmToken({
     chainId: EvmChainId.FUSE,
     address: WNATIVE_ADDRESS[EvmChainId.PLASMA],
@@ -277,13 +278,6 @@ export const WNATIVE = {
     decimals: 18,
     symbol: 'WOKB',
     name: 'Wrapped OKB',
-  }),
-  [EvmChainId.ROBINHOOD]: new EvmToken({
-    chainId: EvmChainId.ROBINHOOD,
-    address: WNATIVE_ADDRESS[EvmChainId.ROBINHOOD],
-    decimals: 18,
-    symbol: 'WETH',
-    name: 'WETH',
   }),
 } as const satisfies Record<EvmChainId, EvmToken>
 

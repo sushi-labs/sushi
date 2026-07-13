@@ -365,11 +365,11 @@ export const LSDS = {
   [EvmChainId.HYPEREVM]: [],
   [EvmChainId.BERACHAIN]: [],
   [EvmChainId.PLASMA]: [],
+  [EvmChainId.ROBINHOOD]: [],
   [EvmChainId.FUSE]: [],
   [EvmChainId.MONAD]: [],
   [EvmChainId.MEGAETH]: [],
   [EvmChainId.XLAYER]: [],
-  [EvmChainId.ROBINHOOD]: [],
 
   // TESTNETS
   [EvmChainId.ARBITRUM_SEPOLIA]: [],

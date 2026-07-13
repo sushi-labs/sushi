@@ -28,6 +28,7 @@ import {
   USDB,
   USDC,
   USDe,
+  USDG,
   USDP,
   USDPLUS,
   USDT,
@@ -41,7 +42,6 @@ import { AUSD } from '../tokens/AUSD.js'
 import { BERACHAIN_HONEY } from '../tokens/berachain/HONEY.js'
 import { HEMI_VUSD } from '../tokens/hemi/VUSD.js'
 import { MEGAETH_USDm } from '../tokens/megaeth/USDm.js'
-import { ROBINHOOD_USDG } from '../tokens/robinhood/USDG.js'
 import { USDT0 } from '../tokens/USDT0.js'
 
 export const STABLES = {
@@ -247,6 +247,7 @@ export const STABLES = {
     BERACHAIN_HONEY[EvmChainId.BERACHAIN],
   ],
   [EvmChainId.PLASMA]: [USDT[EvmChainId.PLASMA], USDe[EvmChainId.PLASMA]],
+  [EvmChainId.ROBINHOOD]: [USDG[EvmChainId.ROBINHOOD]],
   [EvmChainId.FUSE]: [
     USDC[EvmChainId.FUSE],
     USDT[EvmChainId.FUSE],
@@ -266,7 +267,6 @@ export const STABLES = {
     USDT0[EvmChainId.XLAYER],
     USDC[EvmChainId.XLAYER],
   ],
-  [EvmChainId.ROBINHOOD]: [ROBINHOOD_USDG[EvmChainId.ROBINHOOD]],
   // TESTNETS
   [EvmChainId.ARBITRUM_SEPOLIA]: [],
   [EvmChainId.SEPOLIA]: [USDC[EvmChainId.SEPOLIA]],

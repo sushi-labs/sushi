@@ -10,6 +10,7 @@ import {
   SUSHI,
   USDB,
   USDC,
+  USDG,
   USDT,
   USDT0,
   WETH9,
@@ -17,7 +18,6 @@ import {
 import type { EvmCurrency } from '../../../currency/currency.js'
 import { EvmNative } from '../../../currency/native.js'
 import { EvmToken } from '../../../currency/token.js'
-import { ROBINHOOD_USDG } from '../tokens/robinhood/USDG.js'
 import { WNATIVE } from '../wrapped-native.js'
 
 export const defaultCurrency = {
@@ -80,10 +80,10 @@ export const defaultQuoteCurrency = {
   [EvmChainId.HYPEREVM]: USDT[EvmChainId.HYPEREVM],
   [EvmChainId.BERACHAIN]: USDT[EvmChainId.BERACHAIN],
   [EvmChainId.PLASMA]: USDT[EvmChainId.PLASMA],
+  [EvmChainId.ROBINHOOD]: USDG[EvmChainId.ROBINHOOD],
   [EvmChainId.FUSE]: USDC[EvmChainId.FUSE],
   [EvmChainId.BOKUTO]: USDC[EvmChainId.BOKUTO],
   [EvmChainId.MONAD]: USDC[EvmChainId.MONAD],
   [EvmChainId.MEGAETH]: USDT0[EvmChainId.MEGAETH],
   [EvmChainId.XLAYER]: USDT0[EvmChainId.XLAYER],
-  [EvmChainId.ROBINHOOD]: ROBINHOOD_USDG[EvmChainId.ROBINHOOD],
 } as const satisfies Record<EvmChainId, EvmCurrency>
