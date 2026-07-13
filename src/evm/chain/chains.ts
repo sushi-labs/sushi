@@ -627,7 +627,6 @@ export const evmChains = [
   hyperevm,
   berachain,
   plasma,
-  robinhood,
   monad,
   megaeth,
   xLayer,
