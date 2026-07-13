@@ -110,4 +110,4 @@ doubled.toSignificant(4)
 
 ## Precision notes
 
-`Amount`, `Price`, and `Fraction` keep core math in bigint-backed values. Methods such as `toNumber`, `toString`, and `toSignificant` are for display and can lose precision for very large values.
+`Amount`, `Price`, and `Fraction` keep core math in bigint-backed values. `toString` and `toSignificant` format directly from those bigint-backed values, applying the requested rounding or truncation without first converting to a JavaScript number. `toNumber` is for display and can lose precision for very large values.

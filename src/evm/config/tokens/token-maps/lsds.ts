@@ -370,6 +370,7 @@ export const LSDS = {
   [EvmChainId.MONAD]: [],
   [EvmChainId.MEGAETH]: [],
   [EvmChainId.XLAYER]: [],
+  [EvmChainId.ROBINHOOD]: [],
 
   // TESTNETS
   [EvmChainId.ARBITRUM_SEPOLIA]: [],

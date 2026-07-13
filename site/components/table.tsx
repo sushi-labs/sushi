@@ -1,3 +1,5 @@
+'use client'
+
 import { type FC, type ReactElement, useEffect, useState } from 'react'
 import { type AddressFor, type ChainId, getChainById, isChainId } from 'sushi'
 

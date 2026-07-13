@@ -2,13 +2,12 @@ import type { Address } from 'viem'
 import * as z from 'zod'
 import { sz } from '../../generic/validate/zod.js'
 import { version } from '../../version.js'
-import type { SwapApiSupportedChainId } from '../config/index.js'
-import { szevm } from '../validate/zod.js'
 import {
-  type RouterLiquiditySource,
-  RouteStatus,
-  type TransferValue,
-} from './types.js'
+  isSwapApiSupportedChainId,
+  type SwapApiSupportedChainId,
+} from '../config/index.js'
+import { szevm } from '../validate/zod.js'
+import { RouterLiquiditySource, RouteStatus, TransferValue } from './types.js'
 
 export type SwapRequest<Simulate extends boolean = true> = {
   chainId: SwapApiSupportedChainId
@@ -19,7 +18,7 @@ export type SwapRequest<Simulate extends boolean = true> = {
   maxSlippage: number
   maxPriceImpact?: number
   source?: RouterLiquiditySource
-  fee?: bigint
+  fee?: number
   feeReceiver?: Address
   feeBy?: TransferValue
   referrer?: string
@@ -29,6 +28,43 @@ export type SwapRequest<Simulate extends boolean = true> = {
   validate?: boolean
   apiKey?: string
 }
+
+const swapRequestSchema = z
+  .object({
+    chainId: z.number().int().refine(isSwapApiSupportedChainId),
+    tokenIn: szevm.address(),
+    tokenOut: szevm.address(),
+    amount: z.bigint().positive(),
+    sender: szevm.address(),
+    maxSlippage: z.number().gte(0).lt(1),
+    maxPriceImpact: z.number().positive().lte(1).optional(),
+    source: z.enum(RouterLiquiditySource).optional(),
+    fee: z.number().gte(0).lte(0.5).optional(),
+    feeReceiver: szevm.address().optional(),
+    feeBy: z.enum(TransferValue).optional(),
+    referrer: z.string().min(1).optional(),
+    baseUrl: z.url().optional(),
+    recipient: szevm.address().optional(),
+    simulate: z.boolean().optional(),
+    validate: z.boolean().optional(),
+    apiKey: z.string().min(1).optional(),
+  })
+  .superRefine((params, ctx) => {
+    if (params.fee && !params.feeReceiver) {
+      ctx.addIssue({
+        code: 'custom',
+        message: 'Fee receiver is required when fee is set',
+        path: ['feeReceiver'],
+      })
+    }
+    if (params.feeReceiver && !params.fee) {
+      ctx.addIssue({
+        code: 'custom',
+        message: 'Fee is required when fee receiver is set',
+        path: ['fee'],
+      })
+    }
+  })
 
 function swapResponseSchema<Simulate extends boolean>(simulate?: Simulate) {
   const tokenSchema = z.object({
@@ -93,7 +129,7 @@ export async function getSwap<Simulate extends boolean = true>(
   params: SwapRequest<Simulate>,
   options?: RequestInit,
 ): Promise<SwapResponse<Simulate>> {
-  // TODO: VALIDATE PARAMS
+  params = swapRequestSchema.parse(params) as SwapRequest<Simulate>
   const url = new URL(
     `swap/v7/${params.chainId}`,
     params.baseUrl ?? 'https://api.sushi.com',
@@ -118,8 +154,8 @@ export async function getSwap<Simulate extends boolean = true>(
   }
 
   if (
-    typeof params.fee === 'bigint' &&
-    params.fee > 0n &&
+    typeof params.fee === 'number' &&
+    params.fee > 0 &&
     params.feeReceiver !== undefined
   ) {
     url.searchParams.append('fee', params.fee.toString())

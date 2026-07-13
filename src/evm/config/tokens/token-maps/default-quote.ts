@@ -18,6 +18,7 @@ import {
 import type { EvmCurrency } from '../../../currency/currency.js'
 import { EvmNative } from '../../../currency/native.js'
 import { EvmToken } from '../../../currency/token.js'
+import { ROBINHOOD_USDG } from '../tokens/robinhood/USDG.js'
 import { WNATIVE } from '../wrapped-native.js'
 
 export const defaultCurrency = {
@@ -86,4 +87,5 @@ export const defaultQuoteCurrency = {
   [EvmChainId.MONAD]: USDC[EvmChainId.MONAD],
   [EvmChainId.MEGAETH]: USDT0[EvmChainId.MEGAETH],
   [EvmChainId.XLAYER]: USDT0[EvmChainId.XLAYER],
+  [EvmChainId.ROBINHOOD]: ROBINHOOD_USDG[EvmChainId.ROBINHOOD],
 } as const satisfies Record<EvmChainId, EvmCurrency>

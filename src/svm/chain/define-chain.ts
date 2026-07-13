@@ -1,6 +1,7 @@
+import { defineChain } from '../../generic/chain/define-chain.js'
 import type {
   BlockExplorers,
-  Chain,
+  ChainDefinition,
   NetType,
 } from '../../generic/chain/interface.js'
 import type { SvmAddress } from '../currency/token.js'
@@ -14,9 +15,11 @@ type SvmChainNativeCurrency = {
   decimals: number
 }
 
-type SvmChainBase<TChainId extends number, TChainKey extends string> = Chain<
+type SvmChainBase<
+  TChainId extends number,
+  TChainKey extends string,
+> = ChainDefinition<
   SvmChainType,
-  // @ts-expect-error infinite loop
   TChainId,
   TChainKey,
   Readonly<string>,
@@ -37,14 +40,9 @@ type SvmChainInput = Omit<
 >
 
 export function defineSvmChain<const T extends SvmChainInput>(chain: T) {
-  return {
-    ...chain,
-    type: 'svm' as const,
-    getTransactionUrl: (input: string) =>
-      `${chain.blockExplorers.default.url}/tx/${input}`,
-    getAccountUrl: (input: string) =>
-      `${chain.blockExplorers.default.url}/account/${input}`,
-    getTokenUrl: (input: string) =>
-      `${chain.blockExplorers.default.url}/token/${input}`,
-  } as const satisfies SvmChainBase<number, string>
+  return defineChain('svm', chain, {
+    transaction: (url, input) => `${url}/tx/${input}`,
+    account: (url, input) => `${url}/account/${input}`,
+    token: (url, input) => `${url}/token/${input}`,
+  })
 }

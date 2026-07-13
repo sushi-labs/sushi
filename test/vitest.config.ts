@@ -6,17 +6,6 @@ export default defineConfig({
     typecheck: {
       enabled: true,
     },
-    alias: {
-      '~contracts': join(__dirname, '../contracts'),
-      '~test': join(__dirname, '.'),
-
-      '~': join(__dirname, '../src'),
-      '~generic': join(__dirname, '../src/generic'),
-      '~evm': join(__dirname, '../src/evm'),
-      '~mvm': join(__dirname, '../src/mvm'),
-      '~tvm': join(__dirname, '../src/tvm'),
-      '~kvm': join(__dirname, '../src/kvm'),
-    },
     benchmark: {
       outputFile: './bench/report.json',
       reporters: process.env.CI ? ['default'] : ['verbose'],

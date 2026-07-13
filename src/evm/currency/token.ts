@@ -1,7 +1,8 @@
 import invariant from 'tiny-invariant'
 import { type Address, type Hex, isAddress } from 'viem'
-import * as z from 'zod'
+import type * as z from 'zod'
 import type { CurrencyMetadata } from '../../generic/currency/currency.js'
+import { createSerializedTokenSchema } from '../../generic/currency/serialized-token.js'
 import { Token } from '../../generic/currency/token.js'
 import { type EvmChainId, isEvmChainId } from '../chain/chains.js'
 import { normalizeEvmAddress } from '../utils/normalize-address.js'
@@ -64,7 +65,7 @@ export class EvmToken<
       type: this.type,
 
       metadata: this.metadata,
-    } as const
+    }
   }
 
   static fromJSON<TMetadata extends CurrencyMetadata>(
@@ -83,26 +84,10 @@ export const serializedEvmTokenSchema = <
 }: {
   metadata?: z.ZodType<TMetadata>
 } = {}) =>
-  z.object({
-    chainId: z
-      .number()
-      .int()
-      .refine(isEvmChainId)
-      .transform((chainId) => chainId as EvmChainId),
-    address: z
-      .string()
-      .refine(isEvmAddress)
-      .transform((address) => address as EvmAddress),
-    symbol: z.string(),
-    name: z.string(),
-    decimals: z.number().int().nonnegative(),
-    type: z.literal('token'),
-
-    metadata: (metadata ||
-      z
-        .record(z.string(), z.unknown())
-        .optional()
-        .default({})) as z.ZodType<TMetadata>,
+  createSerializedTokenSchema({
+    isChainId: isEvmChainId,
+    isAddress: isEvmAddress,
+    metadata,
   })
 
 export type SerializedEvmToken<

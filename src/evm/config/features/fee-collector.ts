@@ -109,7 +109,7 @@ export const UI_FEE_COLLECTOR_ADDRESS: Record<
   [EvmChainId.MONAD]: '0xde7259893af7cdbc9fd806c6ba61d22d581d5667',
   [EvmChainId.MEGAETH]: '0xde7259893af7cdbc9fd806c6ba61d22d581d5667',
   [EvmChainId.XLAYER]: '0xd1b5e7dfc65126e261e8f254c36ab8eee57c43c9',
-  [EvmChainId.ROBINHOOD]: '0x9Cb751cE2799bC90457B75A3975C1d5BD902697f',
+  [EvmChainId.ROBINHOOD]: '0x9cb751ce2799bc90457b75a3975c1d5bd902697f',
 } as const
 export const isUIFeeCollectorChainId = isFeeCollectorChainId
 
@@ -164,7 +164,7 @@ export const SURPLUS_FEE_COLLECTOR_ADDRESS: Record<
   [EvmChainId.MONAD]: '0x5c2e112783a6854653b4bc7dc22248d3e592559c',
   [EvmChainId.MEGAETH]: '0x5c2e112783a6854653b4bc7dc22248d3e592559c',
   [EvmChainId.XLAYER]: '0x8bd735438369d318cbf39b0d5c57819a3336bde6',
-  [EvmChainId.ROBINHOOD]: '0x7282249282902e1f99c2CB0A04230091bd30FE3A',
+  [EvmChainId.ROBINHOOD]: '0x7282249282902e1f99c2cb0a04230091bd30fe3a',
 } as const
 export const isSurplusFeeCollectorChainId = isFeeCollectorChainId
 
@@ -219,6 +219,6 @@ export const PROTOCOL_FEE_COLLECTOR_ADDRESS: Record<
   [EvmChainId.MONAD]: '0xdbeca8fb948c42634256609bce5a3768c9b3e9eb',
   [EvmChainId.MEGAETH]: '0xdbeca8fb948c42634256609bce5a3768c9b3e9eb',
   [EvmChainId.XLAYER]: '0xdb6d24bc373d52598911c75cef401d5d2519e497',
-  [EvmChainId.ROBINHOOD]: '0x2Ec2560CBa6aeB2Fe13Bdb381700B505f5E9e4E8',
+  [EvmChainId.ROBINHOOD]: '0x2ec2560cba6aeb2fe13bdb381700b505f5e9e4e8',
 } as const
 export const isProtocolFeeCollectorChainId = isFeeCollectorChainId
