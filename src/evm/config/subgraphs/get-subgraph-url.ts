@@ -34,6 +34,12 @@ type DecentralizedEntry = {
 
 type _COMPLETENESS = 'COMPLETE' | 'PARTIAL'
 
+export type SubgraphChainId<
+  TResolver extends {
+    readonly chainIds: readonly EvmChainId[]
+  },
+> = TResolver['chainIds'][number]
+
 // Double-wrap to allow of automatic DECENTRALIZED and OTHER type inference
 function getSubgraphUrlWrapperWrapper<
   DECENTRALIZED extends EvmChainId,
@@ -50,6 +56,22 @@ function getSubgraphUrlWrapperWrapper<
       : EvmChainId,
     COMPLETENESS extends _COMPLETENESS,
   >() {
+    const chainIds = Object.freeze(
+      Array.from(
+        new Set([
+          ...Object.keys(subgraphs.decentralizedIds).map(Number),
+          ...Object.keys(subgraphs.otherUrls).map(Number),
+        ]),
+      ) as (DECENTRALIZED | OTHER)[],
+    )
+    const chainIdSet = new Set<EvmChainId>(chainIds)
+
+    function supportsChainId(
+      chainId: CHAINS,
+    ): chainId is Extract<DECENTRALIZED | OTHER, CHAINS> {
+      return chainIdSet.has(chainId)
+    }
+
     // Handles the actual url lookup
     function getSubgraphUrl<PASSED_CHAIN extends CHAINS>(
       chainId: PASSED_CHAIN,
@@ -84,7 +106,15 @@ function getSubgraphUrlWrapperWrapper<
       return undefined as Result<PASSED_CHAIN, DECENTRALIZED | OTHER>
     }
 
-    return getSubgraphUrl
+    const capabilities: {
+      readonly chainIds: readonly (DECENTRALIZED | OTHER)[]
+      supportsChainId: typeof supportsChainId
+    } = {
+      chainIds,
+      supportsChainId,
+    }
+
+    return Object.assign(getSubgraphUrl, capabilities)
   }
 
   return getSubgraphUrlWrapper
