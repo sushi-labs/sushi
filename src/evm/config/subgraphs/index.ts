@@ -1,3 +1,4 @@
+export type { SubgraphChainId } from './get-subgraph-url.js'
 export * from './hosts.js'
 export * from './max-first.js'
 export * from './seconds-between-blocks.js'
