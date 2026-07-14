@@ -1,5 +1,11 @@
 # sushi
 
+## 7.1.1
+
+### Patch Changes
+
+- [#493](https://github.com/sushi-labs/sushi/pull/493) [`2b27d12`](https://github.com/sushi-labs/sushi/commit/2b27d12ee5480e644e6b7bef64ef072799f61f4f) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Add subgraph chainId types and guards
+
 ## 7.1.0
 
 ### Minor Changes
