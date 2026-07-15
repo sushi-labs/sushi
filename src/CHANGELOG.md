@@ -1,5 +1,20 @@
 # sushi
 
+## 7.2.0
+
+### Minor Changes
+
+- [#495](https://github.com/sushi-labs/sushi/pull/495) [`0b4562e`](https://github.com/sushi-labs/sushi/commit/0b4562e77abd2e5e47bbb9692121a6aefaa6b162) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Allow `Amount` to carry application-defined currency types.
+
+  `BaseCurrency` now supports string or numeric identifiers while continuing to
+  default to `ChainId`. `Amount`, `Price`, and `subtractSlippage` accept the new
+  `AnyCurrency` contract, and amount serialization preserves an external
+  currency's serialized type. Blockchain-specific APIs and the `Currency` type
+  remain constrained to executable Sushi chain IDs.
+
+  Application-defined currencies implement `wrap()` like existing currencies and
+  may return themselves when no wrapped representation is needed.
+
 ## 7.1.1
 
 ### Patch Changes
