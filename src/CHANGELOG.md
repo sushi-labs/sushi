@@ -1,5 +1,11 @@
 # sushi
 
+## 7.2.1
+
+### Patch Changes
+
+- [#497](https://github.com/sushi-labs/sushi/pull/497) [`f2c2de3`](https://github.com/sushi-labs/sushi/commit/f2c2de3abf634e548e0c8b1ff0b25a328008c893) Thanks [@Ty-Sir](https://github.com/Ty-Sir)! - Add Sushi token to robinhood default base
+
 ## 7.2.0
 
 ### Minor Changes
