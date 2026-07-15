@@ -7,7 +7,7 @@ import type { Token } from './token.js'
 export type CurrencyMetadata = Record<string, unknown>
 
 export abstract class BaseCurrency<
-  TChainId extends ChainId = ChainId,
+  TChainId extends string | number = ChainId,
   TMetadata extends CurrencyMetadata = Record<string, unknown>,
   TCurrencyType extends string = string,
   TSerializedCurrency extends object = SerializedCurrency<TMetadata>,
@@ -47,7 +47,7 @@ export abstract class BaseCurrency<
   abstract get id(): ID<TChainId, string, true>
 
   public isSame(
-    other: BaseCurrency<ChainId, CurrencyMetadata, string, object>,
+    other: BaseCurrency<string | number, CurrencyMetadata, string, object>,
   ): boolean {
     return (
       this.chainId === other.chainId &&
@@ -70,3 +70,11 @@ export type Currency<
   TChainId extends ChainId = ChainId,
   TMetadata extends CurrencyMetadata = Record<string, unknown>,
 > = Native<TChainId, TMetadata> | Token<TChainId, string, TMetadata>
+
+/** The open currency contract accepted by generic monetary primitives. */
+export type AnyCurrency = BaseCurrency<
+  string | number,
+  CurrencyMetadata,
+  string,
+  object
+>

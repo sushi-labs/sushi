@@ -1,11 +1,11 @@
 import { Fraction } from '../math/fraction.js'
 import type { BigintIsh } from '../types/bigintish.js'
 import { Amount } from './amount.js'
-import type { Currency } from './currency.js'
+import type { AnyCurrency } from './currency.js'
 
 export class Price<
-  TBase extends Currency,
-  TQuote extends Currency,
+  TBase extends AnyCurrency,
+  TQuote extends AnyCurrency,
 > extends Fraction {
   public readonly base: TBase
   public readonly quote: TQuote
@@ -13,11 +13,10 @@ export class Price<
   /**
    * Creates a Price from a human-readable quote-per-base value, e.g. "1.5".
    */
-  public static fromHuman<TBase extends Currency, TQuote extends Currency>(
-    base: TBase,
-    quote: TQuote,
-    value: string,
-  ): Price<TBase, TQuote> {
+  public static fromHuman<
+    TBase extends AnyCurrency,
+    TQuote extends AnyCurrency,
+  >(base: TBase, quote: TQuote, value: string): Price<TBase, TQuote> {
     if (!value.match(/^\d*\.?\d+$/)) {
       throw new Error(`Invalid price: ${value}`)
     }
@@ -37,7 +36,10 @@ export class Price<
   /**
    * Tries to create a Price from a human-readable quote-per-base value.
    */
-  public static tryFromHuman<TBase extends Currency, TQuote extends Currency>(
+  public static tryFromHuman<
+    TBase extends AnyCurrency,
+    TQuote extends AnyCurrency,
+  >(
     base: TBase,
     quote: TQuote,
     value: string,

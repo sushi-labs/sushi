@@ -3,13 +3,10 @@ import * as z from 'zod'
 import { numberToFixed } from '../format/number.js'
 import { Fraction } from '../math/fraction.js'
 import type { BigintIsh } from '../types/bigintish.js'
-import type { Currency } from './currency.js'
-import type {
-  SerializedCurrency,
-  SerializedCurrencySchema,
-} from './serialized-currency.js'
+import type { AnyCurrency, Currency } from './currency.js'
+import type { SerializedCurrency } from './serialized-currency.js'
 
-export type SerializedAmount<TCurrency extends SerializedCurrency> = {
+export type SerializedAmount<TCurrency extends object = SerializedCurrency> = {
   currency: TCurrency
   amount: string
 }
@@ -17,7 +14,7 @@ export type SerializedAmount<TCurrency extends SerializedCurrency> = {
 /**
  * Represents an amount of a particular currency.
  */
-export class Amount<TCurrency extends Currency = Currency> {
+export class Amount<TCurrency extends AnyCurrency = Currency> {
   /** The currency of this amount */
   public readonly currency: TCurrency
 
@@ -36,7 +33,7 @@ export class Amount<TCurrency extends Currency = Currency> {
    * Creates an Amount from a human-readable value, e.g. "1.5".
    * Just a wrapper around viem's `parseUnits` to handle the currency's decimals.
    */
-  public static fromHuman<TCurrency extends Currency>(
+  public static fromHuman<TCurrency extends AnyCurrency>(
     currency: TCurrency,
     human: bigint | number | string,
   ): Amount<TCurrency> {
@@ -47,7 +44,7 @@ export class Amount<TCurrency extends Currency = Currency> {
   /**
    * Creates an Amount from a human-readable value, e.g. "1.5".
    */
-  public static tryFromHuman<TCurrency extends Currency>(
+  public static tryFromHuman<TCurrency extends AnyCurrency>(
     currency: TCurrency,
     human: bigint | number | string,
   ): Amount<TCurrency> | undefined {
@@ -68,9 +65,9 @@ export class Amount<TCurrency extends Currency = Currency> {
     )
   }
 
-  private static getRawAmount<TCurrency extends Currency>(
+  private static getRawAmount<TCurrency extends AnyCurrency>(
     _ref: Amount<TCurrency>,
-    other: Amount | bigint | string,
+    other: Amount<AnyCurrency> | bigint | string,
   ): bigint {
     if (other instanceof Amount) {
       return other.amount
@@ -81,7 +78,9 @@ export class Amount<TCurrency extends Currency = Currency> {
   /**
    * Adds another Amount or raw value.
    */
-  public add(other: Amount | Fraction | bigint | string): Amount<TCurrency> {
+  public add(
+    other: Amount<AnyCurrency> | Fraction | bigint | string,
+  ): Amount<TCurrency> {
     let add: bigint
 
     if (other instanceof Fraction) {
@@ -104,7 +103,9 @@ export class Amount<TCurrency extends Currency = Currency> {
   /**
    * Subtracts another Amount or raw value.
    */
-  public sub(other: Amount | Fraction | bigint | string): Amount<TCurrency> {
+  public sub(
+    other: Amount<AnyCurrency> | Fraction | bigint | string,
+  ): Amount<TCurrency> {
     let sub: bigint
 
     if (other instanceof Fraction) {
@@ -127,7 +128,9 @@ export class Amount<TCurrency extends Currency = Currency> {
   /**
    * Multiplies this amount by another amount or raw value.
    */
-  public mul(other: Amount | Fraction | bigint | string): Amount<TCurrency> {
+  public mul(
+    other: Amount<AnyCurrency> | Fraction | bigint | string,
+  ): Amount<TCurrency> {
     if (other instanceof Fraction) {
       return new Amount(
         this.currency,
@@ -164,7 +167,9 @@ export class Amount<TCurrency extends Currency = Currency> {
    * Divides this amount by another Amount or raw value.
    * @returns a {@link Fraction} for a precise fractional result.
    */
-  public divToFraction(other: Amount | Fraction | bigint | string): Fraction {
+  public divToFraction(
+    other: Amount<AnyCurrency> | Fraction | bigint | string,
+  ): Fraction {
     if (other instanceof Fraction) {
       return new Fraction({
         numerator: this.amount * other.denominator,
@@ -179,7 +184,7 @@ export class Amount<TCurrency extends Currency = Currency> {
   /**
    * Returns true if this amount > other.
    */
-  public gt(other: Amount | bigint | string): boolean {
+  public gt(other: Amount<AnyCurrency> | bigint | string): boolean {
     const cmp = Amount.getRawAmount(this, other)
     return this.amount > cmp
   }
@@ -187,7 +192,7 @@ export class Amount<TCurrency extends Currency = Currency> {
   /**
    * Returns true if this amount >= other.
    */
-  public gte(other: Amount | bigint | string): boolean {
+  public gte(other: Amount<AnyCurrency> | bigint | string): boolean {
     const cmp = Amount.getRawAmount(this, other)
     return this.amount >= cmp
   }
@@ -195,7 +200,7 @@ export class Amount<TCurrency extends Currency = Currency> {
   /**
    * Returns true if this amount < other.
    */
-  public lt(other: Amount | bigint | string): boolean {
+  public lt(other: Amount<AnyCurrency> | bigint | string): boolean {
     const cmp = Amount.getRawAmount(this, other)
     return this.amount < cmp
   }
@@ -203,7 +208,7 @@ export class Amount<TCurrency extends Currency = Currency> {
   /**
    * Returns true if this amount <= other.
    */
-  public lte(other: Amount | bigint | string): boolean {
+  public lte(other: Amount<AnyCurrency> | bigint | string): boolean {
     const cmp = Amount.getRawAmount(this, other)
     return this.amount <= cmp
   }
@@ -211,14 +216,14 @@ export class Amount<TCurrency extends Currency = Currency> {
   /**
    * Returns true if this amount == other.
    */
-  public eq(other: Amount | bigint | string): boolean {
+  public eq(other: Amount<AnyCurrency> | bigint | string): boolean {
     const cmp = Amount.getRawAmount(this, other)
     return this.amount === cmp
   }
 
-  public toJSON(): SerializedAmount<SerializedCurrency> {
+  public toJSON(): SerializedAmount<ReturnType<TCurrency['toJSON']>> {
     return {
-      currency: this.currency.toJSON(),
+      currency: this.currency.toJSON() as ReturnType<TCurrency['toJSON']>,
       amount: this.amount.toString(),
     } as const
   }
@@ -244,9 +249,9 @@ export class Amount<TCurrency extends Currency = Currency> {
   }
 }
 
-export function serializedAmountSchema<
-  TSchema extends SerializedCurrencySchema,
->(currencySchema: TSchema) {
+export function serializedAmountSchema<TSchema extends z.ZodType>(
+  currencySchema: TSchema,
+) {
   return z.object({
     currency: currencySchema,
     amount: z.string(),
