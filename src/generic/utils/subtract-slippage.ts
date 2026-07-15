@@ -1,5 +1,5 @@
 import type { Amount } from '../currency/amount.js'
-import type { Currency } from '../currency/currency.js'
+import type { AnyCurrency } from '../currency/currency.js'
 
 /**
  *
@@ -8,7 +8,7 @@ import type { Currency } from '../currency/currency.js'
  *
  * @returns The amount after subtracting the slippage, eg. amount * 0.9 if slippage is 10% (0.1).
  */
-export function subtractSlippage<TCurrency extends Currency>(
+export function subtractSlippage<TCurrency extends AnyCurrency>(
   amount: Amount<TCurrency>,
   slippage: number,
 ) {

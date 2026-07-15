@@ -28,7 +28,7 @@ export abstract class Token<
   }
 
   public override isSame(
-    other: BaseCurrency<ChainId, CurrencyMetadata, string, object>,
+    other: BaseCurrency<string | number, CurrencyMetadata, string, object>,
   ): boolean {
     return (
       super.isSame(other) &&

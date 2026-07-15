@@ -1,7 +1,7 @@
 import type { ChainId } from '../chain/chains.js'
 
 export type ID<
-  TChainId extends ChainId = ChainId,
+  TChainId extends string | number = ChainId,
   TAddress extends string = string,
   TIncludeNative extends boolean = false,
 > =
