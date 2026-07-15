@@ -8,7 +8,7 @@ import { Price } from './price.js'
 type SerializedPointsCurrency = Readonly<{
   type: 'points'
   chainId: 'rewards'
-  id: 'rewards:POINTS'
+  id: `rewards:${string}`
 }>
 
 class PointsCurrency extends BaseCurrency<
@@ -20,9 +20,10 @@ class PointsCurrency extends BaseCurrency<
   override readonly type = 'points' as const
   override readonly isNative = false as const
   override readonly isToken = false as const
-  override readonly id = 'rewards:POINTS' as const
 
-  constructor() {
+  constructor(
+    public override readonly id: `rewards:${string}` = 'rewards:POINTS',
+  ) {
     super({
       chainId: 'rewards',
       decimals: 0,
@@ -53,6 +54,11 @@ describe('external currency extension contract', () => {
       currency: points.toJSON(),
       amount: '100',
     })
+  })
+
+  it('uses the currency id for value identity', () => {
+    expect(points.isSame(new PointsCurrency('rewards:POINTS'))).toBe(true)
+    expect(points.isSame(new PointsCurrency('rewards:OTHER'))).toBe(false)
   })
 
   it('accepts an external serialized currency schema', () => {

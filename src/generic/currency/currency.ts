@@ -51,6 +51,7 @@ export abstract class BaseCurrency<
   ): boolean {
     return (
       this.chainId === other.chainId &&
+      this.id === other.id &&
       this.decimals === other.decimals &&
       this.type === other.type
     )
