@@ -19,6 +19,7 @@ export const SUSHI_ADDRESS = {
   [EvmChainId.OPTIMISM]: '0x3eaeb77b03dbc0f6321ae1b72b2e9adb0f60112b',
   [EvmChainId.THUNDERCORE]: '0xabd380327fe66724ffda91a87c772fb8d00be488',
   [EvmChainId.FUSE]: '0x90708b20ccC1eb95a4FA7C8b18Fd2C22a0Ff9E78',
+  [EvmChainId.ROBINHOOD]: '0x0bb40d7fbae7f0c69bc5910c601987dce697d85f',
 } as const
 
 export const SUSHI = addressMapToTokenMap(
