@@ -1,5 +1,5 @@
 ---
-'sushi': major
+'sushi': minor
 ---
 
 Allow `Amount` to carry application-defined currency types.
