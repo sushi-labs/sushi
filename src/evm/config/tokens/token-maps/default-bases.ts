@@ -431,6 +431,7 @@ export const EVM_DEFAULT_BASES = {
     EvmNative.fromChainId(EvmChainId.ROBINHOOD),
     WNATIVE[EvmChainId.ROBINHOOD],
     USDG[EvmChainId.ROBINHOOD],
+    SUSHI[EvmChainId.ROBINHOOD],
   ],
   [EvmChainId.FUSE]: [
     EvmNative.fromChainId(EvmChainId.FUSE),
