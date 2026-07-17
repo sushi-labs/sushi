@@ -47,7 +47,6 @@ const BLOCKS_OTHER_URLS = {
   [EvmChainId.MANTLE]: `${GOLDSKY_COMMUNITY_HOST}/blocks/mantle/gn`,
   [EvmChainId.SKALE_EUROPA]: `${SKALE_HOST}/sushi/blocks-skale-europa`,
   [EvmChainId.ROOTSTOCK]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/blocks-rootstock/gn`,
-  [EvmChainId.KATANA]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/blocks/katana/gn`,
 } as const satisfies Partial<Record<EvmChainId, string>>
 
 export const getBlocksSubgraphUrl = getSubgraphUrlWrapper({
