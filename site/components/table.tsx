@@ -15,16 +15,17 @@ type NetworkTableFormatter<C extends ChainId = ChainId> = ({
 
 const formatExplorerLink: NetworkTableFormatter = ({ chainId, value }) => (
   <a
+    data-v
     href={getChainById(chainId).getAccountUrl(value)}
     target={'_blank'}
     rel={'noopener noreferrer'}
   >
-    <code className="vocs_Code">{value}</code>
+    <code data-v>{value}</code>
   </a>
 )
 
 const formatCode: NetworkTableFormatter = ({ value }) => (
-  <code className="vocs_Code">{value}</code>
+  <code data-v>{value}</code>
 )
 
 interface NetworkTable<C extends ChainId = ChainId> {
@@ -39,38 +40,40 @@ export const NetworkTable: FC<NetworkTable> = ({
   formatter = formatCode,
 }) => {
   return (
-    <table className="vocs_Table">
-      <thead>
-        <tr className="vocs_TableRow">
-          <th className="vocs_TableHeader">Network</th>
-          <th className="vocs_TableHeader">{title}</th>
-        </tr>
-      </thead>
-      <tbody>
-        {Object.entries(data).map(([key, value]) => {
-          const chainId = +key as ChainId
-          if (!value || value.length === 0) return null
-          return (
-            <tr key={key} className="vocs_TableRow">
-              <td className="vocs_TableCell">
-                {getChainById(chainId).name.toUpperCase()}
-              </td>
-              <td className="vocs_TableCell">
-                {Array.isArray(value) ? (
-                  <ul>
-                    {value.map((v) => (
-                      <li key={v}>{formatter({ chainId, value: v })}</li>
-                    ))}
-                  </ul>
-                ) : (
-                  formatter({ chainId, value })
-                )}
-              </td>
-            </tr>
-          )
-        })}
-      </tbody>
-    </table>
+    <div data-v-table-wrapper>
+      <table data-v>
+        <thead>
+          <tr>
+            <th>Network</th>
+            <th>{title}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {Object.entries(data).map(([key, value]) => {
+            const chainId = +key as ChainId
+            if (!value || value.length === 0) return null
+            return (
+              <tr key={key}>
+                <td>{getChainById(chainId).name.toUpperCase()}</td>
+                <td>
+                  {Array.isArray(value) ? (
+                    <ul data-v>
+                      {value.map((v) => (
+                        <li data-v key={v}>
+                          {formatter({ chainId, value: v })}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    formatter({ chainId, value })
+                  )}
+                </td>
+              </tr>
+            )
+          })}
+        </tbody>
+      </table>
+    </div>
   )
 }
 
@@ -93,35 +96,35 @@ interface LinkTable {
 
 export const LinkTable: FC<LinkTable> = ({ title, data }) => {
   return (
-    <table className="vocs_Table--fullWidth">
-      <thead>
-        <tr className="vocs_TableRow">
-          <th className="vocs_TableHeader">Network</th>
-          <th className="vocs_TableHeader">{title}</th>
-        </tr>
-      </thead>
-      <tbody>
-        {Object.entries(data).map(([key, value]) => {
-          return (
-            <tr key={key} className="vocs_TableRow">
-              <td className="vocs_TableCell">
-                {getChainById(+key as ChainId)?.name.toUpperCase()}
-              </td>
-              <td className="vocs_TableCell">
-                <a
-                  href={value}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="vocs_Link"
-                >
-                  {value}
-                </a>
-              </td>
-            </tr>
-          )
-        })}
-      </tbody>
-    </table>
+    <div data-v-table-wrapper>
+      <table data-v>
+        <thead>
+          <tr>
+            <th>Network</th>
+            <th>{title}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {Object.entries(data).map(([key, value]) => {
+            return (
+              <tr key={key}>
+                <td>{getChainById(+key as ChainId)?.name.toUpperCase()}</td>
+                <td>
+                  <a
+                    data-v
+                    href={value}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {value}
+                  </a>
+                </td>
+              </tr>
+            )
+          })}
+        </tbody>
+      </table>
+    </div>
   )
 }
 
@@ -207,8 +210,11 @@ export const SupportedAggregatorChainsTable: FC = () => {
     return (
       <p role="alert">
         Could not load the live chain list from{' '}
-        <code className="vocs_Code">{SUPPORTED_AGGREGATOR_CHAINS_URL}</code>:{' '}
-        {state.message}. See the <a href="/sdk/concepts/chains">SDK chains</a>{' '}
+        <code data-v>{SUPPORTED_AGGREGATOR_CHAINS_URL}</code>: {state.message}.
+        See the{' '}
+        <a data-v href="/sdk/concepts/chains">
+          SDK chains
+        </a>{' '}
         page for the full local chain registry.
       </p>
     )
@@ -221,38 +227,40 @@ export const SupportedAggregatorChainsTable: FC = () => {
         <strong>{state.chainIds.length}</strong> chains for swap, quote, and
         price features.
       </p>
-      <table className="vocs_Table">
-        <thead>
-          <tr className="vocs_TableRow">
-            <th className="vocs_TableHeader">Chain</th>
-            <th className="vocs_TableHeader">Chain ID</th>
-          </tr>
-        </thead>
-        <tbody>
-          {state.chainIds.map((chainId) => {
-            const chain = getKnownChain(chainId)
+      <div data-v-table-wrapper>
+        <table data-v>
+          <thead>
+            <tr>
+              <th>Chain</th>
+              <th>Chain ID</th>
+            </tr>
+          </thead>
+          <tbody>
+            {state.chainIds.map((chainId) => {
+              const chain = getKnownChain(chainId)
 
-            return (
-              <tr key={chainId} className="vocs_TableRow">
-                <td className="vocs_TableCell">
-                  {chain ? (
-                    <>
-                      {chain.name}
-                      <br />
-                      <code className="vocs_Code">{chain.key}</code>
-                    </>
-                  ) : (
-                    'Unknown chain'
-                  )}
-                </td>
-                <td className="vocs_TableCell">
-                  <code className="vocs_Code">{chainId}</code>
-                </td>
-              </tr>
-            )
-          })}
-        </tbody>
-      </table>
+              return (
+                <tr key={chainId}>
+                  <td>
+                    {chain ? (
+                      <>
+                        {chain.name}
+                        <br />
+                        <code data-v>{chain.key}</code>
+                      </>
+                    ) : (
+                      'Unknown chain'
+                    )}
+                  </td>
+                  <td>
+                    <code data-v>{chainId}</code>
+                  </td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
+      </div>
     </>
   )
 }
