@@ -1,5 +1,11 @@
 # sushi
 
+## 7.3.0
+
+### Minor Changes
+
+- [#499](https://github.com/sushi-labs/sushi/pull/499) [`5f61991`](https://github.com/sushi-labs/sushi/commit/5f619914a521d1efec22f8e68c2441ea255cbcf8) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Remove the Katana blocks subgraph configuration.
+
 ## 7.2.1
 
 ### Patch Changes
