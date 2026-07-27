@@ -1,0 +1,170 @@
+# For integrators
+
+Launchpad discovery, token metadata, and market data are available through the
+Sushi Data API GraphQL endpoint:
+
+```text
+https://production.data-gcp.sushi.com/graphql
+```
+
+Every Launchpad query is under `Query.launchpad` and requires an explicit chain
+ID. V1 supports Robinhood Chain (`4663`).
+
+## List tokens
+
+Use `launchpad.tokens` for cursor-paginated discovery. It supports creator and
+text-search filters and can sort by creation time, TVL, TVL change, or volume.
+
+```graphql
+query LaunchpadTokens($input: LaunchpadTokensInput!) {
+  launchpad {
+    tokens(input: $input) {
+      edges {
+        cursor
+        node {
+          chainId
+          address
+          creator
+          name
+          symbol
+          decimals
+          initialSupply
+          metadata {
+            description
+            links {
+              kind
+              url
+              label
+            }
+            revision
+            updatedAt
+          }
+          pool {
+            address
+            feeTier
+            quoteToken {
+              address
+              symbol
+              decimals
+            }
+          }
+          metrics {
+            priceUsd
+            fullyDilutedValuationUsd
+            currentTvlUsd
+            volumeUsd {
+              h1
+              h6
+              h12
+              h24
+            }
+            isStale
+            asOf
+          }
+        }
+      }
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
+      totalCount
+    }
+  }
+}
+```
+
+Example variables:
+
+```json
+{
+  "input": {
+    "chainId": 4663,
+    "first": 20,
+    "sortBy": "CREATED_AT",
+    "sortDirection": "DESC"
+  }
+}
+```
+
+Pass `pageInfo.endCursor` as `after` to request the next page. Cursors are
+opaque and should not be parsed.
+
+## Fetch one token and its metadata
+
+Use `launchpad.token` when you already know the token address:
+
+```graphql
+query LaunchpadToken($chainId: LaunchpadChainId!, $address: EvmAddress!) {
+  launchpad {
+    token(chainId: $chainId, address: $address) {
+      address
+      creator
+      name
+      symbol
+      feeSplit {
+        sushiFeeBps
+        creatorFeeBps
+      }
+      metadata {
+        description
+        links {
+          kind
+          url
+          label
+        }
+        revision
+        updatedAt
+      }
+      pool {
+        address
+        feeTier
+        quoteToken {
+          address
+          name
+          symbol
+          decimals
+        }
+      }
+    }
+  }
+}
+```
+
+`metadata` is always present. A token without creator-authored metadata has an
+empty link list, a nullable description, and revision `0`.
+
+## Token logos
+
+Logo URLs are deterministic and are not returned by the GraphQL metadata
+object. Build the URL from the chain ID and lowercase token address:
+
+```text
+https://cdn.sushi.com/tokens/{chainId}/{lowercaseTokenAddress}.jpg
+```
+
+For example:
+
+```text
+https://cdn.sushi.com/tokens/4663/0x1234....jpg
+```
+
+The HTTP response is the logo-presence signal:
+
+- A successful `2xx` response means a logo is set.
+- A `404` response means no logo is set for that token.
+
+Server-side integrations can issue a `HEAD` request. Browser clients can render
+the URL and show a deterministic fallback from the image error handler. Do not
+infer logo presence from `metadata.revision`, because creators may save metadata
+without uploading a logo and may replace a logo in a later revision.
+
+## V3 pools
+
+Every launch pool is created through the standard SushiSwap V3 factory and uses
+the 1% fee tier (`feeTier: 10000`). The Data API returns the pool address and
+quote token under `LaunchpadToken.pool`.
+
+Use the [SushiSwap V3 contract list](/contracts/clamm) for factory and position
+manager addresses. The Launchpad contract permanently holds the position NFTs;
+the factory-created pool remains a standard SushiSwap V3 pool and can be
+queried or routed like other V3 pools.

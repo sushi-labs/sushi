@@ -1,0 +1,91 @@
+# For creators
+
+## Create a token
+
+Open the [Launchpad creation
+page](https://www.sushi.com/robinhood/launchpad/create), connect a wallet on
+Robinhood Chain, and complete the three steps:
+
+1. **Token details:** choose the permanent token name and symbol. You can also
+   add an optional logo, description, website, X profile, and Telegram link.
+2. **Launch pool:** select the quote asset, enter the starting fully diluted
+   valuation, and choose a price-curve preset.
+3. **Review:** verify the realized starting valuation, curve, quote asset,
+   launch fee, and immutable settings, then confirm the transaction.
+
+The factory deploys the token and creates its 1% SushiSwap V3 pool atomically.
+Editable metadata is saved after the launch has been indexed. If that save
+fails, the onchain launch is still complete and you can retry from the
+management page.
+
+See [Launchpad contracts](/contracts/launchpad) for the current factory
+addresses.
+
+## Trading fee share
+
+Launchpad V1 starts each token with this split of accrued V3 trading fees:
+
+- **30% to the creator**
+- **70% to Sushi**
+
+The split applies to fees collected in both the launch token and the quote
+token. The creator address is fixed at launch and is always the creator-side
+recipient. The current split is shown on the token's management page; protocol
+configuration can change the default for future launches or the stored split
+for a token before its next distribution.
+
+### Collect fees in the frontend
+
+1. Open **Launchpad** and select **My launches**.
+2. Connect the wallet that created the token.
+3. Select the token under **Your tokens**.
+4. Review **Distribute trading fees**, then select **Distribute fees** and
+   confirm the transaction.
+
+The transaction collects fees from every V3 position registered for that token
+and sends each recipient its share. Distribution is permissionless, so any
+connected wallet can trigger it, but the transaction caller does not receive
+the fees.
+
+## Update token metadata
+
+Token name, symbol, supply, creator, pool, and liquidity curve are immutable.
+The creator can update the logo, description, website, X profile, and Telegram
+link:
+
+1. Open **Launchpad → My launches**.
+2. Connect the original creator wallet.
+3. Select the token under **Your tokens**.
+4. Edit its **Public profile** and select **Sign & save changes**.
+
+The wallet signs the complete metadata update. Saving metadata does not require
+an onchain transaction, but only the immutable creator wallet can authorize it.
+
+## Launch function
+
+Advanced integrations can call the payable factory function directly:
+
+```solidity
+function launch(
+  TokenConfig calldata tokenConfig,
+  address quoteToken,
+  SaleRange[] calldata ranges,
+  uint64 deadline
+)
+  external
+  payable
+  returns (address token, address pool, uint256[] memory positionIds);
+```
+
+| Parameter | Description |
+| --- | --- |
+| `tokenConfig` | `{ name, symbol }` for the new token. Both values are immutable. The name is limited to 64 UTF-8 bytes and the symbol to 16 UTF-8 bytes. |
+| `quoteToken` | Existing ERC-20 paired with the new token. Use a quote token supported by the Launchpad for the selected chain. |
+| `ranges` | Between 1 and 16 contiguous, tick-aligned one-sided V3 ranges. Each `{ startTick, endTick, amount }` assigns launch tokens to a price interval. The first boundary sets the initial pool price. |
+| `deadline` | Unix timestamp after which the transaction must revert. |
+| `msg.value` | Must be at least the factory's current `launchFee()`. The full amount sent belongs to Sushi. |
+
+The function returns the deployed token address, the new V3 pool address, and
+the position NFT IDs. Unless you need custom low-level behavior, use the
+website: it reads the latest factory settings and safely generates and
+simulates the V3 ranges before submission.

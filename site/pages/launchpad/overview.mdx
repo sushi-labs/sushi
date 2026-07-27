@@ -1,0 +1,26 @@
+# Launchpad
+
+Sushi Launchpad lets anyone create a token and open its market in one
+transaction. V1 is available on Robinhood Chain and creates a fixed supply of
+one billion tokens with 18 decimals.
+
+[Open Launchpad](https://www.sushi.com/robinhood/launchpad)
+
+## How it works
+
+1. The Launchpad contract deploys a new ERC-20 token. The connected wallet
+   becomes its immutable creator.
+2. The contract creates a SushiSwap V3 pool between the new token and the
+   selected quote token. Launchpad pools use the 1% fee tier.
+3. The creator chooses a starting fully diluted valuation and a price-curve
+   preset. The frontend converts those choices into one or more contiguous V3
+   ranges.
+4. The liquidity allocation is deposited one-sided: the positions begin with
+   the new token and do not require the creator to contribute the quote token.
+   Buying moves the market through the configured ranges.
+5. The Launchpad contract permanently holds the V3 position NFTs. Position
+   principal cannot be withdrawn, while accrued trading fees can be collected
+   and distributed.
+
+Continue with [For creators](/launchpad/creators) to launch and manage a token,
+or [For integrators](/launchpad/integrators) to consume Launchpad data.
