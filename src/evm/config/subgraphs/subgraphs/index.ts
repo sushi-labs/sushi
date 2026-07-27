@@ -1,6 +1,7 @@
 export * from './blade.js'
 export * from './blocks.js'
 export * from './data-api.js'
+export * from './launchpad-v1.js'
 export * from './master-chef-v1.js'
 export * from './master-chef-v2.js'
 export * from './mini-chef.js'
