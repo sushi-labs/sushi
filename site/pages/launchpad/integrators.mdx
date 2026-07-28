@@ -136,8 +136,8 @@ empty link list, a nullable description, and revision `0`.
 
 ## Set metadata
 
-Only the token's immutable creator can set its offchain metadata. An update is
-a signed replacement of the complete metadata document, not a patch:
+Only the token's current creator can set its offchain metadata. An update is a
+signed replacement of the complete metadata document, not a patch:
 
 1. Fetch the token's `creator`, `factoryAddress`, and current
    `metadata.revision`.
@@ -260,7 +260,7 @@ const signature = await walletClient.signTypedData({
 
 `deadline` is a Unix timestamp in seconds. It must not be expired or more than
 15 minutes in the future; the Sushi frontend uses a 10-minute deadline. Sign
-`typedData` with the immutable creator wallet. V1 supports EOA creator
+`typedData` with the current creator wallet. V1 supports EOA creator
 signatures and does not yet support EIP-1271 contract-wallet creators.
 
 ### Submit the mutation
