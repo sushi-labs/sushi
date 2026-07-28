@@ -21,8 +21,8 @@ export type LaunchpadV1FactoryConfig = {
 export const LAUNCHPAD_V1_FACTORIES = {
   [EvmChainId.ROBINHOOD]: [
     {
-      address: '0x30dd6230ead9312d5d00ad58ef6ef6a0093b0554',
-      deploymentBlock: 18_149_814n,
+      address: '0x104f1ab42674565ec3df0bfebccc4186f72fa7ed',
+      deploymentBlock: 21_957_383n,
     },
   ],
 } as const satisfies Record<

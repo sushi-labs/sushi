@@ -4,7 +4,7 @@ import { getSubgraphUrlWrapper } from '../get-subgraph-url.js'
 import { SUSHI_DEDICATED_GOLDSKY_HOST } from '../hosts.js'
 
 const LAUNCHPAD_V1_OTHER_URLS = {
-  [EvmChainId.ROBINHOOD]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/launchpad-robinhood-v2/gn`,
+  [EvmChainId.ROBINHOOD]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/launchpad-robinhood/gn`,
 } as const satisfies Record<LaunchpadV1ChainId, string>
 
 export const getLaunchpadV1SubgraphUrl = getSubgraphUrlWrapper({
