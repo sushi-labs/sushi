@@ -1,0 +1,352 @@
+# For integrators
+
+Launchpad discovery, token metadata, and market data are available through the
+Sushi Data API GraphQL endpoint:
+
+```text
+https://production.data-gcp.sushi.com/api
+```
+
+Every Launchpad query is under `Query.launchpad` and requires an explicit chain
+ID. V1 supports Robinhood Chain (`4663`).
+
+## List tokens
+
+Use `launchpad.tokens` for cursor-paginated discovery. It supports creator and
+text-search filters and can sort by creation time, TVL, TVL change, or volume.
+
+```graphql
+query LaunchpadTokens($input: LaunchpadTokensInput!) {
+  launchpad {
+    tokens(input: $input) {
+      edges {
+        cursor
+        node {
+          chainId
+          address
+          creator
+          name
+          symbol
+          decimals
+          initialSupply
+          metadata {
+            description
+            links {
+              kind
+              url
+              label
+            }
+            revision
+            updatedAt
+          }
+          pool {
+            address
+            feeTier
+            quoteToken {
+              address
+              symbol
+              decimals
+            }
+          }
+          metrics {
+            priceUsd
+            fullyDilutedValuationUsd
+            currentTvlUsd
+            volumeUsd {
+              h1
+              h6
+              h12
+              h24
+            }
+            isStale
+            asOf
+          }
+        }
+      }
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
+      totalCount
+    }
+  }
+}
+```
+
+Example variables:
+
+```json
+{
+  "input": {
+    "chainId": 4663,
+    "first": 20,
+    "sortBy": "CREATED_AT",
+    "sortDirection": "DESC"
+  }
+}
+```
+
+Pass `pageInfo.endCursor` as `after` to request the next page. Cursors are
+opaque and should not be parsed.
+
+## Fetch one token and its metadata
+
+Use `launchpad.token` when you already know the token address:
+
+```graphql
+query LaunchpadToken($chainId: LaunchpadChainId!, $address: EvmAddress!) {
+  launchpad {
+    token(chainId: $chainId, address: $address) {
+      address
+      creator
+      factoryAddress
+      name
+      symbol
+      feeSplit {
+        sushiFeeBps
+        creatorFeeBps
+      }
+      metadata {
+        description
+        links {
+          kind
+          url
+          label
+        }
+        revision
+        updatedAt
+      }
+      pool {
+        address
+        feeTier
+        quoteToken {
+          address
+          name
+          symbol
+          decimals
+        }
+      }
+    }
+  }
+}
+```
+
+`metadata` is always present. A token without creator-authored metadata has an
+empty link list, a nullable description, and revision `0`.
+
+## Set metadata
+
+Only the token's current creator can set its offchain metadata. An update is a
+signed replacement of the complete metadata document, not a patch:
+
+1. Fetch the token's `creator`, `factoryAddress`, and current
+   `metadata.revision`.
+2. Normalize the complete metadata document.
+3. Prepare the optional image and hash its final decoded bytes.
+4. Build and sign the EIP-712 `UpdateMetadata` message with the creator wallet.
+5. Send the document, optional base64 image, deadline, and signature through
+   `launchpad.updateMetadata`.
+
+Each successful update increments the revision by one. If the mutation returns
+`REVISION_CONFLICT`, refetch the token, rebuild the complete document with the
+new revision, and request a new signature.
+
+### Metadata constraints
+
+The Data API applies these rules before verifying the signature:
+
+| Field | Constraints |
+| --- | --- |
+| `description` | Optional or nullable. Trimmed, with a maximum of 4,000 UTF-8 bytes. An empty value is normalized to `null`. |
+| `links` | At most 20 entries. The complete array replaces the previous links. |
+| `links[].kind` | Trimmed, 1–32 characters, starts with an ASCII letter, and otherwise contains only letters, numbers, `_`, or `-`. Normalized to lowercase. |
+| `links[].url` | Trimmed, valid HTTPS URL, and at most 2,048 characters. Normalized with the standard URL serializer. |
+| `links[].label` | Optional or nullable, trimmed, and at most 64 characters. An empty label is omitted. |
+
+Two links cannot have the same normalized `kind` and `url`. Normalize before
+signing: the API recovers the signer from its normalized representation, so a
+signature over untrimmed, mixed-case, or otherwise noncanonical values will not
+match.
+
+### Image constraints
+
+The optional `image` is the token logo. The final payload accepted by the Data
+API must meet all of these constraints:
+
+- PNG, JPEG, or WebP, detected from the decoded file bytes rather than the
+  filename or declared MIME type;
+- non-empty and no larger than 1 MiB (`1,048,576` decoded bytes);
+- width and height between 1 and 512 pixels; and
+- canonical base64 containing only the file bytes, without a
+  `data:image/...;base64,` prefix.
+
+Hash the exact decoded bytes sent in `image` with SHA-256 and use the resulting
+32-byte value as `logoHash` in the signed message. If you resize, compress, or
+re-encode the image, hash the processed output rather than the source file.
+
+The Sushi frontend accepts PNG, JPEG, or WebP source files up to 20 MiB. When a
+source exceeds the API's byte or dimension limits, it scales the image
+proportionally to fit within 512×512 and attempts to encode it as WebP at
+decreasing quality levels until it is at most 1 MiB. Integrators can implement
+the same preprocessing or require users to supply an already-valid image.
+
+Omit `image` and sign the all-zero `bytes32` as `logoHash` to leave the current
+logo unchanged. Metadata responses do not expose the logo hash, and the
+mutation does not currently provide a logo-removal operation.
+
+### Build the signature
+
+Use this EIP-712 domain:
+
+```ts
+const domain = {
+  name: 'Sushi Launchpad API',
+  version: '1',
+  chainId,
+  verifyingContract: factoryAddress,
+} as const
+```
+
+`factoryAddress` must be the historical factory returned for the token, not
+necessarily the newest factory deployed on the chain.
+
+The types and message are:
+
+```ts
+const types = {
+  LaunchpadMetadataLink: [
+    { name: 'kind', type: 'string' },
+    { name: 'url', type: 'string' },
+    { name: 'label', type: 'string' },
+  ],
+  LaunchpadMetadataDocument: [
+    { name: 'description', type: 'string' },
+    { name: 'links', type: 'LaunchpadMetadataLink[]' },
+  ],
+  UpdateMetadata: [
+    { name: 'tokenAddress', type: 'address' },
+    { name: 'expectedRevision', type: 'uint256' },
+    { name: 'metadata', type: 'LaunchpadMetadataDocument' },
+    { name: 'logoHash', type: 'bytes32' },
+    { name: 'deadline', type: 'uint256' },
+  ],
+} as const
+
+const typedData = {
+  domain,
+  types,
+  primaryType: 'UpdateMetadata',
+  message: {
+    tokenAddress,
+    expectedRevision: BigInt(metadata.revision),
+    metadata: {
+      description: normalizedDescription ?? '',
+      links: normalizedLinks.map((link) => ({
+        kind: link.kind,
+        url: link.url,
+        label: link.label ?? '',
+      })),
+    },
+    logoHash,
+    deadline,
+  },
+} as const
+
+const signature = await walletClient.signTypedData({
+  account: creator,
+  ...typedData,
+})
+```
+
+`deadline` is a Unix timestamp in seconds. It must not be expired or more than
+15 minutes in the future; the Sushi frontend uses a 10-minute deadline. Sign
+`typedData` with the current creator wallet. V1 supports EOA creator
+signatures and does not yet support EIP-1271 contract-wallet creators.
+
+### Submit the mutation
+
+```graphql
+mutation UpdateLaunchpadMetadata(
+  $input: LaunchpadUpdateMetadataInput!
+  $signature: Bytes!
+) {
+  launchpad {
+    updateMetadata(input: $input, signature: $signature) {
+      description
+      links {
+        kind
+        url
+        label
+      }
+      revision
+      updatedAt
+    }
+  }
+}
+```
+
+Example variables:
+
+```json
+{
+  "input": {
+    "chainId": 4663,
+    "tokenAddress": "0x...",
+    "expectedRevision": 0,
+    "metadata": {
+      "description": "A Launchpad token",
+      "links": [
+        {
+          "kind": "homepage",
+          "url": "https://example.com/",
+          "label": "Website"
+        }
+      ]
+    },
+    "image": "<canonical base64 without a data URL prefix>",
+    "deadline": "<current Unix time + 600>"
+  },
+  "signature": "0x..."
+}
+```
+
+The `deadline` GraphQL value is serialized as a decimal string. Omit `image`
+when no logo is being added or replaced. The API verifies the signature against
+the canonical onchain creator and performs the metadata and optional logo
+update together.
+
+## Token logos
+
+Logo URLs are deterministic and are not returned by the GraphQL metadata
+object. Build the URL from the chain ID and lowercase token address:
+
+```text
+https://cdn.sushi.com/tokens/{chainId}/{lowercaseTokenAddress}.jpg
+```
+
+For example:
+
+```text
+https://cdn.sushi.com/tokens/4663/0x1234....jpg
+```
+
+The HTTP response is the logo-presence signal:
+
+- A successful `2xx` response means a logo is set.
+- A `404` response means no logo is set for that token.
+
+Server-side integrations can issue a `HEAD` request. Browser clients can render
+the URL and show a deterministic fallback from the image error handler. Do not
+infer logo presence from `metadata.revision`, because creators may save metadata
+without uploading a logo and may replace a logo in a later revision.
+
+## V3 pools
+
+Every launch pool is created through the standard SushiSwap V3 factory and uses
+the 1% fee tier (`feeTier: 10000`). The Data API returns the pool address and
+quote token under `LaunchpadToken.pool`.
+
+Use the [SushiSwap V3 contract list](/contracts/clamm) for factory and position
+manager addresses. The Launchpad contract permanently holds the position NFTs;
+the factory-created pool remains a standard SushiSwap V3 pool and can be
+queried or routed like other V3 pools.

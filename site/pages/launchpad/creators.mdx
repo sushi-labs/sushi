@@ -1,0 +1,138 @@
+# For creators
+
+## Create a token
+
+Open the [Launchpad creation
+page](https://www.sushi.com/robinhood/launchpad/create), connect a wallet on
+Robinhood Chain, and complete the three steps:
+
+1. **Token details:** choose the permanent token name and symbol. You can also
+   add an optional logo, description, website, X profile, and Telegram link.
+2. **Launch pool:** select an available quote asset and, if desired, configure
+   an initial purchase of the new token.
+3. **Review:** verify the quote asset, launch fee, fixed starting valuation,
+   optional initial purchase, and immutable settings, then confirm the
+   transaction.
+
+The factory deploys the token and creates its 1% SushiSwap V3 pool atomically.
+The contract uses the quote asset's allowlisted USD price feed to target a
+$5,000 starting fully diluted valuation and creates one one-sided V3 position.
+Editable metadata is saved after the launch has been indexed. If that save
+fails, the onchain launch is still complete and you can retry from the
+management page.
+
+See [Launchpad contracts](/contracts/launchpad) for the current factory
+addresses.
+
+## Trading fee share
+
+Launchpad V1 starts each token with this split of accrued V3 trading fees:
+
+- **70% to the creator**
+- **30% to Sushi**
+
+The split applies to fees collected in both the launch token and the quote
+token. The wallet that launches the token becomes its initial creator, and the
+current creator is always the creator-side recipient. The current split is
+shown on the token's management page; protocol configuration can change the
+default for future launches or the stored split for a token before its next
+distribution.
+
+### Collect fees in the frontend
+
+1. Open **Launchpad** and select **My launches**.
+2. Connect the current creator wallet.
+3. Select the token under **Your tokens**.
+4. Review **Distribute trading fees**, then select **Distribute fees** and
+   confirm the transaction.
+
+The transaction collects fees from every V3 position registered for that token
+and sends each recipient its share. Distribution is permissionless, so any
+connected wallet can trigger it, but the transaction caller does not receive
+the fees.
+
+## Update token metadata
+
+Token name, symbol, supply, pool, and liquidity configuration are immutable.
+The creator can update the logo, description, website, X profile, and Telegram
+link:
+
+1. Open **Launchpad → My launches**.
+2. Connect the current creator wallet.
+3. Select the token under **Your tokens**.
+4. Edit its **Public profile** and select **Sign & save changes**.
+
+The wallet signs the complete metadata update. Saving metadata does not require
+an onchain transaction, but only the current creator wallet can authorize it.
+
+## Launch functions
+
+Advanced integrations can call the payable factory functions directly.
+
+### Launch
+
+```solidity
+function launch(
+  TokenConfig calldata tokenConfig,
+  address quoteToken,
+  uint64 deadline
+)
+  external
+  payable
+  returns (address token, address pool, uint256 positionId);
+```
+
+| Parameter | Description |
+| --- | --- |
+| `tokenConfig` | `{ name, symbol }` for the new token. Both values are immutable. The name is limited to 64 UTF-8 bytes and the symbol to 16 UTF-8 bytes. |
+| `quoteToken` | Existing ERC-20 paired with the new token. It must have an allowlisted USD price feed in the factory. |
+| `deadline` | Unix timestamp after which the transaction must revert. |
+| `msg.value` | Must be at least the factory's current `launchFee()`. The full amount sent belongs to Sushi. |
+
+The function returns the deployed token address, the new V3 pool address, and
+the single position NFT ID. The factory derives the starting price from the
+quote token's allowlisted USD price feed and creates one one-sided position;
+callers cannot supply an FDV, tick, range, curve, or token allocation.
+
+### Launch and buy
+
+Use `launchAndBuy` to launch the token and make the first purchase atomically:
+
+```solidity
+function launchAndBuy(
+  TokenConfig calldata tokenConfig,
+  address quoteToken,
+  uint64 deadline,
+  InitialBuy calldata initialBuy
+)
+  external
+  payable
+  returns (
+    address token,
+    address pool,
+    uint256 positionId,
+    uint256 amountOut
+  );
+```
+
+`tokenConfig`, `quoteToken`, and `deadline` have the same meaning as in
+`launch`. The `initialBuy` tuple contains:
+
+| Field | Description |
+| --- | --- |
+| `amountIn` | Exact amount of the quote token to spend, in its smallest unit. The caller must approve the Launchpad contract to transfer at least this amount before calling. |
+| `amountOutMinimum` | Minimum amount of the new launch token the recipient must receive. The complete transaction reverts if the output is lower. Allow a small tolerance when calculating this value because V3 rounding can differ with final token ordering. |
+| `recipient` | Nonzero address that receives the purchased launch tokens. It cannot be the Launchpad contract or the newly created pool. |
+
+The caller remains the recorded creator. During the initial swap, the factory
+pulls the quote token from the caller and pays it directly to the new pool. The
+swap must consume the complete `amountIn`; partial fills, failed transfers, or
+insufficient output revert token deployment and pool creation as well.
+
+As with `launch`, `msg.value` only pays the current native `launchFee()`, and
+the full native amount sent belongs to Sushi. The ERC-20 `amountIn` is
+transferred separately. The function returns the normal launch values plus the
+actual launch-token `amountOut`.
+
+Unless you need custom low-level behavior, use the website: it reads current
+factory settings and simulates the complete transaction before submission.

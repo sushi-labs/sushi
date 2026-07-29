@@ -21,6 +21,14 @@ export const sidebar = {
       ],
     },
     {
+      text: 'Launchpad',
+      items: [
+        { text: 'Overview', link: '/launchpad/overview' },
+        { text: 'For creators', link: '/launchpad/creators' },
+        { text: 'For integrators', link: '/launchpad/integrators' },
+      ],
+    },
+    {
       text: 'API',
       items: [
         {
@@ -239,6 +247,7 @@ export const sidebar = {
             { text: 'xSUSHI', link: '/contracts/xsushi' },
           ],
         },
+        { text: 'Launchpad', link: '/contracts/launchpad' },
         { text: 'Blade', link: '/contracts/blade' },
       ],
     },
