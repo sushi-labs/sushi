@@ -1,5 +1,6 @@
 export * from './assert-never.js'
 export * from './id.js'
+export * from './is-address-equal.js'
 export * from './lowercase-map.js'
 export * from './native-address.js'
 export * from './normalize-address.js'
