@@ -3,6 +3,7 @@ import type { EvmAddress } from '../../evm/currency/token.js'
 import type { MvmAddress } from '../../mvm/currency/token.js'
 import type { StellarContractAddress } from '../../stellar/address.js'
 import type { SvmAddress } from '../../svm/currency/token.js'
+import { isAddressEqual } from './is-address-equal.js'
 import { normalizeAddress } from './normalize-address.js'
 
 describe('normalizeAddress', () => {
@@ -25,5 +26,32 @@ describe('normalizeAddress', () => {
         'ccrsmjdith3vk5qogycvzdakiy5gl3rcg4tcvliavb662iw2v5kjgzgf' as StellarContractAddress,
       ),
     ).toBe('CCRSMJDITH3VK5QOGYCVZDAKIY5GL3RCG4TCVLIAVB662IW2V5KJGZGF')
+  })
+})
+
+describe('isAddressEqual', () => {
+  it('compares addresses using their namespace normalization', () => {
+    expect(
+      isAddressEqual(
+        '0x000000000000000000000000000000000000dEaD',
+        '0x000000000000000000000000000000000000dead',
+      ),
+    ).toBe(true)
+    expect(
+      isAddressEqual(
+        'ccrsmjdith3vk5qogycvzdakiy5gl3rcg4tcvliavb662iw2v5kjgzgf',
+        'CCRSMJDITH3VK5QOGYCVZDAKIY5GL3RCG4TCVLIAVB662IW2V5KJGZGF',
+      ),
+    ).toBe(true)
+  })
+
+  it('returns false for different namespaces and invalid addresses', () => {
+    expect(
+      isAddressEqual(
+        '0x000000000000000000000000000000000000dEaD',
+        'So11111111111111111111111111111111111111112',
+      ),
+    ).toBe(false)
+    expect(isAddressEqual('not-an-address', 'not-an-address')).toBe(false)
   })
 })
