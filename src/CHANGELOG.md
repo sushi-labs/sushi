@@ -1,5 +1,14 @@
 # sushi
 
+## 7.3.1
+
+### Patch Changes
+
+- [#504](https://github.com/sushi-labs/sushi/pull/504) [`b3a1518`](https://github.com/sushi-labs/sushi/commit/b3a151836228b205a80009ea4a6b02db4a6b327f) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Add namespace-specific and generic address equality helpers.
+
+- [#502](https://github.com/sushi-labs/sushi/pull/502) [`5042a5a`](https://github.com/sushi-labs/sushi/commit/5042a5aaa54359e88c4b254a58068262a63dd5d1) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Add the Launchpad V1 feature, contract ABI fragments, and Robinhood subgraph
+  configuration.
+
 ## 7.3.0
 
 ### Minor Changes
