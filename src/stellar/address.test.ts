@@ -24,6 +24,8 @@ describe('stellar addresses', () => {
   it('accepts account and contract addresses as Stellar addresses', () => {
     expect(isStellarAddress(accountAddress)).toBe(true)
     expect(isStellarAddress(contractAddress)).toBe(true)
+    expect(isStellarAddress(accountAddress.toLowerCase())).toBe(true)
+    expect(isStellarAddress(contractAddress.toLowerCase())).toBe(true)
     expect(isStellarAddress('0x1234')).toBe(false)
     expect(isStellarAddress(`M${'A'.repeat(68)}`)).toBe(false)
   })
