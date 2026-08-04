@@ -143,7 +143,8 @@ signed replacement of the complete metadata document, not a patch:
    `metadata.revision`.
 2. Normalize the complete metadata document.
 3. Prepare the optional image and hash its final decoded bytes.
-4. Build and sign the EIP-712 `UpdateMetadata` message with the creator wallet.
+4. Build the EIP-712 `UpdateMetadata` message and have the current creator
+   authorize it.
 5. Send the document, optional base64 image, deadline, and signature through
    `launchpad.updateMetadata`.
 
@@ -164,9 +165,9 @@ The Data API applies these rules before verifying the signature:
 | `links[].label` | Optional or nullable, trimmed, and at most 64 characters. An empty label is omitted. |
 
 Two links cannot have the same normalized `kind` and `url`. Normalize before
-signing: the API recovers the signer from its normalized representation, so a
-signature over untrimmed, mixed-case, or otherwise noncanonical values will not
-match.
+signing: the API verifies the signature against its normalized representation,
+so a signature over untrimmed, mixed-case, or otherwise noncanonical values
+will not match.
 
 ### Image constraints
 
@@ -252,6 +253,7 @@ const typedData = {
   },
 } as const
 
+// EOA example. For a contract wallet, use its typed-data signing flow.
 const signature = await walletClient.signTypedData({
   account: creator,
   ...typedData,
@@ -260,8 +262,19 @@ const signature = await walletClient.signTypedData({
 
 `deadline` is a Unix timestamp in seconds. It must not be expired or more than
 15 minutes in the future; the Sushi frontend uses a 10-minute deadline. Sign
-`typedData` with the current creator wallet. V1 supports EOA creator
-signatures and does not yet support EIP-1271 contract-wallet creators.
+`typedData` with the current creator wallet.
+
+For an EOA creator, submit the EIP-712 signature returned by the wallet. For a
+contract-wallet creator, obtain the signature bytes through that wallet's
+signing flow and submit them unchanged. The signature is an opaque hex value
+and does not need to use the 65-byte EOA signature format.
+
+The API reads the current creator from the token's historical factory. If that
+address has deployed code, it hashes `typedData` and verifies the supplied
+signature against the creator contract using EIP-1271. The contract must
+validate the digest of the exact normalized metadata, logo hash, expected
+revision, and deadline shown above. A contract signature that does not validate
+is rejected with `NOT_CREATOR`.
 
 ### Submit the mutation
 
