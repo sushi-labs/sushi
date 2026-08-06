@@ -39,6 +39,8 @@ import {
   sonic as sonicViem,
   taiko as taikoViem,
   thunderCore as thundercoreViem,
+  unichain as unichainViem,
+  worldchain as worldchainViem,
   xLayer as xLayerViem,
   zetachain as zetachainViem,
   zkLinkNova as zklinkViem,
@@ -213,6 +215,18 @@ const linea = /* @__PURE__ */ defineEvmChain(lineaViem, {
 const base = /* @__PURE__ */ defineEvmChain(baseViem, {
   key: 'base',
   shortName: 'base',
+  parentChainId: ethereum.chainId,
+})
+
+const unichain = /* @__PURE__ */ defineEvmChain(unichainViem, {
+  key: 'unichain',
+  shortName: 'uni',
+  parentChainId: ethereum.chainId,
+})
+
+const worldchain = /* @__PURE__ */ defineEvmChain(worldchainViem, {
+  key: 'worldchain',
+  shortName: 'world',
   parentChainId: ethereum.chainId,
 })
 
@@ -615,6 +629,8 @@ export const evmChains = [
   zksync,
   linea,
   base,
+  unichain,
+  worldchain,
   scroll,
   zetachain,
   cronos,

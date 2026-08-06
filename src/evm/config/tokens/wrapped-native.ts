@@ -33,6 +33,8 @@ export const WNATIVE_ADDRESS = {
   [EvmChainId.ZKSYNC_ERA]: WETH9_ADDRESS[EvmChainId.ZKSYNC_ERA],
   [EvmChainId.LINEA]: WETH9_ADDRESS[EvmChainId.LINEA],
   [EvmChainId.BASE]: WETH9_ADDRESS[EvmChainId.BASE],
+  [EvmChainId.UNICHAIN]: WETH9_ADDRESS[EvmChainId.UNICHAIN],
+  [EvmChainId.WORLDCHAIN]: WETH9_ADDRESS[EvmChainId.WORLDCHAIN],
   [EvmChainId.SCROLL]: WETH9_ADDRESS[EvmChainId.SCROLL],
   [EvmChainId.ZETACHAIN]: '0x5f0b1a82749cb4e2278ec87f8bf6b618dc71a8bf',
   [EvmChainId.CRONOS]: '0x5c7f8a570d578ed84e63fdfa7b1ee72deae1ae23',
@@ -174,6 +176,8 @@ export const WNATIVE = {
   [EvmChainId.ZKSYNC_ERA]: WETH9[EvmChainId.ZKSYNC_ERA],
   [EvmChainId.LINEA]: WETH9[EvmChainId.LINEA],
   [EvmChainId.BASE]: WETH9[EvmChainId.BASE],
+  [EvmChainId.UNICHAIN]: WETH9[EvmChainId.UNICHAIN],
+  [EvmChainId.WORLDCHAIN]: WETH9[EvmChainId.WORLDCHAIN],
   [EvmChainId.SCROLL]: WETH9[EvmChainId.SCROLL],
   [EvmChainId.FILECOIN]: new EvmToken({
     chainId: EvmChainId.FILECOIN,

@@ -236,6 +236,7 @@ export const sidebar = {
           collapsed: true,
           items: [
             { text: 'clAMM  (SushiSwap V3)', link: '/contracts/clamm' },
+            { text: 'V4', link: '/contracts/v4' },
             { text: 'cpAMM  (SushiSwap V2)', link: '/contracts/cpamm' },
           ],
         },

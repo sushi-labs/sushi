@@ -72,6 +72,8 @@ export const STABLES = {
     USD_PLUS[EvmChainId.BASE],
     BASE_USDbC[EvmChainId.BASE],
   ],
+  [EvmChainId.UNICHAIN]: [],
+  [EvmChainId.WORLDCHAIN]: [],
   [EvmChainId.BOBA]: [
     USDC[EvmChainId.BOBA],
     USDT[EvmChainId.BOBA],

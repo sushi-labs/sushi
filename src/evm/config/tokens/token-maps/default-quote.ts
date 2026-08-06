@@ -60,6 +60,8 @@ export const defaultQuoteCurrency = {
   [EvmChainId.ZKSYNC_ERA]: USDC[EvmChainId.ZKSYNC_ERA],
   [EvmChainId.LINEA]: axlUSDC[EvmChainId.LINEA],
   [EvmChainId.BASE]: USDC[EvmChainId.BASE],
+  [EvmChainId.UNICHAIN]: WNATIVE[EvmChainId.UNICHAIN],
+  [EvmChainId.WORLDCHAIN]: WNATIVE[EvmChainId.WORLDCHAIN],
   [EvmChainId.SCROLL]: USDC[EvmChainId.SCROLL],
   [EvmChainId.FILECOIN]: axlUSDC[EvmChainId.FILECOIN],
   [EvmChainId.ZETACHAIN]: WETH9[EvmChainId.ZETACHAIN],

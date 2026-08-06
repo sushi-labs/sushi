@@ -291,6 +291,14 @@ export const EVM_DEFAULT_BASES = {
       address: '0xba0dda8762c24da9487f5fa026a9b64b695a07ea',
     }),
   ],
+  [EvmChainId.UNICHAIN]: [
+    EvmNative.fromChainId(EvmChainId.UNICHAIN),
+    WNATIVE[EvmChainId.UNICHAIN],
+  ],
+  [EvmChainId.WORLDCHAIN]: [
+    EvmNative.fromChainId(EvmChainId.WORLDCHAIN),
+    WNATIVE[EvmChainId.WORLDCHAIN],
+  ],
   [EvmChainId.SCROLL]: [
     EvmNative.fromChainId(EvmChainId.SCROLL),
     WNATIVE[EvmChainId.SCROLL],

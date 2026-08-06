@@ -1,0 +1,21 @@
+export const sushiSwapV4CLPositionManagerAbi_tokenURI = [
+  {
+    type: 'function',
+    name: 'tokenURI',
+    inputs: [
+      {
+        name: 'tokenId',
+        type: 'uint256',
+        internalType: 'uint256',
+      },
+    ],
+    outputs: [
+      {
+        name: '',
+        type: 'string',
+        internalType: 'string',
+      },
+    ],
+    stateMutability: 'view',
+  },
+] as const
