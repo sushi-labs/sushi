@@ -61,7 +61,7 @@
       "printf"
     ],
     "ignoreIssues": {
-      "src/evm/config/features/{merkl,pancakeswap-v2,pancakeswap-v3,sushiswap,sushiswap-v2,sushiswap-v3,uniswap-v2,uniswap-v3}.ts": [
+      "src/evm/config/features/{merkl,pancakeswap-v2,pancakeswap-v3,sushiswap,sushiswap-v2,sushiswap-v3,sushiswap-v4,uniswap-v2,uniswap-v3}.ts": [
         "duplicates"
       ]
     },

@@ -87,6 +87,8 @@ export const LSDS = {
       name: 'Wrapped eETH',
     }),
   ],
+  [EvmChainId.UNICHAIN]: [],
+  [EvmChainId.WORLDCHAIN]: [],
   [EvmChainId.BLAST]: [
     new EvmToken({
       chainId: EvmChainId.BLAST,
