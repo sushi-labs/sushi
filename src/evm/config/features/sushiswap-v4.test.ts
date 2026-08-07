@@ -31,6 +31,7 @@ const V4_CHAIN_IDS = [
   EvmChainId.BASE,
   EvmChainId.BSC,
   EvmChainId.ETHEREUM,
+  EvmChainId.SEPOLIA,
   EvmChainId.POLYGON,
   EvmChainId.UNICHAIN,
   EvmChainId.WORLDCHAIN,
@@ -38,26 +39,26 @@ const V4_CHAIN_IDS = [
 ] as const
 
 const ADDRESS_MAPS = [
-  [SUSHISWAP_V4_VAULT, '0xeb4F1e157D18B1a4D09a5207A96e17601ea354b2'],
-  [SUSHISWAP_V4_CL_POOL_MANAGER, '0x81D732702f87D2D652aE79e9F52bf44928eCA210'],
+  [SUSHISWAP_V4_VAULT, '0xeb4f1e157d18b1a4d09a5207a96e17601ea354b2'],
+  [SUSHISWAP_V4_CL_POOL_MANAGER, '0x81d732702f87d2d652ae79e9f52bf44928eca210'],
   [
     SUSHISWAP_V4_CL_PROTOCOL_FEE_CONTROLLER,
-    '0x6774cA40DF651C3139d25f61D3B5cDBC8aeC63de',
+    '0x6774ca40df651c3139d25f61d3b5cdbc8aec63de',
   ],
   [
     SUSHISWAP_V4_CL_POOL_MANAGER_OWNER,
-    '0x06c00AD14cd3ddca426980e8A2704D1Ff017D90d',
+    '0x06c00ad14cd3ddca426980e8a2704d1ff017d90d',
   ],
   [
     SUSHISWAP_V4_CL_POSITION_DESCRIPTOR,
-    '0x340D5FE5Dc8704e147B0cd7464cC8995Cde23D6D',
+    '0x340d5fe5dc8704e147b0cd7464cc8995cde23d6d',
   ],
   [
     SUSHISWAP_V4_CL_POSITION_MANAGER,
-    '0xd3d35fBc4E44523CA3cD383C1948322Ddb42F644',
+    '0xd3d35fbc4e44523ca3cd383c1948322ddb42f644',
   ],
-  [SUSHISWAP_V4_CL_QUOTER, '0x2a0819373b09EC553e7B15808F76601362B1C291'],
-  [SUSHISWAP_V4_CL_TICK_LENS, '0xBb9757cB480a08730F372DFE3068a6E86f35c63A'],
+  [SUSHISWAP_V4_CL_QUOTER, '0x2a0819373b09ec553e7b15808f76601362b1c291'],
+  [SUSHISWAP_V4_CL_TICK_LENS, '0xbb9757cb480a08730f372dfe3068a6e86f35c63a'],
 ] as const
 
 const ABI_BUNDLES = [
@@ -72,13 +73,13 @@ const ABI_BUNDLES = [
 ] as const
 
 describe('SushiSwap V4 configuration', () => {
-  it('includes all eight deployed chains, including Unichain and World Chain', () => {
+  it('includes all nine deployed chains, including Sepolia', () => {
     expect(SUSHISWAP_V4_SUPPORTED_CHAIN_IDS).toEqual(V4_CHAIN_IDS)
     expect(getEvmChainById(EvmChainId.UNICHAIN).key).toBe('unichain')
     expect(getEvmChainById(EvmChainId.WORLDCHAIN).key).toBe('worldchain')
     expect(isSushiSwapV4ChainId(EvmChainId.UNICHAIN)).toBe(true)
     expect(isSushiSwapV4ChainId(EvmChainId.WORLDCHAIN)).toBe(true)
-    expect(isSushiSwapV4ChainId(EvmChainId.SEPOLIA)).toBe(false)
+    expect(isSushiSwapV4ChainId(EvmChainId.SEPOLIA)).toBe(true)
     expect(SUSHISWAP_SUPPORTED_CHAIN_IDS).toContain(EvmChainId.UNICHAIN)
     expect(SUSHISWAP_SUPPORTED_CHAIN_IDS).toContain(EvmChainId.WORLDCHAIN)
     expect(isSushiSwapChainId(EvmChainId.UNICHAIN)).toBe(true)
