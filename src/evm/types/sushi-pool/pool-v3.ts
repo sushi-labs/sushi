@@ -6,9 +6,6 @@ type Extension = {
   isProtocolFeeEnabled?: boolean
   sqrtPrice: bigint
   tick: bigint
-  observationIndex: bigint
-  feeGrowthGlobal0X128: bigint
-  feeGrowthGlobal1X128: bigint
 }
 
 export type PoolV3<T extends PoolId = PoolId> = T &
