@@ -1,5 +1,15 @@
 # sushi
 
+## 7.3.2
+
+### Patch Changes
+
+- [#510](https://github.com/sushi-labs/sushi/pull/510) [`cd0666f`](https://github.com/sushi-labs/sushi/commit/cd0666f11e0e0965ca36ac2b312a0093df403364) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Remove unused observation index and global fee growth fields from the SushiSwap V3 pool type.
+
+- [#506](https://github.com/sushi-labs/sushi/pull/506) [`20b0aea`](https://github.com/sushi-labs/sushi/commit/20b0aeafdf54dd817f568d0f2d0bf1573fda995c) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Update the Robinhood Chain block explorer to Robinscan.
+
+- [#507](https://github.com/sushi-labs/sushi/pull/507) [`a6cd6fa`](https://github.com/sushi-labs/sushi/commit/a6cd6fab274efc7e89aee4ee8fd3712fe2c55e87) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Add SushiSwap V4 CL deployment configuration and ABI fragments for the initial nine-chain launch, including Sepolia.
+
 ## 7.3.1
 
 ### Patch Changes
