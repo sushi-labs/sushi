@@ -5,6 +5,7 @@ import { STELLAR_EURC } from '../tokens/EURC.js'
 import { STELLAR_PYUSD } from '../tokens/PYUSD.js'
 import { STELLAR_SOLVBTC } from '../tokens/SolvBTC.js'
 import { STELLAR_USDC } from '../tokens/USDC.js'
+import { STELLAR_USDT0 } from '../tokens/USDT0.js'
 import { STELLAR_USDY } from '../tokens/USDY.js'
 import { STELLAR_USTRY } from '../tokens/USTRY.js'
 import { STELLAR_XLM } from '../tokens/XLM.js'
@@ -17,6 +18,7 @@ export const STELLAR_DEFAULT_BASES = {
     STELLAR_PYUSD[StellarChainId.STELLAR],
     STELLAR_SOLVBTC[StellarChainId.STELLAR],
     STELLAR_USDC[StellarChainId.STELLAR],
+    STELLAR_USDT0[StellarChainId.STELLAR],
     STELLAR_USDY[StellarChainId.STELLAR],
     STELLAR_USTRY[StellarChainId.STELLAR],
     STELLAR_XLM[StellarChainId.STELLAR],
