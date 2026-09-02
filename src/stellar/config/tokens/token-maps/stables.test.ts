@@ -2,12 +2,14 @@ import { describe, expect, it } from 'vitest'
 import { StellarChainId } from '../../../chain/chains.js'
 import type { StellarCurrency } from '../../../currency/currency.js'
 import { STELLAR_USDC } from '../tokens/USDC.js'
+import { STELLAR_USDT0 } from '../tokens/USDT0.js'
 import { STELLAR_XLM } from '../tokens/XLM.js'
 import { isStellarStable } from './stables.js'
 
 describe('isStellarStable', () => {
   it('identifies Stellar stable tokens', () => {
     expect(isStellarStable(STELLAR_USDC[StellarChainId.STELLAR])).toBe(true)
+    expect(isStellarStable(STELLAR_USDT0[StellarChainId.STELLAR])).toBe(true)
     expect(isStellarStable(STELLAR_XLM[StellarChainId.STELLAR])).toBe(false)
   })
 
