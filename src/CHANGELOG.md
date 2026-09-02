@@ -1,5 +1,13 @@
 # sushi
 
+## 7.3.3
+
+### Patch Changes
+
+- [#513](https://github.com/sushi-labs/sushi/pull/513) [`8bc490b`](https://github.com/sushi-labs/sushi/commit/8bc490be63a46df4e737ace06c09a7772580c75a) Thanks [@Ty-Sir](https://github.com/Ty-Sir)! - add Stellar USDT0 token configuration and use it as the default quote currency
+
+- [#511](https://github.com/sushi-labs/sushi/pull/511) [`aeac17c`](https://github.com/sushi-labs/sushi/commit/aeac17c0ca85fd9d7c2c351d67e31503527d08e2) Thanks [@LufyCZ](https://github.com/LufyCZ)! - add newly supported token security chains
+
 ## 7.3.2
 
 ### Patch Changes
