@@ -1,8 +1,9 @@
 import {
   type EvmAddress,
-  EvmChainId,
   LAUNCHPAD_V1_FACTORIES,
+  LAUNCHPAD_V2_FACTORIES,
   type LaunchpadV1ChainId,
+  type LaunchpadV2ChainId,
 } from 'sushi/evm'
 
 export const LAUNCHPAD_V1_FACTORY_ADDRESSES = Object.fromEntries(
@@ -12,6 +13,9 @@ export const LAUNCHPAD_V1_FACTORY_ADDRESSES = Object.fromEntries(
   ]),
 ) as unknown as Record<LaunchpadV1ChainId, EvmAddress[]>
 
-export const LAUNCHPAD_V2_FACTORY_ADDRESSES = {
-  [EvmChainId.ROBINHOOD]: ['0xF1716eBf85836ffE2985db9A50dd29e5814caBe9'],
-} as Record<(typeof EvmChainId)['ROBINHOOD'], EvmAddress[]>
+export const LAUNCHPAD_V2_FACTORY_ADDRESSES = Object.fromEntries(
+  Object.entries(LAUNCHPAD_V2_FACTORIES).map(([chainId, factories]) => [
+    chainId,
+    factories.map(({ address }) => address),
+  ]),
+) as unknown as Record<LaunchpadV2ChainId, EvmAddress[]>
