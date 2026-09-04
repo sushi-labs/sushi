@@ -8,12 +8,16 @@ https://production.data-gcp.sushi.com/api
 ```
 
 Every Launchpad query is under `Query.launchpad` and requires an explicit chain
-ID. V1 supports Robinhood Chain (`4663`).
+ID. Launchpad V2 is available on Robinhood Chain (`4663`) and is identified by
+the `SUSHI_V2` provider. Discovery defaults to Sushi V1 and V2; pass
+`providers: [SUSHI_V2]` when an integration only supports the V2 fields and
+behavior documented here.
 
 ## List tokens
 
-Use `launchpad.tokens` for cursor-paginated discovery. It supports creator and
-text-search filters and can sort by creation time, TVL, TVL change, or volume.
+Use `launchpad.tokens` for cursor-paginated discovery. It supports provider,
+creator, and text-search filters and can sort by market capitalization,
+creation time, TVL, TVL change, or volume.
 
 ```graphql
 query LaunchpadTokens($input: LaunchpadTokensInput!) {
@@ -25,10 +29,14 @@ query LaunchpadTokens($input: LaunchpadTokensInput!) {
           chainId
           address
           creator
+          provider
           name
           symbol
           decimals
           initialSupply
+          initialFdvUsd
+          indexingStatus
+          createdAt
           metadata {
             description
             links {
@@ -50,6 +58,7 @@ query LaunchpadTokens($input: LaunchpadTokensInput!) {
           }
           metrics {
             priceUsd
+            marketCapitalizationUsd
             fullyDilutedValuationUsd
             currentTvlUsd
             volumeUsd {
@@ -58,8 +67,37 @@ query LaunchpadTokens($input: LaunchpadTokensInput!) {
               h12
               h24
             }
+            tvlChangePercent {
+              h1
+              h6
+              h12
+              h24
+            }
             isStale
             asOf
+          }
+          ... on SushiV2LaunchpadToken {
+            launchCreator
+            currentSupply
+            feeReceiver
+            feeReceiverLocked
+            liquidityMode
+            feeDisposition
+            feeSplit {
+              sushiFeeBps
+              nonSushiFeeBps
+            }
+            devBuy {
+              quoteSpent
+              launchTokenReceived
+            }
+            burns {
+              directFeeBurned
+              buybackBurned
+              protocolBurned
+              totalBurned
+            }
+            poolInitializedAt
           }
         }
       }
@@ -79,6 +117,7 @@ Example variables:
 {
   "input": {
     "chainId": 4663,
+    "providers": ["SUSHI_V2"],
     "first": 20,
     "sortBy": "CREATED_AT",
     "sortDirection": "DESC"
@@ -87,7 +126,8 @@ Example variables:
 ```
 
 Pass `pageInfo.endCursor` as `after` to request the next page. Cursors are
-opaque and should not be parsed.
+opaque and should not be parsed. `metrics` is nullable while a launch is
+provisional or market data is not yet available.
 
 ## Fetch one token and its metadata
 
@@ -99,13 +139,13 @@ query LaunchpadToken($chainId: LaunchpadChainId!, $address: EvmAddress!) {
     token(chainId: $chainId, address: $address) {
       address
       creator
+      provider
       factoryAddress
       name
       symbol
-      feeSplit {
-        sushiFeeBps
-        creatorFeeBps
-      }
+      initialSupply
+      initialFdvUsd
+      indexingStatus
       metadata {
         description
         links {
@@ -126,13 +166,97 @@ query LaunchpadToken($chainId: LaunchpadChainId!, $address: EvmAddress!) {
           decimals
         }
       }
+      ... on SushiV2LaunchpadToken {
+        launchCreator
+        currentSupply
+        feeReceiver
+        feeReceiverLocked
+        liquidityMode
+        feeDisposition
+        feeSplit {
+          sushiFeeBps
+          nonSushiFeeBps
+        }
+        devBuy {
+          quoteSpent
+          launchTokenReceived
+        }
+        burns {
+          directFeeBurned
+          buybackBurned
+          protocolBurned
+          totalBurned
+        }
+        poolInitializedAt
+      }
     }
   }
 }
 ```
 
+`LaunchpadToken` is an interface, so V2-only fields require an inline fragment
+on `SushiV2LaunchpadToken`. For V2, `creator` is the transferable current
+creator; `launchCreator` is the permanent launching address, and `feeReceiver`
+is the independent direct-payout address. Fee values are basis points, so
+`2000` means 20%.
+
+`currentSupply` reflects supply-reducing burns, while `initialSupply` remains
+the launch-time supply. `protocolBurned` is the sum of direct fee burns and
+buyback burns; `totalBurned` also captures any other holder-initiated burns.
+`devBuy` is nullable when the launch did not include an atomic first purchase.
+The deprecated `positions` interface field is an empty list for V2 and should
+not be used to reconstruct Moon Mode liquidity.
+
 `metadata` is always present. A token without creator-authored metadata has an
 empty link list, a nullable description, and revision `0`.
+
+## Index launches from events
+
+To discover V2 launches directly from Robinhood Chain, index `TokenLaunched`
+logs emitted by the
+[Launchpad V2 contract](https://robinscan.io/address/0xF1716eBf85836ffE2985db9A50dd29e5814caBe9)
+at `0xF1716eBf85836ffE2985db9A50dd29e5814caBe9`:
+
+```solidity
+event TokenLaunched(
+    address indexed launchCreator,
+    address indexed token,
+    address indexed pool,
+    address quoteToken,
+    LiquidityMode liquidityMode,
+    FeeDisposition feeDisposition,
+    address initialFeeReceiver,
+    uint16 initialSushiFeeBps,
+    int24 startTick,
+    uint64 poolInitializedAt,
+    uint16 observationCardinalityNext,
+    string name,
+    string symbol
+);
+```
+
+| Field | Description |
+| --- | --- |
+| `launchCreator` | Wallet that created the launch. This is permanent launch provenance even if the current creator is transferred later. Indexed. |
+| `token` | Address of the newly deployed launch token. Indexed. |
+| `pool` | Address of the newly created SushiSwap V3 pool. Indexed. |
+| `quoteToken` | Quote token paired with the launch token. |
+| `liquidityMode` | Initial liquidity layout: `STANDARD` (`0`) or `MOON` (`1`). |
+| `feeDisposition` | Initial non-Sushi fee handling: `DIRECT_PAYOUT` (`0`), `BURN_LAUNCH_TOKEN_FEES` (`1`), or `BUYBACK_AND_BURN` (`2`). |
+| `initialFeeReceiver` | Address configured to receive direct-payout fees at launch. |
+| `initialSushiFeeBps` | Sushi's initial share of collected fees, in basis points. |
+| `startTick` | Initial SushiSwap V3 pool tick derived from the launch's starting FDV. |
+| `poolInitializedAt` | Pool initialization time as a Unix timestamp in seconds. |
+| `observationCardinalityNext` | V3 oracle observation capacity configured when the pool was initialized. |
+| `name` | Launch token name. |
+| `symbol` | Launch token symbol. |
+
+The first three fields are indexed event topics; all remaining fields are
+ABI-encoded in the log data. Treat `(transactionHash, logIndex)` as the event's
+stable identifier, persist the block number and block hash, and account for
+chain reorganizations before considering a launch final. After discovering a
+token, use `launchpad.token` to hydrate current mutable fields such as
+`creator`, `feeReceiver`, `feeDisposition`, metadata, and market data.
 
 ## Set metadata
 
@@ -360,6 +484,7 @@ the 1% fee tier (`feeTier: 10000`). The Data API returns the pool address and
 quote token under `LaunchpadToken.pool`.
 
 Use the [SushiSwap V3 contract list](/contracts/clamm) for factory and position
-manager addresses. The Launchpad contract permanently holds the position NFTs;
-the factory-created pool remains a standard SushiSwap V3 pool and can be
-queried or routed like other V3 pools.
+manager addresses. V2 position NFTs are permanently held by a non-upgradeable
+custodian with no path to transfer them or decrease liquidity. The
+factory-created pool remains a standard SushiSwap V3 pool and can be queried or
+routed like other V3 pools.

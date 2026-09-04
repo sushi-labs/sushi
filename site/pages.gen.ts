@@ -28,35 +28,14 @@ type Page =
   | { path: '/api/supported-chains'; render: 'static' }
   | { path: '/api/swagger'; render: 'static' }
   | { path: '/blade/how-to-use-blade/faqs'; render: 'static' }
-  | {
-      path: '/blade/how-to-use-blade/liquidity-pools/depositing-and-withdrawing'
-      render: 'static'
-    }
+  | { path: '/blade/how-to-use-blade/liquidity-pools/depositing-and-withdrawing'; render: 'static' }
   | { path: '/blade/how-to-use-blade/liquidity-pools'; render: 'static' }
-  | {
-      path: '/blade/introduction/blades-benchmark-no-impermanent-loss/appendix-math'
-      render: 'static'
-    }
-  | {
-      path: '/blade/introduction/blades-benchmark-no-impermanent-loss/blade-vs-cpmms-vs-hodling'
-      render: 'static'
-    }
-  | {
-      path: '/blade/introduction/blades-benchmark-no-impermanent-loss'
-      render: 'static'
-    }
-  | {
-      path: '/blade/introduction/how-blade-makes-money-for-lps'
-      render: 'static'
-    }
-  | {
-      path: '/blade/introduction/how-lps-earn-from-arbitrage'
-      render: 'static'
-    }
-  | {
-      path: '/blade/introduction/why-blade-has-better-trading-prices'
-      render: 'static'
-    }
+  | { path: '/blade/introduction/blades-benchmark-no-impermanent-loss/appendix-math'; render: 'static' }
+  | { path: '/blade/introduction/blades-benchmark-no-impermanent-loss/blade-vs-cpmms-vs-hodling'; render: 'static' }
+  | { path: '/blade/introduction/blades-benchmark-no-impermanent-loss'; render: 'static' }
+  | { path: '/blade/introduction/how-blade-makes-money-for-lps'; render: 'static' }
+  | { path: '/blade/introduction/how-lps-earn-from-arbitrage'; render: 'static' }
+  | { path: '/blade/introduction/why-blade-has-better-trading-prices'; render: 'static' }
   | { path: '/blade/introduction'; render: 'static' }
   | { path: '/community'; render: 'static' }
   | { path: '/contracts/blade'; render: 'static' }
@@ -66,6 +45,7 @@ type Page =
   | { path: '/contracts/lbamm'; render: 'static' }
   | { path: '/contracts/red-snwapper'; render: 'static' }
   | { path: '/contracts/sushi'; render: 'static' }
+  | { path: '/contracts/v4'; render: 'static' }
   | { path: '/contracts/xsushi'; render: 'static' }
   | { path: '/dao/governance'; render: 'static' }
   | { path: '/dao/tokenomics'; render: 'static' }
