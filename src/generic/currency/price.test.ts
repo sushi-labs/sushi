@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import { Amount } from './amount.js'
 import { Price } from './price.js'
 import { Token } from './token.js'
 
@@ -127,6 +128,66 @@ describe('Price', () => {
       expect(price.toString({ fixed: 3 })).toBe('0.125')
       expect(price.toString({ maxFixed: 2 })).toBe('0.12')
       expect(price.toString({ significant: 2 })).toBe('0.13')
+    })
+  })
+  describe('getQuote', () => {
+    it('quotes exactly for prices that are not representable as a double', () => {
+      const price = new Price({
+        base: wbtc,
+        quote: wbtc,
+        numerator: 1n,
+        denominator: 3n,
+      })
+
+      expect(price.getQuote(new Amount(wbtc, 10n ** 18n)).amount).toBe(
+        333333333333333333n,
+      )
+    })
+
+    it('never rounds a quote up past the true value', () => {
+      const base = new Amount(wbtc, 10n ** 18n)
+
+      for (let denominator = 1n; denominator < 512n; denominator++) {
+        const price = new Price({
+          base: wbtc,
+          quote: wbtc,
+          numerator: 1n,
+          denominator,
+        })
+
+        expect(price.getQuote(base).amount).toBe(base.amount / denominator)
+      }
+    })
+
+    it('quotes exactly for high-precision human prices', () => {
+      const price = Price.fromHuman(wbtc, usdc, `0.${'1'.repeat(400)}`)
+      const base = new Amount(wbtc, 10n ** 8n)
+
+      expect(price.getQuote(base).amount).toBe(
+        (price.numerator * base.amount) / price.denominator,
+      )
+    })
+
+    it('rounds negative quotes down', () => {
+      const price = new Price({
+        base: wbtc,
+        quote: wbtc,
+        numerator: 1n,
+        denominator: 3n,
+      })
+
+      expect(price.getQuote(new Amount(wbtc, -10n)).amount).toBe(-4n)
+    })
+
+    it('throws for a price built from a zero base amount', () => {
+      const price = new Price({
+        baseAmount: new Amount(wbtc, 0n),
+        quoteAmount: new Amount(usdc, 1_000_000n),
+      })
+
+      expect(() => price.getQuote(new Amount(wbtc, 10n ** 8n))).toThrow(
+        'Cannot get a quote from a price of zero base',
+      )
     })
   })
 })

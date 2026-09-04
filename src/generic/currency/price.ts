@@ -1,3 +1,4 @@
+import invariant from 'tiny-invariant'
 import { Fraction } from '../math/fraction.js'
 import type { BigintIsh } from '../types/bigintish.js'
 import { Amount } from './amount.js'
@@ -85,11 +86,24 @@ export class Price<
   /**
    *
    * @param baseAmount The amount of the base currency to convert
-   * @returns The equivalent amount in the quote currency
+   * @returns The equivalent amount in the quote currency, rounded down
    */
   public getQuote(baseAmount: Amount<TBase>): Amount<TQuote> {
-    const quoteAmount = super.mul(baseAmount.amount).toNumber()
-    return new Amount(this.quote, BigInt(Math.floor(quoteAmount)))
+    const { numerator, denominator } = super.mul(baseAmount.amount)
+    invariant(
+      denominator !== 0n,
+      'Cannot get a quote from a price of zero base',
+    )
+
+    // Exact bigint division, kept in the bigint domain so the result is never
+    // rounded up past what the price actually allows. `bigint` division
+    // truncates toward zero, so negative quotes need a nudge to round down.
+    let quotient = numerator / denominator
+    if (numerator % denominator !== 0n && numerator < 0n !== denominator < 0n) {
+      quotient -= 1n
+    }
+
+    return new Amount(this.quote, quotient)
   }
 
   public override invert(): Price<TQuote, TBase> {
