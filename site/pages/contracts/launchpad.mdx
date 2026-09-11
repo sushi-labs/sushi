@@ -1,11 +1,19 @@
 import { AddressTable } from '../../components/table'
-import { LAUNCHPAD_V1_FACTORY_ADDRESSES } from '../../constants/launchpad'
+import {
+  LAUNCHPAD_V1_FACTORY_ADDRESSES,
+  LAUNCHPAD_V2_FACTORY_ADDRESSES,
+} from '../../constants/launchpad'
 
 # Launchpad
 
-The Sushi Launchpad factory deploys fixed-supply tokens and creates their
-one-sided SushiSwap V3 liquidity positions.
+The Sushi Launchpad deploys fixed-supply tokens and creates their one-sided
+SushiSwap V3 liquidity positions. Integrations should call the V2 proxy, whose
+address remains stable across implementation upgrades.
 
-## V1 deployments
+## V2 deployment
+
+<AddressTable data={LAUNCHPAD_V2_FACTORY_ADDRESSES} />
+
+## Legacy V1 deployment
 
 <AddressTable data={LAUNCHPAD_V1_FACTORY_ADDRESSES} />

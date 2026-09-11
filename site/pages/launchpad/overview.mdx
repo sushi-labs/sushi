@@ -1,30 +1,41 @@
 # Launchpad
 
-Sushi Launchpad is a protocol for deploying a new ERC-20 token and opening its 
-SushiSwap V3 market in a single transaction. V1 is available on Robinhood Chain 
-and creates a fixed supply of one billion tokens with 18 decimals.
+Sushi Launchpad deploys a fixed-supply ERC-20 token and opens its SushiSwap V3
+market in one transaction. Launchpad V2 is available on Robinhood Chain and
+creates one billion tokens with 18 decimals.
 
 [Open Launchpad](https://www.sushi.com/robinhood/launchpad)
 
 ## How it works
 
-1. The Launchpad contract deploys a new ERC-20 token. The connected wallet
-   becomes its initial creator.
-2. The contract creates a SushiSwap V3 pool between the new token and the
-   selected quote token. Launchpad pools use the 1% fee tier.
-3. The contract uses the selected quote token's allowlisted USD price feed to
-   target a $5,000 starting fully diluted valuation. The realized valuation can
-   be slightly lower because the pool price is rounded to a valid V3 tick.
-4. The liquidity allocation is deposited one-sided: the position begins with
-   the new token and does not require the creator to contribute the quote token.
-   Each launch creates one position extending from the starting price to the
-   maximum usable price boundary.
-5. The Launchpad contract permanently holds the V3 position NFTs. Position
-   principal cannot be withdrawn, while accrued trading fees can be collected
-   and distributed.
-6. The creator can optionally make the first purchase in the same transaction.
-   If the purchase fails its input or minimum-output checks, the entire launch
-   reverts.
+1. The Launchpad contract deploys the token. The connected wallet is recorded
+   as both its launch creator and current creator, and initially receives any
+   creator-directed trading fees.
+2. The creator selects an allowlisted quote token, a liquidity mode, and one of
+   three trading-fee modes. Launchpad creates a standard SushiSwap V3 pool at
+   the 1% fee tier.
+3. **Standard Mode** targets a $5,000 starting fully diluted valuation (FDV) and
+   places the complete initial supply in one one-sided liquidity position.
+   **Moon Mode** targets a $10,000 starting FDV and divides the supply across
+   seven ranges, making price movement respond differently as the token moves
+   through higher valuations.
+4. The quote token's allowlisted USD price feed determines the starting pool
+   price. Tick rounding can make the realized starting FDV slightly lower than
+   the target.
+5. The creator contributes no quote token to the liquidity positions. Their
+   NFTs are held permanently by a non-upgradeable custodian which has no path to
+   withdraw principal. Accrued trading fees can still be collected and
+   distributed.
+6. Sushi initially receives 30% of trading fees and the remaining 70% follows
+   the selected fee mode. Choosing the configured canonical SUSHI token as the
+   quote token reduces Sushi's initial share to 20%, leaving 80% for the
+   selected fee mode.
+7. The creator can optionally make the first purchase in the launch
+   transaction. If the exact-input or minimum-output checks fail, the complete
+   launch reverts.
+
+Moon Mode changes the liquidity curve; it does not prevent transaction
+ordering, bots, or one buyer from traversing multiple ranges.
 
 Continue with [For creators](/launchpad/creators) to launch and manage a token,
 or [For integrators](/launchpad/integrators) to consume Launchpad data.

@@ -66,6 +66,7 @@ type Page =
   | { path: '/contracts/lbamm'; render: 'static' }
   | { path: '/contracts/red-snwapper'; render: 'static' }
   | { path: '/contracts/sushi'; render: 'static' }
+  | { path: '/contracts/v4'; render: 'static' }
   | { path: '/contracts/xsushi'; render: 'static' }
   | { path: '/dao/governance'; render: 'static' }
   | { path: '/dao/tokenomics'; render: 'static' }

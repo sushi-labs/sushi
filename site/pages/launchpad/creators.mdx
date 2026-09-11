@@ -4,58 +4,137 @@
 
 Open the [Launchpad creation
 page](https://www.sushi.com/robinhood/launchpad/create), connect a wallet on
-Robinhood Chain, and complete the three steps:
+Robinhood Chain, and configure your launch:
 
 1. **Token details:** choose the permanent token name and symbol. You can also
    add an optional logo, description, website, X profile, and Telegram link.
-2. **Launch pool:** select an available quote asset and, if desired, configure
-   an initial purchase of the new token.
-3. **Review:** verify the quote asset, launch fee, fixed starting valuation,
-   optional initial purchase, and immutable settings, then confirm the
-   transaction.
+2. **Launch pool:** select an available quote asset, choose Standard or Moon
+   liquidity, select a trading-fee mode, and optionally configure an initial
+   purchase.
+3. **Review:** verify the quote asset, launch fee, starting valuation,
+   liquidity profile, trading-fee behavior, optional initial purchase, and
+   immutable settings, then confirm the transaction.
 
-The factory deploys the token and creates its 1% SushiSwap V3 pool atomically.
-The contract uses the quote asset's allowlisted USD price feed to target a
-$5,000 starting fully diluted valuation and creates one one-sided V3 position.
+The factory atomically deploys one billion tokens with 18 decimals and creates
+their 1% SushiSwap V3 pool. It uses the quote asset's allowlisted USD price feed
+to calculate the starting price and deposits the complete initial supply as
+one-sided liquidity; the creator does not supply quote-token liquidity.
+
 Editable metadata is saved after the launch has been indexed. If that save
 fails, the onchain launch is still complete and you can retry from the
 management page.
 
-See [Launchpad contracts](/contracts/launchpad) for the current factory
-addresses.
+See [Launchpad contracts](/contracts/launchpad) for the current proxy address.
+
+## Liquidity modes
+
+### Standard Mode
+
+Standard Mode targets a $5,000 starting FDV. The complete initial supply is
+deposited into one position that runs from the starting price to the maximum
+usable V3 price boundary.
+
+### Moon Mode
+
+Moon Mode targets a $10,000 starting FDV and divides the complete initial
+supply across seven contiguous positions:
+
+| FDV range | Share of launch liquidity |
+| --- | ---: |
+| $10,000–$50,000 | 15% |
+| $50,000–$100,000 | 10% |
+| $100,000–$1,000,000 | 4% |
+| $1,000,000–$5,000,000 | 5% |
+| $5,000,000–$10,000,000 | 6% |
+| $10,000,000–$100,000,000 | 10% |
+| $100,000,000–maximum tick | 50% |
+
+This curve provides a deeper opening through $100,000, followed by more
+price-sensitive liquidity and progressively deeper upper ranges. It does not
+provide wallet or transaction caps, an auction, transaction-ordering
+protection, or a guarantee against early ownership concentration.
 
 ## Trading fee share
 
-Launchpad V1 starts each token with this split of accrued V3 trading fees:
+Every swap in a Launchpad pool pays the pool's 1% V3 trading fee. At launch,
+the collected fees are split as follows:
 
-- **70% to the creator**
-- **30% to Sushi**
+| Quote token | Sushi share | Non-Sushi share |
+| --- | ---: | ---: |
+| Any ordinary allowlisted quote token | 30% | 70% |
+| The configured canonical SUSHI token | 20% | 80% |
 
-The split applies to fees collected in both the launch token and the quote
-token. The wallet that launches the token becomes its initial creator, and the
-current creator is always the creator-side recipient. The current split is
-shown on the token's management page; protocol configuration can change the
-default for future launches or the stored split for a token before its next
-distribution.
+The SUSHI discount is based on the quote token's exact contract address, not
+its name or symbol. The split applies independently to fees collected in the
+launch token and in the quote token. The launchpad owner can override a token's
+Sushi share for future distributions, so integrations should read the current
+`sushiFeeBps` rather than assume the initial value.
 
-### Collect fees in the frontend
+The remaining non-Sushi share follows the token's fee mode.
+
+### Fee modes
+
+| Mode | Launch-token share | Quote-token share |
+| --- | --- | --- |
+| `DIRECT_PAYOUT` | Sent to the current fee receiver | Sent to the current fee receiver |
+| `BURN_LAUNCH_TOKEN_FEES` | Burned, reducing the token's total supply | Sent to the current fee receiver |
+| `BUYBACK_AND_BURN` | Burned directly | Used to buy the launch token from its launch pool; the output is burned |
+
+Sushi receives its share of both assets in their original form before the
+non-Sushi share is processed. Fee distribution never removes liquidity
+principal.
+
+### Switch fee modes
+
+The current creator may move only toward a mode that pays less value directly
+to the fee receiver:
+
+```text
+DIRECT_PAYOUT -> BURN_LAUNCH_TOKEN_FEES
+DIRECT_PAYOUT -> BUYBACK_AND_BURN
+BURN_LAUNCH_TOKEN_FEES -> BUYBACK_AND_BURN
+```
+
+These transitions cannot be reversed through the current implementation's
+ordinary entry points. The mode in effect when distribution runs applies to
+all fees collected in that call, including fees accrued before the switch.
+
+Switching to `BUYBACK_AND_BURN` expands the pool's oracle observation capacity.
+Buybacks require at least 120 seconds of usable pool history and enforce a
+pre-execution price-deviation check. A failed buyback distribution reverts
+atomically and leaves the fees in the V3 positions.
+
+### Distribute fees
 
 1. Open **Launchpad** and select **My launches**.
-2. Connect the current creator wallet.
-3. Select the token under **Your tokens**.
-4. Review **Distribute trading fees**, then select **Distribute fees** and
+2. Connect a wallet and select the token under **Your tokens**.
+3. Review **Distribute trading fees**, then select **Distribute fees** and
    confirm the transaction.
 
-The transaction collects fees from every V3 position registered for that token
-and sends each recipient its share. Distribution is permissionless, so any
-connected wallet can trigger it, but the transaction caller does not receive
-the fees.
+Distribution is permissionless: any wallet can trigger it, but the caller does
+not receive a share for doing so. The transaction collects fees from every
+position registered for the token and applies the token's current split and fee
+mode.
+
+## Creator and fee receiver
+
+V2 tracks three distinct roles:
+
+- The **launch creator** is permanent historical attribution.
+- The **current creator** controls metadata and one-way fee-mode changes. The
+  role can be transferred by the current creator or the launchpad owner.
+- The **fee receiver** receives direct non-Sushi payouts. It starts as the
+  launch creator and does not change when the creator role is transferred.
+
+The current creator or launchpad owner can irreversibly set the fee-receiver
+lock flag. This is an onchain intent signal: the launchpad owner retains the
+administrative ability to change the fee receiver even after it is locked.
 
 ## Update token metadata
 
-Token name, symbol, supply, pool, and liquidity configuration are immutable.
-The creator can update the logo, description, website, X profile, and Telegram
-link:
+Token name, symbol, initial supply, pool, quote token, and liquidity
+configuration are immutable. The current creator can update the logo,
+description, website, X profile, and Telegram link:
 
 1. Open **Launchpad → My launches**.
 2. Connect the current creator wallet.
@@ -63,11 +142,37 @@ link:
 4. Edit its **Public profile** and select **Sign & save changes**.
 
 The wallet signs the complete metadata update. Saving metadata does not require
-an onchain transaction, but only the current creator wallet can authorize it.
+an onchain transaction.
 
 ## Launch functions
 
-Advanced integrations can call the payable factory functions directly.
+Advanced integrations can call the payable V2 proxy functions directly. The
+current implementation defines these enums and tuples:
+
+```solidity
+enum LiquidityMode { STANDARD, MOON }
+
+enum FeeDisposition {
+  DIRECT_PAYOUT,
+  BURN_LAUNCH_TOKEN_FEES,
+  BUYBACK_AND_BURN
+}
+
+struct TokenConfig {
+  string name;
+  string symbol;
+}
+
+struct InitialBuy {
+  uint256 amountIn;
+  uint256 amountOutMinimum;
+  address recipient;
+}
+```
+
+`name` is limited to 64 bytes and `symbol` to 16 bytes. All three launch
+functions return the deployed token, the V3 pool, and every position NFT ID:
+one ID for Standard Mode or seven for Moon Mode.
 
 ### Launch
 
@@ -75,34 +180,26 @@ Advanced integrations can call the payable factory functions directly.
 function launch(
   TokenConfig calldata tokenConfig,
   address quoteToken,
-  uint64 deadline
+  LiquidityMode liquidityMode,
+  FeeDisposition feeDisposition
 )
   external
   payable
-  returns (address token, address pool, uint256 positionId);
+  returns (address token, address pool, uint256[] memory positionIds);
 ```
 
-| Parameter | Description |
-| --- | --- |
-| `tokenConfig` | `{ name, symbol }` for the new token. Both values are immutable. The name is limited to 64 UTF-8 bytes and the symbol to 16 UTF-8 bytes. |
-| `quoteToken` | Existing ERC-20 paired with the new token. It must have an allowlisted USD price feed in the factory. |
-| `deadline` | Unix timestamp after which the transaction must revert. |
-| `msg.value` | Must be at least the factory's current `launchFee()`. The full amount sent belongs to Sushi. |
+`quoteToken` must be an ERC-20 with an allowlisted USD price feed. `msg.value`
+must be at least the current `launchFee()`. The caller becomes the launch
+creator, current creator, and initial fee receiver.
 
-The function returns the deployed token address, the new V3 pool address, and
-the single position NFT ID. The factory derives the starting price from the
-quote token's allowlisted USD price feed and creates one one-sided position;
-callers cannot supply an FDV, tick, range, curve, or token allocation.
-
-### Launch and buy
-
-Use `launchAndBuy` to launch the token and make the first purchase atomically:
+### Launch and buy with an ERC-20 quote token
 
 ```solidity
 function launchAndBuy(
   TokenConfig calldata tokenConfig,
   address quoteToken,
-  uint64 deadline,
+  LiquidityMode liquidityMode,
+  FeeDisposition feeDisposition,
   InitialBuy calldata initialBuy
 )
   external
@@ -110,29 +207,48 @@ function launchAndBuy(
   returns (
     address token,
     address pool,
-    uint256 positionId,
+    uint256[] memory positionIds,
     uint256 amountOut
   );
 ```
 
-`tokenConfig`, `quoteToken`, and `deadline` have the same meaning as in
-`launch`. The `initialBuy` tuple contains:
+The tuple fields are:
 
 | Field | Description |
 | --- | --- |
-| `amountIn` | Exact amount of the quote token to spend, in its smallest unit. The caller must approve the Launchpad contract to transfer at least this amount before calling. |
-| `amountOutMinimum` | Minimum amount of the new launch token the recipient must receive. The complete transaction reverts if the output is lower. Allow a small tolerance when calculating this value because V3 rounding can differ with final token ordering. |
-| `recipient` | Nonzero address that receives the purchased launch tokens. It cannot be the Launchpad contract or the newly created pool. |
+| `amountIn` | Exact amount of the quote token to spend, in its smallest unit. The caller must approve the Launchpad proxy to transfer at least this amount. |
+| `amountOutMinimum` | Minimum launch-token amount the recipient must receive. |
+| `recipient` | Address that receives the purchased launch tokens. It cannot be zero, the Launchpad proxy, its custodian or fee executor, or the newly created pool. |
 
-The caller remains the recorded creator. During the initial swap, the factory
-pulls the quote token from the caller and pays it directly to the new pool. The
-swap must consume the complete `amountIn`; partial fills, failed transfers, or
-insufficient output revert token deployment and pool creation as well.
+`msg.value` pays the current native `launchFee()`; `amountIn` is transferred
+separately from the caller. V2.1 does not impose a USD-denominated initial-buy
+ceiling, but the swap must consume the complete input and satisfy
+`amountOutMinimum`. Otherwise token deployment, pool creation, and the purchase
+all revert.
 
-As with `launch`, `msg.value` only pays the current native `launchFee()`, and
-the full native amount sent belongs to Sushi. The ERC-20 `amountIn` is
-transferred separately. The function returns the normal launch values plus the
-actual launch-token `amountOut`.
+### Launch and buy with the native token
+
+```solidity
+function launchAndBuyNative(
+  TokenConfig calldata tokenConfig,
+  LiquidityMode liquidityMode,
+  FeeDisposition feeDisposition,
+  InitialBuy calldata initialBuy
+)
+  external
+  payable
+  returns (
+    address token,
+    address pool,
+    uint256[] memory positionIds,
+    uint256 amountOut
+  );
+```
+
+This variant wraps `initialBuy.amountIn` into WETH and uses WETH as the quote
+token. Send at least `launchFee() + initialBuy.amountIn` as `msg.value`; no
+ERC-20 approval is required. The recipient and exact-input/minimum-output rules
+are the same as for `launchAndBuy`.
 
 Unless you need custom low-level behavior, use the website: it reads current
 factory settings and simulates the complete transaction before submission.
