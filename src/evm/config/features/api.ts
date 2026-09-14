@@ -3,6 +3,7 @@ import { EvmChainId } from '../../chain/index.js'
 export const SWAP_API_SUPPORTED_CHAIN_IDS = [
   EvmChainId.ARBITRUM,
   EvmChainId.ARBITRUM_NOVA,
+  EvmChainId.ARC,
   EvmChainId.AVALANCHE,
   EvmChainId.BASE,
   EvmChainId.BOBA,

@@ -1,4 +1,4 @@
-import type { Address } from 'viem'
+import { type Address, zeroAddress } from 'viem'
 import { describe, expect, expectTypeOf, it } from 'vitest'
 import * as sushiSwapV4CLPoolManagerAbi from '../../abi/sushiSwapV4CLPoolManagerAbi/index.js'
 import * as sushiSwapV4CLPoolManagerOwnerAbi from '../../abi/sushiSwapV4CLPoolManagerOwnerAbi/index.js'
@@ -28,6 +28,7 @@ import {
 
 const V4_CHAIN_IDS = [
   EvmChainId.ARBITRUM,
+  EvmChainId.ARC,
   EvmChainId.BASE,
   EvmChainId.BSC,
   EvmChainId.ETHEREUM,
@@ -73,7 +74,7 @@ const ABI_BUNDLES = [
 ] as const
 
 describe('SushiSwap V4 configuration', () => {
-  it('includes all nine deployed chains, including Sepolia', () => {
+  it('includes all deployed and preconfigured chains', () => {
     expect(SUSHISWAP_V4_SUPPORTED_CHAIN_IDS).toEqual(V4_CHAIN_IDS)
     expect(getEvmChainById(EvmChainId.UNICHAIN).key).toBe('unichain')
     expect(getEvmChainById(EvmChainId.WORLDCHAIN).key).toBe('worldchain')
@@ -86,7 +87,7 @@ describe('SushiSwap V4 configuration', () => {
     expect(isSushiSwapChainId(EvmChainId.WORLDCHAIN)).toBe(true)
   })
 
-  it('matches the verified deployment address on every supported chain', () => {
+  it('matches deployed addresses and keeps Arc placeholders invalid', () => {
     for (const [addresses, expectedAddress] of ADDRESS_MAPS) {
       expectTypeOf(addresses[EvmChainId.UNICHAIN]).toEqualTypeOf<Address>()
       expect(
@@ -95,7 +96,11 @@ describe('SushiSwap V4 configuration', () => {
           .sort((a, b) => a - b),
       ).toEqual([...V4_CHAIN_IDS].sort((a, b) => a - b))
 
-      for (const chainId of V4_CHAIN_IDS) {
+      expect(addresses[EvmChainId.ARC]).toBe(zeroAddress)
+
+      for (const chainId of V4_CHAIN_IDS.filter(
+        (chainId) => chainId !== EvmChainId.ARC,
+      )) {
         expect(addresses[chainId]).toBe(expectedAddress)
       }
     }

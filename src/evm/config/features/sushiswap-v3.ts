@@ -1,4 +1,4 @@
-import type { Address } from 'viem'
+import { type Address, zeroAddress } from 'viem'
 import { EvmChainId } from '../../chain/index.js'
 
 const POOL_INIT_CODE_HASH =
@@ -42,6 +42,7 @@ export const SUSHISWAP_V3_FACTORY_ADDRESS: Record<
 > = {
   [EvmChainId.ARBITRUM_NOVA]: '0xaa26771d497814e81d305c511efbb3ced90bf5bd',
   [EvmChainId.ARBITRUM]: '0x1af415a1eba07a4986a52b6f2e7de7003d82231e',
+  [EvmChainId.ARC]: zeroAddress, // TODO: Replace after Arc deployment.
   [EvmChainId.AVALANCHE]: '0x3e603c14af37ebdad31709c4f848fc6ad5bec715',
   [EvmChainId.BSC]: '0x126555dd55a39328f69400d6ae4f782bd4c34abb',
   [EvmChainId.BTTC]: '0xbbde1d67297329148fe1ed5e6b00114842728e65',
@@ -82,6 +83,7 @@ export const SUSHISWAP_V3_INIT_CODE_HASH: Record<
 > = {
   [EvmChainId.ARBITRUM_NOVA]: POOL_INIT_CODE_HASH,
   [EvmChainId.ARBITRUM]: POOL_INIT_CODE_HASH,
+  [EvmChainId.ARC]: POOL_INIT_CODE_HASH,
   [EvmChainId.AVALANCHE]: POOL_INIT_CODE_HASH,
   [EvmChainId.BSC]: POOL_INIT_CODE_HASH,
   [EvmChainId.BTTC]: POOL_INIT_CODE_HASH,
@@ -124,6 +126,7 @@ export const SUSHISWAP_V3_POSITION_MANAGER: Record<
 > = {
   [EvmChainId.ARBITRUM_NOVA]: '0x258f7e97149afd7d7f84fa63b10e4a3f0c38b788',
   [EvmChainId.ARBITRUM]: '0xf0cbce1942a68beb3d1b73f0dd86c8dcc363ef49',
+  [EvmChainId.ARC]: zeroAddress, // TODO: Replace after Arc deployment.
   [EvmChainId.AVALANCHE]: '0x18350b048ab366ed601ffdbc669110ecb36016f3',
   [EvmChainId.BSC]: '0xf70c086618dcf2b1a461311275e00d6b722ef914',
   [EvmChainId.BTTC]: '0x57bffa72db682f7eb6c132dae03ff36bbeb0c459',
@@ -164,6 +167,7 @@ export const SUSHISWAP_V3_TICK_LENS: Record<
 > = {
   [EvmChainId.ARBITRUM_NOVA]: '0xf60e5f4a44a510742457d8064ffd360b12d8d9af',
   [EvmChainId.ARBITRUM]: '0x8516944e89f296eb6473d79aed1ba12088016c9e',
+  [EvmChainId.ARC]: zeroAddress, // TODO: Replace after Arc deployment.
   [EvmChainId.AVALANCHE]: '0xddc1b5920723f774d2ec2c3c9355251a20819776',
   [EvmChainId.BSC]: '0x10c19390e1ac2fd6d0c3643a2320b0aba38e5baa',
   [EvmChainId.BTTC]: '0x1400fefd6f9b897970f00df6237ff2b8b27dc82c',
@@ -204,6 +208,7 @@ export const SUSHISWAP_V3_QUOTER: Record<
 > = {
   [EvmChainId.ARBITRUM_NOVA]: '0xb1e835dc2785b52265711e17fccb0fd018226a6e',
   [EvmChainId.ARBITRUM]: '0x0524e833ccd057e4d7a296e3aaab9f7675964ce1',
+  [EvmChainId.ARC]: zeroAddress, // TODO: Replace after Arc deployment.
   [EvmChainId.AVALANCHE]: '0xb1e835dc2785b52265711e17fccb0fd018226a6e',
   [EvmChainId.BSC]: '0xb1e835dc2785b52265711e17fccb0fd018226a6e',
   [EvmChainId.BTTC]: '0x0389879e0156033202c44bf784ac18fc02edee4f',
@@ -242,6 +247,7 @@ export const SUSHISWAP_V3_POSITION_HELPER: Record<SushiSwapV3ChainId, Address> =
   {
     [EvmChainId.ARBITRUM_NOVA]: '0x34026A9b9Cb6DF84880C4B2f778F5965F5679c16',
     [EvmChainId.ARBITRUM]: '0x34026A9b9Cb6DF84880C4B2f778F5965F5679c16',
+    [EvmChainId.ARC]: zeroAddress, // TODO: Replace after Arc deployment.
     [EvmChainId.AVALANCHE]: '0x34026A9b9Cb6DF84880C4B2f778F5965F5679c16',
     [EvmChainId.BSC]: '0x34026A9b9Cb6DF84880C4B2f778F5965F5679c16',
     [EvmChainId.ETHEREUM]: '0x34026A9b9Cb6DF84880C4B2f778F5965F5679c16',
@@ -270,6 +276,7 @@ export const SUSHISWAP_V3_POSITION_HELPER: Record<SushiSwapV3ChainId, Address> =
 export const SUSHISWAP_V3_SUPPORTED_CHAIN_IDS = [
   EvmChainId.ARBITRUM_NOVA,
   EvmChainId.ARBITRUM,
+  EvmChainId.ARC,
   EvmChainId.AVALANCHE,
   EvmChainId.BSC,
   EvmChainId.ETHEREUM,
