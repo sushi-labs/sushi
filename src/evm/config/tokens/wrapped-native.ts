@@ -60,7 +60,7 @@ export const WNATIVE_ADDRESS = {
   [EvmChainId.MONAD]: '0x3bd359c1119da7da1d913d1c4d2b7c461115433a',
   [EvmChainId.MEGAETH]: WETH9_ADDRESS[EvmChainId.MEGAETH],
   [EvmChainId.XLAYER]: '0xe538905cf8410324e03a5a23c1c177a474d59b2b',
-} as const satisfies Record<EvmChainId, Address>
+} as const satisfies Partial<Record<EvmChainId, Address>>
 
 export const WNATIVE = {
   [EvmChainId.ETHEREUM]: WETH9[EvmChainId.ETHEREUM],
@@ -283,10 +283,15 @@ export const WNATIVE = {
     symbol: 'WOKB',
     name: 'Wrapped OKB',
   }),
-} as const satisfies Record<EvmChainId, EvmToken>
+} as const satisfies Partial<Record<EvmChainId, EvmToken>>
 
-export const isEvmWNativeSupported = (chainId: EvmChainId) =>
-  WNATIVE_ADDRESS[chainId] !== zeroAddress
+export const getEvmWNative = (chainId: EvmChainId) =>
+  (WNATIVE as Partial<Record<EvmChainId, EvmToken>>)[chainId]
+
+export const isEvmWNativeSupported = (chainId: EvmChainId) => {
+  const wrappedNative = getEvmWNative(chainId)
+  return wrappedNative !== undefined && wrappedNative.address !== zeroAddress
+}
 
 export function isWrapOrUnwrap({
   from,
@@ -295,9 +300,13 @@ export function isWrapOrUnwrap({
   from: EvmCurrency
   to: EvmCurrency
 }): boolean {
-  if (from.type === 'native' && from.wrap().isSame(to)) {
-    return true
+  if (from.type === 'native') {
+    return isEvmWNativeSupported(from.chainId) && from.wrap().isSame(to)
   }
 
-  return to.type === 'native' && to.wrap().isSame(from)
+  return (
+    to.type === 'native' &&
+    isEvmWNativeSupported(to.chainId) &&
+    to.wrap().isSame(from)
+  )
 }

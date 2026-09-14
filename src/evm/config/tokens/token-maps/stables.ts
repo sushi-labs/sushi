@@ -231,6 +231,7 @@ export const STABLES = {
     DAI[EvmChainId.ZKLINK],
   ],
   [EvmChainId.APE]: [APE_USD[EvmChainId.APE]],
+  [EvmChainId.ARC]: [USDC[EvmChainId.ARC]],
   [EvmChainId.SONIC]: [USDC[EvmChainId.SONIC]],
   [EvmChainId.HEMI]: [
     USDC[EvmChainId.HEMI],

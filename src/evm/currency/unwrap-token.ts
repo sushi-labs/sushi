@@ -1,4 +1,4 @@
-import { WNATIVE } from '../config/tokens/wrapped-native.js'
+import { getEvmWNative } from '../config/tokens/wrapped-native.js'
 import type { EvmCurrency } from './currency.js'
 import { EvmNative } from './native.js'
 
@@ -9,7 +9,7 @@ export function unwrapEvmToken(currency: EvmCurrency): EvmCurrency {
 
   if (
     currency.address.toLowerCase() ===
-    WNATIVE[currency.chainId].address.toLowerCase()
+    getEvmWNative(currency.chainId)?.address.toLowerCase()
   ) {
     return EvmNative.fromChainId(currency.chainId)
   }

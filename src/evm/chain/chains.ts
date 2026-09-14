@@ -4,6 +4,7 @@ import {
   arbitrumNova as arbitrumNovaViem,
   arbitrumSepolia as arbitrumSepoliaViem,
   arbitrum as arbitrumViem,
+  arc as arcViem,
   avalanche as avalancheViem,
   base as baseViem,
   berachain as berachainViem,
@@ -301,6 +302,23 @@ const ape = /* @__PURE__ */ defineEvmChain(apeViem, {
   key: 'ape',
   shortName: 'ape',
   parentChainId: arbitrum.chainId,
+})
+
+const arc = /* @__PURE__ */ defineEvmChain(arcViem, {
+  key: 'arc',
+  shortName: 'arc',
+  blockExplorers: {
+    default: {
+      name: 'ArcScan',
+      url: 'https://arcscan.app',
+      apiUrl: 'https://arcscan.app/api',
+    },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
+    },
+  },
 })
 
 const sonic = /* @__PURE__ */ defineEvmChain(sonicViem, {
@@ -643,6 +661,7 @@ export const evmChains = [
   taiko,
   zklink,
   ape,
+  arc,
   sonic,
   hemi,
   katana,
