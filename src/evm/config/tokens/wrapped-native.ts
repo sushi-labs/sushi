@@ -3,6 +3,7 @@ import { zeroAddress } from 'viem'
 import type { EvmCurrency } from '../../../evm/currency/currency.js'
 import { EvmChainId } from '../../chain/index.js'
 import { EvmToken } from '../../currency/token.js'
+import { USDC, USDC_ADDRESS } from './tokens/USDC.js'
 import { WETH9, WETH9_ADDRESS } from './tokens/WETH9.js'
 import { WRBTC, WRBTC_ADDRESS } from './tokens/WRBTC.js'
 
@@ -47,6 +48,7 @@ export const WNATIVE_ADDRESS = {
   [EvmChainId.TAIKO]: WETH9_ADDRESS[EvmChainId.TAIKO],
   [EvmChainId.ZKLINK]: WETH9_ADDRESS[EvmChainId.ZKLINK],
   [EvmChainId.APE]: '0x48b62137edfa95a428d35c09e44256a739f6b557',
+  [EvmChainId.ARC]: USDC_ADDRESS[EvmChainId.ARC],
   [EvmChainId.SONIC]: '0x039e2fb66102314ce7b64ce5ce3e5183bc94ad38',
   [EvmChainId.HEMI]: WETH9_ADDRESS[EvmChainId.HEMI],
   [EvmChainId.TATARA]: WETH9_ADDRESS[EvmChainId.TATARA],
@@ -228,6 +230,7 @@ export const WNATIVE = {
     symbol: 'WAPE',
     name: 'Wrapped Ape',
   }),
+  [EvmChainId.ARC]: USDC[EvmChainId.ARC],
   [EvmChainId.SONIC]: new EvmToken({
     chainId: EvmChainId.SONIC,
     address: WNATIVE_ADDRESS[EvmChainId.SONIC],

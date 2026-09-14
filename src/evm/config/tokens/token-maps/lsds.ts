@@ -352,6 +352,7 @@ export const LSDS = {
   [EvmChainId.TAIKO]: [],
   [EvmChainId.ZKLINK]: [],
   [EvmChainId.APE]: [],
+  [EvmChainId.ARC]: [],
   [EvmChainId.SONIC]: [],
   [EvmChainId.HEMI]: [],
   [EvmChainId.KATANA]: [

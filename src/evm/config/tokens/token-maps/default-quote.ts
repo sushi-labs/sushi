@@ -75,6 +75,7 @@ export const defaultQuoteCurrency = {
   [EvmChainId.TAIKO]: USDC[EvmChainId.TAIKO],
   [EvmChainId.ZKLINK]: USDC[EvmChainId.ZKLINK],
   [EvmChainId.APE]: APE_USD[EvmChainId.APE],
+  [EvmChainId.ARC]: USDC[EvmChainId.ARC],
   [EvmChainId.SONIC]: WETH9[EvmChainId.SONIC],
   [EvmChainId.HEMI]: USDC[EvmChainId.HEMI],
   [EvmChainId.TATARA]: AUSD[EvmChainId.TATARA],
