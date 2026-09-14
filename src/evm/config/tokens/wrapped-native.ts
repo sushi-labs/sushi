@@ -289,7 +289,7 @@ export const WNATIVE = {
 } as const satisfies Record<EvmChainId, EvmToken>
 
 export const isEvmWNativeSupported = (chainId: EvmChainId) =>
-  WNATIVE_ADDRESS[chainId] !== zeroAddress
+  chainId !== EvmChainId.ARC && WNATIVE_ADDRESS[chainId] !== zeroAddress
 
 export function isWrapOrUnwrap({
   from,
@@ -298,9 +298,17 @@ export function isWrapOrUnwrap({
   from: EvmCurrency
   to: EvmCurrency
 }): boolean {
-  if (from.type === 'native' && from.wrap().isSame(to)) {
+  if (
+    from.type === 'native' &&
+    isEvmWNativeSupported(from.chainId) &&
+    from.wrap().isSame(to)
+  ) {
     return true
   }
 
-  return to.type === 'native' && to.wrap().isSame(from)
+  return (
+    to.type === 'native' &&
+    isEvmWNativeSupported(to.chainId) &&
+    to.wrap().isSame(from)
+  )
 }
