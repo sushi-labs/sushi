@@ -310,8 +310,8 @@ const arc = /* @__PURE__ */ defineEvmChain(arcViem, {
   blockExplorers: {
     default: {
       name: 'ArcScan',
-      url: 'https://arcscan.app',
-      apiUrl: 'https://arcscan.app/api',
+      url: 'https://arc-scan.org',
+      apiUrl: 'https://api.arc-scan.org/api',
     },
   },
   contracts: {
