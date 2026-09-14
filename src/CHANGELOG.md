@@ -1,5 +1,16 @@
 # sushi
 
+## 7.3.4
+
+### Patch Changes
+
+- [#517](https://github.com/sushi-labs/sushi/pull/517) [`41a1d04`](https://github.com/sushi-labs/sushi/commit/41a1d043ea8007109accf707319a6fe4a093b14e) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Add Arc to the EVM chain registry.
+
+- [#514](https://github.com/sushi-labs/sushi/pull/514) [`30b5240`](https://github.com/sushi-labs/sushi/commit/30b5240d3bea9c3d04f49b6f06155cc10944131a) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Compute `Price.getQuote` with exact `bigint` arithmetic instead of collapsing the
+  price to a double, so quotes are never rounded up past the true value and
+  high-precision prices no longer overflow to `Infinity`/`NaN`. Getting a quote
+  from a price built with a zero base amount now throws a descriptive error.
+
 ## 7.3.3
 
 ### Patch Changes
