@@ -1,7 +1,10 @@
-import type { Address } from 'viem'
+import { type Address, zeroAddress } from 'viem'
 import { EvmChainId } from '../../chain/index.js'
 
-export const LAUNCHPAD_V2_SUPPORTED_CHAIN_IDS = [EvmChainId.ROBINHOOD] as const
+export const LAUNCHPAD_V2_SUPPORTED_CHAIN_IDS = [
+  EvmChainId.ROBINHOOD,
+  EvmChainId.ARC,
+] as const
 
 export const LaunchpadV2ChainIds = LAUNCHPAD_V2_SUPPORTED_CHAIN_IDS
 
@@ -23,6 +26,12 @@ export const LAUNCHPAD_V2_FACTORIES = {
     {
       address: '0xf1716ebf85836ffe2985db9a50dd29e5814cabe9',
       deploymentBlock: 38_395_704n,
+    },
+  ],
+  [EvmChainId.ARC]: [
+    {
+      address: zeroAddress, // TODO: Replace after Arc deployment.
+      deploymentBlock: 0n, // TODO: Replace after Arc deployment.
     },
   ],
 } as const satisfies Record<
