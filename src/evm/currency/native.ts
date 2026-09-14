@@ -6,20 +6,15 @@ import {
   getEvmChainById,
   isEvmChainId,
 } from '../chain/chains.js'
-import { getEvmWNative } from '../config/tokens/wrapped-native.js'
+import { WNATIVE } from '../config/tokens/wrapped-native.js'
 import { EvmToken } from './token.js'
 
 export class EvmNative<
   TMetadata extends CurrencyMetadata = Record<string, unknown>,
 > extends Native<EvmChainId, TMetadata> {
   public override wrap(): EvmToken<TMetadata> {
-    const wrappedNative = getEvmWNative(this.chainId)
-    if (!wrappedNative) {
-      throw new Error(`No wrapped native token for chain ${this.chainId}`)
-    }
-
     return new EvmToken({
-      ...wrappedNative,
+      ...WNATIVE[this.chainId],
       metadata: structuredClone(this.metadata),
     })
   }
