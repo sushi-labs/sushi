@@ -13,6 +13,7 @@ import {
   BUSD,
   DAI,
   DOC,
+  EURC,
   FILECOIN_USDC_CELER,
   FILECOIN_USDT_CELER,
   FRAX,
@@ -231,7 +232,7 @@ export const STABLES = {
     DAI[EvmChainId.ZKLINK],
   ],
   [EvmChainId.APE]: [APE_USD[EvmChainId.APE]],
-  [EvmChainId.ARC]: [USDC[EvmChainId.ARC]],
+  [EvmChainId.ARC]: [USDC[EvmChainId.ARC], EURC[EvmChainId.ARC]],
   [EvmChainId.SONIC]: [USDC[EvmChainId.SONIC]],
   [EvmChainId.HEMI]: [
     USDC[EvmChainId.HEMI],
