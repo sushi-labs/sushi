@@ -59,9 +59,14 @@ export class Amount<TCurrency extends AnyCurrency = Currency> {
    * Wraps the amount's currency into a Token.
    */
   public wrap() {
+    const currency = this.currency.wrap() as ReturnType<TCurrency['wrap']>
+    const decimals = currency.decimals - this.currency.decimals
+
     return new Amount(
-      this.currency.wrap() as ReturnType<TCurrency['wrap']>,
-      this.amount,
+      currency,
+      decimals < 0
+        ? this.amount / 10n ** BigInt(-decimals)
+        : this.amount * 10n ** BigInt(decimals),
     )
   }
 
