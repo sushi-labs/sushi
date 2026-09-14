@@ -1,5 +1,11 @@
 # sushi
 
+## 7.3.6
+
+### Patch Changes
+
+- [#522](https://github.com/sushi-labs/sushi/pull/522) [`af26318`](https://github.com/sushi-labs/sushi/commit/af2631828ace8e66ab3af0bddff1090cca2561c7) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Update the Arc block explorer URL.
+
 ## 7.3.5
 
 ### Patch Changes
