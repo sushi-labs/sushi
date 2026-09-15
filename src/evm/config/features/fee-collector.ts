@@ -4,6 +4,7 @@ import { EvmChainId } from '../../chain/index.js'
 export const FEE_COLLECTOR_CHAIN_IDS = [
   EvmChainId.ETHEREUM,
   EvmChainId.ARBITRUM,
+  EvmChainId.ARC,
   EvmChainId.OPTIMISM,
   EvmChainId.BASE,
   EvmChainId.POLYGON,
@@ -65,6 +66,7 @@ export const UI_FEE_COLLECTOR_ADDRESS: Record<
 > = {
   [EvmChainId.ETHEREUM]: '0xde7259893af7cdbc9fd806c6ba61d22d581d5667',
   [EvmChainId.ARBITRUM]: '0xde7259893af7cdbc9fd806c6ba61d22d581d5667',
+  [EvmChainId.ARC]: '0x57a9EaEad7C87A22360A23321667ddfF64E04E7a',
   [EvmChainId.OPTIMISM]: '0xde7259893af7cdbc9fd806c6ba61d22d581d5667',
   [EvmChainId.BASE]: '0xde7259893af7cdbc9fd806c6ba61d22d581d5667',
   [EvmChainId.POLYGON]: '0xde7259893af7cdbc9fd806c6ba61d22d581d5667',
@@ -120,6 +122,7 @@ export const SURPLUS_FEE_COLLECTOR_ADDRESS: Record<
 > = {
   [EvmChainId.ETHEREUM]: '0x5c2e112783a6854653b4bc7dc22248d3e592559c',
   [EvmChainId.ARBITRUM]: '0x5c2e112783a6854653b4bc7dc22248d3e592559c',
+  [EvmChainId.ARC]: '0xEE9F0dBb0b91358a967442CfD2c6202232C3c1Eb',
   [EvmChainId.OPTIMISM]: '0x5c2e112783a6854653b4bc7dc22248d3e592559c',
   [EvmChainId.BASE]: '0x5c2e112783a6854653b4bc7dc22248d3e592559c',
   [EvmChainId.POLYGON]: '0x5c2e112783a6854653b4bc7dc22248d3e592559c',
@@ -175,6 +178,7 @@ export const PROTOCOL_FEE_COLLECTOR_ADDRESS: Record<
 > = {
   [EvmChainId.ETHEREUM]: '0xdbeca8fb948c42634256609bce5a3768c9b3e9eb',
   [EvmChainId.ARBITRUM]: '0xdbeca8fb948c42634256609bce5a3768c9b3e9eb',
+  [EvmChainId.ARC]: '0x51d0e5188afe12d502e29D982d20C190e7816107',
   [EvmChainId.OPTIMISM]: '0xdbeca8fb948c42634256609bce5a3768c9b3e9eb',
   [EvmChainId.BASE]: '0xdbeca8fb948c42634256609bce5a3768c9b3e9eb',
   [EvmChainId.POLYGON]: '0xdbeca8fb948c42634256609bce5a3768c9b3e9eb',

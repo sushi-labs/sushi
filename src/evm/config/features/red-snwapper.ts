@@ -4,6 +4,7 @@ import { EvmChainId } from '../../chain/index.js'
 export const RED_SNWAPPER_SUPPORTED_CHAIN_IDS = [
   EvmChainId.ETHEREUM,
   EvmChainId.ARBITRUM,
+  EvmChainId.ARC,
   EvmChainId.OPTIMISM,
   EvmChainId.BASE,
   EvmChainId.POLYGON,
@@ -61,6 +62,7 @@ export type RedSnwapperChainId =
 export const RED_SNWAPPER_ADDRESS: Record<RedSnwapperChainId, Address> = {
   [EvmChainId.ETHEREUM]: '0xac4c6e212a361c968f1725b4d055b47e63f80b75',
   [EvmChainId.ARBITRUM]: '0xac4c6e212a361c968f1725b4d055b47e63f80b75',
+  [EvmChainId.ARC]: '0xE52abd50ad151ecDf56427effD715E703696a6B1',
   [EvmChainId.OPTIMISM]: '0xac4c6e212a361c968f1725b4d055b47e63f80b75',
   [EvmChainId.BASE]: '0xac4c6e212a361c968f1725b4d055b47e63f80b75',
   [EvmChainId.POLYGON]: '0xac4c6e212a361c968f1725b4d055b47e63f80b75',
