@@ -28,6 +28,7 @@ import {
 
 const V4_CHAIN_IDS = [
   EvmChainId.ARBITRUM,
+  EvmChainId.ARC,
   EvmChainId.BASE,
   EvmChainId.BSC,
   EvmChainId.ETHEREUM,
@@ -73,7 +74,7 @@ const ABI_BUNDLES = [
 ] as const
 
 describe('SushiSwap V4 configuration', () => {
-  it('includes all nine deployed chains, including Sepolia', () => {
+  it('includes all ten deployed chains, including Arc', () => {
     expect(SUSHISWAP_V4_SUPPORTED_CHAIN_IDS).toEqual(V4_CHAIN_IDS)
     expect(getEvmChainById(EvmChainId.UNICHAIN).key).toBe('unichain')
     expect(getEvmChainById(EvmChainId.WORLDCHAIN).key).toBe('worldchain')
