@@ -1,5 +1,11 @@
 # sushi
 
+## 7.3.8
+
+### Patch Changes
+
+- [#528](https://github.com/sushi-labs/sushi/pull/528) [`47eb536`](https://github.com/sushi-labs/sushi/commit/47eb53693c8981af176aff55a73367833a1b4c02) Thanks [@Ty-Sir](https://github.com/Ty-Sir)! - Add CIRBTC token configuration and use it instead of USDC as the default quote currency on Arc.
+
 ## 7.3.7
 
 ### Patch Changes
