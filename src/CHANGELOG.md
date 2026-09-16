@@ -1,5 +1,11 @@
 # sushi
 
+## 7.3.9
+
+### Patch Changes
+
+- [#530](https://github.com/sushi-labs/sushi/pull/530) [`12f22c7`](https://github.com/sushi-labs/sushi/commit/12f22c7ac69bf2f92ea0e6f85cd15c3593e11f5a) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Update the EURC token address on Arc.
+
 ## 7.3.8
 
 ### Patch Changes
