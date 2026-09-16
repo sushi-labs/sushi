@@ -20,6 +20,8 @@ const COINGECKO_POLYGON_LIST =
   'https://tokens.coingecko.com/polygon-pos/all.json'
 const COINGECKO_AVAX_LIST = 'https://tokens.coingecko.com/avalanche/all.json'
 
+const COINGECKO_ARC_LIST = 'https://tokens.coingecko.com/arc/all.json'
+
 const COMPOUND_LIST =
   'https://raw.githubusercontent.com/compound-finance/token-list/master/compound.tokenlist.json'
 const GEMINI_LIST = 'https://www.gemini.com/uniswap/manifest.json'
@@ -59,6 +61,7 @@ export const DEFAULT_TOKEN_LIST_OF_TOKEN_LISTS_TO_DISPLAY: string[] = [
   COINGECKO_CELO_LIST,
   COINGECKO_POLYGON_LIST,
   COINGECKO_AVAX_LIST,
+  COINGECKO_ARC_LIST,
   GEMINI_LIST,
   SET_LIST,
   ARBITRUM_LIST,

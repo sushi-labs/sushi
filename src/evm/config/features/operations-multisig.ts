@@ -2,6 +2,7 @@ import { EvmChainId } from '../../chain/index.js'
 
 export const MULTISIG_CHAIN_IDS = [
   EvmChainId.ARBITRUM,
+  EvmChainId.ARC,
   EvmChainId.AVALANCHE,
   EvmChainId.BASE,
   EvmChainId.BLAST,
@@ -52,6 +53,7 @@ export type MultisigChainId = (typeof MULTISIG_CHAIN_IDS)[number]
 
 export const MULTISIG_ADDRESS: Record<MultisigChainId, `0x${string}`> = {
   [EvmChainId.ARBITRUM]: '0x978982772b8e4055b921bf9295c0d74eb36bc54e',
+  [EvmChainId.ARC]: '0x62ea314096DBe8eC792EA40E9c69021f2ae65aaB',
   [EvmChainId.AVALANCHE]: '0x09842ce338647906b686abb3b648a6457fbb25da',
   [EvmChainId.BASE]: '0xfcd4e19dd044cba929cf1eefc1c181ae4f5bece8',
   [EvmChainId.BLAST]: '0xbff76182457256808bd11b0cafc05c35c9e4aa43',
