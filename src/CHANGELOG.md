@@ -1,5 +1,17 @@
 # sushi
 
+## 7.3.7
+
+### Patch Changes
+
+- [#527](https://github.com/sushi-labs/sushi/pull/527) [`c07260b`](https://github.com/sushi-labs/sushi/commit/c07260b6e820bd9f4ea9f6bb9c1804f4597ad982) Thanks [@Ty-Sir](https://github.com/Ty-Sir)! - Add SushiSwap V2 and V3 subgraph URLs for Arc.
+
+- [#527](https://github.com/sushi-labs/sushi/pull/527) [`c07260b`](https://github.com/sushi-labs/sushi/commit/c07260b6e820bd9f4ea9f6bb9c1804f4597ad982) Thanks [@Ty-Sir](https://github.com/Ty-Sir)! - Add SushiSwap V2 and V3 deployment addresses on Arc, along with swap API support, fee collector addresses, the operations multisig, and Red Snwapper support.
+
+- [#525](https://github.com/sushi-labs/sushi/pull/525) [`f91f39e`](https://github.com/sushi-labs/sushi/commit/f91f39e4778cc3027d8618eb0b9b2b68f6067414) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Add SushiSwap V4 deployment addresses for Arc.
+
+- [#527](https://github.com/sushi-labs/sushi/pull/527) [`c07260b`](https://github.com/sushi-labs/sushi/commit/c07260b6e820bd9f4ea9f6bb9c1804f4597ad982) Thanks [@Ty-Sir](https://github.com/Ty-Sir)! - Add the CoinGecko Arc token list to the default token lists and configure the Launchpad V2 factory deployment on Arc.
+
 ## 7.3.6
 
 ### Patch Changes
