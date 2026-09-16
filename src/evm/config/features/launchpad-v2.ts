@@ -30,7 +30,7 @@ export const LAUNCHPAD_V2_FACTORIES = {
   ],
   [EvmChainId.ARC]: [
     {
-      address: '0x1e406484F1F204b23cE84B9901C0171a738fd406',
+      address: '0xf8027a52e2c910d9fff720f311c87cb3b0e76f9a',
       deploymentBlock: 21_062_190n,
     },
   ],
