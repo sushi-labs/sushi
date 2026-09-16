@@ -1,7 +1,10 @@
 import type { Address } from 'viem'
 import { EvmChainId } from '../../chain/index.js'
 
-export const LAUNCHPAD_V2_SUPPORTED_CHAIN_IDS = [EvmChainId.ROBINHOOD, EvmChainId.ARC] as const
+export const LAUNCHPAD_V2_SUPPORTED_CHAIN_IDS = [
+  EvmChainId.ROBINHOOD,
+  EvmChainId.ARC,
+] as const
 
 export const LaunchpadV2ChainIds = LAUNCHPAD_V2_SUPPORTED_CHAIN_IDS
 
