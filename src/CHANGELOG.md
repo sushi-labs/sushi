@@ -1,5 +1,11 @@
 # sushi
 
+## 7.3.10
+
+### Patch Changes
+
+- [#532](https://github.com/sushi-labs/sushi/pull/532) [`acea099`](https://github.com/sushi-labs/sushi/commit/acea099628d970d80d408646963882d72a582d76) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Update the Launchpad V2 factory address on Arc.
+
 ## 7.3.9
 
 ### Patch Changes
