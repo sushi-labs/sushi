@@ -1,5 +1,11 @@
 # sushi
 
+## 7.3.11
+
+### Patch Changes
+
+- [#534](https://github.com/sushi-labs/sushi/pull/534) [`e9d9a1f`](https://github.com/sushi-labs/sushi/commit/e9d9a1fc66acaad7d0a5e193bee8156c355f9121) Thanks [@Ty-Sir](https://github.com/Ty-Sir)! - Adds config for V2/V3 Uniswap on Arc
+
 ## 7.3.10
 
 ### Patch Changes
