@@ -1,5 +1,11 @@
 # sushi
 
+## 7.3.13
+
+### Patch Changes
+
+- [#538](https://github.com/sushi-labs/sushi/pull/538) [`ea4d67f`](https://github.com/sushi-labs/sushi/commit/ea4d67ff04908ccd8c8c90a8aac06b81edcca6cf) Thanks [@Ty-Sir](https://github.com/Ty-Sir)! - Fixes Robinhood's and Arc's V3 subgraph url to use the reduced version
+
 ## 7.3.12
 
 ### Patch Changes
