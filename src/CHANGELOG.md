@@ -1,5 +1,11 @@
 # sushi
 
+## 7.3.12
+
+### Patch Changes
+
+- [#536](https://github.com/sushi-labs/sushi/pull/536) [`1a8a644`](https://github.com/sushi-labs/sushi/commit/1a8a644b115f8f755e09aac770ac216d62bd1453) Thanks [@Ty-Sir](https://github.com/Ty-Sir)! - Updates viem and arc chain definition
+
 ## 7.3.11
 
 ### Patch Changes
