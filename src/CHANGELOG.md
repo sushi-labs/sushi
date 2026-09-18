@@ -1,5 +1,11 @@
 # sushi
 
+## 7.3.15
+
+### Patch Changes
+
+- [#542](https://github.com/sushi-labs/sushi/pull/542) [`86d5f06`](https://github.com/sushi-labs/sushi/commit/86d5f0648d3ab268973ec892ad6335a68b32eaa0) Thanks [@Ty-Sir](https://github.com/Ty-Sir)! - Adds WETH to Arc default bases
+
 ## 7.3.14
 
 ### Patch Changes

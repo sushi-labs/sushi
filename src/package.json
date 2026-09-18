@@ -1,7 +1,7 @@
 {
   "name": "sushi",
   "description": "Sushi",
-  "version": "7.3.14",
+  "version": "7.3.15",
   "type": "module",
   "main": "./_cjs/generic/index.js",
   "module": "./_esm/generic/index.js",
