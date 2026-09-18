@@ -392,7 +392,11 @@ export const EVM_DEFAULT_BASES = {
     WNATIVE[EvmChainId.APE],
     APE_USD[EvmChainId.APE],
   ],
-  [EvmChainId.ARC]: [USDC[EvmChainId.ARC], EURC[EvmChainId.ARC]],
+  [EvmChainId.ARC]: [
+    USDC[EvmChainId.ARC],
+    WETH9[EvmChainId.ARC],
+    EURC[EvmChainId.ARC],
+  ],
   [EvmChainId.SONIC]: [
     EvmNative.fromChainId(EvmChainId.SONIC),
     WNATIVE[EvmChainId.SONIC],
