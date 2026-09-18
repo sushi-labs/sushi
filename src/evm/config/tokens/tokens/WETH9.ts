@@ -53,6 +53,7 @@ export const WETH9_ADDRESS = {
   [EvmChainId.MEGAETH]: '0x4200000000000000000000000000000000000006',
   [EvmChainId.XLAYER]: '0x5a77f1443d16ee5761d310e38b62f77f726bc71c',
   [EvmChainId.ROBINHOOD]: '0x0bd7d308f8e1639fab988df18a8011f41eacad73', // https://docs.robinhood.com/chain/contracts/
+  [EvmChainId.ARC]: '0x128cc466b61f542da60c70e3aa11c10e19b84edb',
 } as const
 
 export const WETH9 = {
