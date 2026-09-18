@@ -1,5 +1,11 @@
 # sushi
 
+## 7.3.14
+
+### Patch Changes
+
+- [#540](https://github.com/sushi-labs/sushi/pull/540) [`cd8a567`](https://github.com/sushi-labs/sushi/commit/cd8a567602fcf528e3917ebc401b183e79a88dcc) Thanks [@Ty-Sir](https://github.com/Ty-Sir)! - Adds WETH to Arc and makes it the default quote
+
 ## 7.3.13
 
 ### Patch Changes
