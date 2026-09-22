@@ -20,7 +20,6 @@ export const WETH9_ADDRESS = {
   [EvmChainId.BOBA]: '0xdeaddeaddeaddeaddeaddeaddeaddeaddead0000',
   // [EvmChainId.SEPOLIA]: '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2',
   [EvmChainId.BTTC]: '0x1249c65afb11d179ffb3ce7d4eedd1d9b98ad006',
-  [EvmChainId.THUNDERCORE]: '0x6576bb918709906dcbfdceae4bb1e6df7c8a1077',
   [EvmChainId.POLYGON_ZKEVM]: '0x4f9a0e7fd2bf6067db6994cf12e4495df938e6e9',
   [EvmChainId.CORE]: '0xeab3ac417c4d6df6b143346a46fee1b847b50296',
   [EvmChainId.HAQQ]: axlETH_ADDRESS[EvmChainId.HAQQ],

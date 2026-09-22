@@ -25,7 +25,6 @@ export const SWAP_API_SUPPORTED_CHAIN_IDS = [
   EvmChainId.POLYGON,
   EvmChainId.POLYGON_ZKEVM,
   EvmChainId.SCROLL,
-  EvmChainId.THUNDERCORE,
   EvmChainId.ZETACHAIN,
   EvmChainId.CRONOS,
   EvmChainId.BLAST,

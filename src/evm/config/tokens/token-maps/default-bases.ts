@@ -236,14 +236,6 @@ export const EVM_DEFAULT_BASES = {
     DAI[EvmChainId.POLYGON_ZKEVM],
     WBTC[EvmChainId.POLYGON_ZKEVM],
   ],
-  [EvmChainId.THUNDERCORE]: [
-    EvmNative.fromChainId(EvmChainId.THUNDERCORE),
-    WNATIVE[EvmChainId.THUNDERCORE],
-    WETH9[EvmChainId.THUNDERCORE],
-    USDC[EvmChainId.THUNDERCORE],
-    USDT[EvmChainId.THUNDERCORE],
-    WBTC[EvmChainId.THUNDERCORE],
-  ],
   [EvmChainId.HAQQ]: [
     EvmNative.fromChainId(EvmChainId.HAQQ),
     WNATIVE[EvmChainId.HAQQ],

@@ -9,7 +9,6 @@ export const MERKL_SUPPORTED_CHAIN_IDS = [
   EvmChainId.POLYGON,
   EvmChainId.ARBITRUM,
   EvmChainId.AVALANCHE,
-  EvmChainId.THUNDERCORE,
   EvmChainId.CORE,
   EvmChainId.BLAST,
   EvmChainId.SCROLL,

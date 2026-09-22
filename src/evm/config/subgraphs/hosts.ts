@@ -8,7 +8,6 @@ export const METIS_HOST = 'andromeda.thegraph.metis.io/subgraphs/name'
 export const PENDING_METIS_HOST = 'andromeda.thegraph.metis.io/subgraphs/id'
 
 export const STUDIO_HOST = 'api.studio.thegraph.com/query/32073'
-export const THUNDERCORE_HOST = 'graph-node.thundercore.com/subgraphs/name'
 export const CORE_HOST = 'thegraph.coredao.org/subgraphs/name'
 export const HAQQ_HOST = 'haqq.graph.p2p.org/subgraphs/name'
 export const PCS_STUDIO_HOST = 'api.studio.thegraph.com/query/45376'

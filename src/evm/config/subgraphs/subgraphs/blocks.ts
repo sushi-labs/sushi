@@ -8,7 +8,6 @@ import {
   SKALE_HOST,
   SUSHI_DEDICATED_GOLDSKY_HOST,
   SUSHI_GOLDSKY_HOST,
-  THUNDERCORE_HOST,
   WAGMI_KAVA_HOST,
 } from '../hosts.js'
 
@@ -38,7 +37,6 @@ const BLOCKS_OTHER_URLS = {
   [EvmChainId.ARBITRUM_NOVA]: `${SUSHI_GOLDSKY_HOST}/blocks/arbitrum-nova/gn`,
   [EvmChainId.BOBA_BNB]: `${SUSHI_GOLDSKY_HOST}/blocks/boba-bnb/gn`,
   [EvmChainId.BTTC]: `${SUSHI_GOLDSKY_HOST}/blocks/bttc-mainnet/gn`,
-  [EvmChainId.THUNDERCORE]: `${THUNDERCORE_HOST}/sushiswap/blocks-thundercore`,
   [EvmChainId.CORE]: `${CORE_HOST}/sushiswap/blocks-core`,
   [EvmChainId.FILECOIN]: `${GOLDSKY_COMMUNITY_HOST}/blocks/filecoin-4760001/gn`,
   [EvmChainId.HAQQ]: `${HAQQ_HOST}/sushi/blocks-haqq`,

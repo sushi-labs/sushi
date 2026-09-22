@@ -39,7 +39,6 @@ import {
   skaleEuropa as skaleEuropaViem,
   sonic as sonicViem,
   taiko as taikoViem,
-  thunderCore as thundercoreViem,
   unichain as unichainViem,
   worldchain as worldchainViem,
   xLayer as xLayerViem,
@@ -168,11 +167,6 @@ const polygonZkevm = /* @__PURE__ */ defineEvmChain(polygonZkevmViem, {
   key: 'polygon-zkevm',
   shortName: 'pol-zkevm',
   parentChainId: ethereum.chainId,
-})
-
-const thundercore = /* @__PURE__ */ defineEvmChain(thundercoreViem, {
-  key: 'thundercore',
-  shortName: 'tt',
 })
 
 const filecoin = /* @__PURE__ */ defineEvmChain(filecoinViem, {
@@ -634,7 +628,6 @@ export const evmChains = [
   boba,
   bttc,
   polygonZkevm,
-  thundercore,
   filecoin,
   fuse,
   haqq,

@@ -193,11 +193,6 @@ const CHAIN_ID_SHORT_CURRENCY_NAME_TO_CURRENCY = {
   //   ETH: EvmNative.fromChainId(EvmChainId.BASE_TESTNET),
   //   WETH: WNATIVE[EvmChainId.BASE_TESTNET],
   // },
-  [EvmChainId.THUNDERCORE]: {
-    NATIVE: EvmNative.fromChainId(EvmChainId.THUNDERCORE),
-    WNATIVE: WNATIVE[EvmChainId.THUNDERCORE],
-    SUSHI: SUSHI[EvmChainId.THUNDERCORE],
-  },
   [EvmChainId.POLYGON_ZKEVM]: {
     NATIVE: EvmNative.fromChainId(EvmChainId.POLYGON_ZKEVM),
     WNATIVE: WNATIVE[EvmChainId.POLYGON_ZKEVM],
