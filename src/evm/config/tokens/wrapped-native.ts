@@ -27,7 +27,6 @@ export const WNATIVE_ADDRESS = {
   [EvmChainId.BOBA_BNB]: '0xc58aad327d6d58d979882601ba8dda0685b505ea',
   [EvmChainId.BTTC]: '0x23181f21dea5936e24163ffaba4ea3b316b57f3c',
   [EvmChainId.POLYGON_ZKEVM]: WETH9_ADDRESS[EvmChainId.POLYGON_ZKEVM],
-  [EvmChainId.THUNDERCORE]: '0x413cefea29f2d07b8f2acfa69d92466b9535f717',
   [EvmChainId.FILECOIN]: '0x60e1773636cf5e4a227d9ac24f20feca034ee25a',
   [EvmChainId.HAQQ]: '0xec8cc083787c6e5218d86f9ff5f28d4cc377ac54',
   [EvmChainId.CORE]: '0x40375c92d9faf44d2f9db9bd9ba41a3317a2404f',
@@ -153,13 +152,6 @@ export const WNATIVE = {
   // [EvmChainId.CONSENSUS_ZKEVM_TESTNET]: WETH9[EvmChainId.CONSENSUS_ZKEVM_TESTNET],
   // [EvmChainId.SCROLL_ALPHA_TESTNET]: WETH9[EvmChainId.SCROLL_ALPHA_TESTNET],
   // [EvmChainId.BASE_TESTNET]: WETH9[EvmChainId.BASE_TESTNET],
-  [EvmChainId.THUNDERCORE]: new EvmToken({
-    chainId: EvmChainId.THUNDERCORE,
-    address: WNATIVE_ADDRESS[EvmChainId.THUNDERCORE],
-    decimals: 18,
-    symbol: 'WTT',
-    name: 'Wrapped Thunder Token',
-  }),
   [EvmChainId.POLYGON_ZKEVM]: WETH9[EvmChainId.POLYGON_ZKEVM],
   [EvmChainId.HAQQ]: new EvmToken({
     chainId: EvmChainId.HAQQ,

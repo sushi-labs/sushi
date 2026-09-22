@@ -53,7 +53,6 @@ export const defaultQuoteCurrency = {
     name: 'Binance Coin',
   }),
   [EvmChainId.BTTC]: USDC[EvmChainId.BTTC],
-  [EvmChainId.THUNDERCORE]: USDC[EvmChainId.THUNDERCORE],
   [EvmChainId.POLYGON_ZKEVM]: USDC[EvmChainId.POLYGON_ZKEVM],
   [EvmChainId.HAQQ]: USDC[EvmChainId.HAQQ],
   [EvmChainId.CORE]: USDC[EvmChainId.CORE],

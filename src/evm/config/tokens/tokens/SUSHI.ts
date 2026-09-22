@@ -17,7 +17,6 @@ export const SUSHI_ADDRESS = {
   [EvmChainId.ARBITRUM_NOVA]: '0xfe60a48a0bcf4636afecc9642a145d2f241a7011',
   [EvmChainId.BTTC]: '0x53c56ece35f8cab135e13d6d00499dfc7c07a92e',
   [EvmChainId.OPTIMISM]: '0x3eaeb77b03dbc0f6321ae1b72b2e9adb0f60112b',
-  [EvmChainId.THUNDERCORE]: '0xabd380327fe66724ffda91a87c772fb8d00be488',
   [EvmChainId.FUSE]: '0x90708b20ccC1eb95a4FA7C8b18Fd2C22a0Ff9E78',
   [EvmChainId.ROBINHOOD]: '0x0bb40d7fbae7f0c69bc5910c601987dce697d85f',
 } as const

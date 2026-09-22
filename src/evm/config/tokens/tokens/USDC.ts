@@ -20,7 +20,6 @@ export const USDC_ADDRESS = {
   [EvmChainId.BOBA_BNB]: '0x9f98f9f312d23d078061962837042b8918e6aff2',
   [EvmChainId.BTTC]: '0xae17940943ba9440540940db0f1877f101d39e8b', // USDC.e
   [EvmChainId.POLYGON_ZKEVM]: '0xa8ce8aee21bc2a48a5ef670afcc9274c7bbbc035',
-  [EvmChainId.THUNDERCORE]: '0x22e89898a04eaf43379beb70bf4e38b1faf8a31e',
   [EvmChainId.CORE]: '0xa4151b2b3e269645181dccf2d426ce75fcbdeca9',
   [EvmChainId.HAQQ]: axlUSDC_ADDRESS[EvmChainId.HAQQ],
   [EvmChainId.ZKSYNC_ERA]: '0x3355df6d4c9c3035724fd0e3914de96a5a83aaf4', // USDC.e

@@ -12,7 +12,6 @@ export const WBTC_ADDRESS = {
   [EvmChainId.BOBA]: '0xdc0486f8bf31df57a952bcd3c1d3e166e3d9ec8b',
   [EvmChainId.METIS]: '0xa5b55ab1daf0f8e1efc0eb1931a957fd89b918f4',
   [EvmChainId.POLYGON_ZKEVM]: '0xea034fb02eb1808c2cc3adbc15f447b93cbe08e1',
-  [EvmChainId.THUNDERCORE]: '0x18fb0a62f207a2a082ca60aa78f47a1af4985190',
   [EvmChainId.HAQQ]: axlWBTC_ADDRESS[EvmChainId.HAQQ],
   [EvmChainId.ZKSYNC_ERA]: '0xbbeb516fb02a01611cbbe0453fe3c580d7281011',
   [EvmChainId.SCROLL]: '0x3c1bca5a656e69edcd0d4e36bebb3fcdaca60cf1',
