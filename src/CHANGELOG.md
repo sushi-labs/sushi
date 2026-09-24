@@ -1,5 +1,15 @@
 # sushi
 
+## 7.4.0
+
+### Minor Changes
+
+- [#544](https://github.com/sushi-labs/sushi/pull/544) [`a04f5a1`](https://github.com/sushi-labs/sushi/commit/a04f5a14cbb25572de14b14a59f4dee1ba43cb5d) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Remove ThunderCore chain support and its token, subgraph, and feature configuration.
+
+### Patch Changes
+
+- [#546](https://github.com/sushi-labs/sushi/pull/546) [`437f84c`](https://github.com/sushi-labs/sushi/commit/437f84c336be71e0bb0ec58bd53a5ed941d3536e) Thanks [@Ty-Sir](https://github.com/Ty-Sir)! - New position manager for Arc
+
 ## 7.3.15
 
 ### Patch Changes
