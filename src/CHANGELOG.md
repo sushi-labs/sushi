@@ -1,5 +1,11 @@
 # sushi
 
+## 7.5.1
+
+### Patch Changes
+
+- [#551](https://github.com/sushi-labs/sushi/pull/551) [`3a603a4`](https://github.com/sushi-labs/sushi/commit/3a603a4055a8f814bc2fc344315105f7e52df7a8) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Switch the Robinhood Chain block explorer from Robinscan to Etherscan.
+
 ## 7.5.0
 
 ### Minor Changes
