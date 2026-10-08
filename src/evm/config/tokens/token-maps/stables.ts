@@ -50,11 +50,6 @@ export const STABLES = {
     FRAX[EvmChainId.ARBITRUM],
     axlUSDC[EvmChainId.ARBITRUM],
   ],
-  [EvmChainId.ARBITRUM_NOVA]: [
-    USDC[EvmChainId.ARBITRUM_NOVA],
-    USDT[EvmChainId.ARBITRUM_NOVA],
-    DAI[EvmChainId.ARBITRUM_NOVA],
-  ],
   [EvmChainId.AVALANCHE]: [
     USDC[EvmChainId.AVALANCHE],
     USDT[EvmChainId.AVALANCHE],

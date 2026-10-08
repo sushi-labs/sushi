@@ -13,7 +13,6 @@ export const DAI_ADDRESS = {
   [EvmChainId.CELO]: '0x90ca507a5d4458a4c6c6249d186b6dcb02a5bccd',
   [EvmChainId.OPTIMISM]: '0xda10009cbd5d07dd0cecc66161fc93d7c9000da1',
   [EvmChainId.METIS]: '0x4c078361fc9bbb78df910800a991c7c3dd2f6ce0',
-  [EvmChainId.ARBITRUM_NOVA]: '0xda10009cbd5d07dd0cecc66161fc93d7c9000da1',
   [EvmChainId.BOBA]: '0xf74195bb8a5cf652411867c5c2c5b8c2a402be35',
   [EvmChainId.POLYGON_ZKEVM]: '0xc5015b9d9161dca7e18e32f6f25c4ad850731fd4',
   [EvmChainId.HAQQ]: axlDAI_ADDRESS[EvmChainId.HAQQ],

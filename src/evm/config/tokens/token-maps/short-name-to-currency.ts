@@ -37,11 +37,6 @@ const CHAIN_ID_SHORT_CURRENCY_NAME_TO_CURRENCY = {
     UNI: UNI[EvmChainId.ARBITRUM],
     AGEUR: AGEUR[EvmChainId.ARBITRUM],
   },
-  [EvmChainId.ARBITRUM_NOVA]: {
-    ETH: EvmNative.fromChainId(EvmChainId.ARBITRUM_NOVA),
-    WETH: WNATIVE[EvmChainId.ARBITRUM_NOVA],
-    SUSHI: SUSHI[EvmChainId.ARBITRUM_NOVA],
-  },
   [EvmChainId.AVALANCHE]: {
     AVAX: EvmNative.fromChainId(EvmChainId.AVALANCHE),
     WAVAX: WNATIVE[EvmChainId.AVALANCHE],

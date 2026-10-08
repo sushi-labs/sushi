@@ -40,7 +40,6 @@ export const SUSHISWAP_V3_FACTORY_ADDRESS: Record<
   SushiSwapV3ChainId | DeprecatedSushiSwapV3ChainId,
   Address
 > = {
-  [EvmChainId.ARBITRUM_NOVA]: '0xaa26771d497814e81d305c511efbb3ced90bf5bd',
   [EvmChainId.ARBITRUM]: '0x1af415a1eba07a4986a52b6f2e7de7003d82231e',
   [EvmChainId.ARC]: '0x7282249282902e1f99c2CB0A04230091bd30FE3A',
   [EvmChainId.AVALANCHE]: '0x3e603c14af37ebdad31709c4f848fc6ad5bec715',
@@ -80,7 +79,6 @@ export const SUSHISWAP_V3_INIT_CODE_HASH: Record<
   SushiSwapV3ChainId | DeprecatedSushiSwapV3ChainId,
   Address
 > = {
-  [EvmChainId.ARBITRUM_NOVA]: POOL_INIT_CODE_HASH,
   [EvmChainId.ARBITRUM]: POOL_INIT_CODE_HASH,
   [EvmChainId.ARC]: POOL_INIT_CODE_HASH,
   [EvmChainId.AVALANCHE]: POOL_INIT_CODE_HASH,
@@ -122,7 +120,6 @@ export const SUSHISWAP_V3_POSITION_MANAGER: Record<
   SushiSwapV3ChainId | DeprecatedSushiSwapV3ChainId,
   Address
 > = {
-  [EvmChainId.ARBITRUM_NOVA]: '0x258f7e97149afd7d7f84fa63b10e4a3f0c38b788',
   [EvmChainId.ARBITRUM]: '0xf0cbce1942a68beb3d1b73f0dd86c8dcc363ef49',
   [EvmChainId.ARC]: '0x287c6A19395800cD53B16368df2121F1f336A7f3',
   [EvmChainId.AVALANCHE]: '0x18350b048ab366ed601ffdbc669110ecb36016f3',
@@ -162,7 +159,6 @@ export const SUSHISWAP_V3_TICK_LENS: Record<
   SushiSwapV3ChainId | DeprecatedSushiSwapV3ChainId,
   Address
 > = {
-  [EvmChainId.ARBITRUM_NOVA]: '0xf60e5f4a44a510742457d8064ffd360b12d8d9af',
   [EvmChainId.ARBITRUM]: '0x8516944e89f296eb6473d79aed1ba12088016c9e',
   [EvmChainId.ARC]: '0x1D49Ff7De7C20F4B6B224694D942A538383E9d50',
   [EvmChainId.AVALANCHE]: '0xddc1b5920723f774d2ec2c3c9355251a20819776',
@@ -202,7 +198,6 @@ export const SUSHISWAP_V3_QUOTER: Record<
   SushiSwapV3ChainId | DeprecatedSushiSwapV3ChainId,
   Address
 > = {
-  [EvmChainId.ARBITRUM_NOVA]: '0xb1e835dc2785b52265711e17fccb0fd018226a6e',
   [EvmChainId.ARBITRUM]: '0x0524e833ccd057e4d7a296e3aaab9f7675964ce1',
   [EvmChainId.ARC]: '0x475d8dAB6dEcbBf89DB860D2673F2472Fa58E5f4',
   [EvmChainId.AVALANCHE]: '0xb1e835dc2785b52265711e17fccb0fd018226a6e',
@@ -240,7 +235,6 @@ export const SUSHISWAP_V3_QUOTER: Record<
 
 export const SUSHISWAP_V3_POSITION_HELPER: Record<SushiSwapV3ChainId, Address> =
   {
-    [EvmChainId.ARBITRUM_NOVA]: '0x34026A9b9Cb6DF84880C4B2f778F5965F5679c16',
     [EvmChainId.ARBITRUM]: '0x34026A9b9Cb6DF84880C4B2f778F5965F5679c16',
     [EvmChainId.ARC]: '0xE51960f1B45f1C9FB6D166E6a884F866fC70433B',
     [EvmChainId.AVALANCHE]: '0x34026A9b9Cb6DF84880C4B2f778F5965F5679c16',
@@ -269,7 +263,6 @@ export const SUSHISWAP_V3_POSITION_HELPER: Record<SushiSwapV3ChainId, Address> =
   } as const
 
 export const SUSHISWAP_V3_SUPPORTED_CHAIN_IDS = [
-  EvmChainId.ARBITRUM_NOVA,
   EvmChainId.ARBITRUM,
   EvmChainId.ARC,
   EvmChainId.AVALANCHE,

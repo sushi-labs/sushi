@@ -8,7 +8,6 @@ export const WBTC_ADDRESS = {
   [EvmChainId.ETHEREUM]: '0x2260fac5e5542a773aa44fbcfedf7c193bc2c599',
   [EvmChainId.POLYGON]: '0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6',
   [EvmChainId.OPTIMISM]: '0x68f180fcce6836688e9084f035309e29bf0a2095',
-  [EvmChainId.ARBITRUM_NOVA]: '0x1d05e4e72cd994cdf976181cfb0707345763564d',
   [EvmChainId.BOBA]: '0xdc0486f8bf31df57a952bcd3c1d3e166e3d9ec8b',
   [EvmChainId.METIS]: '0xa5b55ab1daf0f8e1efc0eb1931a957fd89b918f4',
   [EvmChainId.POLYGON_ZKEVM]: '0xea034fb02eb1808c2cc3adbc15f447b93cbe08e1',

@@ -54,7 +54,6 @@ export const LSDS = {
       name: 'Wrapped eETH',
     }),
   ],
-  [EvmChainId.ARBITRUM_NOVA]: [],
   [EvmChainId.AVALANCHE]: [],
   [EvmChainId.BASE]: [
     new EvmToken({

@@ -22,7 +22,6 @@ export const WNATIVE_ADDRESS = {
   [EvmChainId.CELO]: '0x471ece3750da237f93b8e339c536989b8978a438',
   [EvmChainId.KAVA]: '0xc86c7c0efbd6a49b35e8714c5f59d99de09a225b',
   [EvmChainId.METIS]: '0x75cb093e4d61d2a2e65d8e0bbb01de8d89b53481',
-  [EvmChainId.ARBITRUM_NOVA]: WETH9_ADDRESS[EvmChainId.ARBITRUM_NOVA],
   [EvmChainId.BOBA]: WETH9_ADDRESS[EvmChainId.BOBA],
   [EvmChainId.BOBA_BNB]: '0xc58aad327d6d58d979882601ba8dda0685b505ea',
   [EvmChainId.BTTC]: '0x23181f21dea5936e24163ffaba4ea3b316b57f3c',
@@ -97,7 +96,6 @@ export const WNATIVE = {
   }),
   [EvmChainId.ARBITRUM]: WETH9[EvmChainId.ARBITRUM],
   [EvmChainId.ARBITRUM_SEPOLIA]: WETH9[EvmChainId.ARBITRUM_SEPOLIA],
-  [EvmChainId.ARBITRUM_NOVA]: WETH9[EvmChainId.ARBITRUM_NOVA],
   [EvmChainId.AVALANCHE]: new EvmToken({
     chainId: EvmChainId.AVALANCHE,
     address: WNATIVE_ADDRESS[EvmChainId.AVALANCHE],

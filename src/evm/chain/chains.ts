@@ -1,7 +1,6 @@
 import { defineChain as defineViemChain } from 'viem'
 import {
   apeChain as apeViem,
-  arbitrumNova as arbitrumNovaViem,
   arbitrumSepolia as arbitrumSepoliaViem,
   arbitrum as arbitrumViem,
   arc as arcViem,
@@ -111,12 +110,6 @@ const bobaBnb = /* @__PURE__ */ defineEvmChain(
 const arbitrum = /* @__PURE__ */ defineEvmChain(arbitrumViem, {
   key: 'arbitrum',
   shortName: 'arb1',
-  parentChainId: ethereum.chainId,
-})
-
-const arbitrumNova = /* @__PURE__ */ defineEvmChain(arbitrumNovaViem, {
-  key: 'arbitrum-nova',
-  shortName: 'arb-nova',
   parentChainId: ethereum.chainId,
 })
 
@@ -618,7 +611,6 @@ export const evmChains = [
   gnosis,
   bsc,
   arbitrum,
-  arbitrumNova,
   avalanche,
   harmony,
   celo,

@@ -16,7 +16,6 @@ export const USDT_ADDRESS = {
   [EvmChainId.OPTIMISM]: '0x94b008aa00579c1307b0ef2c499ad98a8ce58e58',
   [EvmChainId.KAVA]: '0x919c1c267bc06a7039e03fcc2ef738525769109c',
   [EvmChainId.METIS]: '0xbb06dca3ae6887fabf931640f67cab3e3a16f4dc',
-  [EvmChainId.ARBITRUM_NOVA]: '0xed9d63a96c27f87b07115b56b2e3572827f21646',
   [EvmChainId.BOBA]: '0x5de1677344d3cb0d7d465c10b72a8f60699c062d',
   [EvmChainId.BOBA_BNB]: '0x1e633dcd0d3d349126983d58988051f7c62c543d',
   [EvmChainId.BTTC]: '0xe887512ab8bc60bcc9224e1c3b5be68e26048b8b', // USDT.e

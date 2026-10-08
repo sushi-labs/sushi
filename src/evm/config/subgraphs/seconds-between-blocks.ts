@@ -14,7 +14,6 @@ export const SECONDS_BETWEEN_BLOCKS: Partial<Record<EvmChainId, number>> = {
   [EvmChainId.OPTIMISM]: 2,
   [EvmChainId.KAVA]: 6.3,
   [EvmChainId.METIS]: 4.5,
-  [EvmChainId.ARBITRUM_NOVA]: 1,
   [EvmChainId.BOBA]: 250,
   [EvmChainId.BOBA_BNB]: 0.5,
   [EvmChainId.BTTC]: 2,
