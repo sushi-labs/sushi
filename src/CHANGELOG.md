@@ -1,5 +1,13 @@
 # sushi
 
+## 7.5.0
+
+### Minor Changes
+
+- [#547](https://github.com/sushi-labs/sushi/pull/547) [`b782b5d`](https://github.com/sushi-labs/sushi/commit/b782b5dc001c307231d59ca7bc7297c96b340111) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Remove Arbitrum Nova chain support and its token, subgraph, and feature configuration.
+
+  Update viem to 2.57.2 to include Arc's multicall3 configuration.
+
 ## 7.4.0
 
 ### Minor Changes
