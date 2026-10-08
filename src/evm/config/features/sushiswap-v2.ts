@@ -3,7 +3,6 @@ import { EvmChainId } from '../../chain/index.js'
 
 export const SUSHISWAP_V2_SUPPORTED_CHAIN_IDS = [
   EvmChainId.ARBITRUM,
-  EvmChainId.ARBITRUM_NOVA,
   EvmChainId.AVALANCHE,
   EvmChainId.BASE,
   EvmChainId.BOBA,
@@ -89,8 +88,6 @@ export const SUSHISWAP_V2_INIT_CODE_HASH: Record<
     '0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303',
   [EvmChainId.CELO]:
     '0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303',
-  [EvmChainId.ARBITRUM_NOVA]:
-    '0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303',
   [EvmChainId.BOBA]:
     '0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303',
   [EvmChainId.BOBA_BNB]:
@@ -160,7 +157,6 @@ export const SUSHISWAP_V2_FACTORY_ADDRESS: Record<
   [EvmChainId.HAQQ]: '0xb45e53277a7e0f1d35f2a77160e91e25507f1763',
   [EvmChainId.HARMONY]: '0xc35dadb65012ec5796536bd9864ed8773abc74c4',
   [EvmChainId.CELO]: '0xc35dadb65012ec5796536bd9864ed8773abc74c4',
-  [EvmChainId.ARBITRUM_NOVA]: '0xc35dadb65012ec5796536bd9864ed8773abc74c4',
   [EvmChainId.BOBA]: '0xc35dadb65012ec5796536bd9864ed8773abc74c4',
   [EvmChainId.BOBA_BNB]: '0xc35dadb65012ec5796536bd9864ed8773abc74c4',
   [EvmChainId.BASE]: '0x71524b4f93c58fcbf659783284e38825f0622859',
@@ -202,7 +198,6 @@ export const SUSHISWAP_V2_ROUTER_ADDRESS: Record<
   [EvmChainId.AVALANCHE]: '0x1b02da8cb0d097eb8d57a175b88c7d8b47997506',
   [EvmChainId.HARMONY]: '0x1b02da8cb0d097eb8d57a175b88c7d8b47997506',
   [EvmChainId.CELO]: '0xb45e53277a7e0f1d35f2a77160e91e25507f1763',
-  [EvmChainId.ARBITRUM_NOVA]: '0x1b02da8cb0d097eb8d57a175b88c7d8b47997506',
   [EvmChainId.BOBA]: '0x1b02da8cb0d097eb8d57a175b88c7d8b47997506',
   [EvmChainId.BOBA_BNB]: '0x1b02da8cb0d097eb8d57a175b88c7d8b47997506',
   [EvmChainId.BASE]: '0x6bded42c6da8fbf0d2ba55b2fa120c5e0c8d7891',

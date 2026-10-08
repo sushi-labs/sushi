@@ -91,15 +91,6 @@ export const EVM_DEFAULT_BASES = {
     MIM[EvmChainId.AVALANCHE],
     FRAX[EvmChainId.AVALANCHE],
   ],
-  [EvmChainId.ARBITRUM_NOVA]: [
-    EvmNative.fromChainId(EvmChainId.ARBITRUM_NOVA),
-    WNATIVE[EvmChainId.ARBITRUM_NOVA],
-    ARB[EvmChainId.ARBITRUM_NOVA],
-    WBTC[EvmChainId.ARBITRUM_NOVA],
-    USDC[EvmChainId.ARBITRUM_NOVA],
-    USDT[EvmChainId.ARBITRUM_NOVA],
-    DAI[EvmChainId.ARBITRUM_NOVA],
-  ],
   [EvmChainId.BOBA]: [
     EvmNative.fromChainId(EvmChainId.BOBA),
     WNATIVE[EvmChainId.BOBA],

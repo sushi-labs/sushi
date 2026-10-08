@@ -36,7 +36,6 @@ export const defaultQuoteCurrency = {
   [EvmChainId.GNOSIS]: GNO[EvmChainId.GNOSIS],
   [EvmChainId.BSC]: BUSD[EvmChainId.BSC],
   [EvmChainId.ARBITRUM]: ARB[EvmChainId.ARBITRUM],
-  [EvmChainId.ARBITRUM_NOVA]: ARB[EvmChainId.ARBITRUM_NOVA],
   [EvmChainId.ARBITRUM_SEPOLIA]: WNATIVE[EvmChainId.ARBITRUM_SEPOLIA],
   [EvmChainId.AVALANCHE]: USDC[EvmChainId.AVALANCHE],
   [EvmChainId.HARMONY]: USDC[EvmChainId.HARMONY],

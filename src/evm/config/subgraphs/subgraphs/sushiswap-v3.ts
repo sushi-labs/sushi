@@ -20,7 +20,6 @@ const SUSHISWAP_V3_DECENTRALIZED_DEPLOYMENT_IDS = {
 } as const satisfies Partial<Record<SushiSwapV3ChainId, string>>
 
 const SUSHISWAP_V3_OTHER_URLS = {
-  [EvmChainId.ARBITRUM_NOVA]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushi-v3/v3-arbitrum-nova/gn`,
   [EvmChainId.FILECOIN]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-filecoin/gn`,
   [EvmChainId.BLAST]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-blast/gn`,
   [EvmChainId.SKALE_EUROPA]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/v3-skale-europa-2/gn`,

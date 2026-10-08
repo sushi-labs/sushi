@@ -34,7 +34,6 @@ const BLOCKS_DECENTRALIZED_IDS = {
 const BLOCKS_OTHER_URLS = {
   [EvmChainId.KAVA]: `${WAGMI_KAVA_HOST}/blocks`,
   [EvmChainId.METIS]: `${METIS_0XGRAPH_HOST}/sushiswap/blocks-metis/-/gn`,
-  [EvmChainId.ARBITRUM_NOVA]: `${SUSHI_GOLDSKY_HOST}/blocks/arbitrum-nova/gn`,
   [EvmChainId.BOBA_BNB]: `${SUSHI_GOLDSKY_HOST}/blocks/boba-bnb/gn`,
   [EvmChainId.BTTC]: `${SUSHI_GOLDSKY_HOST}/blocks/bttc-mainnet/gn`,
   [EvmChainId.CORE]: `${CORE_HOST}/sushiswap/blocks-core`,

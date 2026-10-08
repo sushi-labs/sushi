@@ -18,7 +18,6 @@ const MINICHEF_DECENTRALIZED_IDS = {
 const MINICHEF_OTHER_URLS = {
   [EvmChainId.KAVA]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/minichef-kava/gn`,
   [EvmChainId.METIS]: `${METIS_0XGRAPH_HOST}/sushiswap/minichef-metis`,
-  [EvmChainId.ARBITRUM_NOVA]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/minichef-arbitrum-nova/gn`,
   [EvmChainId.BTTC]: `${SUSHI_DEDICATED_GOLDSKY_HOST}/sushiswap/minichef-bttc/gn`,
 } as const satisfies Partial<Record<MiniChefChainId, string>>
 
