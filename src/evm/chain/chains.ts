@@ -511,6 +511,12 @@ const xLayer = /* @__PURE__ */ defineEvmChain(xLayerViem, {
 const robinhood = /* @__PURE__ */ defineEvmChain(robinhoodViem, {
   key: 'robinhood',
   shortName: 'robinhood',
+  blockExplorers: {
+    default: {
+      name: 'Etherscan',
+      url: 'https://robin.etherscan.io',
+    },
+  },
 })
 
 // Testnets
