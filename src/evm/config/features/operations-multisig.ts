@@ -90,7 +90,7 @@ export const MULTISIG_ADDRESS: Record<MultisigChainId, `0x${string}`> = {
   [EvmChainId.HEMI]: '0x1410e57261bb67d662b2ed125125268d297e27f1',
   [EvmChainId.FILECOIN]: '0x1410e57261bb67d662b2ed125125268d297e27f1',
   [EvmChainId.KATANA]: '0xd304f5018e5be487f78487cfbc0c313a034f0e9e',
-  [EvmChainId.HYPEREVM]: '0x19dd154f7528fce4a0cc7b9817aa39d4b42990e4',
+  [EvmChainId.HYPEREVM]: '0x78AeC7029B9b1d3D06Cc8c3a685C8B6CBc99288e',
   [EvmChainId.BERACHAIN]: '0xbb0ebe7b041a456da9e2295931af31dc0f9d8ced',
   [EvmChainId.PLASMA]: '0x5bf386459cb52d4cf9dbf8e602d5f9045921375b',
   [EvmChainId.FUSE]: '0x33b6beb37837459ee84a1ffed2c6a4ca22e5f316',
