@@ -1,5 +1,11 @@
 # sushi
 
+## 7.5.2
+
+### Patch Changes
+
+- [#552](https://github.com/sushi-labs/sushi/pull/552) [`bbf4b3b`](https://github.com/sushi-labs/sushi/commit/bbf4b3b92647c61a1eb473e2cec6840877f18095) Thanks [@Ty-Sir](https://github.com/Ty-Sir)! - Update HyperEVM multisig address to new one
+
 ## 7.5.1
 
 ### Patch Changes
