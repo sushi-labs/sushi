@@ -31,6 +31,7 @@ const swap = await getSwap({
 | `maxSlippage` | Yes | Maximum slippage as a decimal number. |
 | `recipient` | No | Address receiving output tokens. Defaults to sender. |
 | `source` | No | Liquidity source selection. |
+| `takeSurplus` | No | Surplus share in thousandths: integer from 0 (none) to 1000 (100%). Omit to use the API default. |
 | `fee`, `feeReceiver`, `feeBy` | No | Integration fee fields. |
 | `referrer` | No | Custom referrer string. |
 | `simulate` | No | Request simulated gas/validation data. |

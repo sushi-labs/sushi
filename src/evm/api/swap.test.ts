@@ -15,6 +15,43 @@ const baseSwapRequest = {
 describe('getSwap', () => {
   afterEach(() => vi.unstubAllGlobals())
 
+  it.each([
+    0,
+    500,
+    1000,
+    undefined,
+  ])('sends takeSurplus=%s when provided', async (takeSurplus) => {
+    const fetchMock = vi.fn(async (_input: string | URL | Request) =>
+      Response.json({ status: 'NoWay' }),
+    )
+    vi.stubGlobal('fetch', fetchMock)
+
+    await getSwap({
+      ...baseSwapRequest,
+      ...(takeSurplus === undefined ? {} : { takeSurplus }),
+    })
+
+    const url = new URL(fetchMock.mock.calls[0]![0] as string)
+    expect(url.searchParams.get('takeSurplus')).toBe(
+      takeSurplus === undefined ? null : takeSurplus.toString(),
+    )
+  })
+
+  it.each([
+    -1,
+    1001,
+    0.5,
+    Number.NaN,
+    Number.POSITIVE_INFINITY,
+  ])('rejects invalid takeSurplus=%s before fetching', async (takeSurplus) => {
+    const fetchMock = vi.fn()
+    vi.stubGlobal('fetch', fetchMock)
+
+    await expect(getSwap({ ...baseSwapRequest, takeSurplus })).rejects.toThrow()
+
+    expect(fetchMock).not.toHaveBeenCalled()
+  })
+
   it('should return a swap when recipient is included', async () => {
     const result = await getSwap({
       ...baseSwapRequest,

@@ -17,6 +17,8 @@ export type SwapRequest<Simulate extends boolean = true> = {
   sender: Address
   maxSlippage: number
   maxPriceImpact?: number
+  /** Surplus share in thousandths, from 0 to 1000. Defaults to the API's value. */
+  takeSurplus?: number
   source?: RouterLiquiditySource
   fee?: number
   feeReceiver?: Address
@@ -38,6 +40,7 @@ const swapRequestSchema = z
     sender: szevm.address(),
     maxSlippage: z.number().gte(0).lt(1),
     maxPriceImpact: z.number().positive().lte(1).optional(),
+    takeSurplus: z.number().int().min(0).max(1000).optional(),
     source: z.enum(RouterLiquiditySource).optional(),
     fee: z.number().gte(0).lte(0.5).optional(),
     feeReceiver: szevm.address().optional(),
@@ -147,6 +150,10 @@ export async function getSwap<Simulate extends boolean = true>(
 
   if (params.maxPriceImpact) {
     url.searchParams.append('maxPriceImpact', params.maxPriceImpact.toString())
+  }
+
+  if (params.takeSurplus !== undefined) {
+    url.searchParams.append('takeSurplus', params.takeSurplus.toString())
   }
 
   if (params.recipient) {
