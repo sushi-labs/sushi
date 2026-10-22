@@ -12,6 +12,7 @@ The EVM API module wraps Sushi’s hosted price, quote, and swap APIs.
 | `getSwap` | Fetch swap transaction data. |
 | `QuoteRequest`, `QuoteResponse` | Quote request/response types. |
 | `SwapRequest`, `SwapResponse` | Swap request/response types. |
+| `SwapTarget` | Supported swap targets: `RP` and `routeCode`. |
 | `RouteStatus` | `Success`, `NoWay`, `Partial`. |
 | `TransferValue` | Fee transfer value mode. |
 | `RouterLiquiditySource` | Route source selection. |
@@ -46,7 +47,9 @@ const prices = await getPrices(1)
 | `amount` | Yes | Raw input amount. |
 | `sender` | Yes | Transaction sender. |
 | `maxSlippage` | Yes | Maximum slippage. |
-| `maxPriceImpact`, `source`, `takeSurplus`, `fee`, `feeReceiver`, `feeBy`, `referrer`, `recipient`, `simulate`, `validate`, `apiKey`, `baseUrl` | No | Routing, fee, execution, simulation, key, and API options. |
+| `maxPriceImpact`, `source`, `takeSurplus`, `target`, `fee`, `feeReceiver`, `feeBy`, `referrer`, `recipient`, `simulate`, `validate`, `apiKey`, `baseUrl` | No | Routing, fee, execution, simulation, key, and API options. |
+
+`target: 'RP'` returns a RouteProcessor transaction without `gas` or `gasPrice`, even when simulation is enabled. `target: 'routeCode'` returns `{ routeCode }`. Both modes may return `{ status: 'NoWay' }`. The return type follows the selected target; omitting `target` preserves the default response.
 
 The SDK builds the URL, calls `fetch`, and parses the response. Pass standard `RequestInit` options as the second argument.
 
