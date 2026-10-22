@@ -1,4 +1,5 @@
-import { afterEach, describe, expect, it, vi } from 'vitest'
+import type { Hex } from 'viem'
+import { afterEach, describe, expect, expectTypeOf, it, vi } from 'vitest'
 import { EvmChainId } from '../chain/index.js'
 import { WNATIVE_ADDRESS } from '../config/tokens/index.js'
 import { getSwap, type SwapRequest } from './swap.js'
@@ -14,6 +15,94 @@ const baseSwapRequest = {
 
 describe('getSwap', () => {
   afterEach(() => vi.unstubAllGlobals())
+
+  it('requests and parses routeCode without requiring transaction fields', async () => {
+    const fetchMock = vi.fn(async (_input: string | URL | Request) =>
+      Response.json({ routeCode: '0x1234' }),
+    )
+    vi.stubGlobal('fetch', fetchMock)
+
+    const result = await getSwap({ ...baseSwapRequest, target: 'routeCode' })
+
+    expect(
+      new URL(fetchMock.mock.calls[0]![0] as string).searchParams.get('target'),
+    ).toBe('routeCode')
+    expect(result).toEqual({ routeCode: '0x1234' })
+    if ('routeCode' in result) {
+      expectTypeOf(result.routeCode).toEqualTypeOf<Hex>()
+      expectTypeOf(result).not.toHaveProperty('tx')
+    }
+  })
+
+  it.each([
+    true,
+    false,
+  ])('parses RP transactions without gas fields when simulate=%s', async (simulate) => {
+    const token = {
+      address: baseSwapRequest.tokenIn,
+      decimals: 18,
+      symbol: 'ETH',
+      name: 'Ether',
+    }
+    const tx = {
+      from: baseSwapRequest.sender,
+      to: baseSwapRequest.tokenOut,
+      data: '0x1234',
+      value: '1',
+    }
+    const fetchMock = vi.fn(async (_input: string | URL | Request) =>
+      Response.json({
+        status: 'Success',
+        tokens: [token],
+        tokenFrom: 0,
+        tokenTo: 0,
+        swapPrice: 1,
+        priceImpact: 0,
+        amountIn: '1',
+        assumedAmountOut: '1',
+        tx,
+      }),
+    )
+    vi.stubGlobal('fetch', fetchMock)
+
+    const result = await getSwap({ ...baseSwapRequest, target: 'RP', simulate })
+
+    expect(
+      new URL(fetchMock.mock.calls[0]![0] as string).searchParams.get('target'),
+    ).toBe('RP')
+    expect(result.status).toBe('Success')
+    if (result.status === 'Success') {
+      expect(result.tx).toEqual({ ...tx, value: 1n })
+      expect(result.tokenFrom).toEqual(token)
+      expectTypeOf(result.tx).not.toHaveProperty('gas')
+      expectTypeOf(result.tx).not.toHaveProperty('gasPrice')
+    }
+  })
+
+  it.each([
+    'RP',
+    'routeCode',
+  ] as const)('handles NoWay for target=%s', async (target) => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async () => Response.json({ status: 'NoWay' })),
+    )
+
+    expect(await getSwap({ ...baseSwapRequest, target })).toEqual({
+      status: 'NoWay',
+    })
+  })
+
+  it('rejects malformed route code responses', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async () => Response.json({ routeCode: 'invalid' })),
+    )
+
+    await expect(
+      getSwap({ ...baseSwapRequest, target: 'routeCode' }),
+    ).rejects.toThrow()
+  })
 
   it.each([
     0,
@@ -35,6 +124,7 @@ describe('getSwap', () => {
     expect(url.searchParams.get('takeSurplus')).toBe(
       takeSurplus === undefined ? null : takeSurplus.toString(),
     )
+    expect(url.searchParams.has('target')).toBe(false)
   })
 
   it.each([

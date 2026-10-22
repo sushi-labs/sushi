@@ -32,6 +32,7 @@ const swap = await getSwap({
 | `recipient` | No | Address receiving output tokens. Defaults to sender. |
 | `source` | No | Liquidity source selection. |
 | `takeSurplus` | No | Surplus share in thousandths: integer from 0 (none) to 1000 (100%). Omit to use the API default. |
+| `target` | No | `RP` returns a RouteProcessor transaction without gas fields; `routeCode` returns only `{ routeCode }`. Omit for the default transaction. Either mode can also return `{ status: 'NoWay' }`. |
 | `fee`, `feeReceiver`, `feeBy` | No | Integration fee fields. |
 | `referrer` | No | Custom referrer string. |
 | `simulate` | No | Request simulated gas/validation data. |
