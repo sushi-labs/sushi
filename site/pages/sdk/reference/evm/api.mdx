@@ -46,7 +46,7 @@ const prices = await getPrices(1)
 | `amount` | Yes | Raw input amount. |
 | `sender` | Yes | Transaction sender. |
 | `maxSlippage` | Yes | Maximum slippage. |
-| `maxPriceImpact`, `source`, `fee`, `feeReceiver`, `feeBy`, `referrer`, `recipient`, `simulate`, `validate`, `apiKey`, `baseUrl` | No | Routing, fee, execution, simulation, key, and API options. |
+| `maxPriceImpact`, `source`, `takeSurplus`, `fee`, `feeReceiver`, `feeBy`, `referrer`, `recipient`, `simulate`, `validate`, `apiKey`, `baseUrl` | No | Routing, fee, execution, simulation, key, and API options. |
 
 The SDK builds the URL, calls `fetch`, and parses the response. Pass standard `RequestInit` options as the second argument.
 
