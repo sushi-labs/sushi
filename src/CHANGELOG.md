@@ -1,5 +1,11 @@
 # sushi
 
+## 7.5.3
+
+### Patch Changes
+
+- [#554](https://github.com/sushi-labs/sushi/pull/554) [`501068a`](https://github.com/sushi-labs/sushi/commit/501068aa5f29432b1e6070877a2144952b6dd597) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Add the optional takeSurplus parameter to getSwap, with validation for integer values from 0 to 1000.
+
 ## 7.5.2
 
 ### Patch Changes
