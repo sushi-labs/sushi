@@ -1,5 +1,11 @@
 # sushi
 
+## 7.5.4
+
+### Patch Changes
+
+- [#556](https://github.com/sushi-labs/sushi/pull/556) [`e19518d`](https://github.com/sushi-labs/sushi/commit/e19518d9cfa9f134c22c594d9d357ba356bc800e) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Support target=RP and target=routeCode in getSwap with target-specific response validation and types.
+
 ## 7.5.3
 
 ### Patch Changes
