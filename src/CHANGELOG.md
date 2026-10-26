@@ -1,5 +1,11 @@
 # sushi
 
+## 7.6.0
+
+### Minor Changes
+
+- [#559](https://github.com/sushi-labs/sushi/pull/559) [`ad1e30f`](https://github.com/sushi-labs/sushi/commit/ad1e30f61bd1cd1df2e9df4bbe22c4858e0f5128) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Add `SUSHISWAP_V4` to `SushiSwapProtocol` and export the `SushiSwapV4Protocol` type.
+
 ## 7.5.4
 
 ### Patch Changes
