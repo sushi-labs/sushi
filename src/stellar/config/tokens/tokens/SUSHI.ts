@@ -14,6 +14,6 @@ export const STELLAR_SUSHI: Record<StellarChainId, StellarToken> = {
     decimals: 7,
     symbol: 'SUSHI',
     name: 'SushiToken',
-    origin: 'sushi.com',
+    origin: 'www.sushi.com',
   }),
 }
