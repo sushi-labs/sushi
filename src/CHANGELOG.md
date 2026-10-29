@@ -1,5 +1,11 @@
 # sushi
 
+## 7.6.1
+
+### Patch Changes
+
+- [#562](https://github.com/sushi-labs/sushi/pull/562) [`7c372d7`](https://github.com/sushi-labs/sushi/commit/7c372d741533beeb6ec4408ae8e70e4493ba7f1b) Thanks [@Ty-Sir](https://github.com/Ty-Sir)! - Adds SushiToken to Stellar tokens and default bases
+
 ## 7.6.0
 
 ### Minor Changes
