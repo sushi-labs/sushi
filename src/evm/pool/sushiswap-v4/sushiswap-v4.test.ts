@@ -311,6 +311,30 @@ describe('SushiSwapV4Position', () => {
     )
   })
 
+  it('keeps a single-sided mint from taking the other currency', () => {
+    // One spacing out of range, where 5% slippage reaches into it
+    const slippage = new Percent({ numerator: 5, denominator: 100 })
+    const nearest = nearestUsableTick(TICK, TICK_SPACING)
+    const above = new SushiSwapV4Position({
+      pool: v4Pool,
+      tickLower: nearest + TICK_SPACING,
+      tickUpper: nearest + TICK_SPACING * 20,
+      liquidity,
+    })
+    const below = new SushiSwapV4Position({
+      pool: v4Pool,
+      tickLower: nearest - TICK_SPACING * 20,
+      tickUpper: nearest - TICK_SPACING,
+      liquidity,
+    })
+
+    // Out of range, the deposited currency's amount doesn't depend on price
+    expect(above.mintAmounts.amount1).toBe(0n)
+    expect(above.mintAmountsWithSlippage(slippage)).toEqual(above.mintAmounts)
+    expect(below.mintAmounts.amount0).toBe(0n)
+    expect(below.mintAmountsWithSlippage(slippage)).toEqual(below.mintAmounts)
+  })
+
   it('creates positions from amounts as V3 does', () => {
     const args = { tickLower, tickUpper, useFullPrecision: true } as const
     expect(

@@ -201,13 +201,16 @@ export class SushiSwapV4Position {
   /**
    * The most of each currency minting the liquidity may cost if the price
    * slips by up to `slippageTolerance`: currency0 is dearest when the price
-   * falls, currency1 when it rises.
+   * falls, currency1 when it rises. A currency the position takes none of at
+   * the current price, out of range, stays at zero, so the mint reverts if
+   * the price moves into range rather than taking a currency not deposited.
    */
   public mintAmountsWithSlippage(slippageTolerance: Percent): Amounts {
     const { poolLower, poolUpper } = this.poolsAfterSlippage(slippageTolerance)
+    const { amount0, amount1 } = this.mintAmounts
     return {
-      amount0: this.amountsAt(poolLower, true).amount0,
-      amount1: this.amountsAt(poolUpper, true).amount1,
+      amount0: amount0 === 0n ? 0n : this.amountsAt(poolLower, true).amount0,
+      amount1: amount1 === 0n ? 0n : this.amountsAt(poolUpper, true).amount1,
     }
   }
 
