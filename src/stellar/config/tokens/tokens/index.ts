@@ -1,3 +1,4 @@
+export * from './BLNT.js'
 export * from './CETES.js'
 export * from './EURC.js'
 export * from './PYUSD.js'
