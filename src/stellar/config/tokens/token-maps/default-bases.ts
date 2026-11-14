@@ -1,5 +1,6 @@
 import { StellarChainId } from '../../../../stellar/chain/index.js'
 import type { StellarCurrency } from '../../../../stellar/currency/currency.js'
+import { STELLAR_BLNT } from '../tokens/BLNT.js'
 import { STELLAR_CETES } from '../tokens/CETES.js'
 import { STELLAR_EURC } from '../tokens/EURC.js'
 import { STELLAR_PYUSD } from '../tokens/PYUSD.js'
@@ -15,6 +16,7 @@ import { STELLAR_XSOLVBTC } from '../tokens/xSolvBTC.js'
 export const STELLAR_DEFAULT_BASES = {
   [StellarChainId.STELLAR]: [
     STELLAR_SUSHI[StellarChainId.STELLAR],
+    STELLAR_BLNT[StellarChainId.STELLAR],
     STELLAR_CETES[StellarChainId.STELLAR],
     STELLAR_EURC[StellarChainId.STELLAR],
     STELLAR_PYUSD[StellarChainId.STELLAR],
