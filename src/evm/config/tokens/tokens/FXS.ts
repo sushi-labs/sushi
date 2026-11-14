@@ -8,7 +8,6 @@ export const FXS_ADDRESS = {
   [EvmChainId.ARBITRUM]: '0x9d2f299715d94d8a7e6f5eaa8e654e8c74a988a7',
   [EvmChainId.AVALANCHE]: '0x214db107654ff987ad859f34125307783fc8e387',
   [EvmChainId.POLYGON]: '0x3e121107f6f22da4911079845a470757af4e1a1b',
-  [EvmChainId.HARMONY]: '0x0767d8e1b05efa8d6a301a65b324b6b66a1cc14c',
   [EvmChainId.BOBA]: '0xdc1664458d2f0b6090bea60a8793a4e66c2f1c00',
   [EvmChainId.OPTIMISM]: '0x67ccea5bb16181e7b4109c9c2143c24a1c2205be',
 } as const

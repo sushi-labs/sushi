@@ -18,7 +18,6 @@ export const WNATIVE_ADDRESS = {
   [EvmChainId.GNOSIS]: '0xe91d153e0b41518a2ce8dd3d7944fa863463a97d',
   [EvmChainId.BSC]: '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c',
   [EvmChainId.AVALANCHE]: '0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7',
-  [EvmChainId.HARMONY]: '0xcf664087a5bb0237a0bad6742852ec6c8d69a27a',
   [EvmChainId.CELO]: '0x471ece3750da237f93b8e339c536989b8978a438',
   [EvmChainId.KAVA]: '0xc86c7c0efbd6a49b35e8714c5f59d99de09a225b',
   [EvmChainId.METIS]: '0x75cb093e4d61d2a2e65d8e0bbb01de8d89b53481',
@@ -37,14 +36,12 @@ export const WNATIVE_ADDRESS = {
   [EvmChainId.SCROLL]: WETH9_ADDRESS[EvmChainId.SCROLL],
   [EvmChainId.ZETACHAIN]: '0x5f0b1a82749cb4e2278ec87f8bf6b618dc71a8bf',
   [EvmChainId.CRONOS]: '0x5c7f8a570d578ed84e63fdfa7b1ee72deae1ae23',
-  [EvmChainId.BLAST]: WETH9_ADDRESS[EvmChainId.BLAST],
   [EvmChainId.SKALE_EUROPA]: zeroAddress,
   [EvmChainId.ROOTSTOCK]: WRBTC_ADDRESS[EvmChainId.ROOTSTOCK],
   [EvmChainId.MANTLE]: '0x78c1b0c915c4faa5fffa6cabf0219da63d7f4cb8',
   [EvmChainId.MANTA]: WETH9_ADDRESS[EvmChainId.MANTA],
   [EvmChainId.MODE]: WETH9_ADDRESS[EvmChainId.MODE],
   [EvmChainId.TAIKO]: WETH9_ADDRESS[EvmChainId.TAIKO],
-  [EvmChainId.ZKLINK]: WETH9_ADDRESS[EvmChainId.ZKLINK],
   [EvmChainId.APE]: '0x48b62137edfa95a428d35c09e44256a739f6b557',
   [EvmChainId.ARC]: USDC_ADDRESS[EvmChainId.ARC],
   [EvmChainId.SONIC]: '0x039e2fb66102314ce7b64ce5ce3e5183bc94ad38',
@@ -102,13 +99,6 @@ export const WNATIVE = {
     decimals: 18,
     symbol: 'WAVAX',
     name: 'Wrapped AVAX',
-  }),
-  [EvmChainId.HARMONY]: new EvmToken({
-    chainId: EvmChainId.HARMONY,
-    address: WNATIVE_ADDRESS[EvmChainId.HARMONY],
-    decimals: 18,
-    symbol: 'WONE',
-    name: 'Wrapped ONE',
   }),
   [EvmChainId.CELO]: new EvmToken({
     chainId: EvmChainId.CELO,
@@ -192,7 +182,6 @@ export const WNATIVE = {
     symbol: 'WCRO',
     name: 'Wrapped CRO',
   }),
-  [EvmChainId.BLAST]: WETH9[EvmChainId.BLAST],
   [EvmChainId.SKALE_EUROPA]: new EvmToken({
     // Skale Europa does not have a wrapped native token, using zero address
     chainId: EvmChainId.SKALE_EUROPA,
@@ -212,7 +201,6 @@ export const WNATIVE = {
   [EvmChainId.MANTA]: WETH9[EvmChainId.MANTA],
   [EvmChainId.MODE]: WETH9[EvmChainId.MODE],
   [EvmChainId.TAIKO]: WETH9[EvmChainId.TAIKO],
-  [EvmChainId.ZKLINK]: WETH9[EvmChainId.ZKLINK],
   [EvmChainId.APE]: new EvmToken({
     chainId: EvmChainId.APE,
     address: WNATIVE_ADDRESS[EvmChainId.APE],

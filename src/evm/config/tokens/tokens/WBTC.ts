@@ -21,7 +21,6 @@ export const WBTC_ADDRESS = {
   [EvmChainId.MANTA]: '0x305e88d809c9dc03179554bfbf85ac05ce8f18d6',
   [EvmChainId.MODE]: '0xcdd475325d6f564d27247d1dddbb0dac6fa0a5cf',
   [EvmChainId.TAIKO]: '0xc4c410459fbaf8f7f86b6cee52b4fa1282ff9704',
-  [EvmChainId.ZKLINK]: '0xda4aaed3a53962c83b35697cd138cc6df43af71f',
   [EvmChainId.LINEA]: '0x3aab2285ddcddad8edf438c1bab47e1a9d05a9b4',
   [EvmChainId.KATANA]: '0x0913da6da4b42f538b445599b46bb4622342cf52',
   [EvmChainId.HEMI]: '0x03c7054bcb39f7b2e5b2c7acb37583e32d70cfa3',

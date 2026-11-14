@@ -9,7 +9,6 @@ export const SUSHI_ADDRESS = {
   [EvmChainId.BSC]: '0x986cdf0fd180b40c4d6aeaa01ab740b996d8b782',
   [EvmChainId.ARBITRUM]: '0xd4d42f0b6def4ce0383636770ef773390d85c61a',
   [EvmChainId.AVALANCHE]: '0x37b608519f91f70f2eeb0e5ed9af4061722e4f76',
-  [EvmChainId.HARMONY]: '0xbec775cb42abfa4288de81f387a9b1a3c4bc552a',
   [EvmChainId.CELO]: '0x29dfce9c22003a4999930382fd00f9fd6133acd1',
   [EvmChainId.KAVA]: '0x7c598c96d02398d89fbcb9d41eab3df0c16f227d',
   [EvmChainId.METIS]: '0x17ee7e4da37b01fc1bcc908fa63df343f23b4b7c',

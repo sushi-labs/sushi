@@ -45,7 +45,6 @@ export const UNISWAP_V3_SUPPORTED_CHAIN_IDS = [
   EvmChainId.SCROLL,
   EvmChainId.FILECOIN,
   EvmChainId.LINEA,
-  EvmChainId.BLAST,
   EvmChainId.ZKSYNC_ERA,
   EvmChainId.POLYGON_ZKEVM,
   EvmChainId.MANTLE,
@@ -90,7 +89,6 @@ export const UNISWAP_V3_INIT_CODE_HASH: Record<
   [EvmChainId.FILECOIN]: POOL_INIT_CODE_HASH,
   [EvmChainId.BOBA]: POOL_INIT_CODE_HASH,
   [EvmChainId.LINEA]: POOL_INIT_CODE_HASH,
-  [EvmChainId.BLAST]: POOL_INIT_CODE_HASH,
   [EvmChainId.ZKSYNC_ERA]:
     '0x010013f177ea1fcbc4520f9a3ca7cd2d1d77959e05aa66484027cb38e712aeed',
   [EvmChainId.POLYGON_ZKEVM]: POOL_INIT_CODE_HASH,
@@ -127,7 +125,6 @@ export const UNISWAP_V3_FACTORY_ADDRESS: Record<
   [EvmChainId.FILECOIN]: '0xb4c47ed546fc31e26470a186ec2c5f19ef09ba41',
   [EvmChainId.BOBA]: '0xffcd7aed9c627e82a765c3247d562239507f6f1b',
   [EvmChainId.LINEA]: '0x31fafd4889fa1269f7a13a66ee0fb458f27d72a9',
-  [EvmChainId.BLAST]: '0x792edade80af5fc680d96a2ed80a44247d2cf6fd',
   [EvmChainId.ZKSYNC_ERA]: '0x8fda5a7a8dca67bbcdd10f02fa0649a937215422',
   [EvmChainId.POLYGON_ZKEVM]: '0xff83c3c800fec21de45c5ec30b69ddd5ee60dfc2',
   [EvmChainId.MANTLE]: '0x0d922fb1bc191f64970ac40376643808b4b74df9',

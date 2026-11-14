@@ -21,7 +21,6 @@ export const SUSHISWAP_V2_SUPPORTED_CHAIN_IDS = [
   EvmChainId.SONIC,
   EvmChainId.HEMI,
   EvmChainId.KATANA,
-  EvmChainId.BLAST,
   EvmChainId.ROBINHOOD,
   EvmChainId.ARC,
   // Eth testnets
@@ -42,7 +41,6 @@ export const isSushiSwapV2ChainId = (
 
 export const DEPRECATED_SUSHISWAP_V2_SUPPORTED_CHAIN_IDS = [
   EvmChainId.POLYGON_ZKEVM,
-  EvmChainId.HARMONY,
   EvmChainId.FUSE,
   EvmChainId.KAVA,
   EvmChainId.METIS,
@@ -84,8 +82,6 @@ export const SUSHISWAP_V2_INIT_CODE_HASH: Record<
     '0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303',
   [EvmChainId.AVALANCHE]:
     '0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303',
-  [EvmChainId.HARMONY]:
-    '0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303',
   [EvmChainId.CELO]:
     '0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303',
   [EvmChainId.BOBA]:
@@ -116,8 +112,6 @@ export const SUSHISWAP_V2_INIT_CODE_HASH: Record<
     '0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303',
   [EvmChainId.POLYGON_ZKEVM]:
     '0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303',
-  [EvmChainId.BLAST]:
-    '0x0871b2842bc5ad89183710ec5587b7e7e285f1212e8960a4941335bab95cf6af',
   [EvmChainId.SKALE_EUROPA]:
     '0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303',
   [EvmChainId.ROOTSTOCK]:
@@ -155,7 +149,6 @@ export const SUSHISWAP_V2_FACTORY_ADDRESS: Record<
   [EvmChainId.ARBITRUM]: '0xc35dadb65012ec5796536bd9864ed8773abc74c4',
   [EvmChainId.AVALANCHE]: '0xc35dadb65012ec5796536bd9864ed8773abc74c4',
   [EvmChainId.HAQQ]: '0xb45e53277a7e0f1d35f2a77160e91e25507f1763',
-  [EvmChainId.HARMONY]: '0xc35dadb65012ec5796536bd9864ed8773abc74c4',
   [EvmChainId.CELO]: '0xc35dadb65012ec5796536bd9864ed8773abc74c4',
   [EvmChainId.BOBA]: '0xc35dadb65012ec5796536bd9864ed8773abc74c4',
   [EvmChainId.BOBA_BNB]: '0xc35dadb65012ec5796536bd9864ed8773abc74c4',
@@ -170,7 +163,6 @@ export const SUSHISWAP_V2_FACTORY_ADDRESS: Record<
   [EvmChainId.OPTIMISM]: '0xfbc12984689e5f15626bad03ad60160fe98b303c',
   [EvmChainId.LINEA]: '0xfbc12984689e5f15626bad03ad60160fe98b303c',
   [EvmChainId.POLYGON_ZKEVM]: '0xb45e53277a7e0f1d35f2a77160e91e25507f1763',
-  [EvmChainId.BLAST]: '0x42fa929fc636e657ac568c0b5cf38e203b67ac2b',
   [EvmChainId.SKALE_EUROPA]: '0x1aaf6eb4f85f8775400c1b10e6bbbd98b2ff8483',
   [EvmChainId.ROOTSTOCK]: '0xb45e53277a7e0f1d35f2a77160e91e25507f1763',
   [EvmChainId.SONIC]: '0xb45e53277a7e0f1d35f2a77160e91e25507f1763',
@@ -196,7 +188,6 @@ export const SUSHISWAP_V2_ROUTER_ADDRESS: Record<
   [EvmChainId.BSC]: '0x1b02da8cb0d097eb8d57a175b88c7d8b47997506',
   [EvmChainId.ARBITRUM]: '0x1b02da8cb0d097eb8d57a175b88c7d8b47997506',
   [EvmChainId.AVALANCHE]: '0x1b02da8cb0d097eb8d57a175b88c7d8b47997506',
-  [EvmChainId.HARMONY]: '0x1b02da8cb0d097eb8d57a175b88c7d8b47997506',
   [EvmChainId.CELO]: '0xb45e53277a7e0f1d35f2a77160e91e25507f1763',
   [EvmChainId.BOBA]: '0x1b02da8cb0d097eb8d57a175b88c7d8b47997506',
   [EvmChainId.BOBA_BNB]: '0x1b02da8cb0d097eb8d57a175b88c7d8b47997506',
@@ -212,7 +203,6 @@ export const SUSHISWAP_V2_ROUTER_ADDRESS: Record<
   [EvmChainId.OPTIMISM]: '0x2abf469074dc0b54d793850807e6eb5faf2625b1',
   [EvmChainId.LINEA]: '0x2abf469074dc0b54d793850807e6eb5faf2625b1',
   [EvmChainId.POLYGON_ZKEVM]: '0x9b3336186a38e1b6c21955d112dbb0343ee061ee',
-  [EvmChainId.BLAST]: '0x54cf3d259a06601b5bc45f61a16443ed5404dd64',
   [EvmChainId.SKALE_EUROPA]: '0x4cddf8d1473df386b926ec14b23bfbd566ce827a',
   [EvmChainId.ROOTSTOCK]: '0x9b3336186a38e1b6c21955d112dbb0343ee061ee',
   [EvmChainId.SONIC]: '0x9b3336186a38e1b6c21955d112dbb0343ee061ee',

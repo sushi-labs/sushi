@@ -88,22 +88,6 @@ export const LSDS = {
   ],
   [EvmChainId.UNICHAIN]: [],
   [EvmChainId.WORLDCHAIN]: [],
-  [EvmChainId.BLAST]: [
-    new EvmToken({
-      chainId: EvmChainId.BLAST,
-      address: '0x2416092f143378750bb29b79ed961ab195cceea5',
-      decimals: 18,
-      symbol: 'ezETH',
-      name: 'Renzo Restaked ETH',
-    }),
-    new EvmToken({
-      chainId: EvmChainId.BLAST,
-      address: '0x04c0599ae5a44757c0af6f9ec3b93da8976c150a',
-      decimals: 18,
-      symbol: 'weETH',
-      name: 'Wrapped eETH',
-    }),
-  ],
   [EvmChainId.BOBA]: [],
   [EvmChainId.BOBA_BNB]: [],
   [EvmChainId.BSC]: [
@@ -230,7 +214,6 @@ export const LSDS = {
   ],
   [EvmChainId.FILECOIN]: [],
   [EvmChainId.GNOSIS]: [],
-  [EvmChainId.HARMONY]: [],
   [EvmChainId.HAQQ]: [],
   [EvmChainId.KAVA]: [],
   [EvmChainId.LINEA]: [
@@ -348,7 +331,6 @@ export const LSDS = {
     }),
   ],
   [EvmChainId.TAIKO]: [],
-  [EvmChainId.ZKLINK]: [],
   [EvmChainId.APE]: [],
   [EvmChainId.ARC]: [],
   [EvmChainId.SONIC]: [],

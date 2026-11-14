@@ -7,7 +7,6 @@ export const AGGREGATOR_ONLY_CHAIN_IDS = [
   EvmChainId.MANTA,
   EvmChainId.MODE,
   EvmChainId.TAIKO,
-  EvmChainId.ZKLINK,
   EvmChainId.APE,
   EvmChainId.HYPEREVM,
   EvmChainId.BERACHAIN,
