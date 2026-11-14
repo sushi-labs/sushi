@@ -1,5 +1,11 @@
 # sushi
 
+## 7.7.0
+
+### Minor Changes
+
+- [#565](https://github.com/sushi-labs/sushi/pull/565) [`32a1a6e`](https://github.com/sushi-labs/sushi/commit/32a1a6e97fd9f13181dbb8a7b931891231e217ac) Thanks [@LufyCZ](https://github.com/LufyCZ)! - Remove support for Harmony, zkLink Nova (chain ID 810180), and Blast, including chain definitions, feature configuration, token maps, contract addresses, and subgraph URLs. Remove the Blast-only USDB and USDPLUS token exports. Consumers must remove references to these chains and exports.
+
 ## 7.6.1
 
 ### Patch Changes
