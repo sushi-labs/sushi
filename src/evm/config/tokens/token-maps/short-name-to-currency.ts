@@ -10,7 +10,6 @@ import {
   SKL,
   SUSHI,
   UNI,
-  USDB,
   USDC,
   USDG,
   USDT,
@@ -171,11 +170,6 @@ const CHAIN_ID_SHORT_CURRENCY_NAME_TO_CURRENCY = {
     UNI: UNI[EvmChainId.POLYGON],
     AGEUR: AGEUR[EvmChainId.POLYGON],
   },
-  [EvmChainId.HARMONY]: {
-    ONE: EvmNative.fromChainId(EvmChainId.HARMONY),
-    WONE: WNATIVE[EvmChainId.HARMONY],
-    SUSHI: SUSHI[EvmChainId.HARMONY],
-  },
   // [EvmChainId.SCROLL_ALPHA_TESTNET]: {
   //   ETH: EvmNative.fromChainId(EvmChainId.SCROLL_ALPHA_TESTNET),
   //   WETH: WNATIVE[EvmChainId.SCROLL_ALPHA_TESTNET],
@@ -237,11 +231,6 @@ const CHAIN_ID_SHORT_CURRENCY_NAME_TO_CURRENCY = {
   [EvmChainId.ZETACHAIN]: {
     NATIVE: EvmNative.fromChainId(EvmChainId.ZETACHAIN),
     WNATIVE: WNATIVE[EvmChainId.ZETACHAIN],
-  },
-  [EvmChainId.BLAST]: {
-    NATIVE: EvmNative.fromChainId(EvmChainId.BLAST),
-    WNATIVE: WNATIVE[EvmChainId.BLAST],
-    USDB: USDB[EvmChainId.BLAST],
   },
   [EvmChainId.SKALE_EUROPA]: {
     SKL: SKL,

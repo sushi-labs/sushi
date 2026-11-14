@@ -5,7 +5,6 @@ export const MAI_ADDRESS = {
   [EvmChainId.POLYGON]: '0xa3fa99a148fa48d14ed51d610c367c61876997f1',
   [EvmChainId.FANTOM]: '0xfb98b335551a418cd0737375a2ea0ded62ea213b',
   [EvmChainId.AVALANCHE]: '0x5c49b268c9841aff1cc3b0a418ff5c3442ee3f3b',
-  [EvmChainId.HARMONY]: '0x3f56e0c36d275367b8c502090edf38289b3dea0d',
   [EvmChainId.ARBITRUM]: '0x3f56e0c36d275367b8c502090edf38289b3dea0d',
   [EvmChainId.BOBA]: '0x3f56e0c36d275367b8c502090edf38289b3dea0d',
   [EvmChainId.GNOSIS]: '0x3f56e0c36d275367b8c502090edf38289b3dea0d',

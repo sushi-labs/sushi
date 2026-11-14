@@ -16,7 +16,6 @@ export const axlUSDC_ADDRESS = {
   [EvmChainId.POLYGON]: '0x750e4c4984a9e0f12978ea6742bc1c5d248f40ed',
   [EvmChainId.SCROLL]: '0xeb466342c4d449bc9f53a865d5cb90586f405215',
   [EvmChainId.HAQQ]: '0x80b5a32e4f032b2a058b4f29ec95eefeeb87adcd',
-  [EvmChainId.BLAST]: '0xeb466342c4d449bc9f53a865d5cb90586f405215',
 } as const
 
 export const axlUSDC = addressMapToTokenMap(

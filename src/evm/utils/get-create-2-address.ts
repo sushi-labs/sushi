@@ -24,11 +24,7 @@ export function getCreate2Address({
   chainId,
   ...params
 }: GetCreate2AddressOptions) {
-  if (
-    ([EvmChainId.ZKSYNC_ERA, EvmChainId.ZKLINK] as EvmChainId[]).includes(
-      chainId,
-    )
-  ) {
+  if (chainId === EvmChainId.ZKSYNC_ERA) {
     const { from, salt, bytecodeHash } = params
 
     return getAddress(

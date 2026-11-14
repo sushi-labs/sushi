@@ -7,7 +7,6 @@ import {
   avalanche as avalancheViem,
   base as baseViem,
   berachain as berachainViem,
-  blast as blastViem,
   boba as bobaViem,
   bsc as bscViem,
   bitTorrent as bttcViem,
@@ -20,7 +19,6 @@ import {
   fuse as fuseViem,
   gnosis as gnosisViem,
   haqqMainnet as haqqViem,
-  harmonyOne as harmonyViem,
   hemi as hemiViem,
   kava as kavaViem,
   linea as lineaViem,
@@ -42,7 +40,6 @@ import {
   worldchain as worldchainViem,
   xLayer as xLayerViem,
   zetachain as zetachainViem,
-  zkLinkNova as zklinkViem,
   zksync as zksyncViem,
 } from 'viem/chains'
 import type { Replace, UnionToIntersection } from '../../generic/types/index.js'
@@ -116,11 +113,6 @@ const arbitrum = /* @__PURE__ */ defineEvmChain(arbitrumViem, {
 const avalanche = /* @__PURE__ */ defineEvmChain(avalancheViem, {
   key: 'avalanche',
   shortName: 'avax',
-})
-
-const harmony = /* @__PURE__ */ defineEvmChain(harmonyViem, {
-  key: 'harmony',
-  shortName: 'hmy-s0',
 })
 
 const celo = /* @__PURE__ */ defineEvmChain(celoViem, {
@@ -234,12 +226,6 @@ const cronos = /* @__PURE__ */ defineEvmChain(cronosViem, {
   shortName: 'cro',
 })
 
-const blast = /* @__PURE__ */ defineEvmChain(blastViem, {
-  key: 'blast',
-  shortName: 'blast',
-  parentChainId: ethereum.chainId,
-})
-
 const skaleEuropa = /* @__PURE__ */ defineEvmChain(skaleEuropaViem, {
   key: 'skale-europa',
   shortName: 'europa',
@@ -272,17 +258,6 @@ const taiko = /* @__PURE__ */ defineEvmChain(taikoViem, {
   key: 'taiko',
   shortName: 'tko',
   parentChainId: ethereum.chainId,
-})
-
-const zklink = /* @__PURE__ */ defineEvmChain(zklinkViem, {
-  key: 'zklink',
-  contracts: {
-    multicall3: {
-      address: '0x825267e0fa5cae92f98540828a54198dcb3eaeb5',
-      blockCreated: 146055,
-    },
-  },
-  shortName: 'zklink',
 })
 
 const ape = /* @__PURE__ */ defineEvmChain(apeViem, {
@@ -612,7 +587,6 @@ export const evmChains = [
   bsc,
   arbitrum,
   avalanche,
-  harmony,
   celo,
   optimism,
   kava,
@@ -632,14 +606,12 @@ export const evmChains = [
   scroll,
   zetachain,
   cronos,
-  blast,
   skaleEuropa,
   rootstock,
   mantle,
   manta,
   mode,
   taiko,
-  zklink,
   ape,
   arc,
   sonic,

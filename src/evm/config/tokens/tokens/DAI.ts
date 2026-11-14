@@ -6,7 +6,6 @@ export const DAI_ADDRESS = {
   [EvmChainId.ETHEREUM]: '0x6b175474e89094c44da98b954eedeac495271d0f',
   [EvmChainId.POLYGON]: '0x8f3cf7ad23cd3cadbd9735aff958023239c6a063',
   [EvmChainId.BSC]: '0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3',
-  [EvmChainId.HARMONY]: '0xef977d2f931c1978db5f6747666fa1eacb0d0339',
   [EvmChainId.GNOSIS]: '0xe91d153e0b41518a2ce8dd3d7944fa863463a97d',
   [EvmChainId.ARBITRUM]: '0xda10009cbd5d07dd0cecc66161fc93d7c9000da1',
   [EvmChainId.AVALANCHE]: '0xd586e7f844cea2f87f50152665bcbc2c279d8d70',
@@ -23,7 +22,6 @@ export const DAI_ADDRESS = {
   [EvmChainId.SKALE_EUROPA]: '0xd05c4be5f3be302d376518c9492ec0147fa5a718',
   [EvmChainId.ROOTSTOCK]: '0x6b1a73d547f4009a26b8485b63d7015d248ad406',
   [EvmChainId.TAIKO]: '0x7d02a3e0180451b17e5d7f29ef78d06f8117106c',
-  [EvmChainId.ZKLINK]: '0xf573fa04a73d5ac442f3dea8741317feaa3cdeab',
   [EvmChainId.FUSE]: '0x94ba7a27c7a95863d1bdc7645ac2951e0cca06ba',
 } as const
 

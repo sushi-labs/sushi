@@ -19,7 +19,6 @@ import {
   SKL,
   SolvBTC,
   SUSHI,
-  USDB,
   USDC,
   USDG,
   USDT,
@@ -150,14 +149,6 @@ export const EVM_DEFAULT_BASES = {
     MIM[EvmChainId.ARBITRUM],
   ],
   [EvmChainId.ARBITRUM_SEPOLIA]: [],
-  [EvmChainId.HARMONY]: [
-    EvmNative.fromChainId(EvmChainId.HARMONY),
-    WNATIVE[EvmChainId.HARMONY],
-    WETH9[EvmChainId.HARMONY],
-    USDC[EvmChainId.HARMONY],
-    USDT[EvmChainId.HARMONY],
-    DAI[EvmChainId.HARMONY],
-  ],
   [EvmChainId.CELO]: [
     EvmNative.fromChainId(EvmChainId.CELO),
     // WNATIVE[EvmChainId.CELO],
@@ -310,10 +301,6 @@ export const EVM_DEFAULT_BASES = {
     WBTC[EvmChainId.CRONOS],
     USDC[EvmChainId.CRONOS],
   ],
-  [EvmChainId.BLAST]: [
-    EvmNative.fromChainId(EvmChainId.BLAST),
-    USDB[EvmChainId.BLAST],
-  ],
   [EvmChainId.SKALE_EUROPA]: [
     SKL[EvmChainId.SKALE_EUROPA],
     USDC[EvmChainId.SKALE_EUROPA],
@@ -361,14 +348,6 @@ export const EVM_DEFAULT_BASES = {
     USDT[EvmChainId.TAIKO],
     DAI[EvmChainId.TAIKO],
     WBTC[EvmChainId.TAIKO],
-  ],
-  [EvmChainId.ZKLINK]: [
-    EvmNative.fromChainId(EvmChainId.ZKLINK),
-    WNATIVE[EvmChainId.ZKLINK],
-    USDC[EvmChainId.ZKLINK],
-    USDT[EvmChainId.ZKLINK],
-    DAI[EvmChainId.ZKLINK],
-    WBTC[EvmChainId.ZKLINK],
   ],
   [EvmChainId.APE]: [
     EvmNative.fromChainId(EvmChainId.APE),
